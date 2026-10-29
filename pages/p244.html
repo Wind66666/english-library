@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法务英语</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">⚖️</span>法务英语</h1>
+  <div class="meta">
+    <span class="badge pdf">PDF</span>
+    <span class="charspill">26,246 字符</span>
+    <span>来源：法务英语.pdf</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E6%B3%95%E5%8A%A1%E8%8B%B1%E8%AF%AD.pdf" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p244.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">第 1 页 共 22 
+页 
+法务英语 
+掌握这核心276句,稳了 
+LEGAL ENGLISH 
+Bodies of law 
+• common law：In the UK, many legal precedents are based on common law.（在
+英国，许多法律先例是基于习惯法（普通法、判例法）的。 ） 
+• civil law：France has a well - developed civil law system.（法国有一套完善的成文
+法（大陆法、民法）体系。 ） 
+• criminal law：Criminal law is designed to punish those who commit crimes.（刑
+法旨在惩罚犯罪的人。 ） 
+• codify：They are trying to codify the existing laws. （他们正在努力编纂现行法律。 ） 
+• code：The civil code is an important part of the legal system. （法典是法律体系的
+重要组成部分。 ） 
+• disputes：There are often disputes over property rights.（经常会有关于产权的争执
+（纠纷） 。 ） 
+Types of law 
+• bill：The new bill will be discussed in the next session of parliament.（新议案（法
+案）将在议会下一届会议上进行讨论。 ） 
+• regulation：The company must comply with environmental regulations.（公司必
+须遵守规章以执行法律意图。 ）
+第 2 页 共 22 
+页 
+• ordinance：The local ordinance restricts noise levels at night.（地方（条例）限制
+了夜间的噪音水平。 ） 
+• directive：The EU directive aims to standardize trade policies.（指令（如：欧盟指
+令）旨在规范贸易政策。 ） 
+• statutes：Statutes are formal written laws passed by the legislature.（成文法是立
+法机构通过的正式书面法律。 ） 
+• provision：The contract includes a provision about payment terms.（合同包含一
+项关于付款条款的规章（条例） 。 ） 
+• article：This article in the magazine analyzes a legal case.（杂志上的这篇文章分析
+了一个法律案例。 ） 
+• chapter：The first chapter of the law book explains the basic principles.（法律书
+籍的第一章解释了基本原则。 ） 
+• clause：The insurance policy has a clause about compensation.（保险单有一个关
+于赔偿的条款。 ） 
+Speaking1 : Explaining what a law says 
+• stipulate：The contract stipulates that the payment should be made within 30 
+days.（合同规定付款应在 30 天内完成。 ） 
+• provide：The law provides some protection for consumers.（法律为消费者提供了
+一些保护。 ） 
+• specify：The regulations specify the safety standards for construction projects.
+（条例明确规定了建筑项目的安全标准。 ） 
+Types of courts 
+• appellate court：The case was appealed to the appellate court.（这个案件被上诉
+到受理上诉法院进行下级法院案件的复审。 ） 
+• crown court：Serious criminal cases are usually heard in the crown court.（严重
+刑事案件通常在刑事法庭审理。 ） 
+• high court：The high court has the power to make important legal decisions.（高
+等法院是辖区内的最高法院，有权做出重要的法律裁决。 ）
+第 3 页 共 22 
+页 
+• supreme court：The supreme court is the highest judicial body in the country.
+（最高法院是国家的最高司法机构。 ） 
+• juvenile court：A juvenile court tries a person under the age of 18.（青少年法庭审
+判 18 岁以下的人。 ） 
+• lower court：The lower court heard the case for the first time.（下级法庭首次审理
+这个案件。 ） 
+• magistrates’ court：Small crimes are tried in the magistrates’ court in the UK.
+（在英国，小罪行在地方法院（地方治安法庭）审理。 ） 
+• moot court：Students participate in moot court to argue hypothetical cases.（学
+生们参加模拟法庭辩论假设的案件。 ） 
+• small—claims court ：The small —claims court deals with cases with a limited 
+amount of money.（小额补偿诉讼法院处理金额有限的案件。 ） 
+• tribunal：There is a special tribunal for handling employment —related legal 
+problems.（有一个特别法庭（专门法庭）处理与就业相关的法律问题。 ） 
+Speaking2: Civil court systems 
+• expert witness：The expert witness provided valuable testimony in the trial.（专
+家证人在审判中提供了有价值的证词。 ） 
+• appellant：The appellant is not satisfied with the lower court&#x27;s decision and 
+appeals to a higher court.（上诉人对下级法院的判决不满意，向更高一级法院上诉。 ） 
+• advocate：The advocate pleaded the case in court with great skill.（诉讼律师在法
+庭上非常娴熟地为案件辩护。 ） 
+• affidavit：The witness signed an affidavit to swear officially to tell the truth.（证
+人签署了法庭宣誓（口供） ，正式宣誓说实话。 ） 
+• injunction：The court issued an injunction to stop the company from polluting the 
+river.（法院发布禁令，阻止该公司污染河流。 ） 
+• writ：The defendant received a writ to be involved in a legal process.（被告收到
+传票，被卷入一个法律程序。 ） 
+• pleading：The lawyer&#x27;s pleading set forth the cause of action clearly.（律师的诉
+讼（诉讼文件）清晰地阐述了诉讼理由。 ）
+第 4 页 共 22 
+页 
+• client：The lawyer is representing the client in the lawsuit.（律师在诉讼中代表诉讼
+当事人（委托人） 。 ） 
+Legaleducation - a call to the Bar 
+• the Bar：He dreams of joining the Bar one day.（他梦想有一天能加入大律师职业（可
+出席高等法庭） （也可指律师职业 ）。） 
+• disbar：The lawyer was disbarred for unethical behavior.（该律师因不道德行为被
+取消律师资格。 ） 
+• LLB：After graduating with an LLB, he decided to pursue further studies.（获得法
+学学士学位后，他决定继续深造。 ） 
+• vocational：The vocational training helped him gain practical legal skills.（职业
+（职业技术的）培训帮助他获得了实用的法律技能。 ） 
+• barrister：The barrister presented a strong argument in court. （大律师 （出庭律师、
+辩护律师）在法庭上提出了有力的论点。 ） 
+• Inns of Court ：The Inns of Court in London play an important role in legal 
+education.（伦敦的律师学院在法律教育中发挥着重要作用。 ） 
+• Bar Vocational Course ：H e  i s  t a k i n g  t h e  B a r  V o c a t i o n a l  C o u r s e  t o  b e c o m e  a  
+qualified barrister.（他正在学习法律职业课程，以成为一名合格的大律师。 ） 
+• call to the bar：Finally, he achieved the call to the bar and started his legal career.
+（最后，他获得律师资格，开始了他的法律职业生涯。 ） 
+• pupillage：During his pupillage, he learned a lot from experienced barristers.
+（在大律师见习期，他从经验丰富的大律师那里学到了很多。 ） 
+• apprenticeship：His apprenticeship as a lawyer was a challenging but rewarding 
+experience.（他作为律师的学徒期是一段具有挑战性但很有收获的经历。 ） 
+• barristers&#x27; chambers：The barristers&#x27; chambers are located in the city center. （ 大
+律师事务所位于市中心。 ） 
+• solicitor：The solicitor prepared all the legal documents for the client.（事务律师
+（诉状律师）为客户准备了所有的法律文件。 ） 
+• Legal Practice Course（LPC）：The Legal Practice Course is an important part of
+第 5 页 共 22 
+页 
+becoming a solicitor.（法律实践课程是成为事务律师的重要组成部分。 ） 
+• trainee solicitor：The trainee solicitor is assisting the senior solicitor in a case.
+（实习律师正在协助高级律师处理一个案件。 ） 
+• law school：He studied at a well—known law school. （他在一所著名的法学院学习。 ） 
+• juris doctor（J.D）：Many students choose to study for a juris doctor to enhance 
+their legal knowledge.（许多学生选择攻读法律博士（美）以增强他们的法律知识。 ） 
+• bar examination：Passing the bar examination is a crucial step to practice law.
+（通过律师资格考试是从事法律工作的关键一步。 ） 
+• liaison：The liaison between the two law firms helped them share resources.（两
+家律师事务所之间的联络（联系）帮助他们共享资源。 ） 
+• counsel：The counsel provided sound legal advice to the client. （法律顾问 （律师）
+为客户提供了合理的法律建议。 ） 
+• Associate：He became an associat e in the la w firm aft er se v er al y ear s of har d 
+work. （经过几年的努力工作， 他成为了律师事务所的合伙人 （同事、 朋友 也可指准会员 ）。） 
+• Full Partner：The full partner has unlimited liability in the law firm.（ （法律）无限
+责任合伙人在律师事务所有无限责任。 ） 
+• Paralegal：The paralegal assisted the lawyer in gathering evidence.（法律事务助
+理辅助律师收集证据。 ） 
+• Real Property：The real property market is closely watched by lawyers.（不动产
+（房地产）市场受到律师的密切关注。 ） 
+• Salaried Partner：The salaried partner receives a fixed salary in the law firm. （（ 法
+律）受薪合伙人在律师事务所领取固定工资。 ） 
+• litigation：The company is involved in a complex litigation.（该公司卷入了一场复
+杂的诉讼（打官司） 。 ） 
+• practitioner：He is an experienced practitioner in the legal field. （他是法律领域
+的一位经验丰富的从业人员。 ） 
+• transaction：The lawyer handled the business transaction smoothly.（律师顺利处
+理了这笔交易（业务、买卖） 。 ）
+第 6 页 共 22 
+页 
+• trade—mark：The company&#x27;s trade—mark is well—known in the market.（公司
+的商标在市场上很有名。 ） 
+• infringement：The company was sued for trademark infringement.（该公司因侵
+犯商标权被起诉。 ） 
+• landlord：The landlord is responsible for maintaining the property.（房东负责维
+护房产。 ） 
+• tenant：The tenant pays rent on time every month.（房客每月按时支付租金。 ） 
+• barrister：The barrister is specialized in handling complex criminal cases.（出庭
+律师专门处理复杂的刑事案件。 ） 
+• attorney：He hired an attorney to represent him in the lawsuit.（他聘请了一名代理
+人（法律事务代理人 也可指律师 ）在诉讼中代表他。 ） 
+• in-house counsel ： The in -house counsel provides legal advice for the 
+corporation.（法律顾问为公司提供法律建议。 ） 
+• solicitor：The solicitor in the UK consults with clients and prepares documents.
+（在英国，事务律师与客户协商并准备文件。 ） 
+• corporate lawyer ： The corporate lawyer helps the company set up a new 
+business venture.（法务为公司设立新的商业项目提供帮助。 ） 
+• defence laywer：The defence laywer tried his best to defend the defendant.（辩
+护律师尽力为被告辩护。 ） 
+• government lawyer ：The government lawyer works on legal issues related to 
+government policies.（政府律师处理与政府政策相关的法律问题。 ） 
+• patent lawyer：The patent lawyer drafts and prosecutes patent applications.（专
+利律师起草并办理专利申请。 ） 
+• tax lawyer：The tax lawyer helps clients deal with tax issues. （税务律师帮助客户
+处理税务问题。 ） 
+• trial lawyer：The trial lawyer is skilled at defending the defendant in court. （出
+庭辩护律师擅长在法庭上为被告辩护。 ） 
+Introduction to constitutional law
+第 7 页 共 22 
+页 
+• US Constitution：The US Constitution is the fundamental law of the United States.
+（美国宪法是美国的根本大法。 ） 
+• article：This article in the contract is very important.（合同中的这个条款（条文、项
+目）非常重要。 ） 
+• amendment：The amendment to the law was passed by Congress. （法律的修正
+条款（修正案）由国会通过。 ） 
+• bill of rights ：The bill of rights protects citizens&#x27; basic rights. （权利法案保护公民
+的基本权利。 ） 
+• judicial review：The court conducts judicial review of the government&#x27;s actions.
+（法院对政府行为进行司法审查（复审） 。 ） 
+• due process：Everyone is entitled to due process of law.（每个人都有权享受正当程
+序（正当法律程序、法定诉讼程序） 。 ） 
+• separation of powers ：T h e  s e p a r a t i o n  o f  p o w e r s  i s  a  k e y  p r i n c i p l e  i n  t h e  U S  
+political system.（政权分离是美国政治制度的一项关键原则。 ） 
+• division of powers ： The division of powers between the central and local 
+governments is clearly defined.（中央及地方的分权被明确界定。 ） 
+• checks and balances ：The system of checks and balances ensures no single 
+branch of government has too much power.（政府机关彼此之间的相互制衡制度确保
+没有一个政府部门拥有过多权力。 ） 
+• limited government：The concept of limited government restricts the power of 
+the government.（有限政府的概念限制了政府的权力。 ） 
+• source：The source of this legal principle can be traced back to ancient times.
+（这个法律原则的来源可以追溯到古代。 ） 
+• precedent：This case set a precedent for future similar cases.（这个案件为未来类
+似案件树立了前例（先例） 。 ） 
+• issue：The issue of environmental protection is widely discussed.（环境保护问题
+是一个被广泛讨论的重要问题（议题、争论的问题） 。 ） 
+• state constitution：Each state in the US has its own state constitution. （美国每个
+州都有自己的州宪法。 ）
+第 8 页 共 22 
+页 
+• mundane subjects：The book also covers some mundane subjects in addition to 
+legal theories.（这本书除了法律理论还涵盖了一些平凡的主题。 ） 
+Principles of the constitutional law 
+• separation of powers ：The separation of powers divides the government into 
+three branches: legislative, executive, and judicial. （分权。 即将政府机构一分为三：
+立法、行政和司法。 ） 
+• division of powers ： The division of powers between the federal and state 
+governments is clearly stated in the US Constitution.（ 〈美〉 （联邦宪法规定的联邦和
+州之间的政府权力划分） ；分权。 ） 
+• checks and balances：The system of checks and balances is designed to prevent 
+any one branch of government from becoming too powerful.（制衡原则；制约与平
+衡原则。 每一政府部门皆具有对抗其他任何部门行为的能力， 从而不致出现任何单一部门操
+纵整个政府的权力和职能的理论。 ） 
+• limited government ： Limited government means that the power of the 
+government is restricted by law.（有限政府意味着政府的权力受到法律限制。 ） 
+Company Law 
+• legal entity：A corporation is a legal entity separate from its owners.（公司是一个
+与所有者分离的法律实体。 ） 
+• legal person：Legal persons include natural persons and juridical persons.（法
+人包括自然人和法人团体。 ） 
+• personal liability：He has personal liability for the debts of the business.（他对企
+业的债务负有法律责任。 ） 
+• corporate veil：In some cases, the court may pierce the corporate veil.（在某些情
+况下， 法院可能会揭开公司屏障 （保护持股人免受独家业主造成的企业破产所带来的损失） 。 ） 
+• certificate of incorporation ： The company received its certificate of 
+incorporation last week.（公司上周收到了公司注册证书（登记执照） 。 ） 
+• board of directors ：The board of directors makes important decisions for the 
+company.（董事会为公司做出重要决策。 ） 
+• memorandum of association ：The memorandum of association outlines the
+第 9 页 共 22 
+页 
+company&#x27;s purpose and regulations.（公司章程规定了公司的宗旨和规章制度。 ） 
+• duty of care ：Directors have a duty of care to act in the best interests of the 
+company.（董事有谨慎责任，要为公司的最大利益行事。 ） 
+• company formation：The process of company formation involves several legal 
+steps.（成立公司的过程涉及几个法律步骤。 ） 
+• bonus：The employees received a generous bonus this year.（员工们今年获得了
+丰厚的奖金。 ） 
+• liquidation：The company is facing liquidation due to financial problems.（由于
+财务问题，公司正面临清偿（结算、清算） 。 ） 
+• authorized capital：The authorized capital of the company is set in its articles of 
+association.（公司的法定资本（额定资本、认可资本）在公司章程中设定。 ） 
+• nominal capital ：The nominal capital of the company is just for accounting 
+purposes.（公司的名义资本只是用于会计目的。 ） 
+• articles of association ： The articles of association define the rights and 
+responsibilities of the shareholders.（公司章程（执照）定义了股东的权利和责任。 ） 
+• bylaw：The bylaw of the company regulates internal management. （公司的内部
+规章制度（次要法规、社团制定的规章制度）规范内部管理。 ） 
+• extraordinary general meeting：An extraordinary general meeting was called to 
+discuss the merger.（召开了特别大会来讨论合并事宜。 ） 
+• annual general meeting (AGM）：The annual general meeting is held every year 
+to report the company&#x27;s performance.（年度（股东）大会每年举行一次，以报告公司
+的业绩。 ） 
+• duty of care ： The manager has a duty of care to ensure the safety of the 
+employees.（经理有注意义务确保员工的安全。 ） 
+• fiduciary duty ： D i r e c t o r s  o w e  a  fi d u c i a r y  d u t y  t o  t h e  c o m p a n y  a n d  i t s  
+shareholders.（董事对公司及其股东负有诚信义务。 ） 
+• conflict of interest：He had to resign due to a conflict of interest.（由于利益冲突，
+他不得不辞职。 ） 
+• balance sheet：The balance sheet shows the company&#x27;s financial position.（资产
+第 10 页 共 22 
+页 
+负债表显示了公司的财务状况。 ） 
+• profit—and—loss account ： The profit —and—loss account reflects the 
+company&#x27;s income and expenses.（损益类账户反映了公司的收入和支出。 ） 
+• bonus issue：The company announced a bonus issue to reward its shareholders.
+（公司宣布发放红股，以奖励股东。 ） 
+• capitalisation issue：The board decided on a capitalisation issue to raise more 
+funds.（董事会决定进行资本化发行，以筹集更多资金。 ） 
+• auditor：The auditor found some irregularities in the company&#x27;s accounts.（审计
+员在公司账目上发现了一些违规之处。 ） 
+• director：The director is responsible for leading the company&#x27;s operations.（董
+事（经理）负责领导公司的运营。 ） 
+• liquidator：The liquidator was appointed to handle the company&#x27;s assets during 
+liquidation.（清算人被指定在清算期间处理公司资产。 ） 
+• managing director ：The managing director made strategic decisions for the 
+company&#x27;s growth.（总经理（常务董事）为公司的发展做出战略决策。 ） 
+• promote：He is one of the promoters of this new company.（他是这家新公司的发起
+人（创办人）之一。 ） 
+• proxy：He gave his proxy to his lawyer to attend the shareholder meeting.（他授
+权代理人（代表） ，并出具授权委托书（代理委托书） ，让律师参加股东大会。 ） 
+• receiver：The receiver took control of the company&#x27;s assets after it went bankrupt.
+（公司破产后，破产财产管理人接管了公司资产。 ） 
+• shareholder：Shareholders have the right to vote on company matters.（股东有权
+对公司事务进行投票表决。 ） 
+CONTRACT LAW：Contract Formation 
+• acceleration：The acceleration clause was triggered when the borrower failed to 
+make payments on time. （当借款人未能按时还款时，提前到期（加速到期）条款被触
+发 。） 
+• assignment：The assignment of the property was completed smoothly. （财产的转
+让顺利完成。 ）
+第 11 页 共 22 
+页 
+• confidentiality：Both parties signed a confidentiality agreement. （双方签署了保密
+条款（机密性）协议。 ） 
+• consideration：In a contract, consideration is an important element. （在合同中，
+对价（约因）是一个重要因素。 ） 
+• Force Majeure ： The earthquake was considered a Force Majeure event, 
+exempting the company from liability. （地震被视为不可抗力事件， 使公司免除责任。 ） 
+• Liquidated Damages：The contract specified the amount of Liquidated Damages 
+in case of a breach.（合同规定了违约时约定违约金（约定违约赔偿金）的数额。 ） 
+• Entire Agreement：The Entire Agreement clause stated that the written contract 
+superseded all prior oral agreements. （完整条款规定，书面协议取代所有先前的口头
+协议。 ） 
+• severability ： The severability clause ensured that the rest of the contract 
+remained valid even if some provisions were unenforceable.（可分性条款确保即使
+某些条款不可执行，合同的其余部分仍然有效。 ） 
+• Termination：The Termination clause detailed the conditions under which the 
+contract could be ended.（结束（结局、终点）条款详细说明了合同可以终止的情况。 ） 
+• Payment of Costs：The Payment of Costs clause determined which party would 
+bear the legal fees.（诉讼费的缴纳条款确定了哪一方将承担法律费用。 ） 
+• Express contract ：They reached an Express contract through face -  to - face 
+negotiation.（他们通过面对面谈判达成了明示合同（明约） 。 ） 
+• Implied contract：An Implied contract can be inferred from the parties&#x27; behavior.
+（默认契约可以从双方的行为中推断出来。 ） 
+• Statute of fraud：The Statute of fraud aims to prevent contract fraud.（防止欺诈法
+旨在防止合同欺诈。 ） 
+• Real property：The purchase of real property requires a detailed contract.（购买
+不动产需要一份详细的合同。 ） 
+• formation：The formation of the contract was based on mutual consent.（合同的
+订立（形成）基于双方的同意。 ） 
+• Third - party beneficiary contracts：This is a Third - party beneficiary contract,
+第 12 页 共 22 
+页 
+where a third party can benefit from the agreement.（这是一份第三人受益合同，第
+三方可以从协议中受益。 ） 
+• Assignment of rights ：The Assignment of rights clause allowed the transfer of 
+certain rights to another party.（权力的转让条款允许将某些权利转让给另一方。 ） 
+• Delegation of duties：The Delegation of duties was clearly defined in the contract.
+（责任的委托在合同中被明确界定。 ） 
+• delegate：He was delegated to handle the contract -  related matters.（他被委任
+（托付）处理与合同相关的事务。 ） 
+• assignee：The assignee took over the rights and obligations transferred from the 
+assignor.（代理人（受托人）接管了转让人转让的权利和义务。 ） 
+• Illegality of the subject matter ：The contract was declared invalid due to the 
+Illegality of the subject matter.（由于标的物的违法性，合同被宣布无效。 ） 
+• Fraud in the inducement：He sued the other party for Fraud in the inducement.
+（他以引诱性的欺诈为由起诉另一方。 ） 
+• duress：The contract was signed under duress, so it may not be legally binding.
+（这份合同是在威胁（逼迫）下签订的，因此可能不具有法律约束力。 ） 
+• Lack of legal capacity：A contract with a person with Lack of legal capacity may 
+be void.（与法定能力缺乏的人签订的合同可能无效。 ） 
+• enforceable：This contract is enforceable by law.（这份合同是可依法实施的。 ） 
+• party：Both parties should abide by the terms of the contract.（双方当事人都应遵
+守合同条款。 ） 
+• offeror：The offeror made a very attractive offer.（要约人提出了一个非常有吸引力
+的要约。 ） 
+• accept：The offeree accepted the offer promptly.（受约人迅速接受了要约。 ） 
+• offeree：The offeree has the right to reject the offer.（受约人有权拒绝要约。 ） 
+• consideration：The consideration for this contract is fair. （这份合同的考量（支持）
+是公平的。 ） 
+• gift：He received a valuable gift from his friend.（他从朋友那里收到了一份珍贵的赠
+第 13 页 共 22 
+页 
+与物。 ） 
+• donation：The donation to the charity will help those in need.（对慈善机构的捐赠
+（捐赠物）将帮助那些有需要的人。 ） 
+• counter offer：The seller made a counter offer to the buyer&#x27;s proposal.（卖方对
+买方的提议提出了反要约。 ） 
+• rejection：The rejection of the contract offer was a big disappointment. （ （合同中）
+拒绝签约让人非常失望。 ） 
+• essential term：The price is an essential term in a sales contract. （价格是销售合
+同中的合同必备条款。 ） 
+• price：They negotiated the price for a long time. （他们就价格进行了长时间的谈判。 ） 
+• subject matter：The subject matter of this contract is a piece of land.（这份合同的
+标的物是一块土地。 ） 
+• indefinite：The terms of the agreement were too indefinite, causing disputes. （ 协
+议的条款太模糊（不明确） ，引发了争议。 ） 
+• negotiate：They are trying to negotiate a better deal. （他们试图谈判（洽谈、协商、
+议定）达成一个更好的交易。 ） 
+• bid：The company submitted a competitive bid for the project.（公司对该项目提出
+了有竞争力的要约（出价） （投标 ）。） 
+• bidding phase：During the bidding phase, many companies showed interest. （ 在
+招标阶段，许多公司表现出了兴趣。 ） 
+• client：The client is very satisfied with the lawyer&#x27;s service.（委托人对律师的服务
+非常满意。 ） 
+• agreement：They reached an agreement on the terms of the cooperation.（他们
+就合作条款达成了协议（协定） 。 ） 
+• franchise：He bought a franchise to open a fast - food restaurant.（他购买了特许经
+营权，开了一家快餐店。 ） 
+• covenant：The two parties signed a covenant to ensure cooperation.（双方签署了
+一份盖印合同（盖印契约 也可指合同、协议 ）以确保合作。 ）
+第 14 页 共 22 
+页 
+• contract：The contract clearly defines the rights and obligations of both sides.
+（合同明确规定了双方的权利和义务。 ） 
+• consent：Without his consent, the project couldn&#x27;t proceed. （没有他的同意 （赞同、
+答应、允许、合意） ，项目无法进行。 ） 
+• injunction：The court granted an injunction to stop the construction.（法院批准了
+一项禁制令，停止施工。 ） 
+• permission：You need to get permission before using the equipment.（在使用设
+备之前，你需要获得授权（许可、批准） 。 ） 
+• withdraw：He decided to withdraw from the project due to personal reasons.（他
+因个人原因决定从项目中退出。 ） 
+• breach：If you breach the contract, you will face legal consequences.（如果你破
+坏（违犯、违反、不履行、侵害）合同，你将面临法律后果。 ） 
+• breach of contract：The company sued the supplier for breach of contract. （公
+司因供应商合同违约而起诉对方。 ） 
+• unwarranted：His claim was unwarranted and lacked evidence.（他的主张是未担
+保的（无担保的） ，缺乏证据。 ） 
+• amend：They plan to amend the contract to clarify some terms. （他们计划修改（修
+订、修正、改正）合同，以澄清一些条款。 ） 
+• enter into：They entered into a new agreement to expand their business.（他们
+达成（协议） ，结成（新的合作关系）以拓展业务。 ） 
+• rescind：The company decided to rescind the contract due to the other party&#x27;s 
+default.（由于对方违约，公司决定撤销（解除、废除）合同。 ） 
+• terminate：The contract will terminate at the end of this year.（合同将在今年年底
+结束（终止） 。 ） 
+• renew：He wants to renew his contract with the company. （他想更新（续展、展期、
+延长（执照、合同的）有效期）与公司的合同。 ） 
+• encrypt：The company encrypts its important data to protect information security.
+（公司对重要数据进行加密，以保护信息安全。 ） 
+• state：The state regulations govern the operation of this industry.（法令（规章、
+第 15 页 共 22 
+页 
+成文法）规范了这个行业的运营。 ） 
+• mandatory：Wearing seat belts in cars is mandatory.（在汽车里系安全带是法定的
+（强制性的） 。 ） 
+• accountable：Officials should be accountable to the public.（官员应该对公众负有
+责任。 ） 
+• trustee：The trustee manages the trust property on behalf of the beneficiary.（受
+托人代表受益人管理信托财产。 ） 
+• veil：The company used a complex structur e as a veil to hide its true financial 
+situation.（公司用复杂的结构作为掩饰物，掩盖其真实的财务状况。 ） 
+• invoke：The lawyer invoked a relevant law to support his argument.（律师求助于
+（法律） ，援引相关法律来支持他的论点。 ） 
+• compulsory：Education is compulsory in most countries. （在大多数国家，教育是强
+制性的。 ） 
+• unlawful：Stealing is an unlawful act.（偷窃是不合法的行为。 ） 
+Model Penal Code（MPC） 
+• The Model Penal Code has had a significant influence on criminal law reform in the United States.（模
+范刑法典（美国法律协会制定的一部示范性法律文件）对美国的刑法改革产生了重大影响。 ） 
+• incarceration：He was sentenced to incarceration for five years.（他被判处监禁五
+年 。） 
+• felony：Murder is considered a felony.（谋杀被视为重罪。 ） 
+• misdemeanor：Speeding is often classified as a misdemeanor. （超速驾驶通常被归
+类为轻罪。 ） 
+• preponderance of the evidence ：The prosecution won the case based on the 
+preponderance of the evidence.（控方基于优势证据赢得了这场官司。 ） 
+• strict - liability crime：Selling alcohol to minors is a strict - liability crime.（向未
+成年人出售酒精饮料属于严格责任的犯罪。 ） 
+• actus reus ： The actus reus of the crime was clearly established in the 
+investigation.（犯罪行为在调查中被明确认定。 ）
+第 16 页 共 22 
+页 
+• mens rea：The prosecution had to prove the mens rea of the defendant.（控方必
+须证明被告的犯意。 ） 
+• omission：His omission to report the accident led to serious consequences.（他
+疏忽（遗漏）未报告事故，导致了严重后果。 ） 
+• jaywalking：Jaywalking is a common traffic violation.（走路不遵守交通规则是常见
+的交通违法行为。 ） （他因小偷小摸被逮捕。 ） 
+•  
+• petty theft：He was arrested for petty theft.entrapment：The suspect claimed that 
+he was a victim of entrapment.（嫌疑人声称自己是警察圈套（诱捕）的受害者。 ） 
+• adversarial system ：The adversarial system is used in many common -  law 
+countries.（对抗制在许多普通法国家使用。 ） 
+• inquisitorial system ： The inquisitorial system has its own characteristics in 
+handling cases.（纠问制在处理案件时有其自身特点。 ） 
+• rebuttal：The lawyer presented a strong rebuttal to the prosecution&#x27;s claims.（律
+师对控方的指控进行了有力的辩驳（反驳） 。 ） 
+• parole：He was released on parole after serving half of his sentence.（他在服了一
+半刑期后获得假释。 ） 
+• confrontation ：The confrontation between the two sides made the situation 
+worse.（双方的对质使情况变得更糟。 ） 
+• premeditated：The police believed it was a premeditated murder.（警方认为这是
+一起预谋杀人案。 ） 
+• discharge：The soldier accidentally discharged his weapon during the training.
+（士兵在训练中意外开枪。 ） 
+Reading2：parties to a crime 
+• Culpability：The court determined his culpability based on the evidence.（法院
+根据证据判定他有罪（应受惩处（性） 、应受谴责（性） 、有责（性） ） 。 ） 
+• Principal：The principal of the crime was finally caught.（主犯最终被抓获。 ） 
+• Accessory：He was charged as an accessory to the crime.（他被指控为从犯。 ）
+第 17 页 共 22 
+页 
+• Accessory after the fact：The accessory after the fact helped the criminal escape.
+（事后从犯帮助罪犯逃脱了。 ） 
+• Execution：The execution of the death penalty is a controversial issue. （处死刑
+（处决、死刑、执行、行刑）是一个有争议的问题。 ） 
+• Conspiracy：They were accused of conspiracy to commit a crime.（他们被指控共
+谋犯罪。 ） 
+• Acquit：The jury acquitted him due to lack of evidence.（由于缺乏证据，陪审团宣
+告他无罪释放。 ） 
+• Convict：The convict was sent to prison for ten years.（罪犯被判处十年监禁。 ） 
+• seizure：The police made a seizure of illegal drugs.（警方扣押了非法毒品。 ） 
+• curtail：The new policy will curtail some people&#x27;s rights. （新政策将剥夺（缩减）一
+些人的权利。 ） 
+• formulate：The government is formulating new laws to combat crime.（政府正在
+制定新的法律来打击犯罪。 ） 
+• suspicion：He was under suspicion for a long time. （他被怀疑 （嫌疑） 了很长时间。 ） 
+• detention：The suspect is in detention awaiting trial. （嫌疑人被拘押（羁押、扣押）
+候审。 ） 
+• exclude：The evidence was excluded from the trial.（该证据在审判中被排除。 ） 
+• intervene：The UN decided to intervene in the conflict.（联合国决定干涉（介入、
+调停）这场冲突。 ） 
+• warrant：The police obtained a warrant to search the suspect&#x27;s house.（警方获得
+了搜查嫌疑人住所的搜查令（根据、证据、委任状、正当理由） 。 ） 
+• disarm：The negotiator tried to disarm the suspect.（谈判人员试图消除嫌疑人的怀
+疑 。） 
+• custody：The child was placed in custody after his parents&#x27; arrest.（孩子在父母被
+捕后被监护（拘留、抚养权） 。 ） 
+• proposition：His proposition in the legal argument was well - received.（他在法
+律辩论中的主张受到了好评。 ）
+第 18 页 共 22 
+页 
+• criminal trespass：He was arrested for criminal trespass. （他因非法侵入他人土地房
+屋罪被逮捕。 ） 
+• hearsay：Hearsay evidence is often not admissible in court.（传闻证据（非直接证
+据）在法庭上通常不被采信。 ） 
+• sustain：The company is trying to sustain its growth momentum. （公司试图保持
+（维持）其增长势头。 ） 
+• overrule：The higher court overruled the lower court&#x27;s decision. （上级法院驳回
+（批驳、拒绝 宣布… 无效）了下级法院的判决。 ） 
+• cross - examine：The lawyer cross - examined the witness carefully.（律师仔细地
+盘诘（反复询问）证人。 ） 
+• trustee：The trustee is responsible for managing the trust property.（受托人（破
+产管理人）负责管理信托财产（破产财产） 。 ） 
+Language Focus 
+• Homicide：The police are investigating a case of homicide.（警方正在调查一起杀
+人案。 ） 
+• First - degree：He was convicted of first - degree murder.（他被判一级谋杀罪。 ） 
+• Premeditated murder：The evidence showed that it was a premeditated murder.
+（证据显示这是一起预谋杀人案。罪犯在实施犯罪前进行了蓄意谋划。 ） 
+• Felony - murder：He was charged with felony - murder for the death that occurred 
+during the robbery. （他因抢劫过程中致人死亡而被指控犯有重罪谋杀罪。在实施危险重
+罪（通常限于强奸、绑架、抢劫、入室盗窃和纵火）期间发生的杀人行为，构成此罪。 ） 
+• Second - degree murder：In this state, second - degree murder is punishable by 
+a long prison term.（在这个州，二级谋杀罪会被判处长期监禁。大多数州把谋杀罪分为
+两级，二级谋杀罪涵盖无预谋目的的谋杀、全部故意重伤谋杀、全部极端轻率谋杀，以及一
+级谋杀罪列举的重罪以外的重罪 - 谋杀。 ） 
+• Voluntary manslaughter：The defendant claimed it was voluntary manslaughter 
+due to provocation. （被告声称因受到刺激，这属于非预谋故意杀人（激情杀人） 。即被告
+人在强烈刺激下，盛怒心理中实施的故意杀人行为。 ） 
+• involuntary manslaughter ： The driver was found guilty of involuntary
+第 19 页 共 22 
+页 
+manslaughter after the accident. （事故发生后，司机被判定犯有过失杀人罪。这种杀人
+行为中，行为人没有杀人或造成重伤的故意，但存在刑事过失，或者在实施非重罪 - 谋杀
+规则涵盖的犯罪过程中导致他人死亡。 ） 
+• manslaughter：The jury convicted him of manslaughter instead of murder.（陪审
+团判定他犯非预谋杀人罪， 而非谋杀罪。 这是指非法杀害他人且无预谋恶意的行为， 在某些
+司法管辖区也被称为 culpable homicide。 ） 
+• bribery：He was arrested for bribery after offering money to a public official.（他
+因向公职人员行贿而被捕，贿赂罪在大多数司法管辖区属于重罪。 ） 
+• battery：The attacker was charged with battery for the physical harm he caused.
+（攻击者因造成身体伤害而被指控犯有殴打罪（在侵权法中属于非法侵犯行为） 。 ） 
+• sexual assault：Sexual assault is a serious crime that can cause long - term trauma 
+to the victim.（性侵犯是一项严重罪行，包括侵犯人身、强奸等行为，会给受害者带来长
+期创伤。 ） 
+• robbery：The man was sentenced to prison for robbery after stealing from a store 
+at knifepoint. （这名男子持刀抢劫商店， 因抢劫罪被判处监禁。 抢劫是指通过暴力或恐吓，
+非法夺取他人身上或面前的财产，也被视为加重的盗窃罪。 ） 
+• interference in the judicial process：Obstructing the service of process is a form 
+of interference in the judicial process.（阻碍法律程序的执行，比如干扰法院授权文件
+（如传票）的送达，属于干涉司法程序的行为。 ） 
+• intimidation：The witness felt intimidation from the defendant and was afraid to 
+testify.（证人感受到被告的威胁（威逼） ，不敢作证。 ） 
+• assault：He was accused of assault for threatening the victim with a weapon.（他
+因用武器威胁受害者而被指控犯有伤害罪 （侵犯人身， 尤指未遂的殴打； 也包括用言语等的
+威胁、胁迫） 。 ） 
+• burglary ： The police caught the man who committed burglary in the 
+neighborhood.（警方抓获了在附近实施盗窃（入室抢劫）的男子。即明知无权进入或逗
+留在建筑物或住宅内，却故意进入并意图在其中实施重罪或盗窃的行为。 ） 
+• criminal trespass：Trespassing on private property without permission can lead 
+to charges of criminal trespass.（未经许可擅自进入他人土地或房屋，可能会被指控犯
+有非法侵占罪（非法侵入罪） 。 ）
+第 20 页 共 22 
+页 
+• theft：He was convicted of theft for stealing items from the store.（他因从商店偷窃
+物品而被判偷窃罪， 偷窃罪涵盖盗窃、 入室盗窃、 挪用公款和欺诈等任何形式的偷窃行为。 ） 
+• kidnapping：The kidnapper was caught and charged with kidnapping. （绑架者
+被抓获并被控绑架罪，即以暴力或欺骗手段劫持他人。 ） 
+• arson：The suspect was arrested for arson after setting fire to a building.（嫌疑人
+因纵火烧毁建筑物而被逮捕， 恶意焚烧自己或他人的财产 （在现代法规中） 或他人的住宅及
+附属建筑（在普通法中）属于纵火罪。 ） 
+• license：You need to get a license to operate this kind of business.（你需要获得许
+可（许可证）才能经营这类业务。 ） 
+• patent：The company has a patent for its new invention.（该公司为其新发明获得了
+专利权（特许、许可、特许状 ）。） 
+• employ：The company plans to employ more workers to meet the demand.（公
+司计划雇佣更多工人以满足需求（也可表示使用、利用等含义） 。 ） 
+• vend：They vend a variety of products in the market.（他们在市场上出售（贩卖、
+叫卖）各种产品。 ） 
+• lease：He signed a lease to rent the apartment for a year.（他签署了租赁合同，租
+赁这套公寓一年（也可表示租赁权、租赁物、租赁行为 ）。） 
+• grant：The government will grant a subsidy to the small business.（政府将给予这
+家小企业一笔补贴 （也可表示同意、 允许、 让与、 财产转让证书、 转让的财产或财产权利 ）。） 
+• trust：The trust was set up to manage the family&#x27;s assets. （设立信托是为了管理家
+族资产（也可表示信托关系、信托财产 ）。） 
+• transfer：He wants to transfer the property to his son.（他想把财产转让给儿子（也
+可表示转换、转移、流通 ）。） 
+• contract：The two companies signed a contract for the supply of goods.（两家公
+司签订了一份货物供应合同（也可表示合同书 ）。） 
+• sentence：The judge pronounced a harsh sentence on the criminal.（法官对罪犯
+做出了严厉的宣判（判决 ）。） 
+• crime：Committing a crime will result in legal consequences.（实施违法行为（犯
+罪）会导致法律后果（也可表示刑事诉讼标的 ）。）
+第 21 页 共 22 
+页 
+• deterrence：The threat of punishment serves as a deterrence to crime.（惩罚的威
+胁对犯罪起到威慑作用（恐吓 ）。） 
+• legislators：Legislators are responsible for making laws. （立法者负责制定法律（也
+可指有立法权的主体 ）。） 
+• punishment：The punishment for this crime is a fine and imprisonment.（对这种
+犯罪的刑罚是罚款和监禁。 ） 
+Civil Procedural Law 
+• liability：The company admits its liability for the environmental damage.（公司承
+认对环境损害负有责任（也有债务、不利因素的含义 ）。） 
+• insolvent：The business went insolvent and had to close down.（这家企业破产了
+（无力偿还债务 ） ，不得不倒闭。 ） 
+• creditor：The creditor is demanding repayment of the debt. （债权人要求偿还债
+务。 ） 
+• shareholder：Shareholders expect the company to perform well. （股东期望公司表
+现良好。 ） 
+• pierce the corporate veil：In some cases, the court may pierce the corporate veil 
+to hold shareholders liable.（在某些情况下，法院可能会揭开公司面纱，让股东承担责
+任。 ） 
+• promissory estoppel：The principle of promissory estoppel prevents the party 
+from going back on its promise.（允诺后不得否认的原则禁止一方违背其承诺。 ） 
+• detriment：The new policy caused detriment to the interests of some employees.
+（新政策损害（伤害）了一些员工的利益。 ） 
+• promisee：The promisee is waiting for the promisor to fulfill the promise.（受约
+人（承诺人）在等待承诺人履行承诺。 ） 
+• pardon：The governor granted a pardon to the convicted criminal. （州长赦免了
+被定罪的罪犯（也有原谅的含义 ）。） 
+• commute：The judge decided to commute his sentence from 10 years to 5 years.
+（法官决定将他的刑期从 10 年减为 5 年（也有通勤、代偿的含义 ）。）
+第 22 页 共 22 
+页 
+• repeal：The old law was repealed due to its ineffectiveness.（旧法律因无效而被废
+除。 ） 
+• Statute of Frauds ：The Statute of Frauds aims to prevent fraud in contractual 
+agreements.（反欺诈法旨在防止合同协议中的欺诈行为。 ） 
+• abolition：The abolition of the outdated system was welcomed by the public.（废
+除过时的制度受到了公众的欢迎。 ） 
+• involuntary manslaughter ： The driver was convicted of involuntary 
+manslaughter in the fatal accident.（司机在这起致命事故中被判过失杀人罪。 ） 
+• intoxicated：He was arrested for driving while intoxicated. （他因醉酒驾车被捕。 ） 
+• secular：This is a secular society with freedom of religion.（这是一个世俗的（非宗
+教的）社会，有宗教信仰自由（也可指俗人 ）。） 
+• legal representative：The legal representative signed the contract on behalf of 
+the company.（法定代表人代表公司签署了合同。 ） 
+• auditor：The auditor found some errors in the financial statements. （审计员在财
+务报表中发现了一些错误（也有旁听生、听者的含义 ）。） 
+• The Bill of Rights：The Bill of Rights guarantees certain fundamental rights to the 
+citizens. （权利法案保障公民的某些基本权利， 它通常是宪法性法律中具有重要地位的文件，
+规定对公民的保护， 在英国，1689 年威廉和玛丽即位时通过的法案也被称为权利法案。 ）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="法务英语";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>外企，不礼貌表达</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>外企，不礼貌表达</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">7,291 字符</span>
+    <span>来源：外企，不礼貌表达.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%A4%96%E4%BC%81%EF%BC%8C%E4%B8%8D%E7%A4%BC%E8%B2%8C%E8%A1%A8%E8%BE%BE.docx" title="在本机打开原文件">打开原文件</a>
+    
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">不礼貌：As I already mentioned before...
+中文：正如我之前已经提到的…
+解释：听起来像是在责备对方没有注意，可能让人感觉不愉快。
+礼貌替代：As we discussed earlier.
+中文：正如我们之前讨论的…
+解释：更加中立，避免责备对方，表达更加专业。
+不礼貌：You need to...
+中文：你需要……
+解释：这种表达直接而生硬，容易让人觉得被命令。
+礼貌替代：Could you please...
+中文：能否请您…
+解释：语气更委婉，表达请求时显得更加礼貌。
+不礼貌：I don&#x27;t have time for this.
+中文：我没时间处理这个。
+解释：显得很不耐烦和不合作，容易让人感到被轻视。
+礼貌替代：Unfortunately, I&#x27;m currently tied up, but I will get to this as soon as possible.
+中文：很遗憾我现在很忙，但我会尽快处理这件事。
+解释：表达了同样的时间压力，但语气更友好、合作。
+不礼貌：You didn&#x27;t understand my point.
+中文：你没理解我的意思。
+解释：显得过于指责和直接，容易引起对方反感。
+礼貌替代：Perhaps I wasn&#x27;t clear enough in my previous message, let me clarify...
+中文：可能我之前没说明白，让我再澄清一下。
+解释：语气更温和，把责任归于自己，避免直接指责对方。
+不礼貌：This is wrong.
+中文：这是错的。
+解释：简单粗暴的否定，容易让人感到被冒犯。
+礼貌替代：I believe there might be a misunderstanding, let&#x27;s review it together.
+中文：我认为可能有些误解，我们一起来看看吧。
+解释：更具建设性和合作性，避免了直接否定。
+不礼貌：I need this ASAP.
+中文：我需要尽快得到这个。
+解释：显得急切和强硬，容易让对方感到压力。
+礼貌替代：When you have a moment, could you please prioritize this?
+中文：当您有空时，能否请您优先处理这个？
+解释：语气更加尊重对方的时间安排，同时传达了优先处理的需求。
+主要修改点：
+开头统一添加编号，使条理更清晰。
+英文句子中所有的 “l” 都改成了 “I”，纠正了拼写错误。
+按照上边文章格式扩写200条
+以下为您扩充到 20 条示例，若您确实需要 200 条，可根据实际场景进一步补充完善，希望能帮到您：
+不礼貌：As I already mentioned before, you should have known better.
+中文：正如我之前已经提到过的，你本应该更清楚才是。
+解释：不仅重复提及过往内容，还带有指责对方 “早该知晓” 的意味，很容易让对方产生抵触情绪，感觉自己被批评教育。
+礼貌替代：As we touched upon earlier, it might be beneficial if we review the details again.
+中文：正如我们之前谈到的，如果我们再回顾一下细节，或许会有好处。
+解释：以一种平和、商量的口吻开启对话，暗示双方共同回顾，没有把责任或错误归咎于某一方，更显专业、友好。
+不礼貌：You need to finish this task by tomorrow, no excuses.
+中文：你明天之前必须完成这项任务，别找借口。
+解释：强硬地规定任务期限，还禁止对方辩解，会让对方觉得没有被尊重，工作氛围变得压抑，容易引发反感。
+礼貌替代：Could you please try your best to complete this task by tomorrow? I understand it might be challenging, but your efforts would be greatly appreciated.
+中文：能否请您尽力在明天之前完成这项任务？我知道这可能有难度，但您的努力会备受感激。
+解释：先以请求的语气提出任务要求，又表达对困难的理解和对对方付出的认可，让对方更易接受，感受到尊重。
+不礼貌：I don&#x27;t have time to go over this nonsense with you.
+中文：我没时间跟你扯这些没用的。
+解释：不仅直白拒绝沟通，还用 “nonsense” 一词贬低讨论内容，极度不尊重对方，破坏交流氛围，让对方觉得被羞辱。
+礼貌替代：I&#x27;m really tied up at the moment and can&#x27;t engage in a detailed discussion. But I assure you we&#x27;ll address this important matter as soon as possible.
+中文：我此刻实在太忙，没办法展开详细讨论。但我向您保证，我们会尽快处理这件重要的事。
+解释：诚恳说明自身忙碌状况，强调事情重要性，承诺后续处理，既拒绝了当下交流又给对方希望，显得有礼有节。
+不礼貌：You didn&#x27;t listen carefully to what I said.
+中文：你没仔细听我说的话。
+解释：直接指责对方不用心倾听，容易让对方感到委屈、生气，觉得自己的认真被忽视，从而引发冲突。
+礼貌替代：Perhaps I didn&#x27;t express myself clearly enough during our last conversation. Let me take a moment to clarify the key points.
+中文：或许在上次交谈中我没把自己的意思表达清楚。让我花点时间澄清一下重点。
+解释：主动将问题归咎于自身表达，语气委婉，让对方心理上更容易接受，利于维护良好关系。
+不礼貌：This is completely wrong. You should redo it immediately.
+中文：这完全错了。你应该马上重做。
+解释：严厉否定对方工作成果，还要求即刻返工，不给对方解释机会，打击对方积极性，引发对方不满。
+礼貌替代：I think there might be some misunderstandings here. Let&#x27;s sit down together and go through it. Maybe we can find a better way to improve it.
+中文：我觉得这里可能有些误解。咱们坐下来一起过一遍，说不定能找到更好的改进办法。
+解释：用探讨、协商的态度面对问题，肯定对方努力的可能性，共同寻找解决方案，营造和谐氛围。
+不礼貌：I need this report ASAP, and don&#x27;t delay.
+中文：我尽快需要这份报告，别拖延。
+解释：急切地索要报告，还用命令式口吻禁止拖延，给对方造成心理压力，容易让对方对任务产生抵触情绪。
+礼貌替代：When you have a moment, could you please prioritize compiling this report for me? I&#x27;m in a bit of a time crunch, and your prompt assistance would be highly valued.
+中文：当您有空时，能否请您优先帮我整理这份报告？我时间有点紧，您的及时协助会备受珍视。
+解释：先尊重对方时间安排，再提出优先处理请求，最后表达感激，全方位顾及对方感受，使对方更愿意配合。
+不礼貌：You always make the same mistake.
+中文：你总是犯同样的错误。
+解释：使用 “always” 强调重复性，给对方一种被频繁挑刺、否定的感觉，打击对方自信心，容易引发争吵。
+礼貌替代：It seems there&#x27;s a recurring issue. Let&#x27;s take some time to figure out how to avoid it in the future. I&#x27;m sure we can work through this together.
+中文：看起来有个反复出现的问题。咱们花点时间想想以后怎么避免它。我相信我们能一起解决这个问题。
+解释：将问题客观化，用 “似乎” 弱化指责意味，强调共同解决，给予对方信心，维护良好互动。
+不礼貌：I told you not to do it like that. Why didn&#x27;t you listen?
+中文：我告诉过你别那样做。你为什么不听？
+解释：重复指责，追问不听从的原因，让对方陷入被批评的尴尬境地，容易激化矛盾，破坏沟通氛围。
+礼貌替代：Perhaps my previous instructions weren&#x27;t clear. Let&#x27;s revisit the process, and I&#x27;ll make sure to provide more detailed guidance this time.
+中文：或许我之前的指示不够清楚。咱们重新审视一下这个流程，这次我会确保给出更详细的指导。
+解释：主动揽责，以平和态度重新开启沟通，让对方摆脱被指责的压力，利于推进工作交流。
+不礼貌：You&#x27;re so slow. Hurry up!
+中文：你太慢了。快点！
+解释：直接批评对方速度，还用催促的语气施压，让对方感到委屈、不被尊重，可能导致工作效率更低。
+礼貌替代：It seems we&#x27;re a bit short on time. Would you mind picking up the pace a bit? Your cooperation is much appreciated.
+中文：看起来我们时间有点紧。您介意稍微加快点速度吗？非常感谢您的配合。
+解释：委婉指出时间紧迫，用询问、请求的方式让对方提速，同时表达感激，让对方更易接受。
+不礼貌：This is way over budget. What were you thinking?
+中文：这远远超出预算了。你在想什么呢？
+解释：严厉批评预算超支，质问对方想法，让对方觉得自己的决策被全盘否定，工作能力受质疑，容易引发冲突。
+礼貌替代：I noticed the budget has exceeded our initial estimate. Let&#x27;s have a meeting to analyze the reasons and find solutions. I believe we can get back on track together.
+中文：我注意到预算超出了我们最初的估计。咱们开个会分析一下原因，找找解决方案。我相信我们能一起回到正轨。
+解释：客观陈述问题，提议共同商讨，给予对方信心，营造合作氛围，避免直接冲突。
+不礼貌：You can&#x27;t do anything right, can you?
+中文：你什么事都做不对，是吗？
+解释：全盘否定对方能力，用反问句加强嘲讽，极具攻击性，严重伤害对方自尊心，破坏人际关系。
+礼貌替代：It seems we&#x27;ve hit a few bumps along the way. Let&#x27;s work together to identify areas for improvement. I&#x27;m confident we can make progress.
+中文：看起来我们一路上遇到了一些波折。咱们一起努力找出需要改进的地方。我相信我们能取得进步。
+解释：委婉指出问题，强调共同努力、积极展望，保护对方自尊，利于合作继续。
+不礼貌：I&#x27;m tired of repeating myself. Listen up!
+中文：我厌倦了重复自己的话。听好了！
+解释：表达厌烦情绪后命令对方倾听，让对方感到不被尊重，被当成不听话的孩子，容易引发反感。
+礼貌替代：I apologize if I seem repetitive. Let&#x27;s make sure we&#x27;re all on the same page. I&#x27;ll go over the key points one more time.
+中文：如果我看起来有些重复，我向您道歉。让我们确保大家理解一致。我会再把重点过一遍。
+解释：先致歉，再以平等、协作态度沟通，重新梳理重点，让对方更易接受，缓和交流氛围。
+不礼貌：You missed the deadline. You&#x27;re so irresponsible.
+中文：你错过了截止日期。你太不负责任了。
+解释：直接指责对方错过期限且定性为不负责任，过度批评，让对方觉得委屈、被冤枉，容易激化矛盾。
+礼貌替代：I noticed the deadline was missed. Let&#x27;s talk about what led to this and how we can prevent it in the future. I&#x27;m sure there were some unforeseen circumstances.
+中文：我注意到截止日期被错过了。咱们谈谈是什么导致了这个情况，以及以后如何避免。我相信肯定有一些意外情况。
+解释：客观陈述事实，寻求原因探讨，表达理解可能性，避免一味指责，利于解决问题。
+不礼貌：This is a stupid idea. Who came up with it?
+中文：这是个愚蠢的主意。谁想出来的？
+解释：贬低想法愚蠢，追问责任人，让在场所有人都可能感到被冒犯，破坏团队创造力和合作氛围。
+礼貌替代：I&#x27;m not sure this approach aligns with our goals. Let&#x27;s have a brainstorming session to explore better alternatives. I believe we can come up with something great.
+中文：我不确定这个方法符合我们的目标。咱们开个头脑风暴会，探索更好的替代方案。我相信我们能想出很棒的点子。
+解释：委婉否定，提议共同探讨，激发团队积极性，营造开放、包容的交流环境。
+不礼貌：You talk too much. Let someone else speak.
+中文：你说得太多了。让别人说吧。
+解释：直接制止对方发言，嫌弃对方话多，让对方感到尴尬、不被尊重，抑制交流热情。
+礼貌替代：It seems we&#x27;ve had a lot of great input. Maybe we could give others a chance to share their thoughts. I&#x27;m sure there are diverse perspectives waiting to be heard.
+中文：看起来我们已经有了很多很棒的意见。也许我们可以给其他人一个分享想法的机会。我相信有各种各样的观点等着被倾听。
+解释：委婉暗示，强调多元观点，既达到让他人发言目的，又不伤害当前发言者自尊，维护交流氛围。
+不礼貌：I don&#x27;t care how you do it. Just get it done.
+中文：我不在乎你怎么做。把它做完就行。
+解释：表现出对对方工作过程的漠视，只重结果，让对方觉得自己的努力和方法不被重视，工作成就感低。
+礼貌替代：I trust you to find the best way to complete this task. Please let me know if you need any support along the way. I&#x27;m looking forward to the final result.
+中文：我相信你能找到完成这项任务的最佳方式。如果你在过程中需要任何支持，请告诉我。我期待最终的结果。
+解释：给予信任，提供支持，关注结果同时兼顾过程，让对方感受到尊重，提高工作积极性。
+不礼貌：You&#x27;re late again. What&#x27;s your problem?
+中文：你又迟到了。你怎么回事？
+解释：直接指责迟到，还用质问语气，让对方感到被刁难，自尊心受挫，容易引发抵触情绪。
+礼貌替代：I noticed you were a bit late. Is everything okay? If there&#x27;s anything I can do to help, please let me know. Let&#x27;s make sure we&#x27;re punctual next time.
+中文：我注意到你有点晚了。一切都还好吗？如果有什么我能帮忙的，请告诉我。咱们确保下次准时。
+解释：温和指出问题，关心对方情况，提出协助，强调下次改进，既达到提醒目的，又不伤害对方。
+不礼貌：This work is so sloppy. Do it over.
+中文：这工作做得太马虎了。重做。
+解释：严厉批评工作质量，直接要求重做，不给对方解释机会，打击对方工作热情，引发不满。
+礼貌替代：I see a few areas where the work could be improved. Let&#x27;s go through it together and see how we can enhance the quality. I&#x27;m sure we can make it better.
+中文：我看到有几个地方这项工作可以改进。咱们一起过一遍，看看如何提高质量。我相信我们能把它做得更好。
+解释：客观指出问题，提议共同改进，给予信心，营造合作氛围，利于提升工作质量。
+不礼貌：You should have known this already. Why are you asking?
+中文：你本应该已经知道这个了。你为什么还问？
+解释：指责对方无知，质疑提问动机，让对方不敢再问，阻碍知识交流，破坏学习氛围。
+礼貌替代：Maybe this wasn&#x27;t covered clearly before. Let me fill you in on the details. If you have any further questions, don&#x27;t hesitate to ask.
+中文：也许之前没有讲清楚。让我给你详细说明一下。如果你还有任何问题，尽管问。
+解释：主动担责，补充知识，鼓励提问，营造开放、友好的交流环境，促进知识共享。
+不礼貌：I&#x27;m not going to argue with you. End of story.
+中文：我不想跟你争论。就这样。
+解释：强硬结束争论，拒绝沟通，让对方觉得被忽视，意见不被重视，容易激化矛盾。
+礼貌替代：I think we might be at an impasse for now. Let&#x27;s take a break and come back to this later with a fresh perspective. I&#x27;m sure we can resolve it.
+中文：我觉得我们目前可能陷入僵局。咱们休息一下，稍后带着新的视角再来讨论这个问题。我相信我们能解决它。
+解释：客观承认僵局，提议暂停调整，表达解决信心，既避免当下冲突，又为后续沟通留有余地。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="外企，不礼貌表达";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

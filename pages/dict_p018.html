@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 8.18全英交流1000句</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p018.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：8.18全英交流1000句</h1>
+  <div class="meta"><span class="charspill">949 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">949</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 949 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p018.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["It's up to you.", "听你的。"], ["Be my guest.", "请便。"], ["Can you keep an eye on my bag?", "帮我看一下包好吗？"], ["I envy you.", "羡慕别人。"], ["How can I get in touch with you?", "与他人保持联系。"], ["Where is the bathroom/ladies' or men's room?", "请问洗手间在哪？"], ["Let's keep in touch.", "保持联系。"], ["What's the weather like today?", "今天天气如何？"], ["Let's call it a day.", "停止工作。"], ["I couldn't help it/myself.", "我无能为力。"], ["Something’s come up.", "有点事。"], ["Let's get to the point/don't beat around the bush.", "别拐弯抹角，打开天窗说亮话。"], ["What do you do for relaxation?", "你做什么消遣？"], ["Keep that in mind.", "切记。"], ["It's a small world.", "世界真小。"], ["Where are you headed/going?", "你要去哪儿？"], ["I wasn't born yesterday.", "我又不是三岁小孩。"], ["That was a close call.", "侥幸。"], ["I'll be looking forward to it.", "非常期盼。"], ["It's my treat/It's on me this time.", "这次由我请客。"], ["Chances are slim.", "几率不大，很渺茫。"], ["The sooner, the better.", "越快越好。"], ["When is the most convenient time for you?", "你最合适的时间是什么时候？"], ["Far from it.", "绝不！"], ["I'm behind in my work.", "工作进度落后，有很多工作待办。"], ["It's a pain in the neck.", "令人头痛的事。"], ["We're in the same boat.", "同病相怜。"], ["My mouth is watering.", "馋了，想吃东西。"], ["Take your time.", "别急。"], ["I'm mad/crazy about her.", "对她着迷。"], ["I'm mad at him.", "他把我气死了。"], ["How shall I address you?", "该怎么称呼你更恰当？"], ["Would you care for a cup of coffee/tea?", "要杯咖啡 / 茶吗？"], ["What do you recommend?", "有什么推荐吗？"], ["I ache all over.", "全身酸痛。"], ["I have a runny nose.", "流鼻水，伤风感冒了。"], ["It's out of the question.", "不可能的。"], ["Do you have any openings?", "有职位空缺吗？"], ["It doesn't make any differences.", "没什么差别。"], ["She turns me off.", "她使我厌烦。"], ["So far, so good.", "目前一切还好。"], ["It drives me crazy/nuts.", "这把我逼得快疯了。"], ["She never showed up.", "她一直没露面。"], ["That's not like him/characteristic of him.", "那不像是他平常的作风。"], ["I couldn't get through.", "电话打不通。"], ["I am fed up with him.", "我受够他了。"], ["You can count on us.", "你可以信赖我们。"], ["It doesn't work.", "这行不通。"], ["It is better than nothing.", "总比什么都没有强。"], ["How are you doing?", "你好吗？"], ["I'm doing great.", "我过得很好。"], ["What's up?", "出什么事了 / 你在忙些什么 / 怎么了？"], ["Nothing special.", "没什么特别的。"], ["Long time no see!", "好久不见！"], ["What've you been up to?", "最近都忙啥呢？"], ["Same old, same old.", "一切照旧。"], ["Can't complain.", "还行，没啥可抱怨的。"], ["Nice talking to you.", "很高兴与你聊天。"], ["Let's get together again.", "改天再聚聚。"], ["Take care of yourself.", "照顾好你自己。"], ["Keep in touch.", "保持联系。"], ["Don't forget us.", "别忘了我们。"], ["Have a nice weekend.", "周末愉快。"], ["Guess what?", "你猜怎么着？"], ["That's so random.", "这也太随意了吧。"], ["It's a long story.", "说来话长。"], ["What's on your mind?", "你在想什么？"], ["You've got to be kidding me!", "你在开玩笑吧！"], ["I have no clue.", "我完全不知道。"], ["I couldn't care less.", "我一点都不在乎。"], ["I have mixed feelings about it.", "我对此感觉复杂。"], ["I'll get back to you.", "我之后再回复你。"], ["I'll be right there.", "我马上到。"], ["Who knows!", "天知道！"], ["Have a good time.", "玩得开心。"], ["Don't let me down.", "别让我失望。"], ["It is urgent.", "有急事。"], ["Can I have this?", "可以给我这个吗？"], ["It doesn't take much of your time.", "这不会占用你很多时间。"], ["Drop it!", "别说了！"], ["There is nobody by that name working here.", "这里没有这个人。"], ["Easy does it.", "慢慢来。"], ["Don't push me.", "别逼我。"], ["Come on!", "快点，振作起来！"], ["What is the fuss?", "吵什么？"], ["Still up?", "还没睡呀？"], ["It doesn't make any difference.", "没关系。"], ["It's a deal!", "一言为定！"], ["Take a seat.", "请坐。"], ["It can be a killer.", "这是个伤脑筋的问题。"], ["Don't take ill of me.", "别生我气。"], ["It's up in the air.", "尚未确定。"], ["Right over there.", "就在那里。"], ["Get an eyeful.", "看个够。"], ["Here we are!", "我们到了！"], ["I lost my way.", "我迷路了。"], ["Say hello to everybody for me.", "替我向大家问好。"], ["I'm starving.", "我饿死了。"], ["I'm beat.", "累死我了。"], ["I'm exhausted.", "我累死了。"], ["I'm feeling under the weather.", "我有点不舒服。"], ["I overslept.", "我睡过头了。"], ["I'm running late!", "我快迟到了！"], ["It's been a long day.", "今天真累人。"], ["I'm not in the mood.", "我没心情。"], ["I'm in a hurry.", "我赶时间。"], ["I'm bored to death.", "我无聊死了。"], ["I'm craving something sweet.", "我好想吃甜的。"], ["This is driving me nuts.", "这事快把我逼疯了。"], ["I'm not feeling it today.", "今天完全提不起劲。"], ["I'm so done with today.", "今天真的够了。"], ["That was awkward.", "那场面好尴尬。"], ["Just my luck.", "真是倒霉透顶。"], ["I feel terrible.", "我感觉糟透了。"], ["Sorry to hear that.", "听到这个消息我很难受。"], ["I know how you feel.", "我知道你的感受。"], ["You made my day.", "你让我今天心情超好！"], ["Not precisely!", "不见得，不一定！"], ["That is unfair.", "这不公平。"], ["We have no way out.", "我们没办法。"], ["Big mouth!", "多嘴！"], ["Lose head.", "丧失理智。"], ["He is a pain in the neck.", "他真让人讨厌。"], ["She makes a mess of things.", "她把事情搞得一团糟。"], ["He has a quick eye.", "他的眼睛很犀利。"], ["I felt sort of ill.", "我感觉有点不适。"], ["It is growing cool.", "天气渐渐凉爽起来。"], ["It's going too far.", "太离谱了。"], ["She had a bad cold.", "她患了重感冒。"], ["The answer is zero.", "白忙了。"], ["He can hardly speak.", "他几乎说不出话来。"], ["He always talks big.", "他总是吹牛。"], ["If only I could fly.", "要是我能飞就好了。"], ["Is it true or false?", "这是对的还是错的？"], ["Knowledge is power.", "知识就是力量。"], ["Time is running out.", "没时间了。"], ["What's your trouble?", "你哪儿不舒服？"], ["You did fairly well!", "你干得相当不错！"], ["Did you miss the bus?", "你错过公交车了？"], ["Don't lose your head.", "不要惊慌失措。"], ["He can't take a joke.", "他开不得玩笑。"], ["He owes my uncle 100 dollars.", "他欠我叔叔 100 美元。"], ["How are things going?", "事情进展得怎样？"], ["How are you recently?", "最近怎么样？"], ["I know all about it.", "我知道有关它的一切。"], ["It really takes time.", "这样太耽误时间了。"], ["It's against the law.", "这是违法的。"], ["Speak louder, please.", "说话请大声点儿。"], ["This boy has no job.", "这个男孩没有工作。"], ["This house is my own.", "这所房子是我自己的。"], ["What happened to you?", "你怎么了？"], ["You are just in time.", "你来得正是时候。"], ["You need to work out.", "你需要去运动锻炼一下。"], ["Your hand feels cold.", "你的手摸起来很冷。"], ["Don't be so childish.", "别这么孩子气。"], ["Don't trust to chance!", "不要碰运气。"], ["I don't understand.", "我听不懂。"], ["I'm not from around here.", "我不是本地人。"], ["I just moved here.", "我刚搬来这儿。"], ["I'm visiting.", "我是来旅游的。"], ["I'm here for work.", "我是出差来的。"], ["I'm here on vacation.", "我是来度假的。"], ["How long does it take?", "要多久？"], ["Is it open now?", "现在还开门吗？"], ["What's the opening time?", "几点营业？"], ["Do I need a reservation?", "需要预约吗？"], ["I need help with directions.", "我想知道怎么走。"], ["I need to make a phone call.", "我需要打个电话。"], ["Count me in.", "算我一个。"], ["I'm down.", "我愿意。"], ["Let's grab a bite.", "去吃点东西吧。"], ["I'm on my way.", "我正赶过去。"], ["Just chilling at home.", "在家闲着呢。"], ["That hit the spot.", "吃得太满足了。"], ["I'm full.", "我吃饱了。"], ["I'm home.", "我回来了。"], ["My treat.", "我请客。"], ["So do I.", "我也一样。"], ["This way.", "这边请。"], ["After you.", "您先。"], ["Bless you!", "祝福你！"], ["Follow me.", "跟我来。"], ["Forget it!", "休想！（算了！）"], ["Good luck!", "祝好运！"], ["Do I have to?", "非做不可吗？"], ["He is my age.", "他和我同岁。"], ["Here you are.", "给你。"], ["What about you?", "你呢？"], ["Take it easy.", "别紧张。"], ["What a pity!", "太遗憾了！"], ["Anything else?", "还要别的吗？"], ["To be careful!", "一定要小心！"], ["Help yourself.", "别客气。"], ["I'm on a diet.", "我在节食。"], ["Who's calling?", "是哪一位？"], ["That makes sense.", "有道理。"], ["I didn't see that coming.", "完全没想到。"], ["I'll keep that in mind.", "我会记住的。"], ["No worries.", "没关系。"], ["It's not a big deal.", "没什么大不了的。"], ["It happens.", "这很正常 / 都会发生的。"], ["Fingers crossed.", "希望好运！"], ["You never know.", "谁知道呢。"], ["You've got a point.", "你说得对。"], ["I couldn't agree more.", "完全同意。"], ["You nailed it!", "你做得太棒了！"], ["I see what you mean.", "我懂你的意思。"], ["Tell me about it!", "可不是嘛！"], ["That's a good one!", "这个说得好！"], ["It's no biggie.", "没什么大不了的。"], ["Don't take it personally.", "别往心里去。"], ["No offense, but...", "无意冒犯，但是……"], ["I'm all ears.", "我洗耳恭听。"], ["I can't stand it.", "我受不了了。"], ["Good for you!", "你真棒！"], ["I'm just messing with you.", "我逗你玩呢。"], ["I'm not sure about that.", "这事我不太确定。"], ["That's not how it works.", "不是那么回事。"], ["I'm not buying it.", "我不信这套。"], ["It's none of my business.", "不关我的事。"], ["Stop messing around.", "别闹了。"], ["Just go with the flow.", "顺其自然吧。"], ["That's the last straw.", "我真的忍够了。"], ["It's worth a shot.", "值得一试。"], ["Let's not get ahead of ourselves.", "咱别太早高兴。"], ["I'll figure it out.", "我会想办法的。"], ["I've got a lot on my plate.", "我现在事儿太多了。"], ["I'll take care of it.", "我来搞定。"], ["Don't push it.", "别太得寸进尺了。"], ["You're missing the point.", "你没抓住重点。"], ["Let's take a rain check.", "改天吧。"], ["I'm not really into that.", "我其实不太喜欢那个。"], ["Let's play it by ear.", "咱走一步看一步吧。"], ["Time flies.", "时间过得好快。"], ["Don't jinx it.", "别乌鸦嘴。"], ["It's getting out of hand.", "这事越来越失控了。"], ["You gotta be kidding me.", "你该不会是在开玩笑吧。"], ["I'm freezing my butt off.", "我冷得要命。"], ["You scared the hell out of me!", "你吓死我了！"], ["This place is packed.", "这地儿挤爆了。"], ["It slipped my mind.", "我一时忘了。"], ["Let me sleep on it.", "让我考虑一晚上。"], ["That sounds like a plan.", "听起来不错。"], ["You're on fire today!", "你今天状态爆棚！"], ["Let's not make a big deal out of it.", "咱别小题大做了。"], ["I'm just killing time.", "我就是在打发时间。"], ["I'm not gonna lie.", "我得实话实说。"], ["You do you.", "做你自己就好。"], ["It's not the end of the world.", "又不是天塌下来了。"], ["Let's cut to the chase.", "咱直接说重点。"], ["You've got this.", "你肯定行。"], ["You did right.", "你做得对。"], ["I have no idea.", "我没头绪。"], ["I just made it!", "我做到了！"], ["I'll see to it.", "我会留意的。"], ["Let me see.", "让我想想。"], ["Never mind.", "不要紧。"], ["No problem!", "没问题！"], ["That's all!", "就这样！"], ["Time is up.", "时间快到了。"], ["Count me on.", "算上我。"], ["Don't worry.", "别担心。"], ["Feel better?", "好点了吗？"], ["I'm his fan.", "我是他的影迷。"], ["Is it yours?", "这是你的吗？"], ["That's neat.", "这很好。"], ["Are you sure?", "你肯定吗？"], ["Just wonderful!", "简直太棒了！"], ["You owe me one.", "你欠我一个人情。"], ["Are you kidding?", "你在开玩笑吧！"], ["I'll fix you up.", "我会帮你打点的。"], ["It sounds great!", "听起来很不错。"], ["Time is money.", "时间就是金钱。"], ["I agree.", "我同意。"], ["Not bad.", "还不错。"], ["Not yet.", "还没。"], ["See you.", "再见。"], ["So long.", "再见。"], ["Why not?", "好呀！"], ["Allow me.", "让我来。"], ["Be quiet!", "安静点！"], ["Cheer up!", "振作起来！"], ["Good job!", "做得好！"], ["Have fun!", "玩得开心！"], ["How much?", "多少钱？"], ["I'm lost.", "我迷路了。"], ["Could you give me a hand?", "你可以帮我个忙吗？"], ["Let me know if you need anything.", "有需要就告诉我。"], ["Can I use your pen?", "我可以用你的笔吗？"], ["May I use your pen?", "我可以用你的笔吗？"], ["Can you turn down the volume?", "你能把音量调小点吗？"], ["Could you warm it up a bit?", "能帮我热一下吗？"], ["Can you make it less spicy?", "能做得不辣一点吗？"], ["Could you repeat that?", "你能再说一遍吗？"], ["Can you speak slower?", "你能说慢点吗？"], ["Can you write it down?", "能写下来吗？"], ["Can you call a cab for me?", "你能帮我叫辆出租吗？"], ["Can I borrow a pen?", "能借支笔吗？"], ["Do you have an adapter?", "有转换插头吗？"], ["Can you grab me a coffee?", "能帮我带杯咖啡吗？"], ["Come on, you can do that.", "加油，你能做到的。"], ["Excuse me, I need some help.", "不好意思，我需要帮忙。"], ["Give me a hand!", "帮帮我！"], ["Do me a favor?", "帮个忙？"], ["Can I get a glass of water?", "能给我一杯水吗？"], ["Can we get the check, please?", "可以给我们账单吗？"], ["Can I get this to go?", "这个可以打包吗？"], ["Could we move to another table?", "我们能换个桌子吗？"], ["Can we get more napkins?", "能多给点餐巾纸吗？"], ["We'll need some utensils.", "我们需要餐具。"], ["Could you bring a high chair?", "能给个儿童椅吗？"], ["Do you have hot sauce?", "有辣酱吗？"], ["Can I have extra napkins?", "能多给些餐巾纸吗？"], ["Could we have the menu again?", "能再给我们菜单吗？"], ["Can I try this on?", "我可以试穿这个吗？"], ["Can I get a bag?", "能给我个袋子吗？"], ["Where's the fitting room?", "试衣间在哪？"], ["Can you show me on the map?", "你能在地图上指一下吗？"], ["Where can I catch a taxi?", "哪里可以打车？"], ["Can we make a quick stop?", "能临时停一下吗？"], ["Can I get a late check-out?", "可以晚点退房吗？"], ["Can I get extra towels?", "能多给点毛巾吗？"], ["Where can I buy a SIM card?", "哪里可以买电话卡？"], ["Can you make it iced?", "能做成冰的吗？"], ["Could you bring it quickly?", "能快一点上吗？"], ["Can you turn the music down?", "能把音乐调小点吗？"], ["Could you pack this to go?", "能帮我打包吗？"], ["Can I switch the side?", "可以换配菜吗？"], ["Can I see the wine list?", "我可以看一下酒单吗？"], ["Can I get almond milk?", "可以换成杏仁奶吗？"], ["Do you have decaf coffee?", "有低因咖啡吗？"], ["Can I get sparkling water?", "我可以要气泡水吗？"], ["Could I get that with fries instead?", "可以把配菜换成薯条吗？"], ["No onions, please.", "请不要洋葱。"], ["Can I have dressing on the side?", "调味汁能分开装吗？"], ["Extra cheese, please.", "请多放点奶酪。"], ["Make it medium rare.", "牛排要三分熟。"], ["Could I get some ketchup?", "能给点番茄酱吗？"], ["Pass the salt, please.", "请把盐递给我。"], ["Can I get a refill?", "能续杯吗？"], ["More ice, please.", "再加点冰。"], ["No ice for me.", "我不要冰。"], ["Can we split the bill?", "我们可以 AA 吗？"], ["Do you take credit cards?", "你们收信用卡吗？"], ["Can I tap to pay?", "能刷手机支付吗？"], ["Could we get a receipt?", "可以给张收据吗？"], ["Do you have Apple Pay?", "可以用 Apple Pay 吗？"], ["Can I pay in cash?", "我可以付现金吗？"], ["Do I need a ticket?", "我需要买票吗？"], ["Please take me to this address.", "请带我去这个地址。"], ["Is this the right bus?", "这是对的公交吗？"], ["Where's the elevator?", "电梯在哪？"], ["I need to charge my phone.", "我需要给手机充电。"], ["Could you fix it?", "能帮我换一下吗？"], ["Can we sit outside?", "我们能坐外面吗？"], ["Could we get some menus?", "可以给我们菜单吗？"], ["I'll need a minute.", "我还要看一会儿。"], ["We're ready to order.", "我们可以点菜了。"], ["Can I start with a salad?", "我先来个沙拉。"], ["What comes with that?", "这道菜配什么？"], ["Does it come with bread?", "这个配面包吗？"], ["I'm allergic to peanuts.", "我对花生过敏。"], ["No dairy for me.", "我不吃乳制品。"], ["Could you make it vegetarian?", "能做成素的吗？"], ["I'll have the same as him.", "我要跟他一样的。"], ["Can we get an extra plate?", "能多给个盘子吗？"], ["Could we share this dish?", "我们可以分着吃吗？"], ["Let's get an appetizer.", "我们先来个开胃菜吧。"], ["I'll take a lemonade.", "我要一杯柠檬水。"], ["Just tap water's fine.", "自来水就行。"], ["I'll have a glass of red wine.", "我要一杯红酒。"], ["Beer on tap?", "有生啤吗？"], ["I'll take a Coke.", "我要一杯可乐。"], ["Any ice cream?", "有冰淇淋吗？"], ["Two scoops, please.", "两球，谢谢。"], ["Could we get the check?", "我们可以结账了吗？"], ["Check, please.", "买单，谢谢。"], ["Put it all on one bill.", "全部算在一起。"], ["Do you have a kids' menu?", "有儿童餐吗？"], ["Do you serve breakfast all day?", "全天都有早餐吗？"], ["How fresh is the seafood?", "海鲜新鲜吗？"], ["Is the meat grass-fed?", "这个肉是草饲的吗？"], ["Do you have gluten-free bread?", "有无麸质面包吗？"], ["I'm sorry.", "对不起。"], ["Sorry to bother you.", "抱歉，打扰你了。"], ["I made a mistake.", "我弄错了。"], ["It's not your fault.", "那不是你的错。"], ["Thank you.", "谢谢。"], ["Thank you for everything.", "谢谢你为我所做的一切。"], ["Thank you all for coming.", "谢谢光临。"], ["I appreciate your help.", "我感谢你的帮助。"], ["I'm glad to have met you.", "很高兴遇到你。"], ["You're welcome.", "不客气。"], ["You're always welcome.", "别客气 / 不用谢。"], ["It was my pleasure.", "不用谢。"], ["Thanks, you too.", "谢啦，你也是。"], ["Appreciate it.", "谢啦。"], ["I beg your pardon.", "请你原谅。"], ["Thank you very much.", "非常感谢。"], ["Thanks a lot.", "多谢。"], ["Many thanks.", "非常感谢。"], ["I can't thank you enough.", "我对你感激不尽。"], ["Thanks for your help.", "谢谢你的帮助。"], ["Sorry for the delay.", "抱歉来晚了。"], ["I apologize for that.", "我为此道歉。"], ["Please forgive me.", "请原谅我。"], ["I'm really sorry.", "我真的很抱歉。"], ["Sorry to keep you waiting.", "抱歉让你久等了。"], ["Thanks for your understanding.", "谢谢你的理解。"], ["I'm grateful for your support.", "我感谢你的支持。"], ["Thank you for your time.", "谢谢你抽出时间。"], ["I owe you one.", "我欠你一个人情。"], ["Thanks a bunch.", "多谢啦。"], ["Sorry, my mistake.", "对不起，是我的错。"], ["Thank you kindly.", "衷心感谢。"], ["I'm sorry to hear that.", "听到这个我很抱歉。"], ["Thanks for coming.", "谢谢你能来。"], ["Sorry, I didn't mean it.", "对不起，我不是故意的。"], ["Thank you for the gift.", "谢谢你的礼物。"], ["I appreciate it very much.", "我非常感激。"], ["Sorry for interrupting.", "抱歉打断一下。"], ["Thanks for the advice.", "谢谢你的建议。"], ["I'm sorry I forgot.", "对不起我忘了。"], ["Thank you for your kindness.", "谢谢你的好意。"], ["Sorry, I can't make it.", "抱歉，我去不了。"], ["Thanks for your hard work.", "谢谢你的辛勤工作。"], ["I apologize for the inconvenience.", "对于造成的不便我深表歉意。"], ["Thank you for being there.", "谢谢你在我身边。"], ["Sorry, I was wrong.", "对不起，我错了。"], ["Thanks for the opportunity.", "谢谢你给的机会。"], ["I'm sorry to bother you again.", "抱歉又打扰你了。"], ["Thank you for your patience.", "谢谢你的耐心。"], ["Sorry, I'm late.", "对不起，我迟到了。"], ["Thanks for helping me out.", "谢谢你帮我摆脱困境。"], ["I'm sorry for what I said.", "我为我说的话道歉。"], ["Thank you for the information.", "谢谢你提供的信息。"], ["Sorry, I didn't catch that.", "对不起，我没听清。"], ["Thanks for your concern.", "谢谢你的关心。"], ["I apologize unreservedly.", "我毫无保留地道歉。"], ["Thank you for your cooperation.", "谢谢你的合作。"], ["Sorry, I made a mistake again.", "对不起，我又弄错了。"], ["Thanks for the invite.", "谢谢你的邀请。"], ["I'm sorry to have troubled you.", "抱歉麻烦你了。"], ["Thank you for your time and effort.", "谢谢你的时间和努力。"], ["Sorry, I can't help it.", "对不起，我没办法。"], ["Thanks for everything you've done.", "谢谢你所做的一切。"], ["I'm sorry for the confusion.", "对于造成的混乱我很抱歉。"], ["Thank you for your prompt reply.", "谢谢你的及时回复。"], ["Sorry, I didn't mean to upset you.", "对不起，我不是故意让你不高兴的。"], ["Thank you for your generosity.", "谢谢你的慷慨。"], ["I apologize for my mistake.", "我为我的错误道歉。"], ["Thanks for the wonderful time.", "谢谢你带来的美好时光。"], ["Sorry, I'll be more careful.", "对不起，我会更小心的。"], ["Thank you for your guidance.", "谢谢你的指导。"], ["I'm sorry to have kept you waiting.", "抱歉让你久等了。"], ["Thanks for your encouragement.", "谢谢你的鼓励。"], ["Sorry, I was rude.", "对不起，我失礼了。"], ["Thank you for the delicious meal.", "谢谢你的美味饭菜。"], ["I apologize for being late.", "我为迟到道歉。"], ["Thanks for your trust.", "谢谢你的信任。"], ["Sorry, I forgot to tell you.", "对不起，我忘了告诉你。"], ["Thank you for your support and help.", "谢谢你的支持和帮助。"], ["I'm sorry for the trouble I caused.", "为我造成的麻烦抱歉。"], ["Thanks for understanding my situation.", "谢谢你理解我的处境。"], ["Sorry, I didn't think it through.", "对不起，我没考虑周全。"], ["Thank you for your valuable advice.", "谢谢你的宝贵建议。"], ["I apologize for the misunderstanding.", "为误会道歉。"], ["Thanks for being so helpful.", "谢谢你这么帮忙。"], ["Sorry, I'll make it up to you.", "对不起，我会补偿你的。"], ["Thank you for your thoughtfulness.", "谢谢你的体贴。"], ["I'm sorry to have missed the meeting.", "抱歉错过了会议。"], ["Thanks for the warm welcome.", "谢谢你的热烈欢迎。"], ["Sorry, I can't attend the party.", "对不起，我不能参加派对。"], ["Thank you for your hard work on this project.", "谢谢你在这个项目上的辛勤付出。"], ["I apologize for my carelessness.", "我为我的粗心道歉。"], ["Thanks for sharing this with me.", "谢谢你和我分享这个。"], ["Sorry, I didn't mean to interrupt.", "对不起，我不是故意打断的。"], ["Thank you for your prompt action.", "谢谢你的及时行动。"], ["I'm sorry for the delay in reply.", "为回复延迟道歉。"], ["Thanks for your kind words.", "谢谢你的好话。"], ["Sorry, I made a wrong decision.", "对不起，我做了错误的决定。"], ["Thank you for standing by me.", "谢谢你支持我。"], ["I apologize sincerely.", "我真诚地道歉。"], ["Table for two, please.", "请给我们两人一桌。"], ["Can we get a table by the window?", "能给我们靠窗的位置吗？"], ["Is there a wait?", "要等位吗？"], ["We have a reservation.", "我们有预订。"], ["It's under my name.", "是我名字订的。"], ["What's the special today?", "今天的特色菜是什么？"], ["Anything you recommend?", "有什么推荐的吗？"], ["I'll have the soup of the day.", "我要份今天的例汤。"], ["I'll go with the chicken.", "我要鸡肉。"], ["I'll have the pasta.", "我要意大利面。"], ["I'll try the fish.", "我试试鱼吧。"], ["The calamari looks good.", "炸鱿鱼看起来不错。"], ["This is too salty.", "这个太咸了。"], ["It's a bit cold.", "有点凉了。"], ["This tastes amazing.", "这味道太棒了。"], ["It's a little bland.", "味道有点淡。"], ["Another round of drinks?", "再来一轮饮料？"], ["The cheesecake looks great.", "芝士蛋糕看起来很好。"], ["We'll have dessert too.", "我们还要甜点。"], ["I'll try the chocolate cake.", "我要巧克力蛋糕。"], ["Keep the change.", "找零不用了。"], ["Thanks, everything was great.", "谢谢，一切都很棒。"], ["We'll come back for sure.", "我们一定会再来的。"], ["What's in this dish?", "这道菜里有什么？"], ["Is it spicy?", "这个辣吗？"], ["How big is the portion?", "分量大吗？"], ["Does it come with sides?", "有配菜吗？"], ["We'll take the rest to go.", "剩下的帮我们打包。"], ["Any local beer?", "有本地啤酒吗？"], ["What's the soup made of?", "这个汤是用什么做的？"], ["Is it sweet?", "这个甜吗？"], ["We're in a hurry.", "我们赶时间。"], ["We'll order everything now.", "我们现在一次全点。"], ["Just water for now.", "先来水就行。"], ["We'll order drinks later.", "饮料等会儿点。"], ["This isn't what I ordered.", "这不是我点的。"], ["It's fine, I'll keep it.", "没事，我就要这个吧。"], ["It's too noisy here.", "这里太吵了。"], ["It's a bit chilly inside.", "里面有点冷。"], ["Could you turn the music down?", "能把音乐调小点吗？"], ["For here or to go?", "在这吃还是带走？"], ["I'm just looking, thanks.", "我就随便看看，谢谢。"], ["I'll take it.", "这个我要了。"], ["That's too expensive.", "太贵了吧。"], ["Do you have this in a smaller size?", "有小一点的吗？"], ["I'm just browsing.", "我随便看看。"], ["I'm good, thanks.", "不用了，谢谢。"], ["Just window shopping today.", "今天就随便看看。"], ["Is this on sale?", "这个打折吗？"], ["I need a receipt.", "我需要收据。"], ["Where's the nearest ATM?", "最近的取款机在哪？"], ["My card isn't working.", "我的卡刷不过。"], ["That's all, thanks.", "就这些，谢谢。"], ["I'll think about it.", "我考虑一下。"], ["How much is this?", "这个多少钱？"], ["Is this fresh?", "这个新鲜吗？"], ["Do you sell bottled water?", "你们有卖瓶装水吗？"], ["I'll take one of these.", "我要这个。"], ["Do you have this in another color?", "这个有其他颜色吗？"], ["What's the return policy?", "退货政策是什么？"], ["Is this the only size you have?", "这是你们仅有的尺寸吗？"], ["Can you give me a discount?", "能给我打折吗？"], ["When does the sale end?", "促销什么时候结束？"], ["Do you have a warranty?", "有保修吗？"], ["Can I order this online?", "我可以在网上订购这个吗？"], ["How long will it take to arrive?", "多久能到货？"], ["Do you deliver?", "你们送货吗？"], ["Is this in stock?", "这个有货吗？"], ["Can I reserve one?", "我可以预订一个吗？"], ["What's the material?", "是什么材质的？"], ["How do you wash this?", "这个怎么洗？"], ["Does this come with a case?", "这个带包装盒吗？"], ["Can I see a different style?", "我能看看其他款式吗？"], ["Is this made locally?", "这是本地制造的吗？"], ["Do you have a bigger size?", "有大一点的尺寸吗？"], ["What's the price of this?", "这个多少钱？"], ["Can I pay by check?", "我可以用支票支付吗？"], ["Do you have a loyalty program?", "你们有会员计划吗？"], ["How much is the shipping?", "运费多少？"], ["Can I pick it up in store?", "我可以到店自提吗？"], ["Is this on clearance?", "这个是清仓商品吗？"], ["Do you match prices?", "你们价格能匹配吗？"], ["Can I get a rain check?", "可以延期购买吗？"], ["What's the expiration date?", "保质期到什么时候？"], ["Is this organic?", "这是有机的吗？"], ["Do you have a demo?", "有演示吗？"], ["Can I try it before buying?", "我可以先试用再买吗？"], ["How does this work?", "这个怎么用？"], ["Do you have instructions?", "有说明书吗？"], ["Can you gift-wrap this?", "能帮我礼品包装吗？"], ["How much is gift wrapping?", "礼品包装多少钱？"], ["Do you have a gift card?", "有礼品卡吗？"], ["Can I use a coupon here?", "这里可以用优惠券吗？"], ["What's the minimum purchase for free shipping?", "免运费的最低消费是多少？"], ["Do you have this in bulk?", "这个有批发的吗？"], ["How many are left?", "还剩多少？"], ["Can I exchange this?", "这个可以换吗？"], ["Do you have a restroom?", "有洗手间吗？"], ["Where's the customer service?", "客服在哪？"], ["Can you help me find something?", "能帮我找个东西吗？"], ["What time do you close?", "你们几点关门？"], ["Are you open on weekends?", "你们周末营业吗？"], ["Do you have a sale catalog?", "有促销目录吗？"], ["Can I get a price check?", "能帮我查一下价格吗？"], ["Is this item damaged?", "这个商品有损坏吗？"], ["Do you have a protection plan?", "有保护计划吗？"], ["How long is the battery life?", "电池续航多久？"], ["Can I charge this here?", "我可以在这充电吗？"], ["Do you have a charger for this?", "有这个的充电器吗？"], ["What's the weight of this?", "这个重量是多少？"], ["Is this fragile?", "这个易碎吗？"], ["Can you handle this carefully?", "能小心处理这个吗？"], ["Do you have a shopping basket?", "有购物篮吗？"], ["Where are the shopping carts?", "购物车在哪？"], ["Can I leave my bag here?", "我可以把包放这吗？"], ["Do you have a lost and found?", "有失物招领处吗？"], ["Can you hold this for me?", "能帮我保留这个吗？"], ["When will this be back in stock?", "这个什么时候会补货？"], ["Do you have this in a different brand?", "有其他品牌的这个吗？"], ["What's the best-selling item here?", "这里最畅销的商品是什么？"], ["Is this tax included?", "这个含税吗？"], ["How much is the tax?", "税是多少？"], ["Can I get a receipt emailed to me?", "能把收据用邮件发给我吗？"], ["Do you accept foreign currency?", "接受外币吗？"], ["What's the exchange rate?", "汇率是多少？"], ["Can you break a large bill?", "能换开大额钞票吗？"], ["Do you have smaller change?", "有小面额零钱吗？"], ["Is there a limit on how many I can buy?", "购买数量有限制吗？"], ["Can I buy this as a gift?", "这个可以当礼物买吗？"], ["Do you offer gift receipts?", "有礼品收据吗？"], ["Can I return this without a receipt?", "没有收据可以退货吗？"], ["What's the best time to shop here?", "什么时候来这购物最好？"], ["Where's the bathroom?", "厕所在哪？"], ["I need to use the restroom.", "我想上洗手间。"], ["Where can I find a supermarket?", "超市在哪？"], ["I'm looking for a pharmacy.", "我在找药店。"], ["Which way is downtown?", "市中心怎么走？"], ["Where's the subway station?", "地铁站在哪？"], ["Turn left here.", "这里左转。"], ["Go straight.", "一直走。"], ["It's around the corner.", "就在转角那儿。"], ["It's five minutes away.", "走路五分钟。"], ["It's next to the bank.", "就在银行旁边。"], ["I'll walk.", "我走过去吧。"], ["How much is the fare?", "车费多少钱？"], ["How long does it take to get there?", "到那儿要多久？"], ["Is it far from here?", "离这儿远吗？"], ["What's the fastest way to go?", "最快的路线是什么？"], ["Can I walk there?", "我能走路去吗？"], ["When does the next bus come?", "下一班公交什么时候来？"], ["Where is the bus stop?", "公交站在哪？"], ["How many stops are there?", "有多少站？"], ["Should I get off at the next stop?", "我应该在下一站下车吗？"], ["Is this seat taken?", "这个座位有人吗？"], ["Can you tell me when to get off?", "能告诉我什么时候下车吗？"], ["Where is the train station?", "火车站在哪？"], ["What time does the train leave?", "火车什么时候开？"], ["How much is a one-way ticket?", "单程票多少钱？"], ["Do I need to transfer?", "我需要换乘吗？"], ["Where can I buy a ticket?", "在哪里买票？"], ["Is there a direct flight?", "有直飞航班吗？"], ["What time does the plane arrive?", "飞机什么时候到？"], ["Where is the boarding gate?", "登机口在哪？"], ["How early should I arrive?", "我应该提前多久到？"], ["Can I check in online?", "可以网上值机吗？"], ["How much luggage can I take?", "我可以带多少行李？"], ["Where is the baggage claim?", "行李提取处在哪？"], ["My luggage is missing.", "我的行李不见了。"], ["Can you call a taxi for me?", "能帮我叫辆出租车吗？"], ["How much will the taxi fare be?", "出租车费大概多少？"], ["Is the taxi meter running?", "出租车打表吗？"], ["Can you drive a bit faster?", "能开快点吗？"], ["Please stop here.", "请在这儿停。"], ["Where can I rent a car?", "哪里可以租车？"], ["Do you have a car rental service?", "有租车服务吗？"], ["What's the rental fee per day?", "每天的租金是多少？"], ["Do I need an international driver's license?", "需要国际驾照吗？"], ["Where is the gas station?", "加油站在哪？"], ["How much is gas per liter?", "每升汽油多少钱？"], ["Can you fill it up, please?", "请加满油。"], ["Where is the parking lot?", "停车场在哪？"], ["Is parking free here?", "这里停车免费吗？"], ["How much is parking per hour?", "每小时停车费多少？"], ["Is there a rest area nearby?", "附近有休息区吗？"], ["Where can I find a restaurant?", "哪里能找到餐厅？"], ["Is there a hotel near here?", "这附近有酒店吗？"], ["How can I get to the airport?", "怎么去机场？"], ["What's the name of this street?", "这条街叫什么名字？"], ["Can you draw me a map?", "能给我画个地图吗？"], ["Is there a tourist information center?", "有游客信息中心吗？"], ["Where is the nearest ATM?", "最近的 ATM 在哪？"], ["Can you speak English?", "你会说英语吗？"], ["I don't understand the directions.", "我看不懂路线。"], ["Please speak more slowly.", "请说慢点。"], ["Is this the right way to the museum?", "去博物馆是这条路吗？"], ["When does the museum open?", "博物馆什么时候开门？"], ["How much is the entrance fee?", "门票多少钱？"], ["Where is the nearest bank?", "最近的银行在哪？"], ["Can I exchange money here?", "可以在这儿换钱吗？"], ["Where is the post office?", "邮局在哪？"], ["How much is a stamp?", "一张邮票多少钱？"], ["Can you mail this for me?", "能帮我寄这个吗？"], ["Is there a public phone nearby?", "附近有公用电话吗？"], ["How do I activate this SIM card?", "怎么激活这张 SIM 卡？"], ["Is there Wi-Fi here?", "这里有 Wi-Fi 吗？"], ["Can you tell me the time?", "能告诉我时间吗？"], ["What's the weather like tomorrow?", "明天天气怎么样？"], ["Is it going to rain today?", "今天会下雨吗？"], ["Where can I buy an umbrella?", "哪里可以买雨伞？"], ["Is there a hospital nearby?", "附近有医院吗？"], ["Where is the emergency room?", "急诊室在哪？"], ["I need a doctor.", "我需要看医生。"], ["Can you help me call an ambulance?", "能帮我叫救护车吗？"], ["My phone isn't working.", "我的手机坏了。"], ["Where can I get my phone fixed?", "哪里可以修手机？"], ["Is there a convenience store here?", "这里有便利店吗？"], ["What time does the store close?", "商店几点关门？"], ["Can you recommend a good café?", "能推荐一家好咖啡馆吗？"], ["Where is the nearest park?", "最近的公园在哪？"], ["Is it safe to walk here at night?", "晚上在这儿走路安全吗？"], ["Do you know where I can find a taxi stand?", "你知道哪里有出租车站吗？"], ["How often do the buses run?", "公交车多久一班？"], ["Is this the expressway?", "这是高速公路吗？"], ["I'd like to check in.", "我要办理入住。"], ["I'd like to check out.", "我要退房。"], ["I have a reservation.", "我有预订。"], ["Is breakfast included?", "包早餐吗？"], ["The key doesn't work.", "钥匙打不开门。"], ["The Wi-Fi isn't working.", "无线网坏了。"], ["My room number is 305.", "我的房间号是 305。"], ["I forgot my charger.", "我忘带充电器了。"], ["My phone's dead.", "我的手机没电了。"], ["Do you have a room available?", "有空房吗？"], ["How much is a single room per night?", "单人间每晚多少钱？"], ["Can I have a room with a view?", "能给我一间有景观的房间吗？"], ["Is there a discount for staying multiple nights?", "住多晚有折扣吗？"], ["What time is check-in?", "入住时间是几点？"], ["What time is check-out?", "退房时间是几点？"], ["Can I leave my luggage here?", "我可以把行李放这儿吗？"], ["Is there a safe in the room?", "房间里有保险箱吗？"], ["The air conditioning isn't working.", "空调坏了。"], ["Can you send someone to fix it?", "能派人来修一下吗？"], ["There's no hot water.", "没有热水。"], ["The TV isn't working.", "电视坏了。"], ["Can I get a wake-up call?", "能给我叫醒服务吗？"], ["What time is breakfast served?", "早餐几点供应？"], ["Is breakfast buffet style?", "早餐是自助式的吗？"], ["Where is the restaurant?", "餐厅在哪？"], ["Do you have room service?", "有客房服务吗？"], ["What time does room service end?", "客房服务几点结束？"], ["Can I order food to my room?", "可以点餐到房间吗？"], ["Is there a swimming pool?", "有游泳池吗？"], ["What time does the pool open?", "游泳池几点开门？"], ["Do you have a gym?", "有健身房吗？"], ["Is the gym open 24 hours?", "健身房 24 小时开放吗？"], ["Where is the laundry room?", "洗衣房在哪？"], ["Do you have a laundry service?", "有洗衣服务吗？"], ["How much does laundry service cost?", "洗衣服务多少钱？"], ["Can I get some soap and shampoo?", "能给我一些肥皂和洗发水吗？"], ["The toilet is clogged.", "马桶堵了。"], ["There's a leak in the bathroom.", "浴室漏水。"], ["Can I change my room?", "我可以换个房间吗？"], ["This room is too noisy.", "这个房间太吵了。"], ["It's too cold in the room.", "房间里太冷了。"], ["Can you turn up the heat?", "能把暖气开大点吗？"], ["Is there a shuttle service to the airport?", "有去机场的班车吗？"], ["What time does the shuttle leave?", "班车几点出发？"], ["Do I need to reserve a seat on the shuttle?", "班车位需要预订吗？"], ["Where is the nearest subway station?", "最近的地铁站在哪？"], ["Can you recommend a good restaurant nearby?", "能推荐附近一家好餐厅吗？"], ["Is there a convenience store near the hotel?", "酒店附近有便利店吗？"], ["What time does the hotel bar close?", "酒店酒吧几点关门？"], ["Can I have a extra blanket?", "能多给我一条毯子吗？"], ["The light in the room isn't working.", "房间里的灯坏了。"], ["Do you provide irons?", "提供熨斗吗？"], ["Can I borrow a hair dryer?", "能借个吹风机吗？"], ["Is there a meeting room available?", "有会议室可用吗？"], ["How much is it to use the meeting room?", "使用会议室多少钱？"], ["Can you print this for me?", "能帮我打印这个吗？"], ["Is there a business center?", "有商务中心吗？"], ["What time does the business center open?", "商务中心几点开门？"], ["Can I get a taxi from the hotel?", "可以从酒店叫出租车吗？"], ["Do you offer airport pickup?", "有接机服务吗？"], ["How much does airport pickup cost?", "接机服务多少钱？"], ["Is there a smoking area?", "有吸烟区吗？"], ["The hotel is fully booked.", "酒店已经订满了。"], ["Can you recommend another hotel nearby?", "能推荐附近另一家酒店吗？"], ["I need to extend my stay.", "我需要延长住宿。"], ["Will that be possible?", "可以吗？"], ["How much will it cost for an extra night?", "多住一晚多少钱？"], ["The bill seems incorrect.", "账单好像不对。"], ["Can you check the bill again?", "能再核对一下账单吗？"], ["I didn't use that service.", "我没使用那个服务。"], ["Can I pay by credit card?", "可以用信用卡支付吗？"], ["Do you accept debit cards?", "接受借记卡吗？"], ["Can I get a receipt?", "能给我一张收据吗？"], ["Thank you for your service.", "谢谢你的服务。"], ["I had a comfortable stay.", "我住得很舒服。"], ["There was a problem with my room.", "我的房间有问题。"], ["Can you send someone to clean the room?", "能派人来打扫房间吗？"], ["When will the room be cleaned?", "房间什么时候会被打扫？"], ["I need more hangers in the closet.", "衣柜里需要更多衣架。"], ["The shower head is broken.", "淋浴喷头坏了。"], ["Is there a minibar in the room?", "房间里有迷你吧台吗？"], ["How much are the items in the minibar?", "迷你吧台里的东西多少钱？"], ["Can you restock the minibar?", "能补充一下迷你吧台吗？"], ["Do you have a smoking room?", "有吸烟房吗？"], ["I prefer a non-smoking room.", "我想要无烟房。"], ["Is the hotel pet-friendly?", "酒店可以带宠物吗？"], ["Can I have a rollaway bed?", "能给我一张折叠床吗？"], ["How much is a rollaway bed?", "折叠床多少钱？"], ["Is there a elevator for the disabled?", "有残疾人电梯吗？"], ["The stairs are too steep for me.", "楼梯对我来说太陡了。"], ["Can you help me with my luggage?", "能帮我拿一下行李吗？"], ["Where is the hotel's main entrance?", "酒店正门在哪？"], ["Is there a curfew at the hotel?", "酒店有宵禁吗？"], ["What's the hotel's address?", "酒店地址是什么？"], ["He just called in sick.", "他刚请病假。"], ["I have a nine-to-five job.", "我有一份朝九晚五的工作。"], ["What's the expected salary range for this position?", "这个职位的预期薪资范围是多少？"], ["I got my paycheck yesterday.", "我昨天拿到工资了。"], ["When is the next pay day?", "下一个发薪日是什么时候？"], ["Total compensation includes base salary and annual bonus.", "总薪酬包括基本工资和年度奖金。"], ["The compensation package is competitive.", "薪酬待遇很有竞争力。"], ["Did you get your year-end bonus?", "你拿到年终奖了吗？"], ["The project bonus will be distributed next month.", "项目奖金下个月发放。"], ["What kind of benefits does the company offer?", "公司提供哪些福利？"], ["Health insurance is part of the employee benefits package.", "医疗保险是员工福利的一部分。"], ["That's a smart approach to solve the problem.", "这是个聪明的解决方法。"], ["Your presentation was absolutely brilliant.", "你的演讲非常精彩。"], ["She’s so thoughtful — she remembered everyone’s coffee preference.", "她很贴心，记得每个人的咖啡偏好。"], ["He’s a very talented designer.", "他是个非常有天赋的设计师。"], ["That’s a creative solution to a complex problem.", "这是个解决复杂问题的创意方案。"], ["I’m satisfied with my current salary package.", "我对现在的工资待遇很满意。"], ["Don't forget to take out the trash.", "别忘了把垃圾扔了。"], ["I overslept again this morning.", "我今天早上又睡过头了。"], ["I'm just gonna chill at home tonight.", "我今晚就在家躺着了。"], ["Let's binge that new series tonight.", "今晚一起刷那个新剧吧。"], ["I can't find my keys anywhere.", "我钥匙不知道扔哪儿了。"], ["Do we have any milk left?", "咱家还有牛奶吗？"], ["I'm not in the mood to cook.", "我懒得做饭。"], ["Let's order takeout.", "咱点个外卖吧。"], ["This line is taking forever.", "这队排得也太慢了吧。"], ["That outfit looks amazing on you.", "你穿这套太好看了。"], ["Let me check my schedule.", "我看下我的安排。"], ["I need some fresh air.", "我得透透气。"], ["I could really use a nap.", "我真的需要小睡一下。"], ["Traffic was insane this morning.", "今天早上堵得一塌糊涂。"], ["I'm down for whatever.", "我都行，随便。"], ["I'll be there in five.", "我五分钟到。"], ["Can we talk later?", "咱能晚点聊吗？"], ["I'm totally spaced out.", "我脑子完全断片了。"], ["I forgot what I was saying.", "我刚说到哪儿了？"], ["I'm trying to eat healthy.", "我最近在健康饮食。"], ["He's always late.", "他老迟到。"], ["I stayed up too late last night.", "昨晚熬夜太晚了。"], ["It's pouring outside!", "外面下大暴雨！"], ["Let's get this over with.", "快点把这事搞定吧。"], ["I'm out of breath.", "我喘不过气了。"], ["That's not my thing.", "那不是我的菜。"], ["I'm broke until payday.", "发工资前我一分钱没有。"], ["It's freezing in here!", "这屋也太冷了吧！"], ["That's so typical of him.", "他就是老样子。"], ["I'm in.", "算我一个。"], ["Let's keep it simple.", "咱别整太复杂。"], ["I can't keep up.", "我跟不上了。"], ["This is so frustrating.", "这也太让人抓狂了。"], ["No rush.", "不着急。"], ["What time is it?", "几点啦？"], ["Congratulations!", "祝贺你！"], ["It's her field.", "这是她本行。"], ["I can't help it.", "我情不自禁。"], ["I don't mean it.", "不是故意的。"], ["Any day will do.", "哪天都行。"], ["No one knows.", "没人知道。"], ["Enjoy yourself!", "玩得开心！"], ["It's a fine day.", "是个好天。"], ["I decline!", "我拒绝！"], ["I promise.", "我保证。"], ["Of course!", "当然了！"], ["Slow down!", "慢点！"], ["Take care!", "保重！"], ["They hurt.", "（伤口）疼。"], ["Try again.", "再试试。"], ["Watch out!", "当心。"], ["Be careful!", "注意！"], ["Bottoms up!", "干杯（见底）！"], ["Don't move!", "不许动！"], ["I doubt it.", "我怀疑。"], ["I think so.", "我也这么想。"], ["I'm single.", "我是单身贵族。"], ["Keep it up!", "坚持下去！"], ["Here you go.", "给你。"], ["There you go.", "给你。"], ["Here we go.", "（某事即将开始）开始啦。"], ["Please say hello to your mother for me.", "请代我向你母亲问好。"], ["I had a wonderful time here.", "我在这里度过了难忘的时光。"], ["I hope nothing is wrong.", "我希望一切顺利。"], ["You did a great job.", "你干得很好。"], ["That's very nice of you.", "你真好。"], ["I'm very proud of you.", "我为你感到自豪。"], ["I love you guys.", "我爱你们。"], ["I'd like a coffee, please.", "我要一杯咖啡，谢谢。"], ["No sugar, please.", "不加糖，谢谢。"], ["I'll have the same.", "我要一样的。"], ["Is this spicy?", "这个辣吗？"], ["Let's split the bill.", "我们 AA 吧。"], ["I'll get this one.", "这顿我请。"], ["The food's amazing.", "这菜太好吃了。"], ["I quit!", "我不干了！"], ["Let go!", "放手！"], ["How are you feeling today?", "你今天感觉怎么样?"], ["It's a pleasure to meet you.", "很高兴见到你。"], ["Is this your first time here?", "这是你第一次来这里吗?"], ["I'm happy to help.", "我很乐意帮忙。"], ["Could you speak a bit slower, please?", "你可以说慢一点吗?"], ["I'm afraid I don't understand.", "恐怕我不明白。"], ["I'm not sureIfollow.", "我不确定我明白你的意思。"], ["Can you clarify that?", "你能澄清一下吗?"], ["Can you clarify that for me?", "你能给我解释一下吗?"], ["Visit a doctor.", "看医生。"], ["Think nothing of it.", "没事儿。"], ["I am not myself today.", "我今天状态不好。"], ["I have a sweet tooth.", "我喜欢吃甜食。"], ["No way! / Forget it!", "不行！"], ["For the time being.", "目前。"], ["This milk has gone bad.", "牛奶坏了。"], ["That is beyond me.", "我无能为力。"], ["You can't please everyone.", "你不可能讨好所有人。"], ["I'm working on it.", "我正在处理。"], ["You bet!", "当然！"], ["Drop me a line.", "给我写几句就行。"], ["Are you pulling my leg?", "你在开我玩笑吗？"], ["Sooner or later.", "迟早会发生的。"], ["I'll keep my ears open.", "我会留意的。"], ["It isn't much.", "微不足道。"], ["Neck and neck.", "不分上下。"], ["Don't get me wrong.", "不要误解我。"], ["I'm under a lot of pressure.", "我压力很大。"], ["You're the boss.", "听你的，你做主。"], ["It doesn't make any sense!", "这讲不通！"], ["If I were in your shoes.", "如果我是你。"], ["What does this regard?", "这是关于什么的？"], ["Over my dead body!", "休想！"], ["Can you give me a hand?", "你能帮我个忙吗？"], ["We have thirty minutes to kill.", "我们有三十分钟空闲时间。"], ["Whatever you say.", "随你的便！"], ["It'll come to me.", "我会记起来的。"], ["You name it!", "凡是你说的都算在内。"], ["Time will tell.", "事情终将明朗。"], ["You should take advantage of it.", "你应该利用这个机会。"], ["Let's talk over coffee.", "我们边喝咖啡边聊。"], ["I'm easy to please.", "我不挑剔，很随和。"], ["Let's give him a big hand.", "让我们为他热烈鼓掌。"], ["As far as I'm concerned.", "就我而言。"], ["I'm all mixed up.", "我给搞糊涂了。"], ["It's incredible.", "难以置信。"], ["It's hard to say.", "难说。"], ["I can't imagine why.", "我想不通为什么。"], ["That can't be.", "不可能。"], ["That's really something.", "真了不起。"], ["Are you crazy?", "你疯了吗？"], ["Excuse me for a moment.", "失陪一会儿。"], ["I mean it / I'm serious!", "我不是开玩笑的！"], ["I'll consider this matter.", "我会考虑这件事的。"], ["I'll do something about it.", "我会想办法处理的。"]];window.__KEY__="818全英交流1000句";window.__TITLE__="8.18全英交流1000句";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

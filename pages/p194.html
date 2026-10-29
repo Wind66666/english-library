@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>商务英语100句</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>商务英语100句</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">11,546 字符</span>
+    <span>来源：商务英语100句.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%95%86%E5%8A%A1%E8%8B%B1%E8%AF%AD100%E5%8F%A5.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p194.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">We understand that you&#x27;re looking forflexibility on payment terms, and we&#x27;re open todiscussing different options.
+我们理解您希望在付款条款上有更大的灵活性，我们愿意讨论不同的选择。
+appreciate your offer, but given the currentmarket conditions,lbelieve we need to revisitthe pricing structure.
+感谢您的提议，但考虑到当前的市场情况，我认为我们需要重新审视定价结构。
+In exchange for a longer commitment, we areprepared to offer better terms and discounts
+on future orders.
+如果您能够做出更长期的承诺，我们愿意在未来的订单中提供更好的条款和折扣。154.While we can be flexible on some points,certain terms are non-negotiable, particularlyregarding delivery and quality standards.虽然我们在某些方面可以灵活处理，但某些条款是不可谈判的，尤其是在交货和质量标准方面。
+lf we can agree on this pricing model, we areready to move forward with a formalagreement.如果我们能够就这个定价模式达成一致，我们准继续推进正式协议。
+We are confident that our product&#x27;s quality and performance will exceed your expectations once you give it a try.
+我们相信，一旦您试用，我们产品的质量和性能将超出您的预期。
+Considering the long - standing business relationship between us, we hope you can make some concessions on the minimum order quantity.
+考虑到我们之间长期的业务关系，我们希望您能在最小起订量上做出一些让步。
+To ensure a smooth transaction, we suggest setting up a joint - inspection team to monitor the production process.
+为确保交易顺利进行，我们建议成立一个联合检查组来监督生产过程。
+We are willing to bear the cost of shipping if you can increase the order volume by 20%.
+如果您能将订单量增加 20%，我们愿意承担运费。
+The new payment method we proposed is more convenient and cost - effective for both parties.
+我们提议的新付款方式对双方来说都更便捷且更具成本效益。
+We have received your feedback on the product samples, and we will make improvements accordingly.
+我们已收到您对产品样品的反馈，我们将据此进行改进。
+In order to promote our cooperation, we can provide you with a free trial period for the new product.
+为促进我们的合作，我们可以为您提供新产品的免费试用期。
+We need to clarify the responsibilities and obligations of both parties in the event of force majeure.
+我们需要明确双方在不可抗力事件发生时的责任和义务。
+Your prompt response to our proposal is highly appreciated, as it will help us move forward with the project more quickly.
+非常感谢您对我们提议的迅速回复，这将有助于我们更快地推进项目。
+We are looking forward to establishing a strategic partnership with your company to explore new markets together.
+我们期待与贵公司建立战略合作伙伴关系，共同开拓新市场。
+The market is highly competitive, so we need to continuously optimize our products and services to stay ahead.
+市场竞争激烈，所以我们需要不断优化我们的产品和服务以保持领先。
+If you have any specific requirements for the packaging, please let us know and we will do our best to meet them.
+如果您对包装有任何特殊要求，请告知我们，我们将尽力满足。
+We plan to launch a new marketing campaign next month, and we hope you can participate and support us.
+我们计划下个月开展一项新的营销活动，希望您能参与并支持我们。
+The after - sales service we provide includes 24 - hour technical support and a one - year warranty.
+我们提供的售后服务包括 24 小时技术支持和一年保修。
+We have conducted a thorough market research, and the results show that there is a great potential for our products in your region.
+我们进行了全面的市场调研，结果表明我们的产品在贵地区有很大的潜力。
+It is in our mutual interest to reach an agreement as soon as possible to avoid any further delays.
+尽快达成协议符合我们双方的利益，以避免任何进一步的延误。
+We can offer you a preferential price if you place a large - scale order this time.
+如果您这次下大订单，我们可以为您提供优惠价格。
+Please let us know your thoughts on the proposed cooperation plan at your earliest convenience.
+请在您方便的时候尽早告知我们您对提议的合作计划的想法。
+We are committed to providing high - quality products and services, and we always strive for customer satisfaction.
+我们致力于提供高质量的产品和服务，始终追求客户满意度。
+In case of any disputes during the cooperation, we should resolve them through friendly consultations.
+在合作过程中如有任何争议，我们应通过友好协商解决。
+We have made some adjustments to the production schedule to ensure timely delivery.
+我们对生产进度进行了一些调整，以确保及时交货。
+Your company&#x27;s reputation in the industry is well - known, and we are honored to have the opportunity to cooperate with you.
+贵公司在行业内的声誉众所周知，我们很荣幸有机会与您合作。
+We suggest signing a non - disclosure agreement before sharing any confidential business information.
+我们建议在共享任何机密商业信息之前签署保密协议。
+The new technology we adopted can significantly improve the product&#x27;s quality and efficiency.
+我们采用的新技术可以显著提高产品的质量和效率。
+We are willing to invest in joint R &amp; D projects with your company to develop more innovative products.
+我们愿意与贵公司投资于联合研发项目，以开发更具创新性的产品。
+Please provide us with detailed product specifications so that we can better understand your needs.
+请向我们提供详细的产品规格，以便我们更好地了解您的需求。
+We believe that our combined strengths can create a win - win situation in the market.
+我们相信，我们的综合实力可以在市场上创造双赢局面。
+In order to reduce costs, we are considering alternative raw materials without sacrificing product quality.
+为降低成本，我们正在考虑在不牺牲产品质量的前提下使用替代原材料。
+Your timely payment is crucial for the smooth operation of our business.
+您的及时付款对我们业务的顺利运营至关重要。
+We can offer you a training program for your staff to help them better use our products.
+我们可以为您的员工提供培训计划，帮助他们更好地使用我们的产品。
+The market demand for this type of product is on the rise, and we should seize this opportunity.
+这种产品的市场需求正在上升，我们应该抓住这个机会。
+We are open to suggestions on how to improve our cooperation and make it more efficient.
+我们乐于接受关于如何改善我们的合作并使其更高效的建议。
+Please note that the price we quoted is valid for a limited time only.
+请注意，我们报的价格仅在有限时间内有效。
+We plan to expand our business scope in the near future, and we hope to have your support.
+我们计划在不久的将来扩大业务范围，希望得到您的支持。
+The quality control measures we implement ensure that every product leaving our factory meets the highest standards.
+我们实施的质量控制措施确保每一个出厂产品都符合最高标准。
+We are interested in your company&#x27;s distribution network and hope to cooperate with you in product distribution.
+我们对贵公司的分销网络感兴趣，希望与您在产品分销方面合作。
+If you have any questions regarding the contract terms, please feel free to let us know.
+如果您对合同条款有任何疑问，请随时告知我们。
+We are currently negotiating with other partners, but we value our relationship with you the most.
+我们目前正在与其他合作伙伴谈判，但我们最重视与您的关系。
+The payment terms we usually offer are 30% down payment and the balance within 60 days after delivery.
+我们通常提供的付款条件是 30% 的预付款，余额在交货后 60 天内支付。
+We can provide you with a reference list of our previous clients to prove our reliability.
+我们可以为您提供我们以前客户的参考名单，以证明我们的可靠性。
+We are constantly exploring new business opportunities and hope to find common ground with your company.
+我们一直在探索新的商业机会，希望能与贵公司找到共同点。
+Your feedback on our previous cooperation is very important to us, as it helps us improve our services.
+您对我们之前合作的反馈对我们非常重要，因为这有助于我们改进服务。
+We suggest holding a video conference to discuss the details of the cooperation project in more depth.
+我们建议举行视频会议，更深入地讨论合作项目的细节。
+We have a professional team dedicated to customer service, and they will respond to your inquiries promptly.
+我们有一个专业的客户服务团队，他们将迅速回复您的询问。
+In order to meet the market demand, we are planning to increase our production capacity.
+为满足市场需求，我们计划提高生产能力。
+We are willing to offer a price match guarantee if you find a lower - priced similar product in the market.
+如果您在市场上找到价格更低的类似产品，我们愿意提供价格匹配保证。
+The delivery time we can promise is within 15 working days after receiving the payment.
+我们可以承诺的交货时间是收到付款后 15 个工作日内。
+Please review the attached proposal carefully and let us know if you have any comments or suggestions.
+请仔细查看附件中的提案，如果您有任何意见或建议，请告知我们。
+We believe that effective communication is the key to a successful business cooperation.
+我们相信，有效的沟通是成功商业合作的关键。
+We are considering offering a loyalty program for our long - term customers to reward their continued support.
+我们正在考虑为长期客户提供忠诚度计划，以奖励他们的持续支持。
+The market situation is constantly changing, and we need to adapt our business strategies accordingly.
+市场形势不断变化，我们需要相应地调整我们的商业策略。
+We can provide you with a sample batch of products for testing before you place a large order.
+在您下大订单之前，我们可以为您提供一批样品进行测试。
+We hope to establish a long - term and stable business relationship with your company based on mutual trust and mutual benefit.
+我们希望在相互信任、互利共赢的基础上与贵公司建立长期稳定的业务关系。
+Your company&#x27;s brand image is highly recognized in the market, and we are eager to cooperate with you to promote our products.
+贵公司的品牌形象在市场上得到高度认可，我们渴望与您合作推广我们的产品。
+We have optimized our supply chain to ensure a more stable and efficient product delivery.
+我们优化了供应链，以确保更稳定、高效的产品交付。
+If you are interested in our new product line, we can arrange a product demonstration for you.
+如果您对我们的新产品系列感兴趣，我们可以为您安排产品演示。
+We are committed to continuous improvement and innovation to provide better value for our customers.
+我们致力于持续改进和创新，为客户提供更好的价值。
+The payment security measures we have in place ensure that your transactions are safe and reliable.
+我们采取的支付安全措施确保您的交易安全可靠。
+Please let us know your estimated order quantity so that we can offer you a more accurate price.
+请告知我们您的预计订单数量，以便我们为您提供更准确的价格。
+We are open to the idea of co - branding with your company to expand our market influence.
+我们对与贵公司联合品牌的想法持开放态度，以扩大我们的市场影响力。
+We have conducted a cost - benefit analysis, and the results show that this cooperation project is highly profitable.
+我们进行了成本效益分析，结果表明这个合作项目利润丰厚。
+In case of any product quality issues, we will provide a full refund or replacement.
+如有任何产品质量问题，我们将提供全额退款或更换。
+We suggest setting up a regular communication mechanism to keep each other informed of the project progress.
+我们建议建立定期沟通机制，以便及时了解项目进展情况。
+We are currently in the process of upgrading our production facilities to improve product quality and production efficiency.
+我们目前正在升级生产设施，以提高产品质量和生产效率。
+Your company&#x27;s expertise in this field is highly respected, and we hope to learn from your experience.
+贵公司在这个领域的专业知识备受尊敬，我们希望借鉴您的经验。
+We can offer you a volume - based discount structure to encourage larger orders.
+我们可以为您提供基于数量的折扣结构，以鼓励大订单。
+The market share of our products has been steadily increasing, and we believe this trend will continue.
+我们产品的市场份额一直在稳步增长，我们相信这一趋势将继续下去。
+Please consider our proposal carefully, as we believe it can bring great benefits to both parties.
+请仔细考虑我们的提议，因为我们相信它能给双方带来巨大的利益。
+We are willing to provide training and technical support to help your company integrate our products into your existing system.
+我们愿意提供培训和技术支持，帮助贵公司将我们的产品集成到您现有的系统中。
+We have a strict quality inspection system in place to ensure that only high - quality products are shipped to our customers.
+我们有严格的质量检验系统，以确保只有高质量的产品才能发货给我们的客户。
+We are exploring the possibility of setting up a joint venture with your company to further expand our business.
+我们正在探索与贵公司成立合资企业的可能性，以进一步扩大我们的业务。
+If you have any special requirements regarding the product customization, please communicate with us in advance.
+如果您对产品定制有任何特殊要求，请提前与我们沟通。
+We believe that by working together, we can overcome any challenges and achieve our common goals.
+我们相信，通过共同努力，我们可以克服任何挑战，实现我们的共同目标。
+The marketing plan we developed focuses on targeting high - end customers to enhance the brand value.
+我们制定的营销计划侧重于瞄准高端客户，以提升品牌价值。
+We are interested in your company&#x27;s marketing channels and hope to explore cooperation opportunities in this area.
+我们对贵公司的营销渠道感兴趣，希望在这方面探索合作机会。
+We can provide you with a detailed product manual and user guide to help you better understand and use our products.
+我们可以为您提供详细的产品手册和用户指南，帮助您更好地理解和使用我们的产品。
+We are committed to environmental protection and ensure that our production processes meet the highest environmental standards.
+我们致力于环境保护，确保我们的生产过程符合最高的环境标准。
+Please note that any changes to the order after it is placed may incur additional costs.
+请注意，订单下达后如有任何更改可能会产生额外费用。
+We are looking for partners who share the same business philosophy and values as us.
+我们正在寻找与我们拥有相同商业理念和价值观的合作伙伴。
+We have a flexible return policy that allows customers to return products within a certain period under certain conditions.
+我们有灵活的退货政策，允许客户在一定条件下在一定期限内退货。
+The product launch event we plan to hold next month will be a great opportunity to showcase our new products.
+我们计划下个月举行的产品发布会将是展示我们新产品的绝佳机会。
+We are open to the possibility of barter trade if it is beneficial to both parties.
+如果对双方都有利，我们对易货贸易持开放态度。
+We suggest conducting a market test before fully launching the new product to gauge customer response.
+我们建议在全面推出新产品之前进行市场测试，以评估客户反应。
+We have a professional R &amp; D team that is constantly working on new product development to meet market demands.
+我们有一个专业的研发团队，一直在致力于新产品开发以满足市场需求。
+Your company&#x27;s market insights are very valuable to us, and we hope to have in - depth discussions with you.
+贵公司的市场洞察力对我们非常有价值，我们希望与您进行深入讨论。
+We can offer you a free upgrade service for our products within a certain period after purchase.
+我们可以在购买后的一定期限内为您提供产品的免费升级服务。
+The market competition is intense, and we need to differentiate our products through innovation.
+市场竞争激烈，我们需要通过创新使我们的产品差异化。
+Please let us know your target price range so that we can adjust our pricing strategy accordingly.
+请告知我们您的目标价格范围，以便我们相应地调整定价策略。
+We are considering entering into a strategic alliance with your company to strengthen our market position.
+我们正在考虑与贵公司结成战略联盟，以加强我们的市场地位。
+We have a comprehensive after - sales service system that includes regular product maintenance and troubleshooting.
+我们有全面的售后服务系统，包括定期产品维护和故障排除。
+We are confident that our company&#x27;s financial strength and stability can support this large - scale cooperation project.
+我们相信我们公司的财务实力和稳定性可以支持这个大规模的合作项目。
+If you have any concerns about the product&#x27;s compatibility with your existing equipment, please feel free to let us know.
+如果您对产品与您现有设备的兼容性有任何担忧，请随时告知我们。
+We suggest signing a performance - based contract to ensure that both parties fulfill their obligations effectively.
+我们建议签署一份基于绩效的合同，以确保双方有效地履行各自的义务。
+We are constantly monitoring the market trends and adjusting our product features to meet customer needs.
+我们一直在监测市场趋势，并调整我们的产品功能以满足客户需求。
+Your company&#x27;s industry connections are very extensive, and we hope to benefit from them in our cooperation.
+贵公司的行业人脉非常广泛，我们希望在合作中从中受益。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="商务英语100句";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

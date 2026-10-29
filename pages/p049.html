@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9.10 背完这500句30天让你流利说英语</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>9.10 背完这500句30天让你流利说英语</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">24,958 字符</span>
+    <span>来源：9.10     背完这500句30天让你流利说英语.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C9.10%20%20%20%20%20%E8%83%8C%E5%AE%8C%E8%BF%99500%E5%8F%A530%E5%A4%A9%E8%AE%A9%E4%BD%A0%E6%B5%81%E5%88%A9%E8%AF%B4%E8%8B%B1%E8%AF%AD.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p049.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">RECEIVE FOREIGN CLIENTS
+练熟这500句
+2个月丨无障碍英文沟通
+How are you feeling today?
+今天你感觉怎么样？
+Could you please repeat that?
+你可以再说一遍吗？
+Do you mind if I sit here?
+你介意我坐在这里吗？
+I&#x27;ll be with you in a moment.
+我马上就来。
+What do you recommend?
+你推荐什么？
+That&#x27;s exactly what I was thinking.
+这正是我所想的。
+Can you tell me where the neareststationis?
+你能告诉我最近的车站在哪里吗？
+8.I&#x27;m afraid I don&#x27;t understand.
+恐怕我不明白。
+Would you like anything else?
+你还需要点别的吗？
+It&#x27;s a pleasure to meet you.
+很高兴见到你。
+I&#x27;d like to make a reservation.
+我想预订一个位置。
+Could you help me with this?
+你能帮我一下吗？
+What time do we need to leave?
+我们需要几点离开？
+This is not what I expected.
+这不是我期待的。
+Can you show me how it works?
+你能告诉我它是怎么用的吗？
+Do you have any special discounts?
+你们有特别折扣吗？
+Can I have the check, please?
+我可以要账单吗？
+I&#x27;ll take care of it.
+我会处理好的。
+Could you speak a bit slower, please?
+你可以说慢一点吗？
+What&#x27;s the weather like today?
+今天天气怎么样？
+Is there anything I can do for you?
+我能为你做点什么吗？
+How far is it from here?
+离这里有多远？
+23.Could you tell me the way to the airport? 你能告诉我去机场的路吗？
+24.I need to catch a bus.
+我需要赶公交车。
+Do you know if it&#x27;s open now?
+你知道它现在是否营业吗？
+Where can I exchange currency?
+我在哪里可以兑换货币？
+What time does the store close?
+这家店几点关门？
+Could you recommend a good restaurant nearby?
+你能推荐一家附近的好餐馆吗？
+Do you take credit cards?
+你们接受信用卡吗？
+I&#x27;m looking for a souvenir shop.
+我在找一家纪念品商店。
+Is this your first time here?
+这是你第一次来这里？
+32.Can you tell me more about this place?
+你能告诉我更多关于这个地方的信息吗？
+What&#x27;s the best way to get there?
+去那里最好的方式是什么？
+34.Do you have any vegetarian options?
+你们有素食选择吗？
+35.Can you pack this to go?
+你能把这个打包吗？
+36.What&#x27;s the exchange rate today?
+今天的汇率是多少？
+Can I pay in cash?
+我可以用现金支付吗？
+38.Do you know where I can find a pharmacy? 你知道哪里可以找到药店吗？
+39.How long will it take to get there? 到那里需要多长时间？
+40.What&#x27;s your Wi - Fi password?
+你们的网络密码是什么？
+41.Do you have this in a different color?
+你们有其他颜色的吗？
+I&#x27;d like a window seat, please.
+我想要一个靠窗的座位。
+Can you help me translate this?
+你能帮我翻译这个吗？
+Is there a hospital nearby?
+附近有医院吗？
+What&#x27;s the best thing on the menu?
+菜单上最好的菜是什么？
+Can I have a copy of the receipt?
+我可以要一份收据吗？
+Is there public transportation available here?
+这里有公共交通工具吗？
+How much does it cost to get in?
+入场费是多少？
+Do I need a reservation?
+我需要预订吗？
+Could you tell me more about your culture?
+你能多告诉我一些关于你们文化的事情吗？
+Is it possible to get a discount?
+可以打折吗？
+52.Could you recommend some local dishes? 你能推荐些当地的菜吗？
+53.Where is the nearest train station?
+最近的火车站在哪里？
+Can I have this delivered to my hotel?
+我可以把这个送到我的酒店吗？
+How do I get to the airport?
+我怎么去机场？
+Do you have any brochures or maps?
+你们有宣传册或地图吗？
+Can I leave my luggage here?
+我可以把行李寄存在这里吗？
+What are the opening hours?
+营业时间是几点到几点？
+Do you offer guided tours?
+你们提供导游服务吗？
+Can I try this on?
+我可以试穿一下吗？
+What&#x27;s the local specialty?
+当地的特色是什么？
+Is there a place to park nearby?
+附近有停车的地方吗？
+Can I take photos here?
+我可以在这里拍照吗？
+How far is it from here?
+离这里有多远？
+Are there any events happening this week?
+这周有活动吗？
+Can you recommend a good café around here?
+你能推荐一家附近的好咖啡馆吗？ 67.I&#x27;d like to book a table for two. 我想订一个两个人的桌子。
+What time is check - out?
+退房时间是几点？
+Where can I get a taxi?
+我在哪里可以打到出租车？
+Could you speak a little slower?
+你能说得慢一点吗？
+What&#x27;s the emergency contact number here?
+这里的紧急联系电话是多少？
+Do you have any travel packages?
+你们有旅游套餐吗？
+73.Is there a good place for hiking nearby? 附近有适合徒步的地方吗？
+74.Can I pay in installments?
+我可以分期付款吗？
+75.Do you know where I can buy souvenirs? 你知道哪里可以买纪念品吗？
+76.Could you write that down for me?
+你能帮我写下来吗？
+What&#x27;s the temperature like today?
+今天的温度怎么样？
+Is it safe to walk around at night?
+晚上在这里走安全吗？
+79.Do you know a good place for shopping? 你知道购物的好地方吗？
+80.Could I have a refill, please?
+我可以再加点吗？
+Are there any vegetarian restaurants around?
+附近有素食餐厅吗？
+82.Can I make an international call here?
+我可以在这里打国际电话吗？
+What&#x27;s the quickest way to get downtown?
+去市中心最快的方法是什么？
+Are there any beaches nearby?
+附近有沙滩吗？
+Can I have an extra blanket, please?
+我可以要一条额外的毯子吗？
+Is there a place to exchange money nearby?
+附近有兑换货币的地方吗？
+Could you call me a taxi?
+你能帮我叫辆出租车吗？
+Is tipping customary here?
+在这里小费是习惯吗？
+What time does the last bus leave?
+最后一班公交车几点发车？
+Are there any libraries in the neighborhood?
+这附近有图书馆吗？
+Can I borrow a charger?
+我可以借个充电器吗？
+How often does the subway come?
+地铁多久来一趟？
+Is there a post office close by?
+附近有邮局吗？
+What time does the museum open?
+博物馆几点开门？
+Do you know if there&#x27;s a park around here?
+你知道这附近有公园吗？
+Can I get a refund for this?
+这个我可以退款吗？
+Could you give me some change?
+你能给我些零钱吗？
+How much is the delivery fee?
+配送费是多少？
+Is there a laundromat nearby?
+附近有自助洗衣店吗？
+Do you know where I can rent a bike?
+你知道哪里可以租自行车吗？
+What kind of payment methods do you accept?
+你们接受哪些支付方式？
+Can I have a glass of water, please?
+请给我一杯水好吗？
+Are there any ATMs in the area?
+这一带有自动取款机吗？
+Could you tell me the name of this street?
+你能告诉我这条街的名字吗？
+Do you have any free samples?
+你们有免费样品吗？
+106.Is there a movie theater close to here? 这附近有电影院吗？
+107.How do I get to the city center?
+我怎么去市中心？
+Can I bring my pet in here?
+我可以把我的宠物带进来吗？
+What&#x27;s the population of this city?
+这个城市的人口有多少？
+Do you know if there&#x27;s a swimming pool nearby?
+你知道附近有游泳池吗？
+Can I reserve a private room?
+我可以预订一个包间吗？
+How much does it cost to rent a car?
+租一辆车要多少钱？
+Is there a pet store around?
+附近有宠物店吗？
+Could you show me the way to the library?
+你能给我指一下去图书馆的路吗？
+115.Do you have any gluten - free options? 你们有不含麸质的选择吗？
+116.What time does the concert start?
+音乐会几点开始？
+Can I get a discount if I buy in bulk?
+如果我批量购买可以打折吗？
+Is there a barber shop nearby?
+附近有理发店吗？
+Do you know where I can buy a newspaper?
+你知道哪里可以买到报纸吗？
+How do I use this vending machine?
+这个自动售货机怎么用？
+Can I take a raincheck?
+我可以改天再来吗？
+122.Are there any art galleries in the vicinity? 附近有美术馆吗？
+123.What&#x27;s the local time zone?
+当地是什么时区？
+Do you know if there&#x27;s a gym around here?
+你知道这附近有健身房吗？
+Can I get a late check - out?
+我可以延迟退房吗？
+How much is the entrance fee for the zoo?
+动物园的门票是多少钱？
+Is there a hardware store nearby?
+附近有五金店吗？
+128.Could you tell me the nearest bus stop? 你能告诉我最近的公交车站在哪里吗？
+129.Do you have any sugar - free products? 你们有无糖产品吗？
+130.What time does the play end?
+演出几点结束？
+Can I have a dog - friendly room?
+我可以要一个允许带狗的房间吗？
+132.How do I connect to the hotel&#x27;s Wi - Fi? 我怎么连接酒店的 Wi - Fi?
+133.Is there a flower shop close by?
+附近有花店吗？
+Do you know where I can buy a SIM card?
+你知道哪里可以买到 SIM 卡吗？
+Can I get a discount for students?
+学生可以打折吗？
+136.Are there any community centers nearby? 附近有社区中心吗？
+137.What&#x27;s the altitude of this place?
+这个地方的海拔是多少？
+Do you know if there&#x27;s a bowling alley around here?
+你知道这附近有保龄球馆吗？
+Can I have an early check - in?
+我可以提前入住吗？
+How much does it cost to park here for an hour?
+在这里停车一小时要多少钱？
+Is there a bookstore in the area?
+这一带有书店吗？
+Could you tell me the best route to the university?
+你能告诉我去大学的最佳路线吗？
+Do you have any dairy - free options?
+你们有不含乳制品的选择吗？
+144.What time does the fireworks show start? 烟花表演几点开始？
+145.Can I have a view of the ocean?
+我可以要一个能看到海的房间吗？
+How do I report a lost item?
+我怎么报失物品？
+Is there a music store nearby?
+附近有音像店吗？
+Do you know where I can buy a map?
+你知道哪里可以买到地图吗？
+149.Can I get a discount for senior citizens? 老年人可以打折吗？
+150.Are there any farmers&#x27; markets around? 附近有农贸市场吗？
+151.What&#x27;s the humidity like today?
+今天的湿度怎么样？
+Do you know if there&#x27;s a skating rink nearby?
+你知道这附近有溜冰场吗？
+Can I have a wake - up call at 6 am?
+我可以早上 6 点有叫醒服务吗？
+How much does it cost to send a postcard?
+寄一张明信片要多少钱？
+Is there a stationery store close by?
+附近有文具店吗？
+Could you tell me the way to the botanical garden?
+你能告诉我去植物园的路吗？
+Do you have any nut - free options?
+你们有不含坚果的选择吗？
+158.What time does the magic show begin? 魔术表演几点开始？
+159.Can I have a balcony in my room?
+我的房间可以有阳台吗？
+How do I find a local tour guide?
+我怎么找一个当地导游？
+Is there a pawnshop in the neighborhood?
+这附近有当铺吗？
+162.Do you know where I can buy a lighter? 你知道哪里可以买到打火机吗？
+163.Can I get a discount for a group of ten? 十个人的团体可以打折吗？
+164.Are there any public restrooms around here?
+这附近有公共厕所吗？
+What&#x27;s the wind direction today?
+今天风向是什么？
+Do you know if there&#x27;s a shooting range nearby?
+你知道这附近有射击场吗？
+Can I have a non - smoking room?
+我可以要一个无烟房间吗？
+168.How much does it cost to dry - clean this shirt? 干洗这件衬衫要多少钱？
+169.Is there a tailor shop nearby? 附近有裁缝店吗？
+170.Could you tell me the nearest subway entrance? 你能告诉我最近的地铁站入口在哪里吗？
+171.Do you have any soy - free options? 你们有不含大豆的选择吗？
+172.What time does the puppet show start? 木偶戏几点开始？
+173.Can I have a room with a bathtub? 我可以要一个带浴缸的房间吗？
+174.How do I get a refund for a defective product? 有缺陷的产品我怎么退款？
+175.Is there a toy store around? 附近有玩具店吗？
+176.Do you know where I can buy a battery? 你知道哪里可以买到电池吗？
+177.Can I get a discount for a long - term stay? 长期住宿可以打折吗？
+178.Are there any public parks with playgrounds nearby? 附近有带游乐场的公园吗？
+179.What&#x27;s the dew point today? 今天的露点是多少？
+180.Do you know if there&#x27;s a driving range nearby? 你知道这附近有高尔夫练习场吗？
+181.Can I have a room on a higher floor? 我可以要一个高楼层的房间吗？
+182.How much does it cost to repair my shoes? 修我的鞋要多少钱？
+183.Is there a cobbler&#x27;s shop nearby? 附近有修鞋店吗？
+184.Could you tell me the way to the observatory? 你能告诉我去天文台的路吗？
+185.Do you have any caffeine - free options? 你们有不含咖啡因的选择吗？
+186.What time does the fashion show start? 时装秀几点开始？
+187.Can I have a room with a king - sized bed? 我可以要一个有特大号床的房间吗？
+188.How do I file a complaint? 我怎么投诉？
+189.Is there a pet grooming shop nearby? 附近有宠物美容店吗？
+190.Do you know where I can buy a stamp? 你知道哪里可以买到邮票吗？
+191.Can I get a discount for members? 会员可以打折吗？
+192.Are there any public swimming pools with diving boards nearby? 附近有带跳水板的公共游 泳池吗？
+193.What&#x27;s the air quality like today? 今天的空气质量怎么样？
+194.Do you know if there&#x27;s a paint store nearby? 你知道附近有油漆店吗？
+195.Can I have a seat in the non - smoking section? 我可以在无烟区就座吗？
+196.How much does it cost to rent a kayak? 租一艘皮划艇要多少钱？
+197.Is there a kite - flying area around here? 这附近有放风筝的地方吗？
+198.Do you know where I can buy a fishing rod? 你知道哪里可以买到鱼竿吗？
+199.Can I get a discount for paying in advance? 提前付款可以打折吗？
+200.Are there any public tennis courts nearby? 附近有公共网球场吗？
+201.What&#x27;s the pollen count like today? 今天的花粉浓度如何？
+202.Do you know if there&#x27;s a blacksmith shop nearby? 你知道附近有铁匠铺吗？
+203.Can I have a room with a view of the mountains? 我可以要一个能看到山景的房间吗？
+204.How much does it cost to have my suit tailored? 定制我的西装要多少钱？
+205.Is there a hat shop in the area? 这一带有帽子店吗？
+206.Could you tell me the way to the planetarium? 你能告诉我去天文馆的路吗？
+207.Do you have any vegan - friendly snacks? 你们有适合纯素食者的零食吗？
+208.What time does the circus start? 马戏团表演几点开始？
+209.Can I have a table by the window in the restaurant? 在餐厅我可以要一张靠窗的桌子吗？
+210.How do I register for a local event? 我怎么报名参加当地的活动？
+211.Is there a locksmith nearby? 附近有锁匠吗？
+212.Do you know where I can buy a first - aid kit? 你知道哪里可以买到急救箱吗？
+213.Can I get a discount for a large order? 大量订购可以打折吗？
+214.Are there any public basketball courts around? 附近有公共篮球场吗？
+215.What&#x27;s the UV index today? 今天的紫外线指数是多少？
+216.Do you know if there&#x27;s a pottery studio nearby? 你知道附近有陶艺工作室吗？
+217.Can I have a room with a sofa bed? 我可以要一个带沙发床的房间吗？
+218.How much does it cost to have my hair cut and styled? 剪发和做造型要多少钱？
+219.Is there a wig shop close by? 附近有假发店吗？
+220.Could you tell me the nearest bus terminal? 你能告诉我最近的公交终点站在哪里吗？
+221.Do you have any lactose - free desserts? 你们有不含乳糖的甜点吗？
+222.What time does the acrobatics show begin? 杂技表演几点开始？
+223.Can I have a balcony seat for the concert? 音乐会我可以要一个阳台座位吗？
+224.How do I subscribe to a local newspaper? 我怎么订阅当地的报纸？
+225.Is there a calligraphy supplies store nearby? 附近有书法用品店吗？
+226.Do you know where I can buy a yo - yo? 你知道哪里可以买到悠悠球吗？
+227.Can I get a discount for military personnel? 军人可以打折吗？
+228.Are there any public volleyball courts around here? 这附近有公共排球场吗？
+229.What&#x27;s the ozone level today? 今天的臭氧水平如何？
+230.Do you know if there&#x27;s a glass - blowing studio nearby? 你知道附近有吹玻璃工作室吗？
+231.Can I have a room with a connecting door to another room? 我可以要一个和另一间房有连通 门的房间吗？
+232.How much does it cost to develop these photos? 冲洗这些照片要多少钱？
+233.Is there a photo - printing shop in the area? 这一带有照片冲印店吗？234.Could you tell me the way to the conservatory? 你能告诉我去温室的路吗？
+235.Do you have any sugar - free and gluten - free products? 你们有既无糖又无麸质的产品吗？
+236.What time does the puppet theater performance start? 木偶剧院表演几点开始？
+237.Can I have a seat in the front row for the lecture? 讲座我可以要一个前排座位吗？
+238.How do I apply for a local library card? 我怎么申请当地的图书馆借书证？
+239.Is there a magic supplies store nearby? 附近有魔术用品店吗？
+240.Do you know where I can buy a frisbee? 你知道哪里可以买到飞盘吗？
+241.Can I get a discount for senior students? 高年级学生可以打折吗？
+242.Are there any public badminton courts around? 附近有公共羽毛球场吗？
+243.What&#x27;s the barometric pressure today? 今天的气压是多少？
+244.Do you know if there&#x27;s a stained - glass workshop nearby? 你知道附近有彩色玻璃工坊吗？
+245.Can I have a room with a private balcony? 我可以要一个带私人阳台的房间吗？
+246.How much does it cost to engrave my name on this keychain? 在这个钥匙链上刻我的名字要 多少钱？
+247.Is there an engraving shop close by? 附近有雕刻店吗？
+248.Could you tell me the nearest subway transfer station? 你能告诉我最近的地铁换乘站在哪里 吗？
+249.Do you have any caffeine - free and dairy - free beverages? 你们有既不含咖啡因又不含乳制 品的饮料吗？
+250.What time does the puppet - making workshop start? 木偶制作工作坊几点开始？
+251.Can I have a table for four in the outdoor area of the café? 在咖啡馆的户外区域我可以要一张 四人桌吗？
+252.How do I join a local sports club? 我怎么加入当地的体育俱乐部？
+253.Is there a fencing equipment store nearby? 附近有击剑装备店吗？
+254.Do you know where I can buy a dartboard? 你知道哪里可以买到飞镖盘吗？
+255.Can I get a discount for frequent customers? 常客可以打折吗？
+256.Are there any public archery ranges around here? 这附近有公共射箭场吗？
+257.What&#x27;s the cloud cover like today? 今天的云量怎么样？
+258.Do you know if there&#x27;s a bonsai nursery nearby? 你知道附近有盆景苗圃吗？
+259.Can I have a room with a Murphy bed? 我可以要一个带墨菲床（壁床）的房间吗？
+260.How much does it cost to have my guitar tuned? 给我的吉他调音要多少钱？
+261.Is there a musical instrument repair shop in the area? 这一带有乐器维修店吗？
+262.Could you tell me the way to the arboretum? 你能告诉我去植物园（树木园）的路吗？
+263.Do you have any nut - free and soy - free snacks? 你们有既不含坚果又不含大豆的零食吗？264.What time does the sandcastle - building competition start? 沙雕比赛几点开始？
+265.Can I have a seat in the VIP section for the show? 演出我可以要一个贵宾区的座位吗？
+266.How do I sign up for a local cooking class? 我怎么报名参加当地的烹饪课程？
+267.Is there a spice shop nearby? 附近有香料店吗？
+268.Do you know where I can buy a magnifying glass? 你知道哪里可以买到放大镜吗？
+269.Can I get a discount for teachers? 教师可以打折吗？
+270.Are there any public bocce ball courts around? 附近有公共地掷球场吗？
+271.What&#x27;s the visibility like today? 今天的能见度怎么样？
+272.Do you know if there&#x27;s a beekeeping supply store nearby? 你知道附近有养蜂用品店吗？
+273.Can I have a room with a daybed? 我可以要一个带长沙发床的房间吗？
+274.How much does it cost to have my leather shoes polished? 擦我的皮鞋要多少钱？
+275.Is there a shoe - shining stand nearby? 附近有擦鞋摊吗？
+276.Could you tell me the nearest bus stop for the express bus? 你能告诉我去坐快车的最近公交 站在哪里吗？
+277.Do you have any sugar - free and caffeine - free energy drinks? 你们有既无糖又无咖啡因的 能量饮料吗？
+278.What time does the kite - making workshop begin? 风筝制作工作坊几点开始？
+279.Can I have a table by the fireplace in the restaurant? 在餐厅我可以要一张靠近壁炉的桌子吗？
+280.How do I register for a local art exhibition? 我怎么报名参加当地的艺术展览？
+281.Is there a charcoal - making workshop nearby? 附近有木炭制作工坊吗？
+282.Do you know where I can buy a kaleidoscope? 你知道哪里可以买到万花筒吗？
+283.Can I get a discount for volunteers? 志愿者可以打折吗？
+284.Are there any public shuffleboard courts around here? 这附近有公共沙狐球球场吗？
+285.What&#x27;s the wind speed today? 今天的风速是多少？
+286.Do you know if there&#x27;s a taxidermy shop nearby? 你知道附近有动物标本店吗？
+287.Can I have a room with a canopy bed? 我可以要一个带四柱床（带顶篷床）的房间吗？
+288.How much does it cost to have my violin repaired? 修理我的小提琴要多少钱？
+289.Is there a stringed - instrument shop in the area? 这一带有弦乐器店吗？
+290.Could you tell me the way to the horticultural center? 你能告诉我去园艺中心的路吗？
+291.Do you have any dairy - free and gluten - free breakfast options? 你们有既不含乳制品又无 麸质的早餐选择吗？
+292.What time does the ice - sculpting competition start? 冰雕比赛几点开始？
+293.Can I have a seat in the orchestra section for the symphony? 交响乐演出我可以要一个管弦乐 区的座位吗？
+322.How do I register for a local language course? 我怎么报名参加当地的语言课程？
+323.Is there a calligraphy - brush - making workshop nearby? 附近有毛笔制作工坊吗？
+324.Do you know where I can buy a Chinese chess set? 你知道哪里可以买到一副中国象棋吗？
+325.Can I get a discount for local residents? 当地居民可以打折吗？
+326.Are there any public badminton courts with lights for night play? 附近有带灯光供夜间使用的 公共羽毛球场吗？
+327.What&#x27;s the precipitation probability today? 今天的降水概率是多少？
+328.Do you know if there&#x27;s a bonsai - trimming workshop nearby? 你知道附近有盆景修剪工坊吗？
+329.Can I have a room with a trundle bed? 我可以要一个带抽屉式折叠床的房间吗？
+330.How much does it cost to have my clarinet repaired? 修理我的单簧管要多少钱？
+331.Is there a woodwind - instrument store close by? 附近有木管乐器店吗？
+332.Could you tell me the nearest bus stop for the shuttle to the airport? 你能告诉我去机场班车 的最近公交站在哪里吗？
+333.Do you have any sugar - free and caffeine - free herbal teas? 你们有既无糖又无咖啡因的花草 茶吗？
+334.What time does the paper - mache workshop begin? 纸艺雕塑工作坊几点开始？
+335.Can I have a table in the corner of the restaurant for more privacy? 在餐厅我可以要一个角落 的桌子以获得更多隐私吗？
+336.How do I apply for a local farmers&#x27; market vendor permit? 我怎么申请当地农贸市场的摊主许 可证？
+337.Is there a taxidermy - supply store nearby? 附近有动物标本制作用品店吗？
+338.Do you know where I can buy a maraca? 你知道哪里可以买到沙球吗？
+339.Can I get a discount for students on field trips? 参加实地考察的学生可以打折吗？
+340.Are there any public table - tennis courts around? 附近有公共乒乓球场吗？
+341.What&#x27;s the ozone concentration today? 今天的臭氧浓度是多少？
+342.Do you know if there&#x27;s a stained - glass - window installation service nearby? 你知道附近有 彩色玻璃窗安装服务吗？
+343.Can I have a room with a Murphy bed and a balcony? 我可以要一个带墨菲床和阳台的房间吗？
+344.How much does it cost to have my ukulele restrung? 给我的尤克里里换弦要多少钱？
+345.Is there a small - string - instrument shop in the area? 这一带有小型弦乐器店吗？
+346.Could you tell me the way to the mycology center? 你能告诉我去真菌学研究中心的路吗？
+347.Do you have any dairy - free and nut - free ice - cream? 你们有既不含乳制品又不含坚果的冰 淇淋吗？
+348.What time does the sand - painting workshop start? 沙画工作坊几点开始？
+349.Can I have a seat in the box section for the opera? 歌剧演出我可以要一个包厢的座位吗？
+350.How do I join a local environmental protection group? 我怎么加入当地的环保组织？
+351.Is there a batik - making workshop nearby? 附近有蜡染制作工坊吗？
+352.Do you know where I can buy a Chinese abacus? 你知道哪里可以买到一个中国算盘吗？
+353.Can I get a discount for senior citizens on cultural events? 文化活动对老年人有折扣吗？
+354.Are there any public pétanque courts with shade? 附近有带遮阳的公共法式滚球场吗？
+355.What&#x27;s the average rainfall in this season? 这个季节的平均降雨量是多少？
+356.Do you know if there&#x27;s a traditional handicraft store nearby? 你知道附近有传统手工艺品店 吗？
+357.Can I have a room with a bunk bed suitable for adults? 我可以要一个有适合成年人的双层床 的房间吗？
+358.How much does it cost to have my oboe repaired? 修理我的双簧管要多少钱？
+359.Is there a double - reed instrument repair shop close by? 附近有双簧管乐器维修店吗？
+360.Could you tell me the nearest subway entrance for the botanical park? 你能告诉我去植物园 最近的地铁站入口在哪里吗？
+361.Do you have any soy - free and sugar - free condiments? 你们有既不含大豆又无糖的调味品 吗？
+362.What time does the rock - painting workshop begin? 岩石绘画工作坊几点开始？
+363.Can I have a table on the second - floor balcony of the café? 在咖啡馆二楼阳台我可以要一张 桌子吗？
+364.How do I register for a local photography competition? 我怎么报名参加当地的摄影比赛？
+365.Is there a quilling - art workshop nearby? 附近有纸藤艺术工作坊吗？
+366.Do you know where I can buy a yo - yo with special tricks? 你知道哪里可以买到能玩特殊技巧 的悠悠球吗？
+367.Can I get a discount for families with children? 有孩子的家庭可以打折吗？
+368.Are there any public badminton courts with a viewing area? 附近有带观众区的公共羽毛球场 吗？
+369.What&#x27;s the cloud ceiling today? 今天的云幕高度是多少？
+370.Do you know if there&#x27;s a traditional Chinese medicine store nearby? 你知道附近有中药店吗？
+371.Can I have a room with a futon bed? 我可以要一个有蒲团床（日式床垫）的房间吗？
+372.How much does it cost to have my bass guitar tuned and serviced? 给我的贝斯吉他调音和 保养要多少钱？
+373.Is there an electric - guitar store in the area? 这一带有电吉他店吗？
+374.Could you tell me the way to the apiary? 你能告诉我去养蜂场的路吗？
+375.Do you have any nut - free and dairy - free protein bars? 你们有既不含坚果又不含乳制品的 蛋白棒吗？
+376.What time does the glass - bead - making workshop start? 玻璃珠制作工作坊几点开始？
+377.Can I have a seat in the orchestra pit for the musical? 音乐剧演出我可以要一个乐池的座位吗？
+378.How do I apply for a local community service project? 我怎么申请当地的社区服务项目？
+379.Is there a calligraphy - scroll - making workshop nearby? 附近有书法卷轴制作工坊吗？
+380.Do you know where I can buy a Tibetan singing bowl? 你知道哪里可以买到西藏颂钵吗？
+381.Can I get a discount for military veterans? 退伍军人可以打折吗？
+382.Are there any public table - tennis courts with a storage area? 附近有带储物区的公共乒乓球 场吗？
+383.What&#x27;s the relative air pressure today? 今天的相对气压是多少？
+384.Do you know if there&#x27;s a traditional dance costume store nearby? 你知道附近有传统舞蹈服 装商店吗？
+385.Can I have a room with a canopy bed and a fireplace view? 我可以要一个带顶篷床且能看到 壁炉的房间吗？
+386.How much does it cost to have my cello repaired? 修理我的大提琴要多少钱？
+387.Is there a large - string - instrument repair shop close by? 附近有大型弦乐器维修店吗？
+388.Could you tell me the nearest bus stop for the shuttle to the beach? 你能告诉我去海滩班车 的最近公交站在哪里吗？
+389.Do you have any sugar - free and caffeine - free soft drinks? 你们有既无糖又无咖啡因的软饮 料吗？
+390.What time does the paper - cutting workshop start? 剪纸工作坊几点开始？
+391.Can I have a table in the outdoor garden area of the restaurant for a party? 在餐厅户外花园 区域我可以要一张供聚会用的桌子吗？
+392.How do I register for a local cooking competition? 我怎么报名参加当地的烹饪比赛？
+393.Is there a wood - carving workshop nearby? 附近有木雕工作坊吗？
+394.Do you know where I can buy a Chinese yo - yo? 你知道哪里可以买到中国空竹吗？
+395.Can I get a discount for volunteers of local charities? 当地慈善机构的志愿者可以打折吗？
+396.Are there any public volleyball courts with a warm - up area? 附近有带热身区的公共排球场 吗？
+397.What&#x27;s the dew - fall time today? 今天的降露时间是什么时候？
+398.Do you know if there&#x27;s a traditional puppet - making store nearby? 你知道附近有传统木偶制 作店吗？
+399.Can I have a room with a Murphy bed and a view of the city skyline? 我可以要一个带墨菲床且能看到城市天际线的房间吗？
+400.How much does it cost to have my piccolo serviced? 保养我的短笛要多少钱？
+401.Is there a small - wind - instrument store in the area? 这一带有小型管乐器店吗？
+402.Could you tell me the way to the sericulture center? 你能告诉我去养蚕中心的路吗？
+403.Do you have any dairy - free and soy - free pasta sauces? 你们有既不含乳制品又不含大豆的 意面酱吗？
+404.What time does the metal - smithing workshop begin? 金属锻造工作坊几点开始？
+405.Can I have a seat in the balcony box for the ballet? 芭蕾舞演出我可以要一个楼厅包厢的座位 吗？
+406.How do I join a local history research group? 我怎么加入当地的历史研究小组？
+407.Is there a shadow - puppet - making workshop nearby? 附近有皮影制作工作坊吗？
+408.Do you know where I can buy a Chinese fan? 你知道哪里可以买到中国扇子吗？
+409.Can I get a discount for students participating in internships? 参加实习的学生可以打折吗？
+410.Are there any public basketball courts with a score - keeping system? 附近有带计分系统的 公共篮球场吗？
+411.What&#x27;s the average wind direction in this area? 这个地区的平均风向是什么？
+412.Do you know if there&#x27;s a traditional embroidery store nearby? 你知道附近有传统刺绣店吗？
+413.Can I have a room with a waterbed and a private bathroom? 我可以要一个带水床和私人浴室 的房间吗？
+414.How much does it cost to have my trombone repaired? 修理我的长号要多少钱？
+415.Is there a brass - instrument repair shop close by? 附近有铜管乐器维修店吗？
+416.Could you tell me the nearest subway exit for the art museum? 你能告诉我去美术馆最近的 地铁出口在哪里吗？
+417.Do you have any nut - free and sugar - free granola bars? 你们有既不含坚果又无糖的格兰诺 拉燕麦棒吗？
+418.What time does the pottery - glazing workshop start? 陶艺上釉工作坊几点开始？
+419.Can I have a table in the corner of the café with a power outlet? 在咖啡馆角落我可以要一张 带电源插座的桌子吗？
+420.How do I register for a local film - making workshop? 我怎么报名参加当地的电影制作工作坊？
+421.Is there a wood - block - printing workshop nearby? 附近有木版印刷工作坊吗？
+422.Do you know where I can buy a Chinese chess - board with pieces? 你知道哪里可以买到带棋 子的中国棋盘吗？
+423.Can I get a discount for local artists? 当地艺术家可以打折吗？
+424.Are there any public tennis courts with a ball - collecting machine? 附近有带捡球机的公共网球场吗？
+425.What&#x27;s the air - quality index at different times of the day? 一天中不同时间的空气质量指数是 多少？
+426.Do you know if there&#x27;s a traditional Chinese lantern - making store nearby? 你知道附近有传 统中国灯笼制作店吗？
+427.Can I have a room with a canopy bed and a balcony overlooking the garden? 我可以要一个 带顶篷床且阳台可俯瞰花园的房间吗？
+428.How much does it cost to have my harp tuned? 给我的竖琴调音要多少钱？
+429.Is there a harp - related store in the area? 这一带有竖琴相关商店吗？
+430.Could you tell me the way tothe vermicomposting station? 你能告诉我去蚯蚓堆肥站的路吗？
+431.Do you have any dairy - free and caffeine - free desserts? 你们有既不含乳制品又无咖啡因的 甜点吗？
+432.What time does the glass - blowing masterclass start? 吹玻璃大师班几点开始？
+433.Can I have a seat in the front row of the mezzanine for the play? 戏剧演出我可以要一个楼厅 前排的座位吗？
+434.How do I apply for a local volunteer teaching program? 我怎么申请当地的志愿教学项目？
+435.Is there a Chinese - knot - making workshop nearby? 附近有中国结制作工作坊吗？
+436.Do you know where I can buy a Mongolian throat - singing CD? 你知道哪里可以买到蒙古呼 麦 CD 吗？
+437.Can I get a discount for families visiting during off - peak seasons? 非旺季来访的家庭可以打 折吗？
+438.Are there any public badminton courts with a video - recording area? 附近有带录像区的公 共羽毛球场吗？
+439.What&#x27;s the solar radiation level today? 今天的太阳辐射水平是多少？
+440.Do you know if there&#x27;s a traditional paper - making store nearby? 你知道附近有传统造纸店 吗？
+441.Can I have a room with a Murphy bed and a view of the mountains and the lake? 我可以要 一个带墨菲床且能看到山和湖的房间吗？
+442.How much does it cost to have my tuba repaired? 修理我的大号要多少钱？
+443.Is there a large - brass - instrument repair shop close by? 附近有大型铜管乐器维修店吗？
+444.Could you tell me the nearest bus stop for the shuttle to the amusement park? 你能告诉我 去游乐园班车的最近公交站在哪里吗？
+445.Do you have any sugar - free and soy - free salad toppings? 你们有既无糖又不含大豆的沙拉 配料吗？446.What time does the leather - working workshop start? 皮革加工工作坊几点开始？
+447.Can I have a table in the outdoor patio of the restaurant for a romantic dinner? 在餐厅户外 露台我可以要一张供浪漫晚餐用的桌子吗？
+448.How do I register for a local language exchange event? 我怎么报名参加当地的语言交流活动？
+449.Is there a bead - stringing workshop nearby? 附近有串珠工作坊吗？
+450.Do you know where I can buy a set of African drums? 你知道哪里可以买到一套非洲鼓吗？
+451.Can I get a discount for senior students participating in cultural activities? 参加文化活动的 高年级学生可以打折吗？
+452.Are there any public volleyball courts with a coaching area? 附近有带教练指导区的公共排球 场吗？
+453.What&#x27;s the average temperature change in this month? 这个月的平均温度变化是多少？
+454.Do you know if there&#x27;s a traditional calligraphy - brush - making store nearby? 你知道附近 有传统毛笔制作店吗？
+455.Can I have a room with a canopy bed and a private balcony overlooking the sea? 我可以要 一个带顶篷床且私人阳台可俯瞰大海的房间吗？
+456.How much does it cost to have my viola repaired? 修理我的中提琴要多少钱？
+457.Is there a viola - related store in the area? 这一带有中提琴相关商店吗？
+458.Could you tell me the way to the mycorrhizal research center? 你能告诉我去菌根研究中心的 路吗？
+459.Do you have any dairy - free and nut - free breakfast cereals? 你们有既不含乳制品又不含坚 果的早餐谷物吗？
+460.What time does the silk - painting workshop begin? 绢画工作坊几点开始？
+461.Can I have a seat in the orchestra box for the symphony concert? 交响音乐会我可以要一个 管弦乐包厢的座位吗？
+462.How do I join a local environmental protection volunteer team? 我怎么加入当地的环保志愿 者团队？
+463.Is there a traditional Chinese ink - making workshop nearby? 附近有传统中国墨汁制作工作 坊吗？
+464.Do you know where I can buy a set of Chinese musical instruments? 你知道哪里可以买到一 套中国乐器吗？
+465.Can I get a discount for military families? 军人家属可以打折吗？
+466.Are there any public table - tennis courts with a practice wall? 附近有带练习墙的公共乒乓球 场吗？
+467.What&#x27;s the air - temperature trend for the next few days? 未来几天的气温趋势是怎样的？
+468.Do you know if there&#x27;s a traditional shadow - puppet - theater store nearby? 你知道附近有 传统皮影剧院用品店吗？
+469.Can I have a room with a waterbed and a view of the city park? 我可以要一个带水床且能看 到城市公园的房间吗？
+470.How much does it cost to have my clarinet reeds replaced? 更换我的单簧管簧片要多少钱？
+471.Is there a clarinet - accessory store close by? 附近有单簧管配件店吗？
+472.Could you tell me the nearest subway entrance for the science museum? 你能告诉我去科学 博物馆最近的地铁站入口在哪里吗？
+473.Do you have any soy - free and sugar - free snacks for kids? 你们有既不含大豆又无糖的儿童 零食吗？
+474.What time does the wood - carving exhibition start? 木雕展览几点开始？
+475.Can I have a table in the corner of the restaurant with a good view of the stage? 在餐厅角 落我可以要一张能很好看到舞台的桌子吗？
+476.How do I register for a local handicraft - making competition? 我怎么报名参加当地的手工艺 品制作比赛？
+477.Is there a traditional paper - folding workshop nearby? 附近有传统折纸工作坊吗？
+478.Do you know where I can buy a set of Tibetan prayer wheels? 你知道哪里可以买到一套西藏 转经筒吗？
+479.Can I get a discount for local students on educational resources? 当地学生在教育资源方面可 以打折吗？
+480.Are there any public badminton courts with a training area? 附近有带训练区的公共羽毛球场 吗？
+481.What&#x27;s the relative humidity trend for the day? 今天相对湿度的趋势是怎样的？
+482.Do you know if there&#x27;s a traditional Chinese seal - carving store nearby? 你知道附近有传统 中国篆刻店吗？
+483.Can I have a room with a canopy bed and a balcony overlooking the forest? 我可以要一个 带顶篷床且阳台可俯瞰森林的房间吗？
+484.How much does it cost to have my cello bow re - haired? 给我的大提琴琴弓换毛要多少钱？
+485.Is there a cello - bow - related store in the area? 这一带有大提琴琴弓相关商店吗？
+486.Could you tell me the way to the beekeeping museum? 你能告诉我去养蜂博物馆的路吗？
+487.Do you have any dairy - free and caffeine - free beverages for athletes? 你们有既不含乳制 品又无咖啡因的适合运动员的饮料吗？
+488.What time does the glass - engraving workshop start? 玻璃雕刻工作坊几点开始？
+489.Can I have a seat in the front row of the balcony for the opera performance? 歌剧演出我可以要一个楼厅前排的座位吗？
+490.How do I apply for a local community - based art project? 我怎么申请当地基于社区的艺术项 目？
+491.Is there a traditional Chinese knot - jewelry - making workshop nearby? 附近有传统中国结 首饰制作工作坊吗？
+492.Do you know where I can buy a set of Indian tabla drums? 你知道哪里可以买到一套印度塔布 拉鼓吗？
+493.Can I get a discount for families with multiple children on entertainment facilities? 有多个 孩子的家庭在娱乐设施上可以打折吗？
+494.Are there any public tennis courts with a ball - machine rental service? 附近有提供租球机服 务的公共网球场吗？
+495.What&#x27;s the expected precipitation amount for the upcoming week? 下周预计降水量是多少？
+496.Do you know if there&#x27;s a traditional Japanese tea - ceremony supplies store nearby? 你知 道附近有传统日本茶道用品店吗？
+497.Can I have a room with a Murphy bed and a view of the historical monument? 我可以要一 个带墨菲床且能看到历史古迹的房间吗？
+498.How much does it cost to have my oboe reeds made? 制作我的双簧管簧片要多少钱？
+499.Is there an oboe - reed - making store close by? 附近有双簧管簧片制作店吗？
+500.Could you tell me the nearest bus stop for the shuttle to the nature reserve? 你能告诉我去 自然保护区班车的最近公交站在哪里吗？</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="910背完这500句30天让你流利说英语";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

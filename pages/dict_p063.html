@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 9.18 商务600词</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p063.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：9.18 商务600词</h1>
+  <div class="meta"><span class="charspill">490 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">490</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 490 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p063.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Inquiry/Enquiry 询盘", "场景：买方首次联系索取产品信息。"], ["Quotation 报价单", "场景：卖方回复询盘时提供价格条款。"], ["Price 价格", "场景：谈判焦点，需明确单价或总价。"], ["Sample 样品", "场景：买方要求验货或确认质量。"], ["MOQ (Minimum Order Quantity） 最小起订量", "场景：供应商设定订单门槛。"], ["Catalog 产品目录", "场景：展示产品线及参数。"], ["Specification 规格", "场景：确认产品技术细节。"], ["RFQ (Request for Quotation） 询价请求", "场景：正式要求供应商报价。"], ["Proforma Invoice (PI） 形式发票", "场景：预付款或签证申请用。"], ["Lead Time 交货期", "场景：买方需确认生产周期。"], ["FOB (Free On Board） 离岸价", "场景：卖方承担装船前费用。"], ["CIF (Cost, Insurance, Freight） 到岸价", "场景：卖方承担运费和保险费。"], ["Discount 折扣", "场景：大订单或长期合作谈判。"], ["Counteroffer 还盘", "场景：买方对原报价提出修改。"], ["Binding Contract 有约束力合同", "场景：正式协议签署后生效。"], ["Non-firm Offer 虚盘", "场景：无法律效力的意向报价。"], ["T/T (Telegraphic Transfer） 电汇", "场景：最常用付款方式。"], ["L/C (Letter of Credit） 信用证", "场景：高风险交易或新客户。"], ["Deposit 定金", "场景：锁定订单或启动生产。"], ["Balance 尾款", "场景：发货前或见单付款。"], ["SWIFT Code 银行国际代码", "场景：跨境转账必备信息。"], ["Advance Payment 预付款", "场景：合同签订后支付部分货款。"], ["Open Account (O/A） 赊账", "场景：买方收货后约定期限付款。"], ["D/P (Documents against Payment） 付款交单", "场景：买方付款后银行释放单据。"], ["D/A (Documents against Acceptance） 承兑交单", "场景：买方承兑汇票后提货。"], ["ETA (Estimated Time of Arrival） 预计到港时间", "场景：买方安排清关或销售计划。"], ["ETD (Estimated Time of Departure） 预计离港时间", "场景：卖方更新发货进度。"], ["Packing 包装", "场景：需明确材料或方式。"], ["Customs Clearance 清关", "场景：提醒买方准备文件。"], ["FCL (Full Container Load） 整箱运输", "场景：大货量专用集装箱。"], ["LCL (Less than Container Load） 拼箱运输", "场景：小货量共享集装箱。"], ["Shipping Mark 唛头", "场景：货物外包装标识。"], ["QC (Quality Control） 质量控制", "场景：生产或装运前验货。"], ["Inspection 检验", "场景：第三方或买方验货。"], ["Pre-shipment Inspection 装运前检验", "场景：强制检验国要求。"], ["Tolerance 公差", "场景：允许的质量偏差。"], ["Non-conforming Goods 不符货物", "场景：规格或质量不符合同。"], ["Claim 索赔", "场景：买方提出质量或交货问题。"], ["Compensation 赔偿", "场景：卖方责任导致的损失。"], ["Breach of Contract 违约", "场景：未履行合同义务。"], ["Penalty Clause 违约金条款", "场景：预先约定的违约赔偿。"], ["Replacement 换货", "场景：质量问题补救措施。"], ["Refund 退款", "场景：严重问题下的补救。"], ["Concealed Damage 隐蔽损坏", "场景：开箱后发现的内部损坏。"], ["Negotiation 谈判", "场景：价格或条款协商。"], ["Competitive 有竞争力的", "场景：强调价格或质量优势。"], ["Win-win 双赢", "场景：促成合作的关键词。"], ["Deadline 截止日期", "场景：限定回复或行动时间。"], ["Follow-up 跟进", "场景：持续推动订单进展。"], ["Confirmation 确认", "场景：关键条款的书面认可。"], ["Agreement 协议", "场景：阶段性或最终共识。"], ["ODM (Original Design Manufacturer） 原创设计生产", "场景：提供设计方案的代工。"], ["After-sales Service 售后服务", "场景：客户维护关键点。"], ["Exclusive Distributor 独家经销商", "场景：区域独家代理合作。"], ["Market Penetration 市场渗透", "场景：扩大市场份额策略。"], ["Repeat Order 返单", "场景：老客户再次下单。"], ["PO (Purchase Order） 采购订单", "场景：买方正式采购的书面文件。"], ["S/C (Sales Contract） 销售合同", "场景：双方签署的正式交易协议。"], ["Amendment 修改", "场景：订单或合同条款变更。"], ["Indent 订单", "代购"], ["LOI (Letter of Intent） 意向书", "场景：合作意向的非约束性文件。"], ["Backorder 缺货订单", "场景：延迟交付的订单。"], ["Force Majeure 不可抗力", "场景：免除自然灾害等导致的违约责任。"], ["Liability 责任", "场景：界定损失承担方。"], ["PI (Proforma Invoice） 形式发票", "场景：预付款或签证申请用。"], ["Commercial Invoice 商业发票", "场景：清关和付款的核心单据。"], ["Packing List 装箱单", "场景：列明货物包装细节。"], ["Partial Shipment 分批装运", "场景：分多批完成订单。"], ["DDP (Delivered Duty Paid） 完税后交货", "场景：卖方承担全程费用和风险。"], ["DAP (Delivered At Place） 目的地交货", "场景：卖方承担运输至指定地点（不含卸货）。"], ["Inspection Certificate 检验证书", "场景：第三方质量证明。"], ["Dispute Resolution 争议解决", "场景：协商或仲裁流程。"], ["Mediation 调解", "场景：第三方介入协商。"], ["Liquidated Damages 违约金", "场景：合同约定的固定赔偿金。"], ["Rejection of Goods 拒收货物", "场景：质量或规格严重不符。"], ["Overdue Payment 逾期付款", "场景：未按约定时间付款。"], ["Force Majeure Certificate 不可抗力证明", "场景：官方文件免除违约责任。"], ["Consignee 收货人", "场景：提单或运单指定提货方。"], ["Shipper 发货人", "场景：物流文件中的货物发出方。"], ["Freight Forwarder 货运代理", "场景：安排国际运输的第三方。"], ["THC (Terminal Handling Charge） 码头操作费", "场景：港口装卸附加费。"], ["BAF (Bunker Adjustment Factor） 燃油附加费", "场景：油价波动导致的运费调整。"], ["D/O (Delivery Order） 提货单", "场景：目的港提货凭证。"], ["O/A (Open Account） 赊账", "场景：卖方先发货，买方后付款。"], ["Cash in Advance (CIA） 预付全款", "场景：卖方零风险，买方需信任。"], ["COD (Cash on Delivery） 货到付款", "场景：B2C或小额贸易常用。"], ["PayPal 贝宝", "场景：跨境电商小额支付。"], ["Western Union 西联汇款", "场景：无需银行账户的快速汇款。"], ["Bank Transfer 银行转账", "场景：国内或同币种交易。"], ["Installment 分期付款", "场景：大额订单分摊资金压力。"], ["Down Payment 定金", "场景：合同启动的预付款。"], ["Milestone Payment 分期按进度付款", "场景：项目制合作分阶段支付。"], ["Progress Payment 进度款", "场景：长期订单按完成比例支付。"], ["Retention Money 质保金", "场景：工程合同尾款质保期后支付。"], ["Balloon Payment 期末大额还款", "场景：分期付款末期一次性大额支付。"], ["Deferred Payment 延期付款", "场景：买方资金周转困难时协商延期。"], ["Recurring Payment 定期自动扣款", "场景：订阅服务或长期合作。"], ["Lump Sum Payment 一次性付款", "场景：简单交易的全款支付。"], ["Bill of Exchange 汇票", "场景：卖方开立的付款指令票据。"], ["Promissory Note 本票", "场景：买方签发的付款承诺书。"], ["Bank Guarantee 银行保函", "场景：银行担保买方履约付款。"], ["Standby L/C 备用信用证", "场景：违约时启动的付款担保。"], ["Letter of Indemnity (LOI） 担保函", "场景：无正本提单时提货的担保文件。"], ["Performance Bond 履约保证金", "场景：确保合同执行的押金。"], ["Advance Payment Guarantee 预付款保函", "场景：担保卖方返还预付款。"], ["Payment Undertaking 付款承诺书", "场景：买方书面承诺付款时间。"], ["Avalized Bill 银行承兑汇票", "场景：银行增强汇票信用。"], ["Documentary Collection 跟单托收", "场景：银行代收货款并转交单据。"], ["Alipay 支付宝", "场景：中国供应商常用在线支付。"], ["WeChat Pay 微信支付", "场景：微信生态内小额支付。"], ["Apple Pay 苹果支付", "场景：iOS用户快捷支付。"], ["Google Pay 谷歌支付", "场景：安卓设备跨境支付。"], ["Cryptocurrency 加密货币", "场景：高风险新兴支付方式。"], ["Stripe Stripe支付", "场景：欧美电商集成支付。"], ["Escrow 第三方托管", "场景：陌生交易的资金担保。"], ["PingPong PingPong跨境收款", "场景：中国卖家境外资金归集。"], ["TransferWise (Wise） Wise跨境转账", "场景：低成本多币种转账。"], ["Processing Fee 手续费", "场景：银行或支付平台收取的费用。"], ["Intermediary Bank Fee 中转行费用", "场景：跨境汇款经第三方银行产生的费用。"], ["Cut-off Time 截止时间", "场景：当日付款申请的截止时间。"], ["Net 30 Days 30天净付款期", "场景：发票日后30天内付全款。"], ["2/10 Net 30 10天内付款享2%折扣", "场景：鼓励买方提前付款的条款。"], ["Late Payment Fee 滞纳金", "场景：超期付款的惩罚性费用。"], ["Early Payment Discount 提前付款折扣", "场景：激励买方缩短账期。"], ["Currency Conversion Fee 货币转换费", "场景：跨境支付中的汇兑成本。"], ["Banker's Acceptance (BA） 银行承兑汇票", "场景：银行增强汇票信用。"], ["Trade Acceptance 商业承兑汇票", "场景：卖方开立、买方承兑的汇票。"], ["Sight Draft 即期汇票", "场景：见票即付的汇票。"], ["Time Draft 远期汇票", "场景：约定未来日期付款的汇票。"], ["Documentary Draft 跟单汇票", "场景：附带运输单据的汇票。"], ["Clean Draft 光票", "场景：不附带单据的汇票。"], ["Dishonoured Draft 拒付汇票", "场景：买方或银行拒绝承兑的汇票。"], ["Avalized Bill 银行担保汇票", "场景：银行背书担保的汇票。"], ["Blockchain Payment 区块链支付", "场景：去中心化跨境转账。"], ["Stablecoin 稳定币", "场景：与法币挂钩的加密货币。"], ["Smart Contract 智能合约", "场景：自动执行合同条款的区块链协议。"], ["Central Bank Digital Currency (CBDC） 央行数字货币", "场景：政府发行的数字法币。"], ["Peer-to-Peer (P2P) Payment 点对点支付", "场景：直接转账不经过银行。"], ["Mobile Wallet 手机钱包", "场景：新兴市场小额支付工具。"], ["Contactless Payment 非接触支付", "场景：NFC技术实现的快捷支付。"], ["QR Code Payment 二维码支付", "场景：亚洲市场主流支付方式。"], ["Biometric Payment 生物识别支付", "场景：指纹/面部识别的安全支付。"], ["Air Freight 空运", "场景：紧急或高价值货物运输。"], ["Sea Freight 海运", "场景：大宗货物经济运输方式。"], ["Express Shipping 快递", "场景：小件样品或文件速递。"], ["Multimodal Transport 多式联运", "场景：组合海陆空运输的全程物流。"], ["Door-to-Door 门到门运输", "场景：从卖方仓库到买方仓库的全程服务。"], ["Cross-border Trucking 跨境卡车运输", "场景：陆路邻国贸易（如中越边境）。"], ["Rail Freight 铁路运输", "场景：中欧班列等陆路干线。"], ["Parcel Post 邮政包裹", "场景：低成本小件运输。"], ["B/L (Bill of Lading） 提单", "场景：海运提货核心凭证。"], ["AWB (Air Waybill） 空运单", "场景：空运货物追踪文件。"], ["Certificate of Origin 原产地证", "场景：享受关税优惠的证明。"], ["Insurance Certificate 保险凭证", "场景：货物运输险证明。"], ["Phytosanitary Certificate 植物检疫证", "场景：农产品出口必备文件。"], ["Dangerous Goods Note 危险品通知单", "场景：运输化学品或电池类货物。"], ["Manifest 舱单", "场景：船舶或飞机装载货物总清单。"], ["Freight Charge 运费", "场景：运输服务基础费用。"], ["CAF (Currency Adjustment Factor） 货币调节费", "场景：汇率波动附加费。"], ["PSS (Peak Season Surcharge） 旺季附加费", "场景：节假日或货运高峰期的额外费用。"], ["CISF (Container Imbalance Surcharge） 集装箱不平衡附加费", "场景：进出口货量不均导致的费用。"], ["Detention Charge 滞箱费", "场景：超期占用集装箱的罚款。"], ["Demurrage Charge 滞港费", "场景：货物滞留在港口的罚款。"], ["CBM (Cubic Meter） 立方米", "场景：海运/空运体积计费单位。"], ["Chargeable Weight 计费重量", "场景：空运按实际重量与体积重量较高者计费。"], ["ATD (Actual Time of Departure） 实际离港时间", "场景：船舶/飞机真实离港时间记录。"], ["ATA (Actual Time of Arrival） 实际到港时间", "场景：货物真实到达目的港时间。"], ["CY (Container Yard） 集装箱堆场", "场景：港口存放集装箱的场地。"], ["CFS (Container Freight Station） 集装箱货运站", "场景：拼箱货的装箱/拆箱场地。"], ["Pre-carriage 前程运输", "场景：货物从工厂到起运港的运输。"], ["On-carriage 后程运输", "场景：目的港到买方仓库的运输。"], ["Transshipment 中转", "场景：货物在第三地换乘运输工具。"], ["Rollover 甩柜", "场景：货物因舱位不足被延迟装船。"], ["Pallets 托盘", "场景：标准化货物堆叠工具。"], ["Carton Dimensions 外箱尺寸", "场景：计算集装箱装载率的关键数据。"], ["Gross Weight 毛重", "场景：货物连包装的总重量。"], ["Net Weight 净重", "场景：货物本身重量（不含包装）。"], ["Fragile Sticker 易碎标签", "场景：提醒搬运人员轻拿轻放。"], ["This Side Up 此面向上", "场景：防止货物倒置的标识。"], ["Waterproof Packaging 防水包装", "场景：海运防潮防雨措施。"], ["Seaworthy Packing 适航包装", "场景：海运货物的防震防撞包装。"], ["Customs Seal 海关封条", "场景：集装箱铅封防篡改。"], ["HS Code 海关编码", "场景：商品分类和关税计算的依据。"], ["Import Duty 进口关税", "场景：目的国征收的货物税。"], ["VAT (Value Added Tax） 增值税", "场景：欧盟等地区的消费税。"], ["DDU (Delivered Duty Unpaid） 未完税交货", "场景：买方承担目的国税费的贸易条款。"], ["Customs Bond 海关保证金", "场景：担保关税支付的押金。"], ["Customs Audit 海关稽查", "场景：海关对进出口记录的核查。"], ["Drawback 退税", "场景：出口货物增值税返还。"], ["AEO (Authorized Economic Operator） 经认证经营者", "场景：海关认证的优质企业快速通关资质。"], ["Reefer Container 冷藏集装箱", "场景：运输冷冻/冷藏货物。"], ["Dangerous Goods 危险品", "场景：化学品、电池等特殊货物运输。"], ["OOG (Out of Gauge） 超限货物", "场景：尺寸超出标准集装箱的货物。"], ["Heavy Lift 重件货物", "场景：单件超重货物（如机械设备）。"], ["Live Animals 活动物运输", "场景：宠物或牲畜的国际运输。"], ["Perishable Goods 易腐货物", "场景：生鲜食品或药品运输。"], ["Oversized Cargo 超大货物", "场景：无法用标准集装箱运输的货物。"], ["Temperature Control 温控运输", "场景：医药或精密仪器的恒温运输。"], ["Express Courier 快递运输", "场景：高价值或紧急小件货物。"], ["Groupage 混装运输", "场景：多票货物合并为一个集装箱。"], ["Tracking Number 追踪号", "场景：查询货物运输状态的编号。"], ["Cargo Insurance 货运保险", "场景：保障运输途中货物损失。"], ["Shortage 短少", "场景：到货数量少于提单数量。"], ["Damage Report 损坏报告", "场景：货物损坏的书面证明。"], ["POD (Proof of Delivery） 签收证明", "场景：确认货物送达的凭证。"], ["Demand Notice 催提通知", "场景：提醒买方及时提货。"], ["General Average 共同海损", "场景：海运事故导致的共同损失分摊。"], ["Salvage Charge 救助费用", "场景：海运事故救援产生的费用。"], ["Claim Settlement 理赔", "场景：保险或责任方赔偿流程。"], ["QMS (Quality Management System） 质量管理体系", "场景：企业质量管理的核心框架。"], ["TQM (Total Quality Management） 全面质量管理", "场景：全员参与的质量改进方法。"], ["QA (Quality Assurance） 质量保证", "场景：预防质量问题的系统性活动。"], ["SOP (Standard Operating Procedure） 标准作业程序", "场景：规范操作流程的文件。"], ["CAPA (Corrective and Preventive Action） 纠正与预防措施", "场景：质量问题整改与预防。"], ["PDCA (Plan-Do-Check-Act） 计划-实施-检查-改进循环", "场景：质量改进的循环方法论。"], ["KPI (Key Performance Indicator） 关键绩效指标", "场景：量化质量目标的指标。"], ["Audit 审核", "场景：体系或流程的合规性检查。"], ["IQC (Incoming Quality Control） 来料检验", "场景：原材料入库前的质量检查。"], ["IPQC (In-Process Quality Control） 制程检验", "场景：生产过程中的实时质量监控。"], ["FQC (Final Quality Control） 最终检验", "场景：成品出厂前的全面检查。"], ["OQC (Outgoing Quality Control） 出货检验", "场景：货物交付前的最终抽检。"], ["SQA (Supplier Quality Assurance） 供应商品质保证", "场景：供应商质量能力评估。"], ["QE (Quality Engineer） 质量工程师", "场景：质量问题的分析与改进。"], ["Inspector 检验员", "场景：执行具体检验任务的人员。"], ["SGS Inspection 通标检验", "场景：第三方权威机构的质量验证。"], ["Third-Party Inspection 第三方检验", "场景：独立机构的质量验证。"], ["Pre-shipment Inspection (PSI） 装运前检验", "场景：货物发运前的最终确认。"], ["Defect 缺陷", "场景：产品不符合质量要求的特性。"], ["Critical Defect (CR） 严重缺陷", "场景：危及安全或法规合规的问题。"], ["Major Defect (MA） 主要缺陷", "场景：显著影响产品使用的问题。"], ["Minor Defect (MI） 次要缺陷", "场景：轻微外观或非功能性问题。"], ["Non-conforming Product 不合格品", "场景：未通过检验的产品。"], ["AQL (Acceptable Quality Level） 可接受质量水平", "场景：抽样检验的缺陷率上限。"], ["Standard 标准", "场景：行业或客户的质量要求。"], ["Limit Sample 限度样板", "场景：界定可接受与不可接受质量的实物标准。"], ["Control Chart 控制图", "场景：监控生产过程稳定性的统计工具。"], ["Pareto Chart 排列图", "场景：识别主要质量问题的优先级工具。"], ["Fishbone Diagram 鱼骨图", "场景：分析质量问题根本原因的图形工具。"], ["Check Sheet 检查表", "场景：记录检验数据的标准化表格。"], ["SPC (Statistical Process Control） 统计过程控制", "场景：用统计方法监控生产过程。"], ["MSA (Measurement System Analysis） 测量系统分析", "场景：评估测量工具的精确性与准确性。"], ["FMEA (Failure Mode and Effects Analysis） 失效模式与影响分析", "场景：预防性质量风险管理工具。"], ["5 Why Analysis 5Why分析法", "场景：追溯问题根本原因的追问方法。"], ["Six Sigma 六西格玛", "场景：追求极低缺陷率的质量管理方法。"], ["DMAIC (Define-Measure-Analyze-Improve-Control） DMAIC流程", "场景：六西格玛项目的实施框架。"], ["Inspection Report 检验报告", "场景：记录检验结果的正式文件。"], ["Test Certificate 测试证书", "场景：第三方机构出具的质量证明。"], ["COA (Certificate of Analysis） 分析证书", "场景：化学品或原料的成分检测报告。"], ["Quality Record 质量记录", "场景：质量活动的客观证据文件。"], ["Non-conformance Report (NCR） 不合格报告", "场景：记录不合格品详情的文件。"], ["Work Instruction 作业指导书", "场景：指导具体操作步骤的文件。"], ["BOM (Bill of Materials） 物料清单", "场景：产品组成部件的详细列表。"], ["SIP (Standard Inspection Procedure） 标准检验规范", "场景：统一检验方法的文件。"], ["Quality Manual 质量手册", "场景：描述质量管理体系的纲领文件。"], ["Calibration Certificate 校准证书", "场景：测量工具的精度验证文件。"], ["Rework 返工", "场景：对不合格品进行修复以符合标准。"], ["Repair 修理", "场景：通过局部修复使产品恢复功能。"], ["Scrap 报废", "场景：无法修复的不合格品作废处理。"], ["Deviation 偏差", "场景：实际参数与标准值的差异。"], ["Concession 让步接收", "场景：客户书面同意接受轻微不合格品。"], ["Sorting 分选", "场景：从批次中筛选合格与不合格品。"], ["Containment 围堵", "场景：防止不合格品流入下一环节。"], ["Root Cause 根本原因", "场景：质量问题溯源分析。"], ["Corrective Action 纠正措施", "场景：消除已发生问题的永久性方案。"], ["Preventive Action 预防措施", "场景：避免潜在问题的前瞻性方案。"], ["Caliper 卡尺", "场景：手动测量长度/厚度的精密工具。"], ["Micrometer 千分尺", "场景：高精度尺寸测量（0.001mm级）。"], ["Height Gauge 高度规", "场景：垂直尺寸测量与划线。"], ["Surface Roughness Tester 表面粗糙度仪", "场景：量化表面纹理的仪器。"], ["CMM (Coordinate Measuring Machine） 三坐标测量机", "场景：复杂几何尺寸的自动化检测。"], ["Go/No-Go Gauge 通止规", "场景：快速判断尺寸合格性的简易工具。"], ["Torque Wrench 扭力扳手", "场景：紧固件的精准扭力控制。"], ["Hardness Tester 硬度计", "场景：材料硬度检测（洛氏/布氏/维氏）。"], ["Spectrometer 光谱仪", "场景：金属材料成分分析。"], ["Vision System 视觉检测系统", "场景：自动化外观缺陷识别。"], ["NCR (Non-Conformance Report） 不合格报告", "场景：记录质量问题的正式文件。"], ["8D Report 8D报告", "场景：系统化质量问题解决框架。"], ["COC (Certificate of Conformity） 符合性声明", "场景：产品符合法规/标准的声明文件。"], ["FAI (First Article Inspection） 首件检验", "场景：新产品/工艺的首次全面验证。"], ["PPAP (Production Part Approval Process） 生产件批准程序", "场景：客户对量产能力的认可流程。"], ["Control Plan 控制计划", "场景：定义生产过程监控方法的文件。"], ["WI (Work Instruction） 作业指导书", "场景：指导具体操作步骤的标准化文件。"], ["QMS Manual 质量手册", "场景：描述企业质量管理体系的纲领文件。"], ["Traceability Record 追溯记录", "场景：追踪产品全生命周期数据的档案。"], ["Dispute 争议", "场景：双方对责任或赔偿的分歧。"], ["Settlement 和解", "场景：双方协商达成的争议解决方案。"], ["Arbitration 仲裁", "场景：第三方机构裁决争议的替代性解决方式。"], ["Remedy 救济措施", "场景：法律或合同规定的争议解决手段。"], ["Insurance Claim 保险索赔", "场景：向保险公司提出的损失赔偿请求。"], ["Damage Claim 损坏索赔", "场景：货物运输或操作中的物理损失赔偿。"], ["Quality Claim 质量索赔", "场景：产品不符合合同规格的赔偿请求。"], ["Delay Claim 延迟索赔", "场景：因延误导致的额外费用索赔。"], ["Fraudulent Claim 欺诈性索赔", "场景：虚假或夸大的赔偿请求。"], ["Claim Form 索赔表格", "场景：标准化赔偿申请文件。"], ["Claim Letter 索赔函", "场景：正式提出赔偿的书面通知。"], ["Claim Documentation 索赔证据", "场景：支持赔偿请求的证明文件。"], ["Counterclaim 反索赔", "场景：被索赔方提出的反向赔偿请求。"], ["Waiver of Claim 索赔弃权", "场景：主动放弃赔偿权利的声明。"], ["Litigation 诉讼", "场景：通过法院解决争议的正式法律程序。"], ["ADR (Alternative Dispute Resolution） 替代性争议解决", "场景：诉讼外的争议解决方式统称。"], ["Expert Determination 专家裁决", "场景：专业技术争议的第三方裁决。"], ["Conciliation 和解协商", "场景：非正式的和解引导过程。"], ["Dispute Resolution Clause 争议解决条款", "场景：合同中预先约定的争议处理规则。"], ["Interim Relief 临时救济", "场景：争议解决前申请的紧急措施。"], ["Enforcement 执行", "场景：仲裁或判决结果的强制实施。"], ["Default Judgment 缺席判决", "场景：被告未应诉时的自动败诉判决。"], ["Stay of Proceedings 诉讼中止", "场景：暂停法律程序等待其他解决方式。"], ["Without Prejudice 无损权利", "场景：和解谈判中保护法律权益的声明。"], ["Burden of Proof 举证责任", "场景：提出主张方需提供证据的规则。"], ["Evidence 证据", "场景：支持争议主张的客观材料。"], ["Testimony 证言", "场景：证人提供的口头或书面陈述。"], ["Affidavit 宣誓书", "场景：经公证的书面证词。"], ["Documentary Evidence 书面证据", "场景：合同、发票等文件类证据。"], ["Circumstantial Evidence 间接证据", "场景：推断事实的间接证明。"], ["Admissibility 证据可采性", "场景：证据是否符合法律采纳标准。"], ["Hearsay 传闻证据", "场景：非直接获取的二手信息证据。"], ["Forensic Report 鉴证报告", "场景：专业机构出具的损害分析报告。"], ["Chain of Custody 证据保管链", "场景：证据从收集到提交的完整监管记录。"], ["Damages 损害赔偿金", "场景：法院判决或协商确定的赔偿金额。"], ["Punitive Damages 惩罚性赔偿", "场景：针对恶意行为的额外罚款。"], ["Liquidated Damages 预定违约金", "场景：合同中预先约定的违约赔偿金额。"], ["Mitigation 减损义务", "场景：受损方需主动减少损失的义务。"], ["Indemnity 补偿保证", "场景：合同一方对另一方损失的兜底赔偿承诺。"], ["Reimbursement 报销", "场景：对实际发生费用的补偿。"], ["Interest 利息", "场景：延迟付款的财务补偿。"], ["Costs 诉讼费用", "场景：争议解决过程中的法律和行政开支。"], ["Attachment 财产扣押", "场景：确保赔偿执行的临时强制措施。"], ["Garnishment 工资扣发", "场景：从债务人收入中强制扣除赔偿金。"], ["Limitation of Liability 责任限制", "场景：合同中约定的赔偿上限条款。"], ["Exclusion Clause 免责条款", "场景：免除特定责任的合同条款。"], ["Warranty 质量保证", "场景：卖方对产品性能的承诺条款。"], ["Good Faith Negotiation 诚信谈判", "场景：合同要求的争议前置协商义务。"], ["Deadlock 谈判僵局", "场景：双方无法达成一致的停滞状态。"], ["Concession 让步", "场景：争议解决中的妥协行为。"], ["Walk-Away Point 谈判底线", "场景：一方可接受的最低解决方案。"], ["BATNA (Best Alternative to a Negotiated Agreement） 最佳替代方案", "场景：谈判失败时的备选行动计划。"], ["Forum Shopping 择地行诉", "场景：选择对己方有利的司法管辖区提起诉讼。"], ["Conflict of Laws 法律冲突", "场景：不同司法管辖区法律适用分歧。"], ["Reciprocal Enforcement 互惠执行", "场景：跨国判决或仲裁裁决的相互承认。"], ["Lex Mercatoria 商人法", "场景：国际商事惯例作为争议解决依据。"], ["State Immunity 国家豁免", "场景：主权国家免受外国法院管辖的特权。"], ["Amicable Settlement 友好解决", "场景：国际争议中优先协商的解决方式。"], ["Diplomatic Protection 外交保护", "场景：国家通过外交渠道支持本国企业索赔。"], ["ICSID (International Centre for Settlement of Investment Disputes） 国际投资争端解决中心", "场景：处理投资者与东道国争议的仲裁机构。"], ["UNCITRAL Rules 联合国国际贸易法委员会规则", "场景：国际仲裁常用程序规则。"], ["Enforcement Risk 执行风险", "场景：跨国裁决在目标国的执行不确定性。"], ["ODR (Online Dispute Resolution） 在线争议解决", "场景：通过数字平台快速处理小额争议。"], ["Smart Contract Dispute 智能合约争议", "场景：区块链合约自动执行引发的技术性争议。"], ["Cryptocurrency Recovery 加密货币追回", "场景：追踪和冻结被盗数字货币的争议解决。"], ["AI-Mediated Negotiation 人工智能调解", "场景：算法辅助争议分析和解决方案生成。"], ["Data Privacy Claim 数据隐私索赔", "场景：违反GDPR等法规的个人数据保护争议。"], ["ESG Dispute 环境社会治理争议", "场景：可持续发展承诺未履行引发的争议。"], ["Third-Party Funding 第三方资助", "场景：专业机构资助争议方以换取赔偿分成。"], ["Mass Claim 集体索赔", "场景：群体性损害的统一赔偿请求。"], ["Anti-Suit Injunction 反诉讼禁令", "场景：禁止一方在特定法院提起诉讼的强制令。"], ["Blockchain Evidence 区块链存证", "场景：利用区块链技术固化电子证据。"], ["Compromise 妥协", "场景：双方各退一步的解决方案。"], ["Deadlock 僵局", "场景：谈判陷入无法推进的状态。"], ["Bottom line 底线", "场景：谈判中不可突破的最低条件。"], ["ZOPA (Zone of Possible Agreement） 可能协议区", "场景：双方可接受条款的重叠范围。"], ["Anchoring 锚定效应", "场景：通过初始报价影响对方心理预期。"], ["Leverage 杠杆", "场景：谈判中的优势筹码。"], ["Logrolling 互惠让步", "场景：在不同议题上交换条件。"], ["Bargaining power 议价能力", "场景：影响谈判结果的控制力。"], ["Tactics 战术", "场景：实现谈判目标的具体手段。"], ["Face-saving 保全面子", "场景：避免让对方感到羞辱的让步方式。"], ["Good faith 诚信", "场景：谈判中的诚实守信原则。"], ["Objective criteria 客观标准", "场景：以市场数据或行业标准为依据。"], ["Walk-away point 放弃点", "场景：终止谈判的临界条件。"], ["Non-negotiable 不可谈判项", "场景：坚决不让步的核心条款。"], ["Clarify 澄清", "场景：确认对方意图以避免误解。"], ["Proposal 提议", "场景：正式提出的解决方案。"], ["Prioritize 优先项", "场景：明确谈判中的核心需求。"], ["Flexibility 灵活性", "场景：条款调整的意愿度。"], ["Consensus 共识", "场景：双方对条款的普遍认同。"], ["Deadline 截止期限", "场景：谈判的时间压力点。"], ["Rebuttal 反驳", "场景：对对方观点的理性回应。"], ["Summarize 总结", "场景：阶段性确认谈判成果。"], ["Contract 合同", "场景：谈判结果的书面法律文件。"], ["Termination 终止", "场景：提前结束合同的权利。"], ["Jurisdiction 司法管辖权", "场景：合同适用的法律体系。"], ["Amendment 修订", "场景：合同条款的修改程序。"], ["NDA (Non-disclosure Agreement） 保密协议", "场景：保护商业机密的合同。"], ["Breach 违约", "场景：未履行合同义务的行为。"], ["Signatory 签署方", "场景：合同的法律责任主体。"], ["Cultural sensitivity 文化敏感性", "场景：跨国谈判中的文化差异考量。"], ["Local customs 当地惯例", "场景：尊重目标市场的商业习惯。"], ["Language barrier 语言障碍", "场景：非母语沟通的潜在风险。"], ["Time zone 时区", "场景：跨国会议的时间协调。"], ["Exchange rate 汇率", "场景：跨境支付的价格波动风险。"], ["Tariff 关税", "场景：进出口贸易的成本因素。"], ["Political risk 政治风险", "场景：政策变动对合同的影响。"], ["Expatriate 外派人员", "场景：跨国项目的人员配置。"], ["Localization 本土化", "场景：适应目标市场的产品调整。"], ["Global strategy 全球战略", "场景：跨国谈判与集团政策的协同。"], ["Meet halfway 各退一步", "场景：折中解决方案的提议。"], ["Sweeten the deal 增加优惠", "场景：通过附加条件促成交易。"], ["Stand firm 坚持立场", "场景：拒绝让步的表达。"], ["Take it or leave it 接受或放弃", "场景：最终不可调整的条款。"], ["Play hardball 强硬态度", "场景：施加压力迫使对方让步。"], ["Back to the drawing board 重新规划", "场景：谈判失败后重启讨论。"], ["Iron out details 敲定细节", "场景：解决次要分歧以达成协议。"], ["Put all cards on the table 坦诚相待", "场景：公开所有信息的信任建立。"], ["Ball is in your court 轮到对方回应", "场景：催促对方决策的表达。"], ["Mediator 调解人", "场景：中立第三方协调争议。"], ["Hardliner 强硬派", "场景：拒绝妥协的谈判者。"], ["Conciliator 调和者", "场景：促进双方和解的角色。"], ["Decision-maker 决策者", "场景：拥有最终批准权的人员。"], ["Stakeholder 利益相关方", "场景：受谈判结果影响的内部或外部群体。"], ["Bluffing 虚张声势", "场景：制造虚假优势的谈判策略。"], ["Stonewalling 拖延战术", "场景：通过延迟回应施加压力。"], ["Good cop/bad cop 红脸白脸", "场景：团队分工的谈判策略。"], ["Unilateral 单方面", "场景：一方主导的决策或行动。"], ["Coercion 胁迫", "场景：不正当的施压手段。"], ["Compliance 合规", "场景：合同条款的履行监督。"], ["Renegotiation 重新谈判", "场景：合同到期或条件变化时的再次协商。"], ["Performance review 履约审查", "场景：定期评估合同执行情况。"], ["Exit clause 退出条款", "场景：提前终止合同的合法途径。"], ["Breach notice 违约通知", "场景：正式告知违约行为的文件。"], ["Force account 强制执行", "场景：通过法律手段确保履约。"], ["Goodwill gesture 善意姿态", "场景：修复关系的非强制性让步。"], ["Lessons learned 经验总结", "场景：谈判过程的复盘与改进。"], ["Market 市场", "场景：商品或服务的交易环境统称。"], ["Target Market 目标市场", "场景：企业重点服务的客户群体。"], ["Market Share 市场份额", "场景：企业在行业中的销售占比。"], ["Market Research 市场调研", "场景：收集和分析市场数据的活动。"], ["Competitor 竞争对手", "场景：提供同类产品或服务的企业。"], ["Emerging Market 新兴市场", "场景：快速发展中的经济体市场。"], ["Market Saturation 市场饱和", "场景：需求已被充分满足的市场状态。"], ["Market Trend 市场趋势", "场景：消费行为或行业发展的方向。"], ["Client 客户", "场景：购买企业服务的商业客户。"], ["Customer 消费者", "场景：购买终端产品的个人用户。"], ["End User 终端用户", "场景：产品的最终使用者。"], ["Potential Client 潜在客户", "场景：有购买意向但未成交的客户。"], ["Loyalty 忠诚度", "场景：客户重复购买的意愿。"], ["RFQ (Request for Quotation） 询价单", "场景：客户发起的正式报价请求。"], ["Lead 销售线索", "场景：可能转化为客户的潜在联系人。"], ["B2B (Business to Business） 企业对企业", "场景：企业间的商业交易模式。"], ["B2C (Business to Consumer） 企业对消费者", "场景：企业直接销售给个人用户。"], ["Pain Point 痛点", "场景：客户未满足的需求或问题。"], ["Branding 品牌建设", "场景：塑造品牌形象的活动。"], ["USP (Unique Selling Proposition） 独特卖点", "场景：产品区别于竞品的核心优势。"], ["Promotion 促销", "场景：短期刺激销售的活动。"], ["Campaign 营销活动", "场景：有目标的集中推广计划。"], ["SEO (Search Engine Optimization） 搜索引擎优化", "场景：提升网站自然搜索排名的技术。"], ["CTR (Click-Through Rate） 点击率", "场景：衡量广告或链接效果的指标。"], ["Conversion Rate 转化率", "场景：潜在客户转化为购买者的比例。"], ["KOL (Key Opinion Leader） 关键意见领袖", "场景：影响目标群体决策的权威人士。"], ["CRM (Customer Relationship Management） 客户关系管理", "场景：系统化维护客户关系的工具。"], ["ROI (Return on Investment） 投资回报率", "场景：评估营销投入产出的指标。"], ["Referral 客户推荐", "场景：现有客户介绍新客户。"], ["Testimonial 客户证言", "场景：客户对产品的正面评价。"], ["Upsell 增销", "场景：向客户推荐更高价值产品。"], ["Cross-sell 交叉销售", "场景：推荐相关互补产品。"], ["Churn Rate 客户流失率", "场景：停止购买的客户比例。"], ["Customer Lifetime Value (CLV） 客户终身价值", "场景：客户长期贡献的总利润。"], ["Lead Generation 潜在客户开发", "场景：获取销售线索的策略。"], ["Customer Journey 客户旅程", "场景：客户从认知到购买的全流程。"], ["Touchpoint 接触点", "场景：客户与企业互动的各个环节。"], ["SWOT Analysis SWOT分析", "场景：评估企业优势、劣势、机会与威胁。"], ["PEST Analysis PEST分析", "场景：宏观环境（政治、经济、社会、技术）分析。"], ["Benchmarking 基准测试", "场景：与行业标杆对比绩效。"], ["Market Segmentation 市场细分", "场景：按特征划分客户群体。"], ["Buyer Persona 买家画像", "场景：虚构的理想客户特征描述。"], ["Demographics 人口统计特征", "场景：年龄、性别、收入等基础数据。"], ["Psychographics 心理特征", "场景：价值观、生活方式等深层属性。"], ["Market Growth Rate 市场增长率", "场景：行业规模的年度变化比例。"], ["Competitive Advantage 竞争优势", "场景：超越对手的独特能力。"], ["Value Proposition 价值主张", "场景：企业为客户提供的核心价值陈述。"], ["Customer Retention 客户留存", "场景：维持现有客户关系的策略。"], ["Churn Analysis 流失分析", "场景：研究客户流失原因的方法。"], ["Customer Segmentation 客户细分", "场景：按行为或特征划分客户群体。"], ["RFM Model 近期-频率-金额模型", "场景：量化客户价值的分析工具。"], ["Customer Health Score 客户健康度评分", "场景：预测客户续约或流失的指标。"], ["Onboarding 客户 onboarding", "场景：新客户的产品使用引导流程。"], ["Customer Advocacy 客户倡导", "场景：客户主动推荐品牌的行为。"], ["CSAT (Customer Satisfaction Score） 客户满意度评分", "场景：衡量单次交互满意度的指标。"], ["NPS (Net Promoter Score） 净推荐值", "场景：评估客户推荐意愿的指标。"], ["Customer Effort Score 客户费力度", "场景：量化客户解决问题难易度的指标。"], ["Marketing Automation 营销自动化", "场景：通过工具自动化执行营销任务。"], ["Lead Scoring 线索评分", "场景：评估销售线索质量的系统。"], ["Behavioral Targeting 行为定向", "场景：基于用户行为的广告投放策略。"], ["Retargeting 再营销", "场景：向曾互动用户再次展示广告。"], ["A/B Testing A/B测试", "场景：对比不同版本的效果差异。"], ["Customer Data Platform (CDP） 客户数据平台", "场景：整合多渠道客户数据的系统。"], ["Predictive Analytics 预测分析", "场景：通过历史数据预测未来行为。"], ["Chatbot Optimization 聊天机器人优化", "场景：提升AI客服的交互效率。"], ["Voice Search SEO 语音搜索优化", "场景：适应语音助手的搜索排名策略。"], ["Augmented Reality (AR) Marketing AR营销", "场景：通过AR技术增强用户体验。"], ["29-30 天 | 市场客户（市场与客户） | 记 Target Market、CRM 等；定拓展计划；写客户邮件 | 理解市场客户逻辑，做维护方案", "31 天 | 全模块复盘 | 回顾 8 大模块高频词；做术语匹配题 | 唤醒记忆，匹配术语与场景"]];window.__KEY__="918商务600词";window.__TITLE__="9.18 商务600词";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

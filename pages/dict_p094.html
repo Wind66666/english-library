@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 10.23 商务寒暄潜台词</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p094.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：10.23 商务寒暄潜台词</h1>
+  <div class="meta"><span class="charspill">270 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">270</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 270 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p094.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Impressive work on the project report!", "这份项目报告做得真出色！"], ["Your analysis of the market trend is truly insightful.", "你对市场趋势的分析太有洞察力了。"], ["That’s a brilliant solution to the client’s problem.", "这对客户的问题来说是个绝妙的解决方案。"], ["I’m really impressed by your ability to handle tight deadlines.", "你应对紧迫截止日期的能力让我印象深刻。"], ["Your presentation skills are absolutely top-notch.", "你的演讲技巧绝对是一流的。"], ["What a great job coordinating the cross-departmental team!", "协调跨部门团队做得真不错！"], ["Your understanding of the industry regulations is remarkable.", "你对行业法规的理解太了不起了。"], ["That’s a very creative approach to improving efficiency.", "这是个提高效率的很有创意的方法。"], ["I’m impressed by your attention to every detail in the contract.", "你对合同中每个细节的关注让我印象深刻。"], ["Your ability to negotiate with suppliers is outstanding.", "你与供应商谈判的能力非常出色。"], ["This proposal you submitted is really well-structured.", "你提交的这份提案结构非常清晰。"], ["Your knowledge of the latest technology is impressive.", "你对最新技术的了解让人印象深刻。"], ["That’s a thoughtful suggestion for enhancing customer satisfaction.", "这是个提升客户满意度的很周到的建议。"], ["I’m amazed by your ability to manage multiple projects at once.", "你同时管理多个项目的能力让我很惊讶。"], ["Your communication with the international team is excellent.", "你与国际团队的沟通非常出色。"], ["This market research report provides such valuable insights.", "这份市场调研报告提供了非常有价值的见解。"], ["Your leadership in guiding the team through the crisis is remarkable.", "你在带领团队度过危机时的领导力太了不起了。"], ["That’s a very practical plan for expanding our business.", "这是个拓展业务的非常切实可行的计划。"], ["I’m impressed by your quick response to the emergency.", "你对紧急情况的快速反应让我印象深刻。"], ["Your expertise in financial analysis is truly outstanding.", "你在财务分析方面的专业知识真的非常出色。"], ["This marketing campaign you designed is really eye-catching.", "你设计的这个营销活动非常引人注目。"], ["Your ability to build relationships with clients is impressive.", "你与客户建立关系的能力让人印象深刻。"], ["That’s a smart strategy for reducing costs without affecting quality.", "这是个在不影响质量的前提下降低成本的明智策略。"], ["I’m really impressed by your dedication to the work.", "你对工作的投入让我印象深刻。"], ["Your understanding of customer needs is remarkable.", "你对客户需求的理解太了不起了。"], ["That’s a very innovative product design concept.", "这是个非常有创新性的产品设计理念。"], ["I’m amazed by your ability to solve complex problems quickly.", "你快速解决复杂问题的能力让我很惊讶。"], ["Your organization of the business conference was excellent.", "你组织的这次商务会议非常出色。"], ["This sales forecast is really accurate and reliable.", "这份销售预测非常准确可靠。"], ["Your ability to motivate the team is outstanding.", "你激励团队的能力非常出色。"], ["That’s a very comprehensive training program for new employees.", "这是个针对新员工的非常全面的培训计划。"], ["I’m impressed by your knowledge of the global market.", "你对全球市场的了解让我印象深刻。"], ["Your communication skills in explaining complex concepts are excellent.", "你在解释复杂概念时的沟通技巧非常出色。"], ["That’s a great idea for improving the company’s brand image.", "这是个提升公司品牌形象的好主意。"], ["I’m really impressed by your punctuality and reliability.", "你的守时和可靠让我印象深刻。"], ["Your analysis of the competitor’s strengths and weaknesses is insightful.", "你对竞争对手优劣势的分析很有洞察力。"], ["That’s a very efficient way to handle customer complaints.", "这是个处理客户投诉的非常高效的方法。"], ["I’m amazed by your ability to learn new skills quickly.", "你快速学习新技能的能力让我很惊讶。"], ["Your leadership style is very inspiring to the team.", "你的领导风格对团队很有激励作用。"], ["This project plan you developed is really detailed and feasible.", "你制定的这份项目计划非常详细且可行。"], ["Your ability to collaborate with different departments is impressive.", "你与不同部门协作的能力让人印象深刻。"], ["That’s a very creative marketing slogan for the new product.", "这是个针对新产品的很有创意的营销口号。"], ["I’m impressed by your understanding of the company’s strategic goals.", "你对公司战略目标的理解让我印象深刻。"], ["Your expertise in project management is truly outstanding.", "你在项目管理方面的专业知识真的非常出色。"], ["That’s a smart decision for investing in the new market.", "这是个投资新市场的明智决策。"], ["I’m really impressed by your work ethic and professionalism.", "你的职业道德和专业素养让我印象深刻。"], ["Your communication with the senior management is excellent.", "你与高层管理层的沟通非常出色。"], ["That’s a very practical suggestion for optimizing the workflow.", "这是个优化工作流程的非常切实可行的建议。"], ["I’m amazed by your ability to handle difficult clients successfully.", "你成功应对难缠客户的能力让我很惊讶。"], ["Your knowledge of the industry trends is remarkable.", "你对行业趋势的了解太了不起了。"], ["That’s a very innovative approach to product development.", "这是个产品开发的很有创新性的方法。"], ["I’m impressed by your ability to manage the project budget effectively.", "你有效管理项目预算的能力让我印象深刻。"], ["Your presentation at the conference was really engaging.", "你在会议上的演讲非常吸引人。"], ["That’s a great plan for promoting the company’s new service.", "这是个推广公司新服务的好计划。"], ["I’m really impressed by your problem-solving skills in the workplace.", "你在工作中的解决问题能力让我印象深刻。"], ["Your understanding of the customer’s business model is insightful.", "你对客户商业模式的理解很有洞察力。"], ["That’s a very efficient system for tracking project progress.", "这是个跟踪项目进度的非常高效的系统。"], ["I’m amazed by your ability to adapt to changes in the market.", "你适应市场变化的能力让我很惊讶。"], ["Your leadership in launching the new product was excellent.", "你在推出新产品时的领导力非常出色。"], ["This customer feedback analysis is really valuable for product improvement.", "这份客户反馈分析对产品改进非常有价值。"], ["Your ability to build trust with business partners is impressive.", "你与商业伙伴建立信任的能力让人印象深刻。"], ["That’s a very creative idea for organizing the company’s team-building activity.", "这是个组织公司团建活动的很有创意的想法。"], ["I’m impressed by your knowledge of the company’s history and culture.", "你对公司历史和文化的了解让我印象深刻。"], ["Your expertise in legal affairs related to business is truly outstanding.", "你在商业相关法律事务方面的专业知识真的非常出色。"], ["That’s a smart strategy for retaining key employees.", "这是个留住核心员工的明智策略。"], ["I’m really impressed by your ability to communicate complex data clearly.", "你清晰传达复杂数据的能力让我印象深刻。"], ["Your analysis of the economic environment’s impact on the business is insightful.", "你对经济环境对业务影响的分析很有洞察力。"], ["That’s a very practical method for improving employee productivity.", "这是个提高员工工作效率的非常切实可行的方法。"], ["I’m amazed by your ability to handle multiple tasks with high quality.", "你高质量完成多项任务的能力让我很惊讶。"], ["Your leadership in improving the company’s operational efficiency was remarkable.", "你在提升公司运营效率方面的领导力太了不起了。"], ["This market expansion plan is really well-researched and comprehensive.", "这份市场拓展计划研究得非常深入且全面。"], ["Your ability to negotiate favorable terms in the contract is impressive.", "你在合同中谈判到有利条款的能力让人印象深刻。"], ["That’s a very innovative marketing campaign for the holiday season.", "这是个针对节假日的很有创新性的营销活动。"], ["I’m impressed by your understanding of the team’s strengths and weaknesses.", "你对团队优劣势的理解让我印象深刻。"], ["Your expertise in technology application in business is truly outstanding.", "你在商业中技术应用方面的专业知识真的非常出色。"], ["That’s a smart decision for upgrading the company’s IT system.", "这是个升级公司 IT 系统的明智决策。"], ["I’m really impressed by your work attitude and enthusiasm.", "你的工作态度和热情让我印象深刻。"], ["Your communication with the media is excellent.", "你与媒体的沟通非常出色。"], ["That’s a very practical suggestion for reducing waste in the production process.", "这是个减少生产过程中浪费的非常切实可行的建议。"], ["I’m amazed by your ability to predict market changes accurately.", "你准确预测市场变化的能力让我很惊讶。"], ["Your leadership in building a positive team culture was excellent.", "你在营造积极团队文化方面的领导力非常出色。"], ["This customer satisfaction survey report provides very useful information.", "这份客户满意度调查报告提供了非常有用的信息。"], ["Your ability to simplify complex business processes is outstanding.", "你简化复杂业务流程的能力非常出色。"], ["That’s a very creative way to showcase the company’s core values.", "这是个展现公司核心价值观的很有创意的方式。"], ["I’m impressed by your ability to balance work quality and speed.", "你平衡工作质量和速度的能力让我印象深刻。"], ["Your analysis of the new policy’s impact on our business is insightful.", "你对新政策给我们业务带来影响的分析很有洞察力。"], ["That’s a practical plan for improving the company’s after-sales service.", "这是个提升公司售后服务质量的切实可行的计划。"], ["I’m amazed by your ability to build a strong customer base in a short time.", "你能在短时间内建立稳固客户群的能力让我很惊讶。"], ["Your expertise in digital marketing is truly remarkable.", "你在数字营销方面的专业知识真的太了不起了。"], ["That’s a smart strategy for collaborating with industry partners.", "这是个与行业伙伴合作的明智策略。"], ["I’m really impressed by your ability to resolve team conflicts calmly.", "你冷静解决团队冲突的能力让我印象深刻。"], ["Your understanding of the target audience’s needs is excellent.", "你对目标受众需求的理解非常出色。"], ["That’s an innovative method for measuring project performance.", "这是个衡量项目绩效的创新性方法。"], ["I’m impressed by your ability to stay updated with industry news.", "你及时了解行业动态的能力让我印象深刻。"], ["Your communication with remote team members is very effective.", "你与远程团队成员的沟通非常高效。"], ["That’s a comprehensive plan for training middle management.", "这是个针对中层管理的全面培训计划。"], ["I’m amazed by your ability to predict potential risks in the project.", "你预判项目潜在风险的能力让我很惊讶。"], ["Your knowledge of supply chain management is impressive.", "你在供应链管理方面的知识让人印象深刻。"], ["That’s a creative idea for launching the company’s new brand.", "这是个推出公司新品牌的创意想法。"], ["I’m really impressed by your ability to meet sales targets consistently.", "你能持续完成销售目标的能力让我印象深刻。"], ["Interesting take on the market strategy.", "你对市场策略的看法挺有意思。"], ["I see what you mean about the project timeline.", "我明白你对项目时间线的看法了。"], ["That’s an interesting approach to cost-cutting.", "这是个挺有意思的成本削减方法。"], ["I see your point about the new software.", "我明白你对这款新软件的看法了。"], ["Interesting idea for the team’s work schedule.", "关于团队工作时间表的想法挺有意思。"], ["I see why you suggest changing the supplier.", "我明白你建议更换供应商的原因了。"], ["That’s an interesting perspective on customer feedback.", "你对客户反馈的看法挺有角度的。"], ["I see what you’re saying about the presentation structure.", "我明白你对演讲结构的看法了。"], ["Interesting plan for promoting the new product in rural areas.", "在农村地区推广新产品的计划挺有意思。"], ["I see your concern about the budget overrun.", "我明白你对预算超支的担忧了。"], ["That’s an interesting way to handle client objections.", "这是个应对客户异议的挺有意思的方法。"], ["I see why you want to adjust the team’s responsibilities.", "我明白你想调整团队职责的原因了。"], ["Interesting thought about partnering with a startup.", "与初创公司合作的想法挺有意思。"], ["I see your point about the marketing campaign’s target group.", "我明白你对营销活动目标群体的看法了。"], ["That’s an interesting approach to improving employee engagement.", "这是个提升员工敬业度的挺有意思的方法。"], ["I see what you mean about the contract’s terms.", "我明白你对合同条款的看法了。"], ["Interesting idea for hosting a virtual business event.", "举办虚拟商务活动的想法挺有意思。"], ["I see your concern about the new employee’s training progress.", "我明白你对新员工培训进度的担忧了。"], ["That’s an interesting perspective on the industry’s future trends.", "你对行业未来趋势的看法挺有角度的。"], ["I see why you suggest updating the company’s website.", "我明白你建议更新公司官网的原因了。"], ["Interesting way to track employee performance.", "这是个跟踪员工绩效的挺有意思的方式。"], ["I see your point about the project’s priority.", "我明白你对项目优先级的看法了。"], ["That’s an interesting plan for expanding into overseas markets.", "拓展海外市场的计划挺有意思。"], ["I see what you mean about the customer’s complaint.", "我明白你对客户投诉的看法了。"], ["Interesting idea for improving the company’s meeting efficiency.", "提升公司会议效率的想法挺有意思。"], ["How do you think the recent industry conference went?", "你觉得最近的行业会议开得怎么样？"], ["Have you tried any good productivity tools lately?", "你最近有没有用到什么好用的效率工具？"], ["What’s your take on the new industry standard that was released?", "你对最新发布的行业标准有什么看法？"], ["How do you usually balance work and professional development?", "你通常如何平衡工作和职业发展？"], ["Have you attended any useful training courses recently?", "你最近有没有参加什么有用的培训课程？"], ["What do you think of the local business environment here?", "你觉得这里的营商环境怎么样？"], ["How has your team been adapting to the new work process?", "你的团队适应新工作流程的情况怎么样？"], ["Have you read any interesting business books lately?", "你最近有没有读什么有趣的商业书籍？"], ["What’s the most challenging part of your current project?", "你目前负责的项目中，最有挑战性的部分是什么？"], ["How do you think technology is changing our industry?", "你认为技术正在如何改变我们的行业？"], ["Have you participated in any industry exhibitions this year?", "你今年有没有参加过行业展会？"], ["What’s your favorite part about working in this field?", "你最喜欢这个领域工作的哪个方面？"], ["How do you usually handle tight project deadlines?", "你通常如何应对紧迫的项目截止日期？"], ["What do you think of the latest product launch in our industry?", "你对行业内最新的产品发布有什么看法？"], ["Have you had any good experiences collaborating with other departments?", "你在与其他部门协作时，有没有什么好的经验？"], ["How much do you earn annually?", "你每年收入多少？"], ["Are you married or planning to have kids?", "你结婚了吗？打算要孩子吗？"], ["What’s your political stance on the recent election?", "你对最近的选举持什么政治立场？"], ["How old are you exactly?", "你具体多大年纪了？"], ["Why haven’t you been promoted yet?", "你为什么还没升职？"], ["What’s wrong with your health recently?", "你最近身体有什么问题吗？"], ["Do you think your boss is competent?", "你觉得你的老板有能力吗？"], ["How much did your house/car cost?", "你的房子 / 车子花了多少钱？"], ["What’s your religious belief?", "你信仰什么宗教？"], ["Why did you leave your previous job?", "你为什么离开上一份工作？"], ["Do you think your colleague’s work is up to standard?", "你觉得你同事的工作达标了吗？"], ["How much do you spend on luxury goods each month?", "你每个月在奢侈品上花多少钱？"], ["What’s your opinion on the personal life of that celebrity?", "你对那个名人的私人生活有什么看法？"], ["Have you ever had a dispute with your family?", "你和家人发生过矛盾吗？"], ["Do you think you’re overqualified for your current job?", "你觉得你现在的工作大材小用了吗？"], ["Colleague A: “I plan to cut the project team size by half to save costs.” Colleague B: “Interesting.”", "同事 A：“我计划把项目团队人数减半来节省成本。” 同事 B：“挺有意思的。”"], ["Salesperson: “I think we should focus all marketing budget on social media ads.” Client: “Interesting approach.”", "销售：“我认为我们应该把所有营销预算都投到社交媒体广告上。” 客户：“挺有意思的方法。”"], ["Manager: “I want to change the weekly report submission time to 7 PM every Friday.” Team member: “Interesting idea.”", "经理：“我想把周报提交时间改成每周五晚上 7 点。” 团队成员：“挺有意思的想法。”"], ["Partner: “Let’s postpone the product launch to next quarter to add more features.” You: “Interesting call.”", "合作伙伴：“咱们把产品发布推迟到下个季度，多加点功能。” 你：“挺有意思的决定。”"], ["New employee: “I think we should replace the existing software with the one I used before.” Supervisor: “Interesting suggestion.”", "新员工：“我觉得咱们应该把现有的软件换成我之前用过的那款。” 主管：“挺有意思的建议。”"], ["Colleague A （realizing the misunderstanding）: “Wait, when you said ‘Interesting’ earlier, did you have concerns about the team size cut? I can explain the risk control measures.”", "同事 A（意识到误解后）：“等等，你刚才说‘挺有意思的’，是不是对裁员方案有顾虑呀？我可以解释一下风险控制措施。”"], ["Salesperson （correcting the misjudgment）: “I noticed you said ‘Interesting approach’—do you have questions about the budget concentration? Let me share the data on social media ad ROI from our last project.” （销售（纠正误判后）：“我注意到你说‘挺有意思的方法’", "—— 是不是对预算集中有疑问呀？我给你看看我们上一个项目社交媒体广告的投资回报率数据。”）"], ["Manager （after noticing resistance）: “Last week I mentioned changing the weekly report time to 7 PM, and you said ‘Interesting idea’—now I realize it might conflict with your personal time. Let’s discuss a more flexible schedule together.” （经理（发现抵触后）：“上周我说把周报时间改成晚上 7 点，你说‘挺有意思的想法’", "—— 现在我意识到这可能和你的私人时间冲突，咱们一起商量个更灵活的时间吧。”）"], ["You （addressing the hesitation）: “When you agreed with ‘Interesting call’ about postponing the launch, I later thought you might worry about market competition. Let’s analyze the pros and cons of launching on time vs. postponing.”", "你（回应疑虑后）：“之前说推迟发布时，你说‘挺有意思的决定’，后来我想你可能担心市场竞争。咱们一起分析下按时发布和推迟发布的利弊吧。”"], ["New employee （realizing the gap）: “When I suggested changing the software, you said ‘Interesting suggestion’—I think I didn’t explain how it fits our current workflow. Let me first learn more about our existing system and then adjust the idea.” （新员工（意识到差距后）：“我之前建议换软件，你说‘挺有意思的建议’", "—— 我觉得我没说清楚它怎么适配咱们现在的工作流程。我先多了解下现有系统，再调整这个想法。”）"], ["When communicating with colleagues from different countries, you prefer to: A） Get straight to the business point B） Start with a short small talk about daily life C） Ask about their work experience first", "与不同国家的同事沟通时，你更倾向于：A）直接切入工作主题 B）先聊几句日常生活的寒暄 C）先询问他们的工作经历"], ["When receiving feedback from an overseas client, you expect them to: A） Point out problems directly, even if it’s blunt B） Mention positive points first, then suggest improvements C） Avoid clear criticism and use vague language", "收到海外客户的反馈时，你期望他们：A）直接指出问题，即使语气尖锐 B）先提优点，再给出改进建议 C）避免明确批评，用模糊的语言表达"], ["When scheduling a meeting with a partner from another culture, you think it’s most important to: A） Confirm the exact time and agenda in advance B） Build a personal relationship first before setting the time C） Be flexible with the time to accommodate their schedule", "与其他文化背景的合作伙伴安排会议时，你认为最重要的是：A）提前确认准确时间和议程 B）先建立私人关系，再确定时间 C）灵活调整时间以适应对方日程"], ["When negotiating a contract with an international team, you focus more on: A） The detailed terms and legal clauses B） The trust and mutual understanding between both parties C） The long-term cooperation potential beyond the contract", "与国际团队谈判合同时，你更关注：A）详细条款和法律条文 B）双方之间的信任和相互理解 C）合同之外的长期合作潜力"], ["When explaining a complex project to a foreign colleague, you tend to: A） Use data and logic to support each point clearly B） Use stories or examples related to their culture to explain C） Rely on body language and tone to convey key information", "向外国同事解释复杂项目时，你倾向于：A）用数据和逻辑清晰支撑每个观点 B）用与他们文化相关的故事或例子解释 C）依靠肢体语言和语气传递关键信息"], ["When a foreign colleague disagrees with your idea, you hope they will: A） Say “I disagree” directly and explain the reason B） Say “I have another thought” to express disagreement indirectly C） Avoid saying “disagree” and change the topic slowly", "外国同事不认同你的想法时，你希望他们：A）直接说 “我不认同” 并解释原因 B）用 “我有另一个想法” 间接表达反对 C）避免说 “不认同”，慢慢转移话题"], ["When giving a gift to an overseas business partner, you think it’s appropriate to: A） Choose a practical gift with clear price tag B） Choose a gift that represents your local culture （no price tag） C） Avoid giving gifts to avoid misunderstanding", "给海外商业伙伴送礼物时，你认为合适的做法是：A）选实用型礼物，附带明确价格标签 B）选代表本地文化的礼物（无价格标签） C）避免送礼物，防止产生误解"], ["I noticed that our industry has seen a lot of new tech investments recently—have you paid attention to any of them?”", "我注意到咱们行业最近有很多新技术投资，你关注过其中哪些吗？"], ["The latest report from [Industry Organization] said that market demand for [product type] will grow by 20% next year—what do you think about that forecast?”", "［行业机构］的最新报告说，明年［产品类型］的市场需求会增长 20%，你怎么看这个预测？"], ["I heard that [Competitor Company] launched a new service last month—have you had a chance to learn about its features?”", "我听说［竞争对手公司］上个月推出了一项新服务，你有没有了解过它的功能呀？"], ["You’ve been working in this field for many years—what’s the most unexpected challenge you’ve encountered so far?”", "你在这个领域做了很多年，到目前为止遇到过的最意外的挑战是什么呀？"], ["I just finished a project similar to yours last quarter—it was really tough to coordinate with the logistics team. Have you ever had a similar experience?”", "我上季度刚完成一个和你类似的项目，协调物流团队特别难，你有没有过类似的经历呀？"], ["What’s the most useful skill you’ve learned in your current role that you didn’t expect to need?”", "在你现在的工作中，学到的最有用但之前没预料到会需要的技能是什么呀？"], ["I know you’re from [Country]—is there any business etiquette in your culture that we should pay attention to when working together?”", "我知道你来自［国家］，咱们合作时，有没有什么你们文化里的商务礼仪是我们需要注意的呀？"], ["I’ve tried [local food from their country] before—it’s really delicious! Have you found any good restaurants serving your local food here?”", "我之前吃过［对方国家的特色食物］，特别好吃！你在这儿找到过做你们本地菜的好餐厅吗？"], ["Working across time zones can be tricky—what’s your favorite way to balance work and rest when dealing with overseas teams?”", "跨时区工作挺麻烦的，你和海外团队合作时，最喜欢用什么方法平衡工作和休息呀？"], ["When you first started in this industry, what’s one piece of advice you wish someone had given you?”", "你刚进入这个行业时，有没有什么建议是你希望当时有人能告诉你的呀？"], ["I’ve been trying to improve my [skill, e.g., “cross-department communication”] lately—do you have any tips that worked for you?”", "我最近在努力提升［技能，如 “跨部门沟通”］，你有没有什么对你有效的方法呀？"], ["What’s the most rewarding project you’ve worked on so far? I’d love to hear about it.”", "到目前为止，你做过的最有成就感的项目是什么呀？我很想听听。"], ["I heard you like hiking—have you found any good hiking trails near the city recently?”", "我听说你喜欢徒步，最近在市区附近找到什么好的徒步路线了吗？"], ["The weather has been really nice this week—do you have any plans to go out and relax on the weekend?”", "这周天气特别好，你周末有没有出去放松的计划呀？"], ["I just started reading a book about [business topic, e.g., “remote team management”]—have you read any good books lately （business or non-business）?” （我刚开始读一本关于［商务话题，如 “远程团队管理”］的书", "—— 你最近有没有读到什么好书呀（商务类或非商务类都可以）？）"], ["I tried a new coffee shop near the office yesterday—their latte is amazing! Have you explored any good cafes around here?”", "我昨天去了办公室附近一家新开的咖啡店，他们的拿铁超好喝！你有没有发掘过这附近的好咖啡馆呀？"], ["My kid just started learning to play the piano—it’s both fun and tiring to practice with them. Do you have any hobbies or family activities you enjoy after work?”", "我家孩子刚开始学钢琴，陪他们练习既有趣又累。你下班后有没有什么喜欢的爱好或家庭活动呀？"], ["Colleague （US）: “Hey! How was your weekend? Did you do anything fun?”", "同事（美国）：“嘿！你周末过得怎么样？有没有做什么好玩的事呀？”"], ["You: “It was great! I went hiking with a friend in the mountains. How about you? Did you have a good weekend too?”", "你：“特别好！我和朋友去山里徒步了。你呢？周末过得也不错吧？”"], ["Colleague （US）: “Oh, hiking sounds awesome! I just stayed home and watched a movie—nothing too exciting, but it was relaxing.”", "同事（美国）：“哦，徒步听起来太棒了！我就待在家里看了部电影 —— 没什么特别刺激的，但挺放松的。”"], ["You: “Watching a movie at home is perfect for relaxing! What movie did you watch?”", "你：“在家看电影太适合放松了！你看的什么电影呀？”"], ["Colleague （Japan）: “Ohayou gozaimasu. Did you have a safe commute this morning?”", "同事（日本）：“早上好。你今天早上通勤顺利吗？”"], ["You: “Ohayou gozaimasu. Yes, the train was on time today, so it was very smooth. How about your commute?”", "你：“早上好。嗯，今天地铁很准时，所以挺顺利的。你通勤怎么样呀？”"], ["Colleague （Japan）: “My commute was okay too. The weather is nice today, isn’t it?”", "同事（日本）：“我通勤也还可以。今天天气挺好的，是吧？”"], ["You: “Yes, the sun is out and the wind is gentle—it’s perfect for walking. I think it’ll stay nice for the whole day.”", "你：“是呀，阳光很好，风也很轻柔，特别适合散步。我觉得今天一整天天气都会不错。”"], ["Colleague （UK）: “Morning! Did you get caught in the rain yesterday evening? It poured suddenly, didn’t it?”", "同事（英国）：“早上好！你昨晚有没有被雨淋到呀？突然下大雨了，是吧？”"], ["You: “Morning! Luckily, I brought an umbrella with me—otherwise I would have been soaked. How about you? Did you escape the rain?”", "你：“早上好！幸好我带伞了，不然就淋成落汤鸡了。你呢？躲开雨了吗？”"], ["Colleague （UK）: “I almost forgot my umbrella—ran back home to get it just in time. Typical British weather, right?”", "同事（英国）：“我差点忘了带伞，赶紧跑回家拿，刚好赶上。典型的英国天气，是吧？”"], ["You: “Absolutely! You never know what the British weather will do—one minute sunny, the next raining. Did you have any plans ruined by the rain?”", "你：“太对了！英国的天气真说不准，前一分钟晴天，下一分钟就下雨。有没有什么计划被雨打乱呀？”"], ["Colleague （India）: “Good morning! How are you doing today? Did you have a nice breakfast?”", "同事（印度）：“早上好！你今天怎么样呀？早餐吃好了吗？”"], ["You: “Good morning! I’m doing well, thank you. I had oatmeal and a cup of tea for breakfast—it was very filling. How about you? What did you have for breakfast?”", "你：“早上好！我挺好的，谢谢。早餐吃了燕麦和一杯茶，很饱。你呢？早餐吃了什么呀？”"], ["Colleague （India）: “That sounds healthy! I had idli and sambar—my mom made it, so it tasted extra good. Do you like South Indian food?”", "同事（印度）：“听起来很健康！我吃了印度蒸米糕和扁豆汤，是我妈妈做的，所以特别好吃。你喜欢南印度菜吗？”"], ["You: “I’ve tried idli before—it’s really delicious! I’d love to try your mom’s cooking sometime if I get the chance. Do you usually bring home-cooked food to work?”", "你：“我之前吃过印度蒸米糕，特别好吃！要是有机会，我真想尝尝阿姨做的菜。你平时会带家里做的饭去上班吗？”"], ["Good morning, everyone. Before we start the meeting, how was everyone’s weekend? Anyone do something fun?”", "各位早上好。开会前，大家周末过得怎么样呀？有人做了什么好玩的事吗？"], ["Welcome, [Partner Name]. Thanks for making time to join the meeting today. How’s the traffic from your office to here?”", "［合作伙伴姓名］，欢迎你。感谢你今天抽空来开会。从你办公室到这儿交通怎么样呀？"], ["Since we’re all here, let’s take 2 minutes to check in—how’s everyone feeling about the project progress so far?” （既然大家都到齐了，我们花 2 分钟简单交流下", "—— 大家对目前项目的进展感觉怎么样呀？）"], ["Welcome to our office, [Client Name]. It’s great to finally meet you in person—we’ve talked so much on the phone. Would you like a cup of coffee or tea first?”", "［客户姓名］，欢迎来我们公司。终于能当面见到你了，我们在电话里聊了好多次了。你先喝杯咖啡还是茶呀？"], ["Hi [Client Name], long time no see! How’s your business going lately? I heard your company launched a new product last month—congratulations!”", "［客户姓名］，好久不见！你最近生意怎么样呀？我听说你们公司上个月推出了新产品，恭喜呀！"], ["Thanks for coming all the way to our office, [Client Name]. Did you have any trouble finding the place? Our receptionist can show you around quickly if you have time later.”", "［客户姓名］，感谢你大老远来我们公司。找地方的时候有没有遇到困难呀？要是你等会儿有时间，我们前台可以带你简单参观下。"], ["Hi everyone, thanks for joining the video call on time. Can everyone hear me clearly? I had a little trouble with my internet earlier, but it seems okay now.”", "大家好，感谢准时参加视频会议。各位能听清我说话吗？我刚才网络有点小问题，不过现在好像没问题了。"], ["Good afternoon, [Client Name]. It’s nice to connect with you online today. How’s your internet connection on your end? We can adjust the call quality if there’s any lag.”", "［客户姓名］，下午好。今天能在线上和您沟通很开心。您那边网络怎么样呀？如果有延迟，我们可以调整通话质量。"], ["Before we start the online discussion, I just wanted to say thanks for making time amid your busy schedule—do you have any other urgent matters to handle before we begin?”", "开始线上讨论前，我想先感谢您在忙碌日程中抽空参加 —— 开始之前您还有其他紧急事情要处理吗？"], ["Hi [Colleague Name], I saw your email about the project update. Thanks for sharing the details so promptly—did you need me to follow up on anything specific right now?”", "［同事姓名］，我看到你关于项目进展的邮件了。感谢这么快分享细节 —— 你现在需要我跟进什么具体事项吗？"], ["Welcome to the online workshop, everyone. I’m glad to see so many of you here today. If you have any questions during the session, feel free to type them in the chat box—I’ll answer them later.”", "各位欢迎参加线上研讨会。今天看到这么多人参与我很开心。如果过程中有任何问题，大家可以在聊天框里输入，我之后会解答。"], ["Thanks so much for staying late to help finish the project report—it really saved me a lot of time.”", "非常感谢你加班帮我完成项目报告，这真的帮我节省了很多时间。"], ["I really appreciate your support during the client meeting—your input helped the client feel more confident about our plan.”", "特别感谢你在客户会议上的支持，你的意见让客户对我们的方案更有信心了。"], ["Thank you for sharing your industry insights with us—they gave us a new perspective on the market trend.”", "感谢你和我们分享行业见解，它们为我们提供了看待市场趋势的新视角。"], ["I want to thank you for coordinating with the logistics team—without your help, we wouldn’t have delivered the goods on time.”", "我想感谢你协调物流团队 —— 没有你的帮助，我们没办法按时交货。"], ["Thanks for your patience in explaining the new system to me—I was a bit confused at first, but now I understand it clearly.”", "感谢你耐心教我新系统，我一开始有点困惑，现在完全明白了。"], ["You’re welcome! It was my pleasure to help—we’re a team, after all.”", "不客气！能帮忙是我的荣幸，毕竟我们是一个团队。"], ["Don’t mention it! I’m glad I could contribute—your project plan is really strong, so it was easy to support you.”", "别客气！能出份力我很开心，你的项目计划本身很扎实，所以支持你也很容易。"], ["It’s nothing! I know you’d do the same for me if I needed help—let’s keep working together to make the project a success.”", "没什么！我知道如果我需要帮助，你也会这么做的 —— 咱们继续一起努力让项目成功。"], ["You’re too kind! I just did what I could—if you have any other questions later, feel free to ask me.”", "你太客气了！我只是做了我能做的 —— 之后如果你还有其他问题，随时问我。"], ["Glad to hear it helped! I was happy to share my insights—if you need more details about the market, just let me know.”", "很高兴能帮上忙！我很乐意分享我的见解 —— 如果你需要更多市场细节，随时告诉我。"], ["I’m really sorry for being late to the meeting—I got stuck in traffic, and I should have left earlier.”", "很抱歉会议迟到了，我堵车了，我应该早点出发的。"], ["I apologize for the mistake in the financial report—I missed a few data entries, and I’ve corrected them now. I’ll double-check it next time to avoid this.”", "很抱歉财务报告里出现了错误，我漏了几个数据项，现在已经修正了。下次我会仔细核对避免这种情况。"], ["I’m sorry for not replying to your email sooner—I was busy with the client visit yesterday, and I should have informed you in advance.”", "很抱歉没早点回你邮件，我昨天忙着客户拜访，我应该提前告诉你的。"], ["I apologize for the confusion caused by my unclear explanation—I’ll rephrase it and send you a detailed note right away.”", "很抱歉我解释不清楚造成了困惑，我会重新组织语言，马上给你发一份详细说明。"], ["I’m really sorry for forgetting to bring the project materials to the meeting—I’ll send them to everyone via email immediately after the meeting.”", "很抱歉忘了带项目资料到会议上，会后我会马上把资料通过邮件发给大家。"], ["It’s okay! Traffic can be really bad at this time of day—I’m glad you made it to the meeting eventually.”", "没关系！这个时间点交通确实很糟糕，你最终能来开会就好。"], ["No worries! Mistakes happen sometimes—thanks for correcting it quickly. I’ll take a look at the revised report later.”", "别担心！有时候难免会出错，感谢你快速修正了。我之后会看一下修订后的报告。"], ["That’s all right! I know you’ve been busy with client visits—just let me know if you need any help with follow-up work.”", "没关系！我知道你一直忙着客户拜访，如果你需要跟进工作的帮助，随时告诉我。"], ["Don’t apologize! Your explanation was just a bit unclear, but I understand now—thanks for offering to send a detailed note.”", "不用道歉！你的解释只是有点不清楚，不过我现在明白了，感谢你愿意发详细说明。"], ["It’s not a big deal! We can still discuss the project without the materials now, and I’ll check the email later—thanks for your quick response.”", "没什么大不了的！我们现在没有资料也能讨论项目，我之后会看邮件的，感谢你的快速应对。"], ["Happy New Year! Wishing you a successful and prosperous year ahead.”", "新年快乐！祝愿你在新的一年里事业成功、万事如意。"], ["Best wishes for a wonderful holiday season! Hope you get to spend some quality time with family and friends.”", "节日快乐！希望你能和家人朋友度过一段愉快的时光。"], ["Happy Mid-Autumn Festival! May this festival bring you joy and harmony with your loved ones.”", "中秋节快乐！愿这个节日给你和你爱的人带来欢乐与团圆。"], ["Wishing you a happy and safe Thanksgiving! May you have a great time with your family over a delicious meal.”", "感恩节快乐，平安顺遂！希望你能和家人一起享用美味的大餐，度过愉快的时光。"], ["Congratulations on completing the project successfully! Wishing you more achievements in your future work.”", "恭喜项目成功完成！祝愿你在未来的工作中取得更多成就。"], ["Best wishes for your new role! I’m sure you’ll bring great value to the new position.”", "祝你在新岗位上一切顺利！我相信你会为新岗位带来巨大价值。"], ["Congratulations on your company’s anniversary! It’s amazing to see how much your business has grown over the years.”", "恭喜贵公司周年庆！见证贵公司这些年的发展壮大，真是太棒了。"], ["Wishing you a smooth and successful business trip! Hope everything goes well with your meetings there.”", "祝你商务旅行顺利成功！希望你在那边的会议一切顺利。"], ["I’m heading off work now—have a nice evening! See you tomorrow.”", "我现在下班啦，晚上过得愉快！明天见。"], ["I need to run to a meeting downtown—catch you later this afternoon! Let me know if you need anything before then.”", "我得去市中心开个会，下午晚点见！这之前要是需要帮忙，随时告诉我。"], ["It’s already 6 PM—I’m calling it a day. Enjoy the rest of your evening, and don’t stay too late!”", "都 6 点了，我今天就到这儿了。晚上好好休息，别加班太晚啦！"], ["I’m leaving for the day—did we finish all the urgent tasks for today? If not, I can come in a bit early tomorrow to help.”", "我今天要走了，咱们今天的紧急任务都完成了吗？要是没完成，我明天可以早点来帮忙。"], ["Thanks for taking the time to meet with us today—it was a really productive discussion. We’ll send you the meeting minutes by tomorrow morning.”", "感谢您今天抽空和我们见面，讨论非常有成效。我们明天上午会把会议纪要发给您。"], ["It was great to connect with you today—we really appreciate your insights on the project. Let’s schedule another call next week to follow up.”", "今天能和您沟通非常开心，非常感谢您对项目的见解。咱们下周安排一次电话跟进吧。"], ["Before you go, let me walk you to the elevator—do you need any help arranging transportation back to your office?”", "您走之前，我送您到电梯口吧，需要帮忙安排回公司的交通吗？"], ["Thanks for visiting our office today—we hope you had a good experience. If you have any questions after you get back, feel free to reach out anytime.”", "感谢您今天来我们公司拜访，希望您有愉快的体验。回去后要是有任何问题，随时联系我们。"], ["Sorry everyone, my microphone seems to be acting up—let me switch to my headset quickly. I’ll be back in 30 seconds.”", "抱歉各位，我的麦克风好像出问题了，我赶紧换成耳机。30 秒后回来。"], ["I apologize—the presentation slides aren’t loading properly. Let me share my screen again. In the meantime, could [Colleague Name] briefly explain the key point we were talking about?”", "抱歉，演示幻灯片加载不出来了。我重新分享下屏幕。这段时间，[同事姓名] 能简单讲解下我们刚才聊的重点吗？"], ["To our clients on the call—we’re experiencing a temporary internet outage. We’ll restart the call in 10 minutes and send you a new link via email right away.”", "给参会的客户们：我们这边暂时断网了。10 分钟后重新开会，我们马上通过邮件把新链接发给您。"], ["I’m sorry to inform you that our manager has to reschedule today’s meeting due to an urgent business trip—would tomorrow at the same time work for you?”", "很抱歉通知您，我们经理因为紧急出差，今天的会议需要改期，明天同一时间您方便吗？"], ["Unfortunately, the colleague in charge of the financial analysis can’t join today’s call—he’s asked me to share his report on his behalf, and he’ll answer any follow-up questions via email.”", "很遗憾，负责财务分析的同事今天不能参加会议了，他让我代他分享报告，后续有问题他会通过邮件解答。"], ["We just received word that the client wants to shorten tomorrow’s meeting from 2 hours to 1 hour—let’s adjust our agenda to focus on the key decisions first. I’ll send the revised agenda now.”", "我们刚收到消息，客户想把明天的会议从 2 小时缩短到 1 小时，咱们调整下议程，先聚焦关键决策事项。我现在就把修订后的议程发出去。"], ["You did an amazing job organizing the client event—everything ran so smoothly, and the client mentioned how impressed they were with the details.”", "你组织客户活动做得太出色了，一切都很顺利，客户还提到对细节印象特别深刻。"], ["I really admire how you handled the difficult negotiation with the supplier—you stayed calm and managed to get us better terms than we expected.”", "我特别佩服你和供应商的艰难谈判，你一直很冷静，还为我们争取到了比预期更好的条件。"], ["Your ability to analyze complex data and turn it into clear insights is incredible—it makes the team’s decision-making so much easier.”", "你分析复杂数据并转化为清晰见解的能力太厉害了，这让团队做决策容易多了。"], ["I appreciate how proactive you are—you always anticipate potential problems and come up with solutions before anyone else mentions them.”", "很欣赏你的主动性，你总能预判潜在问题，还没等别人提出来就想出了解决方案。"], ["Even when the project gets stressful, you always stay positive and keep the team motivated—that’s such an important part of our success.”", "就算项目压力很大，你也总能保持积极，带动团队士气，这对我们的成功太重要了。"], ["You’re so detail-oriented—you caught that small mistake in the contract that everyone else missed, which saved us from potential risks.”", "你太注重细节了，合同里那个大家都没注意到的小错误被你发现了，帮我们规避了潜在风险。"], ["I’m working on the new software and having a bit of trouble with the data import function—you’re really familiar with this tool, could you give me a quick tip?”", "我正在用新软件，在数据导入功能上遇到点麻烦，你对这个工具很熟悉，能给我个小建议吗？"], ["You’ve handled a lot of cross-department projects before—I’m currently coordinating with the marketing team and struggling with communication. Do you have any experience you could share?”", "你之前处理过很多跨部门项目，我现在在和市场部协调，沟通上有点困难，能分享点经验吗？"], ["I’m preparing the quarterly report and not sure how to present the sales data clearly—you always make your reports so easy to understand, could you show me your approach?”", "我在准备季度报告，不知道怎么清晰呈现销售数据，你的报告总是特别好懂，能给我讲讲你的方法吗？"], ["Of course! For the data import function, you just need to check the file format first—let me walk you through the steps quickly.”", "当然可以！数据导入功能的话，你先检查下文件格式，我快速带你过一遍步骤。"], ["I’d be happy to share! When I coordinated with the marketing team before, I found setting up weekly sync calls really helped—would you like me to tell you more about how to structure the calls?”", "我很乐意分享！之前和市场部协调时，我发现每周开同步会很有帮助，想听听会议怎么安排更合理吗？"], ["Thanks for asking! I usually organize sales data by region and compare it to last quarter—let me show you an example from my last report to make it clearer.”", "谢谢你问我！我通常按区域整理销售数据，再和上季度对比，我给你看下去季度报告的例子，这样更清楚。"]];window.__KEY__="1023商务寒暄潜台词";window.__TITLE__="10.23 商务寒暄潜台词";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

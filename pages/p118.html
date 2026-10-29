@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11.11 职场邮件无非就这399句</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">✉️</span>11.11 职场邮件无非就这399句</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">34,952 字符</span>
+    <span>来源：11.11 职场邮件无非就这399句  原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C11.11%20%E8%81%8C%E5%9C%BA%E9%82%AE%E4%BB%B6%E6%97%A0%E9%9D%9E%E5%B0%B1%E8%BF%99399%E5%8F%A5%20%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p118.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">Work Email There are only 399 sentences
+职场邮件
+无非就这399句，足够了
+一、开场问候
+Hello! Hope this email finds you well.（您好！希望您一切安好。）
+Hi there! Trust this message reaches you in good spirits.（嗨！相信这封邮件能给您带去好心情。）
+Dear [Name], I hope you’re having a productive week.（尊敬的 [姓名]，祝您本周工作顺利。）
+Greetings! May this email find you with smooth workflows.（问候！愿您工作进展顺遂。）
+Hello [Team/Name], Hope your day is going well so far.（您好 [团队 / 姓名]，祝您今天一切顺利。）
+Dear Colleagues, I trust this note finds you in good shape.（各位同事，相信大家身体康健、工作顺心。）
+Hi! Wishing you a stress-free and efficient workday.（嗨！祝您工作日轻松高效。）
+Dear [Recipient], Hope things are moving smoothly on your end.（尊敬的 [收件人]，愿您那边一切进展顺利。）
+Greetings from [Your Name/Team]! Hope this message brings clarity.（来自 [您的姓名 / 团队] 的问候！愿此邮件为您答疑解惑。）
+Hello! I hope you’re settling well into the new project phase.（您好！愿您已顺利适应项目新阶段。）
+二、表明事由
+I’m writing to inquire about the status of [Project/Task].（我写信是想询问 [项目 / 任务] 的进展情况。）
+This email is regarding the upcoming [Meeting/Deadline].（此邮件与即将到来的 [会议 / 截止日期] 相关。）
+I’m reaching out to follow up on our previous discussion about [Topic].（我联系您是为了跟进之前关于 [主题] 的讨论。）
+This note serves to inform you about a change in [Policy/Plan].（此通知旨在告知您 [政策 / 计划] 的一项变更。）
+I’m writing to request your approval for [Document/Action].（我写信是想请求您批准 [文件 / 行动]。）
+This message is to confirm our meeting scheduled for [Date/Time].（此邮件用于确认我们定于 [日期 / 时间] 的会议。）
+I’m contacting you to discuss the details of [Project/Proposal].（我联系您是为了讨论 [项目 / 提案] 的细节。）
+This email is to update you on the progress of [Task/Project].（此邮件为您更新 [任务 / 项目] 的进展。）
+I’m writing to suggest a revision to [Plan/Document].（我写信是想建议修改 [计划 / 文件]。）
+This note is to remind you of the [Deadline/Action] due on [Date].（此通知旨在提醒您 [截止日期 / 行动] 将于 [日期] 到期。）
+I’m reaching out to clarify a few points about [Topic/Request].（我联系您是为了澄清关于 [主题 / 请求] 的几个要点。）
+This email concerns the feedback you provided on [Document/Project].（此邮件与您就 [文件 / 项目] 提供的反馈相关。）
+I’m writing to propose a meeting to discuss [Issue/Plan].（我写信是想提议召开会议讨论 [问题 / 计划]。）
+This message is to notify you of the completion of [Task/Phase].（此邮件通知您 [任务 / 阶段] 已完成。）
+I’m contacting you to address the issue raised in [Previous Email/Meeting].（我联系您是为了解决 [之前邮件 / 会议] 中提出的问题。）
+This email is to request additional information about [Topic].（此邮件旨在请求提供关于 [主题] 的补充信息。）
+I’m writing to express my gratitude for your support on [Project/Task].（我写信是想感谢您对 [项目 / 任务] 的支持。）
+This note serves to follow up on the action items from our last meeting.（此通知用于跟进上次会议的行动事项。）
+I’m reaching out to confirm your attendance at [Event/Meeting].（我联系您是为了确认您是否出席 [活动 / 会议]。）
+This email is to inform you about the new [Process/Policy] implemented.（此邮件告知您新的 [流程 / 政策] 已实施。）
+三、跟进沟通
+Just touching base on the progress of [Task/Project].（就 [任务 / 项目] 的进展与您对接一下。）
+Following up to check if you’ve had a chance to review [Document/Proposal].（跟进一下，看看您是否有时间审阅 [文件 / 提案]。）
+I’m circling back to see if there’s any update on [Request/Issue].（我再次联系您，了解 [请求 / 问题] 是否有最新进展。）
+Checking in to see how things are progressing with [Task/Project].（问候一下，了解 [任务 / 项目] 的进展情况。）
+Following up on my previous email regarding [Topic]—any thoughts yet?（跟进之前关于 [主题] 的邮件 —— 您有什么想法吗？）
+Just a quick follow-up to ensure you received my earlier message about [Task].（快速跟进一下，确认您是否收到我之前关于 [任务] 的消息。）
+I’m reaching out again to follow up on the pending [Approval/Response].（我再次联系您，跟进尚未落实的 [批准 / 回复]。）
+Checking in to see if you need any further details on [Project/Request].（问候一下，了解您是否需要 [项目 / 请求] 的更多细节。）
+Following up to remind you of the [Deadline] for [Task/Submission].（跟进并提醒您 [任务 / 提交事项] 的 [截止日期]。）
+Just touching base to align on the next steps for [Project].（与您对接，确认 [项目] 的后续步骤。）
+I’m following up to see if the [Document/Information] I sent meets your needs.（跟进一下，看看我发送的 [文件 / 信息] 是否符合您的需求。）
+Checking in to see if there’s any bottleneck holding up [Task/Project].（问候一下，了解是否有瓶颈阻碍 [任务 / 项目] 的推进。）
+Following up on our discussion—have you had time to consider [Proposal]?（跟进我们的讨论 —— 您有时间考虑 [提案] 了吗？）
+Just a gentle follow-up to ensure we’re on track for [Deadline].（温和跟进一下，确保我们能按时完成 [截止任务]。）
+I’m circling back to request an update on [Task/Project] status.（我再次联系您，请求提供 [任务 / 项目] 的进度更新。）
+Checking in to see if you require any assistance with [Task/Request].（问候一下，了解您在 [任务 / 请求] 方面是否需要帮助。）
+Following up to see if you’ve made a decision on [Proposal/Request].（跟进一下，看看您是否已就 [提案 / 请求] 做出决定。）
+Just touching base to share a quick update on [Project].（与您对接，快速分享 [项目] 的最新进展。）
+I’m following up to clarify any questions you may have about [Document/Plan].（跟进一下，为您解答关于 [文件 / 计划] 的任何疑问。）
+Checking in to ensure we’re aligned on the expectations for [Task].（问候一下，确认我们对 [任务] 的预期达成一致。）
+Following up on the action items assigned to you during [Meeting].（跟进 [会议] 期间分配给您的行动事项。）
+Just a quick follow-up to see if you need more time for [Task/Review].（快速跟进一下，了解您是否需要更多时间完成 [任务 / 审阅]。）
+I’m reaching out again to follow up on the [Issue] we discussed earlier.（我再次联系您，跟进我们之前讨论的 [问题]。）
+Checking in to see if the [Solution/Plan] we agreed on is working.（问候一下，了解我们达成一致的 [解决方案 / 计划] 是否有效。）
+Following up to remind you to provide feedback on [Document/Project].（跟进并提醒您提供关于 [文件 / 项目] 的反馈。）
+Just touching base to adjust the timeline for [Project] if needed.（与您对接，如需调整 [项目] 时间线可随时沟通。）
+I’m following up to see if you’ve received the revised [Document/Plan].（跟进一下，看看您是否收到了修订后的 [文件 / 计划]。）
+Checking in to see if there’s any change to the [Meeting/Deadline] schedule.（问候一下，了解 [会议 / 截止日期] 安排是否有变动。）
+Following up on my request for [Information/Document]—any update?（跟进我之前请求的 [信息 / 文件]—— 有进展吗？）
+Just a gentle follow-up to keep the momentum going on [Project].（温和跟进一下，保持 [项目] 的推进势头。）
+四、请求确认
+Could you confirm if you’ve received the attached document?（您能确认是否收到附件文件吗？）
+Please let me know if the proposed timeline works for you.（如果提议的时间线合适，请告知我。）
+Can you verify that the details outlined below are correct?（您能核实以下列出的细节是否准确吗？）
+Please confirm your availability for a meeting on [Date/Time].（请确认您是否有空参加 [日期 / 时间] 的会议。）
+Could you let me know if the [Plan/Proposal] aligns with your expectations?（您能告知 [计划 / 提案] 是否符合您的预期吗？）
+Please confirm receipt of this email at your earliest convenience.（请在方便时尽快确认收到此邮件。）
+Can you confirm if you’re able to complete [Task] by [Deadline]?（您能确认是否能在 [截止日期] 前完成 [任务] 吗？）
+Please let me know if the revised [Document/Plan] meets your requirements.（如果修订后的 [文件 / 计划] 符合您的要求，请告知我。）
+Could you verify the accuracy of the [Data/Information] provided?（您能核实所提供 [数据 / 信息] 的准确性吗？）
+Please confirm whether you agree with the proposed next steps.（请确认您是否同意提议的后续步骤。）
+Can you let me know if you need any adjustments to the [Meeting/Plan]?（您能告知是否需要对 [会议 / 计划] 做任何调整吗？）
+Please confirm your attendance at the [Event/Workshop] scheduled for [Date].（请确认您是否出席定于 [日期] 的 [活动 / 研讨会]。）
+Could you confirm if the [Budget/Resource] allocation works for you?（您能确认 [预算 / 资源] 分配是否合适吗？）
+Please let me know if there’s any discrepancy in the [Report/Details] shared.（如果分享的 [报告 / 细节] 有任何不一致，请告知我。）
+Can you confirm if you’ve had a chance to review the [Contract/Agreement]?（您能确认是否有时间审阅 [合同 / 协议] 吗？）
+Please confirm whether you require additional support for [Task].（请确认您在 [任务] 方面是否需要额外支持。）
+Could you let me know if the [Solution/Approach] we discussed is acceptable?（您能告知我们讨论的 [解决方案 / 方法] 是否可接受吗？）
+Please confirm the delivery address for the [Package/Document].（请确认 [包裹 / 文件] 的送达地址。）
+Can you verify that you’ve understood the requirements for [Task]?（您能核实是否已理解 [任务] 的要求吗？）
+Please let me know if the meeting agenda I shared works for you.（如果我分享的会议议程合适，请告知我。）
+Could you confirm if the [Deadline] for [Submission] needs to be extended?（您能确认 [提交事项] 的 [截止日期] 是否需要延长吗？）
+Please confirm your preferred mode of communication for future updates.（请确认您希望的后续更新沟通方式。）
+Can you let me know if the [Product/Service] details meet your needs?（您能告知 [产品 / 服务] 细节是否符合您的需求吗？）
+Please confirm whether you approve of the [Change/Revision] proposed.（请确认您是否批准提议的 [变更 / 修订]。）
+Could you verify the contact information provided for [Person/Department]?（您能核实 [人员 / 部门] 的联系信息是否准确吗？）
+Please let me know if you have any objections to the [Plan/Proposal].（如果您对 [计划 / 提案] 有任何异议，请告知我。）
+Can you confirm if the [Meeting/Call] should be rescheduled?（您能确认 [会议 / 通话] 是否需要重新安排吗？）
+Please confirm the quantity/details of the [Order/Request] placed.（请确认所下 [订单 / 请求] 的数量 / 细节。）
+Could you let me know if the [Information/Document] I provided is sufficient?（您能告知我提供的 [信息 / 文件] 是否足够吗？）
+Please confirm whether you’re available for a quick call to discuss [Topic].（请确认您是否有空进行简短通话讨论 [主题]。）
+五、提供信息 / 附件
+Please see the attached file for the complete [Report/Document].（完整的 [报告 / 文件] 请见附件。）
+I’ve attached the revised version of [Document] for your review.（我已附上 [文件] 的修订版供您审阅。）
+Below is a summary of the key points from our recent discussion.（以下是我们近期讨论的要点总结。）
+Please find attached the [Proposal/Plan] we discussed during the meeting.（会议中讨论的 [提案 / 计划] 请见附件。）
+I’m sharing the [Data/Chart] to support our analysis of [Topic].（我分享 [数据 / 图表] 以支持对 [主题] 的分析。）
+The attached document outlines the steps required for [Task/Project].（附件文件概述了 [任务 / 项目] 所需的步骤。）
+Below are the contact details for the relevant parties involved in [Project].（以下是参与 [项目] 的相关方联系信息。）
+Please see attached the finalized [Contract/Agreement] for your signature.（最终版 [合同 / 协议] 请见附件，供您签署。）
+I’ve included the [Meeting Minutes/Summary] as an attachment for reference.（我已附上 [会议纪要 / 总结] 供参考。）
+The following information provides clarity on [Policy/Process].（以下信息为 [政策 / 流程] 提供说明。）
+Please find attached the supporting documents for [Application/Request].（[申请 / 请求] 的佐证文件请见附件。）
+I’m sharing the latest update on [Project] in the attached spreadsheet.（附件表格中是 [项目] 的最新进展更新。）
+Below is a breakdown of the [Budget/Resource] allocation for [Task].（以下是 [任务] 的 [预算 / 资源] 分配明细。）
+Please see the attached presentation for the [Proposal/Update].（[提案 / 更新内容] 的演示文稿请见附件。）
+I’ve attached the draft [Document/Plan] for your initial feedback.（我已附上 [文件 / 计划] 草稿，征求您的初步反馈。）
+The attached guide explains how to [Complete Task/Use Tool].（附件指南说明了如何 [完成任务 / 使用工具]。）
+Below are the key milestones for [Project] through [Date].（以下是 [项目] 截至 [日期] 的关键里程碑。）
+Please find attached the [Invoice/Receipt] for the recent [Purchase/Service].（近期 [采购 / 服务] 的 [发票 / 收据] 请见附件。）
+I’m sharing the [Research Findings/Report] to inform our decision-making.（我分享 [研究结果 / 报告]，为我们的决策提供参考。）
+The attached file contains the raw data from the [Experiment/Survey].（附件文件包含 [实验 / 调查] 的原始数据。）
+Below is a list of action items assigned during our last meeting.（以下是上次会议分配的行动事项清单。）
+Please see attached the revised timeline for [Project] with updated deadlines.（[项目] 的修订时间线请见附件，包含更新后的截止日期。）
+I’ve attached the [Certificate/Document] required for [Process/Application].（[流程 / 申请] 所需的 [证书 / 文件] 请见附件。）
+The following details outline the scope of work for [Task/Project].（以下细节概述了 [任务 / 项目] 的工作范围。）
+Please find attached the meeting agenda for [Date/Time] for your review.（[日期 / 时间] 的会议议程请见附件供您审阅。）
+I’m sharing the [Feedback/Suggestions] collected from the team.（我分享从团队收集的 [反馈 / 建议]。）
+The attached document includes the feedback from [Client/Team] on [Project].（附件文件包含 [客户 / 团队] 对 [项目] 的反馈。）
+Below is a comparison of the different [Options/Approaches] we’re considering.（以下是我们正在考虑的不同 [选项 / 方法] 的对比。）
+Please see attached the final version of the [Report/Presentation] for distribution.（供分发的 [报告 / 演示文稿] 最终版请见附件。）
+I’ve attached the [Technical Specifications/Details] for [Product/Project].（[产品 / 项目] 的 [技术规格 / 细节] 请见附件。）
+The following update outlines the progress made on [Task] since our last check-in.（以下更新概述了自上次对接以来 [任务] 的进展。）
+六、请求回复 / 反馈
+When you have a moment, could you share your thoughts on [Document/Proposal]?（您有空时，能否分享对 [文件 / 提案] 的看法？）
+Please provide your feedback on the attached [Plan/Report] by [Deadline].（请在 [截止日期] 前提供对附件 [计划 / 报告] 的反馈。）
+Could you let me know if you agree with the proposed [Changes/Approach]?（您能否告知是否同意提议的 [变更 / 方法]？）
+I’d appreciate it if you could respond with your input by the end of the day.（如果您能在工作日结束前回复意见，我将不胜感激。）
+Please let me know your thoughts on the [Project/Task] progress at your convenience.（您方便时，请告知对 [项目 / 任务] 进展的看法。）
+Could you provide your approval for [Document/Action] at your earliest convenience?（您能否在方便时尽快批准 [文件 / 行动]？）
+I’m eager to hear your feedback on how we can improve [Process/Project].（我很想听听您对如何改进 [流程 / 项目] 的反馈。）
+Please respond with your availability for a meeting to discuss [Topic].（请回复您方便召开会议讨论 [主题] 的时间。）
+Could you share your recommendations for [Task/Project] by [Date]?（您能否在 [日期] 前分享对 [任务 / 项目] 的建议？）
+I’d be grateful if you could provide comments on the draft [Document] soon.（如果您能尽快对 [文件] 草稿提出意见，我将非常感谢。）
+Please let me know if you need any clarification before providing your feedback.（提供反馈前如需任何澄清，请告知我。）
+Could you confirm your stance on the [Proposal/Issue] by the end of the week?（您能否在本周末前确认对 [提案 / 问题] 的立场？）
+I’m looking forward to your insights on the [Data/Report] shared.（期待您对分享的 [数据 / 报告] 提出见解。）
+Please provide your thoughts on whether we should proceed with [Plan].（请告知您对我们是否应推进 [计划] 的看法。）
+Could you let me know if the [Document/Information] meets your needs?（您能否告知 [文件 / 信息] 是否符合您的需求？）
+I’d appreciate your feedback on the revised [Plan/Document] as soon as possible.（希望您能尽快对修订后的 [计划 / 文件] 提供反馈。）
+Please respond with any concerns or questions you may have about [Topic].（如对 [主题] 有任何担忧或疑问，请回复告知。）
+Could you share your decision on [Request/Proposal] by [Deadline]?（您能否在 [截止日期] 前告知对 [请求 / 提案] 的决定？）
+I’m keen to hear your perspective on the challenges we’re facing with [Project].（我很想听听您对 [项目] 所面临挑战的看法。）
+Please let me know if you require any additional information to provide feedback.（如需更多信息以提供反馈，请告知我。）
+Could you provide your input on the [Budget/Resource] allocation for [Task]?（您能否对 [任务] 的 [预算 / 资源] 分配提供意见？）
+I’d be thankful if you could review the [Document] and respond with your thoughts.（如果您能审阅 [文件] 并回复看法，我将不胜感激。）
+Please respond with your availability for a quick call to align on [Topic].（请回复您方便进行简短通话以对齐 [主题] 的时间。）
+Could you let me know if you support the proposed [Change/Initiative]?（您能否告知是否支持提议的 [变更 / 举措]？）
+I’m looking forward to your feedback to help us finalize [Plan/Project].（期待您的反馈，助力我们敲定 [计划 / 项目]。）
+Please provide your comments on the action items outlined in the [Meeting Minutes].（请对 [会议纪要] 中列出的行动事项提出意见。）
+Could you share your thoughts on how to address the [Issue/Challenge]?（您能否分享对如何解决 [问题 / 挑战] 的看法？）
+I’d appreciate it if you could respond at your earliest convenience.（希望您能在方便时尽快回复。）
+Please let me know if you have any objections to moving forward with [Task].（如对推进 [任务] 有任何异议，请告知我。）
+Could you provide your approval for the [Budget/Plan] by [Date]?（您能否在 [日期] 前批准 [预算 / 计划]？）
+七、提供帮助 / 支持
+Let me know if you need any further details on [Topic/Project].（如需 [主题 / 项目] 的更多细节，请告知我。）
+I’m happy to provide additional information to support your work on [Task].（我很乐意提供补充信息，支持您开展 [任务]。）
+If anything is unclear, feel free to reach out for further clarification.（如有不清楚的地方，欢迎联系我进一步澄清。）
+I’m available to answer any questions you may have about [Document/Plan].（如对 [文件 / 计划] 有任何疑问，我随时可为您解答。）
+Let me know if you need help coordinating with other departments for [Project].（如需协助协调其他部门推进 [项目]，请告知我。）
+I’m happy to draft additional materials to support [Proposal/Request].（我很乐意起草补充材料，支持 [提案 / 请求]。）
+If you’re stuck on any part of [Task], don’t hesitate to ask for help.（如在 [任务] 的任何环节遇到困难，随时寻求帮助。）
+I can provide examples or templates to make [Task/Process] easier.（我可以提供示例或模板，简化 [任务 / 流程]。）
+Let me know if you need assistance with [Tool/Software] related to [Project].（如需协助使用与 [项目] 相关的 [工具 / 软件]，请告知我。）
+I’m here to support you in any way needed to complete [Task] on time.（我会以任何必要方式支持您按时完成 [任务]。）
+If you require a meeting to discuss [Issue] in detail, I’m happy to schedule it.（如需召开会议详细讨论 [问题]，我很乐意安排。）
+I can help gather the necessary data or resources for [Project/Report].（我可以协助收集 [项目 / 报告] 所需的数据或资源。）
+Let me know if you need help revising or refining [Document/Plan].（如需协助修改或完善 [文件 / 计划]，请告知我。）
+I’m available for a quick call to walk you through [Process/Details].（我可安排简短通话，为您逐步讲解 [流程 / 细节]。）
+If you need someone to review [Work/Document] before submission, I’m happy to help.（如需有人在提交前审阅 [工作成果 / 文件]，我很乐意帮忙。）
+I can coordinate with the vendor/partner to address your concerns about [Service/Product].（我可以与供应商 / 合作伙伴协调，解决您对 [服务 / 产品] 的担忧。）
+Let me know if you need help prioritizing tasks for [Project].（如需协助确定 [项目] 的任务优先级，请告知我。）
+I’m happy to provide feedback on your draft [Proposal/Report] at any stage.（我很乐意在任何阶段对您的 [提案 / 报告] 草稿提供反馈。）
+If you encounter any obstacles with [Task], feel free to loop me in.（如在 [任务] 中遇到任何障碍，欢迎让我参与解决。）
+I can help prepare the agenda or materials for the upcoming [Meeting].（我可以协助准备即将到来的 [会议] 的议程或材料。）
+Let me know if you need help translating or explaining [Document/Information].（如需协助翻译或解释 [文件 / 信息]，请告知我。）
+I’m available to shadow or assist you with [Task] until you’re comfortable.（在您熟悉 [任务] 前，我可以陪同或协助您完成。）
+If you need to reschedule the [Meeting/Call], I can handle the coordination.（如需重新安排 [会议 / 通话]，我可以负责协调。）
+I can help follow up with stakeholders to get the required [Approval/Feedback].（我可以协助跟进相关方，获取所需的 [批准 / 反馈]。）
+Let me know if you need help organizing or summarizing [Data/Notes].（如需协助整理或总结 [数据 / 笔记]，请告知我。）
+I’m happy to brainstorm solutions to any challenges you’re facing with [Project].（我很乐意与您集思广益，解决 [项目] 中遇到的任何挑战。）
+If you need additional resources or budget for [Task], I can help advocate for it.（如需为 [任务] 争取额外资源或预算，我可以提供支持。）
+Let me know if you need help communicating with [Client/Team] about [Topic].（如需协助与 [客户 / 团队] 沟通 [主题]，请告知我。）
+I can provide a second opinion on [Decision/Plan] if you’d find it helpful.（如您需要，我可以对 [决策 / 计划] 提供另一种观点。）
+If you need help tracking the progress of [Task/Project], I’m happy to assist.（如需协助跟踪 [任务 / 项目] 的进展，我很乐意帮忙。）
+八、提出建议 / 方案
+I suggest we prioritize [Task] to meet the upcoming [Deadline].（我建议优先处理 [任务]，以赶上即将到来的 [截止日期]。）
+Perhaps we could explore [Option] to address the [Issue/Challenge].（或许我们可以探索 [选项] 来解决 [问题 / 挑战]。）
+I recommend scheduling a team meeting to align on [Project] goals.（我建议召开团队会议，对齐 [项目] 目标。）
+Maybe we should revise the [Plan/Timeline] to account for recent changes.（或许我们应该修订 [计划 / 时间线]，以适应近期的变化。）
+I propose assigning [Person/Team] to lead the [Task/Initiative].（我提议指派 [人员 / 团队] 负责牵头 [任务 / 举措]。）
+Consider implementing [Process/Tool] to improve efficiency for [Task].（考虑实施 [流程 / 工具]，提高 [任务] 的效率。）
+I suggest conducting a pilot test of [Solution] before full implementation.（我建议在全面实施前，对 [解决方案] 进行试点测试。）
+Perhaps we could adjust the [Budget/Resource] allocation to support [Priority].（或许我们可以调整 [预算 / 资源] 分配，支持 [优先事项]。）
+I recommend gathering feedback from [Stakeholders/Users] before finalizing [Plan].（我建议在敲定 [计划] 前，收集 [相关方 / 用户] 的反馈。）
+Maybe we should split [Task] into smaller milestones to track progress better.（或许我们应该将 [任务] 拆分为更小的里程碑，以便更好地跟踪进展。）
+I propose setting up a regular check-in to monitor [Project] progress.（我提议建立定期对接机制，监控 [项目] 进展。）
+Consider collaborating with [Department/Team] to leverage their expertise.（考虑与 [部门 / 团队] 合作，利用他们的专业知识。）
+I suggest revisiting the [Proposal/Plan] to address the latest feedback.（我建议重新审视 [提案 / 计划]，以回应最新的反馈。）
+Perhaps we could extend the [Deadline] slightly to ensure quality work.（或许我们可以略微延长 [截止日期]，以确保工作质量。）
+I recommend creating a contingency plan for potential [Risks/Issues].（我建议为潜在的 [风险 / 问题] 制定应急计划。）
+Maybe we should adopt a different approach to [Task] for better results.（或许我们应该采用不同的方法处理 [任务]，以获得更好的结果。）
+I propose sharing the [Report/Update] with the wider team for transparency.（我提议向更广泛的团队分享 [报告 / 更新]，以确保透明度。）
+Consider simplifying the [Process/Document] to make it more user-friendly.（考虑简化 [流程 / 文件]，使其更易于使用。）
+I suggest scheduling a workshop to brainstorm ideas for [Project/Initiative].（我建议举办研讨会，为 [项目 / 举措] 集思广益。）
+Perhaps we could allocate additional resources to [Task] to accelerate progress.（或许我们可以为 [任务] 分配额外资源，加快进展。）
+I recommend verifying the [Data/Information] before making a decision.（我建议在做出决策前，核实 [数据 / 信息]。）
+Maybe we should clarify the roles and responsibilities for [Project] tasks.（或许我们应该明确 [项目] 各项任务的角色和职责。）
+I propose conducting a review of the [Process/Project] to identify improvements.（我提议对 [流程 / 项目] 进行复盘，找出改进空间。）
+Consider seeking input from [Expert/Advisor] to address the [Issue].（考虑征求 [专家 / 顾问] 的意见，解决 [问题]。）
+I suggest setting clear expectations for [Task/Project] deliverables.（我建议为 [任务 / 项目] 的交付成果设定明确的预期。）
+Perhaps we could test multiple [Solutions/Options] to find the best fit.（或许我们可以测试多个 [解决方案 / 选项]，找出最适合的方案。）
+I recommend communicating the [Changes/Updates] to all relevant parties promptly.（我建议及时向所有相关方沟通 [变更 / 更新]。）
+Maybe we should prioritize resolving the [Key Issue] before proceeding with other tasks.（或许我们应该优先解决 [核心问题]，再推进其他任务。）
+I propose creating a shared document to track [Task/Project] progress collaboratively.（我提议创建共享文件，协同跟踪 [任务 / 项目] 进展。）
+Consider adjusting the communication frequency to keep stakeholders informed.（考虑调整沟通频率，让相关方及时了解情况。）
+九、表达感谢
+Thank you for your prompt response to my previous email.（感谢您对我上一封邮件的及时回复。）
+I truly appreciate your support and guidance on [Project/Task].（非常感谢您对 [项目 / 任务] 的支持和指导。）
+Thanks so much for taking the time to review the [Document/Proposal].（非常感谢您抽出时间审阅 [文件 / 提案]。）
+I’m grateful for your patience as we worked through the [Issue/Challenge].（感谢您在我们解决 [问题 / 挑战] 过程中的耐心。）
+Thank you for your valuable input and feedback on [Plan/Project].（感谢您对 [计划 / 项目] 提出的宝贵意见和反馈。）
+I appreciate you going out of your way to assist with [Task/Request].（感谢您特意费心协助 [任务 / 请求]。）
+Thanks for your quick action to address the [Issue/Concern].（感谢您迅速采取行动解决 [问题 / 担忧]。）
+I’m thankful for your collaboration on the [Project/Initiative].（感谢您在 [项目 / 举措] 中的协作。）
+Thank you for keeping me updated on the progress of [Task/Project].（感谢您及时向我更新 [任务 / 项目] 的进展。）
+I appreciate your willingness to help with [Task/Request] at short notice.（感谢您愿意在短时间内协助 [任务 / 请求]。）
+Thanks so much for your thorough review and detailed comments.（非常感谢您的细致审阅和详细意见。）
+I’m grateful for your expertise and insights that helped improve [Project/Plan].（感谢您的专业知识和见解，助力完善 [项目 / 计划]。）
+Thank you for your flexibility in adjusting the [Meeting/Timeline] to accommodate my schedule.（感谢您灵活调整 [会议 / 时间线]，配合我的日程安排。）
+I appreciate your dedication to ensuring the success of [Task/Project].（感谢您为确保 [任务 / 项目] 成功所付出的努力。）
+Thanks for flagging the [Issue/Concern] early on—your attention to detail is invaluable.（感谢您及早指出 [问题 / 担忧]，您的细致入微非常宝贵。）
+I’m thankful for your trust in assigning me the responsibility of [Task/Project].（感谢您信任我，将 [任务 / 项目] 的职责交付于我。）
+Thank you for your prompt approval of the [Document/Plan]—it keeps the project on track.（感谢您迅速批准 [文件 / 计划]，确保项目按计划推进。）
+I appreciate your open communication and willingness to address my questions.（感谢您沟通坦诚，愿意解答我的疑问。）
+Thanks so much for coordinating with the team to resolve the [Issue] efficiently.（非常感谢您协调团队高效解决 [问题]。）
+I’m grateful for your constructive feedback that helped refine the [Proposal/Document].（感谢您的建设性反馈，助力完善 [提案 / 文件]。）
+Thank you for your support during the [Challenging Phase/Task]—it made a significant difference.（感谢您在 [困难阶段 / 任务] 中的支持，起到了重要作用。）
+I appreciate your time and effort in preparing the [Report/Meeting Materials].（感谢您花费时间和精力准备 [报告 / 会议材料]。）
+Thanks for your understanding regarding the [Delay/Change] to the original plan.（感谢您理解原定计划的 [延迟 / 变更]。）
+I’m thankful for your collaboration in gathering the necessary [Data/Information].（感谢您协作收集所需的 [数据 / 信息]。）
+Thank you for your proactive approach to addressing potential [Risks/Issues].（感谢您积极主动应对潜在的 [风险 / 问题]。）
+I appreciate your willingness to share resources and knowledge for [Project/Task].（感谢您愿意为 [项目 / 任务] 分享资源和知识。）
+Thanks so much for your participation in the [Meeting/Workshop]—your input was valuable.（非常感谢您参与 [会议 / 研讨会]，您的意见很有价值。）
+I’m grateful for your patience while I clarified the [Details/Requirements].（感谢您在我澄清 [细节 / 要求] 过程中的耐心。）
+Thank you for your commitment to meeting the [Deadline] despite the challenges.（感谢您虽面临挑战，仍致力于按时完成 [截止任务]。）
+I appreciate your help in navigating the [Process/Policy]—it saved me a lot of time.（感谢您协助我熟悉 [流程 / 政策]，为我节省了大量时间。）
+十、道歉说明
+Sorry for the late reply—I’ve been tied up with urgent tasks.（抱歉回复晚了，我一直忙于紧急任务。）
+I apologize for the delay in providing the [Document/Information] you requested.（抱歉未能及时提供您所需的 [文件 / 信息]。）
+My apologies for the confusion caused by the incorrect [Details/Information] in my previous email.（抱歉上一封邮件中的 [细节 / 信息] 有误，造成了误解。）
+Sorry for the oversight in forgetting to attach the [File/Document]—it’s included now.（抱歉疏忽漏附了 [文件]，现在已补上。）
+I apologize for the mistake in the [Timeline/Budget] shared earlier.（抱歉之前分享的 [时间线 / 预算] 存在错误。）
+Sorry for any inconvenience caused by the rescheduling of the [Meeting/Call].（抱歉重新安排 [会议 / 通话] 给您带来不便。）
+My apologies for not following up sooner on the [Task/Request].（抱歉未能及早跟进 [任务 / 请求]。）
+Sorry for the unintended “Reply All” in my previous message—please disregard if irrelevant.（抱歉上一条消息误点了 “回复所有人”，如与您无关请忽略。）
+I apologize for the unclear explanation in my earlier email—I’ll clarify below.（抱歉上一封邮件解释不清，我将在下方说明。）
+Sorry for the delay in addressing your concerns—we’re now working on a solution.（抱歉未能及时处理您的担忧，我们目前正在制定解决方案。）
+My apologies for sending the email to you in error—it was intended for another recipient.（抱歉邮件误发给您，此邮件原本是发给其他收件人的。）
+Sorry for any frustration caused by the [Issue/Delay] with [Project/Service].（抱歉 [项目 / 服务] 的 [问题 / 延迟] 给您带来困扰。）
+I apologize for not verifying the [Data/Information] before sharing it with you.（抱歉分享 [数据 / 信息] 前未核实其准确性。）
+Sorry for the last-minute change to the [Plan/Agenda]—circumstances beyond our control arose.（抱歉临时变更 [计划 / 议程]，因出现无法控制的情况。）
+My apologies for missing the [Deadline/Meeting]—I encountered unexpected issues.（抱歉未能赶上 [截止日期 / 会议]，我遇到了突发问题。）
+Sorry for the confusion caused by the conflicting [Details/Instructions] in previous messages.（抱歉之前消息中的 [细节 / 说明] 相互矛盾，造成误解。）
+I apologize for the inconvenience of having to resubmit the [Document/Request].（抱歉需要您重新提交 [文件 / 请求]，给您带来不便。）
+Sorry for not responding to your email sooner—I was out of office with limited access.（抱歉未能及早回复您的邮件，我之前外出，无法及时查看。）
+My apologies for the error in the [Invoice/Report]—a corrected version is attached.（抱歉 [发票 / 报告] 存在错误，修订版已附在下方。）
+Sorry for any disruption caused by the [Change/Issue] to your workflow.（抱歉 [变更 / 问题] 干扰了您的工作流程。）
+I apologize for not keeping you updated on the [Project/Task] progress—here’s a quick summary.（抱歉未能及时向您更新 [项目 / 任务] 进展，以下是简要总结。）
+Sorry for the oversight in excluding you from the [Meeting/Email Chain]—you’re now included.（抱歉之前的 [会议 / 邮件链] 遗漏了您，现在已将您加入。）
+My apologies for the unclear expectations regarding [Task/Deliverable]—let me clarify.（抱歉对 [任务 / 交付成果] 的预期说明不清，我来详细解释。）
+Sorry for the delay in processing your [Request/Application]—we’re prioritizing it now.（抱歉处理您的 [请求 / 申请] 有所延迟，我们目前正在优先处理。）
+I apologize for the mistake in the [Contact Information/Details] provided earlier.（抱歉之前提供的 [联系信息 / 细节] 有误。）
+Sorry for any inconvenience caused by the attached file being corrupted—here’s a working version.（抱歉附件文件损坏，给您带来不便，现将可用版本附上。）
+My apologies for not following through on the [Promise/Commitment]—I’ll rectify it promptly.（抱歉未能兑现 [承诺]，我将立即纠正。）
+Sorry for the late notification of the [Change/Update]—we wanted to confirm details first.（抱歉延迟通知 [变更 / 更新]，我们需要先核实细节。）
+I apologize for the confusion caused by my previous email—I’ll restate the key points clearly.（抱歉上一封邮件造成误解，我将清晰重述核心要点。）
+Sorry for any hassle caused by the [Issue]—we’re taking steps to prevent it from happening again.（抱歉 [问题] 给您带来麻烦，我们正在采取措施避免此类情况再次发生。）
+十一、状态更新
+We’re currently reviewing the [Document/Proposal] and will provide feedback soon.（我们正在审阅 [文件 / 提案]，将尽快提供反馈。）
+The [Project/Task] is on track to be completed by the agreed [Deadline].（[项目 / 任务] 进展顺利，将按约定的 [截止日期] 完成。）
+We’ve made significant progress on [Phase/Task] and are ready to move to the next step.（我们在 [阶段 / 任务] 上取得了重大进展，已准备好进入下一步。）
+The team is currently addressing the [Issue/Challenge] identified earlier.（团队目前正在处理之前发现的 [问题 / 挑战]。）
+We’ve completed the first draft of the [Document/Report] and are now refining it.（我们已完成 [文件 / 报告] 的初稿，目前正在完善。）
+The [Data/Information] collection phase is now complete—we’re moving to analysis.（[数据 / 信息] 收集阶段已完成，我们即将进入分析阶段。）
+We’ve received approval for the [Budget/Plan] and can proceed with implementation.（[预算 / 计划] 已获得批准，我们可以开始实施。）
+The [Product/Service] is undergoing final testing before launch.（[产品 / 服务] 正在进行上线前的最终测试。）
+We’re experiencing a slight delay with [Task/Project] due to [Reason]—we’ll adjust the timeline accordingly.（由于 [原因]，[任务 / 项目] 略有延迟，我们将相应调整时间线。）
+We’ve successfully resolved the [Issue] that was holding up progress.（我们已成功解决阻碍进展的 [问题]。）
+The team is currently coordinating with [Department/Partner] to finalize [Details].（团队目前正在与 [部门 / 合作伙伴] 协调，敲定 [细节]。）
+We’ve incorporated the feedback received into the revised [Document/Plan].（我们已将收到的反馈纳入修订后的 [文件 / 计划]。）
+The [Meeting/Workshop] scheduled for [Date] will now focus on [Agenda Item].（定于 [日期] 的 [会议 / 研讨会] 将重点讨论 [议程项]。）
+We’re in the final stages of preparing the [Deliverable/Report] for submission.（我们正处于提交 [交付成果 / 报告] 的最后阶段。）
+We’ve identified a potential risk with [Project/Task] and are developing a contingency plan.（我们发现 [项目 / 任务] 存在潜在风险，正在制定应急计划。）
+The [Resource/Team] has been allocated to [Task] to accelerate progress.（已为 [任务] 分配 [资源 / 团队]，以加快进展。）
+We’ve completed the review of the [Contract/Agreement] and are ready to sign.（我们已完成 [合同 / 协议] 的审阅，准备签署。）
+The team is currently brainstorming solutions to address the [Challenge/Goal].（团队目前正在集思广益，寻找解决 [挑战 / 目标] 的方案。）
+We’ve updated the project plan to reflect the latest [Changes/Progress].（我们已更新项目计划，以体现最新的 [变更 / 进展]。）
+We’re waiting for feedback from [Stakeholder/Client] before proceeding with [Next Step].（我们正在等待 [相关方 / 客户] 的反馈，再推进 [下一步]。）
+The [Task/Phase] has been completed ahead of schedule—well done to the team!（[任务 / 阶段] 已提前完成，团队干得好！）
+We’re currently verifying the accuracy of the [Data/Results] before sharing them.（我们正在核实 [数据 / 结果] 的准确性，之后再进行分享。）
+We’ve adjusted the [Process/Approach] based on lessons learned from the previous [Phase/Task].（根据之前 [阶段 / 任务] 的经验教训，我们已调整 [流程 / 方法]。）
+The [Vendor/Partner] has confirmed delivery of [Resource/Product] by [Date].（[供应商 / 合作伙伴] 已确认将于 [日期] 交付 [资源 / 产品]。）
+We’re in the process of scheduling a meeting with [Party] to discuss [Topic].（我们正在安排与 [相关方] 的会议，讨论 [主题]。）
+We’ve received the necessary [Approval/Information] to move forward with [Task].（我们已获得推进 [任务] 所需的 [批准 / 信息]。）
+The team is currently working on integrating the [New Feature/Component] into [Project].（团队目前正在将 [新功能 / 组件] 整合到 [项目] 中。）
+We’re experiencing some delays due to external factors, but we’re taking steps to mitigate them.（由于外部因素，我们遇到了一些延迟，但正在采取措施缓解。）
+We’ve finalized the agenda for the upcoming [Meeting]—details are attached.（我们已敲定即将到来的 [会议] 议程，详情请见附件。）
+We’re now focusing on quality assurance to ensure the [Deliverable] meets all requirements.（我们目前正专注于质量保证，确保 [交付成果] 符合所有要求。）
+十二、推动进展
+Let’s finalize the [Document/Plan] by the end of the week to stay on schedule.（咱们本周内敲定 [文件 / 计划]，确保按计划推进。）
+Can we prioritize resolving the [Key Issue] to unblock the rest of the [Project/Task]?（我们能否优先解决 [核心问题]，为 [项目 / 任务] 的其他部分扫清障碍？）
+Let’s schedule a quick call to align on the next steps for [Project].（咱们安排一次简短通话，对齐 [项目] 的后续步骤。）
+Please provide your input by [Date] so we can move forward with the decision.（请在 [日期] 前提供意见，以便我们推进决策。）
+Let’s delegate specific tasks to team members to accelerate [Project] progress.（咱们为团队成员分配具体任务，加快 [项目] 进展。）
+Can we set a firm deadline for [Task/Submission] to keep momentum going?（我们能否为 [任务 / 提交事项] 设定明确截止日期，保持推进势头？）
+Let’s follow up with [Stakeholder/Client] tomorrow to get their feedback.（咱们明天跟进 [相关方 / 客户]，获取他们的反馈。）
+Please complete your assigned task by [Date] to avoid delaying the overall [Project].（请在 [日期] 前完成分配的任务，避免影响 [项目] 整体进度。）
+Let’s consolidate our efforts on [Priority Task] to ensure it’s completed on time.（咱们集中精力处理 [优先任务]，确保按时完成。）
+Can we arrange a workshop to brainstorm solutions and move past the current bottleneck?（我们能否举办研讨会集思广益，突破当前瓶颈？）
+Let’s keep each other updated on progress at least twice a week.（咱们每周至少两次更新进展，保持信息同步。）
+Please review the attached [Document] and provide approval by [Date].（请审阅附件 [文件]，并在 [日期] 前给出批准意见。）
+Let’s adjust the timeline slightly to account for the recent [Change/Delay].（考虑到近期的 [变更 / 延迟]，咱们略微调整一下时间线。）
+Can we assign a point person to coordinate communication for [Project]?（我们能否指定专人负责协调 [项目] 的沟通工作？）
+Let’s finalize the budget allocation by [Date] to avoid holding up resource planning.（咱们在 [日期] 前敲定预算分配，避免影响资源规划。）
+Please share your progress update by EOD today so we can assess next steps.（请在今天工作日结束前分享进展更新，以便我们评估后续步骤。）
+Let’s schedule a follow-up meeting in three days to review the action items.（咱们三天后安排一次跟进会议，复盘行动事项。）
+Can we fast-track the review process for [Document/Proposal] to meet the deadline?（我们能否加快 [文件 / 提案] 的审阅流程，以赶上截止日期？）
+Let’s ensure all team members are clear on their responsibilities for the next phase.（咱们确保所有团队成员都明确下一阶段的职责。）
+Please reach out to [Department/Partner] today to confirm their availability for [Task].（请今天联系 [部门 / 合作伙伴]，确认他们是否能参与 [任务]。）
+Let’s make a decision on the [Proposal/Option] by [Date] to keep the project moving.（咱们在 [日期] 前就 [提案 / 选项] 做出决策，推进项目进展。）
+Can we share the draft [Document] with key stakeholders for initial feedback?（我们能否将 [文件] 草稿分享给核心相关方，获取初步反馈？）
+Let’s address the remaining open items in the next team meeting to avoid delays.（咱们在下次团队会议中解决剩余未完成事项，避免拖延。）
+Please confirm your availability by tomorrow so we can lock in the meeting date.（请在明天前确认您的空闲时间，以便我们确定会议日期。）
+Let’s create a shared tracker to monitor the progress of each [Project] task.（咱们创建共享跟踪表，监控 [项目] 各项任务的进展。）
+Can we escalate the [Issue] to upper management if we don’t get a response soon?（如果迟迟没有回复，我们能否将 [问题] 升级至管理层？）
+Let’s finalize the vendor selection by [Date] to ensure timely delivery.（咱们在 [日期] 前敲定供应商选择，确保按时交付。）
+Please provide a status update on your assigned task by the end of the week.（请在本周末前提供所分配任务的状态更新。）
+Let’s align on the core requirements first before expanding on additional features.（咱们先对齐核心需求，再拓展额外功能。）
+Can we schedule a quick sync tomorrow to resolve any lingering questions?（我们能否明天快速同步一次，解决所有遗留问题？）
+十三、结束礼貌用语
+Thanks again for your time and consideration—looking forward to your response.（再次感谢您的时间和关注，期待您的回复。）
+Please don’t hesitate to reach out if you have any further questions.（如有任何其他问题，欢迎随时联系。）
+Wishing you a productive rest of the week—let’s touch base soon.（祝您本周余下时间工作高效，咱们尽快对接。）
+Thank you for your collaboration—let’s keep the momentum going.（感谢您的协作，咱们保持推进势头。）
+Feel free to contact me anytime if you need additional support.（如需额外支持，随时联系我。）
+Have a great day ahead—and let me know if anything comes up.（祝您今天一切顺利，如有情况请告知。）
+Thanks for your attention to this matter—I appreciate your prompt action.（感谢您关注此事，感谢您迅速采取行动。）
+Looking forward to staying connected and collaborating further.（期待保持联系，继续合作。）
+Please let me know if you require any clarification moving forward.（后续如需任何澄清，请告知我。）
+Wishing you a smooth and successful implementation of [Plan/Project].（祝您顺利成功实施 [计划 / 项目]。）
+Thank you again for your valuable insights—they’ve been incredibly helpful.（再次感谢您的宝贵见解，非常有帮助。）
+Don’t hesitate to drop me a line if you have any thoughts or concerns.（如有任何想法或担忧，欢迎随时留言。）
+Have a wonderful weekend—see you next week for further updates.（祝您周末愉快，下周再见，分享更多进展。）
+Thanks for your flexibility and understanding throughout this process.（感谢您在整个过程中的灵活配合和理解。）
+Looking forward to hearing from you at your earliest convenience.（期待您在方便时尽快回复。）
+Please feel free to share this update with your team as needed.（如需可将此更新分享给您的团队。）
+Wishing you all the best with your upcoming [Task/Project].（祝您即将开展的 [任务 / 项目] 一切顺利。）
+Thank you for your commitment to this initiative—let’s deliver great results.（感谢您对这项举措的投入，咱们共创佳绩。）
+If you need anything else from me, please don’t hesitate to ask.（如需我提供其他帮助，欢迎随时告知。）
+Have a fantastic day—and stay in touch!（祝您度过美好的一天，保持联系！）
+Thanks for taking the time to read through this email—your feedback is appreciated.（感谢您抽出时间阅读此邮件，期待您的反馈。）
+Please reach out if you need help with anything else related to [Topic].（如需协助处理与 [主题] 相关的其他事宜，欢迎联系。）
+Wishing you a stress-free and successful week ahead.（祝您下周轻松顺利，收获满满。）
+Thank you for your prompt response and continued support.（感谢您的及时回复和持续支持。）
+Looking forward to our next meeting to discuss [Topic] in detail.（期待下次会议详细讨论 [主题]。）
+Please let me know if there’s anything I can do to facilitate progress.（如需我协助推进进展，欢迎告知。）
+Have a safe and pleasant journey if you’re traveling soon.（如您即将出行，祝您旅途平安愉快。）
+Thank you for your trust and confidence in our team.（感谢您对我们团队的信任和认可。）
+Feel free to reach out anytime—my door is always open.（随时欢迎联系，我始终乐意提供帮助。）
+Wishing you continued success in all your endeavors.（祝您在所有事业中持续取得成功。）
+十四、特殊情况说明
+This email was sent in error—please disregard it and accept my apologies.（此邮件为误发，请忽略，深表歉意。）
+Please ignore the previous attachment—the correct file is attached here.（请忽略之前的附件，正确文件已附在此处。）
+I missed attaching the document in my last email—here it is for your review.（上一封邮件漏附了文件，现附上供您审阅。）
+There was an error in my previous message—please refer to the corrected details below.（上一条消息存在错误，请参考下方更正后的细节。）
+This email replaces my earlier one with updated [Information/Details].（此邮件替代我之前的邮件，包含更新后的 [信息 / 细节]。）
+I’m writing to recall my previous email as it contained incorrect information.（我写信撤回之前的邮件，因其包含错误信息。）
+Please delete the previous email and its attachments—they contain confidential data.（请删除之前的邮件及其附件，其中包含机密数据。）
+I apologize for the duplicate email—this is the final and accurate version.（抱歉发送了重复邮件，此为最终准确版本。）
+The attached file in my last email was corrupted—here’s a working copy.（上一封邮件的附件已损坏，现附上可用版本。）
+I’m correcting the timeline shared earlier—please note the new [Deadline/Date].（我更正之前分享的时间线，请留意新的 [截止日期 / 日期]。）
+This email is to clarify a misunderstanding from our previous conversation.（此邮件旨在澄清我们之前对话中的误解。）
+I inadvertently used “Reply All”—please disregard if this doesn’t concern you.（我不慎点击了 “回复所有人”，如与您无关请忽略。）
+The meeting scheduled for [Date] has been canceled due to unforeseen circumstances.（定于 [日期] 的会议因突发情况取消。）
+I’m out of office from [Date] to [Date]—for urgent matters, contact [Colleague Name].（我将于 [日期] 至 [日期] 休假，紧急事宜请联系 [同事姓名]。）
+The project timeline has been adjusted due to resource constraints—updated plan attached.（因资源限制，项目时间线已调整，更新后的计划已附上。）
+Please note that the deadline for [Task] has been extended to [New Date].（请注意 [任务] 的截止日期已延长至 [新日期]。）
+This email contains confidential information—please do not share it with third parties.（此邮件包含机密信息，请勿与第三方分享。）
+I’m resending this email as I haven’t received your response—please confirm receipt.（因未收到您的回复，我重新发送此邮件，请确认收到。）
+The venue for the [Meeting/Event] has changed to [New Location]—please update your calendar.（[会议 / 活动] 的地点已变更至 [新地点]，请更新您的日历。）
+I’m writing to inform you that I’ll be unavailable on [Date]—let’s reschedule our meeting.（我写信告知您，[日期] 我无法出席，咱们重新安排会议。）
+Please be advised that the [Policy/Process] has been updated—details below.（请注意 [政策 / 流程] 已更新，细节如下。）
+The previous document contained typos—corrected version attached for your records.（之前的文件存在拼写错误，修订版已附上供您存档。）
+I’m extending my out-of-office period until [Date]—apologies for any inconvenience.（我的休假将延长至 [日期]，给您带来不便深表歉意。）
+This email is to notify you of a last-minute change to the [Agenda/Plan].（此邮件通知您 [议程 / 计划] 的临时变更。）
+I forgot to include [Person] in the initial email—they’ve been cc’d now.（最初的邮件遗漏了 [人员]，现已抄送。）
+Please disregard the previous deadline—we’ve revised it to [New Date] to allow more time.（请忽略之前的截止日期，我们已修订至 [新日期]，以便留出更多时间。）
+The data in my last email was outdated—here’s the latest and accurate information.（上一封邮件的数据已过时，现提供最新准确信息。）
+I’m writing to apologize for the confusion caused by my unclear instructions earlier.（我写信为之前模糊的说明造成的误解致歉。）
+The [Meeting/Call] has been rescheduled to [Date/Time]—please confirm your availability.（[会议 / 通话] 已重新安排至 [日期 / 时间]，请确认您是否有空。）
+This email serves to correct the contact information provided in my previous message.（此邮件旨在更正我之前消息中提供的联系信息。）
+十五、补充实用表达
+Let’s ensure we’re on the same page regarding the project objectives.（咱们确保在项目目标上达成一致。）
+I’ll keep you in the loop as we make progress on [Task/Project].（[任务 / 项目] 有进展时，我会及时向您同步。）
+Could you elaborate on your feedback to help us make targeted improvements?（您能否详细说明您的反馈，以便我们进行有针对性的改进？）
+We need to ensure compliance with company policies throughout this process.（我们需要确保整个过程符合公司政策。）
+Let’s reflect on the key takeaways from the meeting to inform our next steps.（咱们复盘会议的核心要点，为后续步骤提供指导。）
+I’m confident that with our combined efforts, we’ll overcome this challenge.（我相信凭借我们的共同努力，一定能克服这个挑战。）
+Please feel free to share any alternative ideas that could enhance the [Plan/Project].（欢迎分享任何能完善 [计划 / 项目] 的替代方案。）
+Let’s prioritize quality over speed to ensure the final deliverable meets standards.（咱们优先保证质量而非速度，确保最终交付成果符合标准。）
+I’ll coordinate with all relevant parties to ensure seamless communication.（我会与所有相关方协调，确保沟通顺畅无阻。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="1111职场邮件无非就这399句";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10.17 外企电话沟通</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">📞</span>10.17 外企电话沟通</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">107,719 字符</span>
+    <span>来源：10.17 外企电话沟通  原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C10.17%20%E5%A4%96%E4%BC%81%E7%94%B5%E8%AF%9D%E6%B2%9F%E9%80%9A%20%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p089.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">Foreign company phone communication There are only 599 sentences
+外企电话沟通
+无非就这599句
+接通开场
+Good morning/afternoon, this is [Your Name] from [Company Name]. How may I help you?
+（早上好 / 下午好，我是 [公司名称] 的 [您的名字]。请问有什么可以帮忙的？）
+Hello, [Company Name], [Your Name] speaking.
+（您好，[公司名称]，我是 [您的名字]。）
+Thank you for calling [Company Name], how can I assist you today?
+（感谢您致电 [公司名称]，请问今天有什么可以帮您的？）
+Hi, this is [Your Name] from [Company Name]. May I speak with [Person&#x27;s Name], please?
+（您好，我是 [公司名称] 的 [您的名字]。请问可以和 [某人名字] 通话吗？）
+Is this a good time to talk?
+（现在方便通话吗？）
+I’m calling to follow up on…
+（我打电话是为了跟进……）
+I’m calling to discuss…
+（我打电话是想讨论……）
+Could you please put me through to [Person&#x27;s Name] in the [Department Name]?
+（您能把电话转给 [部门名称] 的 [某人名字] 吗？）
+I’d like to arrange a meeting with [Person&#x27;s Name] regarding [Topic].
+（我想安排与 [某人名字] 讨论 [话题] 的会议。）
+Can we schedule a meeting for next week?
+（我们可以安排下周的会议吗？）
+How about we meet on [Date] at [Time]?
+（我们约在 [日期][时间] 见面怎么样？）
+Is [Day] at [Time] good for you?
+（[某天][某时间] 对您合适吗？）
+Let’s confirm the details of our meeting.
+（让我们确认一下会议的详细信息。）
+This is an urgent matter that needs immediate attention.
+（这是一个需要立即处理的紧急事项。）
+I’m calling about an urgent problem that just came up.
+（我打电话是关于刚刚出现的紧急问题。）
+Could you provide me with more details on [Topic]?
+（您能提供更多关于 [话题] 的详细信息吗？）
+Can you update me on the status of [Project]?
+（您能告知我 [项目] 的最新进展吗？）
+I’m looking for information about [Specific Topic].
+（我在寻找关于 [具体话题] 的信息。）
+Do you have any updates on [Issue]?
+（您有关于 [问题] 的最新消息吗？）
+Could you send me the report by the end of the day?
+（您能在今天结束前发给我报告吗？）
+Thank you for your time. I’ll follow up with you shortly.
+（感谢您的时间。我会尽快跟进。）
+It was great speaking with you. Have a nice day!
+（很高兴与您通话。祝您愉快！）
+I’ll send you a follow-up email with all the details.
+（我会发一封跟进邮件给您，包含所有详细信息。）
+If you have any other questions, feel free to call me.
+（如果您有其他问题，请随时打电话给我。）
+Thanks again for your help. Goodbye!
+（再次感谢您的帮助。再见！）
+May I ask who’s calling, please?
+（请问您是？）
+Could you please hold for a moment?
+（您能稍等一下吗？）
+Let me transfer you to the right department. Please hold.
+（我帮您转接到相关部门，请稍等。）
+I’ll put you on hold while I check that for you.
+（我帮您查一下，请稍等。）
+One moment, please. I’ll connect you now.
+（请稍等，我现在为您接通。）
+I’m sorry, [Person&#x27;s Name] is not available at the moment. Would you like to leave a message?
+（很抱歉，[某人名字] 目前无法接听。您要留言吗？）
+I’ll get back to you as soon as possible.
+（我会尽快回复您。）
+Could you please ask [Person&#x27;s Name] to call me back at [Your Phone Number]?
+（您能请 [某人名字] 回拨 [您的电话号码] 吗？）
+Please tell [Person&#x27;s Name] that I called regarding [Topic].
+（请告诉 [某人名字] 我打电话是关于 [话题] 的。）
+I’d like to leave a message for [Person&#x27;s Name].
+（我想给 [某人名字] 留个口信。）
+Could you let [Person&#x27;s Name] know I’ll call back later?
+（您能告诉 [某人名字] 我稍后会再打电话吗？）
+Please have [Person&#x27;s Name] return my call when convenient.
+（请让 [某人名字] 方便时回电。）
+I&#x27;m calling to follow up on the status of our recent order.
+（我打电话是为了跟进我们最近订单的状态。）
+Could you provide an update on the progress of our order placed on [Date]?
+（您能提供一下我们在 [日期] 下的订单的进展情况吗？）
+I wanted to check in and see if there are any updates on the delivery schedule.
+（我想查下是否有有关交货时间的更新。）
+We are interested in receiving confirmation on the estimated delivery date for our order.
+（我们希望确认一下我们订单的预计交货日期。）
+May I inquire about the current status of our order in your system?
+（我可以了解一下订单在你们系统中的当前状态吗？）
+I&#x27;m reaching out to ensure that all necessary documentation for the order has been processed.
+（我联系你们是为了确保订单的所有必要文件已经处理好。）
+Is there any additional information required from our end to facilitate the order fulfillment?
+（我们这边是否还需要提供其他信息以促进订单的执行？）
+Can you confirm that the payment for the order has been received and processed?
+（你能确认一下订单的付款已经收到并处理了吗？）
+I&#x27;d appreciate an update on any potential delays or issues with our order.
+（我想了解一下我们订单是否有任何潜在的延迟或问题。）
+Can we expedite this process?
+（我们可以加快这个流程吗？）
+I need your help with a time-sensitive issue.
+（我需要您帮助处理一个时间紧迫的问题。）
+Could you please prioritize this request?
+（您能否优先处理这个请求？）
+Let&#x27;s get started.
+（我们开始吧。）
+I&#x27;ll be brief.
+（我会简短地说。）
+I&#x27;d like to add something here.
+（我在这里补充一下。）
+Let me clarify that.
+（让我澄清一下。）
+Can we move on to the next point?
+（我们可以进入下一个议题了吗？）
+That&#x27;s a great question.
+（这是个很好的问题。）
+I agree with you on that.
+（我同意你的看法。）
+Can I just jump in here?
+（我能插句话吗？）
+Let me finish my point.
+（让我把我的观点说完。）
+We&#x27;re running out of time.
+（我们时间不多了。）
+Who&#x27;s speaking?
+（谁在说话？）
+I think we should wrap up.
+（我觉得我们应该结束了。）
+Thank you for your input.
+（谢谢你的意见。）
+I will send out the meeting notes later.
+（我稍后会发出会议记录。）
+Let&#x27;s stay on topic.
+（让我们保持在这个话题上。）
+I&#x27;ll follow up with you after the meeting.
+（会议后我会跟进你。）
+I believe that&#x27;s all for today.
+（我认为今天就这些了。）
+Let&#x27;s schedule a follow-up meeting.
+（我们安排一个后续会议吧。）
+Can I ask a quick question?
+（我能问个简单的问题吗？）
+We need to address that issue.
+（我们需要解决这个问题。）
+That sounds good to me.
+（听起来不错。）
+I&#x27;ll check with the team and get back to you.
+（我会跟团队确认一下，然后回复你。）
+Let&#x27;s reconvene next week.
+（我们下周再开会。）
+I think we need to dive deeper into this.
+（我觉得我们需要深入探讨这个问题。）
+Can we agree on that?
+（我们能就此达成一致吗？）
+What&#x27;s your take on this?
+（你对此有什么看法？）
+I think we&#x27;re on the same page.
+（我觉得我们意见一致。）
+Can we have a quick recap?
+（我们能快速回顾一下吗？）
+Please feel free to jump in.
+（如果有任何意见，请随时插话。）
+Let me know if you need any clarification.
+（如果需要澄清，告诉我。）
+We&#x27;ll follow up after the meeting.
+（我们将在会议后跟进。）
+Is everyone clear on this?
+（大家都明白了吗？）
+Can we go over the agenda?
+（我们能过一下议程吗？）
+Let&#x27;s take a quick break.
+（我们休息一下。）
+I&#x27;ll get back to you on that.
+（我会就此回复你。）
+Does anyone have any objections?
+（有人有异议吗？）
+Can you share the document with the team?
+（你能把文件分享给团队吗？）
+I will make sure to follow up.
+（我会确保跟进。）
+Can you elaborate on that?
+（你能详细说明一下吗？）
+Let&#x27;s go ahead with the plan.
+（我们按照计划进行吧。）
+I think we need to revisit that later.
+（我们稍后再重新讨论这个问题。）
+Are we all in agreement?
+（大家都同意吗？）
+I will update the team on this.
+（我会把这个更新给团队。）
+Can you provide more details on that?
+（你能提供更多细节吗？）
+What&#x27;s the status on this?
+（这个进展如何？）
+Please send me the link.
+（请发给我链接。）
+I will send out the calendar invite.
+（我会发出日历邀请。）
+I think we&#x27;re on track.
+（我觉得我们在正轨上。）
+Can we move forward with this?
+（我们可以继续进行吗？）
+Let&#x27;s wrap this up.
+（我们结束吧。）
+What&#x27;s the deadline for this?
+（这个的截止日期是什么时候？）
+信息确认
+Could you please confirm the receipt of this information?
+（您能否确认已收到这些信息？）
+Please confirm that you received my message.
+（请确认您已收到我的消息。）
+I’d appreciate it if you could confirm the meeting time.
+（如果您能确认会议时间，我将不胜感激。）
+Can you confirm that the documents have been sent?
+（您能确认文件已经发送了吗？）
+Please confirm your availability for the call.
+（请确认您是否有空参加电话会议。）
+Could you please confirm the details we discussed earlier?
+（你能确认一下我们之前讨论的细节吗？）
+I’d like to verify some information to ensure accuracy.
+（我想核实一些信息以确保准确性。）
+Just to double-check, are we still on track with the plan we outlined?
+（再次确认一下，我们还在按照我们制定的计划进行吗？）
+Can you confirm the date and time for the upcoming meeting?
+（你能确认一下即将举行的会议的日期和时间吗？）
+I want to make sure I have the correct details before moving forward.
+（在继续之前，我想确认一下我是否有正确的细节。）
+Let&#x27;s go over the specifics one more time to avoid any misunderstandings.
+（我们再次详细讨论下，以避免任何误解。）
+Could you verify the accuracy of the figures provided in the report?
+（你能核实一下报告中提供的数据是否准确吗？）
+I just want to confirm the delivery address for the upcoming shipment.
+（我只是想确认一下即将发货的地址。）
+To ensure clarity, could you repeat the key points we agreed upon?
+（为了确保清晰，你能重复一下我们同意的关键点吗？）
+Let&#x27;s confirm the details of the contract before finalizing the agreement.
+（在最终敲定协议之前，我们确认下合同细节。）
+Can we go over the action items?
+（让我们回顾一下行动事项。）
+Can we go over the agenda?
+（我们能过一下议程吗？）
+Could we go over the report?
+（我们能看看报告吗？）
+Can we review the agenda?
+（我们能审阅一下议程吗？）
+Can we have a quick recap?
+（我们能快速回顾一下吗？）
+What&#x27;s the action item for this?
+（这个的行动事项是什么？）
+What&#x27;s the status on this?
+（这个进展如何？）
+What&#x27;s the deadline for this?
+（这个的截止日期是什么时候？）
+Can you give us an update?
+（你能给我们更新一下吗？）
+Can you summarize that?
+（你能总结一下吗？）
+We need to address that issue.
+（我们需要解决这个问题。）
+Let&#x27;s stay on topic.
+（让我们保持在这个话题上。）
+Let&#x27;s stick to the agenda.
+（我们按照议程进行。）
+I think we&#x27;re on track.
+（我觉得我们在正轨上。）
+Can we move forward with this?
+（我们可以继续进行吗？）
+Is everyone clear on this?
+（大家都明白了吗？）
+Does anyone have any objections?
+（有人有异议吗？）
+Are we all in agreement?
+（大家都同意吗？）
+Can we agree on that?
+（我们能就此达成一致吗？）
+I think we&#x27;re on the same page.
+（我觉得我们意见一致。）
+What&#x27;s your take on this?
+（你对此有什么看法？）
+I agree with you on that.
+（我同意你的看法。）
+That sounds good to me.
+（听起来不错。）
+I think that&#x27;s a good idea.
+（我觉得这是个好主意。）
+That&#x27;s a great question.
+（这是个很好的问题。）
+That&#x27;s a good point.
+（这个观点很好。）
+I think we should prioritize this.
+（我觉得我们应该优先处理这个。）
+What&#x27;s the best way to move forward?
+（向前推进的最佳方式是什么？）
+Let&#x27;s go ahead with the plan.
+（我们按照计划进行吧。）
+I&#x27;m calling to follow up on the status of our recent order.
+（我打电话是为了跟进我们最近订单的状态。）
+Could you provide an update on the progress of our order placed on [Date]?
+（您能提供一下我们在 [日期] 下的订单的进展情况吗？）
+We are interested in receiving confirmation on the estimated delivery date for our order.
+（我们希望确认一下我们订单的预计交货日期。）
+Can you confirm that the payment for the order has been received and processed?
+（你能确认一下订单的付款已经收到并处理了吗？）
+I&#x27;d appreciate an update on any potential delays or issues with our order.
+（我想了解一下我们订单是否有任何潜在的延迟或问题。）
+Can you update me on the status of [Project]?
+（您能告知我 [项目] 的最新进展吗？）
+Do you have any updates on [Issue]?
+（您有关于 [问题] 的最新消息吗？）
+Could you provide me with more details on [Topic]?
+（您能提供更多关于 [话题] 的详细信息吗？）
+Can you provide more details on that?
+（你能提供更多细节吗？）
+Can you elaborate on that?
+（你能详细说明一下吗？）
+I’m looking for information about [Specific Topic].
+（我在寻找关于 [具体话题] 的信息。）
+Could you send me the report by the end of the day?
+（您能在今天结束前发给我报告吗？）
+Please send me the link.
+（请发给我链接。）
+Could you please send me the details?
+（你能发给我详细信息吗？）
+Could you send me an email with the details?
+（你能发邮件给我详细信息吗？）
+Can you share the document with the team?
+（你能把文件分享给团队吗？）
+I will share the document with you later.
+（我稍后会把文件分享给你。）
+I will send out the meeting notes later.
+（我稍后会发出会议记录。）
+I will send a follow-up email.
+（我会发一封跟进邮件。）
+I’ll send you a follow-up email with all the details.
+（我会发一封跟进邮件给您，包含所有详细信息。）
+I will send out the calendar invite.
+（我会发出日历邀请。）
+Let’s confirm the details of our meeting.
+（让我们确认一下会议的详细信息。）
+Is [Day] at [Time] good for you?
+（[某天][某时间] 对您合适吗？）
+How about we meet on [Date] at [Time]?
+（我们约在 [日期][时间] 见面怎么样？）
+Can we schedule a meeting for next week?
+（我们可以安排下周的会议吗？）
+Let&#x27;s schedule a follow-up meeting.
+（我们安排一个后续会议吧。）
+Let&#x27;s reconvene next week.
+（我们下周再开会。）
+I’ll check with the team and get back to you.
+（我会跟团队确认一下，然后回复你。）
+Let me confirm with the team.
+（让我和团队确认一下。）
+Let me check on that.
+（我查一下。）
+I’m sorry, [Person&#x27;s Name] is not available at the moment. Would you like to leave a message?
+（很抱歉，[某人名字] 目前无法接听。您要留言吗？）
+May I ask who’s calling, please?
+（请问您是？）
+This is an urgent matter that needs immediate attention.
+（这是一个需要立即处理的紧急事项。）
+I’m calling about an urgent problem that just came up.
+（我打电话是关于刚刚出现的紧急问题。）
+Can we expedite this process?
+（我们可以加快这个流程吗？）
+I need your help with a time-sensitive issue.
+（我需要您帮助处理一个时间紧迫的问题。）
+Could you please prioritize this request?
+（您能否优先处理这个请求？）
+I&#x27;m reaching out to ensure that all necessary documentation for the order has been processed.
+（我联系你们是为了确保订单的所有必要文件已经处理好。）
+Is there any additional information required from our end to facilitate the order fulfillment?
+（我们这边是否还需要提供其他信息以促进订单的执行？）
+May I inquire about the current status of our order in your system?
+（我可以了解一下订单在你们系统中的当前状态吗？）
+I wanted to check in and see if there are any updates on the delivery schedule.
+（我想查下是否有有关交货时间的更新。）
+I will update the team on this.
+（我会把这个更新给团队。）
+I will make sure to follow up.
+（我会确保跟进。）
+We&#x27;ll follow up after the meeting.
+（我们将在会议后跟进。）
+I&#x27;ll follow up with you after the meeting.
+（会议后我会跟进你。）
+I&#x27;ll follow up with an email.
+（我会通过邮件跟进。）
+Thank you for your input.
+（谢谢你的意见。）
+I’ll get back to you on that.
+（我会就此回复你。）
+I’ll get back to you on that after the meeting.
+（会议后我会回复你。）
+I’ll get back to you as soon as possible.
+（我会尽快回复你。）
+Thank you for your time. I’ll follow up with you shortly.
+（感谢您的时间。我会尽快跟进。）
+Who can take this task?
+（谁能承担这个任务？）
+I&#x27;ll take care of it.
+（我来处理。）
+I&#x27;ll take care of that.
+（我会处理这个问题。）
+I believe that&#x27;s all for today.
+（我认为今天就这些了。）
+Let&#x27;s wrap this up.
+（我们结束吧。）
+信号不好
+Can everyone hear me?
+（大家都能听到我吗？）
+Could you repeat that, please?
+（请你重复一下好吗？）
+I&#x27;m afraid I didn&#x27;t catch that.
+（恐怕我没听清楚。）
+Can you speak up a bit?
+（你能说大声一点吗？）
+I&#x27;m having trouble hearing you.
+（我听不清楚你说的。）
+I&#x27;m sorry, I missed that.
+（对不起，我错过了那个。）
+I&#x27;m having trouble with the connection.
+（我的连接有问题。）
+Could you please repeat that?
+（请再说一遍好吗？）
+I’m sorry, could you repeat that, please?
+（抱歉，您能再说一遍吗？）
+I’m sorry, I didn’t catch that. Can you say it again?
+（抱歉，我没听清。您能再说一遍吗？）
+Let me clarify that.
+（让我澄清一下。）
+Could you please clarify that?
+（你能澄清一下吗？）
+Could you please clarify your point?
+（你能澄清一下你的观点吗？）
+Could you please clarify what you mean by [Specific Term]?
+（您能解释一下 [具体术语] 的意思吗？）
+Let me know if you need any clarification.
+（如果需要澄清，告诉我。）
+I&#x27;m not sure I understand your point.
+（我不太明白你的意思。）
+Can you share the document with the team?
+（你能把文件分享给团队吗？）
+Could you please send me the details?
+（你能发给我详细信息吗？）
+Could you send me an email with the details?
+（你能发邮件给我详细信息吗？）
+Please send me the link.
+（请发给我链接。）
+I will share the document with you later.
+（我稍后会把文件分享给你。）
+I will send a follow-up email.
+（我会发一封跟进邮件。）
+I’ll send you a follow-up email with all the details.
+（我会发一封跟进邮件给您，包含所有详细信息。）
+Could you send me the report by the end of the day?
+（您能在今天结束前发给我报告吗？）
+I will send out the meeting notes later.
+（我稍后会发出会议记录。）
+Let&#x27;s take it offline.
+（我们私下讨论。）
+Let&#x27;s take that offline.
+（这个问题我们私下讨论。）
+Could you please mute your microphone?
+（请把你的麦克风静音好吗？）
+Please mute yourself when not speaking.
+（不发言时请将麦克风静音。）
+Could you please mute your mic when not speaking?
+（不发言时请静音麦克风。）
+Who&#x27;s speaking?
+（谁在说话？）
+Let me finish my point.
+（让我把我的观点说完。）
+Can I just jump in here?
+（我能插句话吗？）
+Please feel free to jump in.
+（如果有任何意见，请随时插话。）
+Let&#x27;s get started.
+（我们开始吧。）
+I&#x27;ll be brief.
+（我会简短地说。）
+I&#x27;d like to add something here.
+（我在这里补充一下。）
+Can we move on to the next point?
+（我们可以进入下一个议题了吗？）
+Let&#x27;s circle back to that point later.
+（我们稍后再回到这个话题。）
+Let&#x27;s circle back to this later.
+（我们稍后再回到这个话题。）
+I think we need to revisit that later.
+（我们稍后再重新讨论这个问题。）
+Let&#x27;s table this for now.
+（我们先搁置这个问题。）
+We&#x27;re running out of time.
+（我们时间不多了。）
+Let&#x27;s check the time.
+（我们看一下时间。）
+Let&#x27;s take a quick break.
+（我们休息一下。）
+I think we should wrap up.
+（我觉得我们应该结束了。）
+Let&#x27;s wrap this up.
+（我们结束吧。）
+Can we have a quick recap?
+（我们能快速回顾一下吗？）
+Can you summarize that?
+（你能总结一下吗？）
+Is everyone clear on this?
+（大家都明白了吗？）
+Can we clarify the next steps?
+（我们能明确一下接下来的步骤吗？）
+I&#x27;m not clear on the next steps.
+（我不太明白接下来的步骤。）
+What&#x27;s the action item for this?
+（这个的行动事项是什么？）
+Let&#x27;s go over the action items.
+（让我们回顾一下行动事项。）
+Can we go over the agenda?
+（我们能过一下议程吗？）
+Can we review the agenda?
+（我们能审阅一下议程吗？）
+Could we go over the report?
+（我们能看看报告吗？）
+Let&#x27;s stay on topic.
+（让我们保持在这个话题上。）
+Let&#x27;s stick to the agenda.
+（我们按照议程进行。）
+That&#x27;s a great question.
+（这是个很好的问题。）
+That&#x27;s a good point.
+（这个观点很好。）
+I agree with you on that.
+（我同意你的看法。）
+That sounds good to me.
+（听起来不错。）
+I think that&#x27;s a good idea.
+（我觉得这是个好主意。）
+Can we agree on that?
+（我们能就此达成一致吗？）
+Are we all in agreement?
+（大家都同意吗？）
+Does anyone have any objections?
+（有人有异议吗？）
+I think we&#x27;re on the same page.
+（我觉得我们意见一致。）
+What&#x27;s your take on this?
+（你对此有什么看法？）
+We need to address that issue.
+（我们需要解决这个问题。）
+I think we need to dive deeper into this.
+（我觉得我们需要深入探讨这个问题。）
+Can we discuss this in more detail?
+（我们可以更详细地讨论一下吗？）
+What&#x27;s the status on this?
+（这个进展如何？）
+Can you give us an update?
+（你能给我们更新一下吗？）
+What&#x27;s the deadline for this?
+（这个的截止日期是什么时候？）
+What&#x27;s the best way to move forward?
+（向前推进的最佳方式是什么？）
+Can we move forward with this?
+（我们可以继续进行吗？）
+I think we&#x27;re on track.
+（我觉得我们在正轨上。）
+I think we should prioritize this.
+（我觉得我们应该优先处理这个。）
+Let&#x27;s go ahead with the plan.
+（我们按照计划进行吧。）
+Let&#x27;s schedule a follow-up meeting.
+（我们安排一个后续会议吧。）
+Let&#x27;s reconvene next week.
+（我们下周再开会。）
+I&#x27;ll check with the team and get back to you.
+（我会跟团队确认一下，然后回复你。）
+Let me confirm with the team.
+（让我和团队确认一下。）
+Let me check on that.
+（我查一下。）
+I’ll get back to you on that.
+（我会就此回复你。）
+I’ll get back to you on that after the meeting.
+（会议后我会回复你。）
+I’ll follow up with you after the meeting.
+（会议后我会跟进你。）
+I’ll follow up with an email.
+（我会通过邮件跟进。）
+We&#x27;ll follow up after the meeting.
+（我们将在会议后跟进。）
+I will make sure to follow up.
+（我会确保跟进。）
+I will update the team on this.
+（我会把这个更新给团队。）
+Thank you for your input.
+（谢谢你的意见。）
+Thank you for your time. I’ll follow up with you shortly.
+（感谢您的时间。我会尽快跟进。）
+It was great speaking with you. Have a nice day!
+（很高兴与您通话。祝您愉快！）
+Thanks again for your help. Goodbye!
+（再次感谢您的帮助。再见！）
+Who can take this task?
+（谁能承担这个任务？）
+I&#x27;ll take care of it.
+（我来处理。）
+I&#x27;ll take care of that.
+（我会处理这个问题。）
+I believe that&#x27;s all for today.
+（我认为今天就这些了。）
+示例
+场景：客户致电咨询订单进度Hi, this is [Your Name] from [Your Company]. I’m calling to follow up on the status of our order placed on [Date], order number [Order Number]. Could you provide an update on the progress and confirm the estimated delivery date?
+（您好，我是 [您公司名称] 的 [您的名字]。我打电话是为了跟进我们在 [日期] 下的订单，订单号为 [订单号]。您能告知一下订单进展，并确认预计交货日期吗？）
+场景：员工联系客户安排会议Hello, this is [Your Name] from [Your Company]. I’d like to arrange a meeting with you regarding the [Project Name] project. Is [Day] at [Time] good for you? If not, please let me know your available time slots.
+（您好，我是 [您公司名称] 的 [您的名字]。我想和您安排一次关于 [项目名称] 项目的会议。[某天][某时间] 对您合适吗？如果不合适，请告知您的可用时间段。）
+场景：客服接听客户投诉电话Good afternoon, this is [Your Name] from [Company Name]. Thank you for calling. I’m sorry to hear you’re having an issue with [Product/Service]. Could you please elaborate on the problem, and I’ll assist you in resolving it promptly?
+（下午好，我是 [公司名称] 的 [您的名字]。感谢您的来电。很抱歉听到您在 [产品 / 服务] 方面遇到了问题。您能详细说明一下问题吗？我会协助您尽快解决。）
+场景：同事间电话确认会议细节Hi [Colleague&#x27;s Name], this is [Your Name]. Just to double-check, our meeting tomorrow is scheduled for [Time] via [Meeting Platform], right? And we’ll be going over the [Report Name] report. Could you confirm if you have the latest version of the report?
+（嗨 [同事名字]，我是 [您的名字]。再次确认一下，我们明天的会议定在 [时间] 通过 [会议平台] 举行，对吗？而且我们会讨论 [报告名称] 报告。您能确认是否有报告的最新版本吗？）
+场景：紧急事项联系合作方Hello, this is [Your Name] from [Your Company]. This is an urgent matter regarding the [Cooperation Project]. There’s a time-sensitive issue with [Specific Part] that needs immediate attention. Can we expedite the process to resolve it, and could you prioritize this request?
+（您好，我是 [您公司名称] 的 [您的名字]。这是关于 [合作项目] 的紧急事项。[具体部分] 出现了一个时间紧迫的问题，需要立即处理。我们能加快流程解决它吗？您能否优先处理这个请求？）
+场景：致电询问项目进展Hi, this is [Your Name] from [Your Company]. I’m calling to check in on the status of the [Project Name] project. Can you update me on the current progress, and let me know if there are any potential delays or issues we need to address?
+（您好，我是 [您公司名称] 的 [您的名字]。我打电话是为了了解 [项目名称] 项目的进展。您能告知当前进展，并说明是否有需要我们解决的潜在延迟或问题吗？）
+场景：客户要求重新发送文件Good morning, this is [Client&#x27;s Name] from [Client Company]. I’m afraid I didn’t receive the [Document Name] document you mentioned earlier. Could you please resend it to my email [Email Address], and confirm once it’s sent?
+（早上好，我是 [客户公司名称] 的 [客户名字]。恐怕我没有收到您之前提到的 [文件名称] 文件。您能把它重新发送到我的邮箱 [邮箱地址] 吗？发送后请确认一下。）
+场景：员工请假前与同事交接工作Hi [Colleague&#x27;s Name], this is [Your Name]. I’ll be on leave from [Start Date] to [End Date], and I need to hand over the [Task Name] task to you. Could we go over the key points of the task later today, and confirm who you can contact if you have questions during this period?
+（嗨 [同事名字]，我是 [您的名字]。我将从 [开始日期] 到 [结束日期] 休假，需要把 [任务名称] 任务交接给您。我们今天晚些时候能梳理一下任务的关键点，并确认您在此期间有问题可以联系谁吗？）
+场景：客服处理客户退款申请Hello, this is [Your Name] from [Company Name]. Thank you for your call regarding the refund for [Product Name]. To process this, could you please confirm your order number and the reason for the refund? I’ll verify the details and let you know the refund timeline once confirmed.
+（您好，我是 [公司名称] 的 [您的名字]。感谢您来电咨询 [产品名称] 的退款事宜。为了处理退款，您能确认一下订单号和退款原因吗？我会核实细节，确认后告知您退款时间。）
+场景：合作方致电调整合作方案Hi [Your Name], this is [Partner&#x27;s Name] from [Partner Company]. I’m calling to discuss adjusting the [Cooperation Plan] we agreed upon earlier. Due to [Reason for Adjustment], we need to modify [Specific Part]. Can we schedule a short meeting to go over the revised plan and confirm if it works for your team?
+（嗨 [您的名字]，我是 [合作方公司名称] 的 [合作方名字]。我打电话是为了讨论调整我们之前商定的 [合作方案]。由于 [调整原因]，我们需要修改 [具体部分]。我们能安排一个短会讨论修订后的方案，并确认您的团队是否接受吗？）
+场景：HR 致电候选人确认面试时间Good afternoon, [Candidate&#x27;s Name]. This is [Your Name] from the HR department of [Company Name]. We’d like to schedule an interview with you for the [Position Name] position. Is [Day] at [Time] via [Interview Method] convenient for you? Please confirm your availability.
+（下午好，[候选人名字]。我是 [公司名称] 人力资源部的 [您的名字]。我们想邀请您参加 [职位名称] 职位的面试。[某天][某时间] 通过 [面试方式] 进行，您方便吗？请确认您的可参与情况。）
+场景：技术支持接听客户设备故障电话Hello, this is [Your Name] from the technical support team of [Company Name]. I understand you’re having trouble with your [Device Name]. Could you please describe the specific issue you’re facing, such as when it started and what error messages appear? I’ll guide you through the troubleshooting steps.
+（您好，我是 [公司名称] 技术支持团队的 [您的名字]。了解到您的 [设备名称] 出现了故障。您能描述一下具体问题吗？比如故障何时开始，出现了什么错误提示？我会指导您进行故障排除。）
+场景：市场部致电合作媒体确认宣传细节Hi [Media Contact&#x27;s Name], this is [Your Name] from [Company Name]’s marketing department. We’re collaborating on the [Promotion Campaign] next month. Could you confirm the publication time of our promotional content on your platform and the format requirements for the materials?
+（嗨 [媒体联系人名字]，我是 [公司名称] 市场部的 [您的名字]。我们下个月将合作开展 [宣传活动]。您能确认我们的宣传内容在贵平台的发布时间，以及素材的格式要求吗？）
+场景：财务致电供应商确认付款事宜Good morning, this is [Your Name] from [Company Name]’s finance department. I’m calling to confirm the payment terms for the [Order/Service] we received. Could you verify the total amount due, the payment deadline, and your bank account details? We’ll arrange the payment accordingly.
+（早上好，我是 [公司名称] 财务部的 [您的名字]。我打电话是为了确认我们收到的 [订单 / 服务] 的付款条款。您能核实应付款总额、付款截止日期以及贵方的银行账户信息吗？我们会据此安排付款。）
+场景：项目经理致电团队成员跟进任务进度Hi [Team Member&#x27;s Name], this is [Your Name]. I’m checking in on the [Task Name] task you’re responsible for. The deadline is [Deadline Date], so could you update me on your current progress? If you’re facing any obstacles, let’s discuss how to address them.
+（嗨 [团队成员名字]，我是 [您的名字]。我来了解一下您负责的 [任务名称] 任务的情况。截止日期是 [截止日期]，您能告知当前进展吗？如果遇到任何障碍，我们一起讨论如何解决。）
+场景：客户致电咨询产品使用方法Hello, this is [Client&#x27;s Name]. I recently purchased your [Product Name] and have a question about its usage. Specifically, how do I [Specific Operation]? Could you please explain the steps clearly?
+（您好，我是 [客户名字]。我最近购买了贵公司的 [产品名称]，在使用方面有一个问题。具体来说，我该如何进行 [具体操作]？您能清晰地讲解一下步骤吗？）
+场景：行政致电会议室预订处确认场地Hi, this is [Your Name] from the [Department Name]. I reserved the [Meeting Room Name] for our team meeting on [Date] at [Time]. Could you confirm that the reservation is successful, and if the meeting room is equipped with a projector and whiteboard?
+（嗨，我是 [部门名称] 的 [您的名字]。我为我们团队预订了 [日期][时间] 的 [会议室名称] 会议室。您能确认预订成功了吗？以及该会议室是否配备投影仪和白板？）
+场景：采购致电供应商询问产品库存Good afternoon, this is [Your Name] from [Company Name]’s procurement department. We’re interested in purchasing [Quantity] units of [Product Name]. Could you check the current inventory and let us know if you have enough stock? If not, what’s the lead time for restocking?
+（下午好，我是 [公司名称] 采购部的 [您的名字]。我们有意购买 [数量] 件 [产品名称]。您能查一下当前库存，告知是否有足够库存吗？如果没有，补货需要多长时间？）
+场景：客服回电客户解决之前的问题Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. I’m following up on the issue you reported earlier regarding [Problem]. We’ve found a solution: [Solution Details]. Could you confirm if this addresses your concern, and if you need further assistance?
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。我来跟进您之前反馈的关于 [问题] 的事宜。我们已经找到了解决方案：[解决方案细节]。您能确认这是否解决了您的问题，以及是否需要进一步帮助吗？）
+场景：团队负责人致电外部专家邀请参与项目Hello, [Expert&#x27;s Name]. This is [Your Name] from [Company Name]. We’re working on a [Project Field] project and would greatly appreciate your expertise. Would you be available to join a short meeting next week to provide advice on [Specific Aspect]? We can adjust the time to fit your schedule.
+（您好，[专家名字]。我是 [公司名称] 的 [您的名字]。我们正在开展一个 [项目领域] 的项目，非常希望能借助您的专业知识。您下周有空参加一个短会，就 [具体方面] 提供建议吗？我们可以根据您的日程调整时间。）
+场景：客户要求更改订单信息Hi, this is [Client&#x27;s Name]. I placed an order for [Product Name] yesterday, order number [Order Number]. I need to change the delivery address to [New Address]. Could you please update the information for me and confirm that the change has been made?
+（嗨，我是 [客户名字]。我昨天订购了 [产品名称]，订单号为 [订单号]。我需要将交货地址更改为 [新地址]。您能帮我更新信息，并确认更改已完成吗？）
+场景：员工致电 IT 部门解决电脑故障Hello, this is [Your Name] from the [Department Name]. My computer has been crashing frequently when I use [Software Name] since this morning. I’ve tried restarting it, but the problem persists. Could you send someone to check it, or guide me through the troubleshooting process remotely?
+（您好，我是 [部门名称] 的 [您的名字]。从今天早上开始，我使用 [软件名称] 时电脑经常死机。我已经尝试过重启，但问题仍然存在。您能派人来检查一下，或者远程指导我进行故障排除吗？）
+场景：销售致电潜在客户介绍产品Hi [Potential Client&#x27;s Name], this is [Your Name] from [Company Name]. I noticed your company is in the [Industry Field], and our [Product Name] can help improve [Specific Efficiency/Problem]. Would you be interested in a 10-minute call next week to learn more about how it works?
+（嗨 [潜在客户名字]，我是 [公司名称] 的 [您的名字]。我了解到贵公司处于 [行业领域]，而我们的 [产品名称] 可以帮助提升 [具体效率 / 解决具体问题]。您下周有兴趣花 10 分钟通个电话，了解它的工作原理吗？）
+场景：客服确认客户收到售后配件Good morning, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. We sent you the replacement [Part Name] for your [Product Name] on [Shipment Date]. Could you confirm if you’ve received it, and if it’s in good condition?
+（早上好，[客户名字]。我是 [公司名称] 的 [您的名字]。我们在 [发货日期] 给您寄了 [产品名称] 的替换 [配件名称]。您能确认是否收到，以及配件是否完好吗？）
+场景：项目组致电合作方协调交付时间Hi [Partner&#x27;s Name], this is [Your Name] from [Your Company]. Regarding the [Deliverable Name] you’re supposed to provide for the [Project Name], our team needs it by [New Deadline] to avoid project delays. Could you adjust your schedule to meet this new deadline, or let us know if there’s a better alternative time?
+（嗨 [合作方名字]，我是 [您公司名称] 的 [您的名字]。关于您需要为 [项目名称] 提供的 [交付物名称]，我们团队需要在 [新截止日期] 前收到，以避免项目延迟。您能调整日程以满足这个新截止日期吗？或者告知是否有更合适的替代时间？）
+场景：HR 致电员工确认入职事宜Hello, [New Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. Welcome to the team! Your first day is scheduled for [Start Date]. Could you confirm that you have all the required documents (such as ID card and academic certificate), and if you need directions to the office?
+（您好，[新员工名字]。我是 [公司名称] 人力资源部的 [您的名字]。欢迎加入团队！您的入职日期定在 [入职日期]。您能确认是否已准备好所有所需文件（如身份证、学历证书），以及是否需要办公室的路线指引吗？）
+场景：客户致电反馈产品质量问题Hi, this is [Client&#x27;s Name]. I bought your [Product Name] last month, but it started [Quality Issue] after only two weeks of use. I’ve taken photos of the problem, which I can send to you. Could you arrange for a repair or replacement, and let me know the next steps?
+（嗨，我是 [客户名字]。我上个月购买了贵公司的 [产品名称]，但只用了两周就出现了 [质量问题]。我已经拍下了问题照片，可以发给您。您能安排维修或更换，并告知接下来的步骤吗？）
+场景：市场部致电印刷厂确认宣传册制作进度Good afternoon, this is [Your Name] from [Company Name]’s marketing department. We placed an order for [Quantity] promotional brochures with your factory on [Order Date]. Could you update us on the production progress and confirm the exact delivery date? We need them for an upcoming event.
+（下午好，我是 [公司名称] 市场部的 [您的名字]。我们在 [下单日期] 向贵厂订购了 [数量] 份宣传册。您能告知生产进度，并确认准确的交货日期吗？我们需要用它们来筹备即将举行的活动。）
+场景：员工致电差旅平台修改机票预订Hello, this is [Your Name]. I booked a flight from [Departure City] to [Arrival City] on [Original Date] via your platform, booking number [Booking Number]. Due to a work schedule change, I need to reschedule it to [New Date]. Could you help me modify the booking, and let me know if there are any additional fees?
+（您好，我是 [您的名字]。我通过贵平台预订了 [出发日期] 从 [出发城市] 到 [到达城市] 的机票，预订号为 [预订号]。由于工作安排变动，我需要将其改期到 [新日期]。您能帮我修改预订，并告知是否有额外费用吗？）
+场景：客服确认客户对解决方案的满意度Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. We resolved the [Problem] you had with [Product/Service] a few days ago. I’m calling to check if the solution worked well for you, and if you have any other questions or suggestions. Your feedback is important to us.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。几天前我们解决了您在 [产品 / 服务] 方面遇到的 [问题]。我打电话是想了解解决方案是否对您有效，以及您是否有其他问题或建议。您的反馈对我们很重要。）
+场景：项目经理致电客户汇报项目阶段成果Hello, [Client&#x27;s Name]. This is [Your Name] from [Your Company], the project manager for [Project Name]. We’ve completed the [Phase Name] phase of the project, and the key achievements include [Achievement Details]. Could we schedule a short meeting next week to present the detailed results and discuss the next phase plan?
+（您好，[客户名字]。我是 [您公司名称] 的 [您的名字]，也是 [项目名称] 的项目经理。我们已经完成了项目的 [阶段名称] 阶段，主要成果包括 [成果细节]。我们下周能安排一个短会，展示详细成果并讨论下一阶段计划吗？）
+场景：采购致电供应商协商价格Good morning, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. We’re considering purchasing a large quantity of [Product Name] from your company. Your quoted price is [Quoted Price], but we hope to negotiate a 5% discount due to the large order volume. Could you discuss this with your team and get back to us?
+（早上好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。我们正考虑从贵公司大量采购 [产品名称]。贵方的报价是 [报价金额]，但由于订单量较大，我们希望能协商 5% 的折扣。您能和团队讨论一下，然后回复我们吗？）
+场景：员工致电行政部门申请办公用品Hi, this is [Your Name] from the [Department Name]. Our team is running low on office supplies, including [Supply 1], [Supply 2], and [Supply 3]. Could you arrange to deliver them to our office by [Date]? Please confirm if the supplies are in stock and when we can receive them.
+（嗨，我是 [部门名称] 的 [您的名字]。我们团队的办公用品快用完了，包括 [用品 1]、[用品 2] 和 [用品 3]。您能安排在 [日期] 前将它们送到我们办公室吗？请确认用品是否有库存，以及我们何时能收到。）
+场景：客服处理客户取消订单请求Hello, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. I understand you’d like to cancel your order for [Product Name], order number [Order Number]. Before processing the cancellation, could you confirm the reason for cancellation? Also, we’ll refund the full amount to your original payment method within [Refund Timeline]. Please confirm if this is acceptable.
+（您好，[客户名字]。我是 [公司名称] 的 [您的名字]。了解到您想取消 [产品名称] 的订单，订单号为 [订单号]。在处理取消前，您能确认取消原因吗？另外，我们会在 [退款时间] 内将全款退回到您的原支付方式。请确认是否可以接受。）
+场景：技术支持致电客户进行产品使用培训Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]’s technical support team. We offer free usage training for our [Product Name] users, and I’m calling to schedule a session for you. Would [Day] at [Time] work for you? The training will cover [Training Content], which will help you use the product more efficiently.
+（嗨 [客户名字]，我是 [公司名称] 技术支持团队的 [您的名字]。我们为 [产品名称] 的用户提供免费使用培训，我打电话是为您安排一次培训。[某天][某时间] 对您合适吗？培训内容包括 [培训内容]，能帮助您更高效地使用产品。）
+场景：销售致电老客户推荐新品Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. We recently launched a new [Product Name] that’s specifically designed for [Client&#x27;s Industry]. It has [New Features] that can solve [Client&#x27;s Potential Problem]. Would you like me to send you a product brochure, or schedule a demo to show you how it works?
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。我们最近推出了一款新的 [产品名称]，专为 [客户所在行业] 设计。它具备 [新功能]，能解决 [客户潜在问题]。您想让我发一份产品手册给您，还是安排一次演示，向您展示它的使用方法？）
+场景：行政致电酒店确认会议场地预订Good afternoon, this is [Your Name] from [Company Name]. I reserved the [Room Name] at your hotel for our company meeting on [Date] from [Start Time] to [End Time]. Could you confirm the reservation details, including the room capacity, whether catering services are included, and the total cost?
+（下午好，我是 [公司名称] 的 [您的名字]。我在贵酒店预订了 [日期][开始时间] 到 [结束时间] 的 [会议室名称]，用于公司会议。您能确认预订细节吗？包括会议室容量、是否包含餐饮服务以及总费用。）
+场景：财务致电客户催缴欠款Hello, [Client&#x27;s Name]. This is [Your Name] from [Company Name]’s finance department. We noticed that the payment for the [Invoice Number] invoice, which was due on [Due Date], is still outstanding. Could you please check the status and arrange the payment as soon as possible? If you have any questions about the invoice, feel free to let us know.
+（您好，[客户名字]。我是 [公司名称] 财务部的 [您的名字]。我们注意到 [发票号] 发票的款项（到期日为 [到期日期]）仍未支付。您能查一下情况，并尽快安排付款吗？如果对发票有任何疑问，请随时告知我们。）
+场景：员工致电保险公司报案Hi, this is [Your Name], policyholder of [Policy Number]. I had a [Incident Type] incident on [Incident Date] involving [Details]. I need to file a claim. Could you guide me through the claim process, tell me what documents are required, and who I should contact next?
+（嗨，我是 [您的名字]，保单号为 [保单号] 的投保人。我在 [事故日期] 发生了一起 [事故类型] 事故，情况如下 [事故细节]。我需要报案理赔。您能指导我完成理赔流程，告知需要哪些文件，以及接下来该联系谁吗？）
+场景：客服回电客户告知问题处理结果Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. Following up on your report about the [Problem], our team has completed the investigation. The root cause is [Root Cause], and we’ve taken [Measures] to fix it. We’ll also offer you [Compensation/Compensation Measure] as an apology. Could you confirm if this resolution is satisfactory?
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。关于您反馈的 [问题]，我们团队已完成调查。根本原因是 [根本原因]，我们已采取 [措施] 进行修复。作为歉意，我们还将为您提供 [补偿 / 补偿措施]。您能确认这个解决方案是否满意吗？）
+场景：项目组致电设计方确认方案修改进度Hello, [Designer&#x27;s Name]. This is [Your Name] from [Project Team Name]. We requested revisions to the [Design Name] design based on our last discussion. The revised version is needed by [Deadline] to proceed with the next step. Could you update us on the revision progress and confirm if you can meet the deadline?
+（您好，[设计师名字]。我是 [项目团队名称] 的 [您的名字]。根据上次讨论，我们要求对 [设计名称] 设计进行修改。为了推进下一步工作，我们需要在 [截止日期] 前拿到修改版。您能告知修改进度，并确认是否能按时完成吗？）
+场景：HR 致电候选人告知面试结果Good morning, [Candidate&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. Thank you for participating in the interview for the [Position Name] position. After careful evaluation, we regret to inform you that we won’t be moving forward with your application this time. However, we’ll keep your resume in our talent pool and contact you if there’s a suitable position in the future. Do you have any questions about the evaluation result?
+（早上好，[候选人名字]。我是 [公司名称] 人力资源部的 [您的名字]。感谢您参加 [职位名称] 职位的面试。经过仔细评估，很遗憾地告知您，我们此次不会继续推进您的申请。但我们会将您的简历存入人才库，若未来有合适职位会与您联系。您对评估结果有任何疑问吗？）
+场景：客户致电咨询会员权益Hi, this is [Client&#x27;s Name], a [Membership Level] member of your company. I’d like to know more about the exclusive benefits of my membership, such as [Benefit 1] and [Benefit 2]. Could you explain how to redeem these benefits, and if there are any expiration dates I need to be aware of?
+（嗨，我是 [客户名字]，贵公司的 [会员等级] 会员。我想了解更多我的会员专属权益，比如 [权益 1] 和 [权益 2]。您能讲解一下如何兑换这些权益，以及是否有需要注意的有效期吗？）
+场景：采购致电供应商确认样品寄送Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. We requested a sample of [Product Name] last week. Could you confirm if the sample has been sent, and provide the tracking number so we can check the shipment status? We need to evaluate the sample before placing a formal order.
+（您好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。我们上周要求提供 [产品名称] 的样品。您能确认样品是否已寄出，并提供快递单号以便我们查询物流状态吗？我们需要先评估样品，再下正式订单。）
+场景：员工致电 IT 部门申请新软件权限Hi, this is [Your Name] from the [Department Name]. I need to use [Software Name] for the [Project Name] project, but I don’t have access permission yet. Could you help me apply for the necessary permissions, and let me know when I can start using the software?
+（嗨，我是 [部门名称] 的 [您的名字]。我需要使用 [软件名称] 来开展 [项目名称] 项目，但目前没有访问权限。您能帮我申请所需权限，并告知我何时可以开始使用该软件吗？）
+场景：客服处理客户对服务的投诉Good afternoon, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. I’m sorry to hear you’re dissatisfied with our [Service Name] service. Please tell me more about the issue you encountered, and I’ll escalate it to the relevant department for a prompt resolution. We value your business and want to make this right.
+（下午好，[客户名字]。我是 [公司名称] 的 [您的名字]。很抱歉听到您对我们的 [服务名称] 服务不满意。请详细告知您遇到的问题，我会将其上报给相关部门，以便尽快解决。我们重视与您的合作，希望能弥补这次的不足。）
+场景：市场部致电合作 KOL 确认推广时间Hi [KOL&#x27;s Name], this is [Your Name] from [Company Name]’s marketing department. We’re collaborating on the [Promotion Topic] promotion. Earlier, we discussed launching it around [Approximate Date], but we need to confirm the exact date and content posting schedule. Could you let us know your available time slots next month, and if you have any adjustments to the promotion plan?
+（嗨 [KOL 名字]，我是 [公司名称] 市场部的 [您的名字]。我们正在合作开展 [推广主题] 的推广活动。之前我们讨论在 [大致日期] 前后启动，但需要确认准确日期和内容发布安排。您能告知下个月的可用时间段，以及是否对推广计划有调整吗？）
+场景：财务致电银行确认转账到账Hello, this is [Your Name] from [Company Name]. We made a transfer of [Amount] to [Recipient&#x27;s Name]’s account on [Transfer Date], transaction reference number [Reference Number]. The recipient hasn’t received the funds yet. Could you check the transaction status and confirm if the transfer was successful, or if there’s any delay?
+（您好，我是 [公司名称] 的 [您的名字]。我们在 [转账日期] 向 [收款人名字] 的账户转账了 [金额]，交易参考号为 [参考号]。收款人尚未收到款项。您能查一下交易状态，确认转账是否成功，或者是否有延迟吗？）
+场景：员工致电差旅平台预订酒店Hi, this is [Your Name]. I need to book a hotel room in [City Name] from [Check-in Date] to [Check-out Date] for a business trip. Could you recommend a few hotels near [Location, e.g., office/meeting venue] with [Amenities, e.g., free Wi-Fi, business center]? Please also confirm the room rates and availability.
+（嗨，我是 [您的名字]。我需要为商务出行预订 [城市名称] 的酒店房间，入住日期为 [入住日期]，退房日期为 [退房日期]。您能推荐几家靠近 [地点，如办公室 / 会议场地] 且配备 [设施，如免费 Wi-Fi、商务中心] 的酒店吗？同时请确认房价和房态。）
+场景：客服确认客户收到发票Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. We sent you the invoice for [Service/Product Name] on [Invoice Sent Date]. Could you confirm if you’ve received it, and if the information on the invoice (such as company name and amount) is correct? If there are any errors, please let us know immediately to correct them.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。我们在 [发票寄送日期] 给您寄了 [服务 / 产品名称] 的发票。您能确认是否收到，以及发票上的信息（如公司名称、金额）是否正确吗？如果有错误，请立即告知我们进行更正。）
+场景：项目经理致电团队确认任务分配Hi team, this is [Your Name]. I’m calling to confirm the task allocation for the [Project Phase] phase. [Team Member 1], you’ll be responsible for [Task 1]; [Team Member 2], [Task 2]; and [Team Member 3], [Task 3]. Could each of you confirm that you understand your responsibilities and that you have the resources needed to complete the tasks by the deadline?
+（嗨团队成员们，我是 [您的名字]。我打电话是为了确认 [项目阶段] 阶段的任务分配。[团队成员 1]，你负责 [任务 1]；[团队成员 2]，负责 [任务 2]；[团队成员 3]，负责 [任务 3]。你们每个人能确认是否清楚自己的职责，以及是否拥有在截止日期前完成任务所需的资源吗？）
+场景：HR 致电员工沟通绩效考核结果Hello, [Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. We recently completed your performance review for the [Review Period]. Your performance in [Strength Area] was outstanding, but there’s room for improvement in [Area for Improvement]. Could we schedule a meeting tomorrow to discuss the review details, set goals for the next period, and address any questions you may have?
+（您好，[员工名字]。我是 [公司名称] 人力资源部的 [您的名字]。我们最近完成了您 [考核周期] 的绩效考核。您在 [优势领域] 的表现非常出色，但在 [待改进领域] 还有提升空间。我们明天能安排一个会议，讨论考核细节、制定下一周期目标，并解答您可能有的疑问吗？）
+场景：客户致电咨询退款进度Hi, this is [Client&#x27;s Name]. I applied for a refund for my canceled order (order number [Order Number]) a week ago. The customer service representative said it would take 3-5 business days, but I haven’t received the refund yet. Could you check the progress and let me know when I can expect to get the money back?
+（嗨，我是 [客户名字]。一周前我为取消的订单（订单号 [订单号]）申请了退款。客服代表说需要 3-5 个工作日，但我至今尚未收到退款。您能查一下进度，告知我大概何时能收到退款吗？）
+场景：采购致电供应商协商交货方式Good morning, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. For the upcoming delivery of [Product Name], we’d like to change the delivery method from [Original Method] to [New Method] to reduce transportation time. Could you confirm if this is possible, and if there’s any additional cost involved?
+（早上好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。关于即将交付的 [产品名称]，我们希望将交货方式从 [原方式] 改为 [新方式]，以缩短运输时间。您能确认这是否可行，以及是否会产生额外费用吗？）
+场景：员工致电行政部门申请会议室使用Hi, this is [Your Name] from the [Department Name]. We need to use a meeting room for a team discussion on [Date] from [Start Time] to [End Time]. The meeting will have around [Number] participants, and we’ll need a projector. Could you check the availability and reserve a suitable meeting room for us? Please confirm the reservation once it’s done.
+（嗨，我是 [部门名称] 的 [您的名字]。我们需要在 [日期][开始时间] 到 [结束时间] 使用会议室进行团队讨论。会议大约有 [人数] 人参加，且需要投影仪。您能查一下会议室 availability，并为我们预订一个合适的吗？预订完成后请确认一下。）
+场景：客服处理客户对产品功能的咨询Hello, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. You called earlier to ask about how to use the [Specific Function] of [Product Name]. Let me explain it step by step: first, [Step 1]; second, [Step 2]; and finally, [Step 3]. If you still have trouble after following these steps, please call me back, and I can guide you through it over the phone.
+（您好，[客户名字]。我是 [公司名称] 的 [您的名字]。您之前来电咨询 [产品名称] 的 [具体功能] 如何使用。我来一步步讲解：首先，[步骤 1]；其次，[步骤 2]；最后，[步骤 3]。如果按照这些步骤操作后仍有问题，请回电给我，我可以通过电话指导您操作。）
+场景：销售致电客户跟进报价反馈Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. I sent you the quotation for [Product/Service Name] on [Quotation Sent Date]. I’m calling to check if you’ve had a chance to review it, and if you have any questions about the pricing or terms. We’re willing to adjust the quotation to meet your needs as much as possible.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。我在 [报价发送日期] 给您发了 [产品 / 服务名称] 的报价单。我打电话是想了解您是否已查看，以及对价格或条款有任何疑问吗？我们愿意尽可能调整报价以满足您的需求。）
+场景：行政致电清洁公司确认服务时间Good afternoon, this is [Your Name] from [Company Name]. We have a contract with your company for office cleaning services. Our office will have a special event on [Event Date], so we need the cleaning to be done earlier than usual, around [New Time]. Could you confirm if your team can adjust the schedule to clean our office at that time?
+（下午好，我是 [公司名称] 的 [您的名字]。我们与贵公司签订了办公室清洁服务合同。我们公司将在 [活动日期] 举办一场特别活动，因此需要清洁工作比平时提前，大约在 [新时间] 进行。您能确认贵团队是否能调整日程，在该时间为我们办公室清洁吗？）
+场景：财务致电员工确认费用报销细节Hello, [Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s finance department. We received your expense report for the [Business Trip/Event] last week. There are a few unclear items, such as [Unclear Item 1] and [Unclear Item 2]. Could you provide additional supporting documents or explain these items in detail? This will help us process the reimbursement faster.
+（您好，[员工名字]。我是 [公司名称] 财务部的 [您的名字]。我们上周收到了您关于 [商务出行 / 活动] 的费用报销单。其中有几项内容不明确，比如 [不明确项目 1] 和 [不明确项目 2]。您能提供额外的证明文件，或详细解释这些项目吗？这将帮助我们更快地处理报销。）
+场景：技术支持致电客户进行设备维护提醒Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]’s technical support team. Your [Device Name] was installed on [Installation Date], and it’s time for regular maintenance (every [Maintenance Interval]). We recommend scheduling the maintenance within the next two weeks to ensure the device works properly. Could you let us know your available time, and we’ll send a technician to your location?
+（嗨 [客户名字]，我是 [公司名称] 技术支持团队的 [您的名字]。您的 [设备名称] 于 [安装日期] 安装，现在已到定期维护时间（每 [维护间隔] 一次）。我们建议在未来两周内安排维护，以确保设备正常运行。您能告知可用时间吗？我们会派技术人员前往您的地点。）
+场景：项目组致电客户确认需求变更Hello, [Client&#x27;s Name]. This is [Your Name] from [Your Company]’s project team. During our last meeting, you mentioned changing the [Specific Requirement] of the [Project Name] project. We’ve updated the project plan based on this change, and the new timeline and cost are [New Timeline] and [New Cost]. Could you confirm if you approve of this updated plan, so we can proceed with the implementation?
+（您好，[客户名字]。我是 [您公司名称] 项目团队的 [您的名字]。在上次会议中，您提到要更改 [项目名称] 项目的 [具体需求]。我们已根据此变更更新了项目计划，新的时间线和成本分别为 [新时间线] 和 [新成本]。您能确认是否批准这个更新后的计划吗？以便我们推进实施。）
+场景：客户致电要求延长服务有效期Hi, this is [Client&#x27;s Name]. I’m a user of your [Service Name], and my current service period will expire on [Expiration Date]. Due to recent work busyness, I haven’t had time to fully use the service. Could you help extend the service validity by [X] days? I’d appreciate it if you could confirm if this extension is possible and if there are any additional procedures.
+（嗨，我是 [客户名字]。我是贵公司 [服务名称] 的用户，当前服务期将于 [到期日期] 结束。由于最近工作繁忙，我还没来得及充分使用该服务。您能帮我将服务有效期延长 [X] 天吗？若能确认此次延长是否可行以及是否有额外流程，我将非常感谢。）
+场景：采购致电供应商确认原材料质量标准Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. We plan to purchase [Raw Material Name] from your company for our new production line. Could you confirm the quality standards of this raw material, such as [Standard 1, e.g., purity] and [Standard 2, e.g., moisture content]? Also, please provide the relevant quality certification documents if available.
+（您好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。我们计划为新生产线从贵公司采购 [原材料名称]。您能确认该原材料的质量标准吗？比如 [标准 1，如纯度] 和 [标准 2，如含水量]。若有相关质量认证文件，也请一并提供。）
+场景：员工致电 IT 部门重置账户密码Hi, this is [Your Name] from the [Department Name]. I forgot the password for my company account ([Account Name]) and can’t log in to the internal system. Could you help reset the password for me? Please let me know the temporary password once it’s reset, and if there are any requirements for changing it after the first login.
+（嗨，我是 [部门名称] 的 [您的名字]。我忘记了公司账户（[账户名称]）的密码，无法登录内部系统。您能帮我重置密码吗？重置后请告知临时密码，以及首次登录后修改密码是否有特殊要求。）
+场景：客服处理客户对物流延迟的投诉Good afternoon, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. I’m sorry to hear that your order ([Order Number]) has been delayed in delivery. We’ve checked with the logistics company, and the delay is due to [Reason, e.g., bad weather]. They promise to deliver the goods by [New Delivery Date]. We’ll also offer you a [Compensation, e.g., 10% discount coupon] as an apology. Could you confirm if this solution is acceptable?
+（下午好，[客户名字]。我是 [公司名称] 的 [您的名字]。很抱歉得知您的订单（[订单号]）在物流配送中出现延迟。我们已与物流公司核实，延迟原因是 [原因，如恶劣天气]。他们承诺将于 [新配送日期] 前送达货物。作为歉意，我们还将为您提供 [补偿，如 10% 折扣券]。您能确认这个解决方案是否可接受吗？）
+场景：市场部致电媒体确认广告投放效果Hi [Media Contact&#x27;s Name], this is [Your Name] from [Company Name]’s marketing department. Our [Ad Campaign Name] advertisement was launched on your platform from [Start Date] to [End Date]. Could you provide the data on the advertisement’s performance, such as [Metric 1, e.g., click-through rate] and [Metric 2, e.g., exposure]? We need this data to evaluate the campaign effect and plan future promotions.
+（嗨 [媒体联系人名字]，我是 [公司名称] 市场部的 [您的名字]。我们的 [广告活动名称] 广告于 [开始日期] 至 [结束日期] 在贵平台投放。您能提供该广告的效果数据吗？比如 [指标 1，如点击率] 和 [指标 2，如曝光量]。我们需要这些数据评估活动效果，并规划未来的推广方案。）
+场景：财务致电审计机构确认审计时间Hello, [Auditor&#x27;s Name]. This is [Your Name] from [Company Name]’s finance department. We agreed that your team would conduct the annual audit for our company in [Month]. Could you confirm the specific start date of the audit and the list of documents we need to prepare in advance? This will help us make adequate preparations.
+（您好，[审计员名字]。我是 [公司名称] 财务部的 [您的名字]。我们之前约定贵团队将于 [月份] 为我公司进行年度审计。您能确认审计的具体开始日期，以及我们需要提前准备的文件清单吗？这将帮助我们做好充分准备。）
+场景：员工致电差旅平台确认机票退改政策Hi, this is [Your Name]. I booked a flight ([Flight Number]) from [City A] to [City B] on [Date] via your platform. Due to an unexpected work change, I may need to cancel or reschedule the flight. Could you explain the refund and rescheduling policies for this flight, such as [Policy 1, e.g., cancellation fee ratio] and [Policy 2, e.g., rescheduling time limit]?
+（嗨，我是 [您的名字]。我通过贵平台预订了 [日期] 从 [城市 A] 飞往 [城市 B] 的航班（[航班号]）。由于工作突发变动，我可能需要取消或改期该航班。您能解释一下这趟航班的退改政策吗？比如 [政策 1，如取消手续费比例] 和 [政策 2，如改期时限]。）
+场景：客服确认客户对产品升级的需求Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. We’re planning to launch an upgraded version of [Product Name], which will add [New Feature 1] and [New Feature 2]. I’m calling to ask if these new features meet your needs, and if you have any other expectations for the upgraded product. Your feedback will help us optimize the product.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。我们计划推出 [产品名称] 的升级版本，该版本将新增 [新功能 1] 和 [新功能 2]。我打电话是想了解这些新功能是否符合您的需求，以及您对升级后的产品是否有其他期望。您的反馈将帮助我们优化产品。）
+场景：项目经理致电供应商确认配件交付进度Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Your Company], the project manager for [Project Name]. We ordered [Accessory Name] from your company on [Order Date] to assemble the project equipment. The assembly work will start on [Start Date], so we need the accessories to arrive by [Delivery Deadline]. Could you update us on the delivery progress and confirm if it will arrive on time?
+（您好，[供应商名字]。我是 [您公司名称] 的 [您的名字]，也是 [项目名称] 的项目经理。我们于 [下单日期] 从贵公司订购了 [配件名称]，用于项目设备的组装。组装工作将于 [开始日期] 启动，因此需要配件在 [交付截止日期] 前送达。您能告知交付进度，并确认是否能按时送达吗？）
+场景：HR 致电员工确认社保缴纳信息Good morning, [Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. We’re verifying the social security payment information for employees. Could you confirm your personal information used for social security, such as [Info 1, e.g., ID card number] and [Info 2, e.g., household registration type]? Also, let us know if you have any questions about the social security payment standard.
+（早上好，[员工名字]。我是 [公司名称] 人力资源部的 [您的名字]。我们正在核实员工的社保缴纳信息。您能确认用于缴纳社保的个人信息吗？比如 [信息 1，如身份证号] 和 [信息 2，如户籍类型]。若对社保缴纳标准有疑问，也请告知我们。）
+场景：客户致电咨询产品保修范围Hi, this is [Client&#x27;s Name]. I purchased your [Product Name] ([Serial Number]) three months ago. Recently, [Part Name] of the product was damaged. Could you confirm if this part is covered by the warranty, and what the warranty process is if it is? I’d also like to know if there are any situations that are not covered by the warranty.
+（嗨，我是 [客户名字]。三个月前我购买了贵公司的 [产品名称]（[序列号]）。最近该产品的 [部件名称] 出现损坏。您能确认这个部件是否在保修范围内吗？如果在，保修流程是怎样的？我还想了解是否有不在保修范围内的情况。）
+场景：采购致电供应商协商付款周期Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. For our future cooperation on [Product Name] purchases, we hope to adjust the payment cycle from [Original Cycle, e.g., 30 days] to [New Cycle, e.g., 45 days] to better manage our cash flow. Could you discuss this with your team and let us know if it’s feasible? We’re willing to increase the order quantity appropriately if the cycle is adjusted.
+（您好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。针对未来 [产品名称] 采购的合作，我们希望将付款周期从 [原周期，如 30 天] 调整为 [新周期，如 45 天]，以更好地管理现金流。您能和团队讨论一下，告知是否可行吗？若周期能调整，我们愿意适当增加订单量。）
+场景：员工致电行政部门申请差旅补贴Hi, this is [Your Name] from the [Department Name]. I just returned from a business trip to [City Name] from [Start Date] to [End Date]. I’ve submitted the travel expense report and related receipts. Could you confirm when the travel subsidy will be approved and paid? Also, let me know if there’s any missing information in my application.
+（嗨，我是 [部门名称] 的 [您的名字]。我刚从 [城市名称] 完成商务出行回来，出行时间是 [开始日期] 至 [结束日期]。我已提交差旅费用报告及相关票据。您能确认差旅补贴何时会审批通过并发放吗？另外，若我的申请中有遗漏信息，也请告知。）
+场景：客服处理客户对产品安装的咨询Good afternoon, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. You called to ask about the installation of [Product Name]. If you choose self-installation, we’ll send you a detailed installation manual via email. If you need professional installation, we can arrange a technician to visit your location on [Available Date]. Could you confirm which installation method you prefer, and provide your specific address if you choose the latter?
+（下午好，[客户名字]。我是 [公司名称] 的 [您的名字]。您来电咨询 [产品名称] 的安装事宜。若您选择自行安装，我们将通过邮件发送详细的安装手册；若需要专业安装，我们可安排技术人员于 [可上门日期] 前往您的地点。您能确认偏好哪种安装方式吗？若选择后者，请提供具体地址。）
+场景：销售致电客户确认订单确认信息Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. I sent you the order confirmation for [Product Name] ([Order Number]) via email this morning. Could you confirm if you’ve received it, and if the order details (such as quantity, specifications, and delivery address) are correct? If there are any adjustments needed, please let me know as soon as possible.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。今天早上我已通过邮件向您发送了 [产品名称]（[订单号]）的订单确认函。您能确认是否收到，以及订单细节（如数量、规格、配送地址）是否正确吗？若有需要调整的地方，请尽快告知我。）
+场景：行政致电物业确认办公场所维修进度Hello, [Property Staff&#x27;s Name]. This is [Your Name] from [Company Name], located in [Office Address]. We reported the problem of [Repair Issue, e.g., leaky air conditioner] to your team on [Report Date]. Could you update us on the repair progress and confirm when the repair will be completed? The issue is affecting our daily work, so we hope it can be fixed as soon as possible.
+（您好，[物业工作人员名字]。我是位于 [办公地址] 的 [公司名称] 的 [您的名字]。我们于 [上报日期] 向贵团队反馈了 [维修问题，如空调漏水] 的情况。您能告知维修进度，并确认维修何时能完成吗？该问题已影响我们的日常工作，希望能尽快解决。）
+场景：财务致电银行申请企业账户权限变更Hi, this is [Your Name] from [Company Name]. We need to change the signatory authority for our company’s bank account ([Account Number]). The original signatory is [Original Signatory Name], and we want to add [New Signatory Name] as an additional signatory. Could you explain the required documents and procedures for this change, and confirm how long the process will take?
+（嗨，我是 [公司名称] 的 [您的名字]。我们需要变更公司银行账户（[账户号]）的签字权限。原签字人是 [原签字人名字]，我们希望新增 [新签字人名字] 为额外签字人。您能解释此次变更所需的文件和流程，并确认流程需要多长时间吗？）
+场景：技术支持致电客户确认设备故障修复情况Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]’s technical support team. Our technician repaired your [Device Name] ([Serial Number]) on [Repair Date]. I’m calling to check if the device is working normally now, and if the previous fault has been completely resolved. If you encounter any new issues, please don’t hesitate to contact us.
+（嗨 [客户名字]，我是 [公司名称] 技术支持团队的 [您的名字]。我们的技术人员已于 [维修日期] 修复了您的 [设备名称]（[序列号]）。我打电话是想了解设备现在是否能正常工作，之前的故障是否已完全解决。若遇到新问题，请随时联系我们。）
+场景：项目组致电客户确认验收标准Hello, [Client&#x27;s Name]. This is [Your Name] from [Your Company]’s project team. The [Project Name] project is approaching the final acceptance stage. We need to confirm the specific acceptance criteria with you, such as [Criterion 1, e.g., function completion rate] and [Criterion 2, e.g., performance index]. Could you provide a detailed acceptance standard document, or schedule a meeting to discuss and finalize the criteria?
+（您好，[客户名字]。我是 [您公司名称] 项目团队的 [您的名字]。[项目名称] 项目即将进入最终验收阶段。我们需要与您确认具体的验收标准，比如 [标准 1，如功能完成率] 和 [标准 2，如性能指标]。您能提供详细的验收标准文件，或安排会议讨论并确定标准吗？）
+场景：HR 致电猎头确认候选人推荐进度Good morning, [Recruiter&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. We entrusted you to find candidates for the [Position Name] position last month. Could you update us on the progress of candidate recommendation, and confirm when we can interview the shortlisted candidates? We hope to fill this position as soon as possible to support the team’s work.
+（早上好，[猎头名字]。我是 [公司名称] 人力资源部的 [您的名字]。上个月我们委托您为 [职位名称] 职位寻找候选人。您能告知候选人推荐进度，并确认何时我们可以面试入围候选人吗？我们希望尽快填补该职位空缺，以支持团队工作。）
+场景：客户致电要求更换服务负责人Hi, this is [Client&#x27;s Name]. I’ve been working with [Original Responsible Person&#x27;s Name] on the [Service Name] service, but due to [Reason, e.g., poor communication efficiency], I hope to change my service 负责人 to another colleague. Could you arrange a new responsible person for me, and confirm their name and contact information? I also hope to have a brief handover meeting with both of them.
+（嗨，我是 [客户名字]。之前我一直与 [原负责人名字] 对接 [服务名称] 服务，但由于 [原因，如沟通效率低]，我希望将服务负责人更换为其他同事。您能为我安排新的负责人，并确认其姓名和联系方式吗？我还希望能与两人举行简短的交接会议。）
+场景：采购致电供应商确认样品测试结果Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. We received the [Product Name] sample you sent on [Sample Receipt Date] and have completed the testing. The test results show that [Result, e.g., the product meets our quality requirements]. We plan to place a formal order of [Quantity] units. Could you confirm if you have enough stock to fulfill this order, and provide the quotation for the formal order?
+（您好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。我们于 [样品收到日期] 收到您寄来的 [产品名称] 样品，并已完成测试。测试结果显示 [结果，如产品符合我们的质量要求]。我们计划下 [数量] 件的正式订单。您能确认是否有足够库存满足该订单，并提供正式订单的报价吗？）
+场景：员工致电 IT 部门反馈系统漏洞Hi, this is [Your Name] from the [Department Name]. When I was using the [System Name] system this morning, I encountered a 漏洞: [Vulnerability Description, e.g., the data can’t be saved after submission]. This has affected my work progress. Could you send someone to fix this 漏洞 as soon as possible, and confirm when the system will return to normal?
+（嗨，我是 [部门名称] 的 [您的名字]。今天早上使用 [系统名称] 系统时，我遇到了一个漏洞：[漏洞描述，如提交后数据无法保存]。这已影响我的工作进度。您能尽快派人修复该漏洞，并确认系统何时能恢复正常吗？）
+场景：客服处理客户对发票信息的修改请求Good afternoon, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. You requested to modify the [Information to Modify, e.g., company name] on the invoice for [Order Number]. We’ve updated the information and will reissue the invoice to you via [Delivery Method, e.g., email] within today. Could you confirm your correct invoice information again to avoid mistakes, and let us know if you need a paper invoice?
+（下午好，[客户名字]。我是 [公司名称] 的 [您的名字]。您请求修改 [订单号] 订单发票上的 [需修改信息，如公司名称]。我们已更新信息，并将于今日内通过 [交付方式，如邮件] 为您重新开具发票。您能再次确认正确的发票信息以避免错误吗？同时告知是否需要纸质发票。）
+场景：市场部致电合作方确认活动赞助细节Hi [Partner&#x27;s Name], this is [Your Name] from [Company Name]’s marketing department. We’re collaborating on the [Event Name] event next month, and your company agreed to provide [Sponsorship Content, e.g., financial support of 5,000 yuan and on-site booths]. Could you confirm the specific amount of financial support and the size and location of the booths? We also need your company’s logo for event promotion materials.
+（嗨 [合作方名字]，我是 [公司名称] 市场部的 [您的名字]。我们下个月将合作举办 [活动名称] 活动，贵公司同意提供 [赞助内容，如 5000 元资金支持及现场展位]。您能确认资金支持的具体金额，以及展位的尺寸和位置吗？我们还需要贵公司的 logo 用于活动宣传物料。）
+场景：财务致电员工退还多缴费用Hello, [Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s finance department. We found that you overpaid the [Expense Type, e.g., office supply fee] by [Amount] yuan last month. We’ll refund the overpaid amount to your bank account ([Account Number]) within [X] working days. Could you confirm your bank account information to ensure the refund is sent correctly?
+（您好，[员工名字]。我是 [公司名称] 财务部的 [您的名字]。我们发现您上个月多缴纳了 [费用类型，如办公用品费][金额] 元。我们将在 [X] 个工作日内把多缴款项退还至您的银行账户（[账户号]）。您能确认银行账户信息，以确保退款准确到账吗？）
+场景：员工致电差旅平台确认酒店入住信息Hi, this is [Your Name]. I booked a room at [Hotel Name] in [City Name] via your platform for [Check-in Date] to [Check-out Date], booking number [Booking Number]. I’ll be checking in with a colleague, so could you confirm if the room can accommodate two people, and if there are any additional charges for the second guest? Also, let me know if the hotel provides airport pick-up service.
+（嗨，我是 [您的名字]。我通过贵平台预订了 [城市名称][酒店名称] 的房间，入住日期为 [入住日期] 至 [退房日期]，预订号为 [预订号]。我将与一位同事一同入住，您能确认该房间是否可容纳两人，以及第二位客人是否需额外收费吗？另外，告知酒店是否提供接机服务。）
+场景：客服确认客户对会员升级的意愿Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. You’re currently a [Current Membership Level] member of our platform. We’re launching a membership upgrade activity: upgrading to [New Membership Level] will give you [Benefits, e.g., priority customer service and extra discounts]. I’m calling to ask if you’re interested in upgrading, and if you need me to explain the upgrade conditions and process in detail.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。您目前是我们平台的 [当前会员等级] 会员。我们正在开展会员升级活动：升级至 [新会员等级] 可享受 [权益，如优先客服和额外折扣]。我打电话是想了解您是否有升级意愿，以及是否需要我详细讲解升级条件和流程。）
+场景：项目经理致电团队调整项目进度Hello team, this is [Your Name]. Due to [Reason, e.g., delayed delivery of raw materials], we need to adjust the project schedule of [Project Name]. The original deadline of [Original Deadline] will be extended to [New Deadline], and the task of [Task Name] originally assigned to [Team Member Name] will be reassigned to [New Team Member Name]. Could each of you confirm if you can adapt to this new schedule and task arrangement, and if you need additional support?
+（大家好，我是 [您的名字]。由于 [原因，如原材料交付延迟]，我们需要调整 [项目名称] 的项目进度。原截止日期 [原截止日期] 将延长至 [新截止日期]，原本分配给 [团队成员名字] 的 [任务名称] 任务将重新分配给 [新团队成员名字]。你们每个人能确认是否能适应新的进度和任务安排，以及是否需要额外支持吗？）
+场景：HR 致电员工确认培训参与情况Good morning, [Employee&#x27;s Name]. This is [Your Name] from [Company Name]’s HR department. We’re organizing a [Training Topic] training on [Training Date]. We previously notified you to participate, but we need to confirm your attendance. Could you let us know if you can attend on time? If you have a conflict, please propose an alternative time that works for you.
+（早上好，[员工名字]。我是 [公司名称] 人力资源部的 [您的名字]。我们将于 [培训日期] 组织一场 [培训主题] 培训。之前已通知您参加，现需确认您的出席情况。您能告知是否能按时参加吗？若有时间冲突，请提出您方便的替代时间。）
+场景：客户致电咨询产品退换货流程Hi, this is [Client&#x27;s Name]. I purchased your [Product Name] ([Order Number]) a week ago, but I found [Reason for Return/Exchange, e.g., the size is inappropriate]. I want to return/exchange it. Could you explain the specific return/exchange process, such as [Step 1, e.g., applying via the official website] and [Step 2, e.g., sending the product back], and confirm the time required for the entire process?
+（嗨，我是 [客户名字]。一周前我购买了贵公司的 [产品名称]（[订单号]），但发现 [退换货原因，如尺寸不合适]，想办理退换货。您能解释具体的退换货流程吗？比如 [步骤 1，如通过官网申请] 和 [步骤 2，如寄回产品]，并确认整个流程所需时间。）
+场景：采购致电供应商协商交货批次Hello, [Supplier&#x27;s Name]. This is [Your Name] from [Company Name]’s procurement department. We placed an order for [Quantity] units of [Product Name] with you. Instead of receiving all the goods at once, we hope to receive them in [X] batches: [Batch 1 Quantity] units on [Batch 1 Date], [Batch 2 Quantity] units on [Batch 2 Date], etc. Could you confirm if this batch delivery plan is feasible, and if there’s any impact on the total price?
+（您好，[供应商名字]。我是 [公司名称] 采购部的 [您的名字]。我们向贵公司订购了 [数量] 件 [产品名称]。我们希望分 [X] 批次收货，而非一次性收到全部货物：[批次 1 数量] 件于 [批次 1 日期] 送达，[批次 2 数量] 件于 [批次 2 日期] 送达，以此类推。您能确认这个分批交货计划是否可行，以及是否对总价有影响吗？）
+场景：员工致电行政部门申请加班餐补贴Hi, this is [Your Name] from the [Department Name]. I worked overtime on [Overtime Date] from [Start Time] to [End Time] to complete the [Task Name] task. I need to apply for the overtime meal subsidy. Could you confirm the subsidy standard and the required materials for application (such as meal receipts)? Also, let me know where to submit the application form.
+（嗨，我是 [部门名称] 的 [您的名字]。为完成 [任务名称] 任务，我于 [加班日期] 从 [开始时间] 加班至 [结束时间]。现需申请加班餐补贴。您能确认补贴标准和申请所需材料（如餐饮发票）吗？另外，告知申请表格需提交至何处。）
+场景：客服处理客户对服务响应速度的投诉Good afternoon, [Client&#x27;s Name]. This is [Your Name] from [Company Name]. I’m sorry to hear that you’re dissatisfied with the slow response speed of our customer service. We’ve optimized our service process: from now on, we’ll ensure that all customer inquiries are responded to within [X] minutes. We’ll also assign a dedicated customer service representative to follow up on your future needs. Could you confirm if this improvement measure meets your expectations?
+（下午好，[客户名字]。我是 [公司名称] 的 [您的名字]。很抱歉得知您对我们客服的响应速度不满意。我们已优化服务流程：从即日起，确保所有客户咨询在 [X] 分钟内得到响应。我们还将指派专属客服代表跟进您未来的需求。您能确认这个改进措施是否符合您的期望吗？）
+场景：市场部致电媒体确认广告排期Hi [Media Contact&#x27;s Name], this is [Your Name] from [Company Name]’s marketing department. We confirmed the ad placement schedule for [Ad Campaign Name] with you earlier: the ad will be displayed on [Platform Name] from [Start Date] to [End Date], with [X] impressions per day. Could you reconfirm this schedule to avoid any mistakes, and let us know if there are any changes to the media’s advertising resources during this period?
+（嗨 [媒体联系人名字]，我是 [公司名称] 市场部的 [您的名字]。之前我们与您确认了 [广告活动名称] 的广告投放排期：广告将于 [开始日期] 至 [结束日期] 在 [平台名称] 展示，每日 [X] 次曝光。您能再次确认该排期以避免差错，并告知此期间媒体的广告资源是否有变动吗？）
+场景：财务致电审计机构提交补充材料Hello, [Auditor&#x27;s Name]. This is [Your Name] from [Company Name]’s finance department. You mentioned that we need to provide supplementary materials for the annual audit, including [Material 1, e.g., bank statements of the fourth quarter] and [Material 2, e.g., contract copies of major projects]. We’ve prepared these materials and will send them to you via [Delivery Method, e.g., encrypted email] today. Could you confirm if you need any other supplementary materials, and if the delivery method is acceptable?
+（您好，[审计员名字]。我是 [公司名称] 财务部的 [您的名字]。您之前提到我们需要为年度审计提供补充材料，包括 [材料 1，如第四季度银行对账单] 和 [材料 2，如重大项目合同副本]。我们已准备好这些材料，并将于今日通过 [交付方式，如加密邮件] 发送给您。您能确认是否还需要其他补充材料，以及该交付方式是否可接受吗？）
+场景：员工致电差旅平台变更酒店入住人信息Hi, this is [Your Name]. I booked a room at [Hotel Name] via your platform for [Check-in Date] to [Check-out Date], booking number [Booking Number]. The original guest name is [Original Guest Name], but due to a work change, the actual guest will be [New Guest Name]. Could you help modify the guest name on the booking, and confirm if the new guest only needs to show their ID card when checking in?
+（嗨，我是 [您的名字]。我通过贵平台预订了 [酒店名称] 的房间，入住日期为 [入住日期] 至 [退房日期]，预订号为 [预订号]。原入住人姓名是 [原入住人名字]，但由于工作变动，实际入住人将为 [新入住人名字]。您能帮我修改预订上的入住人姓名，并确认新入住人入住时只需出示身份证即可吗？）
+场景：客服确认客户对补偿方案的接受度Hi [Client&#x27;s Name], this is [Your Name] from [Company Name]. Regarding the inconvenience caused by the [Issue, e.g., order delay] of your order ([Order Number]), we proposed a compensation plan: [Compensation Details, e.g., a 20% discount coupon and free shipping for the next order]. I’m calling to confirm if you accept this plan. If you have other suggestions, please feel free to put them forward, and we’ll try our best to meet your reasonable needs.
+（嗨 [客户名字]，我是 [公司名称] 的 [您的名字]。针对您订单（[订单号]）的 [问题，如订单延迟] 给您带来的不便，我们提出了补偿方案：[补偿细节，如下次订单 20% 折扣券及免运费]。我打电话是想确认您是否接受该方案。若您有其他建议，欢迎提出，我们会尽力满足您的合理需求。）
+清单：国际长途电话前必做的 3 项准备工作
+Confirm the time zone of the called party and select a suitable call time to avoid disturbing the other party during rest hours. For example, if the called party is in New York (Eastern Time, 12 hours behind Beijing Time), avoid calling between 22:00 and 08:00 Beijing Time.
+（确认对方所在时区，选择合适的通话时间，避免在对方休息时段打扰。例如，若对方在纽约（东部时间，比北京时间晚 12 小时），则避免在北京时间 22:00-08:00 之间致电。）
+Prepare a detailed call outline in advance, listing the core topics to be discussed (such as project progress, order details, and problem solutions) and key data (such as order numbers, dates, and quantities) to ensure the call is efficient and avoids missing important information.
+（提前准备详细的通话大纲，列出需讨论的核心议题（如项目进度、订单细节、问题解决方案）及关键数据（如订单号、日期、数量），确保通话高效且不遗漏重要信息。）
+Check the stability of the communication equipment (such as the phone signal, network connection for video calls, and microphone volume) and prepare alternative communication methods (such as a backup phone or email contact) in case the call is interrupted due to poor signal.
+（检查通讯设备的稳定性（如手机信号、视频通话网络连接、麦克风音量），并准备备用通讯方（如备用手机、邮件联系方式），防止因信号不佳导致通话中断。）
+Familiarize yourself with the basic etiquette and common expressions of the called party&#x27;s region to avoid misunderstandings caused by cultural differences. For example, when calling a business partner in Japan, use more formal and polite language and avoid rushing to cut off the other party&#x27;s speech.
+（熟悉对方所在地区的基本礼仪及常用表达，避免因文化差异产生误解。例如，致电日本的商业伙伴时，使用更正式、礼貌的语言，避免贸然打断对方讲话。）
+Confirm the correct contact information of the called party, including the phone number (pay attention to adding the correct country code, such as +1 for the United States and +44 for the United Kingdom) and the name of the contact person, to prevent dialing the wrong number.
+（确认对方的正确联系方式，包括电话号码（注意添加正确的国家代码，如美国 + 1、英国 + 44）及联系人姓名，避免拨错号码。）
+Prepare relevant documents (such as contracts, reports, and order confirmations) in advance and keep them handy. If the other party needs to confirm details during the call, you can quickly refer to the documents and provide accurate information.
+（提前准备相关文件（如合同、报告、订单确认函）并放在手边，若通话中对方需确认细节，可快速查阅文件并提供准确信息。）
+Inform the relevant colleagues in advance if the call involves teamwork (such as project coordination or task assignment), so that they can be on standby to provide support if necessary (such as answering professional questions).
+（若通话涉及团队协作（如项目协调、任务分配），提前告知相关同事，让其随时待命，必要时提供支持（如解答专业问题）。）
+Calculate the cost of the international call in advance and ensure that the phone or communication account has sufficient balance to avoid the call being terminated unexpectedly due to insufficient balance.
+（提前核算国际长途的通话费用，确保手机或通讯账户余额充足，避免因余额不足导致通话意外中断。）
+Make a note of the key points to be confirmed during the call (such as delivery dates, payment terms, and service deadlines) and prepare a pen and paper or a digital note-taking tool to record the other party&#x27;s responses in a timely manner.
+（将通话中需确认的重点事项（如交货日期、付款条款、服务期限）列出，准备好笔和纸或电子记笔记工具，及时记录对方的答复。）
+Anticipate potential problems that may occur during the call (such as poor signal, unclear communication, or differences of opinion) and prepare corresponding solutions. For example, if the signal is poor, propose to switch to a more stable communication channel or reschedule the call.
+（预判通话中可能出现的问题（如信号差、沟通不清、意见分歧），并准备相应的解决办法。例如，若信号不佳，提议切换到更稳定的通讯渠道或重新安排通话时间。）
+Confirm the purpose of the call again before dialing to ensure that you do not deviate from the core goal during the call. For example, if the purpose is to confirm the order delivery date, focus on this topic and avoid excessive discussion of irrelevant content.
+（拨打电话前再次确认通话目的，确保通话中不偏离核心目标。例如，若目的是确认订单交货日期，则围绕该主题展开，避免过多讨论无关内容。）
+Check the time difference again on the day of the call to avoid errors due to daylight saving time changes in the called party&#x27;s region. For example, some regions in Europe implement daylight saving time, which may cause the time difference to change by 1 hour.
+（通话当天再次核对时差，避免因对方所在地区实行夏令时导致时差变动而出现误差。例如，欧洲部分地区实行夏令时，可能会使时差变化 1 小时。）
+Prepare simple and clear English expressions (if the call language is English) and avoid using complex vocabulary or long sentences to ensure that the other party can understand your meaning easily. For example, use &quot;Could you confirm the delivery date?&quot; instead of &quot;I wonder if you could possibly provide me with the specific date when the goods will be delivered.&quot;
+（若通话语言为英语，准备简单易懂的英文表达，避免使用复杂词汇或长句，确保对方能轻松理解你的意思。例如，用 “Could you confirm the delivery date?” 代替 “I wonder if you could possibly provide me with the specific date when the goods will be delivered.”）
+Ensure that the calling environment is quiet and free from interference (such as avoiding busy offices or noisy public places) to prevent the other party from not hearing clearly due to background noise.
+（确保通话环境安静无干扰（如避免在繁忙的办公室或嘈杂的公共场所），防止因背景噪音导致对方听不清内容。）
+Prepare the contact information of the other party&#x27;s backup person in case the main contact person is unavailable, and you can contact the backup person to continue the discussion.
+（准备对方备用联系人的联系方式，若主要联系人无法接听，可联系备用联系人继续沟通。）
+Review the previous communication records (such as emails, chat logs) with the other party before the call to recall the context of the cooperation and avoid repeating questions that have already been confirmed.
+（通话前回顾与对方之前的沟通记录（如邮件、聊天记录），回忆合作背景，避免重复已确认过的问题。）
+Confirm whether you need to record the call (and obtain the other party&#x27;s consent in advance if necessary) to facilitate later review of the call content and avoid disputes over the confirmed details.
+（确认是否需要对通话进行录音（必要时提前获得对方同意），以便后续回顾通话内容，避免对已确认的细节产生争议。）
+Prepare a summary of the call to be sent to the other party after the call, listing the key points discussed and the confirmed matters, to ensure both parties have a consistent understanding.
+（准备通话后的总结邮件，列出讨论的重点及确认的事项，待通话结束后发送给对方，确保双方理解一致。）
+Check whether the phone has international calling functions enabled. If not, contact the operator in advance to activate the function to avoid being unable to make the call.
+（检查手机是否已开通国际通话功能，若未开通，提前联系运营商激活，避免无法拨打电话。）
+Adjust your state before the call, 保持 a calm and polite attitude, and avoid being in a hurry or emotional, which may affect the communication effect.
+（通话前调整自身状态，保持冷静、礼貌的态度，避免处于匆忙或情绪激动的状态，影响沟通效果。）
+Confirm the technical requirements of the call if it involves video conferencing (such as the required software version, network speed, and camera settings) and test the equipment in advance to ensure the video call proceeds smoothly.
+（若通话涉及视频会议，确认视频通话的技术要求（如所需软件版本、网络速度、摄像头设置），并提前测试设备，确保视频通话顺利进行。）
+Prepare answers to possible questions from the other party (such as inquiries about product specifications, after-sales services, and price adjustments) to respond quickly and professionally during the call.
+（准备对方可能提出的问题的答案（如关于产品规格、售后服务、价格调整的询问），以便通话中快速、专业地回应。）
+Inform the family or colleagues around you that you will be making an important international call, and ask them not to disturb you during the call to ensure concentration.
+（告知身边的家人或同事即将进行重要的国际通话，请他们在通话期间不要打扰，确保注意力集中。）
+Check the weather conditions of the called party&#x27;s region in advance. If there is a natural disaster (such as a typhoon or snowstorm), consider rescheduling the call to avoid the other party being unable to focus on the communication due to handling emergency matters.
+（提前查看对方所在地区的天气情况，若有自然灾害（如台风、暴风雪），考虑重新安排通话时间，避免对方因处理紧急事务而无法专注沟通。）
+Prepare the unit conversion standards if the call involves data such as weight, length, or currency (such as converting kilograms to pounds, meters to feet, or RMB to US dollars) to avoid misunderstandings caused by different units.
+（若通话涉及重量、长度、货币等数据（如将公斤换算为磅、米换算为英尺、人民币换算为美元），准备好单位换算标准，避免因单位不同产生误解。）
+Confirm the holiday arrangements of the called party&#x27;s region in advance to avoid calling during the other party&#x27;s national holidays or company holidays.
+（提前确认对方所在地区的节假日安排，避免在对方的国家法定假日或公司假期期间致电。）
+Prepare a backup power supply for the phone (such as a power bank) if the call is expected to be long, to prevent the phone from shutting down due to low battery during the call.
+（若预计通话时间较长，为手机准备备用电源（如充电宝），防止通话中手机因电量不足关机。）
+Familiarize yourself with the abbreviations and professional terms commonly used by the other party&#x27;s industry in advance to avoid not understanding the other party&#x27;s expressions during the call.
+（提前熟悉对方行业常用的缩写词和专业术语，避免通话中听不懂对方的表述。）
+Confirm the delivery address and logistics information with the other party in advance if the call involves international shipping, and prepare the relevant logistics company contact information to provide support if necessary.
+（若通话涉及国际物流运输，提前与对方确认交货地址及物流信息，并准备相关物流公司的联系方式，必要时提供支持。）
+Prepare a plan B for the call content. For example, if the main issue cannot be reached an agreement during the call, propose to discuss other related matters first or set a time for the next communication.
+（为通话内容准备备选方案，例如，若通话中无法就主要问题达成一致，提议先讨论其他相关事项或约定下次沟通时间。）
+Check whether the documents to be referred to during the call are in the correct format (such as PDF, Word) and can be opened normally, to avoid being unable to view the documents when needed.
+（检查通话中需查阅的文件是否为正确格式（如 PDF、Word）且能正常打开，避免需要时无法查看文件。）
+Prepare a list of follow-up tasks to be completed after the call (such as sending documents, updating project plans, and contacting other departments) to ensure timely execution after the call.
+（准备通话后需完成的后续任务清单（如发送文件、更新项目计划、联系其他部门），确保通话后及时执行。）
+Confirm the language used in the call with the other party in advance (such as English, Chinese, or a third language) and prepare an interpreter if necessary to avoid language barriers affecting communication.
+（提前与对方确认通话使用的语言（如英语、中文或第三语言），必要时准备翻译人员，避免语言障碍影响沟通。）
+Check the phone&#x27;s call recording function (if used) to ensure it can work normally, and test the recording quality in advance to avoid unclear recording content.
+（若使用手机的通话录音功能，检查该功能是否能正常工作，并提前测试录音质量，避免录音内容不清晰。）
+Prepare a thank-you message to be sent to the other party after the call, expressing gratitude for their time and cooperation, to maintain a good cooperative relationship.
+（准备通话后的感谢信息，发送给对方，感谢其抽出时间沟通及合作，维护良好的合作关系。）
+Confirm the time for the next communication (if needed) during the call preparation stage, and mark it in the calendar to avoid forgetting.
+（若需要，在通话准备阶段就确认下次沟通的时间，并在日历中标记，避免遗忘。）
+Prepare the contact information of the operator&#x27;s customer service in case of call problems (such as no dial tone, unclear sound), and contact the customer service for assistance in a timely manner.
+（准备运营商客服的联系方式，若出现通话问题（如无拨号音、声音不清），可及时联系客服寻求帮助。）
+Check whether the called party&#x27;s phone number has any special dialing rules (such as needing to add an extension number or area code) and confirm the correct dialing sequence to avoid dialing errors.
+（检查对方电话号码是否有特殊拨号规则（如需加分机号、区号），确认正确的拨号顺序，避免拨号错误。）
+Prepare a brief self-introduction (including name, company, and position) to introduce yourself clearly at the beginning of the call, especially if it is the first time communicating with the other party.
+（准备简短的自我介绍（包括姓名、公司、职位），在通话开头清晰介绍自己，尤其是首次与对方沟通时。）
+Adjust the phone&#x27;s volume to an appropriate level before the call to ensure you can hear the other party clearly without the sound being too loud to disturb others.
+（通话前将手机音量调至合适大小，确保能清晰听到对方讲话，同时避免声音过大打扰他人。）
+Confirm whether the other party needs to involve other departments or personnel in the call, and coordinate in advance to ensure the relevant personnel are available.
+（确认对方是否需要其他部门或人员参与通话，提前协调，确保相关人员可参与。）
+Prepare a list of the other party&#x27;s concerns (based on previous communication) and address them proactively during the call to improve communication efficiency.
+（根据之前的沟通，准备对方可能关心的问题清单，通话中主动提及并解答，提高沟通效率。）
+Check the network security if the call involves sensitive information (such as trade secrets, financial data) and avoid using public Wi-Fi to prevent information leakage.
+（若通话涉及敏感信息（如商业机密、财务数据），检查网络安全性，避免使用公共 Wi-Fi，防止信息泄露。）
+Prepare a summary of the previous cooperation achievements to mention during the call, which helps to enhance the cooperative atmosphere and promote the smooth progress of the current discussion.
+（准备之前的合作成果总结，通话中适当提及，有助于增进合作氛围，推动当前讨论顺利进行。）
+Confirm the format and delivery method of the materials to be sent to the other party after the call (such as email attachment, cloud disk link) and ensure the materials can be accessed normally by the other party.
+（确认通话后需发送给对方的材料格式及交付方式（如邮件附件、云盘链接），确保对方能正常获取材料。）
+Prepare a plan to deal with call interruptions (such as recording the progress of the call in a timely manner, so that you can continue from where you left off when the call is reconnected).
+（准备应对通话中断的方案（如及时记录通话进度，通话重新连接时可从断点继续）。）
+Check whether the called party has any special preferences (such as preferring to discuss specific topics first) and adjust the call order accordingly to make the other party more comfortable.
+（了解对方是否有特殊偏好（如倾向先讨论特定话题），据此调整通话顺序，让对方更舒适。）
+Prepare a list of questions to ask the other party, sorted by priority, to ensure that important questions are not omitted even if the call time is limited.
+（准备向对方提出的问题清单，并按优先级排序，即使通话时间有限，也能确保不遗漏重要问题。）
+Confirm the after-sales service commitment to the other party (if involved) before the call, and ensure that the commitment is consistent with the company&#x27;s policies to avoid making inappropriate promises.
+（若涉及对方向对方的售后服务承诺，通话前确认该承诺与公司政策一致，避免做出不当承诺。）
+Prepare a positive opening remark to start the call in a friendly atmosphere, such as &quot;Good morning! I hope this call finds you well. Thank you for taking the time to talk with me today.&quot;
+（准备积极的开场白，以友好的氛围开启通话，例如 “Good morning! I hope this call finds you well. Thank you for taking the time to talk with me today.”
+（早上好！希望您一切顺利。感谢您今天抽出时间与我通话。）
+Check the phone&#x27;s roaming function if making the call abroad, and ensure that the roaming service is activated to avoid being unable to make or receive calls.
+（若在国外拨打电话，检查手机的漫游功能，确保漫游服务已开通，避免无法接打电话。）
+Prepare a summary of the problems that need to be solved during the call and clarify the expected results, so that both parties can focus on solving the problems.
+（准备通话中需解决的问题总结，并明确期望结果，让双方能集中精力解决问题。）
+Confirm the payment method and currency type with the other party if the call involves international payment, and prepare the relevant bank information to avoid errors in the payment process.
+（若通话涉及国际付款，与对方确认付款方式及货币类型，并准备相关银行信息，避免付款过程中出现差错。）
+Prepare a list of the other party&#x27;s previous feedback and respond to it during the call, showing that you attach importance to the other party&#x27;s opinions.
+（准备对方之前的反馈清单，通话中对反馈进行回应，表明重视对方的意见。）
+Check whether the call needs to be attended by multiple people on your side, and arrange a meeting room or online meeting link in advance to ensure everyone can participate smoothly.
+（确认己方是否需多人参与通话，提前安排会议室或线上会议链接，确保所有人能顺利参与。）
+Prepare a plan to extend the call time if necessary (such as asking the other party if they have more time to discuss additional matters) to ensure that all important content is covered.
+（若有必要，准备延长通话时间的方案（如询问对方是否有更多时间讨论额外事项），确保覆盖所有重要内容。）
+Confirm the product&#x27;s international certification and compliance information (if the call involves product sales) and prepare the relevant certificates to provide proof when the other party asks.
+（若通话涉及产品销售，确认产品的国际认证及合规信息，并准备相关证书，在对方询问时提供证明。）
+Prepare a list of the other party&#x27;s competitors (if appropriate) to avoid mentioning inappropriate content during the call and affecting the cooperative relationship.
+（若合适，了解对方的竞争对手清单，避免通话中提及不当内容，影响合作关系。）
+Check the phone&#x27;s battery level before the call and charge it in advance if the battery is low to ensure the call is not interrupted due to power failure.
+（通话前检查手机电量，若电量低，提前充电，确保通话不因断电中断。）
+Prepare a closing remark for the call, summarizing the key points and expressing expectations for future cooperation, such as &quot;Thank you for your valuable input today. We will follow up on the confirmed matters as soon as possible and look forward to further cooperation.&quot;
+（准备通话结束语，总结重点并表达对未来合作的期望，例如 “Thank you for your valuable input today. We will follow up on the confirmed matters as soon as possible and look forward to further cooperation.”
+（感谢您今天宝贵的意见。我们将尽快跟进已确认的事项，期待未来进一步合作。）
+Confirm the time for sending the call minutes to the other party (if needed) and inform the other party in advance to let them know when to expect the document.
+（若需要，确认向对方发送通话纪要的时间，并提前告知对方，让其知晓何时可收到文件。）
+Prepare a list of the other party&#x27;s contact preferences (such as preferring email follow-ups over phone calls) and adjust the follow-up method accordingly.
+（了解对方的联系方式偏好（如相比电话，更倾向邮件跟进），据此调整后续跟进方式。）
+Check whether the call involves any legal issues (such as contract terms, liability clauses) and consult the legal department in advance if necessary to ensure the communication content is legal and compliant.
+（确认通话是否涉及法律问题（如合同条款、责任条款），必要时提前咨询法务部门，确保沟通内容合法合规。）
+Prepare a list of the company&#x27;s latest products or services (if the call involves business promotion) and introduce them appropriately during the call to expand cooperation opportunities.
+（若通话涉及业务推广，准备公司最新的产品或服务清单，通话中适当介绍，拓展合作机会。）
+Confirm the other party&#x27;s working hours (excluding lunch breaks and breaks) and avoid calling during the other party&#x27;s break time to show respect.
+（确认对方的工作时间（排除午休、休息时段），避免在对方休息时致电，以示尊重。）
+Prepare a plan to handle the other party&#x27;s objections (such as price objections, delivery time objections) and prepare persuasive reasons to convince the other party.
+（准备应对对方异议的方案（如价格异议、交货时间异议），并准备有说服力的理由，争取说服对方。）
+Check the phone&#x27;s sound quality in advance by making a test call to a colleague to ensure the other party can hear clearly.
+（提前拨打同事电话进行测试，检查手机音质，确保对方能清晰听到。）
+Prepare a list of the cooperation achievements to be achieved in the short term (if the call involves cooperation planning) and discuss them with the other party to reach a consensus.
+（若通话涉及合作规划，准备短期需达成的合作成果清单，与对方讨论并达成共识。）
+Confirm the other party&#x27;s technical requirements for the product (if the call involves technical communication) and prepare the relevant technical parameters to provide accurate answers.
+（若通话涉及技术沟通，确认对方对产品的技术要求，并准备相关技术参数，提供准确解答。）
+Prepare a thank-you gift or preferential policy (if appropriate) to mention during the call, which helps to enhance the cooperative relationship and promote the success of the communication.
+（若合适，准备感谢礼品或优惠政策，通话中提及，有助于增进合作关系，推动沟通成功。）
+Check whether the call needs to be translated into a written document after the call and prepare a translator or translation tool in advance if necessary.
+（确认通话后是否需要将通话内容翻译成书面文件，必要时提前准备翻译人员或翻译工具。）
+Prepare a list of the other party&#x27;s previous cooperation problems and propose solutions during the call to show the company&#x27;s sense of responsibility.
+（准备对方之前合作中出现的问题清单，通话中提出解决方案，体现公司的责任心。）
+Confirm the other party&#x27;s logistics preferences (such as designated logistics companies) if the call involves product delivery and try to meet the requirements to improve customer satisfaction.
+（若通话涉及产品交付，确认对方的物流偏好（如指定物流公司），尽量满足要求，提高客户满意度。）
+Prepare a list of the company&#x27;s after-sales service channels (such as hotlines, online customer service) and inform the other party during the call to facilitate future contact.
+（准备公司的售后服务渠道清单（如热线电话、在线客服），通话中告知对方，方便后续联系。）
+Check whether the call involves any cultural taboos of the other party&#x27;s region and avoid mentioning sensitive topics to prevent offending the other party.
+（确认通话是否涉及对方所在地区的文化禁忌，避免提及敏感话题，防止冒犯对方。）
+Prepare a plan to follow up the call within a certain time (such as following up within 24 hours) and mark it in the work plan to ensure timely follow-up.
+（准备在一定时间内（如 24 小时内）跟进通话的方案，并在工作计划中标记，确保及时跟进。）
+Confirm the other party&#x27;s inventory status (if the call involves order placement) and prepare alternative suppliers in case the other party has insufficient inventory.
+（若通话涉及下订单，确认对方的库存状况，并准备备选供应商，以防对方库存不足。）
+Prepare a list of the product&#x27;s after-sales guarantees (such as warranty period, repair policies) and explain them clearly during the call to eliminate the other party&#x27;s concerns.
+（准备产品的售后保障清单（如保修期、维修政策），通话中清晰讲解，消除对方顾虑。）
+Check whether the phone has any software updates that may affect the call (such as system updates) and avoid updating during the call to prevent interruptions.
+（检查手机是否有可能影响通话的软件更新（如系统更新），避免在通话期间进行更新，防止中断。）
+Prepare a list of the other party&#x27;s key decision-makers (if the call involves important cooperation) and ensure that the decision-makers can participate in the call if necessary.
+（若通话涉及重要合作，准备对方的关键决策者清单，必要时确保决策者能参与通话。）
+Confirm the currency exchange rate (if the call involves price discussion) and prepare a calculator to calculate the price in the other party&#x27;s currency accurately.
+（若通话涉及价格讨论，确认汇率，并准备计算器，准确计算对方货币的价格。）
+Prepare a list of the company&#x27;s awards and certifications (if the call involves establishing trust) and mention them during the call to enhance the company&#x27;s credibility.
+（若通话涉及建立信任，准备公司的荣誉证书清单，通话中提及，提升公司可信度。）
+Check whether the call involves any environmental or social responsibility requirements of the other party (such as green production, labor standards) and prepare the company&#x27;s relevant policies to show compliance.
+（确认通话是否涉及对方的环保或社会责任要求（如绿色生产、劳工标准），准备公司相关政策，体现合规性。）
+Prepare a plan to simplify the communication content if the other party has a language barrier, such as using more examples and pictures (to be sent after the call) to assist understanding.
+（若对方存在语言障碍，准备简化沟通内容的方案，如多举例子、搭配图片（通话后发送）辅助理解。）
+Confirm the other party&#x27;s feedback channel for the call content and inform them that they can provide suggestions at any time to show attention to their opinions.
+（确认对方对通话内容的反馈渠道，告知其可随时提出建议，体现对其意见的重视。）
+Prepare a list of the product&#x27;s usage precautions (if the call involves product guidance) and explain them clearly during the call to avoid improper use by the other party.
+（若通话涉及产品指导，准备产品使用注意事项清单，通话中清晰讲解，避免对方不当使用。）
+Check whether the phone&#x27;s international roaming charges are reasonable and compare with other communication methods (such as VoIP) to choose the most cost-effective way.
+（检查手机国际漫游费用是否合理，与其他通讯方式（如网络电话）对比，选择性价比最高的方式。）
+Prepare a list of the cooperation risks and preventive measures (if the call involves risk discussion) and discuss them with the other party to reach a risk-sharing agreement.
+（若通话涉及风险讨论，准备合作风险及防范措施清单，与对方讨论并达成风险共担协议。）
+Confirm the other party&#x27;s training needs (if the call involves product after-sales) and prepare the training plan to provide support after the cooperation.
+（若通话涉及产品售后，确认对方的培训需求，准备培训计划，为合作后的支持做准备。）
+Prepare a list of the company&#x27;s customer cases (similar to the other party&#x27;s industry) and share them during the call to show the company&#x27;s experience and capabilities.
+（准备公司的客户案例（与对方行业类似），通话中分享，体现公司的经验和能力。）
+Check whether the call involves any import and export procedures (if the call involves international trade) and prepare the relevant process introduction to assist the other party in handling.
+（若通话涉及国际贸易，确认是否涉及进出口流程，准备相关流程介绍，协助对方办理。）
+Prepare a plan to adjust the communication strategy if the initial communication effect is not good, such as changing the topic order or using a more vivid expression.
+（若初期沟通效果不佳，准备调整沟通策略的方案，如改变话题顺序、使用更生动的表达方式。）
+Confirm the other party&#x27;s preferred communication frequency (such as weekly follow-ups, monthly reports) and agree on it during the call to maintain long-term communication.
+（确认对方偏好的沟通频率（如每周跟进、每月汇报），通话中达成一致，维持长期沟通。）
+Prepare a list of the product&#x27;s upgrade plans (if the call involves long-term cooperation) and share them during the call to show the company&#x27;s development potential.
+（若通话涉及长期合作，准备产品升级计划清单，通话中分享，体现公司的发展潜力。）
+Check whether the phone has a call waiting function enabled to avoid missing other important calls during the international call.
+（检查手机是否开通呼叫等待功能，避免国际通话期间错过其他重要来电。）
+Prepare a list of the other party&#x27;s unmet needs (based on previous communication) and propose solutions during the call to improve the other party&#x27;s satisfaction.
+（根据之前的沟通，准备对方未满足的需求清单，通话中提出解决方案，提高对方满意度。）
+Confirm the other party&#x27;s insurance requirements for the product (if the call involves product transportation) and prepare the relevant insurance options to provide protection.
+（若通话涉及产品运输，确认对方对产品的保险要求，准备相关保险方案，提供保障。）
+Prepare a list of the company&#x27;s emergency contact information and inform the other party during the call, so that they can contact the company in time in case of emergencies.
+（准备公司的紧急联系方式清单，通话中告知对方，以便紧急情况下对方能及时联系公司。）
+Check whether the call involves any tax issues (such as import taxes, value-added taxes) and prepare the relevant tax information to avoid disputes over tax costs.
+（确认通话是否涉及税务问题（如进口税、增值税），准备相关税务信息，避免因税费产生争议。）
+Prepare a positive and confident attitude before the call, believe in the company&#x27;s products and services, and convey this confidence to the other party through the call to enhance their trust.
+（通话前准备积极自信的心态，相信公司的产品和服务，并通过通话将这份自信传递给对方，增强其信任。）
+进阶：用 “Paraphrasing” 技巧确保信息准确的英文表达
+When the other party says &quot;We need to adjust the delivery date to next month&quot;, you can paraphrase: &quot;So what you mean is that the delivery date will be changed to next month, right?&quot;（当对方说 “We need to adjust the delivery date to next month”（我们需要将交货日期调整到下个月）时，你可以 paraphrase 为：“So what you mean is that the delivery date will be changed to next month, right?”（所以您的意思是交货日期将变更到下个月，对吗？）
+If the other party mentions &quot;The payment term should be 30 days after receipt of goods&quot;, you can rephrase it as: &quot;Let me make sure I understand correctly – the payment is due 30 days after we receive the goods, is that correct?&quot;（若对方提到 “The payment term should be 30 days after receipt of goods”（付款期限应为收货后 30 天），你可以 paraphrase 为：“Let me make sure I understand correctly – the payment is due 30 days after we receive the goods, is that correct?”（让我确认一下我理解得是否正确 —— 我们收到货物后 30 天内需付款，对吗？）
+When the other party states &quot;We can provide 500 units of this product&quot;, you can paraphrase: &quot;So your company is able to supply 500 pieces of this product, am I right?&quot;
+（当对方表示 “We can provide 500 units of this product”（我们可以提供 500 件该产品）时，你可以 paraphrase 为：“So your company is able to supply 500 pieces of this product, am I right?”（所以贵公司能够供应 500 件该产品，对吗？）
+If the other party says &quot;The meeting will be held via Zoom at 2 PM GMT&quot;, you can rephrase it as: &quot;If I get it right, the meeting will take place on Zoom at 2 o&#x27;clock in the afternoon GMT, correct?&quot;（若对方说 “The meeting will be held via Zoom at 2 PM GMT”（会议将于格林尼治标准时间下午 2 点通过 Zoom 举行），你可以 paraphrase 为：“If I get it right, the meeting will take place on Zoom at 2 o&#x27;clock in the afternoon GMT, correct?”（如果我理解正确的话，会议将于格林尼治标准时间下午 2 点在 Zoom 上举行，对吗？）
+When the other party mentions &quot;The quality of the sample meets our basic requirements&quot;, you can paraphrase: &quot;So you&#x27;re saying that the sample&#x27;s quality satisfies your basic standards, is that the case?&quot;（当对方提到 “The quality of the sample meets our basic requirements”（样品质量符合我们的基本要求）时，你可以 paraphrase 为：“So you&#x27;re saying that the sample&#x27;s quality satisfies your basic standards, is that the case?”（所以您是说样品质量满足贵方的基本标准，对吗？）
+If the other party states &quot;We need you to send the report by the end of this week&quot;, you can rephrase it as: &quot;Let me confirm – you require us to submit the report before this week ends, right?&quot;（若对方表示 “We need you to send the report by the end of this week”（我们需要你在本周末前发送报告），你可以 paraphrase 为：“Let me confirm – you require us to submit the report before this week ends, right?”（让我确认一下 —— 贵方要求我们在本周末前提交报告，对吗？）
+When the other party says &quot;The price of this raw material has increased by 10%&quot;, you can paraphrase: &quot;So the cost of this raw material has gone up by 10%, am I understanding this correctly?&quot;（当对方说 “The price of this raw material has increased by 10%”（这种原材料的价格上涨了 10%）时，你可以 paraphrase 为：“So the cost of this raw material has gone up by 10%, am I understanding this correctly?”（所以这种原材料的成本上涨了 10%，我理解得对吗？）
+If the other party mentions &quot;We will assign a new technician to handle this issue&quot;, you can rephrase it as: &quot;So your side will arrange a new technical staff member to deal with this problem, correct?&quot;（若对方提到 “We will assign a new technician to handle this issue”（我们将指派一名新的技术人员处理这个问题），你可以 paraphrase 为：“So your side will arrange a new technical staff member to deal with this problem, correct?”（所以贵方将安排一名新的技术人员处理这个问题，对吗？）
+When the other party states &quot;The contract needs to be revised in terms of liability clauses&quot;, you can paraphrase: &quot;Let me make sure – the part about liability clauses in the contract has to be modified, is that what you mean?&quot;（当对方表示 “The contract needs to be revised in terms of liability clauses”（合同的责任条款部分需要修改）时，你可以 paraphrase 为：“Let me make sure – the part about liability clauses in the contract has to be modified, is that what you mean?”（让我确认一下 —— 合同中关于责任条款的部分必须修改，这是您的意思吗？）
+If the other party says &quot;We expect the project to be completed within three months&quot;, you can rephrase it as: &quot;So your expectation is that the project will be finished in three months&#x27; time, am I right?&quot;（若对方说 “We expect the project to be completed within three months”（我们期望项目在三个月内完成），你可以 paraphrase 为：“So your expectation is that the project will be finished in three months&#x27; time, am I right?”（所以贵方的期望是项目在三个月内完成，对吗？）
+When the other party mentions &quot;The warranty period for this equipment is two years&quot;, you can paraphrase: &quot;So this equipment is covered by a warranty for two years, is that correct?&quot;（当对方提到 “The warranty period for this equipment is two years”（该设备的保修期为两年）时，你可以 paraphrase 为：“So this equipment is covered by a warranty for two years, is that correct?”（所以该设备享有两年的保修服务，对吗？）
+If the other party states &quot;We need additional documents to process the refund&quot;, you can rephrase it as: &quot;Let me get this straight – in order to handle the refund, we have to provide more documents, right?&quot;（若对方表示 “We need additional documents to process the refund”（我们需要额外的文件来处理退款），你可以 paraphrase 为：“Let me get this straight – in order to handle the refund, we have to provide more documents, right?”（让我搞清楚 —— 为了处理退款，我们必须提供更多文件，对吗？）
+When the other party says &quot;The shipment will be delayed due to bad weather&quot;, you can paraphrase: &quot;So the delivery of the goods will be put off because of the poor weather conditions, am I understanding this right?&quot;（当对方说 “The shipment will be delayed due to bad weather”（由于恶劣天气，货运将延迟）时，你可以 paraphrase 为：“So the delivery of the goods will be put off because of the poor weather conditions, am I understanding this right?”（所以由于恶劣天气状况，货物交付将推迟，我理解得对吗？）
+If the other party mentions &quot;We can offer a 5% discount for large orders&quot;, you can rephrase it as: &quot;So for orders with a large quantity, your company is willing to give a 5% discount, correct?&quot;（若对方提到 “We can offer a 5% discount for large orders”（对于大宗订单，我们可以提供 5% 的折扣），你可以 paraphrase 为：“So for orders with a large quantity, your company is willing to give a 5% discount, correct?”（所以对于数量大的订单，贵公司愿意提供 5% 的折扣，对吗？）When the other party states &quot;The training session will be rescheduled to next Tuesday&quot;, you can paraphrase: &quot;Let me confirm – the training class will be rearranged to next Tuesday, is that what you&#x27;re saying?&quot;（当对方表示 “The training session will be rescheduled to next Tuesday”（培训课程将重新安排到下周二）时，你可以 paraphrase 为：“Let me confirm – the training class will be rearranged to next Tuesday, is that what you&#x27;re saying?”（让我确认一下 —— 培训课程将重新安排到下周二，这是您所说的吗？）
+If the other party says &quot;We have received your payment for the last order&quot;, you can rephrase it as: &quot;So you have gotten the payment we made for the previous order, am I right?&quot;（若对方说 “We have received your payment for the last order”（我们已收到你上次订单的付款），你可以 paraphrase 为：“So you have gotten the payment we made for the previous order, am I right?”（所以贵方已收到我们为上次订单支付的款项，对吗？）
+When the other party mentions &quot;The software needs to be updated to the latest version&quot;, you can paraphrase: &quot;So the software has to be upgraded to the most recent version, correct?&quot;（当对方提到 “The software needs to be updated to the latest version”（该软件需要更新到最新版本）时，你可以 paraphrase 为：“So the software has to be upgraded to the most recent version, correct?”（所以该软件必须升级到最新版本，对吗？）
+If the other party states &quot;We will send a representative to attend the meeting&quot;, you can rephrase it as: &quot;Let me make sure I get this – your company will send a representative to be present at the meeting, is that correct?&quot;（若对方表示 “We will send a representative to attend the meeting”（我们将派一名代表参加会议），你可以 paraphrase 为：“Let me make sure I get this – your company will send a representative to be present at the meeting, is that correct?”（让我确认一下我理解得是否正确 —— 贵公司将派一名代表出席会议，对吗？）
+When the other party says &quot;The problem is caused by a faulty component&quot;, you can paraphrase: &quot;So the issue is a result of a defective part, am I understanding this correctly?&quot;（当对方说 “The problem is caused by a faulty component”（这个问题是由一个有故障的部件引起的）时，你可以 paraphrase 为：“So the issue is a result of a defective part, am I understanding this correctly?”（所以这个问题是由一个有缺陷的部件导致的，我理解得对吗？）
+If the other party mentions &quot;We need to discuss the details of the new cooperation plan&quot;, you can rephrase it as: &quot;Let me confirm – you want to talk through the specifics of the new cooperation plan, right?&quot;（若对方提到 “We need to discuss the details of the new cooperation plan”（我们需要讨论新合作计划的细节），你可以 paraphrase 为：“Let me confirm – you want to talk through the specifics of the new cooperation plan, right?”（让我确认一下 —— 您想详细讨论新合作计划的具体内容，对吗？）
+When the other party states &quot;The delivery address has been changed to No. 123 Main Street&quot;, you can paraphrase: &quot;So the address for delivering the goods has been updated to No. 123 Main Street, is that what you mean?&quot;（当对方表示 “The delivery address has been changed to No. 123 Main Street”（交货地址已变更为缅因街 123 号）时，你可以 paraphrase 为：“So the address for delivering the goods has been updated to No. 123 Main Street, is that what you mean?”（所以货物的交货地址已更新为缅因街 123 号，这是您的意思吗？）
+If the other party says &quot;We will provide technical support 24 hours a day&quot;, you can rephrase it as: &quot;So your side will offer technical assistance around the clock, am I right?&quot;（若对方说 “We will provide technical support 24 hours a day”（我们将提供 24 小时技术支持），你可以 paraphrase 为：“So your side will offer technical assistance around the clock, am I right?”（所以贵方将提供全天候的技术协助，对吗？）
+When the other party mentions &quot;The order quantity needs to be increased by 200 units&quot;, you can paraphrase: &quot;So we need to add 200 more units to the original order quantity, correct?&quot;（当对方提到 “The order quantity needs to be increased by 200 units”（订单数量需要增加 200 件）时，你可以 paraphrase 为：“So we need to add 200 more units to the original order quantity, correct?”（所以我们需要在原订单数量基础上再增加 200 件，对吗？）
+If the other party states &quot;The meeting minutes will be sent to you within 24 hours&quot;, you can rephrase it as: &quot;Let me get this straight – you will send the meeting notes to us in less than 24 hours, right?&quot;（若对方表示 “The meeting minutes will be sent to you within 24 hours”（会议纪要将在 24 小时内发送给您），你可以 paraphrase 为：“Let me get this straight – you will send the meeting notes to us in less than 24 hours, right?”（让我搞清楚 —— 您会在 24 小时内把会议记录发送给我们，对吗？）
+When the other party says &quot;The product specification has been adjusted according to your request&quot;, you can paraphrase: &quot;So the product details have been modified as you asked, am I understanding this right?&quot;（当对方说 “The product specification has been adjusted according to your request”（产品规格已按您的要求调整）时，你可以 paraphrase 为：“So the product details have been modified as you asked, am I understanding this right?”（所以产品细节已按您的要求修改，我理解得对吗？）
+If the other party mentions &quot;We can’t meet the deadline due to staff shortage&quot;, you can rephrase it as: &quot;So you’re unable to finish on time because there aren’t enough staff members, correct?&quot;（若对方提到 “We can’t meet the deadline due to staff shortage”（由于人员短缺，我们无法按时完成），你可以 paraphrase 为：“So you’re unable to finish on time because there aren’t enough staff members, correct?”（所以由于工作人员不足，您无法按时完成，对吗？）
+When the other party states &quot;The refund will be processed within 5 working days&quot;, you can paraphrase: &quot;Let me confirm – the refund procedure will be carried out in 5 business days, is that what you’re saying?&quot;（当对方表示 “The refund will be processed within 5 working days”（退款将在 5 个工作日内处理）时，你可以 paraphrase 为：“Let me confirm – the refund procedure will be carried out in 5 business days, is that what you’re saying?（让我确认一下 —— 退款流程将在 5 个工作日内进行，这是您所说的吗？）
+If the other party says &quot;We need to verify your company’s business license&quot;, you can rephrase it as: &quot;So you have to check the validity of our company’s business license, am I right?&quot;（若对方说 “We need to verify your company’s business license”（我们需要核实贵公司的营业执照），你可以 paraphrase 为：“So you have to check the validity of our company’s business license, am I right?”（所以您需要核实我们公司营业执照的有效性，对吗？）
+When the other party mentions &quot;The price includes shipping and handling fees&quot;, you can paraphrase: &quot;So the shipping costs and handling charges are already part of the price, correct?&quot;（当对方提到 “The price includes shipping and handling fees”（该价格包含运费和手续费）时，你可以 paraphrase 为：“So the shipping costs and handling charges are already part of the price, correct?”（所以运费和手续费已包含在价格里，对吗？）
+If the other party states &quot;We will arrange a site visit next Friday&quot;, you can rephrase it as: &quot;Let me make sure I get this – you will organize a visit to our site on next Friday, is that correct?&quot;（若对方表示 “We will arrange a site visit next Friday”（我们将在下周五安排一次现场考察），你可以 paraphrase 为：“Let me make sure I get this – you will organize a visit to our site on next Friday, is that correct?”（让我确认一下我理解得是否正确 —— 您将在下周五组织一次到我们现场的考察，对吗？）
+When the other party says &quot;The error in the report is due to incorrect data input&quot;, you can paraphrase: &quot;So the mistake in the report comes from wrong data entry, am I understanding this correctly?&quot;（当对方说 “The error in the report is due to incorrect data input”（报告中的错误是由错误的数据录入导致的）时，你可以 paraphrase 为：“So the mistake in the report comes from wrong data entry, am I understanding this correctly?”（所以报告中的错误源于错误的数据录入，我理解得对吗？）
+If the other party mentions &quot;We can extend the service period by 3 months&quot;, you can rephrase it as: &quot;So you’re willing to add 3 more months to the service duration, right?&quot;（若对方提到 “We can extend the service period by 3 months”（我们可以将服务期限延长 3 个月），你可以 paraphrase 为：“So you’re willing to add 3 more months to the service duration, right?”（所以您愿意在服务期限基础上再增加 3 个月，对吗？）
+When the other party states &quot;The new policy will take effect from next month&quot;, you can paraphrase: &quot;Let me confirm – the new rule will start to be implemented next month, is that what you mean?&quot;（当对方表示 “The new policy will take effect from next month”（新政策将从下个月起生效）时，你可以 paraphrase 为：“Let me confirm – the new rule will start to be implemented next month, is that what you mean?”（让我确认一下 —— 新规定将从下个月起开始实施，这是您的意思吗？）
+If the other party says &quot;We need you to sign the contract and return it by Wednesday&quot;, you can rephrase it as: &quot;So we have to sign the contract and send it back to you before Wednesday, am I right?&quot;（若对方说 “We need you to sign the contract and return it by Wednesday”（我们需要您签署合同并在周三前寄回），你可以 paraphrase 为：“So we have to sign the contract and send it back to you before Wednesday, am I right?”（所以我们必须签署合同并在周三前寄回给您，对吗？）
+When the other party mentions &quot;The sample will be shipped to you tomorrow&quot;, you can paraphrase: &quot;So the sample will be sent out to you tomorrow, correct?&quot;（当对方提到 “The sample will be shipped to you tomorrow”（样品将于明天寄给您）时，你可以 paraphrase 为：“So the sample will be sent out to you tomorrow, correct?”（所以样品将于明天寄送给您，对吗？）
+If the other party states &quot;The project budget has been reduced by 10%&quot;, you can rephrase it as: &quot;Let me get this straight – the project’s budget has been cut by 10%, right?&quot;（若对方表示 “The project budget has been reduced by 10%”（项目预算已削减 10%），你可以 paraphrase 为：“Let me get this straight – the project’s budget has been cut by 10%, right?”（让我搞清楚 —— 项目的预算已削减 10%，对吗？）
+When the other party says &quot;We will provide a replacement for the damaged product&quot;, you can paraphrase: &quot;So you will give us a new product to replace the damaged one, am I understanding this right?&quot;（当对方说 “We will provide a replacement for the damaged product”（我们将为损坏的产品提供替代品）时，你可以 paraphrase 为：“So you will give us a new product to replace the damaged one, am I understanding this right?”（所以您会给我们一个新产品来替换损坏的那个，我理解得对吗？）
+If the other party mentions &quot;The meeting will be postponed until next week&quot;, you can rephrase it as: &quot;So the meeting will be put off to next week, correct?&quot;（若对方提到 “The meeting will be postponed until next week”（会议将推迟到下周），你可以 paraphrase 为：“So the meeting will be put off to next week, correct?”（所以会议将推迟到下周，对吗？）
+When the other party states &quot;We need to discuss the payment method again&quot;, you can paraphrase: &quot;Let me confirm – we have to talk about the way of payment once more, is that what you’re saying?&quot;（当对方表示 “We need to discuss the payment method again”（我们需要再次讨论付款方式）时，你可以 paraphrase 为：“Let me confirm – we have to talk about the way of payment once more, is that what you’re saying?”（让我确认一下 —— 我们必须再次讨论付款方式，这是您所说的吗？）
+If the other party says &quot;The supplier has changed the delivery time&quot;, you can rephrase it as: &quot;So the supplier has adjusted the time when the goods will be delivered, am I right?&quot;（若对方说 “The supplier has changed the delivery time”（供应商已更改交货时间），你可以 paraphrase 为：“So the supplier has adjusted the time when the goods will be delivered, am I right?”（所以供应商已调整了货物的交货时间，对吗？）
+When the other party mentions &quot;The training materials will be provided before the session&quot;, you can paraphrase: &quot;So the materials for the training will be given to us ahead of the training class, correct?&quot;（当对方提到 “The training materials will be provided before the session”（培训材料将在培训课程前提供）时，你可以 paraphrase 为：“So the materials for the training will be given to us ahead of the training class, correct?”（所以培训用的材料将在培训课程开始前发给我们，对吗？）
+If the other party states &quot;We can’t approve your request for additional funds&quot;, you can rephrase it as: &quot;Let me get this straight – you’re unable to agree to our request for more funds, right?&quot;（若对方表示 “We can’t approve your request for additional funds”（我们无法批准您额外资金的申请），你可以 paraphrase 为：“Let me get this straight – you’re unable to agree to our request for more funds, right?”（让我搞清楚 —— 您无法同意我们额外资金的申请，对吗？）
+When the other party says &quot;The quality inspection will be completed by the end of this month&quot;, you can paraphrase: &quot;So the quality check will be finished before this month ends, am I understanding this correctly?&quot;（当对方说 “The quality inspection will be completed by the end of this month”（质量检测将在本月底前完成）时，你可以 paraphrase 为：“So the quality check will be finished before this month ends, am I understanding this correctly?”（所以质量检测将在本月结束前完成，我理解得对吗？）
+If the other party mentions &quot;We will send you a reminder one week before the deadline&quot;, you can rephrase it as: &quot;So you will send us a notice to remind us one week prior to the deadline, correct?&quot;（若对方提到 “We will send you a reminder one week before the deadline”（我们将在截止日期前一周给您发送提醒），你可以 paraphrase 为：“So you will send us a notice to remind us one week prior to the deadline, correct?”（所以您会在截止日期前一周给我们发送提醒通知，对吗？）
+When the other party states &quot;The contract terms are the same as the previous one&quot;, you can paraphrase: &quot;Let me confirm – the terms of this contract are identical to the last one, is that what you mean?&quot;（当对方表示 “The contract terms are the same as the previous one”（本合同条款与上一份相同）时，你可以 paraphrase 为：“Let me confirm – the terms of this contract are identical to the last one, is that what you mean?”（让我确认一下 —— 本合同的条款与上一份完全相同，这是您的意思吗？）
+If the other party says &quot;We need to adjust the project timeline&quot;, you can rephrase it as: &quot;So we have to change the schedule of the project, am I right?&quot;（若对方说 “We need to adjust the project timeline”（我们需要调整项目时间线），你可以 paraphrase 为：“So we have to change the schedule of the project, am I right?”（所以我们必须更改项目的进度安排，对吗？）
+When the other party mentions &quot;The payment has been transferred to your bank account&quot;, you can paraphrase: &quot;So the money has been sent to your bank account, correct?&quot;（当对方提到 “The payment has been transferred to your bank account”（款项已转入您的银行账户）时，你可以 paraphrase 为：“So the money has been sent to your bank account, correct?（所以款项已转入您的银行账户，对吗？）
+If the other party states &quot;We will hold a follow-up meeting next month&quot;, you can rephrase it as: &quot;Let me get this straight – we will have a follow-up meeting in the next month, right?&quot;（若对方表示 “We will hold a follow-up meeting next month”（我们将在下个月举行后续会议），你可以 paraphrase 为：“Let me get this straight – we will have a follow-up meeting in the next month, right?”（让我搞清楚 —— 我们将在下个月举行后续会议，对吗？）
+When the other party says &quot;The product has passed the safety test&quot;, you can paraphrase: &quot;So the product has successfully gone through the safety inspection, am I understanding this right?&quot;（当对方说 “The product has passed the safety test”（该产品已通过安全测试）时，你可以 paraphrase 为：“So the product has successfully gone through the safety inspection, am I understanding this right?”（所以该产品已成功通过安全检测，我理解得对吗？）
+If the other party mentions &quot;We need to collect more information from you&quot;, you can rephrase it as: &quot;So you have to get more details from us, correct?&quot;（若对方提到 “We need to collect more information from you”（我们需要从您那里收集更多信息），你可以 paraphrase 为：“So you have to get more details from us, correct?”（所以您需要从我们这里获取更多细节，对吗？）
+When the other party states &quot;The deadline for the application is June 30th&quot;, you can paraphrase: &quot;Let me confirm – the last day to submit the application is June 30th, is that what you’re saying?&quot;（当对方表示 “The deadline for the application is June 30th”（申请的截止日期是 6 月 30 日）时，你可以 paraphrase 为：“Let me confirm – the last day to submit the application is June 30th, is that what you’re saying?”（让我确认一下 —— 提交申请的最后一天是 6 月 30 日，这是您所说的吗？）
+If the other party says &quot;We will provide a discount for early payment&quot;, you can rephrase it as: &quot;So you will offer a discount if we pay ahead of time, am I right?&quot;（若对方说 “We will provide a discount for early payment”（我们将为提前付款提供折扣），你可以 paraphrase 为：“So you will offer a discount if we pay ahead of time, am I right?”（所以如果我们提前付款，您会提供折扣，对吗？）
+When the other party mentions &quot;The meeting agenda has been updated&quot;, you can paraphrase: &quot;So the agenda of the meeting has been revised, correct?&quot;（当对方提到 “The meeting agenda has been updated”（会议议程已更新）时，你可以 paraphrase 为：“So the agenda of the meeting has been revised, correct?”（所以会议的议程已修改，对吗？）
+If the other party states &quot;We need to resolve this issue before the end of the week&quot;, you can rephrase it as: &quot;Let me get this straight – we have to fix this problem before this week ends, right?&quot;（若对方表示 “We need to resolve this issue before the end of the week”（我们需要在本周末前解决这个问题），你可以 paraphrase 为：“Let me get this straight – we have to fix this problem before this week ends, right?”（让我搞清楚 —— 我们必须在本周末前解决这个问题，对吗？）
+When the other party says &quot;The shipment is expected to arrive next Monday&quot;, you can paraphrase: &quot;So the goods are supposed to reach us next Monday, am I understanding this correctly?&quot;
+（当对方说 “The shipment is expected to arrive next Monday”（货运预计下周一到达）时，你可以 paraphrase 为：“So the goods are supposed to reach us next Monday, am I understanding this correctly?”（所以货物预计下周一到达我们这里，我理解得对吗？）
+If the other party mentions &quot;We can’t accept the return of used products&quot;, you can rephrase it as: &quot;So you’re not willing to take back products that have been used, correct?&quot;（若对方提到 “We can’t accept the return of used products”（我们不接受已使用产品的退货），你可以 paraphrase 为：“So you’re not willing to take back products that have been used, correct?”（所以您不接受已使用过的产品退货，对吗？）
+When the other party states &quot;The training will be conducted online&quot;, you can paraphrase: &quot;Let me confirm – the training will be held through the internet, is that what you mean?&quot;（当对方表示 “The training will be conducted online”（培训将在线上进行）时，你可以 paraphrase 为：“Let me confirm – the training will be held through the internet, is that what you mean?”（让我确认一下 —— 培训将通过网络进行，这是您的意思吗？）
+If the other party says &quot;We need to check the status of the order&quot;, you can rephrase it as: &quot;So we have to find out how the order is progressing, am I right?&quot;（若对方说 “We need to check the status of the order”（我们需要查询订单状态），你可以 paraphrase 为：“So we have to find out how the order is progressing, am I right?”（所以我们必须了解订单的进展情况，对吗？）
+When the other party mentions &quot;The price will be revised next quarter&quot;, you can paraphrase: &quot;So the price will be changed in the next quarter, correct?&quot;（当对方提到 “The price will be revised next quarter”（价格将在下个季度调整）时，你可以 paraphrase 为：“So the price will be changed in the next quarter, correct?”（所以价格将在下个季度变更，对吗？）
+If the other party states &quot;We will send you the invoice by email&quot;, you can rephrase it as: &quot;Let me get this straight – you will send the invoice to us via email, right?&quot;（若对方表示 “We will send you the invoice by email”（我们将通过邮件发送发票给您），你可以 paraphrase 为：“Let me get this straight – you will send the invoice to us via email, right?”（让我搞清楚 —— 您会通过邮件把发票发送给我们，对吗？）
+When the other party says &quot;The project team has been restructured&quot;, you can paraphrase: &quot;So the project team has been reorganized, am I understanding this right?&quot;（当对方说 “The project team has been restructured”（项目团队已进行重组）时，你可以 paraphrase 为：“So the project team has been reorganized, am I understanding this right?”（所以项目团队已进行重组，我理解得对吗？）
+If the other party mentions &quot;We need to confirm your availability for the meeting&quot;, you can rephrase it as: &quot;So we have to check if you’re free to attend the meeting, correct?&quot;（若对方提到 “We need to confirm your availability for the meeting”（我们需要确认您是否能参加会议），你可以 paraphrase 为：“So we have to check if you’re free to attend the meeting, correct?”（所以我们必须确认您是否有空参加会议，对吗？）
+When the other party states &quot;The delivery will be split into two batches&quot;, you can paraphrase: &quot;Let me confirm – the goods will be delivered in two separate batches, is that what you’re saying?&quot;（当对方表示 “The delivery will be split into two batches”（交货将分为两批进行）时，你可以 paraphrase 为：“Let me confirm – the goods will be delivered in two separate batches, is that what you’re saying?”（让我确认一下 —— 货物将分两批交付，这是您所说的吗？）
+If the other party says &quot;We will provide after-sales service for one year&quot;, you can rephrase it as: &quot;So you will offer after-sales support for a year, am I right?&quot;（若对方说 “We will provide after-sales service for one year”（我们将提供一年的售后服务），你可以 paraphrase 为：“So you will offer after-sales support for a year, am I right?”（所以您会提供一年的售后支持，对吗？）
+When the other party mentions &quot;The report needs to be revised based on feedback&quot;, you can paraphrase: &quot;So the report has to be changed according to the feedback we received, correct?&quot;（当对方提到 “The report needs to be revised based on feedback”（报告需要根据反馈进行修改）时，你可以 paraphrase 为：“So the report has to be changed according to the feedback we received, correct?”（所以报告必须根据我们收到的反馈进行修改，对吗？）
+If the other party states &quot;We can’t start the project until we receive the deposit&quot;, you can rephrase it as: &quot;Let me get this straight – we can’t begin the project until the deposit is received, right?&quot;（若对方表示 “We can’t start the project until we receive the deposit”（在收到定金前，我们无法启动项目），你可以 paraphrase 为：“Let me get this straight – we can’t begin the project until the deposit is received, right?”（让我搞清楚 —— 在收到定金前，我们无法开始项目，对吗？）
+When the other party says &quot;The sample has been sent to the laboratory for testing&quot;, you can paraphrase: &quot;So the sample has been delivered to the lab to be tested, am I understanding this correctly?&quot;（当对方说 “The sample has been sent to the laboratory for testing”（样品已送往实验室检测）时，你可以 paraphrase 为：“So the sample has been delivered to the lab to be tested, am I understanding this correctly?”（所以样品已送往实验室进行检测，我理解得对吗？）
+If the other party mentions &quot;We will update you on the progress every week&quot;, you can rephrase it as: &quot;So you will let us know about the progress once a week, correct?&quot;（若对方提到 “We will update you on the progress every week”（我们将每周向您更新进展情况），你可以 paraphrase 为：“So you will let us know about the progress once a week, correct?”（所以您会每周向我们告知进展情况，对吗？）
+When the other party states &quot;The contract will be valid for three years&quot;, you can paraphrase: &quot;Let me confirm – the contract will be in effect for three years, is that what you mean?&quot;（当对方表示 “The contract will be valid for three years”（该合同有效期为三年）时，你可以 paraphrase 为：“Let me confirm – the contract will be in effect for three years, is that what you mean?”（让我确认一下 —— 该合同有效期为三年，这是您的意思吗？）
+If the other party says &quot;We need to discuss the terms of cooperation&quot;, you can rephrase it as: &quot;So we have to talk about the conditions of our cooperation, am I right?&quot;（若对方说 “We need to discuss the terms of cooperation”（我们需要讨论合作条款），你可以 paraphrase 为：“So we have to talk about the conditions of our cooperation, am I right?”（所以我们必须讨论我们的合作条件，对吗？）
+When the other party mentions &quot;The payment term has been changed to 60 days&quot;, you can paraphrase: &quot;So the time allowed for payment has been adjusted to 60 days, correct?&quot;（当对方提到 “The payment term has been changed to 60 days”（付款期限已变更为 60 天）时，你可以 paraphrase 为：“So the time allowed for payment has been adjusted to 60 days, correct?”（所以付款的允许期限已调整为 60 天，对吗？）
+If the other party states &quot;We will send a technician to repair the equipment tomorrow&quot;, you can rephrase it as: &quot;Let me get this straight – you will send a technical worker to fix the equipment tomorrow, right?&quot;（若对方表示 “We will send a technician to repair the equipment tomorrow”（我们将于明天派技术人员维修设备），你可以 paraphrase 为：“Let me get this straight – you will send a technical worker to fix the equipment tomorrow, right?”（让我搞清楚 —— 您将于明天派技术人员维修设备，对吗？）
+When the other party says &quot;The order has been canceled&quot;, you can paraphrase: &quot;So the order has been called off, am I understanding this right?&quot;（当对方说 “The order has been canceled”（订单已取消）时，你可以 paraphrase 为：“So the order has been called off, am I understanding this right?”（所以订单已取消，我理解得对吗？）
+If the other party mentions &quot;We need to confirm the delivery address again&quot;, you can rephrase it as: &quot;So we have to check the delivery address once more, correct?&quot;（若对方提到 “We need to confirm the delivery address again”（我们需要再次确认交货地址），你可以 paraphrase 为：“So we have to check the delivery address once more, correct?”（所以我们必须再次确认交货地址，对吗？）
+When the other party states &quot;The training will last for two days&quot;, you can paraphrase: &quot;Let me confirm – the training session will go on for two days, is that what you’re saying?&quot;（当对方表示 “The training will last for two days”（培训将持续两天）时，你可以 paraphrase 为：“Let me confirm – the training session will go on for two days, is that what you’re saying?”（让我确认一下 —— 培训课程将持续两天，这是您所说的吗？）
+If the other party says &quot;We will provide a detailed quotation next week&quot;, you can rephrase it as: &quot;So you will give us a detailed price quote in the next week, am I right?&quot;（若对方说 “We will provide a detailed quotation next week”（我们将于下周提供详细报价），你可以 paraphrase 为：“So you will give us a detailed price quote in the next week, am I right?”（所以您将于下周给我们一份详细的报价单，对吗？）
+When the other party mentions &quot;The product is out of stock&quot;, you can paraphrase: &quot;So the product is not available in stock right now, correct?&quot;（当对方提到 “The product is out of stock”（该产品目前无库存）时，你可以 paraphrase 为：“So the product is not available in stock right now, correct?”（所以该产品目前没有库存，对吗？）
+If the other party states &quot;We need to reschedule the meeting&quot;, you can rephrase it as: &quot;Let me get this straight – we have to change the time of the meeting, right?&quot;（若对方表示 “We need to reschedule the meeting”（我们需要重新安排会议时间），你可以 paraphrase 为：“Let me get this straight – we have to change the time of the meeting, right?”（让我搞清楚 —— 我们必须更改会议时间，对吗？）
+When the other party says &quot;The refund has been approved&quot;, you can paraphrase: &quot;So the request for a refund has been agreed to, am I understanding this correctly?&quot;（当对方说 “The refund has been approved”（退款已获批）时，你可以 paraphrase 为：“So the request for a refund has been agreed to, am I understanding this correctly?”（所以退款申请已被批准，我理解得对吗？）
+If the other party mentions &quot;We will send you the contract draft by Friday&quot;, you can rephrase it as: &quot;So you will send the draft of the contract to us before Friday, correct?&quot;（若对方提到 “We will send you the contract draft by Friday”（我们将于周五前发送合同草案给您），你可以 paraphrase 为：“So you will send the draft of the contract to us before Friday, correct?”（所以您将于周五前把合同草案发送给我们，对吗？）
+When the other party states &quot;The project has been completed ahead of schedule&quot;, you can paraphrase: &quot;Let me confirm – the project has been finished earlier than planned, is that what you mean?&quot;（当对方表示 “The project has been completed ahead of schedule”（项目已提前完成）时，你可以 paraphrase 为：“Let me confirm – the project has been finished earlier than planned, is that what you mean?”（让我确认一下 —— 项目已比计划提前完成，这是您的意思吗？）
+If the other party says &quot;We need to verify the information you provided&quot;, you can rephrase it as: &quot;So we have to check if the information you gave us is correct, am I right?&quot;（若对方说 “We need to verify the information you provided”（我们需要核实您提供的信息），你可以 paraphrase 为：“So we have to check if the information you gave us is correct, am I right?”（所以我们必须核实您提供的信息是否正确，对吗？）
+When the other party mentions &quot;The price includes all taxes&quot;, you can paraphrase: &quot;So all tax costs are already included in the price, correct?&quot;（当对方提到 “The price includes all taxes”（该价格包含所有税费）时，你可以 paraphrase 为：“So all tax costs are already included in the price, correct?”（所以所有税费都已包含在价格里，对吗？）
+If the other party states &quot;We will hold a pre-meeting tomorrow&quot;, you can rephrase it as: &quot;Let me get this straight – we will have a preliminary meeting tomorrow, right?&quot;（若对方表示 “We will hold a pre-meeting tomorrow”（我们将于明天举行预备会议），你可以 paraphrase 为：“Let me get this straight – we will have a preliminary meeting tomorrow, right?”（让我搞清楚 —— 我们将于明天举行预备会议，对吗？）
+When the other party says &quot;The equipment needs to be maintained regularly&quot;, you can paraphrase: &quot;So the equipment has to be serviced on a regular basis, am I understanding this right?&quot;（当对方说 “The equipment needs to be maintained regularly”（该设备需要定期维护）时，你可以 paraphrase 为：“So the equipment has to be serviced on a regular basis, am I understanding this right?”（所以该设备必须定期进行维护保养，我理解得对吗？）
+If the other party mentions &quot;We can’t provide the service you requested&quot;, you can rephrase it as: &quot;So you’re unable to offer the service we asked for, correct?&quot;（若对方提到 “We can’t provide the service you requested”（我们无法提供您要求的服务），你可以 paraphrase 为：“So you’re unable to offer the service we asked for, correct?”（所以您无法提供我们要求的服务，对吗？）
+When the other party states &quot;The meeting will be held in the conference room on the third floor&quot;, you can paraphrase: &quot;Let me confirm – the meeting will take place in the third-floor conference room, is that what you’re saying?&quot;（当对方表示 “The meeting will be held in the conference room on the third floor”（会议将在三楼会议室举行）时，你可以 paraphrase 为：“Let me confirm – the meeting will take place in the third-floor conference room, is that what you’re saying?”（让我确认一下 —— 会议将在三楼的会议室举行，这是您所说的吗？）
+If the other party says &quot;We will send you a confirmation email shortly&quot;, you can rephrase it as: &quot;So you will send a confirmation email to us soon, am I right?&quot;（若对方说 “We will send you a confirmation email shortly”（我们将很快发送确认邮件给您），你可以 paraphrase 为：“So you will send a confirmation email to us soon, am I right?”（所以您会很快把确认邮件发送给我们，对吗？）
+When the other party mentions &quot;The order has been shipped&quot;, you can paraphrase: &quot;So the order has been sent out for delivery, correct?&quot;（当对方提到 “The order has been shipped”（订单已发货）时，你可以 paraphrase 为：“So the order has been sent out for delivery, correct?”（所以订单已发货配送，对吗？）
+If the other party states &quot;We need to discuss the delay in the project&quot;, you can rephrase it as: &quot;Let me get this straight – we have to talk about why the project is delayed, right?&quot;（若对方表示 “We need to discuss the delay in the project”（我们需要讨论项目延迟的问题），你可以 paraphrase 为：“Let me get this straight – we have to talk about why the project is delayed, right?”（让我搞清楚 —— 我们必须讨论项目为何延迟，对吗？）
+When the other party says &quot;The product warranty covers parts and labor&quot;, you can paraphrase: &quot;So the product warranty includes both the parts and the labor costs, am I understanding this correctly?&quot;（当对方说 “The product warranty covers parts and labor”（产品保修包含零件和人工费用）时，你可以 paraphrase 为：“So the product warranty includes both the parts and the labor costs, am I understanding this correctly?”（所以产品保修包含零件和人工费用，我理解得对吗？）
+If the other party mentions &quot;We will provide a replacement part next week&quot;, you can rephrase it as: &quot;So you will send a replacement component to us in the next week, correct?&quot;（若对方提到 “We will provide a replacement part next week”（我们将于下周提供替换零件），你可以 paraphrase 为：“So you will send a replacement component to us in the next week, correct?”（所以您将于下周给我们发送替换零件，对吗？）
+When the other party states &quot;The meeting minutes have been approved&quot;, you can paraphrase: &quot;Let me confirm – the meeting notes have been agreed to, is that what you mean?&quot;（当对方表示 “The meeting minutes have been approved”（会议纪要已获批）时，你可以 paraphrase 为：“Let me confirm – the meeting notes have been agreed to, is that what you mean?”（让我确认一下 —— 会议记录已被批准，这是您的意思吗？）
+If the other party says &quot;We need to adjust the number of participants&quot;, you can rephrase it as: &quot;So we have to change how many people will participate, am I right?&quot;（若对方说 “We need to adjust the number of participants”（我们需要调整参与人数），你可以 paraphrase 为：“So we have to change how many people will participate, am I right?”（所以我们必须更改参与的人数，对吗？）
+When the other party mentions &quot;The payment has been delayed due to a bank error&quot;, you can paraphrase: &quot;So the payment is late because of a mistake made by the bank, correct?&quot;（当对方提到 “The payment has been delayed due to a bank error”（由于银行失误，付款已延迟）时，你可以 paraphrase 为：“So the payment is late because of a mistake made by the bank, correct?”（所以由于银行的失误，付款延迟了，对吗？）
+If the other party states &quot;We will send you the updated report by the end of the day&quot;, you can rephrase it as: &quot;Let me get this straight – you will send the revised report to us before the day ends, right?&quot;（若对方表示 “We will send you the updated report by the end of the day”（我们将在今天结束前发送更新后的报告给您），你可以 paraphrase 为：“Let me get this straight – you will send the revised report to us before the day ends, right?”（让我搞清楚 —— 您会在今天结束前把更新后的报告发送给我们，对吗？）
+When the other party says &quot;The project scope has been expanded&quot;, you can paraphrase: &quot;So the range of work for the project has been increased, am I understanding this right?&quot;（当对方说 “The project scope has been expanded”（项目范围已扩大）时，你可以 paraphrase 为：“So the range of work for the project has been increased, am I understanding this right?”
+（所以项目的工作范围已扩大，我理解得对吗？）
+If the other party mentions &quot;We can’t meet with you on Friday&quot;, you can rephrase it as: &quot;So you’re unable to have a meeting with us on Friday, correct?&quot;（若对方提到 “We can’t meet with you on Friday”（我们周五无法与您会面），你可以 paraphrase 为：“So you’re unable to have a meeting with us on Friday, correct?”（所以您周五无法与我们会面，对吗？）
+When the other party states &quot;The contract will be signed next week&quot;, you can paraphrase: &quot;Let me confirm – the contract will be signed in the next week, is that what you’re saying?&quot;（当对方表示 “The contract will be signed next week”（合同将于下周签署）时，你可以 paraphrase 为：“Let me confirm – the contract will be signed in the next week, is that what you’re saying?”（让我确认一下 —— 合同将于下周签署，这是您所说的吗？）
+If the other party says &quot;We will update the project plan based on the latest feedback&quot;, you can rephrase it as: &quot;So you will revise the project plan according to the most recent feedback, am I right?&quot;（若对方说 “We will update the project plan based on the latest feedback”（我们将根据最新反馈更新项目计划），你可以 paraphrase 为：“So you will revise the project plan according to the most recent feedback, am I right?”（所以您会根据最新的反馈修改项目计划，对吗？）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="1017外企电话沟通";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

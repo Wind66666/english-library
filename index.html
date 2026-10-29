@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>课程大礼包 · 网页版</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="logo">🎓</span>
+  <h1>课程大礼包 · 网页版</h1>
+  <p class="subtitle">职场英语学习资料库 · 按日期/编号排列 · 支持看翻译默写英文</p>
+  <div class="chips">
+    <span class="chip">📚 263 组资料</span>
+    <span class="chip">📄 59 个 PDF</span>
+    <span class="chip">📝 204 个 Word</span>
+    <span class="chip">✨ 11 个版本变体</span>
+    <span class="chip">✍️ 247 篇可默写 · 共 118,688 句</span>
+    <a class="chip rlink" id="reviewChip" href="pages/review.html">🔁 复习中心</a>
+  </div>
+  <input id="q" class="search" type="search" placeholder="搜索资料名，按 / 键快速聚焦…" oninput="doFilter()">
+  <div class="filters">
+    <span class="filter-chip on" data-f="all" data-label="全部" onclick="setFilter(this)">全部</span>
+    <span class="filter-chip" data-f="learning" data-label="学习中" onclick="setFilter(this)">学习中</span>
+    <span class="filter-chip" data-f="done" data-label="已掌握" onclick="setFilter(this)">已掌握</span>
+    <span class="filter-chip" data-f="none" data-label="未学" onclick="setFilter(this)">未学</span>
+    <span class="filter-chip" data-f="arch" data-label="已归档" onclick="setFilter(this)">已归档</span>
+  </div>
+  <div class="pbar-outer"><i id="pbar"></i></div>
+  <p class="psum" id="psum">读取本地进度…</p>
+  <p class="stats">显示 <span id="count">263</span> / 263 组</p>
+</header>
+<div class="container">
+<h2 class="sec-title"><span class="dot c1"></span>日期编号资料（按 月.日 排列）<span class="count">（126 组）</span></h2>
+<div class="list"><div class="item" data-key="813每天狂练这900句外企工作英语对话" data-search="8.13每天狂练这900句外企工作英语对话. 8.13每天狂练这900句外企工作英语对话.     docx.docx">
+  <a class="t" href="pages/p001.html"><span class="emo">💬</span><span>8.13每天狂练这900句外企工作英语对话.</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">32,959 字符</span><a class="dict-link" href="pages/dict_p001.html" title="看翻译默写英文">✍️ 默写 887句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p002.html">双栏（32,903 字符）</a></div>
+</div><div class="item" data-key="813背完这1200句2个月全英交流" data-search="8.13背完这1200句 2个月全英交流 8.13背完这1200句 2个月全英交流.docx">
+  <a class="t" href="pages/p003.html"><span class="emo">💬</span><span>8.13背完这1200句 2个月全英交流</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">77,343 字符</span><a class="dict-link" href="pages/dict_p003.html" title="看翻译默写英文">✍️ 默写 1677句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 2 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p004.html">设计版（6,100 字符）</a><a href="pages/p005.html">双栏、副本（77,345 字符）</a></div>
+</div><div class="item" data-key="814外企沟通必备800个高频词汇" data-search="8.14外企沟通必备800个高频词汇 8.14外企沟通必备800个高频词汇.docx">
+  <a class="t" href="pages/p006.html"><span class="emo">📚</span><span>8.14外企沟通必备800个高频词汇</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">53,330 字符</span><a class="dict-link" href="pages/dict_p006.html" title="看翻译默写英文">✍️ 默写 536句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p007.html">双栏（53,403 字符）</a></div>
+</div><div class="item" data-key="814外企职场高情商300" data-search="8.14外企职场高情商300 8.14外企职场高情商300.docx">
+  <a class="t" href="pages/p008.html"><span class="emo">💖</span><span>8.14外企职场高情商300</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">10,512 字符</span><a class="dict-link" href="pages/dict_p008.html" title="看翻译默写英文">✍️ 默写 294句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p009.html">双栏（10,415 字符）</a></div>
+</div><div class="item" data-key="815和外国人交流常用1200句英文" data-search="8.15 和外国人交流常用1200句英文 8.15    和外国人交流常用1200句英文.docx">
+  <a class="t" href="pages/p010.html"><span class="emo">💬</span><span>8.15 和外国人交流常用1200句英文</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">41,903 字符</span><a class="dict-link" href="pages/dict_p010.html" title="看翻译默写英文">✍️ 默写 1184句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p011.html">双栏（40,772 字符）</a></div>
+</div><div class="item" data-key="815全英交流必备高频600词" data-search="8.15 全英交流必备高频600词 8.15  全英交流必备高频600词.docx">
+  <a class="t" href="pages/p012.html"><span class="emo">💬</span><span>8.15 全英交流必备高频600词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">39,405 字符</span><a class="dict-link" href="pages/dict_p012.html" title="看翻译默写英文">✍️ 默写 1060句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p013.html">双栏（39,463 字符）</a></div>
+</div><div class="item" data-key="816商务交流必备850句" data-search="8.16 商务交流必备850句 8.16  商务交流必备850句.docx">
+  <a class="t" href="pages/p014.html"><span class="emo">💬</span><span>8.16 商务交流必备850句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,608 字符</span><a class="dict-link" href="pages/dict_p014.html" title="看翻译默写英文">✍️ 默写 842句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p015.html">双栏（45,559 字符）</a></div>
+</div><div class="item" data-key="818全英交流无非这850句" data-search="8.18全英交流无非这850句 单栏 8.18全英交流无非这850句  单栏.docx">
+  <a class="t" href="pages/p016.html"><span class="emo">💬</span><span>8.18全英交流无非这850句 单栏</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">30,325 字符</span><a class="dict-link" href="pages/dict_p016.html" title="看翻译默写英文">✍️ 默写 711句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p017.html">双栏（30,323 字符）</a></div>
+</div><div class="item" data-key="818全英交流1000句" data-search="8.18全英交流1000句 8.18全英交流1000句 .docx">
+  <a class="t" href="pages/p018.html"><span class="emo">💬</span><span>8.18全英交流1000句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">31,386 字符</span><a class="dict-link" href="pages/dict_p018.html" title="看翻译默写英文">✍️ 默写 949句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="819电话会议600" data-search="8.19 电话会议600 8.19 电话会议600docx.docx">
+  <a class="t" href="pages/p019.html"><span class="emo">🗣️</span><span>8.19 电话会议600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,918 字符</span><a class="dict-link" href="pages/dict_p019.html" title="看翻译默写英文">✍️ 默写 588句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="819电话会议600句" data-search="8.19 电话会议600句 双栏 8.19 电话会议600句   双栏docx.docx">
+  <a class="t" href="pages/p020.html"><span class="emo">🗣️</span><span>8.19 电话会议600句 双栏</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,920 字符</span><a class="dict-link" href="pages/dict_p020.html" title="看翻译默写英文">✍️ 默写 588句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="819接待国外客户必备500句" data-search="8.19接待国外客户必备500句 8.19接待国外客户必备500句.docx">
+  <a class="t" href="pages/p021.html"><span class="emo">🛎️</span><span>8.19接待国外客户必备500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">19,455 字符</span><a class="dict-link" href="pages/dict_p021.html" title="看翻译默写英文">✍️ 默写 503句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p022.html">双栏（19,455 字符）</a></div>
+</div><div class="item" data-key="820全英交流地道口语800句" data-search="8.20全英交流地道口语800句 8.20全英交流地道口语800句.docx">
+  <a class="t" href="pages/p023.html"><span class="emo">💬</span><span>8.20全英交流地道口语800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">60,987 字符</span><a class="dict-link" href="pages/dict_p023.html" title="看翻译默写英文">✍️ 默写 493句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="820英文邮件交流必备500句" data-search="8.20英文邮件交流必备500句 8.20英文邮件交流必备500句.docx">
+  <a class="t" href="pages/p024.html"><span class="emo">✉️</span><span>8.20英文邮件交流必备500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">20,382 字符</span><a class="dict-link" href="pages/dict_p024.html" title="看翻译默写英文">✍️ 默写 475句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="821全英会议无非这900句" data-search="8.21全英会议无非这900句 8.21全英会议无非这900句.docx">
+  <a class="t" href="pages/p025.html"><span class="emo">🗣️</span><span>8.21全英会议无非这900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">51,855 字符</span><a class="dict-link" href="pages/dict_p025.html" title="看翻译默写英文">✍️ 默写 897句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="821外贸900词" data-search="8.21外贸900词 8.21外贸900词.docx">
+  <a class="t" href="pages/p026.html"><span class="emo">🚢</span><span>8.21外贸900词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">67,750 字符</span><a class="dict-link" href="pages/dict_p026.html" title="看翻译默写英文">✍️ 默写 1077句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="822全英交流1000句" data-search="8.22 全英交流1000句 8.22  全英交流1000句.docx">
+  <a class="t" href="pages/p027.html"><span class="emo">💬</span><span>8.22 全英交流1000句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">27,983 字符</span><a class="dict-link" href="pages/dict_p027.html" title="看翻译默写英文">✍️ 默写 764句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="822全英交流1100句" data-search="8.22全英交流1100句 8.22全英交流1100句.docx">
+  <a class="t" href="pages/p028.html"><span class="emo">💬</span><span>8.22全英交流1100句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">35,806 字符</span><a class="dict-link" href="pages/dict_p028.html" title="看翻译默写英文">✍️ 默写 805句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="825全英交流900" data-search="8.25全英交流900 8.25全英交流900.docx">
+  <a class="t" href="pages/p029.html"><span class="emo">💬</span><span>8.25全英交流900</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,484 字符</span><a class="dict-link" href="pages/dict_p029.html" title="看翻译默写英文">✍️ 默写 890句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="825全英会议599" data-search="8.25全英会议599 8.25全英会议599.docx">
+  <a class="t" href="pages/p030.html"><span class="emo">🗣️</span><span>8.25全英会议599</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,660 字符</span><a class="dict-link" href="pages/dict_p030.html" title="看翻译默写英文">✍️ 默写 597句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="826职场会议通关指南" data-search="8.26 职场会议通关指南 8.26 职场会议通关指南.docx">
+  <a class="t" href="pages/p031.html"><span class="emo">🗣️</span><span>8.26 职场会议通关指南</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,223 字符</span><a class="dict-link" href="pages/dict_p031.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="826宝妈亲子场景全英互动口语600" data-search="8.26宝妈亲子场景全英互动口语600 8.26宝妈亲子场景全英互动口语600.docx">
+  <a class="t" href="pages/p032.html"><span class="emo">🥂</span><span>8.26宝妈亲子场景全英互动口语600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">22,637 字符</span><a class="dict-link" href="pages/dict_p032.html" title="看翻译默写英文">✍️ 默写 611句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="827全英社交指南500句" data-search="8.27全英社交指南500句 8.27全英社交指南500句.docx">
+  <a class="t" href="pages/p033.html"><span class="emo">🥂</span><span>8.27全英社交指南500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">31,743 字符</span><a class="dict-link" href="pages/dict_p033.html" title="看翻译默写英文">✍️ 默写 500句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="827职场英语俚语避雷指南" data-search="8.27职场英语俚语避雷指南 8.27职场英语俚语避雷指南.docx">
+  <a class="t" href="pages/p034.html"><span class="emo">🔑</span><span>8.27职场英语俚语避雷指南</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">260,490 字符</span><a class="dict-link" href="pages/dict_p034.html" title="看翻译默写英文">✍️ 默写 30句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="82830天职场英语挑战" data-search="8.28 30天职场英语挑战 8.28  30天职场英语挑战.docx">
+  <a class="t" href="pages/p035.html"><span class="emo">📝</span><span>8.28 30天职场英语挑战</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">47,059 字符</span><a class="dict-link" href="pages/dict_p035.html" title="看翻译默写英文">✍️ 默写 603句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="829成人职场全英会议交流指南1" data-search="8.29成人职场全英会议交流指南 原1 8.29成人职场全英会议交流指南  原1.docx">
+  <a class="t" href="pages/p036.html"><span class="emo">🗣️</span><span>8.29成人职场全英会议交流指南 原1</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">58,255 字符</span><a class="dict-link" href="pages/dict_p036.html" title="看翻译默写英文">✍️ 默写 599句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="829成人英语应急救场技巧" data-search="8.29成人英语应急救场技巧 8.29成人英语应急救场技巧   原.docx">
+  <a class="t" href="pages/p037.html"><span class="emo">📝</span><span>8.29成人英语应急救场技巧</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">153,035 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="830全英交流无障碍对话500句" data-search="8.30全英交流无障碍对话500句 8.30全英交流无障碍对话500句 原.docx">
+  <a class="t" href="pages/p038.html"><span class="emo">💬</span><span>8.30全英交流无障碍对话500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">41,500 字符</span><a class="dict-link" href="pages/dict_p038.html" title="看翻译默写英文">✍️ 默写 712句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="830全英跨文化交流无非就这500句，足够了" data-search="8.30全英跨文化交流无非就这500句，足够了 8.30全英跨文化交流无非就这500句，足够了  原.docx">
+  <a class="t" href="pages/p039.html"><span class="emo">💬</span><span>8.30全英跨文化交流无非就这500句，足够了</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">111,414 字符</span><a class="dict-link" href="pages/dict_p039.html" title="看翻译默写英文">✍️ 默写 29句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="91职场英语，无非就这500句应急" data-search="9.1 职场英语，无非就这500句应急 9.1  职场英语，无非就这500句应急  原.docx">
+  <a class="t" href="pages/p040.html"><span class="emo">💬</span><span>9.1 职场英语，无非就这500句应急</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">69,082 字符</span><a class="dict-link" href="pages/dict_p040.html" title="看翻译默写英文">✍️ 默写 451句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="91全英日常聊：4技巧避坑不冷场" data-search="9.1全英日常聊：4 技巧避坑不冷场 9.1全英日常聊：4 技巧避坑不冷场  原.docx">
+  <a class="t" href="pages/p041.html"><span class="emo">📝</span><span>9.1全英日常聊：4 技巧避坑不冷场</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">50,087 字符</span><a class="dict-link" href="pages/dict_p041.html" title="看翻译默写英文">✍️ 默写 35句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="92外企常用高情商英语表达800句" data-search="9.2 外企常用高情商英语表达800句 9.2  外企常用高情商英语表达800句  原.docx">
+  <a class="t" href="pages/p042.html"><span class="emo">💖</span><span>9.2 外企常用高情商英语表达800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">80,109 字符</span><a class="dict-link" href="pages/dict_p042.html" title="看翻译默写英文">✍️ 默写 142句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="92职场会议控场500句英文句式" data-search="9.2职场会议控场500句英文句式 9.2职场会议控场500句英文句式  原.docx">
+  <a class="t" href="pages/p043.html"><span class="emo">🗣️</span><span>9.2职场会议控场500句英文句式</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">94,449 字符</span><a class="dict-link" href="pages/dict_p043.html" title="看翻译默写英文">✍️ 默写 457句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="93职场SmallTalk外企闲聊必备口语600句" data-search="9.3 职场small talk外企闲聊必备口语600句 9.3 职场small talk外企闲聊必备口语600句   原.docx">
+  <a class="t" href="pages/p044.html"><span class="emo">☕</span><span>9.3 职场Small Talk外企闲聊必备口语600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">74,717 字符</span><a class="dict-link" href="pages/dict_p044.html" title="看翻译默写英文">✍️ 默写 289句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="93外企职场甩锅达人500句表达" data-search="9.3外企职场甩锅达人500句表达 9.3外企职场甩锅达人500句表达     原.docx">
+  <a class="t" href="pages/p045.html"><span class="emo">🙈</span><span>9.3外企职场甩锅达人500句表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">67,776 字符</span><a class="dict-link" href="pages/dict_p045.html" title="看翻译默写英文">✍️ 默写 467句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="94接待国外客户800句" data-search="9.4接待国外客户800句 9.4接待国外客户800句  原.docx">
+  <a class="t" href="pages/p046.html"><span class="emo">🛎️</span><span>9.4接待国外客户800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">61,872 字符</span><a class="dict-link" href="pages/dict_p046.html" title="看翻译默写英文">✍️ 默写 701句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="997天背完567个商务词汇白" data-search="9.9 7天背完567个商务词汇白 9.9  7天背完567个商务词汇白.docx">
+  <a class="t" href="pages/p047.html"><span class="emo">📚</span><span>9.9 7天背完567个商务词汇白</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">9,715 字符</span><a class="dict-link" href="pages/dict_p047.html" title="看翻译默写英文">✍️ 默写 308句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="99接待国外客户接待客人闲谈必备500句(白底蓝字)" data-search="9.9接待国外客户接待客人闲谈必备500句(白底蓝字) 9.9接待国外客户接待客人闲谈必备500句(白底蓝字)   .docx">
+  <a class="t" href="pages/p048.html"><span class="emo">🛎️</span><span>9.9接待国外客户接待客人闲谈必备500句(白底蓝字)</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">55,650 字符</span><a class="dict-link" href="pages/dict_p048.html" title="看翻译默写英文">✍️ 默写 67句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="910背完这500句30天让你流利说英语" data-search="9.10 背完这500句30天让你流利说英语 9.10     背完这500句30天让你流利说英语.docx">
+  <a class="t" href="pages/p049.html"><span class="emo">💬</span><span>9.10 背完这500句30天让你流利说英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">24,958 字符</span><a class="dict-link" href="pages/dict_p049.html" title="看翻译默写英文">✍️ 默写 144句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="910外企职场甩锅达人500句表达" data-search="9.10 外企职场甩锅达人500句表达 9.10   外企职场甩锅达人500句表达.docx">
+  <a class="t" href="pages/p050.html"><span class="emo">🙈</span><span>9.10 外企职场甩锅达人500句表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">67,924 字符</span><a class="dict-link" href="pages/dict_p050.html" title="看翻译默写英文">✍️ 默写 467句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="910全英交流850" data-search="9.10 .全英交流850 9.10  .全英交流850.docx">
+  <a class="t" href="pages/p051.html"><span class="emo">💬</span><span>9.10 .全英交流850</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,519 字符</span><a class="dict-link" href="pages/dict_p051.html" title="看翻译默写英文">✍️ 默写 834句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="910全英会议700句" data-search="9.10 全英会议700句 9.10  全英会议700句.docx">
+  <a class="t" href="pages/p052.html"><span class="emo">🗣️</span><span>9.10 全英会议700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,753 字符</span><a class="dict-link" href="pages/dict_p052.html" title="看翻译默写英文">✍️ 默写 174句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="911外企职场800句英语交流及中文翻译" data-search="9.11外企职场800句英语交流及中文翻译 9.11外企职场800句英语交流及中文翻译   原.docx">
+  <a class="t" href="pages/p053.html"><span class="emo">💬</span><span>9.11外企职场800句英语交流及中文翻译</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">95,101 字符</span><a class="dict-link" href="pages/dict_p053.html" title="看翻译默写英文">✍️ 默写 315句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="911外企职场英语表达600句" data-search="9.11外企职场英语表达600句 9.11外企职场英语表达600句  原.docx">
+  <a class="t" href="pages/p054.html"><span class="emo">💬</span><span>9.11外企职场英语表达600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">66,619 字符</span><a class="dict-link" href="pages/dict_p054.html" title="看翻译默写英文">✍️ 默写 611句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="912外企必备500句职场英语" data-search="9.12外企必备500句职场英语 9.12外企必备500句职场英语   原.docx">
+  <a class="t" href="pages/p055.html"><span class="emo">💬</span><span>9.12外企必备500句职场英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">87,465 字符</span><a class="dict-link" href="pages/dict_p055.html" title="看翻译默写英文">✍️ 默写 120句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="913全英会议500" data-search="9.13 全英会议500 9.13  全英会议500  原.docx">
+  <a class="t" href="pages/p056.html"><span class="emo">🗣️</span><span>9.13 全英会议500</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">109,221 字符</span><a class="dict-link" href="pages/dict_p056.html" title="看翻译默写英文">✍️ 默写 447句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="913地道英语smalltalk599句手册" data-search="9.13地道英语small talk599句手册 9.13地道英语small talk599句手册   原 (1).docx">
+  <a class="t" href="pages/p057.html"><span class="emo">☕</span><span>9.13地道英语small talk599句手册</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">38,789 字符</span><a class="dict-link" href="pages/dict_p057.html" title="看翻译默写英文">✍️ 默写 536句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="915职场商务英语必备600句" data-search="9.15 职场商务英语必备600句 9.15 职场商务英语必备600句  原.docx">
+  <a class="t" href="pages/p058.html"><span class="emo">💬</span><span>9.15 职场商务英语必备600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">84,167 字符</span><a class="dict-link" href="pages/dict_p058.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="915职场英语交流1200" data-search="9.15 职场英语交流1200 9.15 职场英语交流1200  原.docx">
+  <a class="t" href="pages/p059.html"><span class="emo">💬</span><span>9.15 职场英语交流1200</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">92,373 字符</span><a class="dict-link" href="pages/dict_p059.html" title="看翻译默写英文">✍️ 默写 1194句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="916全英交流实用英语表达1300句" data-search="9.16 全英交流实用英语表达1300句 9.16  全英交流实用英语表达1300句 原.docx">
+  <a class="t" href="pages/p060.html"><span class="emo">💬</span><span>9.16 全英交流实用英语表达1300句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">42,561 字符</span><a class="dict-link" href="pages/dict_p060.html" title="看翻译默写英文">✍️ 默写 1308句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="916职场英语1300句" data-search="9.16职场英语1300句 9.16职场英语1300句 原.docx">
+  <a class="t" href="pages/p061.html"><span class="emo">💬</span><span>9.16职场英语1300句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">89,661 字符</span><a class="dict-link" href="pages/dict_p061.html" title="看翻译默写英文">✍️ 默写 1270句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="917外企职场英语交流必备900句" data-search="9.17 外企职场英语交流必备900句 9.17 外企职场英语交流必备900句  原.docx">
+  <a class="t" href="pages/p062.html"><span class="emo">💬</span><span>9.17 外企职场英语交流必备900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">91,426 字符</span><a class="dict-link" href="pages/dict_p062.html" title="看翻译默写英文">✍️ 默写 778句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="918商务600词" data-search="9.18 商务600词 9.18 商务600词  原.docx">
+  <a class="t" href="pages/p063.html"><span class="emo">📝</span><span>9.18 商务600词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">59,016 字符</span><a class="dict-link" href="pages/dict_p063.html" title="看翻译默写英文">✍️ 默写 490句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="918外企职场1400句" data-search="9.18 外企职场1400句 9.18 外企职场1400句  原.docx">
+  <a class="t" href="pages/p064.html"><span class="emo">💬</span><span>9.18 外企职场1400句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">251,615 字符</span><a class="dict-link" href="pages/dict_p064.html" title="看翻译默写英文">✍️ 默写 1395句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="919外企职场英语700句" data-search="9.19 外企职场英语700句 9.19  外企职场英语700句  原.docx">
+  <a class="t" href="pages/p065.html"><span class="emo">💬</span><span>9.19 外企职场英语700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,555 字符</span><a class="dict-link" href="pages/dict_p065.html" title="看翻译默写英文">✍️ 默写 707句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="919商务沟通600句" data-search="9.19 商务沟通600句 9.19 商务沟通600句  原.docx">
+  <a class="t" href="pages/p066.html"><span class="emo">💬</span><span>9.19 商务沟通600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">36,080 字符</span><a class="dict-link" href="pages/dict_p066.html" title="看翻译默写英文">✍️ 默写 598句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="922商务英语450词" data-search="9.22 商务英语450词 9.22 商务英语450词  原.docx">
+  <a class="t" href="pages/p067.html"><span class="emo">📝</span><span>9.22 商务英语450词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">90,305 字符</span><a class="dict-link" href="pages/dict_p067.html" title="看翻译默写英文">✍️ 默写 243句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="922职场人学英语800句" data-search="9.22职场人学英语800句 原· 9.22职场人学英语800句    原·.docx">
+  <a class="t" href="pages/p068.html"><span class="emo">💬</span><span>9.22职场人学英语800句 原·</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">95,489 字符</span><a class="dict-link" href="pages/dict_p068.html" title="看翻译默写英文">✍️ 默写 816句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="923外企职场英语必备表达500句" data-search="9.23 外企职场英语必备表达500句 9.23 外企职场英语必备表达500句  原.docx">
+  <a class="t" href="pages/p069.html"><span class="emo">💬</span><span>9.23 外企职场英语必备表达500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">46,829 字符</span><a class="dict-link" href="pages/dict_p069.html" title="看翻译默写英文">✍️ 默写 499句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="923EMALL商务邮件500句" data-search="9.23emall商务邮件500句 9.23emall商务邮件500句 原.docx">
+  <a class="t" href="pages/p070.html"><span class="emo">✉️</span><span>9.23EMALL商务邮件500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,763 字符</span><a class="dict-link" href="pages/dict_p070.html" title="看翻译默写英文">✍️ 默写 498句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="924职场英语沟通1400句表达" data-search="9.24 职场英语沟通1400句表达 9.24 职场英语沟通1400句表达   原.docx">
+  <a class="t" href="pages/p071.html"><span class="emo">💬</span><span>9.24 职场英语沟通1400句表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">380,085 字符</span><a class="dict-link" href="pages/dict_p071.html" title="看翻译默写英文">✍️ 默写 1076句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="924外企600句商务英语" data-search="9.24外企600句商务英语 9.24外企600句商务英语   原.docx">
+  <a class="t" href="pages/p072.html"><span class="emo">💬</span><span>9.24外企600句商务英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">159,159 字符</span><a class="dict-link" href="pages/dict_p072.html" title="看翻译默写英文">✍️ 默写 587句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="925商务英语1700句" data-search="9.25 商务英语1700句 9.25  商务英语1700句 原.docx">
+  <a class="t" href="pages/p073.html"><span class="emo">💬</span><span>9.25 商务英语1700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">58,013 字符</span><a class="dict-link" href="pages/dict_p073.html" title="看翻译默写英文">✍️ 默写 307句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="925背完这700句，1个月搞定职场英语" data-search="9.25 背完这700句，1个月搞定职场英语 9.25  背完这700句，1个月搞定职场英语  原.docx">
+  <a class="t" href="pages/p074.html"><span class="emo">💬</span><span>9.25 背完这700句，1个月搞定职场英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,027 字符</span><a class="dict-link" href="pages/dict_p074.html" title="看翻译默写英文">✍️ 默写 697句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="926职场与日常社交沟通950句" data-search="9.26 职场与日常社交沟通950句 9.26   职场与日常社交沟通950句  原.docx">
+  <a class="t" href="pages/p075.html"><span class="emo">🥂</span><span>9.26 职场与日常社交沟通950句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">106,664 字符</span><a class="dict-link" href="pages/dict_p075.html" title="看翻译默写英文">✍️ 默写 974句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="926外企职场750句地道表达" data-search="9.26 外企职场750句地道表达 9.26  外企职场750句地道表达  原.docx">
+  <a class="t" href="pages/p076.html"><span class="emo">💬</span><span>9.26 外企职场750句地道表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">75,769 字符</span><a class="dict-link" href="pages/dict_p076.html" title="看翻译默写英文">✍️ 默写 784句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="927职场英文沟通实用650句句型" data-search="9.27 职场英文沟通实用650句句型 9.27   职场英文沟通实用650句句型  原.docx">
+  <a class="t" href="pages/p077.html"><span class="emo">💬</span><span>9.27 职场英文沟通实用650句句型</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">75,891 字符</span><a class="dict-link" href="pages/dict_p077.html" title="看翻译默写英文">✍️ 默写 672句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="927外企职场超实用表达1000句" data-search="9.27 外企职场超实用表达1000句 9.27 外企职场超实用表达1000句   原.docx">
+  <a class="t" href="pages/p078.html"><span class="emo">💬</span><span>9.27 外企职场超实用表达1000句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">88,159 字符</span><a class="dict-link" href="pages/dict_p078.html" title="看翻译默写英文">✍️ 默写 1079句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="929外企职场英语交流900句" data-search="9.29 外企职场英语交流900句 9.29  外企职场英语交流900句  原.docx">
+  <a class="t" href="pages/p079.html"><span class="emo">💬</span><span>9.29 外企职场英语交流900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">105,733 字符</span><a class="dict-link" href="pages/dict_p079.html" title="看翻译默写英文">✍️ 默写 889句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="930职场英语600句" data-search="9.30 职场英语600句 9.30  职场英语600句  原.docx">
+  <a class="t" href="pages/p080.html"><span class="emo">💬</span><span>9.30 职场英语600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">79,598 字符</span><a class="dict-link" href="pages/dict_p080.html" title="看翻译默写英文">✍️ 默写 719句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="930职场英语7天冲刺700句" data-search="9.30 职场英语7天冲刺 700句 9.30 职场英语7天冲刺  700句.docx">
+  <a class="t" href="pages/p081.html"><span class="emo">💬</span><span>9.30 职场英语7天冲刺 700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">121,266 字符</span><a class="dict-link" href="pages/dict_p081.html" title="看翻译默写英文">✍️ 默写 666句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1010外企高频英文缩写" data-search="10.10 外企高频英文缩写 10.10   外企高频英文缩写  原.docx">
+  <a class="t" href="pages/p082.html"><span class="emo">🔑</span><span>10.10 外企高频英文缩写</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">39,826 字符</span><a class="dict-link" href="pages/dict_p082.html" title="看翻译默写英文">✍️ 默写 5句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1010职场新人必看自我介绍800句" data-search="10.10职场新人必看自我介绍800句 10.10职场新人必看自我介绍800句  原.docx">
+  <a class="t" href="pages/p083.html"><span class="emo">🙋</span><span>10.10职场新人必看自我介绍800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">216,875 字符</span><a class="dict-link" href="pages/dict_p083.html" title="看翻译默写英文">✍️ 默写 793句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="101112天逆袭职场英语" data-search="10.11 12天逆袭职场英语 10.11   12天逆袭职场英语  原.docx">
+  <a class="t" href="pages/p084.html"><span class="emo">📝</span><span>10.11 12天逆袭职场英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,921 字符</span><a class="dict-link" href="pages/dict_p084.html" title="看翻译默写英文">✍️ 默写 112句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1013外企商务英语谈判必备750句" data-search="10.13 外企商务英语谈判必备750句 10.13  外企商务英语谈判必备750句  原.docx">
+  <a class="t" href="pages/p085.html"><span class="emo">🤝</span><span>10.13 外企商务英语谈判必备750句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">119,451 字符</span><a class="dict-link" href="pages/dict_p085.html" title="看翻译默写英文">✍️ 默写 756句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1014职场英语演讲500句" data-search="10.14职场英语演讲500句 10.14职场英语演讲500句  原.docx">
+  <a class="t" href="pages/p086.html"><span class="emo">💬</span><span>10.14职场英语演讲500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">69,223 字符</span><a class="dict-link" href="pages/dict_p086.html" title="看翻译默写英文">✍️ 默写 511句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1015职场英文邮件" data-search="10.15职场英文邮件 10.15职场英文邮件  原.docx">
+  <a class="t" href="pages/p087.html"><span class="emo">✉️</span><span>10.15职场英文邮件</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">40,012 字符</span><a class="dict-link" href="pages/dict_p087.html" title="看翻译默写英文">✍️ 默写 452句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1016全英会议议程" data-search="10.16全英会议议程 10.16全英会议议程    原.docx">
+  <a class="t" href="pages/p088.html"><span class="emo">🗣️</span><span>10.16全英会议议程</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">93,204 字符</span><a class="dict-link" href="pages/dict_p088.html" title="看翻译默写英文">✍️ 默写 414句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1017外企电话沟通" data-search="10.17 外企电话沟通 10.17 外企电话沟通  原.docx">
+  <a class="t" href="pages/p089.html"><span class="emo">📞</span><span>10.17 外企电话沟通</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">107,719 字符</span><a class="dict-link" href="pages/dict_p089.html" title="看翻译默写英文">✍️ 默写 363句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1017外企价格谈判背完这600句" data-search="10.17外企价格谈判背完这600句 10.17外企价格谈判背完这600句  原.docx">
+  <a class="t" href="pages/p090.html"><span class="emo">🤝</span><span>10.17外企价格谈判背完这600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">130,530 字符</span><a class="dict-link" href="pages/dict_p090.html" title="看翻译默写英文">✍️ 默写 630句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1020商务合同谈判500" data-search="10.20 商务合同谈判500 10.20 商务合同谈判500    原.docx">
+  <a class="t" href="pages/p091.html"><span class="emo">🤝</span><span>10.20 商务合同谈判500</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">140,109 字符</span><a class="dict-link" href="pages/dict_p091.html" title="看翻译默写英文">✍️ 默写 555句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1021全英会议纪要" data-search="10.21全英会议纪要 10.21全英会议纪要  原.docx">
+  <a class="t" href="pages/p092.html"><span class="emo">🗣️</span><span>10.21全英会议纪要</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">60,908 字符</span><a class="dict-link" href="pages/dict_p092.html" title="看翻译默写英文">✍️ 默写 280句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1021和老外社交媒体互动指南" data-search="10.21和老外社交媒体互动指南 10.21和老外社交媒体互动指南  原.docx">
+  <a class="t" href="pages/p093.html"><span class="emo">🥂</span><span>10.21和老外社交媒体互动指南</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,970 字符</span><a class="dict-link" href="pages/dict_p093.html" title="看翻译默写英文">✍️ 默写 136句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1023商务寒暄潜台词" data-search="10.23 商务寒暄潜台词 10.23  商务寒暄潜台词  原.docx">
+  <a class="t" href="pages/p094.html"><span class="emo">☕</span><span>10.23 商务寒暄潜台词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,165 字符</span><a class="dict-link" href="pages/dict_p094.html" title="看翻译默写英文">✍️ 默写 270句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1023全英会议600" data-search="10.23 全英会议600 10.23 全英会议600    原.docx">
+  <a class="t" href="pages/p095.html"><span class="emo">🗣️</span><span>10.23 全英会议600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">122,161 字符</span><a class="dict-link" href="pages/dict_p095.html" title="看翻译默写英文">✍️ 默写 451句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1024英文邮件追问" data-search="10.24 英文邮件追问 10.24  英文邮件追问  原.docx">
+  <a class="t" href="pages/p096.html"><span class="emo">✉️</span><span>10.24 英文邮件追问</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">62,022 字符</span><a class="dict-link" href="pages/dict_p096.html" title="看翻译默写英文">✍️ 默写 452句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1025国际谈判商务英语沟通" data-search="10.25国际谈判商务英语沟通 10.25国际谈判商务英语沟通     原.docx">
+  <a class="t" href="pages/p097.html"><span class="emo">🤝</span><span>10.25国际谈判商务英语沟通</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">72,931 字符</span><a class="dict-link" href="pages/dict_p097.html" title="看翻译默写英文">✍️ 默写 341句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1025谈判僵局破解750" data-search="10.25谈判僵局破解750 10.25谈判僵局破解750  原.docx">
+  <a class="t" href="pages/p098.html"><span class="emo">🤝</span><span>10.25谈判僵局破解750</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">113,888 字符</span><a class="dict-link" href="pages/dict_p098.html" title="看翻译默写英文">✍️ 默写 780句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1027外企高管会议900句" data-search="10.27外企高管会议900句 10.27外企高管会议900句.docx">
+  <a class="t" href="pages/p099.html"><span class="emo">🗣️</span><span>10.27外企高管会议900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">299,369 字符</span><a class="dict-link" href="pages/dict_p099.html" title="看翻译默写英文">✍️ 默写 898句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1028会议控场技巧600" data-search="10.28会议控场技巧600 10.28会议控场技巧600  原.docx">
+  <a class="t" href="pages/p100.html"><span class="emo">🗣️</span><span>10.28会议控场技巧600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">106,821 字符</span><a class="dict-link" href="pages/dict_p100.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1028英语会议急救" data-search="10.28英语会议急救 10.28英语会议急救  原.docx">
+  <a class="t" href="pages/p101.html"><span class="emo">🗣️</span><span>10.28英语会议急救</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">154,831 字符</span><a class="dict-link" href="pages/dict_p101.html" title="看翻译默写英文">✍️ 默写 1034句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1029职场高频英语表达800句" data-search="10.29 职场高频英语表达800句 10.29  职场高频英语表达800句   原.docx">
+  <a class="t" href="pages/p102.html"><span class="emo">💬</span><span>10.29 职场高频英语表达800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">69,615 字符</span><a class="dict-link" href="pages/dict_p102.html" title="看翻译默写英文">✍️ 默写 824句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1030职场晋升必备500句" data-search="10.30职场晋升必备500句 10.30职场晋升必备500句   原.docx">
+  <a class="t" href="pages/p103.html"><span class="emo">🚀</span><span>10.30职场晋升必备500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">113,713 字符</span><a class="dict-link" href="pages/dict_p103.html" title="看翻译默写英文">✍️ 默写 500句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1030邮件沟通必备600句" data-search="10.30邮件沟通必备600句 10.30邮件沟通必备600句  原.docx">
+  <a class="t" href="pages/p104.html"><span class="emo">✉️</span><span>10.30邮件沟通必备600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">85,286 字符</span><a class="dict-link" href="pages/dict_p104.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1031外企英语30天600句" data-search="10.31外企英语30天600句 10.31外企英语30天600句  原.docx">
+  <a class="t" href="pages/p105.html"><span class="emo">💬</span><span>10.31外企英语30天600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">61,675 字符</span><a class="dict-link" href="pages/dict_p105.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="113职场商务交流500" data-search="11.3 职场商务交流500 11.3  职场商务交流500  原.docx">
+  <a class="t" href="pages/p106.html"><span class="emo">💬</span><span>11.3 职场商务交流500</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">71,149 字符</span><a class="dict-link" href="pages/dict_p106.html" title="看翻译默写英文">✍️ 默写 522句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="113会议英语表达误区500句" data-search="11.3会议英语表达误区500句 11.3会议英语表达误区500句  原.docx">
+  <a class="t" href="pages/p107.html"><span class="emo">🗣️</span><span>11.3会议英语表达误区500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">57,836 字符</span><a class="dict-link" href="pages/dict_p107.html" title="看翻译默写英文">✍️ 默写 484句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="114职场英语的文化陷阱沟通禁忌" data-search="11.4 职场英语的文化陷阱沟通禁忌 11.4  职场英语的文化陷阱沟通禁忌  原.docx">
+  <a class="t" href="pages/p108.html"><span class="emo">⚠️</span><span>11.4 职场英语的文化陷阱沟通禁忌</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,493 字符</span><a class="dict-link" href="pages/dict_p108.html" title="看翻译默写英文">✍️ 默写 360句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="114商务邮件700" data-search="11.4商务邮件700 11.4商务邮件700   原.docx">
+  <a class="t" href="pages/p109.html"><span class="emo">✉️</span><span>11.4商务邮件700</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">142,901 字符</span><a class="dict-link" href="pages/dict_p109.html" title="看翻译默写英文">✍️ 默写 695句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="115商务电话沟通600" data-search="11.5 商务电话沟通600 11.5  商务电话沟通600  原.docx">
+  <a class="t" href="pages/p110.html"><span class="emo">📞</span><span>11.5 商务电话沟通600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">91,965 字符</span><a class="dict-link" href="pages/dict_p110.html" title="看翻译默写英文">✍️ 默写 622句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="115职场英语口语500句" data-search="11.5 职场英语口语500句 11.5  职场英语口语500句   原.docx">
+  <a class="t" href="pages/p111.html"><span class="emo">💬</span><span>11.5 职场英语口语500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">31,066 字符</span><a class="dict-link" href="pages/dict_p111.html" title="看翻译默写英文">✍️ 默写 499句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="116职场英语599" data-search="11.6 职场英语599 11.6  职场英语599  原.docx">
+  <a class="t" href="pages/p112.html"><span class="emo">📝</span><span>11.6 职场英语599</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">28,745 字符</span><a class="dict-link" href="pages/dict_p112.html" title="看翻译默写英文">✍️ 默写 599句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="116职场英语会议700" data-search="11.6职场英语会议700 11.6职场英语会议700  原.docx">
+  <a class="t" href="pages/p113.html"><span class="emo">🗣️</span><span>11.6职场英语会议700</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,306 字符</span><a class="dict-link" href="pages/dict_p113.html" title="看翻译默写英文">✍️ 默写 698句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="117外企地道英语表达800句" data-search="11.7 外企地道英语表达800句 11.7  外企地道英语表达800句  原.docx">
+  <a class="t" href="pages/p114.html"><span class="emo">💬</span><span>11.7 外企地道英语表达800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">59,650 字符</span><a class="dict-link" href="pages/dict_p114.html" title="看翻译默写英文">✍️ 默写 819句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="117职场交流无障碍599句" data-search="11.7 职场交流无障碍599句 11.7  职场交流无障碍599句  原.docx">
+  <a class="t" href="pages/p115.html"><span class="emo">💬</span><span>11.7 职场交流无障碍599句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">22,176 字符</span><a class="dict-link" href="pages/dict_p115.html" title="看翻译默写英文">✍️ 默写 560句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="118职场商务高频英语口语750句" data-search="11.8 职场商务高频英语口语750句 11.8 职场商务高频英语口语750句   原.docx">
+  <a class="t" href="pages/p116.html"><span class="emo">💬</span><span>11.8 职场商务高频英语口语750句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">25,100 字符</span><a class="dict-link" href="pages/dict_p116.html" title="看翻译默写英文">✍️ 默写 731句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1110外企日常交流无非就这750句" data-search="11.10外企日常交流无非就这750句 11.10外企日常交流无非就这750句 原.docx">
+  <a class="t" href="pages/p117.html"><span class="emo">💬</span><span>11.10外企日常交流无非就这750句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,539 字符</span><a class="dict-link" href="pages/dict_p117.html" title="看翻译默写英文">✍️ 默写 769句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1111职场邮件无非就这399句" data-search="11.11 职场邮件无非就这399句 11.11 职场邮件无非就这399句  原.docx">
+  <a class="t" href="pages/p118.html"><span class="emo">✉️</span><span>11.11 职场邮件无非就这399句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">34,952 字符</span><a class="dict-link" href="pages/dict_p118.html" title="看翻译默写英文">✍️ 默写 385句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1111外企职场请教他人必备600句" data-search="11.11外企职场请教他人必备600句 11.11外企职场请教他人必备600句  原.docx">
+  <a class="t" href="pages/p119.html"><span class="emo">💬</span><span>11.11外企职场请教他人必备600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,958 字符</span><a class="dict-link" href="pages/dict_p119.html" title="看翻译默写英文">✍️ 默写 600句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1112出差交流必备600句" data-search="11.12 出差交流必备600句 11.12  出差交流必备600句  原.docx">
+  <a class="t" href="pages/p120.html"><span class="emo">✈️</span><span>11.12 出差交流必备600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">28,368 字符</span><a class="dict-link" href="pages/dict_p120.html" title="看翻译默写英文">✍️ 默写 620句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1112职场工作汇报" data-search="11.12 职场工作汇报 11.12  职场工作汇报   原.docx">
+  <a class="t" href="pages/p121.html"><span class="emo">📈</span><span>11.12 职场工作汇报</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">42,926 字符</span><a class="dict-link" href="pages/dict_p121.html" title="看翻译默写英文">✍️ 默写 500句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1113职场催促尾款300句" data-search="11.13 职场催促尾款300句 11.13 职场催促尾款300句 原.docx">
+  <a class="t" href="pages/p122.html"><span class="emo">⏰</span><span>11.13 职场催促尾款300句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">40,659 字符</span><a class="dict-link" href="pages/dict_p122.html" title="看翻译默写英文">✍️ 默写 312句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1113英文邮件599" data-search="11.13 英文邮件599 11.13 英文邮件599 原.docx">
+  <a class="t" href="pages/p123.html"><span class="emo">✉️</span><span>11.13 英文邮件599</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">42,392 字符</span><a class="dict-link" href="pages/dict_p123.html" title="看翻译默写英文">✍️ 默写 598句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1117外企常用缩写无非就这700个" data-search="11.17 外企常用缩写无非就这700个 11.17  外企常用缩写无非就这700个   原.docx">
+  <a class="t" href="pages/p124.html"><span class="emo">🔑</span><span>11.17 外企常用缩写无非就这700个</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">20,760 字符</span><a class="dict-link" href="pages/dict_p124.html" title="看翻译默写英文">✍️ 默写 57句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1117职场会议黑话无非就这599句" data-search="11.17 职场会议黑话无非就这599句 11.17 职场会议黑话无非就这599句  原.docx">
+  <a class="t" href="pages/p125.html"><span class="emo">🗣️</span><span>11.17 职场会议黑话无非就这599句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">37,695 字符</span><a class="dict-link" href="pages/dict_p125.html" title="看翻译默写英文">✍️ 默写 598句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1118外企接待客户闲谈必备700句" data-search="11.18 外企接待客户闲谈必备700句 11.18 外企接待客户闲谈必备700句  原.docx">
+  <a class="t" href="pages/p126.html"><span class="emo">🛎️</span><span>11.18 外企接待客户闲谈必备700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">55,254 字符</span><a class="dict-link" href="pages/dict_p126.html" title="看翻译默写英文">✍️ 默写 758句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1118职场英语精华口语399句" data-search="11.18 职场英语精华口语399句 11.18 职场英语精华口语399句  原.docx">
+  <a class="t" href="pages/p127.html"><span class="emo">💬</span><span>11.18 职场英语精华口语399句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">35,139 字符</span><a class="dict-link" href="pages/dict_p127.html" title="看翻译默写英文">✍️ 默写 460句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1120全英交流背完这800句" data-search="11.20 全英交流背完这800句 11.20  全英交流背完这800句  原.docx">
+  <a class="t" href="pages/p128.html"><span class="emo">💬</span><span>11.20 全英交流背完这800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">28,702 字符</span><a class="dict-link" href="pages/dict_p128.html" title="看翻译默写英文">✍️ 默写 798句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1120全英交流无非就这500句" data-search="11.20 全英交流无非就这500句 11.20 全英交流无非就这500句  原.docx">
+  <a class="t" href="pages/p129.html"><span class="emo">💬</span><span>11.20 全英交流无非就这500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">16,060 字符</span><a class="dict-link" href="pages/dict_p129.html" title="看翻译默写英文">✍️ 默写 497句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1121外企线上会议背完这800句" data-search="11.21 外企线上会议背完这800句 11.21 外企线上会议背完这800句  原.docx">
+  <a class="t" href="pages/p130.html"><span class="emo">🗣️</span><span>11.21 外企线上会议背完这800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">56,972 字符</span><a class="dict-link" href="pages/dict_p130.html" title="看翻译默写英文">✍️ 默写 776句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1125一个半月全英交" data-search="11.25 一个半月全英交 11.25 一个半月全英交 原.docx">
+  <a class="t" href="pages/p131.html"><span class="emo">📝</span><span>11.25 一个半月全英交</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">60,132 字符</span><a class="dict-link" href="pages/dict_p131.html" title="看翻译默写英文">✍️ 默写 518句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1126smalltalk850" data-search="11.26 small talk850 11.26  small talk850原.docx">
+  <a class="t" href="pages/p132.html"><span class="emo">☕</span><span>11.26 small talk850</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">49,966 字符</span><a class="dict-link" href="pages/dict_p132.html" title="看翻译默写英文">✍️ 默写 842句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1126外企职场英语540" data-search="11.26 外企职场英语540 11.26  外企职场英语540    原.docx">
+  <a class="t" href="pages/p133.html"><span class="emo">📝</span><span>11.26 外企职场英语540</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,700 字符</span><a class="dict-link" href="pages/dict_p133.html" title="看翻译默写英文">✍️ 默写 237句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1127商务英语无非就这700句" data-search="11.27 商务英语无非就这700句 11.27 商务英语无非就这700句  原.docx">
+  <a class="t" href="pages/p134.html"><span class="emo">💬</span><span>11.27 商务英语无非就这700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,790 字符</span><a class="dict-link" href="pages/dict_p134.html" title="看翻译默写英文">✍️ 默写 717句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1127外企SmallTalk英语交流900句" data-search="11.27 外企small talk英语交流900句 11.27 外企small talk英语交流900句.docx">
+  <a class="t" href="pages/p135.html"><span class="emo">☕</span><span>11.27 外企Small Talk英语交流900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">57,022 字符</span><a class="dict-link" href="pages/dict_p135.html" title="看翻译默写英文">✍️ 默写 943句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1129外企沟通必备540词" data-search="11.29 外企沟通必备540词 11.29 外企沟通必备540词 原.docx">
+  <a class="t" href="pages/p136.html"><span class="emo">📝</span><span>11.29 外企沟通必备540词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">41,620 字符</span><a class="dict-link" href="pages/dict_p136.html" title="看翻译默写英文">✍️ 默写 509句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div></div><h2 class="sec-title"><span class="dot c2"></span>数字编号资料<span class="count">（6 组）</span></h2>
+<div class="list"><div class="item" data-key="14英文面试20个问题及专业回答" data-search="14.英文面试20个问题及专业回答 14.英文面试20个问题及专业回答.pdf">
+  <a class="t" href="pages/p137.html"><span class="emo">🎯</span><span>14.英文面试20个问题及专业回答</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">8,090 字符</span><a class="dict-link" href="pages/dict_p137.html" title="看翻译默写英文">✍️ 默写 20句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="21外企面试Top100" data-search="21.外企面试top100 21.外企面试top100.docx">
+  <a class="t" href="pages/p138.html"><span class="emo">🎯</span><span>21.外企面试Top100</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">70,116 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="27职场英语高情商表达技巧+30个常用句型" data-search="27. 职场英语高情商表达技巧+30个常用句型 27. 职场英语高情商表达技巧+30个常用句型.pdf">
+  <a class="t" href="pages/p139.html"><span class="emo">💖</span><span>27. 职场英语高情商表达技巧+30个常用句型</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">10,299 字符</span><a class="dict-link" href="pages/dict_p139.html" title="看翻译默写英文">✍️ 默写 59句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="28外贸会议必备60个常用短语+职场例句" data-search="28.外贸会议必备60个常用短语+职场例句 28.外贸会议必备60个常用短语+职场例句.pdf">
+  <a class="t" href="pages/p140.html"><span class="emo">🗣️</span><span>28.外贸会议必备60个常用短语+职场例句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">11,186 字符</span><a class="dict-link" href="pages/dict_p140.html" title="看翻译默写英文">✍️ 默写 65句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="40职场英语口语高级表达！常用短语+例句（二）" data-search="40. 职场英语口语高级表达！常用短语+例句（二） 40. 职场英语口语高级表达！常用短语+例句（二）.pdf">
+  <a class="t" href="pages/p141.html"><span class="emo">💬</span><span>40. 职场英语口语高级表达！常用短语+例句（二）</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">6,295 字符</span><a class="dict-link" href="pages/dict_p141.html" title="看翻译默写英文">✍️ 默写 43句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="51工作总结必备英语句型" data-search="51. 工作总结必备英语句型 51. 工作总结必备英语句型.pdf">
+  <a class="t" href="pages/p142.html"><span class="emo">📈</span><span>51. 工作总结必备英语句型</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">14,579 字符</span><a class="dict-link" href="pages/dict_p142.html" title="看翻译默写英文">✍️ 默写 118句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div></div><h2 class="sec-title"><span class="dot c3"></span>其他资料<span class="count">（131 组）</span></h2>
+<div class="list"><div class="item" data-key="100个外企面试问答" data-search="100个外企面试问答 100个外企面试问答.pdf">
+  <a class="t" href="pages/p143.html"><span class="emo">🎯</span><span>100个外企面试问答</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">70,908 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="100句常用于打招呼口语" data-search="100句常用于打招呼口语 100句常用于打招呼口语.pdf">
+  <a class="t" href="pages/p144.html"><span class="emo">💬</span><span>100句常用于打招呼口语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">2,950 字符</span><a class="dict-link" href="pages/dict_p144.html" title="看翻译默写英文">✍️ 默写 98句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="10天背完英语3500词-学姐笔记" data-search="10天背完英语3500词 -学姐笔记 10天背完英语3500词 -学姐笔记.pdf">
+  <a class="t" href="pages/p145.html"><span class="emo">📚</span><span>10天背完英语3500词 -学姐笔记</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">36,832 字符</span><a class="dict-link" href="pages/dict_p145.html" title="看翻译默写英文">✍️ 默写 8句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="1200句外企表达白" data-search="1200句外企表达白 1200句外企表达白(1).pdf">
+  <a class="t" href="pages/p146.html"><span class="emo">💬</span><span>1200句外企表达白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">46,990 字符</span><a class="dict-link" href="pages/dict_p146.html" title="看翻译默写英文">✍️ 默写 1121句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="12天逆袭职场英语" data-search="12天逆袭职场英语 12天逆袭职场英语  原.docx">
+  <a class="t" href="pages/p147.html"><span class="emo">📝</span><span>12天逆袭职场英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,921 字符</span><a class="dict-link" href="pages/dict_p147.html" title="看翻译默写英文">✍️ 默写 112句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="365句英文邮件必备句型白6" data-search="365句英文邮件必备句型白6 365句英文邮件必备句型白6.docx">
+  <a class="t" href="pages/p148.html"><span class="emo">✉️</span><span>365句英文邮件必备句型白6</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,856 字符</span><a class="dict-link" href="pages/dict_p148.html" title="看翻译默写英文">✍️ 默写 39句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="450个商务词汇" data-search="450个商务词汇 450个商务词汇.pdf">
+  <a class="t" href="pages/p149.html"><span class="emo">📚</span><span>450个商务词汇</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">8,817 字符</span><a class="dict-link" href="pages/dict_p149.html" title="看翻译默写英文">✍️ 默写 256句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="450个商务词汇白" data-search="450个商务词汇白 450个商务词汇白.pdf">
+  <a class="t" href="pages/p150.html"><span class="emo">📚</span><span>450个商务词汇白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">8,817 字符</span><a class="dict-link" href="pages/dict_p150.html" title="看翻译默写英文">✍️ 默写 256句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="500个外贸人必须掌握的词汇" data-search="500个外贸人必须掌握的词汇 8.7 500个外贸人必须掌握的词汇  8.7.docx">
+  <a class="t" href="pages/p151.html"><span class="emo">🚢</span><span>500个外贸人必须掌握的词汇 8.7</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">11,353 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="500个外贸必备的贸易术语2" data-search="500个外贸必备的贸易术语2 7.29 500个外贸必备的贸易术语2    7.29.docx">
+  <a class="t" href="pages/p152.html"><span class="emo">🚢</span><span>500个外贸必备的贸易术语2 7.29</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">13,409 字符</span><a class="dict-link" href="pages/dict_p152.html" title="看翻译默写英文">✍️ 默写 29句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="600句无障碍全英交流" data-search="600句无障碍全英交流 8.7 600句无障碍全英交流   8.7.docx">
+  <a class="t" href="pages/p153.html"><span class="emo">💬</span><span>600句无障碍全英交流 8.7</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">27,017 字符</span><a class="dict-link" href="pages/dict_p153.html" title="看翻译默写英文">✍️ 默写 679句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="7天背完3500词英语40篇短文轻松搞定3500词" data-search="7天背完3500词英语40篇短文轻松搞定3500词 7天背完3500词英语40篇短文轻松搞定3500词.pdf">
+  <a class="t" href="pages/p154.html"><span class="emo">📚</span><span>7天背完3500词英语40篇短文轻松搞定3500词</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">51,531 字符</span><a class="dict-link" href="pages/dict_p154.html" title="看翻译默写英文">✍️ 默写 51句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="82830天日常英语口语500" data-search="8.2830天日常英语口语500 8.2830天日常英语口语500.docx">
+  <a class="t" href="pages/p155.html"><span class="emo">💬</span><span>8.2830天日常英语口语500</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">39,354 字符</span><a class="dict-link" href="pages/dict_p155.html" title="看翻译默写英文">✍️ 默写 497句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="900句英语1" data-search="900句英语1 900句英语1.pdf">
+  <a class="t" href="pages/p156.html"><span class="emo">💬</span><span>900句英语1</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">35,146 字符</span><a class="dict-link" href="pages/dict_p156.html" title="看翻译默写英文">✍️ 默写 275句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="9天背完450个商务词" data-search="9天背完450个商务词 9天背完450个商务词.docx">
+  <a class="t" href="pages/p157.html"><span class="emo">📝</span><span>9天背完450个商务词</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">7,548 字符</span><a class="dict-link" href="pages/dict_p157.html" title="看翻译默写英文">✍️ 默写 265句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="BUSINESSVOCABULARYINUSE词汇工具书pdf" data-search="business vocabulary in use词汇工具书.pdf business vocabulary in use词汇工具书.pdf.pdf">
+  <a class="t" href="pages/p158.html"><span class="emo">📚</span><span>BUSINESS VOCABULARY IN USE词汇工具书.pdf</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">396,630 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="Business_Vocabulary_in_Use_Advanced_3rd-Ed" data-search="business_vocabulary_in_use_advanced_3rd-ed business_vocabulary_in_use_advanced_3rd-ed(1).pdf">
+  <a class="t" href="pages/p159.html"><span class="emo">📕</span><span>Business_Vocabulary_in_Use_Advanced_3rd-Ed</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">394,747 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="EMALL商务邮件500句" data-search="emall商务邮件500句 emall商务邮件500句.docx">
+  <a class="t" href="pages/p160.html"><span class="emo">✉️</span><span>EMALL商务邮件500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">44,763 字符</span><a class="dict-link" href="pages/dict_p160.html" title="看翻译默写英文">✍️ 默写 498句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="English_Grammar_in_Use_Intermediate_5th-Ed(2019)" data-search="english_grammar_in_use_intermediate_5th-ed (2019) english_grammar_in_use_intermediate_5th-ed (2019)(1).pdf">
+  <a class="t" href="pages/p161.html"><span class="emo">📝</span><span>English_Grammar_in_Use_Intermediate_5th-Ed (2019)</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">738,723 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="HowToSayIt" data-search="how to say it how to say it(1).pdf">
+  <a class="t" href="pages/p162.html"><span class="emo">📕</span><span>How To Say It</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">828,899 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="SimplySaid口语工具书" data-search="simply said口语工具书 simply said口语工具书.pdf">
+  <a class="t" href="pages/p163.html"><span class="emo">📕</span><span>Simply Said口语工具书</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">0 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="Thefineartofsmalltalk" data-search="the fine art of small talk the fine art of small talk(1).pdf">
+  <a class="t" href="pages/p164.html"><span class="emo">☕</span><span>The fine art of small talk</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">163,043 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="一个半月" data-search="一个半月 一个半月.docx">
+  <a class="t" href="pages/p165.html"><span class="emo">📝</span><span>一个半月</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">81,351 字符</span><a class="dict-link" href="pages/dict_p165.html" title="看翻译默写英文">✍️ 默写 436句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="一个半月可以全英交流" data-search="一个半月可以全英交流 一个半月可以全英交流.pdf">
+  <a class="t" href="pages/p166.html"><span class="emo">💬</span><span>一个半月可以全英交流</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">104,578 字符</span><a class="dict-link" href="pages/dict_p166.html" title="看翻译默写英文">✍️ 默写 839句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="会议500（职场1400）" data-search="会议500（原职场1400） 会议500（原职场1400）.docx">
+  <a class="t" href="pages/p167.html"><span class="emo">🗣️</span><span>会议500（原职场1400）</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">38,607 字符</span><a class="dict-link" href="pages/dict_p167.html" title="看翻译默写英文">✍️ 默写 499句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流1100句英语点餐旅游" data-search="全英交流1100句英语点餐旅游 全英交流1100句英语点餐旅游.pdf">
+  <a class="t" href="pages/p168.html"><span class="emo">✈️</span><span>全英交流1100句英语点餐旅游</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">57,505 字符</span><a class="dict-link" href="pages/dict_p168.html" title="看翻译默写英文">✍️ 默写 729句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流1200(蓝2栏字)" data-search="全英交流1200(1)(蓝2栏字) 全英交流1200(1)(蓝2栏字)(1).docx">
+  <a class="t" href="pages/p169.html"><span class="emo">💬</span><span>全英交流1200(1)(蓝2栏字)</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,775 字符</span><a class="dict-link" href="pages/dict_p169.html" title="看翻译默写英文">✍️ 默写 962句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流399" data-search="全英交流399 全英交流399.docx">
+  <a class="t" href="pages/p170.html"><span class="emo">💬</span><span>全英交流399</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">12,079 字符</span><a class="dict-link" href="pages/dict_p170.html" title="看翻译默写英文">✍️ 默写 398句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流399句" data-search="全英交流399句 全英交流399句.pdf">
+  <a class="t" href="pages/p171.html"><span class="emo">💬</span><span>全英交流399句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">12,743 字符</span><a class="dict-link" href="pages/dict_p171.html" title="看翻译默写英文">✍️ 默写 73句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流500句咖啡色" data-search="全英交流500句咖啡色 全英交流500句咖啡色.pdf">
+  <a class="t" href="pages/p172.html"><span class="emo">☕</span><span>全英交流500句咖啡色</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">18,005 字符</span><a class="dict-link" href="pages/dict_p172.html" title="看翻译默写英文">✍️ 默写 272句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流599句" data-search="全英交流599句 全英交流599句.pdf">
+  <a class="t" href="pages/p173.html"><span class="emo">💬</span><span>全英交流599句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">12,743 字符</span><a class="dict-link" href="pages/dict_p173.html" title="看翻译默写英文">✍️ 默写 73句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流600句旅游英语" data-search="全英交流600句旅游英语 全英交流600句旅游英语.pdf">
+  <a class="t" href="pages/p174.html"><span class="emo">✈️</span><span>全英交流600句旅游英语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">30,346 字符</span><a class="dict-link" href="pages/dict_p174.html" title="看翻译默写英文">✍️ 默写 396句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流700句" data-search="全英交流700句 全英交流700句.pdf">
+  <a class="t" href="pages/p175.html"><span class="emo">💬</span><span>全英交流700句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">25,992 字符</span><a class="dict-link" href="pages/dict_p175.html" title="看翻译默写英文">✍️ 默写 683句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流850句生活用语" data-search="全英交流850句生活用语 全英交流850句生活用语.pdf">
+  <a class="t" href="pages/p176.html"><span class="emo">💬</span><span>全英交流850句生活用语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">24,718 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流900" data-search="全英交流900 8.12 全英交流900   8.12.docx">
+  <a class="t" href="pages/p177.html"><span class="emo">💬</span><span>全英交流900 8.12</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">27,106 字符</span><a class="dict-link" href="pages/dict_p177.html" title="看翻译默写英文">✍️ 默写 872句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英交流无非就这700句" data-search="全英交流无非就这700句 8.6 全英交流无非就这700句   8.6.docx">
+  <a class="t" href="pages/p178.html"><span class="emo">💬</span><span>全英交流无非就这700句 8.6</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">30,518 字符</span><a class="dict-link" href="pages/dict_p178.html" title="看翻译默写英文">✍️ 默写 687句</a><span class="vtoggle" onclick="toggleVars(this)">▼ 另有 1 个版本</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  <div class="variants"><a href="pages/p179.html">其他版本（24,821 字符）</a></div>
+</div><div class="item" data-key="全英会议318白3" data-search="全英会议318白3 全英会议318白3(2).docx">
+  <a class="t" href="pages/p180.html"><span class="emo">🗣️</span><span>全英会议318白3</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,032 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议399" data-search="全英会议399 全英会议399.pdf">
+  <a class="t" href="pages/p181.html"><span class="emo">🗣️</span><span>全英会议399</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">23,154 字符</span><a class="dict-link" href="pages/dict_p181.html" title="看翻译默写英文">✍️ 默写 101句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议700句" data-search="全英会议700句 全英会议700句.pdf">
+  <a class="t" href="pages/p182.html"><span class="emo">🗣️</span><span>全英会议700句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">46,042 字符</span><a class="dict-link" href="pages/dict_p182.html" title="看翻译默写英文">✍️ 默写 301句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议常用话术" data-search="全英会议常用话术 全英会议常用话术.docx">
+  <a class="t" href="pages/p183.html"><span class="emo">🗣️</span><span>全英会议常用话术</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">1,594 字符</span><a class="dict-link" href="pages/dict_p183.html" title="看翻译默写英文">✍️ 默写 13句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议常用话术200句白" data-search="全英会议常用话术200句白 全英会议常用话术200句白.pdf">
+  <a class="t" href="pages/p184.html"><span class="emo">🗣️</span><span>全英会议常用话术200句白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">23,621 字符</span><a class="dict-link" href="pages/dict_p184.html" title="看翻译默写英文">✍️ 默写 137句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议常用话术爆款黄底" data-search="全英会议常用话术爆款黄底 全英会议常用话术爆款黄底.pdf">
+  <a class="t" href="pages/p185.html"><span class="emo">🗣️</span><span>全英会议常用话术爆款黄底</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">25,621 字符</span><a class="dict-link" href="pages/dict_p185.html" title="看翻译默写英文">✍️ 默写 145句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英会议（优化版）" data-search="全英会议（优化版） 全英会议（优化版）.pdf">
+  <a class="t" href="pages/p186.html"><span class="emo">🗣️</span><span>全英会议（优化版）</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">23,154 字符</span><a class="dict-link" href="pages/dict_p186.html" title="看翻译默写英文">✍️ 默写 101句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="全英线上会议500句白" data-search="全英线上会议500句白 全英线上会议500句白.pdf">
+  <a class="t" href="pages/p187.html"><span class="emo">🗣️</span><span>全英线上会议500句白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">23,486 字符</span><a class="dict-link" href="pages/dict_p187.html" title="看翻译默写英文">✍️ 默写 206句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="出国必备核心口语500句" data-search="出国必备核心口语500句 出国必备核心口语500句.docx">
+  <a class="t" href="pages/p188.html"><span class="emo">💬</span><span>出国必备核心口语500句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">81,550 字符</span><a class="dict-link" href="pages/dict_p188.html" title="看翻译默写英文">✍️ 默写 436句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="口语差的外贸人真的离不开这600句" data-search="口语差的外贸人 真的离不开这600句 8.4 口语差的外贸人 真的离不开这600句    8.4.docx">
+  <a class="t" href="pages/p189.html"><span class="emo">🚢</span><span>口语差的外贸人 真的离不开这600句 8.4</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">74,677 字符</span><a class="dict-link" href="pages/dict_p189.html" title="看翻译默写英文">✍️ 默写 594句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="和老外交流常用1000句" data-search="和老外交流常用1000句 和老外交流常用1000句.doc">
+  <a class="t" href="pages/p190.html"><span class="emo">💬</span><span>和老外交流常用1000句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">19,984 字符</span><a class="dict-link" href="pages/dict_p190.html" title="看翻译默写英文">✍️ 默写 155句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="和老外交流常用1500句" data-search="和老外交流常用1500句 (2) 8.1 和老外交流常用1500句 (2)     8.1.docx">
+  <a class="t" href="pages/p191.html"><span class="emo">💬</span><span>和老外交流常用1500句 (2) 8.1</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">60,398 字符</span><a class="dict-link" href="pages/dict_p191.html" title="看翻译默写英文">✍️ 默写 1314句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="和老外交流常用口语1200句" data-search="和老外交流常用口语1200句 8.7 和老外交流常用口语1200句     8.7.docx">
+  <a class="t" href="pages/p192.html"><span class="emo">💬</span><span>和老外交流常用口语1200句 8.7</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">34,592 字符</span><a class="dict-link" href="pages/dict_p192.html" title="看翻译默写英文">✍️ 默写 1169句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="哑巴英语交流常用语白" data-search="哑巴英语交流常用语白 哑巴英语交流常用语白.pdf">
+  <a class="t" href="pages/p193.html"><span class="emo">💬</span><span>哑巴英语交流常用语白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">7,776 字符</span><a class="dict-link" href="pages/dict_p193.html" title="看翻译默写英文">✍️ 默写 170句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="商务英语100句" data-search="商务英语100句 商务英语100句.docx">
+  <a class="t" href="pages/p194.html"><span class="emo">💬</span><span>商务英语100句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">11,546 字符</span><a class="dict-link" href="pages/dict_p194.html" title="看翻译默写英文">✍️ 默写 97句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="商务英语700句会议" data-search="商务英语700句会议 商务英语700句会议.docx">
+  <a class="t" href="pages/p195.html"><span class="emo">🗣️</span><span>商务英语700句会议</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">46,102 字符</span><a class="dict-link" href="pages/dict_p195.html" title="看翻译默写英文">✍️ 默写 75句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="商务英语口语对话" data-search="商务英语口语对话 8.6 商务英语口语对话    8.6.docx">
+  <a class="t" href="pages/p196.html"><span class="emo">💬</span><span>商务英语口语对话 8.6</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">36,319 字符</span><a class="dict-link" href="pages/dict_p196.html" title="看翻译默写英文">✍️ 默写 381句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="商务英语工作邮件299句" data-search="商务英语工作邮件299句 商务英语工作邮件299句(2).docx">
+  <a class="t" href="pages/p197.html"><span class="emo">✉️</span><span>商务英语工作邮件299句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">31,991 字符</span><a class="dict-link" href="pages/dict_p197.html" title="看翻译默写英文">✍️ 默写 39句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="国际HSE主管面试50问（中英文对照）" data-search="国际hse主管面试50问（中英文对照） 国际hse主管面试50问（中英文对照）.pdf">
+  <a class="t" href="pages/p198.html"><span class="emo">🎯</span><span>国际HSE主管面试50问（中英文对照）</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">8,405 字符</span><a class="dict-link" href="pages/dict_p198.html" title="看翻译默写英文">✍️ 默写 36句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企600句商务英语" data-search="外企600句商务英语 外企600句商务英语.docx">
+  <a class="t" href="pages/p199.html"><span class="emo">💬</span><span>外企600句商务英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">159,159 字符</span><a class="dict-link" href="pages/dict_p199.html" title="看翻译默写英文">✍️ 默写 587句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企上班常用600句商务英语" data-search="外企上班常用600句商务英语 外企上班常用600句商务英语.docx">
+  <a class="t" href="pages/p200.html"><span class="emo">💬</span><span>外企上班常用600句商务英语</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">48,051 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企会议最常用的500句表达1" data-search="外企会议最常用的500句表达1 8.4 外企会议最常用的500句表达1   8.4.docx">
+  <a class="t" href="pages/p201.html"><span class="emo">🗣️</span><span>外企会议最常用的500句表达1 8.4</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">24,369 字符</span><a class="dict-link" href="pages/dict_p201.html" title="看翻译默写英文">✍️ 默写 494句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企商务英语谈判必备750句" data-search="外企商务英语谈判必备750句 外企商务英语谈判必备750句  原.docx">
+  <a class="t" href="pages/p202.html"><span class="emo">🤝</span><span>外企商务英语谈判必备750句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">119,451 字符</span><a class="dict-link" href="pages/dict_p202.html" title="看翻译默写英文">✍️ 默写 756句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企沟通口语500句4" data-search="外企沟通口语500句4 8.2 外企沟通口语500句4     8.2.docx">
+  <a class="t" href="pages/p203.html"><span class="emo">💬</span><span>外企沟通口语500句4 8.2</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">37,660 字符</span><a class="dict-link" href="pages/dict_p203.html" title="看翻译默写英文">✍️ 默写 493句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企沟通必备499句" data-search="外企沟通必备499句 8.8 外企沟通必备499句  8.8.docx">
+  <a class="t" href="pages/p204.html"><span class="emo">💬</span><span>外企沟通必备499句 8.8</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">23,269 字符</span><a class="dict-link" href="pages/dict_p204.html" title="看翻译默写英文">✍️ 默写 499句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企沟通必备540个高频词汇" data-search="外企沟通必备540个高频词汇 外企沟通必备540个高频词汇.pdf">
+  <a class="t" href="pages/p205.html"><span class="emo">📚</span><span>外企沟通必备540个高频词汇</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">50,265 字符</span><a class="dict-link" href="pages/dict_p205.html" title="看翻译默写英文">✍️ 默写 459句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企老外同事常说的1000句地道表达" data-search="外企老外同事常说的1000句地道表达 8.12 外企老外同事常说的1000句地道表达    8.12.docx">
+  <a class="t" href="pages/p206.html"><span class="emo">💬</span><span>外企老外同事常说的1000句地道表达 8.12</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">45,310 字符</span><a class="dict-link" href="pages/dict_p206.html" title="看翻译默写英文">✍️ 默写 994句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企职场必备1200句1" data-search="外企职场必备1200句1 8.4 外企职场必备1200句1    8.4.docx">
+  <a class="t" href="pages/p207.html"><span class="emo">💬</span><span>外企职场必备1200句1 8.4</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">95,647 字符</span><a class="dict-link" href="pages/dict_p207.html" title="看翻译默写英文">✍️ 默写 1212句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企职场英语交流900句" data-search="外企职场英语交流900句 外企职场英语交流900句  原.docx">
+  <a class="t" href="pages/p208.html"><span class="emo">💬</span><span>外企职场英语交流900句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">105,733 字符</span><a class="dict-link" href="pages/dict_p208.html" title="看翻译默写英文">✍️ 默写 889句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企职场英语必备300句" data-search="外企职场英语必备300句 8.2 外企职场英语必备300句     8.2.docx">
+  <a class="t" href="pages/p209.html"><span class="emo">💬</span><span>外企职场英语必备300句 8.2</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">24,170 字符</span><a class="dict-link" href="pages/dict_p209.html" title="看翻译默写英文">✍️ 默写 298句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企职场黑话地道表达3" data-search="外企职场黑话地道表达3 7.29 外企职场黑话地道表达3             7.29.docx">
+  <a class="t" href="pages/p210.html"><span class="emo">🔑</span><span>外企职场黑话地道表达3 7.29</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">18,563 字符</span><a class="dict-link" href="pages/dict_p210.html" title="看翻译默写英文">✍️ 默写 171句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企英文邮件500句86" data-search="外企英文邮件500句 8 .6 外企英文邮件500句   8 .6.docx">
+  <a class="t" href="pages/p211.html"><span class="emo">✉️</span><span>外企英文邮件500句 8 .6</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">30,140 字符</span><a class="dict-link" href="pages/dict_p211.html" title="看翻译默写英文">✍️ 默写 486句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企英语600句商务英语蓝字" data-search="外企英语600句商务英语蓝字 外企英语600句商务英语蓝字.docx">
+  <a class="t" href="pages/p212.html"><span class="emo">💬</span><span>外企英语600句商务英语蓝字</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">10,420 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企面试常见问题50问（附思考过程+中英回答）-1" data-search="外企面试常见问题50问（附思考过程 + 中英回答）-1 外企面试常见问题50问（附思考过程 + 中英回答）-1.pdf">
+  <a class="t" href="pages/p213.html"><span class="emo">🎯</span><span>外企面试常见问题50问（附思考过程 + 中英回答）-1</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">34,948 字符</span><a class="dict-link" href="pages/dict_p213.html" title="看翻译默写英文">✍️ 默写 47句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企面试掌握这些就不再怕" data-search="外企面试掌握这些就不再怕 外企面试掌握这些就不再怕.pdf">
+  <a class="t" href="pages/p214.html"><span class="emo">🎯</span><span>外企面试掌握这些就不再怕</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">99,980 字符</span><a class="dict-link" href="pages/dict_p214.html" title="看翻译默写英文">✍️ 默写 149句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企面试掌握这些就不怕_8" data-search="外企面试掌握这些就不怕_8 外企面试掌握这些就不怕_8.docx">
+  <a class="t" href="pages/p215.html"><span class="emo">🎯</span><span>外企面试掌握这些就不怕_8</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">98,602 字符</span><a class="dict-link" href="pages/dict_p215.html" title="看翻译默写英文">✍️ 默写 106句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企项目全英沟通2" data-search="外企项目全英沟通2 外企项目全英沟通2.docx">
+  <a class="t" href="pages/p216.html"><span class="emo">📝</span><span>外企项目全英沟通2</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">4,412 字符</span><a class="dict-link" href="pages/dict_p216.html" title="看翻译默写英文">✍️ 默写 19句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企高频英文缩写" data-search="外企高频英文缩写 外企高频英文缩写  原.docx">
+  <a class="t" href="pages/p217.html"><span class="emo">🔑</span><span>外企高频英文缩写</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">39,826 字符</span><a class="dict-link" href="pages/dict_p217.html" title="看翻译默写英文">✍️ 默写 5句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外企，不礼貌表达" data-search="外企，不礼貌表达 外企，不礼貌表达.docx">
+  <a class="t" href="pages/p218.html"><span class="emo">💬</span><span>外企，不礼貌表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">7,291 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸业务面试，背完这10道题就够用了" data-search="外贸业务面试，背完这10道题就够用了 外贸业务面试，背完这10道题就够用了.pdf">
+  <a class="t" href="pages/p219.html"><span class="emo">🎯</span><span>外贸业务面试，背完这10道题就够用了</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">6,416 字符</span><a class="dict-link" href="pages/dict_p219.html" title="看翻译默写英文">✍️ 默写 13句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸人必备300句口头禅" data-search="外贸人必备300句口头禅 7.31 外贸人必备300句口头禅         7.31.docx">
+  <a class="t" href="pages/p220.html"><span class="emo">🚢</span><span>外贸人必备300句口头禅 7.31</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">13,141 字符</span><a class="dict-link" href="pages/dict_p220.html" title="看翻译默写英文">✍️ 默写 284句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸全流程电话跟进1" data-search="外贸全流程电话跟进1 7.30 外贸全流程电话跟进1             7.30.docx">
+  <a class="t" href="pages/p221.html"><span class="emo">📞</span><span>外贸全流程电话跟进1 7.30</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">29,731 字符</span><a class="dict-link" href="pages/dict_p221.html" title="看翻译默写英文">✍️ 默写 240句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸全英交流399句蓝" data-search="外贸全英交流399句蓝 外贸全英交流399句蓝.docx">
+  <a class="t" href="pages/p222.html"><span class="emo">🚢</span><span>外贸全英交流399句蓝</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">41,654 字符</span><a class="dict-link" href="pages/dict_p222.html" title="看翻译默写英文">✍️ 默写 303句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸全英交流400" data-search="外贸全英交流400 8.5 外贸全英交流400  8.5.docx">
+  <a class="t" href="pages/p223.html"><span class="emo">🚢</span><span>外贸全英交流400 8.5</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">21,534 字符</span><a class="dict-link" href="pages/dict_p223.html" title="看翻译默写英文">✍️ 默写 394句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸卫浴销冠常用口语表达50句" data-search="外贸卫浴销冠常用口语表达50句 外贸卫浴销冠常用口语表达50句.pdf">
+  <a class="t" href="pages/p224.html"><span class="emo">🚢</span><span>外贸卫浴销冠常用口语表达50句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">4,071 字符</span><a class="dict-link" href="pages/dict_p224.html" title="看翻译默写英文">✍️ 默写 49句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸口语355" data-search="外贸口语355 外贸口语355.docx">
+  <a class="t" href="pages/p225.html"><span class="emo">🚢</span><span>外贸口语355</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">69,146 字符</span><a class="dict-link" href="pages/dict_p225.html" title="看翻译默写英文">✍️ 默写 347句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸口语背熟它白底蓝字" data-search="外贸口语背熟它白底蓝字 外贸口语背熟它白底蓝字.pdf">
+  <a class="t" href="pages/p226.html"><span class="emo">🚢</span><span>外贸口语背熟它白底蓝字</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">42,174 字符</span><a class="dict-link" href="pages/dict_p226.html" title="看翻译默写英文">✍️ 默写 151句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸商务英语口语1000句" data-search="外贸商务英语口语1000句(1) 8.2 外贸商务英语口语1000句(1)      8.2.docx">
+  <a class="t" href="pages/p227.html"><span class="emo">🚢</span><span>外贸商务英语口语1000句(1) 8.2</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">100,997 字符</span><a class="dict-link" href="pages/dict_p227.html" title="看翻译默写英文">✍️ 默写 755句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸商务邮件必备句型" data-search="外贸商务邮件必备句型 外贸商务邮件必备句型.pdf">
+  <a class="t" href="pages/p228.html"><span class="emo">✉️</span><span>外贸商务邮件必备句型</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">8,758 字符</span><a class="dict-link" href="pages/dict_p228.html" title="看翻译默写英文">✍️ 默写 58句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸常用英语600句" data-search="外贸常用英语600句 8.6 外贸常用英语600句  8.6.docx">
+  <a class="t" href="pages/p229.html"><span class="emo">🚢</span><span>外贸常用英语600句 8.6</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">53,676 字符</span><a class="dict-link" href="pages/dict_p229.html" title="看翻译默写英文">✍️ 默写 530句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸必备100个英文行话（含盖不同场景）" data-search="外贸必备100个英文行话（含盖不同场景） 外贸必备100个英文行话（含盖不同场景）.pdf">
+  <a class="t" href="pages/p230.html"><span class="emo">🚢</span><span>外贸必备100个英文行话（含盖不同场景）</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">10,263 字符</span><a class="dict-link" href="pages/dict_p230.html" title="看翻译默写英文">✍️ 默写 95句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸词汇500" data-search="外贸词汇500 外贸词汇500.pdf">
+  <a class="t" href="pages/p231.html"><span class="emo">🚢</span><span>外贸词汇500</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">7,923 字符</span><a class="dict-link" href="pages/dict_p231.html" title="看翻译默写英文">✍️ 默写 21句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸邮件" data-search="外贸邮件 外贸邮件.pdf">
+  <a class="t" href="pages/p232.html"><span class="emo">✉️</span><span>外贸邮件</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">2,384 字符</span></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸销冠最常用的500句跟单话术" data-search="外贸销冠最常用的500句跟单话术 8.11 外贸销冠最常用的500句跟单话术  8.11.docx">
+  <a class="t" href="pages/p233.html"><span class="emo">🚢</span><span>外贸销冠最常用的500句跟单话术 8.11</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">18,631 字符</span><a class="dict-link" href="pages/dict_p233.html" title="看翻译默写英文">✍️ 默写 486句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="外贸销冠蓝字白底" data-search="外贸销冠蓝字白底 外贸销冠蓝字白底(1).docx">
+  <a class="t" href="pages/p234.html"><span class="emo">🚢</span><span>外贸销冠蓝字白底</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">5,674 字符</span><a class="dict-link" href="pages/dict_p234.html" title="看翻译默写英文">✍️ 默写 29句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="宝妈亲子场景全英互动口语600" data-search="宝妈亲子场景全英互动口语600 宝妈亲子场景全英互动口语600.docx">
+  <a class="t" href="pages/p235.html"><span class="emo">🥂</span><span>宝妈亲子场景全英互动口语600</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">22,708 字符</span><a class="dict-link" href="pages/dict_p235.html" title="看翻译默写英文">✍️ 默写 611句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="工程类面试50问（中英文对照）" data-search="工程类面试50问（中英文对照） 工程类面试50问（中英文对照）.pdf">
+  <a class="t" href="pages/p236.html"><span class="emo">🎯</span><span>工程类面试50问（中英文对照）</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">7,804 字符</span><a class="dict-link" href="pages/dict_p236.html" title="看翻译默写英文">✍️ 默写 48句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="接待国外客户接待客人闲谈必备300句(白底蓝字)" data-search="接待国外客户接待客人闲谈必备300句(白底蓝字) 接待国外客户接待客人闲谈必备300句(白底蓝字).docx">
+  <a class="t" href="pages/p237.html"><span class="emo">🛎️</span><span>接待国外客户接待客人闲谈必备300句(白底蓝字)</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">32,820 字符</span><a class="dict-link" href="pages/dict_p237.html" title="看翻译默写英文">✍️ 默写 67句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="旅游英语779句" data-search="旅游英语779句 旅游英语779句.docx">
+  <a class="t" href="pages/p238.html"><span class="emo">✈️</span><span>旅游英语779句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">33,801 字符</span><a class="dict-link" href="pages/dict_p238.html" title="看翻译默写英文">✍️ 默写 765句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="日常英语口语练习500句(完整版)" data-search="日常英语口语练习500句(完整版) 日常英语口语练习500句(完整版).pdf">
+  <a class="t" href="pages/p239.html"><span class="emo">💬</span><span>日常英语口语练习500句(完整版)</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">15,194 字符</span><a class="dict-link" href="pages/dict_p239.html" title="看翻译默写英文">✍️ 默写 308句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="机场值机这300句足够了" data-search="机场值机这300句足够了 机场值机这300句足够了.docx">
+  <a class="t" href="pages/p240.html"><span class="emo">🛫</span><span>机场值机这300句足够了</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">13,073 字符</span><a class="dict-link" href="pages/dict_p240.html" title="看翻译默写英文">✍️ 默写 267句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="每天狂练这699句外企职场英语1" data-search="每天狂练这699句外企职场英语1 8.8 每天狂练这699句外企职场英语1      8.8.docx">
+  <a class="t" href="pages/p241.html"><span class="emo">💬</span><span>每天狂练这699句外企职场英语1 8.8</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,315 字符</span><a class="dict-link" href="pages/dict_p241.html" title="看翻译默写英文">✍️ 默写 673句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="每天狂练这700句职场工作英语" data-search="每天狂练这700句职场工作英语 8.4 每天狂练这700句职场工作英语    8.4.docx">
+  <a class="t" href="pages/p242.html"><span class="emo">💬</span><span>每天狂练这700句职场工作英语 8.4</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">28,643 字符</span><a class="dict-link" href="pages/dict_p242.html" title="看翻译默写英文">✍️ 默写 286句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="沟通项目进度必备英文" data-search="沟通项目进度必备英文 沟通项目进度必备英文.docx">
+  <a class="t" href="pages/p243.html"><span class="emo">📝</span><span>沟通项目进度必备英文</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">2,749 字符</span><a class="dict-link" href="pages/dict_p243.html" title="看翻译默写英文">✍️ 默写 23句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="法务英语" data-search="法务英语 法务英语.pdf">
+  <a class="t" href="pages/p244.html"><span class="emo">⚖️</span><span>法务英语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">26,246 字符</span><a class="dict-link" href="pages/dict_p244.html" title="看翻译默写英文">✍️ 默写 84句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="火速码住职场英语200个词汇1" data-search="火速码住职场英语200个词汇1(1) 7.30 火速码住职场英语200个词汇1(1)     7.30.docx">
+  <a class="t" href="pages/p245.html"><span class="emo">📚</span><span>火速码住职场英语200个词汇1(1) 7.30</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">20,764 字符</span><a class="dict-link" href="pages/dict_p245.html" title="看翻译默写英文">✍️ 默写 234句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场幽默笑话办公室篇（网络精选中英对照）" data-search="职场幽默笑话·办公室篇（网络精选 中英对照） 职场幽默笑话·办公室篇（网络精选 中英对照）.docx">
+  <a class="t" href="pages/p246.html"><span class="emo">😄</span><span>职场幽默笑话·办公室篇（网络精选 中英对照）</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">2,807 字符</span><a class="dict-link" href="pages/dict_p246.html" title="看翻译默写英文">✍️ 默写 32句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场幽默笑话打工人篇（网络精选中英对照）" data-search="职场幽默笑话·打工人篇（网络精选 中英对照） 职场幽默笑话·打工人篇（网络精选 中英对照）.docx">
+  <a class="t" href="pages/p247.html"><span class="emo">😄</span><span>职场幽默笑话·打工人篇（网络精选 中英对照）</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">4,220 字符</span><a class="dict-link" href="pages/dict_p247.html" title="看翻译默写英文">✍️ 默写 36句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场新人必看自我介绍800句" data-search="职场新人必看自我介绍800句 职场新人必看自我介绍800句  原.docx">
+  <a class="t" href="pages/p248.html"><span class="emo">🙋</span><span>职场新人必看自我介绍800句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">216,875 字符</span><a class="dict-link" href="pages/dict_p248.html" title="看翻译默写英文">✍️ 默写 793句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语600句" data-search="职场英语600句 职场英语600句.docx">
+  <a class="t" href="pages/p249.html"><span class="emo">💬</span><span>职场英语600句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">79,598 字符</span><a class="dict-link" href="pages/dict_p249.html" title="看翻译默写英文">✍️ 默写 719句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语700句" data-search="职场英语700句 职场英语700句.pdf">
+  <a class="t" href="pages/p250.html"><span class="emo">💬</span><span>职场英语700句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">46,036 字符</span><a class="dict-link" href="pages/dict_p250.html" title="看翻译默写英文">✍️ 默写 238句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语7天300句" data-search="职场英语7天300句 职场英语7天300句.pdf">
+  <a class="t" href="pages/p251.html"><span class="emo">💬</span><span>职场英语7天300句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">33,838 字符</span><a class="dict-link" href="pages/dict_p251.html" title="看翻译默写英文">✍️ 默写 497句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语7天冲刺700句" data-search="职场英语7天冲刺 700句 职场英语7天冲刺  700句.docx">
+  <a class="t" href="pages/p252.html"><span class="emo">💬</span><span>职场英语7天冲刺 700句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">121,266 字符</span><a class="dict-link" href="pages/dict_p252.html" title="看翻译默写英文">✍️ 默写 666句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语交流1200" data-search="职场英语交流1200 职场英语交流1200  原.docx">
+  <a class="t" href="pages/p253.html"><span class="emo">💬</span><span>职场英语交流1200</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">92,373 字符</span><a class="dict-link" href="pages/dict_p253.html" title="看翻译默写英文">✍️ 默写 1194句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语无非就这550句,稳了" data-search="职场英语无非就这550句,稳了 职场英语无非就这550句,稳了.pdf">
+  <a class="t" href="pages/p254.html"><span class="emo">💬</span><span>职场英语无非就这550句,稳了</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">33,149 字符</span><a class="dict-link" href="pages/dict_p254.html" title="看翻译默写英文">✍️ 默写 7句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场英语沟通1400句表达" data-search="职场英语沟通1400句表达 职场英语沟通1400句表达.docx">
+  <a class="t" href="pages/p255.html"><span class="emo">💬</span><span>职场英语沟通1400句表达</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">380,085 字符</span><a class="dict-link" href="pages/dict_p255.html" title="看翻译默写英文">✍️ 默写 1076句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场高频专业词汇200个1" data-search="职场高频专业词汇200个1 8.2 职场高频专业词汇200个1      8.2.docx">
+  <a class="t" href="pages/p256.html"><span class="emo">📚</span><span>职场高频专业词汇200个1 8.2</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">24,405 字符</span><a class="dict-link" href="pages/dict_p256.html" title="看翻译默写英文">✍️ 默写 264句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="职场高频专业词汇600个" data-search="职场高频专业词汇600个 8.5 职场高频专业词汇600个     8.5.docx">
+  <a class="t" href="pages/p257.html"><span class="emo">📚</span><span>职场高频专业词汇600个 8.5</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">64,874 字符</span><a class="dict-link" href="pages/dict_p257.html" title="看翻译默写英文">✍️ 默写 608句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这1000句可以全英交流实用英语日常口语1000句" data-search="背完这1000句可以全英交流实用英语日常口语1000句 背完这1000句可以全英交流实用英语日常口语1000句(1).docx">
+  <a class="t" href="pages/p258.html"><span class="emo">💬</span><span>背完这1000句可以全英交流实用英语日常口语1000句</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">15,039 字符</span><a class="dict-link" href="pages/dict_p258.html" title="看翻译默写英文">✍️ 默写 152句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这1000句，你的口语就厉害了" data-search="背完这1000句，你的口语就厉害了 8.7 背完这1000句，你的口语就厉害了   8.7.docx">
+  <a class="t" href="pages/p259.html"><span class="emo">💬</span><span>背完这1000句，你的口语就厉害了 8.7</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">28,696 字符</span><a class="dict-link" href="pages/dict_p259.html" title="看翻译默写英文">✍️ 默写 416句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这450句跟老外交流不慌了" data-search="背完这450句跟老外交流不慌了 背完这450句跟老外交流不慌了.docx">
+  <a class="t" href="pages/p260.html"><span class="emo">💬</span><span>背完这450句跟老外交流不慌了</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">26,053 字符</span><a class="dict-link" href="pages/dict_p260.html" title="看翻译默写英文">✍️ 默写 11句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这500句30天让你流利说英语" data-search="背完这500句30天让你流利说英语 背完这500句30天让你流利说英语.pdf">
+  <a class="t" href="pages/p261.html"><span class="emo">💬</span><span>背完这500句30天让你流利说英语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">26,966 字符</span><a class="dict-link" href="pages/dict_p261.html" title="看翻译默写英文">✍️ 默写 95句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这500句外企会议就稳了" data-search="背完这500句外企会议就稳了 8.5 背完这500句外企会议就稳了      8.5.docx">
+  <a class="t" href="pages/p262.html"><span class="emo">🗣️</span><span>背完这500句外企会议就稳了 8.5</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">29,800 字符</span><a class="dict-link" href="pages/dict_p262.html" title="看翻译默写英文">✍️ 默写 523句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这500组全英交流黄" data-search="背完这500组全英交流黄 背完这500组全英交流黄.pdf">
+  <a class="t" href="pages/p263.html"><span class="emo">💬</span><span>背完这500组全英交流黄</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">81,630 字符</span><a class="dict-link" href="pages/dict_p263.html" title="看翻译默写英文">✍️ 默写 521句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这599句，全英交流无障碍" data-search="背完这599句，全英交流无障碍 8.11 背完这599句，全英交流无障碍 8.11.docx">
+  <a class="t" href="pages/p264.html"><span class="emo">💬</span><span>背完这599句，全英交流无障碍 8.11</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">21,425 字符</span><a class="dict-link" href="pages/dict_p264.html" title="看翻译默写英文">✍️ 默写 597句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这600句全英会议稳了" data-search="背完这600句 全英会议稳了 8.8 背完这600句 全英会议稳了  8.8.docx">
+  <a class="t" href="pages/p265.html"><span class="emo">🗣️</span><span>背完这600句 全英会议稳了 8.8</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">22,614 字符</span><a class="dict-link" href="pages/dict_p265.html" title="看翻译默写英文">✍️ 默写 591句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这700句1个月搞定职场英语" data-search="背完这700句 1个月搞定职场英语 背完这700句 1个月搞定职场英语.pdf">
+  <a class="t" href="pages/p266.html"><span class="emo">💬</span><span>背完这700句 1个月搞定职场英语</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">46,042 字符</span><a class="dict-link" href="pages/dict_p266.html" title="看翻译默写英文">✍️ 默写 301句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这950句和老外无障碍交流" data-search="背完这950句和老外无障碍交流 8.5 背完这950句和老外无障碍交流   8.5.docx">
+  <a class="t" href="pages/p267.html"><span class="emo">💬</span><span>背完这950句和老外无障碍交流 8.5</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">31,467 字符</span><a class="dict-link" href="pages/dict_p267.html" title="看翻译默写英文">✍️ 默写 957句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="背完这些全英交流稳了" data-search="背完这些全英交流稳了 背完这些全英交流稳了.pdf">
+  <a class="t" href="pages/p268.html"><span class="emo">💬</span><span>背完这些全英交流稳了</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">7,736 字符</span><a class="dict-link" href="pages/dict_p268.html" title="看翻译默写英文">✍️ 默写 52句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="英文会议500（918外企职场1400）" data-search="英文会议500（原9.18外企职场1400） 英文会议500（原9.18外企职场1400）.docx">
+  <a class="t" href="pages/p269.html"><span class="emo">🗣️</span><span>英文会议500（原9.18外企职场1400）</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">18,844 字符</span><a class="dict-link" href="pages/dict_p269.html" title="看翻译默写英文">✍️ 默写 280句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="英文邮件365句" data-search="英文邮件365句 英文邮件365句.pdf">
+  <a class="t" href="pages/p270.html"><span class="emo">✉️</span><span>英文邮件365句</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">27,485 字符</span><a class="dict-link" href="pages/dict_p270.html" title="看翻译默写英文">✍️ 默写 223句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="英文面试70+问红" data-search="英文面试70+问红 英文面试70+问红.docx">
+  <a class="t" href="pages/p271.html"><span class="emo">🎯</span><span>英文面试70+问红</span></a>
+  <div class="meta"><span class="badge doc">Word</span><span class="charspill">50,119 字符</span><a class="dict-link" href="pages/dict_p271.html" title="看翻译默写英文">✍️ 默写 198句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="英语零基础语法大全白" data-search="英语零基础语法大全白 英语零基础语法大全白.pdf">
+  <a class="t" href="pages/p272.html"><span class="emo">📝</span><span>英语零基础语法大全白</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">22,547 字符</span><a class="dict-link" href="pages/dict_p272.html" title="看翻译默写英文">✍️ 默写 175句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="财务会计英语专业词汇大全" data-search="财务会计英语专业词汇大全 财务会计英语专业词汇大全(1).pdf">
+  <a class="t" href="pages/p273.html"><span class="emo">📚</span><span>财务会计英语专业词汇大全</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">19,943 字符</span><a class="dict-link" href="pages/dict_p273.html" title="看翻译默写英文">✍️ 默写 31句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div><div class="item" data-key="超实用!职场沟通高频词汇" data-search="超实用!职场沟通高频词汇 超实用!职场沟通高频词汇.pdf">
+  <a class="t" href="pages/p274.html"><span class="emo">📚</span><span>超实用!职场沟通高频词汇</span></a>
+  <div class="meta"><span class="badge pdf">PDF</span><span class="charspill">50,637 字符</span><a class="dict-link" href="pages/dict_p274.html" title="看翻译默写英文">✍️ 默写 420句</a></div>
+  <div class="pctrl">
+    <span class="st" onclick="cycleStatus(this)" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" onclick="toggleArchive(this)" title="归档后从主列表隐藏，可在上方筛选中查看">归档</span>
+  </div>
+  
+</div></div>
+</div>
+<footer>基于本地文件夹生成的静态网页 · 阅读页内“打开原文件”仅在本机有效
+  <div class="io">进度数据保存在本浏览器（localStorage），换浏览器/电脑请导出备份：
+  <a onclick="exportProg()">⬇ 导出进度</a> ·
+  <label>⬆ 导入进度<input type="file" accept=".json" onchange="importProg(this)"></label></div>
+</footer>
+<script>
+var PROG_KEY='cp_progress_v1';
+var STATE=(function(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}})();
+function persist(){try{localStorage.setItem(PROG_KEY,JSON.stringify(STATE))}catch(e){}}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+var curFilter='all';
+function recOf(key){return STATE[key]||{}}
+function cycleStatus(el){
+  var item=el.closest('.item'),key=item.dataset.key,r=recOf(key);
+  r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];
+  STATE[key]=r;persist();applyItem(item);refresh();}
+function toggleArchive(el){
+  var item=el.closest('.item'),key=item.dataset.key,r=recOf(key);
+  r.archived=!r.archived;
+  STATE[key]=r;persist();applyItem(item);refresh();}
+function applyItem(item){
+  var r=recOf(item.dataset.key),st=r.status||'none';
+  var pill=item.querySelector('.st');
+  pill.textContent=STS[st][0];pill.className=STS[st][1];
+  var ab=item.querySelector('.arch-btn');
+  ab.textContent=r.archived?'\uD83D\uDCE5 已归档':'\uD83D\uDCE1 归档';
+  ab.classList.toggle('on',!!r.archived);
+  item.classList.toggle('archived',!!r.archived);}
+function setFilter(el){curFilter=el.dataset.f;
+  document.querySelectorAll('.filter-chip').forEach(function(c){c.classList.toggle('on',c===el)});
+  refresh()}
+function refresh(){
+  var q=document.getElementById('q').value.trim().toLowerCase(),n=0;
+  document.querySelectorAll('.item').forEach(function(it){
+    var r=recOf(it.dataset.key),st=r.status||'none',arch=!!r.archived,ok=true;
+    if(curFilter==='arch'){ok=arch}
+    else{if(arch)ok=false;if(ok&&curFilter!=='all'&&st!==curFilter)ok=false}
+    if(ok&&q)ok=it.getAttribute('data-search').indexOf(q)>-1;
+    it.style.display=ok?'':'none';if(ok)n++;});
+  document.getElementById('count').textContent=n;}
+function doFilter(){refresh()}
+function dictTotal(){var t=0;for(var k in STATE){var d=STATE[k]&&STATE[k].dict;
+  if(d)t+=d.good+d.near+d.wrong}return t}
+function updateChips(){
+  var items=document.querySelectorAll('.item'),c={none:0,learning:0,done:0,arch:0};
+  items.forEach(function(it){var r=recOf(it.dataset.key);c[r.status||'none']++;if(r.archived)c.arch++});
+  document.querySelectorAll('.filter-chip').forEach(function(ch){
+    var f=ch.dataset.f;
+    ch.textContent=ch.getAttribute('data-label')+' '+(f==='all'?items.length:c[f]);});
+  var pct=items.length?Math.round(c.done/items.length*100):0;
+  document.getElementById('pbar').style.width=pct+'%';
+  document.getElementById('psum').innerHTML='已掌握 <b>'+c.done+'</b> · 学习中 <b>'+c.learning+
+    '</b> · 未学 <b>'+c.none+'</b> · 累计默写 <b>'+dictTotal()+'</b> 句 · 掌握率 <b>'+pct+'%</b>';}
+function updReview(){try{
+  var w=JSON.parse(localStorage.getItem('cp_wrong_v1'))||[];
+  var d=w.filter(function(x){return (x.due||0)<=Date.now()}).length;
+  var f=(JSON.parse(localStorage.getItem('cp_fav_v1'))||[]).length;
+  var el=document.getElementById('reviewChip');
+  if(el)el.textContent='\uD83D\uDD01 复习中心 · \u2B50'+f+' \u2718'+w.length+' \u4ECA\u65E5'+d;
+}catch(e){}}
+function initProg(){document.querySelectorAll('.item').forEach(applyItem);updateChips();refresh();updReview()}
+function exportProg(){
+  var blob=new Blob([JSON.stringify(STATE)],{type:'application/json'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='课程大礼包-学习进度.json';document.body.appendChild(a);a.click();a.remove();}
+function importProg(inp){
+  var f=inp.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){try{var s=JSON.parse(rd.result);
+    for(var k in s)STATE[k]=s[k];persist();initProg();
+    alert('进度导入成功')}catch(e){alert('文件格式不正确')}};
+  rd.readAsText(f);inp.value='';}
+function toggleVars(el){var v=el.nextElementSibling;v.classList.toggle('open');
+  el.textContent=(v.classList.contains('open')?'收起版本':'▼ 另有 '+v.children.length+' 个版本');}
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&document.activeElement!==document.getElementById('q')){
+    e.preventDefault();document.getElementById('q').focus();}});
+initProg();
+</script>
+</body>
+</html>

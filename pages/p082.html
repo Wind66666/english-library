@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10.10 外企高频英文缩写</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">🔑</span>10.10 外企高频英文缩写</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">39,826 字符</span>
+    <span>来源：10.10   外企高频英文缩写  原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C10.10%20%20%20%E5%A4%96%E4%BC%81%E9%AB%98%E9%A2%91%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%20%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p082.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">High frequency English abbreviations for foreign companies
+别再只会说FYI
+外企高频英文缩写
+1. 邮件高频缩写：BCC/RSVP/ASAP 正确用法（附错误案例）
+BCC = Blind Carbon Copy（密件抄送），指在发送邮件时，将邮件抄送给指定联系人，但其他收件人无法看到这些密送对象。
+正确例句：I’ll BCC the manager so he’s informed but not visible to others.（我会密件抄送经理，让他知晓但不被其他人看到。）；
+错误案例：将需要让所有收件人知晓的协作同事设为 BCC，导致同事信息被隐藏，无法参与邮件沟通。
+RSVP = Répondez s’il vous plaît（请回复，法语），常用于邀请类邮件中，提醒收件人确认是否参与活动。
+正确例句：Kindly RSVP by this Wednesday to confirm your attendance at the dinner.（烦请于本周三前回复，确认是否出席晚宴。）；
+错误案例：发送会议邀请却未标注 RSVP 及截止时间，导致无法统计参会人数，影响会议筹备。
+ASAP = As Soon As Possible（尽快），用于邮件中要求对方在最短时间内完成某项操作或回复。
+正确例句：Please send the project draft to the client ASAP to avoid delaying the review process.（请尽快将项目草案发给客户，避免耽误审核流程。）；
+错误案例：对所有事项都使用 ASAP，如 “请 ASAP 告知明天是否方便开会”，过度强调紧急性，反而让收件人无法判断任务优先级。
+2. 开会听不懂？“CC/FYI/TBC” 潜台词拆解
+CC = Carbon Copy（抄送），在会议相关邮件中使用时，潜台词是 “让这些人知晓会议情况，但无需直接参与会议讨论或承担主要任务”。
+例句：Please CC the HR team when you send the recruitment meeting email.（发送招聘会议邮件时，请抄送人力资源团队。）
+FYI = For Your Information（供你参考），在会议材料或会议纪要分享中使用，潜台词是 “这些信息仅为你提供参考，不需要你做出回应或行动”。
+例句：Attached is the meeting agenda FYI.（附件是会议议程，供你参考。）
+TBC = To Be Confirmed（待确认），在会议通知中使用时，潜台词是 “当前信息暂未最终确定，后续会更新，请留意后续通知”。
+例句：The meeting time is TBC; I’ll update you once it’s fixed.（会议时间待确认，确定后我会通知你。）
+3. 收藏级：100 + 职场缩写对照表（按场景分类）
+（1）邮件场景
+AFK = Away From Keyboard（离开键盘 / 暂时离线），
+例句：I’ll be AFK for 10 minutes to grab a coffee, so I can’t reply to your email immediately.（我要离开键盘 10 分钟去拿咖啡，所以无法立即回复你的邮件。）
+AFAIK = As Far As I Know（据我所知），
+例句：AFAIK, the email has been sent to all participants.（据我所知，邮件已经发送给所有参与者了。）
+AFAIC = As Far As I&#x27;m Concerned（就我个人而言 / 依我看），
+例句：AFAIC, this email format is more clear and professional.（就我个人而言，这种邮件格式更清晰、专业。）
+AOB = Any Other Business（其他事项），
+例句：If there’s no AOB, we’ll end the email discussion now.（如果没有其他事项，我们现在就结束邮件讨论。）
+AKA = Also Known As（别名 / 也被称为），
+例句：The project, AKA &quot;Starlight&quot;, will be mentioned in the email.（这个项目，别名 “星光”，会在邮件中提及。）
+ATST = At The Same Time（同时），
+例句：We need to send the email ATST without missing any details.（我们需要在发送邮件的同时，不遗漏任何细节。）
+Att. / AU. = Attachment（附件），
+例句：Att. please find the monthly sales report for your review via email.（附件是月度销售报告，请您通过邮件查阅。）
+BR = Best Regards（致以最好的问候），
+例句：Looking forward to your feedback. BR, Lisa（期待您的反馈。此致，莉萨），常用于邮件结尾。
+Rgds = Regards（问候），
+例句：Thanks for your support. Rgds, Mike（感谢您的支持。此致，迈克），也是邮件结尾常用的问候缩写。
+Cl = Commercial Invoice（商业发票），
+例句：The forwarder requires the Cl via email before arranging the shipment.（货代安排运输前需要通过邮件收到商业发票。）
+COB = Close Of Business（下班时 / 工作日结束前），
+例句：Please submit the expense report by COB this Friday via email.（请在本周五下班前通过邮件提交费用报销单。）
+EOD = End Of Day（今天以内 / 当天结束前），
+例句：I need the draft contract by EOD today to review via email.（我需要今天以内通过邮件拿到合同草案进行审核。）
+EOB = End Of Business（下班时 / 工作日结束前），
+例句：The IT team will fix the system issue by EOB tomorrow and inform us via email.（IT 团队会在明天下班前修复系统问题，并通过邮件告知我们。）
+EOM = End Of Message（信息结束，多用于邮件标题），
+例句：Subject: Meeting time adjusted to 2 PM EOM（主题：会议时间调整为下午 2 点【信息结束】）
+EOW = End Of Week（本周结束前），
+例句：Please finish the project summary by EOW and send it via email.（请在本周结束前完成项目总结，并通过邮件发送。）
+ETA = Estimated Time Of Arrival（预计抵达时间），
+例句：The goods are shipped today, with an ETA of next Wednesday, which will be updated via email.（货物今日发出，预计下周三抵达，相关情况会通过邮件更新。）
+FE = For Example（例如），
+例句：We need to optimize small details in the email—FE, the font size of the content.（我们需要优化邮件中的小细节，例如内容的字体大小。）
+FB = Facebook（脸书），
+例句：Our company’s new product will be promoted on FB, and the link will be shared via email.（我们公司的新产品下周将在脸书上推广，链接会通过邮件分享。）
+FW = Forward（转发），
+例句：Please FW this email to the marketing department.（请将此邮件转发给市场部。）
+FYR = For Your Reference（供你参考），
+例句：I’ve sorted the past project data FYR and sent it via email.（我已整理好过往项目数据，供你参考，并通过邮件发送给你了。）
+FYA = For Your Amusement（开玩笑的啦 / 供你消遣），
+例句：The photo of the team’s dinner is FYA in the email—don’t take it too seriously.（团队聚餐的照片在邮件里是开玩笑的啦，别太当真。）
+FMl = For More Information（详细信息），
+例句：Contact the customer service team FMI about the refund policy via email.（关于退款政策，如需详细信息请通过邮件联系客服团队。）
+HAND = Have A Nice Day（一天过得愉快），
+例句：Thanks for your help today. HAND!（感谢你今天的帮助，祝你一天愉快！），可用于邮件结尾。
+HTH = Hope That Helps（希望可以帮到你），
+例句：I’ve listed the steps to solve the problem in the email—HTH.（我已在邮件中列出解决问题的步骤，希望可以帮到你。）
+IAM = In A Meeting（会议中），
+例句：I’m IAM right now; I’ll reply to your email later.（我现在正在开会，稍后给你回复邮件。）
+IMO = In My Opinion（在我看来 / 依我看），
+例句：IMO, we should prioritize customer feedback in the email for product updates.（在我看来，产品更新的邮件中应优先考虑客户反馈。）
+KINDA = A Little Bit（有一点），
+例句：The new email template is kinda complicated for new users.（这款新的邮件模板对新用户来说有一点复杂。）
+KIT = Keep In Touch（保持联系），
+例句：It’s great working with you—let’s KIT via email after you move to the new office.（和你共事很愉快，你搬到新办公室后我们通过邮件保持联系。）
+LET = Leaving Early Today（今天提前走），
+例句：I need to LET to pick up my kid from school, so I’ll reply to your email tomorrow.（我今天需要提前走，去学校接孩子，所以明天给你回复邮件。）
+NB = Nota Bene（特别注意，拉丁语），
+例句：NB: The deadline for the application is this Sunday, which is emphasized in the email.（特别注意：申请截止日期是本周日，这在邮件中已强调。）
+MOQ = Minimum Order Quantity（最小起订量），
+例句：The MOQ for this raw material is 1000 kilograms, which is stated in the email.（这种原材料的最小起订量是 1000 公斤，这在邮件中有说明。）
+OEM = Original Equipment Manufacturer（代工生产 / 原始设备制造商），
+例句：We can provide OEM service—we’ll print your logo on the products, and the specific details are in the email.（我们可以提供代工生产服务，会在产品上印制你的 logo，具体细节在邮件中。）
+N/A = Not Applicable（不适用），
+例句：This discount is N/A for bulk orders over 500 units, which is noted in the email.（此折扣对 500 件以上的批量订单不适用，这在邮件中有标注。）
+NDA = Non-Disclosure Agreement（保密合约），
+例句：All employees must sign an NDA before joining the project, and the document is sent via email.（所有员工加入该项目前必须签署保密合约，文件已通过邮件发送。）
+NRN / NNTR = No Reply Necessary / No Need To Reply（不需回复），
+例句：This is a reminder about tomorrow’s meeting, NRN in the email.（这是明天会议的提醒，邮件中无需回复。）
+FAQ = Frequently Asked Questions（常见问题），
+例句：Please check the FAQ page first if you have questions about the service, and the link is in the email.（如果对服务有疑问，请先查看常见问题页面，链接在邮件中。）
+OOO = Out Of Office（不在办公室），
+例句：I’ll be OOO next week; contact Tom for urgent matters, which is in the auto-reply email.（我下周不在办公室，紧急事宜请联系汤姆，这在自动回复邮件中已说明。）
+OT = Over Time（加班），
+例句：We need to work OT tonight to finish the client’s report, and I’ll inform you via email.（我们今晚需要加班完成客户的报告，我会通过邮件告知你。）
+OTOH = On The Other Hand（另外 / 另一方面），
+例句：This plan is cost-effective in the email; OTOH, it may take more time.（邮件中提到这个方案性价比高；另一方面，它可能需要更多时间。）
+PFA / PSA = Please Find Attached / Please See Attached（请看附件 / 请查收附件），
+例句：PFA the contract draft; please review and give feedback via email.（请查收合同草案，麻烦审核并通过邮件给出反馈。）
+PI = Proforma Invoice（形式发票），
+例句：We’ll send you the PI within 24 hours after confirming the order via email.（确认订单后，我们会在 24 小时内通过邮件发给你形式发票。）
+PO = Purchase Order（采购订单），
+例句：We’ve received your PO No. 5678; we’ll arrange production immediately and confirm via email.（我们已收到你的 5678 号采购订单，将立即安排生产，并通过邮件确认。）
+Pls = Please（请），
+例句：Pls confirm the delivery address by the end of today via email.（请在今天结束前通过邮件确认收货地址。）
+PRB = Please Reply By（请于…… 前回复），
+例句：PRB Friday noon if you can attend the training via email.（如能参加培训，请于周五中午前通过邮件回复。）
+RE = Regarding / Reply（关于……/ 回复），
+例句：Subject: RE: Your inquiry about our new product（主题：关于您对我们新产品的咨询），常用于邮件主题。
+RFD = Request For Discussion（请求讨论），
+例句：I sent an RFD to the team about the project timeline via email.（我向团队通过邮件发送了关于项目时间表的讨论请求。）
+RFI = Request For Information（请求信息），
+例句：The client sent an RFI about our after-sales service via email.（客户通过邮件发送了关于我们售后服务的信息请求。）
+YTD = Year To Date（今年至今），
+例句：YTD sales have increased by 20% compared to last year, which is in the sales report email.（今年至今的销售额比去年增长了 20%，这在销售报告邮件中。）
+AGM（Annual General Meeting）- 年度股东大会，
+例句：The company will announce its annual financial report at the AGM next month, and the meeting notice is sent via email.（公司将在下月的年度股东大会上公布年度财务报告，会议通知已通过邮件发送。）
+API（Application Programming Interface）- 应用程序接口，
+例句：Our tech team is developing a new API to connect the app with third-party payment tools, and the progress is updated via email.（我们的技术团队正在开发新的应用程序接口，用于将 APP 与第三方支付工具对接，进展会通过邮件更新。）
+BI（Business Intelligence）- 商业智能，
+例句：The marketing department uses BI tools to analyze user behavior and optimize promotion strategies, and the analysis report is sent via email.（市场部借助商业智能工具分析用户行为，优化推广策略，分析报告已通过邮件发送。）
+B2B（Business-to-Business）- 企业对企业（商业模式），
+例句：This software company mainly focuses on B2B services, providing solutions for small and medium enterprises, and the service introduction is in the email.（这家软件公司主打企业对企业服务，为中小企业提供解决方案，服务介绍在邮件中。）
+B2C（Business-to-Consumer）- 企业对消费者（商业模式），
+例句：Most e-commerce platforms operate on a B2C model, selling products directly to individual customers, which is introduced in the email.（大多数电商平台采用企业对消费者模式，直接向个人客户销售产品，这在邮件中有介绍。）
+B2G（Business-to-Government）- 企业对政府（商业模式），
+例句：The company won a B2G contract to provide IT support for local government departments, and the contract details are in the email.（该公司赢得了一份企业对政府合同，为当地政府部门提供 IT 支持，合同细节在邮件中。）
+CEO（Chief Executive Officer）- 首席执行官，
+例句：The CEO announced a new strategic plan to expand the company’s business into Southeast Asia, and the plan is sent via email.（首席执行官宣布了一项新战略计划，将公司业务拓展到东南亚，计划已通过邮件发送。）
+CFO（Chief Financial Officer）- 首席财务官，
+例句：The CFO will present the quarterly financial report to the board of directors tomorrow, and the report draft is in the email.（首席财务官将于明天向董事会提交季度财务报告，报告草案在邮件中。）
+CMO（Chief Marketing Officer）- 首席市场官，
+例句：The CMO proposed a new brand promotion campaign to increase market share, and the proposal is in the email.（首席市场官提出了一项新的品牌推广活动，以提升市场份额，提案在邮件中。）
+COO（Chief Operating Officer）- 首席运营官，
+例句：The COO is responsible for optimizing the company’s daily operations and improving efficiency, and the work plan is in the email.（首席运营官负责优化公司日常运营，提升效率，工作计划在邮件中。）
+CRM（Customer Relationship Management）- 客户关系管理，
+例句：We use a CRM system to record customer interactions and provide personalized after-sales service, and the system introduction is in the email.（我们使用客户关系管理系统记录客户互动，提供个性化售后服务，系统介绍在邮件中。）
+CSR（Corporate Social Responsibility）- 企业社会责任，
+例句：The company launched a CSR project to donate books to rural primary schools, and the project details are in the email.（该公司启动了一项企业社会责任项目，向乡村小学捐赠图书，项目细节在邮件中。）
+DNS（Domain Name System）- 域名系统，
+例句：If the website can’t be accessed, check if the DNS settings are correct first, which is reminded in the email.（如果网站无法访问，先检查域名系统设置是否正确，这在邮件中已提醒。）
+ERP（Enterprise Resource Planning）- 企业资源计划，
+例句：The company implemented an ERP system to integrate production, inventory, and finance management, and the system update is in the email.（该公司部署了企业资源计划系统，整合生产、库存与财务管理，系统更新在邮件中。）
+FTE（Full-Time Equivalent）- 全职员工（也指 “全职等效人数”，用于统计人力规模），
+例句：The project requires 5 FTEs to complete it within three months, which is stated in the project email.（该项目需要 5 名全职员工，才能在 3 个月内完成，这在项目邮件中有说明。）
+FY（Fiscal Year）- 财政年度（企业或政府的会计年度，不一定与自然年一致），
+例句：The company’s FY starts in April and ends in March of the following year, which is noted in the financial email.（该公司的财政年度从 4 月开始，次年 3 月结束，这在财务邮件中有标注。）
+HR（Human Resources）- 人力资源（部门或领域），
+例句：Contact the HR department if you need to update your personal information, and the contact way is in the email.（如果需要更新个人信息，请联系人力资源部，联系方式在邮件中。）
+IPO（Initial Public Offering）- 首次公开募股，
+例句：The startup plans to launch its IPO on the Hong Kong Stock Exchange next year, and the related news is in the email.（这家初创公司计划明年在香港证券交易所进行首次公开募股，相关消息在邮件中。）
+KPI（Key Performance Indicator）- 关键绩效指标，
+例句：Sales volume and customer satisfaction are the main KPIs for the sales team this quarter, which is in the KPI notice email.（销售额和客户满意度是销售团队本季度的核心关键绩效指标，这在 KPI 通知邮件中。）
+LOI（Letter of Intent）- 意向书（用于初步确认合作意向，不具备完全法律约束力），
+例句：Before signing the formal contract, both parties signed a LOI to confirm the cooperation framework, and the LOI is sent via email.（在签订正式合同前，双方签署了意向书，确认合作框架，意向书已通过邮件发送。）
+M&amp;A（Merger and Acquisition）- 并购（企业合并与收购），
+例句：The two tech companies announced a M&amp;A deal to strengthen their market competitiveness, and the announcement is in the email.（这两家科技公司宣布了一项并购交易，以增强市场竞争力，公告在邮件中。）
+MTD（Month to Date）- 月累计（从当月 1 日到当前日期的累计数据），
+例句：The MTD sales have reached 80% of the monthly target, which is in the sales report email.（月累计销售额已达到月度目标的 80%，这在销售报告邮件中。）
+MVP（Minimum Viable Product）- 最小可行产品（指具备核心功能、可快速测试市场的产品版本），
+例句：The team first launched an MVP to collect user feedback before developing the full-version app, and the MVP introduction is in the email.（团队先推出最小可行产品收集用户反馈，再开发完整版 APP，最小可行产品介绍在邮件中。）
+NPS（Net Promoter Score）- 净推荐值（用于衡量客户忠诚度的指标），
+例句：The company’s NPS increased by 10 points this quarter, showing higher customer satisfaction, which is in the customer feedback email.（该公司本季度的净推荐值提升了 10 分，表明客户满意度提高，这在客户反馈邮件中。）
+ODM（Original Design Manufacturer）- 原始设计制造商（指自主设计并为其他品牌生产产品的厂商），
+例句：The ODM developed a new laptop model and sold the design and production rights to a tech brand, and the related information is in the email.（该原始设计制造商开发了一款新笔记本电脑型号，并将设计和生产权出售给某科技品牌，相关信息在邮件中。）
+OKR（Objectives and Key Results）- 目标与关键成果（用于设定和跟踪目标的管理工具），
+例句：Each department sets its OKR at the beginning of the quarter to align with the company’s overall goals, and the OKR is sent via email.（每个部门在季度初设定目标与关键成果，确保与公司整体目标一致，目标与关键成果已通过邮件发送。）
+PM（Project Manager）- 项目经理，
+例句：The PM will coordinate the design, development, and testing teams to ensure the project is delivered on time, and the coordination plan is in the email.（项目经理将协调设计、开发和测试团队，确保项目按时交付，协调计划在邮件中。）
+PMO（Project Management Office）- 项目管理办公室（负责制定项目管理标准、监督项目执行的部门），
+例句：The PMO issued a new project management guideline to standardize the process across all teams, and the guideline is in the email.（项目管理办公室发布了新的项目管理指南，规范所有团队的流程，指南在邮件中。）
+PPM（Private Placement Memorandum）- 私募备忘录（用于向潜在投资者介绍私募项目的文件），
+例句：The investment bank prepared a PPM to attract qualified investors for the startup’s financing round, and the PPM is sent via email.（投资银行为该初创公司的融资轮次准备了私募备忘录，吸引合格投资者，备忘录已通过邮件发送。）
+P&amp;L（Profit and Loss Statement）- 损益表（反映企业一定时期内盈利或亏损的财务报表），
+例句：The finance team will review the quarterly P&amp;L to analyze the company’s profitability, and the P&amp;L is in the email.（财务团队将审核季度损益表，分析公司盈利能力，损益表在邮件中。）
+PR（Public Relations）- 公共关系（负责维护企业与公众、媒体关系的工作），
+例句：The PR team organized a press conference to explain the company’s new product strategy, and the conference notice is in the email.（公共关系团队组织了新闻发布会，解读公司的新产品战略，会议通知在邮件中。）
+PTO（Paid Time Off）- 带薪休假（包含年假、病假等可享受薪资的休假），
+例句：Employees can apply for up to 15 days of PTO each year after working for the company for one year, and the PTO policy is in the email.（员工在公司工作满一年后，每年可申请最多 15 天带薪休假，带薪休假政策在邮件中。）
+QA（Quality Assurance）- 质量保证（通过流程管控确保产品或服务质量的工作），
+例句：The QA team will conduct a full inspection of the product before it is shipped to customers, and the inspection plan is in the email.（在产品发往客户前，质量保证团队将对其进行全面检测，检测计划在邮件中。）
+QC（Quality Control）- 质量控制（通过抽样、测试等方式检查产品质量的具体环节），
+例句：QC staff found a batch of products with defective parts and requested a rework immediately, and the notification is in the email.（质量控制人员发现一批产品存在零件缺陷，立即要求返工，通知在邮件中。）
+Q&amp;A（Question and Answer）- 问答（会议、讲座等后的提问环节），
+例句：There will be a 20-minute Q&amp;A session after the speaker’s presentation, and the session arrangement is in the email.（演讲结束后将有 20 分钟的问答环节，环节安排在邮件中。）
+QBR（Quarterly Business Review）- 季度业务回顾（总结季度业务情况、规划下季度目标的会议），
+例句：The regional manager will host a QBR to review sales performance and adjust the next quarter’s plan, and the QBR notice is in the email.（区域经理将主持季度业务回顾会议，复盘销售业绩并调整下季度计划，会议通知在邮件中。）
+R&amp;D（Research and Development）- 研究与开发（企业用于技术创新、产品研发的部门或活动），
+例句：The company invests 15% of its annual revenue in R&amp;D to develop new technologies, and the R&amp;D plan is in the email.（该公司将年收入的 15% 投入研究与开发，用于新技术研发，研发计划在邮件中。）
+RFP（Request for Proposal）- 请求提案（企业向外部供应商发出的 “需求建议书”，邀请其提交方案），
+例句：The government issued an RFP to select a service provider for public transportation management, and the RFP is sent via email.（政府发布了一份请求提案，挑选公共交通管理的服务提供商，提案请求已通过邮件发送。）
+ROI（Return on Investment）- 投资回报率（衡量投资收益与成本比例的指标），
+例句：We need to calculate the ROI of this marketing campaign before deciding to continue it, and the calculation method is in the email.（在决定是否继续这项营销活动前，我们需要计算其投资回报率，计算方法在邮件中。）
+SLA（Service Level Agreement）- 服务水平协议（服务提供方与客户约定服务标准的合同，如响应时间、故障解决率等），
+例句：The IT service provider guarantees a 99.9% system uptime in the SLA, and the SLA is in the email.（IT 服务提供商在服务水平协议中承诺系统 99.9% 的可用率，协议在邮件中。）
+SaaS（Software as a Service）- 软件即服务（云端软件服务模式，用户通过订阅使用软件，无需本地安装），
+例句：Many companies now use SaaS tools like online office software to reduce IT costs, and the SaaS introduction is in the email.（现在许多公司使用在线办公软件等软件即服务工具，降低 IT 成本，软件介绍在邮件中。）
+SOP（Standard Operating Procedure）- 标准操作程序（规范工作步骤的标准化文件），
+例句：All new employees must learn the SOP for customer complaints handling within the first week, and the SOP is in the email.（所有新员工必须在入职第一周内学习客户投诉处理的标准操作程序，程序文件在邮件中。）
+SWOT（Strengths, Weaknesses, Opportunities, Threats）- 优势、劣势、机会、威胁（企业战略分析工具），
+例句：The management team conducted a SWOT analysis to evaluate the company’s competitive position in the market, and the analysis report is in the email.（管理团队进行了 SWOT 分析，评估公司在市场中的竞争地位，分析报告在邮件中。）
+TBA（To Be Announced）- 待公布（表示信息尚未确定，后续将发布），
+例句：The venue for the annual conference is TBA; we will notify you via email once it’s confirmed.（年度会议的地点待公布，确定后我们将通过邮件通知您。）
+TBD（To Be Determined）- 待决定（表示事项尚未做出最终决策），
+例句：The budget for the new project is TBD; it will be approved by the finance department next week, and the approval progress is in the email.（新项目的预算待决定，将于下周由财务部审批，审批进展在邮件中。）
+UI（User Interface）- 用户界面（用户与软件、设备交互的视觉界面，如 APP 的按钮、页面布局等），
+例句：The design team optimized the UI of the app to make it more user-friendly, and the optimization effect is in the email.（设计团队优化了 APP 的用户界面，使其更易于操作，优化效果在邮件中。）
+UX（User Experience）- 用户体验（用户使用产品或服务时的整体感受，包括便捷性、满意度等），
+例句：We conducted user interviews to collect feedback and improve the UX of the website, and the feedback summary is in the email.（我们通过用户访谈收集反馈，提升网站的用户体验，反馈总结在邮件中。）
+VC（Venture Capital）- 风险投资（投向初创企业或高增长项目的股权投资），
+例句：The startup received $5 million in VC funding to expand its product line, and the funding news is in the email.（这家初创公司获得了 500 万美元风险投资，用于扩展产品线，融资消息在邮件中。）
+WFH（Work From Home）- 在家办公，
+例句：Due to the bad weather, the company allows employees to WFH today, and the notice is in the email.（由于天气恶劣，公司允许员工今日在家办公，通知在邮件中。）
+WIP（Work in Progress）- 进行中的工作（指尚未完成的项目或任务），
+例句：The project manager updated the team on the status of all WIP tasks in the weekly meeting, and the update is in the email.（项目经理在周会上向团队更新了所有进行中工作的状态，更新内容在邮件中。）
+AP（Accounts Payable）- 应付账款（指企业需支付给供应商的款项，属于财务核心模块），
+例句：The finance team will process all AP for this month by the 25th to avoid late payment penalties, and the processing plan is in the email.（财务团队将在 25 日前处理完本月所有应付账款，避免逾期付款罚息，处理计划在邮件中。）
+AR（Accounts Receivable）- 应收账款（指客户需支付给企业的款项，用于跟踪资金回收），
+例句：The sales assistant is following up on AR from three key clients to ensure payment is received by EOD, and the follow-up progress is in the email.（销售助理正在跟进三位核心客户的应收账款，确保今日下班前到账，跟进进展在邮件中。）
+BOM（Bill of Materials）- 物料清单（生产领域常用，列明产品所需的所有零部件、数量及规格），
+例句：The production team requested an updated BOM from the design department before starting the new batch, and the BOM is sent via email.（生产团队在启动新批次生产前，向设计部索要了最新的物料清单，清单已通过邮件发送。）
+CIP（Carriage and Insurance Paid To）- 运费及保险费付至（国际贸易术语，指卖方负责将货物运至指定目的地并支付运费和保险费），
+例句：The contract specifies that the goods will be shipped under CIP terms, so the supplier covers all transport and insurance costs, and the contract terms are in the email.（合同约定货物按 “运费及保险费付至” 条款运输，因此供应商承担所有运输和保险费用，合同条款在邮件中。）
+CLA（Confidentiality and Non-Disclosure Agreement）- 保密及不披露协议（比 NDA 更全面，除保密义务外，常包含禁止竞争、禁止招揽等条款），
+例句：Before accessing the client’s core data, all team members must sign a CLA to avoid information leakage, and the CLA is in the email.（在接触客户核心数据前，所有团队成员必须签署保密及不披露协议，防止信息泄露，协议在邮件中。）
+CPO（Chief Procurement Officer）- 首席采购官（负责企业采购战略、供应商管理及成本控制的高管），
+例句：The CPO negotiated a long-term cooperation agreement with the supplier to reduce raw material costs by 10%, and the agreement is in the email.（首席采购官与供应商协商了长期合作协议，将原材料成本降低 10%，协议在邮件中。）
+CS（Customer Service）- 客户服务（指为客户提供咨询、售后支持的部门或工作），
+例句：The CS team received a high praise rate this month due to their fast response to customer complaints, and the praise summary is in the email.（客户服务团队本月因快速响应客户投诉，获得了较高的好评率，好评总结在邮件中。）
+DDP（Delivered Duty Paid）- 完税后交货（国际贸易术语，指卖方负责将货物运至买方指定地点，并承担所有费用和关税），
+例句：The client requested DDP terms for the order, so we need to calculate import duties in advance, and the calculation result is in the email.（客户要求该订单按 “完税后交货” 条款执行，因此我们需提前计算进口关税，计算结果在邮件中。）
+EOM（End of Month）- 月末（常用于财务、报表提交等场景，指当月最后一个工作日），
+例句：All expense reports must be submitted by EOM; otherwise, they will be processed in the next month, and the submission notice is in the email.（所有费用报销单需在月末前提交，否则将延至下月处理，提交通知在邮件中。）
+FCA（Free Carrier）- 货交承运人（国际贸易术语，指卖方将货物交给买方指定的承运人即完成交货义务），
+例句：Under FCA terms, we will deliver the goods to the warehouse of your designated carrier by Friday, and the delivery plan is in the email.（按 “货交承运人” 条款，我们将于周五前将货物送至您指定承运人的仓库，交货计划在邮件中。）
+FOB（Free On Board）- 装运港船上交货（国际贸易术语，指货物越过船舷后，风险转移给买方），
+例句：The price is quoted on FOB Shanghai basis, so the buyer is responsible for ocean freight and insurance, and the price terms are in the email.（报价为上海港船上交货价，因此买方承担海运运费和保险费，价格条款在邮件中。）
+HRBP（Human Resources Business Partner）- 人力资源业务伙伴（嵌入业务部门，提供针对性 HR 支持的角色），
+例句：The HRBP for the sales department helped design a performance incentive plan to boost team morale, and the plan is in the email.（销售部门的人力资源业务伙伴协助设计了绩效激励计划，提升团队士气，计划在邮件中。）
+ICT（Information and Communications Technology）- 信息通信技术（涵盖计算机、网络、通信设备等技术领域），
+例句：The company invested in new ICT infrastructure to improve the speed and security of internal data transmission, and the infrastructure update is in the email.（公司投入资金升级信息通信技术基础设施，提升内部数据传输的速度和安全性，设施更新在邮件中。）
+KAM（Key Account Manager）- 关键客户经理（负责维护重要客户关系、挖掘合作潜力的岗位），
+例句：The KAM will visit our top 5 clients next week to discuss next year’s cooperation plan, and the visit plan is in the email.（关键客户经理将于下周拜访前 5 大客户，洽谈明年的合作计划，拜访计划在邮件中。）
+L&amp;D（Learning and Development）- 学习与发展（HR 下属模块，负责员工培训、能力提升等工作），
+例句：The L&amp;D team organized a leadership training program for new managers to enhance their management skills, and the training notice is in the email.（学习与发展团队为新任经理组织了领导力培训项目，提升其管理能力，培训通知在邮件中。）
+MRO（Maintenance, Repair, and Operations）- 维护、维修及运营物料（指企业生产外，用于设备维护、日常运营的物料），
+例句：The warehouse manager needs to check the stock of MRO items like machine parts and office supplies weekly, and the check plan is in the email.（仓库经理需每周检查机器零件、办公用品等维护维修及运营物料的库存，检查计划在邮件中。）
+MSA（Master Service Agreement）- 主服务协议（长期合作双方签订的框架协议，约定合作核心条款，后续项目用补充协议细化），
+例句：We signed an MSA with the IT service provider last year; now we just need to sign a statement of work for each new project, and the MSA is in the email.（我们去年与 IT 服务提供商签订了主服务协议，现在每个新项目只需签署工作说明书即可，主协议在邮件中。）
+OPEX（Operating Expenses）- 运营费用（指企业日常运营产生的费用，如租金、薪资、水电费等，与资本开支 CAPEX 相对），
+例句：The finance department is analyzing OPEX for the past six months to find areas where costs can be reduced, and the analysis report is in the email.（财务部门正在分析过去六个月的运营费用，寻找可降本的领域，分析报告在邮件中。）
+PPE（Property, Plant, and Equipment）- 固定资产（指企业长期拥有并用于生产、运营的资产，如厂房、设备、车辆等），
+例句：The company purchased new production equipment, which will be recorded as PPE on the balance sheet, and the equipment purchase information is in the email.（公司购置了新的生产设备，该设备将作为固定资产计入资产负债表，设备购置信息在邮件中。）
+RMA（Return Merchandise Authorization）- 退货授权（客户退货前需获得的官方授权，用于规范退货流程），
+例句：If the product has quality issues, the customer must apply for an RMA number before sending it back, and the application process is in the email.（若产品存在质量问题，客户需先申请退货授权编号，再寄回产品，申请流程在邮件中。）
+SCM（Supply Chain Management）- 供应链管理（涵盖从供应商到客户的全链条管理，包括采购、生产、物流等环节），
+例句：The SCM team optimized the logistics route to shorten the delivery time from 7 days to 3 days, and the optimization plan is in the email.（供应链管理团队优化了物流路线，将交货时间从 7 天缩短至 3 天，优化计划在邮件中。）
+SOW（Statement of Work）- 工作说明书（明确项目范围、 deliverables、时间节点、费用等细节的文件，常作为 MSA 的补充），
+例句：The SOW for the website development project clearly states that the first version must be delivered by the end of September, and the SOW is in the email.（网站开发项目的工作说明书明确规定，第一版需在 9 月底前交付，说明书在邮件中。）
+T&amp;E（Travel and Entertainment Expenses）- 差旅及招待费用（企业员工出差、商务招待产生的费用，需按规定报销），
+例句：All T&amp;E claims must be accompanied by original receipts to be approved by the finance department, and the claim requirements are in the email.（所有差旅及招待费用报销申请必须附上原始票据，方可获得财务部门审批，申请要求在邮件中。）
+TQM（Total Quality Management）- 全面质量管理（一种全员参与、全程管控的质量管理理念，旨在提升产品 / 服务质量），
+例句：The company adopted TQM to reduce product defects and improve customer satisfaction, and the TQM implementation plan is in the email.（公司推行全面质量管理，减少产品缺陷，提升客户满意度，实施计划在邮件中。）
+VOC（Voice of the Customer）- 客户之声（指通过调研、访谈等方式收集的客户需求、反馈和建议），
+例句：The product team analyzed the VOC data and decided to add a new feature to the app, and the analysis result is in the email.（产品团队分析了客户之声数据，决定为 APP 新增一项功能，分析结果在邮件中。）
+WBS（Work Breakdown Structure）- 工作分解结构（将项目分解为可管理的小任务，明确任务层级和负责人的工具），
+例句：The PM created a WBS for the marketing campaign to ensure each team knows their specific tasks, and the WBS is in the email.（项目经理为营销活动制定了工作分解结构，确保每个团队明确自身具体任务，分解结构在邮件中。）
+CAPEX（Capital Expenditures）- 资本开支（指企业用于购置固定资产、无形资产等长期资产的支出，与运营费用 OPEX 相对），
+例句：The 2024 CAPEX budget includes the purchase of a new factory and advanced production equipment, and the budget is in the email.（2024 年资本开支预算包含购置新厂房和先进生产设备的费用，预算在邮件中。）
+CDO（Chief Data Officer）- 首席数据官（负责企业数据战略、数据治理、数据价值挖掘的高管），
+例句：The CDO led the team to build a data warehouse to integrate data from different business systems, and the warehouse construction plan is in the email.（首席数据官带领团队搭建了数据仓库，整合来自不同业务系统的数据，仓库建设计划在邮件中。）
+CISO（Chief Information Security Officer）- 首席信息安全官（负责企业信息安全策略、风险防控、数据保护的高管），
+例句：The CISO held a training session for all employees to raise awareness of cyber security threats, and the training materials are in the email.（首席信息安全官为全体员工举办了培训，提升大家对网络安全威胁的认知，培训材料在邮件中。）
+DPO（Data Protection Officer）- 数据保护官（负责确保企业遵守数据保护法规，如 GDPR，处理数据主体请求的角色），
+例句：The DPO reviewed the new data collection policy to ensure it complies with the latest data protection laws, and the review result is in the email.（数据保护官审核了新的数据收集政策，确保其符合最新的数据保护法规，审核结果在邮件中。）
+EAP（Employee Assistance Program）- 员工援助计划（企业为员工提供的心理辅导、压力管理、法律咨询等福利服务），
+例句：The company launched an EAP to help employees deal with work-related stress and personal issues, and the EAP introduction is in the email.（公司推出了员工援助计划，帮助员工应对工作压力和个人问题，计划介绍在邮件中。）
+FMEA（Failure Mode and Effects Analysis）- 失效模式与影响分析（一种风险评估工具，用于识别项目、流程中可能的失效点及影响），
+例句：The engineering team used FMEA to assess potential risks in the new product design and take preventive measures, and the assessment report is in the email.（工程团队采用失效模式与影响分析，评估新产品设计中的潜在风险并采取预防措施，评估报告在邮件中。）
+LTA（Long-Term Agreement）- 长期协议（与供应商、客户签订的有效期较长的合作协议，通常超过 1 年），
+例句：We signed a 3-year LTA with the raw material supplier to lock in the price and ensure stable supply, and the LTA is in the email.（我们与原材料供应商签订了 3 年长期协议，锁定价格并确保供应稳定，协议在邮件中。）
+MOU（Memorandum of Understanding）- 谅解备忘录（用于记录双方合作意向的文件，不具备法律约束力，常作为正式合同的前期铺垫），
+例句：The two universities signed an MOU to cooperate on academic research and student exchange programs, and the MOU is in the email.（两所大学签署了谅解备忘录，在学术研究和学生交流项目上开展合作，备忘录在邮件中。）
+（2）会议场景
+1:1 = One on One（一对一），
+例句：I’ll have a 1:1 talk with each team member this week to discuss their work progress.（本周我会和每位团队成员进行一对一沟通，讨论他们的工作进展。）
+TBA = To Be Announced（待公布），
+例句：The venue of the annual conference is TBA; we’ll inform you later.（年度会议的地点待公布，后续会通知大家。）
+TCC = Teleconference Call（电话会议），
+例句：Let’s schedule a TCC tomorrow morning to discuss the issue.（我们明天早上安排一场电话会议讨论这个问题吧。）
+TED = Tell me, Explain to me, Describe to me（跟我说 / 向我解释 / 向我描述），
+例句：TED how you solved the technical problem last time in the meeting.（在会议上跟我描述一下你上次是怎么解决那个技术问题的。）
+TYT = Take Your Time（不急 / 慢慢来），
+例句：There’s no rush for the report in the meeting—TYT to ensure accuracy.（会议上的报告不着急，慢慢来，确保准确就好。）
+MOM（Minutes of Meeting）- 会议纪要，
+例句：Let me check the MOM from last week to confirm the action items we discussed in the meeting.（我来查看上周的会议纪要，确认我们在会议上讨论过的行动项。）
+OKR（Objectives and Key Results）- 目标与关键成果，
+例句：We need to align our daily work with the company’s OKR to achieve the annual goal, which is discussed in the meeting.（我们需要让日常工作与公司的目标与关键成果对齐，以实现年度目标，这在会议中已讨论。）
+R&amp;R（Roles and Responsibilities）- 角色与职责，
+例句：The R&amp;R of each team member was clearly defined in the project kick-off meeting.（在项目启动会议上，已明确每个团队成员的角色与职责。）
+Call to order (宣布会议开始)，
+例句：The chairperson called the meeting to order at 9:00 a.m. sharp.（主持人于上午 9 点整宣布会议开始。）
+Roll call (点名)，
+例句：The assistant conducted a roll call to confirm which attendees were present in the meeting.（助理进行点名，确认哪些参会者已在会议现场。）
+Approve the minutes (批准会议记录)，
+例句：After reviewing the draft, all participants agreed to approve the minutes of the last meeting.（审阅草案后，所有参会者一致同意批准上次会议的记录。）
+Raise a point (提出问题 / 观点)，
+例句：During the discussion, a participant raised a point about the feasibility of the proposed timeline in the meeting.（讨论期间，一位参会者就会议中提议的时间线可行性提出了观点。）
+Make a motion (提出动议)，
+例句：The department head made a motion to increase the project budget by 20% in the meeting.（部门负责人在会议上提出动议，将项目预算增加 20%。）
+Second a motion (附议)，
+例句：After the motion was made, the marketing manager seconded it, so we moved to the voting stage in the meeting.（动议提出后，市场经理在会议上表示附议，随后我们进入表决阶段。）
+Take a vote (进行表决)，
+例句：We took a vote on the new policy, and 8 out of 10 participants supported it in the meeting.（我们在会议上就新政策进行表决，10 名参会者中有 8 人表示支持。）
+Unanimous (一致同意的)，
+例句：The decision to postpone the conference was unanimous among all attendees in the meeting.（所有参会者在会议上一致同意推迟会议。）
+Resolution (决议)，
+例句：The meeting passed a resolution to establish a new cross-departmental collaboration team.（会议通过一项决议，成立新的跨部门协作小组。）
+Wrap up (总结)，
+例句：The chairperson wrapped up the meeting by summarizing the key decisions and action items.（主持人通过总结关键决议和行动项，为会议收尾。）
+Adjourn (休会 / 宣布会议结束，常用搭配 “Adjourn the meeting”)，
+例句：Since all agenda items were completed, the chairperson adjourned the meeting at 11:30 a.m.（由于所有议程项均已完成，主持人于上午 11 点 30 分宣布会议结束。）
+Follow up (跟进)，
+例句：The project coordinator will follow up with each team to ensure action items are completed on time after the meeting.（项目协调员将在会议后跟进每个团队，确保行动项按时完成。）
+Meeting (会议)，
+例句：We have a weekly team meeting every Monday afternoon to discuss progress and challenges.（我们每周一下午召开团队例会，讨论进展与挑战。）
+Conference (大型会议 / 研讨会)，
+例句：The annual industry conference will be held in Beijing this year, with over 500 delegates attending.（今年的行业年度大型会议将在北京举办，有超过 500 名代表参会。）
+Seminar (研讨会)，
+例句：The university is hosting a seminar on environmental protection next month, inviting experts from around the world.（该校将于下月举办一场环境保护研讨会，邀请了全球各地的专家。）
+Workshop (工作坊)，
+例句：This workshop focuses on practical skills training, so participants will have hands-on practice opportunities.（本次工作坊侧重实操技能培训，参会者将有动手实践的机会。）
+Webinar (网络研讨会)，
+例句：The webinar will be live-streamed on Friday, and attendees can ask questions via the chat function.（该网络研讨会将于周五直播，参会者可通过聊天功能提问。）
+Teleconference (电话会议)，
+例句：Due to the bad weather, we changed the in-person meeting to a teleconference.（由于天气恶劣，我们将线下会议改为了电话会议。）
+Video Conference (视频会议)，
+例句：We use video conferences to communicate with our overseas branches, which saves time and travel costs.（我们通过视频会议与海外分公司沟通，节省了时间和差旅成本。）
+Conference Call (电话会议，与 Teleconference 用法相近，更侧重 “多人通话” 场景)，
+例句：Let’s schedule a conference call with the client tomorrow to clarify their requirements.（我们明天安排一场与客户的电话会议，明确他们的需求。）
+Forum (论坛)，
+例句：The youth innovation forum provides a platform for young entrepreneurs to share ideas.（青年创新论坛为年轻创业者提供了一个分享想法的平台。）
+Podcast (播客，常用于会议后内容复盘或观点分享)，
+例句：After the seminar, we recorded a podcast to share the key insights with those who couldn’t attend.（研讨会结束后，我们录制了一期播客，向未能参会的人分享关键见解。）
+Attendee (参会者)，
+例句：Please send the meeting agenda to all attendees at least 24 hours in advance.（请至少提前 24 小时将会议议程发送给所有参会者。）
+Participant (参与者，侧重 “主动参与讨论 / 活动” 的人员，与 Attendee 相比更强调 “参与性”)，
+例句：Each participant in the workshop will be given a set of training materials.（工作坊的每位参与者都将获得一套培训材料。）
+Chair (主持人，会议主席)，
+例句：The chair is responsible for guiding the meeting and ensuring it follows the agenda.（主持人负责引导会议进程，并确保会议按议程进行。）
+Moderator (主持人，常用于研讨会、论坛等，侧重 “协调讨论、把控节奏”)，
+例句：The moderator asked each panelist to share their views on the topic within 5 minutes in the meeting.（主持人要求每位讨论小组成员在 5 分钟内分享对会议话题的看法。）
+Speaker (演讲者)，
+例句：The keynote speaker of the conference is a well-known expert in the field of artificial intelligence.（本次会议的主旨演讲者是人工智能领域的知名专家。）
+Panelist (讨论小组成员)，
+例句：The panelists had a heated discussion about the future development of the industry in the meeting.（讨论小组成员在会议上就行业未来发展展开了激烈讨论。）
+Delegate (代表，常用于大型会议、国际会议)，
+例句：She was selected as a delegate to attend the international environmental protection conference.（她被选为代表，出席国际环境保护会议。）
+Facilitator (促进者，侧重 “推动会议 / 活动顺利进行、帮助达成目标”，如引导头脑风暴)，
+例句：The facilitator helped the team conduct an effective brainstorming session to solve the problem in the meeting.（促进者协助团队在会议上开展了一次有效的头脑风暴，以解决该问题。）
+Agenda (议程)，
+例句：The meeting agenda includes three items: project progress review, budget discussion, and next steps.（会议议程包含三项内容：项目进度回顾、预算讨论及后续计划。）
+Minutes (会议记录，与 MOM 同义，MOM 为缩写形式)，
+例句：The minutes should record all key decisions, action items, and responsible persons in the meeting.（会议记录应记录会议中的所有关键决议、行动项及负责人。）
+Briefing (简报)，
+例句：The project manager gave a briefing on the current progress of the project at the start of the meeting.（会议开始时，项目经理就项目当前进度做了简报。）
+Presentation (演示 / 演讲，侧重 “通过幻灯片等形式展示内容”)，
+例句：The marketing team gave a presentation on the new product launch plan in the meeting.（市场团队在会议上就新产品上市计划进行了演示。）
+Discussion (讨论)，
+例句：The discussion focused on how to improve the efficiency of the team’s work in the meeting.（会议中的讨论围绕如何提高团队工作效率展开。）
+Exhibit (展示，常用于会议中 “实物 / 成果展示”)，
+例句：The company’s latest products were on exhibit in the lobby during the conference.（会议期间，该公司的最新产品在大厅进行展示。）
+Proposal (提案)，
+例句：The R&amp;D team submitted a proposal for developing a new software system in the meeting.（研发团队在会议上提交了一份开发新软件系统的提案。）
+Consensus (共识)，
+例句：After a long discussion, the team finally reached a consensus on the project timeline in the meeting.（经过长时间讨论，团队在会议上最终就项目时间线达成共识。）
+Report (报告)，
+例句：The finance department presented a quarterly financial report at the meeting.（财务部门在会议上提交了季度财务报告。）
+Action items (行动项)，
+例句：Each action item must have a clear responsible person and deadline in the meeting.（会议中的每个行动项都必须有明确的负责人和截止日期。）
+Objective (目标)，
+例句：The main objective of this meeting is to finalize the project implementation plan.（本次会议的主要目标是确定项目实施方案。）
+Strategy (策略，侧重 “长期、整体的规划”)，
+例句：The company’s new marketing strategy focuses on expanding the overseas market, which is discussed in the meeting.（公司新的营销策略侧重拓展海外市场，这在会议中已讨论。）
+Tactic (战术，侧重 “短期、具体的执行方法”，与 Strategy 相比更微观)，
+例句：We need to adjust our sales tactics to adapt to the changing market demand, which is mentioned in the meeting.（我们需要调整销售战术，以适应不断变化的市场需求，这在会议中已提及。）
+Feedback (反馈)，
+例句：Please provide your feedback on the meeting format so we can improve it next time.（请就会议形式提供反馈，以便我们下次改进。）
+Deadline (截止日期)，
+例句：The deadline for submitting the project report is next Friday, which is confirmed in the meeting.（提交项目报告的截止日期是下周五，这在会议中已确认。）
+Timeline (时间线，侧重 “项目 / 任务的阶段时间规划”)，
+例句：The project timeline shows that the design phase will be completed by the end of June, which is presented in the meeting.（项目时间线显示，设计阶段将于 6 月底完成，这在会议中已展示。）
+Schedule (日程安排，侧重 “具体的时间计划表”)，
+例句：The meeting schedule for next week has been sent to your email; please check it.（下周的会议日程安排已发送至你的邮箱，请查收。）
+Calendar (日历，常用于 “将会议添加到日历” 的场景)，
+例句：I’ve added the video conference to your calendar, and it will send you a reminder 15 minutes in advance.（我已将视频会议添加到你的日历中，它会提前 15 分钟发送提醒。）
+Reschedule (重新安排)，
+例句：Due to the chairperson’s illness, we need to reschedule the meeting to next Tuesday.（由于主持人患病，我们需要将会议重新安排到下周二。）
+Postpone (推迟)，
+例句：The seminar was postponed because many speakers couldn’t attend on the original date.（由于许多演讲者无法在原定日期参会，研讨会被推迟了。）
+Cancel (取消)，
+例句：The workshop was canceled due to low registration numbers.（由于报名人数不足，该工作坊被取消了。）
+Projection (预测，常用于 “数据、结果的预测”)，
+例句：The financial projection shows that the company’s revenue will increase by 15% next year, which is shared in the meeting.（财务预测显示，公司明年的营收将增长 15%，这在会议中已分享。）
+Meeting Room (会议室)，
+例句：Please book Meeting Room 3 for our team meeting tomorrow morning.（请为我们明天上午的团队会议预订 3 号会议室。）
+Boardroom (董事会议室，常用于 “高层会议、董事会”)，
+例句：The board meeting will be held in the boardroom on the 10th floor.（董事会会议将在 10 楼的董事会议室举行。）
+Slide (幻灯片)，
+例句：Please make sure all slides are in the correct order before the presentation in the meeting.（会议演示前请确保所有幻灯片顺序正确。）
+Handout (分发材料)，
+例句：The assistant will distribute the handouts to all attendees before the meeting starts.（助理将在会议开始前向所有参会者分发材料。）
+Whiteboard (白板)，
+例句：The facilitator wrote the key points of the discussion on the whiteboard in the meeting.（促进者将会议讨论的关键点写在了白板上。）
+Flip Chart (翻页挂图)，
+例句：We used a flip chart to record the ideas generated during the brainstorming session in the meeting.（我们用翻页挂图记录了会议头脑风暴中产生的想法。）
+Projector (投影仪)，
+例句：The projector isn’t working; could you ask the IT department to fix it during the meeting?（投影仪坏了，你能让 IT 部门在会议期间来修一下吗？）
+Quorum (法定人数，指 “会议有效召开所需的最低参会人数”)，
+例句：We need at least 8 people to be present to reach a quorum, so the meeting can start.（我们至少需要 8 人到场才能达到法定人数，会议才能开始。）
+Brainstorming (头脑风暴)，
+例句：Let’s have a 20-minute brainstorming session to come up with solutions to this problem in the meeting.（我们在会议中进行 20 分钟的头脑风暴，想出解决这个问题的办法。）
+Budget (预算)，
+例句：The meeting will discuss the budget allocation for the next quarter’s marketing activities.（会议将讨论下季度营销活动的预算分配。）
+Collaboration (合作 / 协作)，
+例句：Close collaboration between the sales and customer service teams is essential to improve customer satisfaction, which is emphasized in the meeting.（销售团队与客服团队的紧密协作对提高客户满意度至关重要，这在会议中已强调。）
+Negotiation (谈判)，
+例句：The two departments held a negotiation to resolve the conflict over resource allocation in the meeting.（两个部门在会议上进行了谈判，以解决资源分配方面的冲突。）
+（3）汇报场景
+KPI = Key Performance Indicator（关键绩效指标），
+例句：Our team’s KPI this quarter is to increase sales by 15%, which is the core content of the report.（我们团队本季度的关键绩效指标是销售额增长 15%，这是汇报的核心内容。）
+ROI = Return on Investment（投资回报率），
+例句：Before launching the new marketing campaign, we should calculate its expected ROI and include it in the report.（在启动新的营销活动前，我们应计算其预期投资回报率，并纳入汇报中。）
+YTD = Year To Date（今年至今），
+例句：YTD sales have increased by 20% compared to last year, which is an important data in the report.（今年至今的销售额比去年增长了 20%，这是汇报中的重要数据。）
+MTD = Month to Date（月累计），
+例句：The MTD sales have reached 80% of the monthly target, which is presented in the sales report.（月累计销售额已达到月度目标的 80%，这在销售汇报中已展示。）
+P&amp;L = Profit and Loss Statement（损益表），
+例句：The finance team will review the quarterly P&amp;L to analyze the company’s profitability in the financial report.（财务团队将审核季度损益表，在财务汇报中分析公司盈利能力。）
+PPT（PowerPoint，幻灯片，汇报常用工具，虽非缩写但高频使用），
+例句：We need to make a PPT for the project progress report to make the content more intuitive.（我们需要为项目进度汇报制作 PPT，让内容更直观。）
+SWOT（Strengths, Weaknesses, Opportunities, Threats）- 优势、劣势、机会、威胁，
+例句：The management team conducted a SWOT analysis to evaluate the company’s competitive position in the market, and the analysis is in the strategic report.（管理团队进行了 SWOT 分析，评估公司在市场中的竞争地位，该分析在战略汇报中。）
+OKR（Objectives and Key Results）- 目标与关键成果，
+例句：Each department sets its OKR at the beginning of the quarter to align with the company’s overall goals, and the OKR achievement is in the quarterly report.（每个部门在季度初设定目标与关键成果，确保与公司整体目标一致，目标达成情况在季度汇报中。）
+WIP（Work in Progress）- 进行中的工作，
+例句：The project manager updated the team on the status of all WIP tasks in the weekly report.（项目经理在周汇报中向团队更新了所有进行中工作的状态。）
+VOC（Voice of the Customer）- 客户之声，
+例句：The product team analyzed the VOC data and decided to add a new feature to the app, and the analysis result is in the product report.（产品团队分析了客户之声数据，决定为 APP 新增一项功能，分析结果在产品汇报中。）
+SLA（Service Level Agreement）- 服务水平协议，
+例句：The IT service provider guarantees a 99.9% system uptime in the SLA, and the SLA compliance is in the IT service report.（IT 服务提供商在服务水平协议中承诺系统 99.9% 的可用率，协议遵守情况在 IT 服务汇报中。）
+QBR（Quarterly Business Review）- 季度业务回顾，
+例句：The regional manager will host a QBR to review sales performance and adjust the next quarter’s plan in the quarterly report meeting.（区域经理将主持季度业务回顾，在季度汇报会议中复盘销售业绩并调整下季度计划。）
+4. 缩写记忆法：按 “邮件 / 会议 / 汇报” 场景分组速记
+（1）邮件场景速记：聚焦 “沟通效率” 与 “信息传递”
+核心逻辑：邮件场景中的缩写多为了简化沟通流程、明确信息属性（如是否需要回复、是否为附件、是否为抄送等），记忆时可围绕 “发送 / 接收动作”“信息状态”“时间要求” 分类。
+“发送 / 接收动作” 类：FW（转发）、CC（抄送）、BCC（密件抄送）、PFA/PSA（请查收附件），这类缩写直接对应邮件操作，记住 “转发是 FW，抄送分 CC 和 BCC，附件用 PFA” 即可。
+“信息状态” 类：FYI/FYR（供参考）、NRN/NNTR（不需回复）、EOM（信息结束），这类缩写用于告知收件人对信息的处理方式，比如 “看到 FYI 就知道只需了解，看到 NRN 就不用回复”。
+“时间要求” 类：ASAP（尽快）、EOD（当天结束前）、COB（下班前）、EOW（本周结束前）、EOM（月末），这类缩写明确了任务截止时间，可联想 “紧急的用 ASAP，当天的用 EOD，下班的用 COB”。
+（2）会议场景速记：围绕 “会议流程” 与 “参与角色”
+核心逻辑：会议场景中的缩写和术语多与会议组织、进程推进、人员分工相关，记忆时可按 “会议准备 - 会议进行 - 会议收尾” 流程分类。
+“会议准备” 类：Agenda（议程）、Attendee（参会者）、TBA/TBC（待公布 / 待确认），比如 “开会前要定 Agenda，确定 Attendee，不确定的信息标 TBA/TBC”。
+“会议进行” 类：1:1（一对一）、TCC（电话会议）、Brainstorming（头脑风暴）、Q&amp;A（问答），这类对应会议中的具体形式或环节，“一对一沟通是 1:1，电话开会是 TCC，讨论环节有 Brainstorming 和 Q&amp;A”。
+“会议收尾” 类：MOM（会议纪要）、Action items（行动项）、Follow up（跟进），“会后要写 MOM，明确 Action items，之后需要 Follow up”。
+（3）汇报场景速记：紧扣 “数据指标” 与 “成果呈现”
+核心逻辑：汇报场景中的缩写多为衡量业务成果的数据指标或汇报工具相关，记忆时可按 “业绩指标”“财务数据”“进度状态” 分类。
+“业绩指标” 类：KPI（关键绩效指标）、OKR（目标与关键成果）、NPS（净推荐值），这类是汇报的核心内容，“KPI 是具体考核指标，OKR 是目标与成果，NPS 看客户忠诚度”。
+“财务数据” 类：ROI（投资回报率）、P&amp;L（损益表）、CAPEX/OPEX（资本开支 / 运营费用），“算收益看 ROI，看盈利看 P&amp;L，花钱分 CAPEX 和 OPEX”。
+“进度状态” 类：YTD（今年至今）、MTD（月累计）、WIP（进行中的工作），“汇报进度时，年度用 YTD，月度用 MTD，未完成的用 WIP”。
+5. 易错点：“BTW” 和 “P.S.” 的使用场景区别
+BTW（By The Way，顺便说一下）：多用于邮件或即时沟通中，在正文叙述过程中，临时补充与主题相关但非核心的信息，位置通常在正文中间或末尾，语气较随意。
+例句：We need to discuss the project budget in tomorrow’s meeting. BTW, please bring the previous budget report.（我们明天会议需要讨论项目预算。顺便说一下，请带上之前的预算报告。）
+P.S.（Post Scriptum，附言）：仅用于邮件或信件末尾，在正文完全结束后，额外添加重要或遗漏的信息，通常是正文忘记提及但需要强调的内容，位置固定在签名之前，语气更正式，有 “补充强调” 的意味。
+例句：Looking forward to your feedback on the proposal. P.S. The deadline for submission is extended to next Monday.（期待您对提案的反馈。附言：提交截止日期已延长至下周一。）
+核心区别：BTW 是 “正文内的临时补充”，非核心；P.S. 是 “正文后的正式附言”，多为重要遗漏信息，位置和重要性不同。
+6. 高阶技巧：用 “AKA/FYI” 让邮件显得更专业
+（1）AKA（Also Known As，别名 / 也被称为）：让信息更清晰，避免混淆
+适用场景：当提及的项目、产品、人物有多个名称时，用 AKA 标注别名，帮助收件人快速关联已知信息，尤其适合跨部门沟通或初次对接的场景。
+专业例句：The new project, AKA &quot;Green City&quot;, will focus on environmental protection technologies. Please share your ideas on the &quot;Green City&quot; implementation plan by EOD.（新项目，别名 “绿色城市”，将聚焦环保技术。请在当天结束前分享您对 “绿色城市” 实施方案的想法。），这里用 AKA 明确 “新项目” 和 “绿色城市” 的关系，避免收件人因名称陌生而困惑，同时后续直接使用别名，让邮件更简洁。
+（2）FYI（For Your Information，供你参考）：明确信息属性，减少无效沟通
+适用场景：当发送的信息仅为让对方知晓，无需对方回复或行动时，用 FYI 标注，避免对方误解为 “需要处理的任务”，提升沟通效率。
+专业例句：Attached is the industry analysis report FYI. It summarizes the latest market trends and competitor movements, which may help you understand the current business environment.（附件是行业分析报告，供你参考。报告总结了最新的市场趋势和竞争对手动态，可能有助于你了解当前的业务环境。），这里用 FYI 明确 “报告仅为参考”，同时补充报告价值，让收件人清楚 “为何需要参考”，既专业又贴心，避免对方忽略附件价值。
+7. 对话演练：从 “看不懂缩写” 到 “秒懂老板意图”
+（1）场景 1：老板发来邮件安排任务
+老板邮件：“Pls prepare the project proposal by COB tomorrow. CC Tom, FYI. ”
+看不懂时的困惑：“Pls、COB、CC、FYI 都是什么意思？是要我明天什么时候交提案？还要做什么？”
+秒懂分析：Pls=Please（请），COB=Close Of Business（下班前），CC=Carbon Copy（抄送），FYI=For Your Information（供参考），老板意图是 “请在明天下班前准备好项目提案，抄送汤姆，这份提案也供汤姆参考”。
+正确回复：“Got it. I’ll prepare the project proposal and send it with Tom in CC by COB tomorrow. Thanks!”（好的，我会准备好项目提案，明天下班前发送并抄送汤姆。谢谢！）
+（2）场景 2：老板在会议中分配任务
+老板发言：“The project budget is TBD. Let’s have a TCC with the finance team EOD to discuss it. Assign action items and send MOM later. ”
+看不懂时的困惑：“TBD、TCC、EOD、MOM 这些缩写是什么意思？是要马上开会议还是之后开？会后需要做什么？”
+秒懂分析：TBD=To Be Determined（待决定），TCC=Teleconference Call（电话会议），EOD=End Of Day（当天结束前），MOM=Minutes of Meeting（会议纪要），老板意图是 “项目预算尚未决定，今天结束前和财务团队开一场电话会议讨论预算问题，会后分配好行动项并发送会议纪要”。
+正确回复：“Understood. I’ll schedule a TCC with the finance team by EOD, confirm action items during the call, and send the MOM to all participants afterward.”（明白。我会在今天结束前安排与财务团队的电话会议，会议中确认行动项，之后将会议纪要发送给所有参会者。）
+（3）场景 3：收到客户邮件询问合作细节
+客户邮件：“Could you share the PI for the order? Also, confirm the goods’ ETA. Need the info ASAP, thanks. ”
+看不懂时的困惑：“PI、ETA、ASAP 是什么？客户要的是哪种文件？需要什么时候回复？”
+秒懂分析：PI=Proforma Invoice（形式发票），ETA=Estimated Time of Arrival（预计抵达时间），ASAP=As Soon As Possible（尽快），客户意图是 “请提供该订单的形式发票，并确认货物的预计抵达时间，尽快提供这些信息”。
+正确回复：“Sure! I’ll send the PI to you immediately and check with the logistics team about the goods’ ETA. I’ll feedback to you ASAP.”（好的！我会立即将形式发票发给您，并向物流团队确认货物的预计抵达时间，尽快给您反馈。）
+8. 工具推荐：3 个自动翻译缩写的职场插件
+（1）Abbreviation Finder（浏览器插件）
+核心功能：支持在网页（如邮件页面、会议纪要文档）中自动识别英文缩写，鼠标悬停即可显示全称、中文含义及典型例句，覆盖文档中 90% 以上的职场高频缩写，如 BCC、RSVP、KPI 等。
+使用场景：查看英文邮件、浏览海外合作方文档时，无需手动搜索缩写含义，插件实时解析，提升阅读效率。例如，在查看包含 “COB” 的邮件时，悬停后会显示 “COB=Close Of Business（下班时 / 工作日结束前），
+例句：Please submit the report by COB tomorrow.（请在明天下班前提交报告。）”。
+优势：免费使用，支持 Chrome、Edge 等主流浏览器，可自定义需要优先识别的行业（如 “外企职场”“国际贸易”），过滤不相关缩写。
+（2）Acronyms Pro（办公软件插件）
+核心功能：适配 Word、Excel、PowerPoint 等办公软件，在编辑文档或制作汇报 PPT 时，输入缩写后会自动弹出全称和含义提示，还可一键插入缩写对应的标准例句，确保使用规范。
+使用场景：撰写英文邮件草稿、制作包含英文缩写的项目 PPT 时，避免缩写使用错误。例如，输入 “FYI” 后，插件会提示 “FYI=For Your Information（供你参考），推荐
+例句：Attached is the report, FYI.（附件是报告，供你参考。）”，点击即可将例句插入文档。
+优势：支持离线使用，无需联网，内置 “外企职场” 专属词库，针对文档中高频出现的会议、邮件、汇报类缩写做了重点优化，还可手动添加企业内部专属缩写。
+（3）Linguee（多语言翻译工具，含缩写解析功能）
+核心功能：不仅支持常规的单词、句子翻译，还专门设置 “职场缩写” 板块，输入缩写后可查看详细解析，包括全称、不同场景下的含义（如 “EOD” 在邮件和汇报中的通用含义）、中英文例句及使用注意事项，部分缩写还会标注使用频率（如 “高频”“中频”）。
+使用场景：处理复杂业务沟通（如与海外客户谈判、阅读国际项目文档）时，深入理解缩写的使用场景和隐含信息。例如，查询 “NDA” 时，会显示 “NDA=Non-Disclosure Agreement（保密合约），高频使用于项目合作前，
+例句：All team members must sign an NDA before joining the project.（所有团队成员加入项目前必须签署保密合约。），注意：NDA 与 CLA 的区别是后者包含禁止竞争条款”。
+优势：覆盖多行业职场缩写，提供权威来源（如外企官方文档、行业报告）的例句参考，支持手机 APP 和网页版，方便随时随地查询。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="1010外企高频英文缩写";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

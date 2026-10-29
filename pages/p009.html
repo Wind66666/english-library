@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8.14外企职场高情商300双栏</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💖</span>8.14外企职场高情商300双栏</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">10,415 字符</span>
+    <span>来源：8.14外企职场高情商300双栏.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C8.14%E5%A4%96%E4%BC%81%E8%81%8C%E5%9C%BA%E9%AB%98%E6%83%85%E5%95%86300%E5%8F%8C%E6%A0%8F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p008.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">外企职场必备高情商交流300句
+一、日常沟通与协作
+Let&#x27;s align on next steps.
+（咱们确定后续步骤）
+Your input is crucial.
+（你的意见很关键）
+Could we adjust the timeline?
+（能调整时间安排吗）
+Let&#x27;s leverage strengths.
+（咱们发挥优势）
+I value your perspective.
+（我重视你的看法）
+Maybe rethink this approach.
+（或许换种思路）
+Let&#x27;s clarify expectations.
+（先明确预期）
+Your feedback helps a lot.
+（你的反馈很有用）
+Shall we prioritize this task?
+（先处理这项任务？）
+Let&#x27;s find a middle ground.
+（找个折中方案）
+I appreciate your flexibility.
+（感谢你的通融）
+Could we sync up tomorrow?
+（明天同步下这事？）
+Let&#x27;s align across teams.
+（确保团队意见一致）
+Your insights are valuable.
+（你的见解有价值）
+Maybe a small tweak works.
+（小调整或许可行）
+Let&#x27;s avoid overlapping efforts.
+（避免重复劳动）
+I&#x27;d like your take on this.
+（想听听你的看法）
+Shall we revisit the goal?
+（回顾下初始目标？）
+Let&#x27;s streamline approval.
+（简化审批流程）
+I respect your expertise.
+（尊重你的专业能力）
+Could we explore alternatives?
+（探讨替代方案？）
+Let&#x27;s keep each other updated.
+（保持密切更新）
+Your contribution matters.
+（你的贡献有意义）
+Maybe phase implementation.
+（分阶段实施？）
+Let&#x27;s balance speed and quality.
+（平衡速度与质量）
+I&#x27;d appreciate your guidance.
+（希望得到指导）
+Shall we clarify criteria?
+（明确决策标准？）
+Let&#x27;s ensure everyone agrees.
+（确保大家认同）
+Your support means a lot.
+（你的支持很重要）
+Maybe optimize workflow.
+（优化工作流程？）
+Let&#x27;s confirm responsibilities.
+（明确各自职责）
+I value your input here.
+（重视你的意见）
+Could we adjust the approach?
+（调整方式？）
+Let&#x27;s build on progress.
+（基于进展努力）
+Your perspective enriches this.
+（你的视角让其完善）
+Maybe collaborate more.
+（或许加强协作）
+Let&#x27;s minimize disruptions.
+（减少潜在干扰）
+I welcome your thoughts.
+（欢迎发表看法）
+Shall we align on metrics?
+（确定衡量标准？）
+Let&#x27;s ensure clear communication.
+（确保沟通清晰）
+I appreciate your proactivity.
+（感谢积极态度）
+Could we sync our understanding?
+（统一下理解？）
+Let&#x27;s seize opportunities.
+（利用新机会）
+Your expertise adds value.
+（你的专长有价值）
+Maybe refine the strategy.
+（完善这个策略？）
+Let&#x27;s prevent misunderstandings.
+（尽早避免误解）
+I&#x27;d like your suggestions.
+（想听听你的建议）
+Shall we prioritize users?
+（优先考虑用户？）
+Let&#x27;s foster collaboration.
+（培养协作精神）
+Your involvement is appreciated.
+（感谢你的参与）
+二、请求暂停与延后
+Maybe we can balance speed better.
+（或许我们能更好地平衡速度）
+Could we adjust the focus gently?
+（我们能温和地调整关注点吗）
+Let’s reevaluate this method.
+（我们重新评估这个方法）
+Maybe a new strategy works here.
+（或许一种新策略在这里可行）
+Could we try another approach?
+（我们能尝试另一种方法吗）
+Let’s consider a fresh perspective.
+（我们考虑一个新视角）
+Maybe we can shift priorities slightly.
+（或许我们能稍微调整优先级）
+Could we rework these steps gently?
+（我们能温和地修改这些步骤吗）
+Let’s rethink our approach here.
+（我们重新考虑这里的方法）
+Maybe a small adjustment helps.
+（或许一个小调整有帮助）
+Could we explore a different option?
+（我们能探讨一个不同的选项吗）
+Let’s consider changing our focus.
+（我们考虑改变关注点）
+Maybe we can reorder the tasks.
+（或许我们能重新安排任务顺序）
+Could we modify the plan slightly?
+（我们能稍微修改计划吗）
+Let’s reevaluate the strategy.
+（我们重新评估策略）
+Maybe a different method works.
+（或许一种不同的方法可行）
+Could we adjust our steps gently?
+（我们能温和地调整步骤吗）
+Let’s rethink our priorities.
+（我们重新考虑优先级）
+Maybe we can shift our approach.
+（或许我们能改变方法）
+Could we try a new strategy here?
+（我们能在这里尝试一种新策略吗）
+Let’s consider another angle.
+（我们考虑另一个角度）
+Maybe we can adjust the timeline.
+（或许我们能调整时间线）
+Could we rework this section gently?
+（我们能温和地修改这部分吗）
+Let’s reevaluate our focus here.
+（我们重新评估这里的关注点）
+Maybe a small tweak helps here.
+（或许一个小调整在这里有帮助）
+Could we explore another strategy?
+（我们能探讨另一种策略吗）
+Let’s consider adjusting our plan.
+（我们考虑调整计划）
+Maybe we can reallocate resources.
+（或许我们能重新分配资源）
+Could we try a different method here?
+（我们能在这里尝试一种不同的方法吗）
+Let’s rethink our steps.
+（我们重新考虑步骤）
+Maybe a new approach works here.
+（或许一种新方法在这里可行）
+Could we adjust our priorities slightly?
+（我们能稍微调整优先级吗）
+Let’s reevaluate this approach.
+（我们重新评估这个方法）
+Maybe we can shift our focus.
+（或许我们能转移关注点）
+Could we rework these tasks gently?
+（我们能温和地修改这些任务吗）
+Let’s consider a different strategy.
+（我们考虑一种不同的策略）
+Maybe a small change helps here.
+（或许一个小改变在这里有帮助）
+Could we explore a new option?
+（我们能探讨一个新选项吗）
+Let’s adjust our approach slightly.
+（我们稍微调整方法）
+Maybe we can reorder the steps.
+（或许我们能重新安排步骤顺序）
+Could we modify the timeline gently?
+（我们能温和地修改时间线吗）
+Let’s reevaluate our strategy here.
+（我们重新评估这里的策略）
+Maybe a different approach works.
+（或许一种不同的方法可行）
+Could we try another method here?
+（我们能在这里尝试另一种方法吗）
+Let’s consider changing our approach.
+（我们考虑改变方法）
+Maybe we can adjust the focus.
+（或许我们能调整关注点）
+Could we rework this plan gently?
+（我们能温和地修改这个计划吗）
+Let’s rethink our priorities here.
+（我们重新考虑这里的优先级）
+Maybe a small adjustment works.
+（或许一个小调整可行）
+Could we explore another approach?
+（我们能探讨另一种方法吗）
+Let’s consider adjusting our steps.
+（我们考虑调整步骤）
+Maybe we can reallocate efforts.
+（或许我们能重新分配精力）
+Could we try a new method here?
+（我们能在这里尝试一种新方法吗）
+Let’s reevaluate our focus.
+（我们重新评估关注点）
+Maybe a different strategy works here.
+（或许一种不同的策略在这里可行）
+Could we adjust our plan slightly?
+（我们能稍微调整计划吗）
+Let’s rethink our approach.
+（我们重新考虑方法）
+Can we revisit this later?
+（我们能稍后再谈吗？）
+Let&#x27;s set this aside now.
+（先把这个放一放）
+Could we discuss this later?
+（能稍后讨论这个吗？）
+Let&#x27;s pause and revisit.
+（暂停，稍后再谈）
+Can we hold off on this?
+（能暂缓这个吗？）
+Let&#x27;s table this for later.
+（延后再谈这个）
+Could we delay discussion?
+（能推迟讨论吗？）
+Let&#x27;s stop and revisit later.
+（停下，稍后再谈）
+Can we come back to this?
+（能稍后回到这个吗？）
+Let&#x27;s put this aside now.
+（现在把这个放一放）
+Could we talk about this later?
+（能稍后谈这个吗？）
+Let&#x27;s pause this and revisit.
+（暂停，稍后再谈）
+Can we hold this off now?
+（现在能暂缓这个吗？）
+Let&#x27;s table until later.
+（延后到稍后）
+Could we postpone this talk?
+（能推迟谈话吗？）
+Let&#x27;s stop and revisit later.
+（停下，稍后再谈）
+Can we return to this later?
+（能稍后回到这个吗？）
+Let&#x27;s set aside until now.
+（放到现在）
+Could we discuss afterwards?
+（之后能讨论吗？）
+Let&#x27;s pause and come back.
+（暂停，稍后回来）
+Can we hold off discussion?
+（能暂缓讨论吗？）
+Let&#x27;s table for a while.
+（放一会儿）
+Could we delay talking?
+（能推迟谈吗？）
+Let&#x27;s stop and come back.
+（停下，稍后回来）
+Can we come back after?
+（之后能回到这个吗？）
+Let&#x27;s put aside until later.
+（放到稍后）
+Could we talk over later?
+（稍后能详谈吗？）
+Let&#x27;s pause until later.
+（暂停到稍后）
+Can we hold discussion off?
+（能暂缓讨论吗？）
+Let&#x27;s table for later time.
+（延后到稍后）
+Could we postpone discussing?
+（能推迟讨论吗？）
+Let&#x27;s stop and return later.
+（停下，稍后回来）
+Can we return after now?
+（现在之后能回到吗？）
+Let&#x27;s set aside after now.
+（现在之后放一放）
+Could we discuss later on?
+（稍后能讨论吗？）
+Let&#x27;s pause and return later.
+（暂停，稍后回来）
+Can we hold off after?
+（之后能暂缓吗？）
+Let&#x27;s table after a while.
+（过一会儿再谈）
+Could we delay talk later?
+（稍后能推迟谈话吗？）
+三、临时离开与中断
+Excuse me, I need to step out.
+（抱歉，我得出去下）
+Sorry, I have to leave briefly.
+（抱歉，我暂时离开）
+Pardon me, a short break please.
+（请原谅，短暂离开）
+Excuse me, I&#x27;ll be right back.
+（抱歉，我马上回来）
+Sorry, I need to step away.
+（抱歉，我得走开下）
+Pardon me, I go briefly.
+（请原谅，我暂时离开）
+Excuse me, leave for a bit.
+（抱歉，离开一会儿）
+Sorry, I&#x27;ll step out moment.
+（抱歉，出去一会儿）
+Pardon me, back shortly.
+（请原谅，很快回来）
+Excuse me, need quick break.
+（抱歉，需短暂休息）
+Sorry, step out briefly.
+（抱歉，暂时出去）
+Pardon me, leave momentarily.
+（请原谅，暂时离开）
+Excuse me, return shortly.
+（抱歉，很快回来）
+Sorry, step away briefly.
+（抱歉，暂时走开）
+Pardon me, short errand please.
+（请原谅，有点事）
+Excuse me, leave for a moment.
+（抱歉，离开一会儿）
+Sorry, back in a minute.
+（抱歉，一分钟后回）
+Pardon me, step out a bit.
+（请原谅，出去一会儿）
+Excuse me, take short break.
+（抱歉，短暂休息）
+Sorry, leave briefly now.
+（抱歉，现在暂时离开）
+Pardon me, step away moment.
+（请原谅，走开一会儿）
+Excuse me, back shortly.
+（抱歉，很快回来）
+Sorry, go out briefly.
+（抱歉，暂时出去）
+Pardon me, need quick leave.
+（请原谅，短暂离开）
+Excuse me, step out moment.
+（抱歉，出去一会儿）
+Sorry, return in a bit.
+（抱歉，过会儿回来）
+Pardon me, leave short while.
+（请原谅，离开片刻）
+Excuse me, need brief break.
+（抱歉，需短暂休息）
+Sorry, step away a bit.
+（抱歉，走开一会儿）
+Pardon me, be back soon.
+（请原谅，很快回来）
+Excuse me, go briefly now.
+（抱歉，现在暂时离开）
+Sorry, step out a minute.
+（抱歉，出去一分钟）
+Pardon me, take quick break.
+（请原谅，短暂休息）
+Excuse me, leave short time.
+（抱歉，离开一会儿）
+Sorry, back shortly now.
+（抱歉，现在很快回来）
+Pardon me, step away moment.
+（请原谅，暂时走开）
+Excuse me, leave briefly.
+（抱歉，暂时离开）
+Sorry, need short leave.
+（抱歉，需短暂离开）
+Pardon me, step out while.
+（请原谅，出去片刻）
+Excuse me, return shortly.
+（抱歉，很快回来）
+Sorry, go out a moment.
+（抱歉，出去一会儿）
+Pardon me, need brief leave.
+（请原谅，短暂离开）
+Excuse me, step away minute.
+（抱歉，走开一分钟）
+Sorry, back short while.
+（抱歉，过会儿回来）
+Pardon me, leave a bit.
+（请原谅，离开一会儿）
+Excuse me, take brief break.
+（抱歉，短暂休息）
+Sorry, step out short time.
+（抱歉，出去一会儿）
+Pardon me, return moment.
+（请原谅，一会儿回来）
+Excuse me, step away while.
+（抱歉，走开片刻）
+Sorry, leave momentarily.
+（抱歉，暂时离开）
+四、请求澄清与确认
+Could you repeat that?
+（您能重复下吗？）
+Could you clarify that point?
+（您能澄清那点吗？）
+Pardon me, missed that detail.
+（抱歉，漏了细节）
+Let me confirm I understand.
+（我确认下理解）
+Do you mind repeating?
+（介意重复下吗？）
+I didn&#x27;t catch that—again?
+（没听清，再来一次？）
+Could you explain briefly?
+（能简要解释吗？）
+Let me rephrase to check.
+（换种说法确认）
+Excuse me, what did you say?
+（抱歉，您说什么？）
+Would you clarify again?
+（能再澄清下吗？）
+I&#x27;m not sure I followed—explain?
+（不确定听懂，解释下？）
+Could you go over that again?
+（能再讲一遍吗？）
+Pardon, I didn&#x27;t get that.
+（抱歉，我没明白）
+Let me make sure I get this.
+（确保自己明白）
+Can you clarify for me?
+（能为我澄清吗？）
+I missed your last point—repeat?
+（漏了最后一点，重复？）
+Do you mind clarifying?
+（介意澄清下吗？）
+Let me check my understanding.
+（确认我的理解）
+Excuse me, repeat that please.
+（抱歉，请重复）
+Could you simplify that?
+（能简化下吗？）
+I&#x27;m confused—explain again?
+（困惑了，再解释？）
+Pardon me, clarify that please.
+（抱歉，请澄清）
+Let me rephrase to confirm.
+（换种说法确认）
+Did I get that right—confirm?
+（理解对吗，确认？）
+Could you restate briefly?
+（能简要重述吗？）
+I didn&#x27;t grasp that—help?
+（没理解，帮忙？）
+Do you mind going over that?
+（介意再讲一遍吗？）
+Let me ensure I understand.
+（确保自己理解）
+Excuse me, need clarity here.
+（抱歉，这里需弄清楚）
+Could you clarify last point?
+（能澄清最后一点吗？）
+Pardon, I&#x27;m unclear on that.
+（抱歉，那点不清楚）
+Let me check if I followed.
+（确认是否跟上）
+Would you repeat statement?
+（能重复您的话吗？）
+I&#x27;m not following—explain?
+（没跟上，解释下？）
+Could you make that clearer?
+（能说更清楚吗？）
+I missed that part—repeat?
+（漏了那部分，重复？）
+Do you mind clarifying again?
+（介意再澄清吗？）
+Let me rephrase to be sure.
+（换种说法确保正确）
+Excuse me, what was that again?
+（抱歉，那是什么来着？）
+Could you explain simply?
+（能简单解释吗？）
+Pardon me, confused here.
+（抱歉，这里困惑）
+Let me confirm your meaning.
+（确认您的意思）
+Did I understand correctly?
+（理解正确吗？）
+Could you restate that please?
+（能重述下吗？）
+I didn&#x27;t catch your meaning—help?
+（没明白意思，帮忙？）
+Do you mind explaining that?
+（介意解释下吗？）
+Let me check comprehension.
+（检查我的理解）
+Excuse me, clarify that point.
+（抱歉，澄清那点）
+Could you simplify your point?
+（能简化观点吗？）
+Pardon, I need that repeated.
+（抱歉，需要重复）
+五、道歉与弥补
+I apologize for confusion.
+（为困惑道歉）
+Sorry for delayed reply.
+（抱歉回复延迟）
+My mistake—I&#x27;ll correct it.
+（我的错，我会更正）
+Apologies for the error.
+（为错误道歉）
+Sorry I interrupted you.
+（抱歉打断您）
+I&#x27;m sorry for oversight.
+（为疏忽道歉）
+My apologies for mix-up.
+（为混乱道歉）
+Sorry for misunderstanding.
+（为误解道歉）
+I apologize for my mistake.
+（为我的错误道歉）
+Sorry for extra time taken.
+（抱歉占用额外时间）
+My error—let me fix it.
+（我的错误，我来修正）
+Apologies for my confusion.
+（为我造成的困惑道歉）
+Sorry I missed that detail.
+（抱歉漏了细节）
+I&#x27;m sorry for being late.
+（抱歉迟到了）
+My apologies for mistake.
+（为错误道歉）
+Sorry for confusion caused.
+（为造成的困惑道歉）
+I apologize for oversight.
+（为疏忽道歉）
+Sorry I messed up schedule.
+（抱歉弄乱日程）
+My mistake—make it right.
+（我的错，我来弥补）
+Apologies for delayed response.
+（为延迟回复道歉）
+Sorry I interrupted earlier.
+（抱歉之前打断您）
+I&#x27;m sorry for mail error.
+（为邮件错误道歉）
+My apologies for mix-up.
+（为混乱道歉）
+Sorry for misunderstanding.
+（为误解道歉）
+I apologize for my error.
+（为我的错误道歉）
+Sorry for taking your time.
+（抱歉占用您时间）
+My error—correct now.
+（我的错误，现在更正）
+Apologies for my confusion.
+（为我造成的困惑道歉）
+Sorry I missed that part.
+（抱歉漏了那部分）
+I&#x27;m sorry for being abrupt.
+（抱歉很生硬）
+My apologies for mistake.
+（为错误道歉）
+Sorry for confusion made.
+（为造成的混乱道歉）
+I apologize for work oversight.
+（为工作疏忽道歉）
+Sorry I messed up the plan.
+（抱歉弄乱计划）
+My mistake—fix now.
+（我的错，现在修正）
+Apologies for late reply.
+（为迟复道歉）
+Sorry I interrupted speech.
+（抱歉打断发言）
+I&#x27;m sorry for report error.
+（为报告错误道歉）
+My apologies for work mix-up.
+（为工作混乱道歉）
+Sorry for here misunderstanding.
+（为这里的误解道歉）
+I apologize for my mistake here.
+（为我这里的错误道歉）
+Sorry for more time taken.
+（抱歉占用更多时间）
+My error—make amends.
+（我的错误，我来弥补）
+Apologies for here confusion.
+（为这里的困惑道歉）
+Sorry I missed detail earlier.
+（抱歉之前漏了细节）
+I&#x27;m sorry for being late today.
+（抱歉今天迟到）
+My apologies for plan mistake.
+（为计划错误道歉）
+Sorry for my here confusion.
+（为我这里的混乱道歉）
+I apologize for plan oversight.
+（为计划疏忽道歉）
+Sorry I messed up timeline.
+（抱歉弄乱时间线）
+I apologize for the mistake in the report.
+（为报告中的错误道歉。）
+Sorry for the delayed response to your email.
+（抱歉延迟回复你的邮件。）
+My mistake—I’ll fix the error immediately.
+（我的错，我会立即修正错误。）
+Apologies for the confusion caused by my words.
+（为我的话造成的困惑道歉。）
+I’m sorry for missing the important detail in the meeting.
+（抱歉在会议中漏了重要细节。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="814外企职场高情商300";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

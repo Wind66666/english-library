@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>外贸业务面试，背完这10道题就够用了</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">🎯</span>外贸业务面试，背完这10道题就够用了</h1>
+  <div class="meta">
+    <span class="badge pdf">PDF</span>
+    <span class="charspill">6,416 字符</span>
+    <span>来源：外贸业务面试，背完这10道题就够用了.pdf</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%A4%96%E8%B4%B8%E4%B8%9A%E5%8A%A1%E9%9D%A2%E8%AF%95%EF%BC%8C%E8%83%8C%E5%AE%8C%E8%BF%9910%E9%81%93%E9%A2%98%E5%B0%B1%E5%A4%9F%E7%94%A8%E4%BA%86.pdf" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p219.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">1
+外贸业务⾯试，背完这    道题就够⽤了
+ . 可以⽤中 / 英⽂简单介绍下⾃⼰吗？
+ . 为什么会选择来我们公司呢？
+ . 为什么想做外贸？
+ . 谈谈对外贸流程的理解？
+ . 从之前的⼯作中学到了什么？
+ . 上⼀份⼯作的内容是哪些？
+ . 为什么会从上⼀家公司离职？
+ . 如果外贸客户只询价不下订单，怎么继续跟进？
+ . 当你的报价⾼于同⾏时，你怎么办？
+  . 如果客户因为⼯期太久想要转单时怎么办？
+总结
+问题: Could you tell me about yourself? 
+回答： ⾯试官您好，⾮常感谢给我这次⾯试机会。我叫XXX，毕业于XX⼤学XX专业。在上⼀份⼯
+作中，我在XX公司担任外贸岗位，积累了丰富的经验，特别是在客户沟通和了解外贸运营⽅⾯。
+我对国内外主要的B2B平台⾮常熟悉，⽐如阿⾥巴巴、环球资源等，并且参与过公司的⼀些展会活
+动。我英语⼝语流利，可以与客户进⾏有效沟通，熟练掌握书⾯英语。在校期间，我扎实了专业基
+础，并且对外贸业务的整个流程有了清晰的认知。作为应届毕业⽣，虽然我的⼯作经验还不⾜，但
+我善于学习新知识，对⼯作有⾼度的责任感。我很钦佩贵公司的发展和⼯作氛围，希望能有机会为
+公司贡献⼒量。
+英⽂： Good morning/afternoon, thank you very much for the opportunity to interview 
+today. My name is XXX. I graduated from XX University, majoring in XX. In my previous job 
+at XX Company, I gained extensive experience in a foreign trade position, particularly in 
+dealing with clients and understanding foreign trade operations. I am well-versed in major 
+domestic and international B2B platforms such as Alibaba and Global Sources, and have 
+participated in several company exhibitions. I am fluent in spoken English, allowing 
+effective communication with clients, and I am proficient in written English as well. During 
+my school years, I solidified my professional foundation and gained a clear understanding 
+1. 可以⽤中/英⽂简单介绍下⾃⼰吗？
+2
+of the entire foreign trade business process. As a fresh graduate, although my work 
+experience is limited, I have a high learning agility and a strong sense of responsibility 
+towards work. I am very impressed with the development and work environment of your 
+company, and I am eager to contribute to your team. 
+问题: What attracted you to our company? 
+回答： 通过对贵司的了解，我知道贵公司在XX领域享有很⾼的声誉，主营XX业务，具有很强的市
+场竞争⼒和⼴阔的发展前景。我的专业背景和⼯作经验与此岗位⾼度匹配，我相信这份⼯作能够帮
+助我得到很好地成⻓。我期望能在贵公司不断学习和进步，同时也希望能够为公司做出⾃⼰的贡
+献。
+英⽂： I have learned that your company holds a high reputation in the XX field, primarily 
+engages in XX business, and has strong market competitiveness and significant 
+development prospects. My educational background and work experience align well with 
+this position, and I am confident that this role will provide me with great opportunities for 
+growth. I hope to continuously learn and improve within your company, while also making 
+valuable contributions. 
+问题: Why do you think you are qualified for this position? 
+回答： 我的⼤学专业与外贸领域⾼度相关，我对这个⾏业⾮常感兴趣。外贸⼯作不仅可以提供国
+际视野，还能让我与不同国家的客户交流，这正是我所追求的职业体验。此外，外贸⼯作环境相对
+单纯，更加契合我的职业期望。
+英⽂： My university major is highly related to the foreign trade field, and I have a strong 
+interest in this industry. Foreign trade work not only offers an international perspective but 
+also allows me to communicate with clients from different countries, which is exactly what 
+I seek in my career. Moreover, the relatively straightforward work environment in foreign 
+trade aligns well with my career expectations.
+问题: What do you think of the foreign trade process? 
+2. 为什么会选择来我们公司呢？ 
+3. 为什么想做外贸？ 
+4. 谈谈对外贸流程的理解？
+3
+回答：
+1. 收到询盘
+2. 给客户报价
+3. 客户下订单，发送 PI 
+4. 双⽅签订 PO（合同） 
+5. 客户⽀付定⾦后，与⼯⼚协商⽣产安排
+6. 找货代安排发货
+7. 订舱和报关
+8. 收到尾款后发货
+9. 跟进客户的售后情况
+英⽂：
+1. Receiving inquiries 
+2. Quoting the client
+3. Client places an order and we send a PI 
+4. Both parties sign the PO (contract) 
+5. Upon receiving the client&#x27;s deposit, coordinate production with the factory 
+6. Arrange shipping with the freight forwarder 
+7. Booking a container and preparing for customs clearance 
+8. Shipping the goods after receiving the balance 
+9. Following up on the client&#x27;s after-sales needs 
+问题: What have you learned from your previous job? 
+回答：⾸先我的外贸业务技能得到了提升，能够让我熟练应对各种类型的客户，对外贸业务流程也
+有了更深的理解。其次是我的产品思维⽅⾯，有了⽐较完善的产品学习思路，⼤⼤提⾼了我的转换
+率。最后我认为我最⼤的收获是学会了团队合作。⼀个⼈单打独⽃所能取得的成绩是有限的，通过
+同事的配合我们完成了⼀个⼜⼀个⾼质量的订单。
+英⽂： Firstly, my foreign trade skills have been enhanced, allowing me to deal with various 
+types of clients and gain a deeper understanding of the foreign trade process. Secondly, 
+my product thinking has improved, and I have developed a comprehensive approach to 
+product learning, significantly increasing my conversion rate. Ultimately, I believe my 
+5. 从之前的⼯作中学到了什么？
+4
+greatest gain is learning the importance of teamwork. An individual&#x27;s achievements are 
+limited, but through collaboration with colleagues, we have completed numerous high-
+quality orders. 
+问题: What was the content of your previous job? 
+回答： 主要职责包括操作公司的B2B平台（如阿⾥巴巴、环球资源、Made-in-China），通过线
+上平台或邮件与客户交流，跟踪客户。此外，还协助同事安排展会事宜。
+英⽂： My main responsibilities included managing the company&#x27;s B2B platforms (such as 
+Alibaba, Global Sources, and Made-in-China), communicating with clients through online 
+platforms or email, and following up with clients. Additionally, I assisted colleagues in 
+organizing exhibition-related matters. 
+问题: Why did you leave your last company? 
+回答：
+1. 公司转型做C端，但我更想继续在B端发展。 
+2. 产品复杂且售后繁琐，我希望能做更简单的产品，专注于业务。
+3. 公司在⼴州，⽽我的伴侣在深圳，不想异地所以换了⼯作。
+英⽂：
+1. The company shifted to B2C, but I wanted to continue in B2B. 
+2. The products were complex and had cumbersome after-sales service; I prefer simpler 
+products to focus more on business. 
+3. The company was in Guangzhou, but my partner was in Shenzhen, and I did not want a 
+long-distance relationship, so I changed jobs. 
+问题: If a foreign trade client inquires about the price but does not place an order, how 
+would you follow up? 
+6. 上⼀份⼯作的内容是哪些？ 
+7. 为什么会从上⼀家公司离职？ 
+8. 如果外贸客户只询价不下订单，怎么继续跟进？
+5
+回答： ⾸先我会调整⼼态。这类客户谁都会遇到，但如果我将负⾯情绪传达给客户，对⽅很容易
+感受到并不⾼兴，导致订单难以成交。然后我会问清楚客户需要多⻓时间确认，影响客户下单的因
+素有很多，可能是近期⽣意⼀般，暂时不需要，甚⾄可能是忙忘记了。我会主动在邮件中向客户注
+明：我们需要60天左右运⾏这个订单，如果今天能够接到您的PO，⼤约的发货时间可以是11⽉
+底。
+英⽂： Firstly, I would adjust my mindset. Every salesperson encounters such clients, but if 
+I convey a negative attitude, the client can sense it and may be unhappy, making it difficult 
+to close the deal. I would ask the client how long they need to confirm. Many factors affect 
+a client&#x27;s decision to place an order; business might be slow, or they might simply have 
+forgotten. I would proactively note in my email: “We need approximately 60 days to 
+process this order. If we receive your PO today, we can tentatively schedule the shipment 
+for the end of November.” 
+问题: If your quotation is higher than that of your competitors, what would you do? 
+回答： 对于⽼客户，我们需要⽀持并保持稳定，因为他们是我们的根本，不能冒任何⻛险，即使
+这会让客户不快。去年定的订单如果突然涨价，调整会⾮常困难且不合理，可与客户商议将价格调
+整到下半年。如果⽼客户的订单量很⾼，即便利润低也不会亏损，我们可以先维持现状。同时尝试
+与供应商谈判，降低成本。
+英⽂： For long-term clients, we need to provide support and maintain stability as they are 
+crucial to us, and we cannot afford any risks even if it causes some dissatisfaction. Orders 
+confirmed last year cannot suddenly increase in price without prior negotiation or notice. 
+We can discuss with the client to adjust prices in the second half of the yearif the order 
+volume from the client is high, the low profit margin still ensures no loss. We can maintain 
+the current arrangement and try to negotiate with suppliers for cost reduction. 
+问题: If a client wants to change suppliers due to long lead times, what would you do? 
+回答： ⾸先我会严格控制和管理供应商，把⽣产过程模块化，每周汇报进度，不给⼯⼚留余地，
+具体询问每个⽣产阶段的时间安排。必要时会实地督促进度。即使延误，也要第⼀时间通知客户并
+提供可⾏的解决⽅案。
+9. 当你的报价⾼于同⾏时，你怎么办？ 
+10. 如果客户因为⼯期太久想要转单时怎么办？
+6
+英⽂： Firstly, I would implement strict control and management of suppliers by 
+modularizing the production process and providing weekly progress reports, asking 
+specific questions about each production stage. If necessary, I would visit the factory to 
+expedite the schedule. In case of delays, I would immediately inform the client and offer 
+feasible solutions. 
+希望这些外贸⾯试常⻅问题及其回答话术能够帮助你在⾯试中表现出⾊，赢得⾯试官的⻘睐，顺利
+拿到⼼仪的Offer！如果你有更多问题，欢迎在下⽅留⾔。 🌟😊  
+以上是⼀些常⻅的外贸⾯试问题及回答，希望能够帮助你更好地准备⾯试。祝你好运！ 🍀  
+总结</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="外贸业务面试，背完这10道题就够用了";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

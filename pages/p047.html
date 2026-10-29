@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9.9 7天背完567个商务词汇白</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">📚</span>9.9 7天背完567个商务词汇白</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">9,715 字符</span>
+    <span>来源：9.9  7天背完567个商务词汇白.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C9.9%20%207%E5%A4%A9%E8%83%8C%E5%AE%8C567%E4%B8%AA%E5%95%86%E5%8A%A1%E8%AF%8D%E6%B1%87%E7%99%BD.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p047.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">7天背完567词
+拿下商务英语足够了
+参观工厂
+Factory Tour：工厂参观
+Production Line：生产线
+Assembly：组装
+Quality Control：质量控 制
+Workshop：车间
+Machinery：机械
+Conveyor Belt：输送带
+Raw Materials：原材料
+Finished Goods：成品
+Packaging：包装
+Storage：储存
+Safety Measures：安全措 施
+Workforce：劳动力
+Efficiency：效率
+Automation：自动化
+Maintenance：维护
+Inventory：库存
+Blueprint：蓝图
+Sustainability：可持续性
+Ergonomics：人体工程学
+Capacity：产能
+Output：产出
+Yield：产量
+Process Flow：流程
+Workstation：工作站
+Calibration：校准
+Testing：测试
+Certification：认证
+ISO Standards：国际标准 化组织标准
+Lean Manufacturing：精 益生产
+Just - In - Time (JIT)：及 时生产
+Supply Chain：供应链
+Logistics：物流
+Material Handling：物料 搬运
+Robotics：机器人技术
+Prototype：原型
+Artificial Intelligence：人 工智能
+Batch  Processing ：批量 处理
+Data Analysis：数据分析
+Quality Assurance：质量 保证
+Monitoring：监控
+Performance Metrics：绩 效指标
+Cost - Effective：成本效益
+Competitive Advantage：竞争优势
+Environmental Standards：环境标准
+Inspection：检查
+Compliance：合规
+Waste Management：废 物管理
+Energy Efficiency：能效
+Production Schedule：生产计划
+Work Shift：工作班次​
+Equipment Operation：设备操作
+Raw Material Inspection：原材料检验​
+Finished Product Testing：成品测试​
+​
+产品介绍
+Product：产品
+Features：特性
+Benefits：好处 / 优势
+Specifications：规格
+Quality：质量
+Innovation：创新
+Durability：耐用性
+Efficiency：效率
+Reliability：可靠性
+Sustainability：可持续性
+User - friendly：用户友好
+Integration：集成
+Compatibility：兼容性
+Performance：性能
+Portability：便携性
+Security：安全性
+Scalability：可扩展性
+Interoperability：互操作性
+ROI  (Return  on Investment)：投资回报率
+Pricing：定价
+Discount：折扣
+Cost - effective：成本效益
+Promotion：促销
+Distribution：分销
+Competitive advantage：
+竞争优势
+Logistics：物流
+Market demand：市场需 求
+Brand value：品牌价值
+Customer satisfaction：
+客户满意度
+Productivity：生产力
+Design：设计
+Functionality：功能性
+Customization：定制化
+Packaging：包装
+Warranty：保修
+Upgrade：升级
+Support：支持
+Supply chain：供应链
+Manufacturing：制造
+Certification：认证
+Compliance：合规
+Regulation：法规
+Market research：市场研究
+Segmentation：市场细分
+Target market：目标市场
+Positioning：定位
+Differentiation：差异化
+Strategy：策略
+Lifecycle：生命周期
+R&amp;D (Research and Development)：研发
+Prototype：原型
+Mass production：量产
+Inventory：库存
+Stockout：缺货
+Overstock：积压库存
+Lead time：交货周期
+Order fulfillment：订单履行
+After-sales service：售后服务
+Customer loyalty：客户忠诚度
+Customer retention：客户留存
+Churn rate：客户流失率
+Market share：市场份额
+Market penetration：市场渗透
+Market expansion：市场扩张
+Market saturation：市场饱和
+Brand awareness：品牌知名度
+Brand reputation：品牌声誉
+Brand positioning：品牌定位
+Advertising：广告宣传
+Feedback：反馈
+Complaint handling：投诉处理
+Usability testing：可用性测试
+接待客户
+Reception：接待
+Greeting：问候
+Introduction：介绍
+Business Card：名片
+Protocol：礼仪
+Cordial：热情的
+Engagement：参与
+Networking：建立人脉
+Conference：会议
+Seminar：研讨会
+Workshop：工作坊
+Exhibition：展览会
+Booth：展位
+Demonstration：演示
+Presentation：演讲
+Collaboration：合作
+Negotiation：谈判
+Contract：合同
+Agreement：协议
+Partnership：伙伴关系
+Hospitality Suite：款待套 房
+Catering：餐饮服务
+Event Planning：活动策划
+Logistics：物流
+Accommodation：住宿
+Transportation：交通
+Itinerary：行程
+Entertainment：娱乐
+Dining：餐饮
+Cultural Sensitivity：文化 敏感性
+Business Etiquette：商务 礼仪
+Professionalism：专业性
+Courtesy：礼貌
+Respect：尊重
+Diplomacy：外交手腕
+Confidentiality：保密
+Etiquette：礼仪
+Ambassador：大使
+Host：主人
+Guest：客人
+Delegate：代表
+VIP：贵宾
+Client：客户
+Customer Service：客户 服务
+Assistance：协助
+Support：支持
+Facilitation：促进
+Coordination：协调
+Hospitality Industry：酒店业
+Check-in：签到（活动 / 住宿）​
+Check-out：退房（住宿）/ 离场登记​
+Welcome Package：欢迎礼包​
+Name Badge：姓名牌​
+Lounge Area：休息区​
+Refreshment：茶点（饮品与小食）​
+Buffet：自助餐​
+Banquet：宴会​
+Cocktail Reception：鸡尾酒会​
+Reception Desk：接待台​
+Concierge Service：礼宾服务​
+Escort：引导（人员）​
+Interpreter：口译员​
+Translator：笔译员Hospitality：款待
+Agenda：议程（活动 / 会议流程）​
+Minutes：会议纪要​
+Feedback Form：反馈表
+VIP Lounge：贵宾休息室​
+Chauffeur Service：专车接送服务​
+Local Guide：本地向导​
+Cultural Event：文化活动（如民俗体验）​
+Business Luncheon：商务午餐​
+Formal Dinner：正式晚宴
+Thank-You Note：感谢信​
+Follow-Up：后续跟进（沟通 / 联系）​
+RSVP：回复邀请（确认出席与否）​
+Invitation Letter：邀请函
+电话会议
+Conference Call：电话会 议
+Teleconference：远程会 议
+Dial - in Number：拨入号 码
+Access Code：访问码
+PIN：个人识别码
+Moderator：主持人
+Participant：参与者
+Attendee：与会者
+Host：主办人
+Guest：嘉宾
+Agenda：议程
+Minutes：会议记录
+Action Items：行动项
+Follow - up：后续
+Call - in：来电
+Mute：静音
+Unmute：解除静音
+Hold：保留
+Voice Mail：语音邮件
+Call Screening：电话筛选
+Call Forwarding：呼叫转 移
+Three - way Calling：三 方通话
+Call Recording：电话录音
+Echo Cancellation：回声 消除
+Noise Reduction：降噪
+Volume Control：音量控 制
+Speakerphone：免提电话
+Headset：耳机
+Conference Call Service：
+电话会议服务
+Web Conference：网络会 议
+Video Conference：视频 会议
+Screen Sharing：屏幕共享
+Presentation：演示文稿
+Slide：幻灯片
+Q&amp;A Session：问答环节
+Feedback：反馈
+Resolution：决议
+Consensus：共识
+Operator - assisted：由话 务员协助
+Brainstorming：头脑风暴
+Transfer：转接
+Conference Bridge：会议 桥
+Call - in Line：拨入线路
+Time Zone Differences：时区差异
+International Dial - in：国际拨入
+Conference Call Etiquette：电话会议礼仪
+Participant Code：参与者 代码
+Toll -free Number：免费 号码
+Call Queue：呼叫队列
+Call Scheduling：电话会议安排
+Meeting Invitation：会议邀请​
+RSVP：回复确认（是否出席）​
+Call Reminder：会议提醒​
+Meeting Duration：会议时长​
+Start Time：开始时间​
+End Time：结束时间​
+Time Zone Conversion：时区转换​
+Local Dial - in：本地拨入号码​
+Toll Number：收费号码​
+Conference ID：会议 ID​
+Host Code：主持人代码​
+Guest Access：嘉宾权限​
+Participant List：参会人员名单​
+Absentee：缺席者​
+Latecomer：迟到者​
+Meeting Agenda Item：会议议程项​
+Agenda Deadline：议程截止时间​
+Minutes Recorder：会议记录员​
+Minutes Approval：会议记录审批​
+Action Item Owner：行动项负责人​
+Action Item Deadline：行动项截止日期​
+Follow - up Meeting：后续会议​
+Follow - up Report：后续报告​
+Call Disconnection：通话中断​
+Reconnect：重新连接​​
+Screen Resolution：屏幕分辨率​
+Presentation Sharing：演示文稿共享​
+工厂运营
+Assembly Line：装配线
+Quality Control：质量控 制
+Production Line：生产线
+Team Leader：团队领导
+Production  Efficiency：生产效率
+Assembly：组装
+Inspection：检查
+Workforce：劳动力
+Inventory Management：库存管理
+Waste Management：废物管理
+Ergonomics：人体工程学
+Supply Chain：供应链
+Raw Materials：原材料
+Production Planning：生产计划
+Capacity Planning：能力 规划
+Finished Goods：成品
+Packaging：包装
+Lean Manufacturing：精益生产
+Just - In - Time (JIT)：准时制生产
+Workstation：工作站
+Material Handling：物料 搬运
+Process Improvement： 流程改进
+Maintenance：维护
+Safety Regulations：安全规定
+Work Schedule：工作计划
+Shift：班次
+Overtime：加班
+Break Room：休息室
+Warehouse：仓库
+Forklift：叉车
+Conveyor Belt：输送带
+Machinery：机械
+Tools：工具
+Blueprint：蓝图
+Quality Assurance：质量 保证
+ISO Certification：ISO 认 证
+Calibration：校准
+Batch  Processing ：批量 处理
+Scheduling：调度
+Cost Reduction：成本降 低
+Output：输出
+Yield：产量
+Defect Rate：缺陷率
+Compliance：合规性
+Training：培训
+Production Capacity：生产能力
+Downtime：停机时间
+Efficiency：效率
+Resource Allocation：资源分配
+Order  Processing： 订单处理
+Purchase Order (PO)：采 购订单
+Sales Order：销售订单
+Order Confirmation：订单确认
+Order Cancellation：订单取消
+Order Fulfillment：订单履行
+Backorder：缺货订单
+Drop Shipment：直运
+Cross Docking：交叉配送
+Order Cycle Time：订单周 期时间
+Order Entry：订单输入
+Order Tracking：订单追踪
+Order Status：订单状态
+Fulfillment Center：履行中心
+Inventory  Management：库存管理
+Warehouse Management：仓库管理
+Logistics：物流
+Shipping：运输
+Packaging：包装
+Labeling：标签
+Customs Clearance：清关
+Delivery：交货
+COD (Cash on Delivery)：货到付款
+Payment Terms：付款条 款
+Proforma Invoice：形式 发票
+Commercial Invoice：商 业发票
+Bill of Lading：提单
+工厂质量管理
+Quality Assurance (QA)：质量保证
+Quality Control (QC)：质量控制
+Quality  Management：质量管理
+Quality Verification：质 量验证
+Quality Testing：质量测 试
+Quality Inspection：质量 检验
+Quality Validation：质量 验证
+Quality Evaluation：质量 评估
+Quality Checking：质量检 查
+Quality  Monitoring：质 量监控
+Quality Audit：质量审核
+Quality Review：质量评审
+Quality Oversight：质量监管
+Quality Assessment：质量评估
+Quality Certification：质量认证
+Quality Policy：质量政策
+Quality Plan：质量计划
+Quality System：质量体系
+RACI Matrix：RACI 矩阵
+Reducing Setup Time：减少设置时间
+Reliability：可靠性
+Requirements：需求
+Risk   Priority Number (RPN)：风险优先数
+Robust：稳健性
+Root Cause Analysis：根 本原因分析
+Single Minute Exchange of Die(SMED)：单分钟换模
+SIPOC  Diagram： SIPOC 图
+Six Sigma：六西格玛
+Standard：标准
+Statistical Process Control (SPC)：统计过程控制
+Strategic Planning：战略 规划
+Sustainability：可持续性
+Systems Engineering：系 统工程
+Takt Time：节拍时间
+Target：目标
+Theory of Constraints (TOC)：约束理论
+Total Productive Maintenance (TPM)：全 面生产维护
+Total Quality Management (TQM)：全 面质量管理
+Upper Specification Limit (USL)：上规格限
+Value：价值
+Value - Added Activities：增值活动
+Value Stream Mapping： 价值流图
+Variation：变异
+Waste：浪费
+Work Breakdown Structure (WBS)：工作分 解结构
+World  Class  Manufacturing (WCM)： 世界级制造
+X - bar Chart：X - bar 图
+Yield：产量
+Zero Defects：零缺陷
+Quality .：质量 .
+Quality Objective：质量目标
+Quality Record：质量记录
+Quality Manual：质量手册
+Quality Objective：质量目标
+Quality Cost：质量成本
+Quality Risk：质量风险
+Quality Improvement：质量改进
+Quality Objective：质量目标
+Quality Attribute：质量属性
+Quality Standard：质量标准
+Quality Objective：质量目标
+Quality Documentation：质量文件
+Quality Objective：质量目标
+Quality Performance：质量绩效
+Quality Objective：质量目标
+Quality Requirement：质量要求
+Quality Objective：质量目标
+Quality Control Plan：质量控制计划
+Quality Objective：质量目标
+Quality Management System：质量管理体系
+生产效率
+Production  Efficiency：生产效率
+Output：产出
+Throughput：吞吐量
+Productivity：生产力
+Yield：产量
+Utilization：利用率
+Capacity：产能
+Downtime：停机时间
+Uptime：开机时间
+Workforce：劳动力
+Labor Productivity：劳动生产率
+Operational  Efficiency ：运营效率
+Process Improvement：流程改进
+Lean Manufacturing：精 益生产
+Six Sigma：六西格玛
+Total Quality Management (TQM)：全面质量管理
+Value Stream Mapping：价值流图
+Kaizen：改善（持续改进）
+Just - In - Time (JIT)：准时制生产
+Inventory Turnover：库 存
+Inventory Turnover：库 存周转率
+Lead Time：交货时间
+Cycle Time：周期时间
+Set - Up Time：设置时间
+Run Time：运行时间
+Changeover Time：转换 时间
+Bottleneck：瓶颈
+Resource Allocation：资 源分配
+Workload：工作量
+Workload Balancing：工 作量平衡
+Standard Operating Procedure (SOP)：标准操 作程序
+Quality Control：质量控制
+Defect Rate：缺陷率
+Production Line：生产线
+Automation：自动化
+Robotics：机器人技术
+ManufacturingExecution System (MES)：制造执行系统
+Enterprise   Resource Planning (ERP)：企业资源 规划
+Data Analytics：数据分析
+Performance Metrics：绩效指标
+Cost Efficiency：成本效率
+Energy Efficiency：能源效率
+Sustainable Manufacturing ：可持续制造
+Green Manufacturing： 绿色制造
+Supply Chain Management：供应链管理
+Logistics：物流
+Procurement：采购
+Material Handling：物料 搬运
+Equipment Maintenance：设备维护
+Predictive Maintenance：预测性维护
+Continuous Improvement：持续改进
+Waste Reduction：浪费减少
+Quality Assurance (QA)：质量保证
+Production Scheduling：生产排程
+Material Requirement Planning (MRP)：物料需求计划
+Work-in-Progress (WIP)：在制品
+Finished Goods：成品
+Raw Material：原材料
+Process Cycle Efficiency (PCE)：流程周期效率
+Overall Equipment Effectiveness (OEE)：设备综合效率
+Labor Cost：人工成本
+Production Cost：生产成本
+Scrap Rate：报废率
+Rework Rate：返工率
+Batch Production：批量生产
+Continuous Production：连续生产
+Cellular Manufacturing：单元化生产
+Supplier Management：供应商管理
+Demand Forecasting：需求预测
+工作复盘
+Review：复盘，回顾
+Retrospective：回顾
+Post - mortem：项目结束 后复盘
+Debrief：简要汇报，复盘
+Reflection：反思
+Evaluation：评估
+Assessment：评估
+Audit：审计
+Analysis：分析
+Performance Review：绩 效复盘
+Project Review：项目复盘
+Outcome：结果
+Result：结果
+Achievement：成就
+Success：成功
+Failure：失败
+Strength：优势
+Weakness：劣势
+Opportunity：机会
+Threat：威胁
+Goal：目标
+Objective：目标
+Target：目标
+KPI   (Key   Performance Indicator)：关键绩效指标
+Metric：指标
+Benchmark：基准
+Trend：趋势
+Insight：洞察
+Learning：学习
+Lesson Learned：经验教训
+Action Item：行动项
+Follow - up：后续行动
+Improvement：改进
+Enhancement：提升
+Optimization：优化
+Efficiency：效率
+Effectiveness：效果
+Productivity：生产力
+Quality：质量
+Accuracy：准确性
+Timeliness：及时性
+Adaptability：适应性
+Flexibility：灵活性
+Innovation：创新
+Creativity：创造力
+Risk：风险
+Mitigation：缓解
+Prevention：预防
+Control：控制
+Monitoring：监控
+Feedback：反馈
+Summary：总结
+Conclusion：结论
+Progress：进展
+Milestone：里程碑
+Challenge：挑战
+Obstacle：障碍
+Solution：解决方案
+Strategy：策略
+Plan：计划
+Execution：执行
+Alignment：协同、对齐
+Collaboration：协作
+Accountability：问责、责任
+Transparency：透明度
+Consistency：一致性
+Reliability：可靠性
+Scalability：可扩展性
+Sustainability：可持续性
+Compliance：合规性</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="997天背完567个商务词汇白";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

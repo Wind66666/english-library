@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 超实用!职场沟通高频词汇</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p274.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：超实用!职场沟通高频词汇</h1>
+  <div class="meta"><span class="charspill">420 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">420</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 420 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p274.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["o ASAP (As Soon As Possible)", "尽快。 常用于表达对任务完成时间的紧迫性要求。例如："], ["o FYI (For Your Information)", "供您参考。在分享信息，不需要对方回复或采取行动时使"], ["o BRB (Be Right Back)", "马上回来。多在即时通讯中，临时离开时告知对方。比如在团队"], ["o Feedback", "反馈。用于收集他人对工作、方案等的意见和建议。 例如：“We need your"], ["o Follow-up", "跟进。 指对已讨论或安排的事情进行后续的追踪和处理。如：“I will do a follow-"], ["o T ouch base", "简短交流。用于和他人进行简短的沟通，了解情况或确认进度。例如：“Let's"], ["touch base later to discuss the project status.（我们稍后简短交流一下，讨论项目的进展情", "况 。）”"], ["o Reach out", "联系。可用于主动与他人建立联系。如：“You can reach out to the IT"], ["o Deadline", "截止日期。表示任务、项目等必须完成的时间点。例如：“The deadline for this"], ["o Extension", "延期。指延长截止日期。如：“Can we request an extension for the report"], ["o Prioritize", "优先考虑。 在多项任务中确定重要性和先后顺序。例如：“We need to prioritize"], ["o Adjourn", "休会。用于会议结束暂时中断。如：“We will adjourn the meeting and continue"], ["o Motion", "动议。在会议中提出的正式提议。例如：“A motion was made to change the"], ["o Unanimous", "一致同意。表示所有人都达成相同意见。 如：“The decision was made"], ["o Postpone", "推迟。将活动、会议等延迟到以后的时间。例如：“We have to postpone the"], ["o Quorum", "法定人数。会议或投票等活动中需要达到的最低人数。如： “We don't have a"], ["quorum, so we can't vote on this issue. （我们没有达到法定人数，所以不能对这个问题进", "行投票。 ）”"], ["o Resolution", "决议。会议或组织做出的正式决定。例如：“The board passed a resolution"], ["o Action items", "行动项。会议或讨论后确定需要执行的具体任务。如：“Please make sure"], ["to complete all the action items before the next meeting. （请确保在下一次会议前完成所", "有的行动项。 ）”"], ["o Subject line", "主题行。 邮件的标题， 应简洁明了地概括邮件主要内容。例如：“Subject line:"], ["o CC (Carbon copy)", "抄送。将邮件副本发送给相关人员，让他们了解邮件内容，但不一"], ["o BCC (Blind Carbon copy)", "密送。 密送的收件人不会被其他收件人看到。 常用于保护收"], ["o Attachments", "附件。在邮件中附带的文件、文档等。如：“Please find the relevant"], ["o Forward", "转发。将收到的邮件转发给其他人。例如：“I'm forwarding the email from our"], ["o Reply all", "回复所有人。对邮件的所有收件人进行回复。如：“When you reply all, make"], ["an out of office message to inform others that I'm on vacation. （我设置了外出自动回复，", "告知其他人我在度假。 ）”"], ["o Signature", "签名。 邮件末尾的个人信息， 包括姓名、 职位、 联系方式等。如：“Don't forget"], ["o Thread", "邮件线索。一系列相关的邮件往来记录。例如：“It's important to keep the email"], ["confidential information. Please handle it with care. （这封邮件包含机密信息，请谨慎处", "理 。）”"], ["o Agenda", "议程。会议的内容安排和顺序。例如：“Let's go through the agenda before the"], ["o Minutes", "会议记录。记录会议的主要内容、讨论结果、行动项等。如：“The secretary will"], ["o Chair", "主持。担任会议的主持人，负责引导会议进程。例如：“She will chair the meeting"], ["tomorrow.（她明天将主持会议。 ）”", "四、项目管理"], ["o Milestone", "里程碑。项目中的重要阶段或关键事件。例如：“Completing the prototype is"], ["o Scope", "范围。项目所涵盖的工作内容和边界。如：“We need to define the project scope"], ["o Deliverable", "交付物。项目完成后需要提交的成果。例如：“The final report is one of the"], ["o Timeline", "时间线。 项目各个阶段和任务的时间安排。如：“The project timeline shows that"], ["we have to finish the testing phase by the end of this month. （项目时间线显示我们必须", "在本月底前完成测试阶段。 ）”"], ["o Budget", "预算。项目所需的资金和资源的计划安排。例如：“We need to stay within the"], ["o Resource allocation", "资源分配。 将人力、 物力等资源分配到项目的不同部分。如：“Proper"], ["resource allocation is crucial for the success of the project.（合理的资源分配对项目的成功", "至关重要。 ）”"], ["o Risk assessment", "风险评估。 对项目可能面临的风险进行识别、 分析和评估。例如：“We"], ["conducted a risk assessment to identify potential problems in the project.（我们进行了风", "险评估，以识别项目中潜在的问题。 ）”"], ["o Stakeholder", "利益相关者。与项目有利益关系的个人或组织。如：“We need to"], ["communicate with all the stakeholders regularly. （我们需要定期与所有利益相关者进行沟", "通 。）”"], ["o Status update", "状态更新。汇报项目的当前进展情况。例如：“Please provide a status"], ["o Kick-off meeting", "启动会议。项目开始时召开的会议，介绍项目背景、目标、计划等。"], ["o Milestones achieved", "达成的里程碑。表示项目已经完成的重要阶段。 例如：“We"], ["celebrated the milestones achieved in the project last week.（我们上周庆祝了项目中达成", "的里程碑。 ）”"], ["o Accountability", "责任。 个人或团队对工作结果应承担的责任。例如：“Each team member"], ["o Alignment", "对齐。团队成员之间的目标、行动等保持一致。如：“We need to ensure"], ["alignment among all departments for the success of the project.（为了项目的成功，我们", "需要确保所有部门之间的目标一致。 ）”"], ["o Performance review", "绩效评估。对员工工作表现进行评价和反馈。例如：“The annual"], ["o Constructive criticism", "建设性批评。提出有帮助的、能促进改进的批评意见。如：“He"], ["gave me some constructive criticism on my presentation skills.（他对我的演讲技巧提出了", "一些建设性的批评意见。 ）”"], ["o Areas for improvement", "改进领域。 员工或团队需要提升和改进的方面。例如：“Based"], ["on the performance review, we identified several areas for improvement. （根据绩效评估，", "我们确定了几个需要改进的领域。 ）”"], ["o Objectives and Key Results (OKRs)", "目标与关键结果。一种目标管理方法，明确目"], ["o Self-assessment", "自我评估。员工对自己工作表现的评价。例如：“You need to submit"], ["a self-assessment report at the end of each month.（你需要在每个月底提交一份自我评估", "报告。 ）”"], ["o Peer review", "同行评审。同事之间对工作成果进行评价和反馈。 如：“The peer review"], ["o Annual review", "年度评审。对员工一年的工作表现进行综合评价。例如：“The annual"], ["review will determine your salary increase and promotion opportunities.（年度评审将决定", "你的加薪和晋升机会。 ）”"], ["o Promotion", "升职。 员工在职位上得到提升。如：“She got a promotion after years of hard"], ["o Bonus", "奖金。作为对员工工作表现的奖励而发放的额外金钱。例如：“The team received"], ["a bonus for achieving the sales target.（这个团队因为完成了销售目标而获得了奖金。 ）”", "六、团队协作"], ["o Collaborate", "合作。 团队成员共同工作， 完成任务。例如：“We need to collaborate closely"], ["o Brainstorm", "头脑风暴。通过集体讨论产生新的想法和创意。 如： “Let's have a"], ["brainstorming session to come up with new marketing ideas.（我们开个头脑风暴会议，想", "出新的营销点子。 ）”"], ["o Delegation", "委托。将任务分配给团队成员。例如：“As a manager, you need to learn the"], ["o Empowerment", "授权。 给予团队成员权力和责任， 让他们能够自主决策和行动。如：“The"], ["company believes in empowerment, which encourages employees to take initiative. （公", "司相信授权，这鼓励员工积极主动。 ）”"], ["o Feedback loop", "反馈循环。在工作过程中不断收集反馈并进行改进的过程。例如：“We"], ["established a feedback loop to ensure continuous improvement of our products.（我们建", "立了一个反馈循环，以确保我们的产品不断改进。 ）”"], ["o Synergy", "协同效应。 团队成员合作产生的效果大于各自单独工作效果之和。如：“The cross-"], ["functional team created a great synergy, and we achieved excellent results. （跨职能团队", "产生了强大的协同效应，我们取得了优异的成绩。 ）”"], ["o T eam building", "团队建设。通过各种活动增强团队凝聚力和协作能力。 例如：“We"], ["o Cross-functional team", "跨职能团队。由来自不同部门、具有不同技能的人员组成的团"], ["o Career path", "职业路径。 个人在职业生涯中规划的发展方向和路径。例如：“He has a clear"], ["o Networking", "建立人脉。与同行、前辈等建立联系，拓展职业关系网。 如：“Attending"], ["o Mentorship", "导师制。有经验的人指导和帮助新人成长的制度。例如：“The company's"], ["mentorship program has been very helpful for new employees. （公司的导师计划对新员", "工非常有帮助。 ）”"], ["o Work-life balance", "工作生活平衡。在工作和生活之间找到合适的平衡点。如：“Many"], ["people are striving for a better work-life balance.（很多人都在努力追求更好的工作生活平", "衡 。）”"], ["o Skill set", "技能集。 个人所具备的各种技能的组合。例如：“To succeed in this job, you need"], ["o Professional development", "专业发展。提升个人在专业领域的知识和技能。如：“The"], ["company offers various training programs for employees' professional development.（公", "司为员工的专业发展提供各种培训项目。 ）”"], ["o Workshop", "研讨会。针对特定主题进行深入讨论和学习的活动。 如：“We attended a"], ["o Webinar", "网络研讨会。通过网络进行的远程研讨会。例如：“I'll participate in a webinar"], ["o Industry trends", "行业趋势。所在行业的发展方向和流行趋势。如：“We need to keep"], ["up with the latest industry trends to stay competitive.（我们需要跟上最新的行业趋势，以", "保持竞争力。 ）”"], ["o Salary negotiation", "薪资谈判。与雇主就薪资待遇进行协商。例如：“It's important to"], ["o Compensation package", "薪酬福利。包括工资、奖金、保险、休假等在内的整体薪酬"], ["of this company include health insurance and paid vacation.（这家公司的福利待遇包括医", "疗保险和带薪休假。 ）”"], ["o Health insurance", "医疗保险。为员工提供医疗费用保障的保险。如：“The company"], ["provides comprehensive health insurance for its employees.（公司为员工提供全面的医疗", "保险。 ）”"], ["o Retirement plan", "养老计划。为员工退休后的生活提供经济保障的计划。例如：“The"], ["o Performance bonus", "绩效奖金。根据员工工作表现发放的奖金。如：“He received a"], ["large performance bonus for his excellent work. （他因为出色的工作获得了一笔丰厚的绩", "效奖金。 ）”"], ["o Paid time off (PTO)", "带薪休假。员工可以享受的带薪休息时间。例如：“Employees are"], ["entitled to a certain number of PTO days per year. （员工每年有权享受一定天数的带薪休", "假 。）”"], ["o Flexible working hours", "弹性工作时间。 员工可以根据自己的情况灵活安排工作时间。"], ["o Maternity/Paternity leave", "产 假 / 陪产假。 女性员工生育期间享有的产假， 以及男性"], ["o Employee assistance program (EAP)", "员工援助计划。公司为员工提供的一系列服"], ["issues.（公司的员工援助计划对处理压力和个人问题的员工非常有帮助。 ）”", "八、法律和合规"], ["o Compliance", "合规性。 指企业或个人的行为符合法律法规、 行业规范等要求。例如：“Our"], ["company is committed to ensuring full compliance with all relevant laws and regulations.", "（我们公司致力于确保完全遵守所有相关法律法规。 ）”"], ["o Non-disclosure agreement (NDA)", "保密协议。与 Confidentiality agreement 意"], ["protect their trade secrets during the collaboration.（两家公司签署了一份保密协议，以在", "种状态和责任，而 NDA 更像是一个具体的法律文书名称，在实际使用中，很多时候可以互"], ["o Intellectual property", "知识产权。包括专利、商标、版权等，保护企业或个人的创新成"], ["o Discrimination", "歧视。 指基于种族、 性别、 年龄、 宗教等因素对他人进行不公平的对待。"], ["o Harassment", "骚扰。 包括性骚扰、 职场骚扰等， 对他人造成不良影响和伤害的行为。如："], ["The company has a strict policy against harassment in the workplace. （公司有严格的政", "策禁止职场骚扰。 ）”"], ["o Workplace safety", "工作场所安全。确保员工在工作环境中的人身安全和健康。例如："], ["The company invests a lot in workplace safety measures to prevent accidents.（公司在工", "作场所安全措施上投入了大量资金，以防止事故发生。 ）”"], ["o Data protection", "数据保护。对企业或个人的数据进行保护，防止数据泄露、滥用等。"], ["o Regulatory compliance", "法规合规。 企业遵循政府或行业监管机构制定的法规和规定。"], ["o Legal counsel", "法律顾问。 为企业或个人提供法律建议和支持的专业人士。如：“We need"], ["to consult our legal counsel before making this decision.（在做出这个决定之前，我们需要", "咨询我们的法律顾问。 ）”"], ["o Cultural sensitivity", "文化敏感性。对不同文化的特点、差异和习俗具有敏锐的感知和理"], ["o Language barrier", "语言障碍。由于语言不同而导致的沟通困难。如：“The language"], ["through training. （一开始，语言障碍使团队协作面临挑战，但他们通过培训克服了这一困", "难 。）”"], ["o Cultural norms", "文化规范。特定文化中被普遍接受的行为准则和价值观。 例如：“It's"], ["important to respect the cultural norms of the country you are doing business in. （尊重", "你开展业务所在国家的文化规范很重要。 ）”"], ["o Respect diversity", "尊重多样性。认可和尊重不同文化、背景、观点等方面的差异。如："], ["o Adaptability", "适应能力。能够快速适应不同的文化环境和工作方式。例如：“He showed"], ["great adaptability when he was transferred to the overseas office. （当他被调到海外办公", "室时，他表现出了很强的适应能力。 ）”"], ["o Cultural awareness training", "文化意识培训。 为员工提供的关于不同文化的知识和理"], ["they went on an international assignment.（在团队进行国际任务之前，公司为他们提供了", "文化意识培训。 ）”"], ["o Global mindset", "全球视野。以全球的视角看待问题和开展业务，理解不同国家和地区的"], ["o Intercultural communication", "跨文化沟通。不同文化背景的人之间进行的交流和沟"], ["with international partners. （提高跨文化沟通技能可以帮助我们与国际合作伙伴建立更好的", "关系。 ）”"], ["o Cultural intelligence", "文化智商。衡量一个人在跨文化环境中有效运作的能力的指标。"], ["o Etiquette", "礼仪。不同文化中关于社交、商务等方面的行为规范和礼节。如： “In Japan,"], ["business etiquette is very important, and you need to follow the proper rules. （在日本，", "商务礼仪非常重要，你需要遵循适当的规则。 ）”"], ["o Networking event", "社交活动。为人们提供建立联系和拓展人脉机会的活动。例如："], ["o Professional association", "专业协会。 由同行业或相关领域的专业人士组成的组织， 旨"], ["o Business card exchange", "交换名片。在商务场合中，人们交换名片以建立联系和保持"], ["it's important to be aware of them. （在一些文化中，交换名片有特定的习俗，所以了解这", "些习俗很重要。 ）”"], ["o Coffee chat", "咖啡聊天。一种轻松的交流方式，通常在喝咖啡时进行，用于建立关系或讨"], ["o T eam bonding", "团队凝聚力。 团队成员之间的紧密关系和合作精神。例如：“Regular team"], ["building activities can enhance team bonding and improve work efficiency. （定期的团队", "建设活动可以增强团队凝聚力，提高工作效率。 ）”"], ["The office culture of this company is very collaborative and innovative.（这家公司的办公", "室文化非常注重协作和创新。 ）”"], ["o Mentorship program", "导师计划。公司或组织为员工提供的导师指导和支持的项目。例"], ["and develop their careers.（我们公司的导师计划帮助了许多年轻员工成长和发展他们的职", "业生涯。 ）”"], ["o Professional network", "职业网络。 个人在职业生涯中建立的人脉关系网络。如：“Building"], ["a strong professional network can open up more career opportunities. （建立强大的职业", "网络可以带来更多的职业机会。 ）”"], ["o Work spouse", "工作伴侣。在工作中关系密切、相互支持的同事，类似于生活中的伴侣。"], ["environment.（有效的冲突解决技能对于维持和谐的工作环境至关重要。 ）”", "十、时间管理"], ["submitting the proposal is approaching, and we need to hurry up. （提交提案的截止日期", "快到了，我们得抓紧了。 ）”"], ["o Procrastination", "拖延。推迟或延迟完成任务的行为。如：“Procrastination can lead to"], ["o Time frame", "时间框架。 完成某项任务或项目所需要的时间范围。例如：“We need to define"], ["a clear time frame for this project to ensure its smooth progress.（我们需要为这个项目确", "定一个明确的时间框架，以确保其顺利进行。 ）”"], ["o Schedule", "日程。对工作、活动等的时间安排。如：“Please check your schedule and let"], ["o Urgent", "紧急的。表示事情需要立即处理，具有较高的紧迫性。例如：“This is an urgent"], ["matter, and we need to deal with it right away. （这是一件紧急的事情，我们需要马上处", "理 。）”"], ["o Due date", "到 期 日 。与 Deadline 意思相近， 指应完成或交付的日期。例如：“Don't forget"], ["the due date for the report. （不要忘记报告的到期日。 ）” 用法对比：Deadline 更强调一", "种强制的、 不能超过的时间界限， 而 Due date 相对更侧重于约定的时间点， 在很多情况下"], ["the tasks based on their importance and urgency. （我们应该根据任务的重要性和紧迫性", "来优先安排它们。 ）”"], ["o Time management", "时间管理。 对时间进行有效的规划、 组织和控制， 以提高工作效率。"], ["processes, we can increase efficiency and save time.（通过改进我们的工作流程，我们可以", "提高效率并节省时间。 ）”"], ["o Productivity", "生产力。个人或团队在一定时间内创造的价值或产出。如：“The company"], ["is implementing new strategies to boost productivity.（公司正在实施新的策略来提高生产", "力 。）”"], ["o To-do list", "待办事项列表。记录需要完成的任务的清单。例如：“I make a to-do list every"], ["morning to keep myself organized.（我每天早上列一个待办事项清单，让自己保持条理清", "晰 。）”"], ["o Plan ahead", "提前计划。提前对工作或活动进行规划和安排。如：“Planning ahead can"], ["help you avoid last-minute rush and stress.（提前计划可以帮助你避免最后时刻的匆忙和压", "力 。）”"], ["o Deadline extension", "延长截止日期。 请求或获得将任务的截止日期推迟的许可。例如："], ["We requested a deadline extension for the project due to unexpected difficulties.（由于", "出现了意外的困难，我们请求延长项目的截止日期。 ）”"], ["o Active listening", "积极倾听。 认真听取对方的讲话， 理解其意图和情感， 并给予适当回应。"], ["o Constructive feedback", "建设性反馈。 同前文， 提供有帮助的、 能促进改进的意见和建"], ["o Clear communication", "清晰沟通。 表达信息时清晰、 准确， 避免产生误解。例如：“Clear"], ["o Non-verbal communication", "非言语沟通。通过肢体语言、面部表情、语气等非语言"], ["attention to your body language.（非言语沟通可以传达很多信息，所以要注意你的肢体语", "言 。）”"], ["o Persuasion", "说服。通过合理的理由和论据，使他人接受自己的观点或建议。例如：“His"], ["excellent persuasion skills helped him convince the team to adopt the new strategy. （他", "出色的说服技巧帮助他说服团队采用了新的策略。 ）”"], ["o Negotiation", "谈判。双方或多方就利益、条件等进行协商和讨论，以达成共识。如：“The"], ["two companies are in negotiation to reach a cooperation agreement.（两家公司正在进行", "谈判，以达成合作协议。 ）”"], ["o Articulate", "表达清晰。能够清晰、有条理地表达自己的想法和观点。例如：“She is very"], ["articulate and can present her ideas clearly in front of the audience.（她表达能力很强，能", "够在观众面前清晰地阐述自己的想法。 ）”"], ["o Concise", "简洁。表达信息时简洁明了，不冗长。如：“When writing an email, try to be"], ["o Empathy", "同理心。理解和感受他人的情感和处境的能力。例如：“Showing empathy in"], ["communication can help build better relationships.（在沟通中表现出同理心可以帮助建立", "更好的关系。 ）”"], ["o Assertiveness", "自信。在表达自己的观点和需求时，坚定而自信，但不过于强硬。如："], ["He is assertive in the meeting and can effectively express his opinions.（他在会议中很自", "信，能够有效地表达自己的意见。 ）”"], ["communicating with stakeholders, it's important to understand their needs and concerns.", "（与利益相关者沟通时，了解他们的需求和关切很重要。 ）”"], ["Effective communication can create synergy among team members.（有效的沟通可以在", "团队成员之间产生协同效应。 ）”"], ["can provide valuable feedback and help improve the quality of work.（同行评审可以提供", "有价值的反馈，帮助提高工作质量。 ）”"], ["product development process, a feedback loop is essential for continuous improvement.", "（在产品开发过程中，反馈循环对于持续改进至关重要。 ）”"], ["o Digital literacy", "数字素养。 使用数字技术和工具的能力， 包括计算机操作、 网络应用等。"], ["o Coding", "编程。 编写计算机程序的过程。如：“The IT department is looking for employees"], ["o Data analysis", "数据分析。对数据进行收集、处理、分析和解释，以获取有价值的信息。"], ["o Cybersecurity basics", "网络安全基础。 关于网络安全的基本知识和技能， 如保护数据、"], ["protect the company's information.（所有员工都应该接受网络安全基础培训，以保护公司", "的信息。 ）”"], ["o Cloud computing", "云计算。通过互联网提供计算资源和服务，如存储、计算能力等。例"], ["o Machine learning basics", "机器学习基础 （续） 。例如：“Understanding machine learning"], ["machine learning basics.（对于那些对数据科学和人工智能领域感兴趣的人来说，理解机器", "学习基础至关重要。 例如， 监督学习和无监督学习等概念是机器学习基础的重要组成部分。 ）”"], ["o Software development", "软件开发。 涵盖从需求分析、设计、编码、测试到维护的整个"], ["project's deadline and deliver a high-quality product.（软件开发团队正在努力工作以满足", "项目的截止日期，并交付高质量的产品。 ）”"], ["functions like VLOOKUP and PivotTables to manipulate data efficiently.（具备电子表格熟", "练度对财务分析、数据整理和报告生成等任务很有帮助。你可以使用 VLOOKUP 和数据透"], ["o Presentation skills", "演讲技巧。包括制作吸引人的演示文稿（PPT 等） 、清晰流畅地表"], ["message clearly and engagingly. （当向客户推销想法或向团队展示项目成果时，良好的演", "讲技巧至关重要。你需要能够清晰且引人入胜地传达你的信息。 ）”"], ["o Continuous learning", "持续学习。不断获取新知识、技能和经验，以适应不断变化的工"], ["workshops to keep learning. （在快节奏的商业世界中，持续学习是保持竞争力的关键。许", "多专业人士报名参加在线课程或参加研讨会以不断学习。 ）”"], ["o Self-motivation", "自我激励。 能够自我驱动， 设定目标并努力实现它们， 即使在没有外部"], ["on your objectives. （自我激励对于实现长期职业目标很重要。 你需要能够自我推动， 专注于", "自己的目标。 ）”"], ["specific time slots for each.（有效的时间管理包括将大任务分解为更小、可管理的部分，并", "为每个部分分配特定的时间段。 ）”"], ["o Critical thinking", "批判性思维。对信息进行分析、评估、推理和判断的能力，不盲目接"], ["different perspectives.（批判性思维技能在工作场所备受重视。在做决策时，你应该分析利", "弊并考虑不同的观点。 ）”"], ["o Problem-solving", "解决问题。 识别问题、 分析问题原因并找到有效解决方案的能力。如："], ["you overcome difficulties and keep the project on track.（当在工作中面临意外挑战时，强", "大的解决问题能力可以帮助你克服困难并使项目保持正轨。 ）”"], ["high adaptability to quickly learn new tools and processes.（随着技术的快速发展，员工需", "要具备高度的适应性，以便快速学习新的工具和流程。 ）”"], ["o Emotional intelligence", "情绪智力。识别、理解和管理自己以及他人情绪的能力，有助"], ["a positive work atmosphere. （在团队环境中，情绪智力可以帮助你与同事更好地沟通，有", "效地解决冲突，并营造积极的工作氛围。 ）”"], ["o Stress management", "压力管理。采取有效的方法应对工作和生活中的压力，保持身心"], ["time management can help you deal with work-related stress.（锻炼、冥想和时间管理等", "压力管理技巧可以帮助你应对与工作相关的压力。 ）”"], ["o T eamwork", "团队合作。团队成员共同努力，为实现共同目标而协作的过程。例如："], ["and their combined efforts lead to better results.（团队合作对于任何项目的成功都至关重", "要。每个成员都扮演着关键角色，他们的共同努力会带来更好的结果。 ）”"], ["o Collaboration", "协作（续） 。与 Teamwork 意思相近，但更强调成员之间的相互配合和"], ["departments is necessary to achieve the project's objectives.（在跨职能团队中，不同部门", "之间的有效协作对于实现项目目标是必要的。 ）” 用法对比：Teamwork 更侧重于团队整体"], ["they can create a synergy that increases customer acquisition and retention rates. （当营", "销和销售团队合作时，他们可以产生协同效应，提高客户获取和留存率。 ）”"], ["o Role", "角色。 团队成员在团队中所承担的职责和任务。例如：“It's important to clearly define"], ["o Contribution", "贡献。团队成员为实现团队目标所做出的努力和成果。如：“Everyone's"], ["contribution is valuable, whether it's a big idea or a small task completed efficiently. （每", "个人的贡献都是有价值的，无论是一个好的想法还是高效完成的一项小任务。 ）”"], ["o Support", "支持。 团队成员之间在工作、 情感等方面相互帮助和鼓励。例如：“During difficult"], ["o Coordinate", "协调。安排和组织团队成员的工作，确保各项任务有序进行，避免冲突和延"], ["the project is completed on time.（项目经理需要协调不同团队的工作，以确保项目按时完", "成 。）”"], ["o Delegate", "委派任务。将任务分配给合适的团队成员，根据他们的技能和能力合理安排工"], ["of your team's potential.（作为领导者，你应该学会有效地委派任务，以充分发挥团队的潜", "力 。）”"], ["o Participate", "参与。积极参与团队的讨论、决策和工作执行。如：“All team members are"], ["encouraged to participate actively in team meetings and contribute their ideas. （鼓励所", "有团队成员积极参与团队会议并贡献他们的想法。 ）”"], ["o Consensus", "共识。团队成员对某个问题或决策达成一致意见。例如：“It's important to"], ["on board.（在做出重大决策之前，在团队内达成共识很重要，以确保每个人都支持。 ）”", "十五、决策与解决问题"], ["o Decision making", "决策。 在多个选项中选择最佳方案的过程， 需要考虑各种因素和后果。"], ["o Analyze", "分析。对信息、数据、问题等进行深入研究和评估，以了解其本质和特点。如："], ["o Solution", "解决方案。 针对问题提出的解决办法或措施。例如：“After analyzing the problem,"], ["we came up with several possible solutions and evaluated them to choose the best one.", "（在分析问题之后，我们提出了几个可能的解决方案，并对它们进行了评估，以选择最佳方"], ["only finding a solution but also implementing it and monitoring its effectiveness.（有效的", "解决问题不仅需要找到解决方案，还需要实施它并监控其有效性。 ）”"], ["o Innovative", "创新的。具有新颖、独特的想法和方法，能够带来新的突破和改进。例如："], ["o Strategy", "策略。为实现目标而制定的总体规划和行动方针。如：“The marketing team"], ["developed a new strategy to increase brand awareness and attract more customers.（营", "销团队制定了一项新策略，以提高品牌知名度并吸引更多客户。 ）”"], ["o Implement", "实施。 将计划、 策略等付诸实践， 确保其有效执行。例如：“Once the decision"], ["is made, it's important to implement the plan quickly and effectively. （一旦做出决策，快", "速有效地实施计划很重要。 ）”"], ["o Evaluate", "评估。对决策、方案、结果等进行评价和分析，以确定其效果和价值。如：“We"], ["adjustments if necessary. （我们需要定期评估我们的营销策略的效果，并在必要时进行调", "整 。）”"], ["o Outcome", "结果。决策、行动或项目所产生的最终成果或影响。例如：“The outcome of"], ["the project exceeded our expectations, and we achieved great success.（项目的结果超出", "了我们的预期，我们取得了巨大的成功。 ）”"], ["o Risk", "风险。在决策和行动过程中可能遇到的不确定性和潜在的损失。如：“When making"], ["mitigate them.（在做商业决策时，评估所涉及的风险并制定策略来减轻它们很重要。 ）”", "十六、职场环境"], ["o Company culture", "公司文化。 公司所倡导的价值观、 行为准则、 工作方式等方面的总和，"], ["o Hierarchical structure", "等级结构。 公司内部按照职位高低和权力大小形成的层级关系。"], ["more information, collaborate better, and advance your career. （在公司内部建立关系可", "以帮助你获取更多信息，更好地协作，并推进你的职业生涯。 ）”"], ["o Work ethic", "职业道德。员工在工作中应遵循的道德规范和行为准则，如诚信、敬业、负"], ["o Professional growth", "职业成长。 员工在职业生涯中不断提升自己的技能、 知识和职位，"], ["such as training programs and job rotations.（公司提供各种职业成长机会，如培训项目和", "岗位轮换。 ）”"], ["o Work environment", "工作环境。包括物理环境（办公场所的设施、布局等）和人文环境"], ["improve employee productivity and job satisfaction. （舒适积极的工作环境可以提高员工的", "生产力和工作满意度。 ）”"], ["o Corporate ladder", "职业晋升路径。 员工在公司内从低级职位逐步晋升到高级职位的过程"], ["o Workload", "工作量。员工在一定时间内需要完成的工作任务的数量和难度。例如："], ["o Flexibility", "灵活性。公司在工作安排、政策执行等方面给予员工的一定自由度，以及员工"], ["the work requirements. （公司提供弹性工作时间，这在员工中非常受欢迎。并且员工在面对", "工作要求的变化时也需要表现出灵活性。 ）”"], ["o Remote work", "远程工作。员工不在公司办公场所，而是通过互联网等技术在家或其他地"], ["remote work can be efficient and beneficial for both employees and employers.（由于新", "冠疫情，许多公司采用了远程工作政策，允许员工在家工作。这一趋势表明，远程工作对员"], ["o Hybrid work model", "混合工作模式。 结合远程工作和在办公室工作的一种工作模式， 员"], ["a week and come to the office for meetings or collaborative tasks. （混合工作模式为员工", "在平衡工作和生活方面提供了更多的灵活性。例如，他们可能每周在家工作几天，然后到办"], ["o Freelancing", "自由职业。 个人以独立工作者的身份， 为不同客户提供服务并获取报酬， 不"], ["like graphic design or programming. （随着零工经济的发展，自由职业已成为许多人的热", "门职业选择，尤其是那些具有平面设计或编程等专业技能的人。 ）”"], ["o Gig economy", "零工经济。一种基于短期合同或项目的经济模式，其中自由职业者、临时"], ["inconsistent income and lack of benefits.（零工经济为人们提供了更多按照自己的方式赚钱", "的机会，但它也带来了一些挑战，如收入不稳定和缺乏福利。 ）”"], ["o Digital transformation", "数字化转型。企业利用数字技术对业务流程、商业模式等进行"], ["enhancing online customer experiences.（许多传统公司正在进行数字化转型以适应数字时", "代。这可能包括实施新的软件系统、使用数据分析来推动决策，并提升在线客户体验。 ）”"], ["o Sustainable practices", "可持续实践。企业在经营过程中采取的对环境友好、社会负责"], ["environmentally conscious customers and employees. （越来越多的公司正在采用可持续实", "践，不仅是为了满足环境法规，也是为了吸引具有环保意识的客户和员工。 ）”"], ["o Diversity and inclusion", "多样性与包容性。企业重视并接纳不同种族、性别、年龄、文"], ["performance. （一个多样化和包容性的工作场所可以带来不同的观点和想法，从而带来更多", "的创新和更好的业务表现。 ）”"], ["o Artiﬁcial intelligence (AI)：人工智能（续） 。人工智能在企业中得到了广泛应用，如客", "户服务领域的聊天机器人可以自动回答客户的常见问题，提高服务效率；在数据分析方面，"], ["inquiries 24/7, reducing the workload of our human customer service representatives.（我", "们公司已经实施了一个由人工智能驱动的客户服务系统，它可以全天候处理大量的咨询，减"], ["o Virtual reality (VR)", "虚拟现实。利用计算机技术生成模拟环境，让用户沉浸其中。在职"], ["allows the trainees to get hands -on experience without the risk of real -world accidents.", "（培训部门正在使用虚拟现实技术对新员工进行复杂机械操作的培训。 这使学员能够在没有"], ["o Blockchain technology", "区块链技术。一种去中心化的分布式账本技术，具有不可篡"], ["from the farm to the consumer. This helps to ensure food safety and build consumer trust.", "（在食品行业的供应链中，区块链技术可用于记录产品从农场到消费者手中的每一个环节。"], ["o Employee well-being programs", "员工福祉计划。企业为关注员工身心健康和生活质"], ["physical health of employees but also boosts their morale and job satisfaction.（我们公司", "的员工福祉计划包括午休时间的免费瑜伽课程以及为所有员工提供的年度健康检查。 这不仅"], ["are more likely to succeed in their careers.（那些能够快速适应数字化转型带来的变化的人", "更有可能在职业生涯中取得成功。 ）”"], ["o Resilience", "韧性。 面对工作中的挫折、压力和变化，能够保持积极的心态，迅速恢复并继"], ["find new opportunities. （面对经济衰退以及由此带来的工作不确定性， 具有高韧性的员工能", "够更好地应对压力并找到新的机会。 ）”"], ["communication. （随着越来越多的业务运营转移到线上， 拥有高水平的数字素养对于员工保", "护公司数据和确保顺畅的数字通信至关重要。 ）”"], ["thinking to analyze the benefits, risks, and feasibility. （当评估人工智能和区块链等新技术", "对公司的潜力时，员工需要运用批判性思维来分析其好处、风险和可行性。 ）”"], ["establishing clear communication protocols.（在远程工作环境中，由于时区差异和技术问", "题可能会出现沟通问题。具有强大解决问题能力的员工可以找到克服这些挑战的方法，例如"], ["help to build better relationships and resolve conflicts more effectively.（当在多元化团队", "中工作时，能够理解和管理团队成员的情绪有助于建立更好的关系并更有效地解决冲突。 ）”"], ["collaboration skills to work together seamlessly and achieve common goals.（随着跨职能", "团队的日益普及，员工需要提高他们的协作技能，以便无缝合作并实现共同目标。 ）”"], ["o Leadership", "领导力。在不断变化的职场中，领导力不仅仅是管理下属，还包括引领团队"], ["or a more sustainable business model. （领导者需要能够激励他们的团队接受新技术和工作", "模式，例如引领向数字化工作场所或更可持续的商业模式的转变。 ）”"], ["o Creativity", "创造力。 在竞争激烈的市场中， 企业需要员工具备创造力， 提出新颖的想法和"], ["crowded marketplace. （在市场营销领域，创造力对于开发独特的广告活动和创新产品至关", "重要，这些活动和产品可以在竞争激烈的市场中吸引客户。 ）”"], ["o Communication skills", "沟通技能（续） 。在远程工作和跨文化团队中，沟通技能的重要"], ["straightforward language to avoid misunderstandings. （当与不同国家的同事沟通时，了解", "沟通风格的文化差异并使用简单直接的语言以避免误解是很重要的。 ）”"], ["o Let's circle back on this.", "我们回头再讨论这个。用于暂时搁置某个话题，待后续有更"], ["issue in detail now. Let's circle back on this at the next meeting.（我们现在没有足够的时", "间详细讨论这个问题。我们下次会议再回头讨论这个。 ）”"], ["o I'll touch base with you later.", "我稍后会和你联系。表示会在之后的某个时间与对方"], ["o That's a good point.", "这是个好主意。用于认可对方提出的观点或想法。例如：“After"], ["listening to your suggestion, I think that's a good point. We should consider it seriously.", "（听了你的建议后，我认为这是个好主意。我们应该认真考虑一下。 ）”"], ["o Let's drill down into the details.", "我们深入讨论一下细节。当需要对某个主题进行更"], ["into the details of how we can implement this plan.（我们已经讨论了总体思路，但现在让", "我们深入讨论一下如何实施这个计划的细节。 ）”"], ["o I need to escalate this issue.", "我需要升级这个问题。当遇到无法自行解决的问题，"], ["but it seems beyond my authority. I need to escalate this issue to the management. （我", "已经尽力解决这个问题了，但似乎超出了我的权限。我需要将这个问题升级到管理层。 ）”"], ["this offline and discuss it privately.（这是一个敏感问题，我认为我们私下再讨论这个问题会", "更好。 ）”"], ["o I'll follow up on this.", "我会跟进这件事。表示会对某个任务、问题或情况进行后续的关"], ["o Let's think outside the box.", "让我们跳出框框思考。鼓励大家突破常规思维，提出新"], ["Now let's think outside the box and come up with some innovative ideas.（我们已经尝试", "了所有传统方法，但都不起作用。现在让我们跳出框框思考，想出一些创新的想法。 ）”"], ["o We're on the same page.", "我们达成共识了。表示双方或多方对某个问题或计划有相"], ["we're on the same page about how to move forward.（经过长时间的讨论，我们终于达成", "了一致意见，对于如何推进我们达成了共识。 ）”"], ["o I'll keep you in the loop.", "我会保持消息灵通。表示会让对方了解事情的进展和相关信"], ["updates.（我负责这个项目，我会让你了解任何重要的更新信息。 ）”", "策略"], ["o Be proactive", "积极主动。主动寻找问题和机会，提前规划并采取行动，而不是被动等待"], ["before they occur and suggesting solutions to improve the work process.（在职场中，积", "极主动意味着在潜在问题发生之前识别它们，并提出解决方案以改进工作流程。 ）”"], ["o Stay organized", "保持条理清晰。对工作任务、文件、信息等进行有序的整理和管理，提"], ["systems can help you stay organized and easily access the information you need. （使用", "项目管理软件和文件组织系统等工具可以帮助你保持条理清晰，并轻松访问所需的信息。 ）”"], ["o Set realistic goals", "设定现实的目标。根据自己的能力和资源，制定可实现的目标，并"], ["goals into short- term, actionable steps.（设定职业目标时，现实一些并考虑你当前的技能", "和经验很重要。你可以将长期目标分解为短期的、可操作的步骤。 ）”"], ["o Seek feedback", "寻求反馈。主动向同事、上级或客户征求意见和建议，以便了解自己的"], ["strengths and areas for improvement.（定期向他人寻求反馈可以帮助你在职业上成长并提", "高你的技能。你可以就自己的优势和需要改进的方面征求具体的反馈意见。 ）”"], ["need to change your work priorities or adopt new technologies as the situation requires.", "（在充满活力的工作环境中，保持灵活至关重要。你可能需要根据情况的需要改变工作优先"], ["o Build strong relationships", "建立牢固的关系。与同事、上级、客户等建立良好的人际"], ["when you need it.（在公司内部和所在行业建立人脉和关系可以带来新的机会，并在你需要", "时提供支持。 ）”"], ["o Focus on solutions", "关注解决方案。遇到问题时，不要只关注问题本身，而是积极寻找"], ["work environment. （与其抱怨问题， 我们应该专注于寻找解决方案。 这种积极的态度可以带", "来更好的结果和更高效的工作环境。 ）”"], ["o Stay positive", "保持积极。在面对工作中的压力和挑战时，保持乐观的心态，相信自己能"], ["can help you stay motivated and focused.（积极的态度会对你的工作表现和整体工作氛围", "产生重大影响。即使在困难的情况下，保持积极也可以帮助你保持动力和专注。 ）”"], ["o Take initiative", "主动采取行动。不等待他人的指示，主动承担责任，尝试新的想法和方"], ["the initiative and propose it to your team. Your initiative may lead to positive changes.", "（如果你有一个可以改进工作流程的想法，不要害怕主动采取行动并向你的团队提出。你的"], ["o Be a team player", "成为团队的一员。积极参与团队合作，支持团队成员，为实现团队目"], ["share your knowledge and skills, and work together towards a common goal. （在团队中，", "成为团队的一员意味着愿意帮助他人，分享你的知识和技能，并为实现共同目标而共同努"], ["o Be punctual", "准时。 无论是参加会议、 提交工作成果还是与他人约定时间， 都要按时到达"], ["attendees in advance.（准时表明对他人时间的尊重，是职业礼仪的重要组成部分。如果你", "开会要迟到了，提前通知其他与会者是礼貌的做法。 ）”"], ["o Dress appropriately", "穿着得体。根据公司的文化和工作场合，选择合适的服装。如："], ["dress code may be more relaxed.（在正式的商务场合，男性通常穿西装打领带，女性穿像", "西装或连衣裙这样的职业装。然而，在一些更休闲的工作场所，着装要求可能会更宽松。 ）”"], ["o Respect others' time", "尊重他人时间（续） 。除了准时，还要避免在他人忙碌时打扰，"], ["their availability to ensure you're not interrupting their important work.（在安排会议或打", "电话给某人之前，查看他们的可用性，以确保你不会打扰他们的重要工作。 ）”"], ["o Use polite language", "使用礼貌用语。在与他人沟通时，使用文明、礼貌的语言，避免"], ["others. （“请”“谢谢”“对不起”“打扰一下” 是简单但重要的礼貌用语， 在你与他人的互动中会产", "生很大的影响。 ）”"], ["o Avoid gossip", "避免闲聊。不传播未经证实的消息和他人的隐私，保持专业的工作氛围。"], ["environment. Focus on your work and positive communication. （在职场中闲聊会破坏人", "际关系并营造负面的工作环境。专注于你的工作和积极的沟通。 ）”"], ["o Be mindful of cultural differences", "注意文化差异（续） 。在跨文化交流中，了解并"], ["aware of these differences can help you communicate more effectively. （在一些文化中，", "眼神接触被认为是尊重的标志，而在另一些文化中，它可能被视为粗鲁。了解这些差异可以"], ["o Show appreciation", "表达感激。对同事、上级或客户的帮助、支持或贡献表示感谢，这"], ["a long way in building positive relationships at work. （如果一位同事帮你完成了一项艰巨", "的任务，给他们发一封感谢信或者当面表达你的感激之情。一句简单的 “谢谢” 在工作中建"], ["o Maintain a professional demeanor", "保持专业态度。在工作场合中，言行举止要体"], ["professional reputation. （即使面对具有挑战性的情况或难缠的客户，保持冷静沉着，以专", "业的方式处理问题也很重要。发脾气或进行自我辩护可能会损害你的职业声誉。 ）”"], ["items in a timely manner and keep the shared spaces clean.（务必遵守关于使用打印机和", "休息室等共享设施的办公室规定。及时归还借阅的物品，并保持共享空间的整洁。 ）”"], ["o Be inclusive", "包容他人。 尊重不同的观点、 背景和工作方式， 营造一个包容的工作环境。"], ["more harmonious work environment.（在一个多元化的团队中，鼓励每个人分享他们的想", "法和观点，并对不同的思维方式持开放态度。这可以带来更具创新性的解决方案和更和谐的"], ["o Data visualization", "数据可视化。将数据以图形、图表等直观的形式呈现，以便更清晰"], ["patterns.（像 Tableau 这样的数据可视化工具可以帮助我们以更易于理解的方式呈现复杂", "的数据，使识别趋势和模式变得更加容易。 ）”"], ["o Dashboard", "仪表盘 （续） 。 除了用于展示关键数据指标外， 还可以实时更新数据， 方便用"], ["decisions promptly.（销售仪表盘提供有关销售数据、客户获取和收入的实时信息，使经理", "能够迅速做出明智的决策。 ）”"], ["o Metrics", "指标（续） 。不同行业和领域有各自特定的关键指标，如在电商行业，转化率、客"], ["order value. （为了评估我们电子商务网站的性能， 我们需要密切监测转化率、 跳出率和平均", "订单价值等指标。 ）”"], ["o Trend analysis", "趋势分析（续） 。通过对历史数据的分析，预测未来的发展趋势，为决策"], ["in customer demand and adjust our product strategy accordingly. （基于对市场数据的趋", "势分析，我们可以预测客户需求的变化，并相应地调整我们的产品策略。 ）”"], ["o Benchmarking", "基准分析。将自己的业务、流程或绩效与行业内的最佳实践或竞争对手"], ["and product quality. （我们公司对主要竞争对手进行了基准分析，以确定我们可以在哪些方", "面提高运营效率和产品质量。 ）”"], ["o KPI (Key Performance Indicator)", "关键绩效指标（续） 。KPI 是衡量目标达成情况的"], ["their performance against these indicators. （公司的每个部门都有自己的一套关键绩效指", "标，并且会根据员工对这些指标的完成情况定期进行评估。 ）”"], ["potential opportunities, and prepare for possible threats. （在推出新产品之前，我们进行", "了 SWOT 分析， 以了解我们在市场中的地位， 识别潜在的机会， 并为可能的威胁做好准备。 ）”"], ["o Root cause analysis", "根因分析（续） 。深入探究问题产生的根本原因，以便从源头上解"], ["and take corrective actions. （当产品质量出现大幅下降时，进行根因分析对于找出生产过程", "中出现的问题并采取纠正措施至关重要。 ）”"], ["o Business intelligence (BI)", "商业智能。利用数据和分析工具，帮助企业做出更明智的"], ["and operational management. （我们公司的商业智能系统收集和分析来自各种来源的数据，", "为战略规划和运营管理提供有价值的见解。 ）”"], ["o Predictive analytics", "预测分析。通过对历史数据和当前数据的分析，预测未来可能发"], ["near future, enabling us to take proactive measures. （预测分析可用于预测客户行为，例如", "哪些客户可能在近期流失或进行购买，使我们能够采取积极主动的措施。 ）”"], ["o Scrum", "敏捷开发框架。一种迭代式、增量式的软件开发方法，强调团队协作、快速反馈和"], ["and plan the next steps. （我们的软件开发团队采用了 Scrum 框架来管理项目。我们定期", "举行冲刺会议，以审查进展情况、识别问题并规划下一步行动。 ）”"], ["o Kanban", "看板。一种可视化的工作管理方法，通过看板展示任务的状态和进度，帮助团队"], ["the status of each task and the overall progress of the project.（我们项目中的看板展示了", "处于不同阶段的任务，如 “待办”“进行中” 和 “已完成”。这使得每个人都能轻松看到每个任"], ["o Agile methodology", "敏捷方法 （续） 。 除了 Scrum 和 Kanban 外， 敏捷方法还包括其"], ["our project plan accordingly.（敏捷方法强调灵活性和适应性。我们可以快速响应需求的变", "化，并相应地调整我们的项目计划。 ）”"], ["o Waterfall methodology", "瀑布方法。一种传统的项目管理方法，按照线性顺序依次进"], ["suitable choice as it provides a clear and structured approach.（对于一些需求明确且环境", "稳定的项目，瀑布方法可能是一个合适的选择，因为它提供了一种清晰且结构化的方法。 ）”"], ["o Project backlog", "项目待办事项。 记录项目中所有需要完成的任务和功能， 是项目计划的"], ["that needs to be done.（随着新需求的确定或现有任务的完成，项目待办事项会定期更新。", "它是所有需要完成的工作的综合清单。 ）”"], ["o Sprint planning", "冲刺计划。在 Scrum 框架中，确定冲刺阶段的目标、任务和时间安排"], ["product backlog and selects the tasks that will be included in the upcoming sprint.（在冲", "刺计划会议期间，团队讨论产品待办事项中的条目，并选择将包含在即将到来的冲刺中的任"], ["o Daily stand-up", "每日站会。 敏捷项目中， 团队成员每天进行的简短会议， 分享工作进展、"], ["plan to do today, and if they have any blockers. （每日站会是团队快速了解彼此工作的一", "种方式。每个成员简要报告他们昨天做了什么，今天计划做什么，以及是否有任何阻碍。 ）”"], ["o Retrospective", "回顾会议。在一个迭代或项目阶段结束后，团队对工作过程进行反思和"], ["next time. （回顾会议是团队从经验中学习并进行改进的重要机会。 我们讨论哪些方面进展顺", "利，哪些方面不顺利，以及我们可以采取哪些行动以便下次做得更好。 ）”"], ["o User story", "用户故事（续） 。以用户的角度描述软件或产品的功能需求，帮助团队更好地"], ["and ensure we are delivering value to the users. （在编写用户故事时，我们关注用户的目", "标、他们想要执行的操作以及他们将获得的好处。这有助于我们对功能进行优先级排序，并"], ["o Acceptance criteria", "验收标准。定义用户故事或项目交付物必须满足的条件，以确定"], ["there is no ambiguity when it comes to evaluating whether the work is completed.（对于", "每个用户故事，我们明确定义验收标准，以便在评估工作是否完成时不存在歧义。 ）”"], ["o Cloud storage", "云存储。通过互联网将数据存储在远程服务器上，用户可以随时随地访"], ["Dropbox to store and share files. It offers flexibility, scalability, and easy collaboration.（许", "灵活性、可扩展性和便捷的协作功能。 ）”"], ["payment options. （我们的电子商务平台通过 API 集成与各种支付网关连接， 使客户能够从", "多种支付选项中进行选择。 ）”"], ["o Data mining", "数据挖掘。 从大量数据中发现隐藏的模式、 关系和知识， 为决策提供支持。"], ["campaigns. （数据挖掘技术可用于分析客户购买历史，以识别模式和偏好，然后可用于个性", "化营销活动。 ）”"], ["o Machine learning algorithms", "机器学习算法。 用于机器学习的各种数学模型和方法，"], ["are often used for complex pattern recognition tasks like image and speech recognition.", "（机器学习算法的选择取决于数据的性质和手头的问题。例如，神经网络常用于像图像和语"], ["o Natural language processing (NLP)", "自然语言处理。使计算机能够理解、处理和生"], ["communicate with humans in a more natural way. （自然语言处理用于聊天机器人、虚拟", "助手和语言翻译工具等应用程序中。它使计算机能够以更自然的方式与人类交流。 ）”"], ["o Cybersecurity protocols", "网络安全协议。为保护网络和数据安全而制定的一系列规则"], ["includes using secure authentication methods and regularly updating security software.", "（公司需要实施强大的网络安全协议，以保护其敏感信息免受网络威胁。这包括使用安全的"], ["o Blockchain applications", "区块链应用 （续） 。 除了供应链管理和金融交易外， 区块链还"], ["personal information and ensure its security. （一些区块链应用正在开发用于数字身份验证，", "用户可以在其中对自己的个人信息有更多的控制权并确保其安全性。 ）”"], ["o IoT (Internet of Things)", "物联网。通过互联网将各种设备连接起来，实现设备之间的"], ["working environment.（在智能办公室中，传感器、智能灯和恒温器等物联网设备可以连接", "起来，以优化能源消耗并改善工作环境。 ）”"], ["o Edge computing", "边缘计算。将计算和数据处理能力分布到靠近数据源的边缘设备上，"], ["quick decision-making and reducing the burden on the cloud.（在工业物联网应用中，边", "缘计算可用于实时处理传感器生成的数据，实现快速决策并减轻云端的负担。 ）”"], ["o Quantum computing", "量子计算。 利用量子力学原理进行计算的技术， 具有强大的计算"], ["cryptography, drug discovery, and financial modeling. （尽管仍处于发展的早期阶段，量子", "计算有潜力彻底改变密码学、药物发现和金融建模等领域。 ）”"], ["o 在一个跨国公司的新产品研发项目中，项目负责人在启动会议（Kick-off meeting）上介绍", "的重要性，如完成市场调研、产品原型设计等，并明确了各个团队成员的角色（Role）和责"], ["o 在与海外团队沟通时， 考虑到文化差异， 他提醒大家要具备文化敏感性 （Cultural sensitivity），", "尊重不同文化背景下的工作方式和习惯。例如，在与日本团队成员交流时，注意遵循他们的"], ["o 如果需要经理的帮助或决策， 他会明确提出行动项 （Action items） ， 并使用 “Please advise”", "等表达请求指示。在邮件结尾，他使用了 “Best regards” 作为结束语，并附上了相关的"], ["Thanks!”", "团队协作与问题解决"], ["o 团队成员运用批判性思维（Critical thinking）对每个想法进行分析（Analyze） ，评估其可", "行性和潜在风险 （Risk） 。 经过讨论， 他们达成了共识 （Consensus） ， 选择了一个最佳方案，"], ["o 在实施过程中， 他们建立了反馈循环 （Feedback loop） ， 定期评估 （Evaluate） 方案的效果，", "并根据实际情况进行调整。如果遇到了超出团队能力范围的问题，他们会及时将问题升级"], ["criticism）和改进领域（Areas for improvement）。", "o 员工认真听取了经理的意见，并表示会制定相应的计划来提升自己的能力，争取在未来的工"], ["o 随着公司推行远程工作（Remote work）政策，一位员工需要适应新的工作模式。他利用自", "己的适应能力（Adaptability） ，迅速调整了工作习惯和方式。例如，他合理安排工作时间"], ["o 此外， 他还关注行业的数字化转型 （Digital transformation） 趋势， 利用业余时间学习新的", "等知识，以提升自己在职场中的竞争力。"]];window.__KEY__="超实用!职场沟通高频词汇";window.__TITLE__="超实用!职场沟通高频词汇";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

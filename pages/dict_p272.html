@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 英语零基础语法大全白</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p272.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：英语零基础语法大全白</h1>
+  <div class="meta"><span class="charspill">175 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">175</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 175 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p272.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["guilty.", "昨天她惹得她的弟弟小约翰伤心了，她感到内疚。"], ["she felt guilty.（“her brother” 和 “the little John” 为同位语）", "四、8 种句子结构"], ["real.", "主语从句，地球是圆的这件事是真实的。"], ["When it rains, I go to school by bus.", "时间状语从句，天下雨时，我坐公交车去上学。"], ["tomorrow.", "我说过明天我会做作业。"], ["homework at 9:00 tomorrow.", "明天九点我会正在做作业。"], ["homework.", "我做完作业了。"], ["homework when you opened the door.", "你开门的时候，我正在做作业。"], ["homework before you opened the door.", "你开门前，我已做完作业了。"], ["done my homework tomorrow.", "明天我就会完成作业。"], ["I said I would be doing my homework at 9:00 tomorrow.", "我说过明天九点钟我正在做作业。"], ["said I would have done my homework before you open the door. （我说过我会在你开门前完成作", "业。）"], ["been doing 。例如：I will have been teaching for 3 years next week.（到了下周，我就教学教了 3", "年了，并且还在教。）"], ["There be 结构：表示 “某地有某物 / 人”。例如：There is a book on the table.", "桌子上有一本书。"], ["It is...that 强调句：用于强调句子的某一成分。例如：It is Tom that I met in the street yesterday.", "我昨天在街上遇到的是汤姆。"], ["soon.", "希望很快见到你。"], ["long have you been here?", "你在这里多久了？"], ["always", "总是"], ["usually", "通常"], ["often", "经常"], ["sometimes", "有时"], ["never", "从不"], ["every day", "每天"], ["every time", "每次"], ["in the morning", "早上"], ["once a week", "每周一次"], ["twice a month", "每月两次"], ["hardly ever", "几乎不"], ["every Sunday", "每个周日"], ["at night", "在晚上"], ["ago", "以前"], ["yesterday", "昨天"], ["just now", "刚才"], ["last time", "上次"], ["last night", "昨晚"], ["last year", "去年"], ["last term", "上学期"], ["last Monday", "上周星期一"], ["once", "曾经"], ["tomorrow", "明天"], ["tomorrow night", "明晚"], ["next time", "下次"], ["next Friday", "下周五"], ["next month", "下个月"], ["next term", "下学期"], ["soon", "很快"], ["at once", "立刻"], ["now", "现在"], ["at this time", "此时"], ["at this moment", "此刻"], ["at present", "现在"], ["next week/month/year... （下个周 / 月 /", "明年……）"], ["already", "已经"], ["just", "刚才"], ["ever", "曾经"], ["before", "以前"], ["up to now", "目前为止"], ["so far", "目前为止"], ["by the time", "到…… 时候为止"], ["by then", "到那时候"], ["by last time", "最后一次"], ["up until then", "直到那时"], ["at that time", "在那时"], ["at that moment", "在那时"], ["s 构成复数，如 books；以 s, x, ch, sh 结尾的名词加 -es，如 boxes；以辅音字母 + y", "结尾的名词，变 y 为 i 再加 -es，如 cities 等。不可数名词一般没有复数形式。"], ["family are all early risers.", "我的家人都是早起的人。"], ["likes running.", "一只狗喜欢奔跑。）Dogs like running.（狗喜欢奔跑。"], ["must（必须）等，后接动词原形。I can swim.（我会游泳。）He must be at school.", "他一定在学校。"], ["smells sweet.", "这朵花闻起来很香。"], ["The book was written by him.", "这本书是他写的。"], ["plays football every day.", "他每天踢足球。"], ["hobby.", "阅读是我的爱好。）I like reading books.（我喜欢读书。"], ["o 分词：包括现在分词（动词 -ing 形式）和过去分词，现在分词常表主动、进行；过去分", "形容词：修饰名词，表明人或事物的性质或特征。例如：big （大的）、small （小的）、happy （高兴"], ["o 比较级：用于两者之间的比较，一般在词尾加 -er，以不发音的 e 结尾的词加 -r，重读闭", "音节词双写最后一个辅音字母再加 -er，以辅音字母 + y 结尾的词变 y 为 i 再加 -er 等。"], ["happiest。He is the tallest in our class.", "他是我们班最高的。"], ["early（早的；早地）。He runs fast. （他跑得快。）He is an early bird.（他是个早起", "的人。）"], ["rises in the east.", "太阳从东方升起。"], ["o 不定冠词 a/an：a 用于辅音音素开头的单词前，an 用于元音音素开头的单词前，表示", "o 零冠词：在某些专有名词、复数名词表示一类人或事物、不可数名词表示泛指等情况下，"], ["by bike.", "他经常骑自行车去上学。"], ["carefully（仔细地）, happily（高兴地）等。He reads the book carefully. （他仔细地", "读书。）"], ["how, why 等）等。Where are you from?", "你来自哪里？"], ["o 基数词：表示数量，如 one, two, three 等。I have two brothers.", "我有两个兄弟。"], ["third, fifth, eighth, ninth, twelfth 等。The first lesson is very easy. （第一课很简", "单。）"], ["twenty - four；日期用序数词，如 June 1st 读作 June the first ；小数用基数词，小数", "介词：用于名词或代词前，表明名词或代词与其他词的关系。例如：in（在…… 里面）, on （在…… 上"], ["o 地点介词：in 表示在较大的地方，如城市、国家等；on 表示在物体表面；at 表示在较小", "在桌子上。）I get up at 6:00.（我六点起床。）"], ["goes to school every day.", "他每天去上学。"], ["o 时间介词：in 用于年、月、季节、上午、下午、晚上等；on 用于具体的某一天或某一天", "的上午、下午、晚上；at 用于具体的时刻。in 2024（在 2024 年），on Monday（在星"], ["about history.", "这是一本关于历史的书。"], ["hey", "嘿）。Oh, I see.（哦，我明白了。）Wow, what a beautiful flower!（哇，多漂亮的花啊！"], ["not happy.", "他很富有但不开心。"], ["rains tomorrow, we will stay at home.", "如果明天下雨，我们就待在家里。"], ["o 因果连词：如 because, so 等。Because it was raining, we stayed at home.（因为下", "家里。）"], ["them），主格作主语，宾格作宾语。 He loves me. （他爱我。）（He 为主格作主语，", "me 为宾格作宾语）"], ["you want?", "你想要什么？）Who is he?（他是谁？"], ["students like reading.", "一些学生喜欢阅读。）I don’t have any money.（我没有钱。"], ["flying.", "鸟儿在飞。）The sun rises.（太阳升起。"], ["The flower is beautiful.", "这朵花很漂亮。）（形容词作表语）My father is out. （我父亲出去了。"], ["football 补充说明 him 的动作，him 与 play football 是主谓关系）", "主 + 谓 + 双宾：有些及物动词可以接两个宾语，一个指人（间接宾语），一个指物（直接宾语）。间接"], ["a dress. = She bought a dress for her mother.", "她给她妈妈买了一条裙子。"], ["o 表语从句：在复合句中作表语，位于系动词之后。The problem is how we can get there. （问", "为一名医生。）"], ["news” 的内容）", "形容词性从句（定语从句）：在复合句中作定语，修饰名词或代词，被修饰的词称为先行词。引导定语"], ["o who 指人，在从句中作主语或宾语。The man who is standing there is my teacher.（站在那", "儿的那个人是我的老师。）（who 在从句中作主语）"], ["o whom 指人，在从句中作宾语，可省略。The boy (whom) I met yesterday is Tom.（我昨天遇", "到的那个男孩是汤姆。）"], ["o whose 指人或物，在从句中作定语。The book whose cover is green is mine.（封面是绿色的", "那本书是我的。）"], ["o which 指物，在从句中作主语或宾语。The pen which I bought yesterday is very nice.（我昨", "天买的那支钢笔很漂亮。）（which 在从句中作宾语，可省略）"], ["o that 指人或物，在从句中作主语或宾语。The movie that we saw last night was wonderful.", "我们昨晚看的那部电影很棒。）（that 在从句中作宾语，可省略"], ["school.", "我仍然记得我第一次来到这所学校的那一天。"], ["o where 指地点，在从句中作地点状语。This is the house where I lived ten years ago. （这就", "是我十年前住过的房子。）"], ["was late.", "我不知道他迟到的原因。"], ["watching TV, my mother was cooking.", "我在看电视的时候，我妈妈在做饭。"], ["the exam.", "除非你努力学习，否则你不会通过考试。"], ["further.（他太累了，以至于走不动了。）It is such a beautiful day that we want to go out.", "天气如此好，以至于我们想出去。"], ["catch the first bus.", "他早起以便能赶上第一班公交车。"], ["ill.（我没去上学，因为我生病了。）Since you are here, you can help me. （既然你在这儿，", "你可以帮我。）"], ["raining hard, he still went to school on time.", "尽管雨下得很大，他仍然按时去上学。"], ["o 方式状语从句：常用引导词有 as, as if, as though 等。Do as I told you.", "照我告诉你的做。"], ["He looks as if he is ill.", "他看起来好像生病了。"], ["o 表示经常性、习惯性的动作或存在的状态：He often goes to school by bike.（他经常骑自行车", "去上学。）"], ["o 表示客观事实、普遍真理：The earth moves around the sun.", "地球围绕太阳转。"], ["o 在时间、条件状语从句中，用一般现在时表示将来：If it rains tomorrow, we will stay at home.", "来时，我会告诉他这个消息。）"], ["o 表示过去经常或反复发生的动作：When I was a child, I often played football in the street.", "我小时候经常在街上踢足球。"], ["o 表示将来某个时间要发生的动作或存在的状态：I will go to Beijing next week.（下周我要去北", "京。）"], ["o 表示将来经常或反复发生的动作：He will come to see me every Sunday. （他每个周日都会来", "看我。）"], ["clouds. It is going to rain.", "看那些云，要下雨了。"], ["here.", "你不准在这里吸烟。"], ["about to leave when he came in.", "我正要离开，这时他进来了。"], ["the next day.", "他说他第二天会来看我。"], ["her.", "她问我是否会和她一起去。"], ["o 表示现在正在进行的动作：I am writing a letter now.", "我现在正在写信。"], ["o 表示现阶段正在进行，但此刻不一定正在进行的动作：He is studying for the exam these days.", "这些天他一直在为考试学习。"], ["He is leaving for Shanghai tomorrow.", "他明天要去上海。"], ["o 表示在将来的某个时间正在进行的动作：At this time tomorrow, I will be having a meeting.", "明天这个时候，我将正在开会。"], ["o 表示按计划、安排将来某段时间内持续进行的动作：Next week, I will be traveling in Europe.", "下周，我将在欧洲旅行。"], ["o 表示过去发生的动作对现在造成的影响或结果：I have lost my key. I can't open the door.（我", "丢了钥匙，现在打不开门。）（丢钥匙这个过去的动作导致现在打不开门的结果）"], ["week.", "她从上周就生病了。"], ["o 表示过去某个时间点或时间段正在进行的动作：I was watching TV at 8 o'clock last night.（昨", "晚八点我正在看电视。）"], ["having a shower.", "电话响的时候，我正在洗澡。"], ["the station, the train had left. （我到达车站时，火车已经开走了。）（“火车开走” 这个动作发", "生在 “我到达车站” 这个过去动作之前）"], ["project.", "到下个月底，我将完成这个项目。"], ["have arrived home by 9 o'clock.", "他九点前应该已经到家了。"], ["the station at 3 o'clock the next day.", "他说第二天三点他会在车站等我。"], ["working in the office this time next week.", "她告诉我下周这个时候她会在办公室工作。"], ["work before the end of the month.", "他说他会在月底前完成这项工作。"], ["She thought she would have passed the exam by then.", "她认为到那时她会通过考试。"], ["five years.", "我学英语已经五年了，并且还会继续学下去。"], ["o 强调动作的持续性和重复性：He has been running every morning for a month.（一个月来他", "每天早上都跑步。）"], ["came.", "公交车终于来的时候，他已经等了半个小时了。"], ["this company for ten years.", "到去年年底，她已经在这家公司工作十年了。"], ["By next month, I will have been teaching in this school for 20 years. （到下个月，我就在", "这所学校教书 20 年了，并且还会继续教下去。）"], ["city for 30 years.", "再过五年，他就在这个城市生活 30 年了。"], ["four years by the end of next month.", "她说到下个月底，她就在这所大学学习四年了。"], ["would have been working on this project for a long time before it was completed.（他认", "为在这个项目完成之前，他会一直在做这个项目很长时间。）"], ["table.", "桌子上有一本书。"], ["There are many students in the classroom.", "教室里有很多学生。"], ["year.", "明年我们城市将会有一个新公园。"], ["street yesterday. （我昨天在街上遇到的是汤姆。）It is the book that I bought yesterday.", "我昨天买的是这本书。"], ["o 强调句的时态：根据句子的需要，be 动词可以是 is（一般现在时），was（一般过去时）。如果", "原句是一般现在时，强调句用 It is...that；如果原句是一般过去时，强调句用 It was...that。"], ["stood a teacher.", "教室前面站着一位老师。"], ["also, neither...nor 等：Never have I seen such a beautiful place. （我从未见过如此", "不仅英语说得好，而且还能用英语写作。）"], ["know the news.", "只有当他回来时我才知道这个消息。"], ["everyone likes him.", "他是如此善良的一个人，以至于每个人都喜欢他。"], ["o 名词所有格错误：误：This is Tom book. 正：This is Tom’s book. （表示所属关系，要用名", "动词方面"], ["o 主谓不一致：误：He play football every day. 正：He plays football every day. （主语 he 是", "第三人称单数，一般现在时中动词 play 要加 -s）"], ["o 时态误用：误：I will went to school tomorrow. 正：I will go to school tomorrow. （一般将", "来时结构是 will + 动词原形，went 是 go 的过去式，应改为 go）"], ["o 及物动词与不及物动词混淆：误：I listen the music. 正：I listen to the music. （listen 是不", "及物动词，后接宾语时要加介词 to）"], ["o 比较级和最高级错误：误：He is the taller in our class. 正： He is the tallest in our class.", "冠词方面"], ["o 人称代词主宾格误用：误：Give the book to I. 正：Give the book to me. （to 是介词，后面", "要用宾格 me，I 是主格）"], ["o 物主代词误用：误：This is mine book. 正：This is my book. （修饰名词 book 要用形容词性", "物主代词 my，mine 是名词性物主代词）"], ["day in this school.", "物主代词 my 和定冠词 the 不能同时修饰序数词 first，应去掉 the"], ["didn't go to school. 或 He was ill, so he didn't go to school. （because 和 so 不能同时使", "用，在英语中，一个句子只能用一个表示因果关系的连词）"], ["o 成分残缺：误：Going to school by bike. 正：I go to school by bike. （原句缺少主语，应补", "充主语 I）"], ["why...is that...” 是正确结构，不能与 because 杂糅）", "从句方面"], ["he will come or not.", "在表示 “是否” 且与 or not 连用时，只能用 whether 引导宾语从句"], ["is standing there is my father.", "关系词在从句中作主语，要用 who，whom 作宾语"], ["because 和 so 的用法类似）", "十四、语法学习方法建议"]];window.__KEY__="英语零基础语法大全白";window.__TITLE__="英语零基础语法大全白";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>背完这1000句，你的口语就厉害了 8.7</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>背完这1000句，你的口语就厉害了 8.7</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">28,696 字符</span>
+    <span>来源：背完这1000句，你的口语就厉害了   8.7.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E8%83%8C%E5%AE%8C%E8%BF%991000%E5%8F%A5%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%8F%A3%E8%AF%AD%E5%B0%B1%E5%8E%89%E5%AE%B3%E4%BA%86%20%20%208.7.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p259.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">背完这1000句 你的口语就厉害了
+一、日常基础交流
+How are you feeling today?（你今天感觉怎么样？）
+Long time no see!（好久不见！）
+It&#x27;s a pleasure to meet you.（很高兴见到你。）
+Is this your first time here?（这是你第一次来这里吗？）
+Is there anything I can do for you?（我能为你做点什么吗？）
+I&#x27;m happy to help.（我很乐意帮忙。）
+Could you please repeat that?（你可以再说一遍吗？）
+Could you speak a bit slower, please?（你可以说慢一点吗？）
+I&#x27;m afraid I don&#x27;t understand.（恐怕我不明白。）
+I&#x27;m not sure I follow.（我不确定我明白你的意思。）
+Can you clarify that?（你能澄清一下吗？）
+Can you clarify that for me?（你能给我解释一下吗？）
+Could you elaborate on that?（你能详细说一下吗？）
+That&#x27;s exactly what I was thinking.（这正是我所想的。）
+We&#x27;re on the same page.（我们达成一致了。）
+I&#x27;m on your side.（我全力支持你。）
+It sounds great.（听起来很不错。）
+Time is running out.（没时间了。）
+So far, so good.（目前还不错。）
+The answer is zero.（白忙了。）
+It&#x27;s going too far.（太离谱了。）
+Control yourself.（克制一下。）
+It&#x27;s a long story.（说来话长。）
+Believe it or not.（信不信由你。）
+Don&#x27;t fall for it.（别上当。）
+Don&#x27;t give me that.（少来这套。）
+I have no choice.（我别无选择。）
+Make up your mind.（做个决定吧。）
+The wall has ears.（隔墙有耳。）
+I&#x27;ll try my best.（我尽力而为。）
+No pain, no gain.（不劳无获。）
+You can make it.（你能做到。）
+We&#x27;re all for it.（我们全都同意。）
+What a good deal.（真便宜。）
+What should I do?（我该怎么办？）
+You asked for it.（你自讨苦吃。）
+You have my word.（我保证。）
+I&#x27;ll be back soon.（我马上回来。）
+Don&#x27;t count on me.（别指望我。）
+He lacks courage.（他缺乏勇气。）
+Don&#x27;t let me down.（别让我失望。）
+Easy come, easy go.（来得容易去得快。）
+I beg your pardon.（请你原谅。）
+Just wait and see.（等着瞧。）
+I&#x27;ll check it out.（我去查查看。）
+Don&#x27;t be so modest.（别谦虚了。）
+I can&#x27;t follow you.（我不懂你说的。）
+He is ill in bed.（他卧病在床。）
+He always talks big.（他总是吹牛。）
+That&#x27;s all I need.（我就要这些。）
+The view is great.（景色真漂亮。）
+I love this game.（我钟爱这项运动。）
+There comes a bus.（公交车来了。）
+What day is today?（今天星期几？）
+What do you think?（你怎么认为？）
+Who told you that?（谁告诉你的？）
+Who&#x27;s kicking off?（现在谁在开球？）
+Yes, I suppose so.（我也这么认为。）
+You can&#x27;t miss it.（你一定能找到的。）
+Any messages for me?（有我的留言吗？）
+Did you miss the bus?（你错过公交车了吗？）
+He came by train.（他乘火车来的。）
+He is a smart boy.（他是个机灵鬼。）
+He is just a child.（他只是个孩子。）
+It&#x27;s Sunday today.（今天是星期天。）
+I felt sort of ill.（我感觉有点不舒服。）
+I have a good idea.（我有一个好主意。）
+It is growing cool.（天气渐渐凉爽起来。）
+It seems all right.（看来这没问题。）
+Well, it depends.（噢，这得看情况。）
+May I use your pen?（我可以用你的笔吗？）
+She had a bad cold.（她患了重感冒。）
+That&#x27;s a good idea.（这个主意真不错。）
+What time is it?（几点了？）
+Never mind.（不要紧。）
+No problem.（没问题！）
+That&#x27;s all!（就这样！）
+Time is up.（时间到了。）
+What&#x27;s new?（有什么新鲜事吗？）
+Count me on.（算上我。）
+Don&#x27;t worry.（别担心。）
+Feel better?（好点了吗？）
+I love you!（我爱你！）
+I&#x27;m his fan.（我是他的影迷。）
+Is it yours?（这是你的吗？）
+That&#x27;s neat.（这很好。）
+Are you sure?（你肯定吗？）
+Do I have to?（非做不可吗？）
+He is my age.（他和我同岁。）
+Here you are.（给你。）
+No one knows.（没有人知道。）
+Take it easy.（别紧张。）
+What a pity!（太遗憾了！）
+Anything else?（还要别的吗？）
+To be careful!（一定要小心！）
+Do me a favor?（帮个忙，好吗？）
+Help yourself.（别客气。）
+I&#x27;m on a diet.（我在节食。）
+Keep in touch.（保持联络。）
+Time is money.（时间就是金钱。）
+Who&#x27;s calling?（是哪一位？）
+You did right.（你做得对。）
+You set me up!（你出卖我！）
+Can I help you?（我能帮你吗？）
+Enjoy yourself!（祝你玩得开心！）
+Excuse me, Sir.（先生，对不起。）
+Give me a hand!（帮帮我！）
+How&#x27;s it going?（怎么样？）
+I have no idea.（我没头绪。）
+I just made it!（我做到了！）
+I&#x27;ll see to it.（我会留意的。）
+I&#x27;m in a hurry!（我在赶时间！）
+It&#x27;s her field.（这是她的本行。）
+It&#x27;s up to you.（由你决定。）
+Just wonderful!（简直太棒了！）
+What about you?（你呢？）
+You owe me one.（你欠我一个人情。）
+You&#x27;re welcome.（不客气。）
+Any day will do.（哪一天都行。）
+Are you kidding?（你在开玩笑吧！）
+Congratulations!（祝贺你！）
+I can&#x27;t help it.（我情不自禁。）
+I don&#x27;t mean it.（我不是故意的。）
+I&#x27;ll fix you up.（我会帮你打点好。）
+It sounds great!（听起来很不错。）
+It&#x27;s a fine day.（今天是个好天。）
+How&#x27;s everything?（一切还好吧？）
+I like ice-cream.（我喜欢吃冰淇淋。）
+What a good deal!（真便宜！）
+You asked for it!（你自讨苦吃！）
+Believe it or not!（信不信由你！）
+Don&#x27;t fall for it!（别上当！）
+Easy come, easy go.（来得容易，去得快。）
+I&#x27;ll check it out.（我去查查看。）
+My mouth is watering.（我要流口水了。）
+Speak louder, please.（说话请大声点儿。）
+A lovely day, isn&#x27;t it?（好天气，是吗？）
+He is collecting money.（他在筹集资金。）
+He was not a bit tired.（他一点也不累。）
+I will be more careful.（我会小心一些的。）
+I will never forget it.（我会记着的。）
+There comes a bus.（汽车来了。）
+She has been to school.（她上学去了。）
+What horrible weather!（这鬼天气！）
+Let bygones be bygones.（过去的，就让它过去吧。）
+I owe you for my dinner.（我欠你晚餐的钱。）
+I really enjoyed myself.（我玩得很开心。）
+I&#x27;m fed up with my work!（我对工作烦死了！）
+It&#x27;s no use complaining.（发牢骚没什么用。）
+She&#x27;s under the weather.（她心情不好。）
+二、出行与生活服务
+Can you tell me where the nearest station is?（你能告诉我最近的车站在哪里吗？）
+Where is the nearest train station?（最近的火车站在哪里？）
+Could you tell me the way to the airport?（你能告诉我去机场的路吗？）
+How do I get to the airport?（我怎么去机场？）
+How far is it from here?（离这里有多远？）
+What&#x27;s the best way to get there?（去那里最好的方式是什么？）
+How long will it take to get there?（到那里需要多长时间？）
+I need to catch a bus.（我需要赶公交车。）
+Where can I get a taxi?（我在哪里可以打到出租车？）
+Could you call me a taxi?（你能帮我叫辆出租车吗？）
+Is there public transportation available here?（这里有公共交通工具吗？）
+What&#x27;s the quickest way to get downtown?（去市中心最快的方法是什么？）
+Are there any beaches nearby?（附近有沙滩吗？）
+Is there a place to park nearby?（附近有停车的地方吗？）
+Where can I exchange currency?（我在哪里可以兑换货币？）
+What&#x27;s the exchange rate today?（今天的汇率是多少？）
+Is there a place to exchange money nearby?（附近有兑换货币的地方吗？）
+Do you know where I can find a pharmacy?（你知道哪里可以找到药店吗？）
+Is there a hospital nearby?（附近有医院吗？）
+What&#x27;s the emergency contact number here?（这里的紧急联系电话是多少？）
+Is it safe to walk around at night?（晚上在这里走安全吗？）
+What time does the store close?（这家店几点关门？）
+What are the opening hours?（营业时间是几点到几点？）
+Do you know if it&#x27;s open now?（你知道它现在是否营业吗？）
+I&#x27;d like to make a reservation.（我想预订一个位置。）
+Do I need a reservation?（我需要预订吗？）
+What time is check-out?（退房时间是几点？）
+Can I leave my luggage here?（我可以把行李寄存在这里吗？）
+Can I have this delivered to my hotel?（我可以把这个送到我的酒店吗？）
+Can I have an extra blanket, please?（我可以要一条额外的毯子吗？）
+What&#x27;s your Wi-Fi password?（你们的 Wi-Fi 密码是什么？）
+Do you offer guided tours?（你们提供导游服务吗？）
+Do you have any travel packages?（你们有旅游套餐吗？）
+Just wait and see!（等着瞧！）
+Make up your mind.（做个决定吧。）
+The wall has ears.（隔墙有耳。）
+Who&#x27;s kicking off?（现在是谁在开球？）
+Don&#x27;t give me that!（少来这套！）
+It is just what I need.（这正是我需要的。）
+It&#x27;s against the law.（这是违法的。）
+This boy has no job.（这个男孩没有工作。）
+Move out of my way!（让开！）
+If only I could fly.（要是我能飞就好了。）
+I am a football fan.（我是个足球迷。）
+You did fairly well!（你干得相当不错！）
+It rather surprised me.（那事使我颇感惊讶。）
+What&#x27;s your trouble?（你哪儿不舒服？）
+He can&#x27;t take a joke.（他开不得玩笑。）
+He won an election.（他在选举中获胜。）
+I know all about it.（我知道有关它的一切。）
+It really takes time.（这样太耽误时间了。）
+Don&#x27;t lose your head.（不要惊慌失措。）
+How are you recently?（最近怎么样？）
+What does she like?（她喜欢什么？）
+How are things going?（事情进展得怎样？）
+Clothes make the man.（人要衣装。）
+How much does it cost?（多少钱？）
+He was born in New York.（他出生在纽约。）
+Does she like ice-cream?（她喜欢吃冰淇淋吗？）
+The child sobbed sadly.（小孩伤心地抽泣。）
+The rumor had no basis.（那谣言没有根据。）
+They praised him highly.（他们大大地表扬了他。）
+I have the right to know.（我有权知道。）
+I heard someone laughing.（我听见有人在笑。）
+I&#x27;m not used to drinking.（我不习惯喝酒。）
+Is the cut still painful?（伤口还在痛吗？）
+You&#x27;re really killing me!（真是笑死我了！）
+You&#x27;ve got a point there.（你说得挺有道理。）
+Being criticized is awful!（被人批评真是痛苦！）
+Just around the corner.（就在附近。）
+Just for entertainment.（只是为消遣一下。）
+Skating is interesting.（滑冰很有趣。）
+Supper is ready at six.（晚餐六点钟就好了。）
+Great minds think alike.（英雄所见略同。）
+He has a sense of humor.（他有幽默感。）
+He is acting an old man.（他正扮演一个老人。）
+Mother doesn&#x27;t make up.（妈妈不化妆。）
+Oh, you are kidding me.（哦，你别拿我开玩笑了。）
+He is looking for a job.（他正在找工作。）
+I felt no regret for it.（对这件事我不觉得后悔。）
+I get up at six o&#x27;clock.（我六点起床。）
+I meet the boss himself.（我见到了老板本人。）
+I walked across the park.（我穿过了公园。）
+Did you enter the contest?（你参加比赛了吗？）
+I can&#x27;t afford a new car.（我买不起一部新车。）
+That&#x27;s a terrific idea!（真是好主意！）
+Which would you prefer?（你要选哪个？）
+Don&#x27;t let chances pass by.（不要让机遇从我们身边溜走。）
+He owned himself defeated.（他承认自己失败了。）
+Knowledge is power.（知识就是力量。）
+He seems a little nervous.（他显得有点紧张。）
+He strolls about the town.（他在镇上四处溜达。）
+Her tooth ached all night.（她牙疼了一整夜。）
+First come first served.（先到先得。）
+15 divided by 3 equals 5.（15 除以 3 等于 5。）
+All for one, one for all.（我为人人，人人为我。）
+I saw it with my own eyes.（我亲眼所见。）
+I develop films myself.（我自己冲洗照片。）
+He grasped both my hands.（他紧握住我的双手。）
+He is physically mature.（他身体已发育成熟。）
+I am so sorry about this.（对此我非常抱歉。）
+He doesn&#x27;t care about me.（他不在乎我。）
+I do want to see him now.（我现在确实很想去见他。）
+Don&#x27;t cry over spilt milk.（不要做无益的后悔。）
+How about a drink tonight?（今晚喝一杯怎样？）
+三、餐饮与购物
+What do you recommend?（你推荐什么？）
+Could you recommend a good restaurant nearby?（你能推荐一家附近的好餐馆吗？）
+Could you recommend some local dishes?（你能推荐些当地的菜吗？）
+What&#x27;s the best thing on the menu?（菜单上最好的菜是什么？）
+Do you have any vegetarian options?（你们有素食选择吗？）
+Are there any vegetarian restaurants around?（附近有素食餐厅吗？）
+Can you pack this to go?（你能把这个打包吗？）
+I&#x27;d like a window seat, please.（我想要一个靠窗的座位。）
+I&#x27;d like to book a table for two.（我想订一个两个人的桌子。）
+Can I have the check, please?（我可以要账单吗？）
+Can I have a copy of the receipt?（我可以要一份收据吗？）
+Do you take credit cards?（你们接受信用卡吗？）
+Can I pay in cash?（我可以用现金支付吗？）
+Do you have this in a different color?（你们有其他颜色的吗？）
+Can I try this on?（我可以试穿一下吗？）
+I&#x27;m looking for a souvenir shop.（我在找一家纪念品商店。）
+Do you know where I can buy souvenirs?（你知道哪里可以买纪念品吗？）
+Do you have any special discounts?（你们有特别折扣吗？）
+Is it possible to get a discount?（可以打折吗？）
+How much does it cost to get in?（入场费是多少？）
+Do you have any brochures or maps?（你们有宣传册或地图吗？）
+Do you accept credit cards?（你们收信用卡吗？）
+I can do nothing but that.（我只会做那件事。）
+I suppose you dance much.（我想你常常跳舞吧。）
+I get hold of you at last.（我终于找到你了。）
+I have a surprise for you.（我有一个意想不到的东西给你看。）
+I like all kinds of fruit.（我喜欢各种各样的水果。）
+I just play it by ear.（我到时随机应变。）
+She has been to school.（她上学去了。）
+I can&#x27;t agree with you more.（我非常同意你。）
+I&#x27;ve had enough of this.（我已经受够了。）
+Could you give me a hand?（你能帮我一下吗？）
+Let&#x27;s grab something to eat.（我们去吃点东西吧。）
+You&#x27;re driving me crazy!（你快把我逼疯了！）
+What are you up to today?（你今天打算做什么？）
+I&#x27;ll be right back.（我马上回来。）
+I&#x27;m on my way.（我正在路上。）
+It&#x27;s out of the question.（这根本不可能。）
+Let&#x27;s keep in touch.（我们保持联系吧。）
+Don&#x27;t get me wrong.（别误会我。）
+I wasn&#x27;t expecting that.（我没想到会那样。）
+I didn&#x27;t see that coming.（我没料到会发生这种事。）
+I&#x27;m running late.（我要迟到了。）
+It&#x27;s not a big deal.（这没什么大不了的。）
+You nailed it!（你做得太棒了！）
+I&#x27;d rather not say.（我不太想说。）
+Can you believe it?（你能相信吗？）
+I&#x27;m over it.（我已经不在乎了。）
+It&#x27;s up to you.（由你决定。）
+Don&#x27;t take it personally.（别往心里去。）
+I&#x27;m out of ideas.（我想不出办法了。）
+I&#x27;m running out of time.（我快没时间了。）
+That&#x27;s not going to happen.（这不可能发生。）
+It&#x27;s your call.（你来决定。）
+You&#x27;re out of your mind.（你疯了吗？）
+I&#x27;ll think about it.（我再想想。）
+That&#x27;s a tough one.（这很难。）
+I&#x27;m not in the mood.（我没心情。）
+Let&#x27;s not jump to conclusions.（我们不要急于下结论。）
+I&#x27;m at a loss for words.（我无话可说。）
+Don&#x27;t push your luck.（别得寸进尺。）
+I&#x27;m having second thoughts.（我又犹豫了。）
+I&#x27;m a bit overwhelmed.（我有点吃不消了。）
+Let me get back to you on that.（我稍后再答复你。）
+I couldn&#x27;t care less.（我一点也不在乎。）
+It&#x27;s water under the bridge.（过去的事就过去了。）
+I&#x27;m not buying it.（我不相信。）
+I&#x27;d like to keep it low-key.（我想保持低调。）
+I&#x27;m on cloud nine.（我高兴极了。）
+That&#x27;s a no-brainer.（这还用说吗？）
+I&#x27;m just messing with you.（我只是开玩笑。）
+I&#x27;m pulling your leg.（我在逗你呢。）
+It&#x27;s easier said than done.（说起来容易做起来难。）
+You can say that again!（我完全同意！）
+That&#x27;s out of my control.（这超出了我的控制范围。）
+I&#x27;ll take it into consideration.（我会考虑的。）
+I&#x27;ll pass.（我就不参加了。）
+It&#x27;s not my cup of tea.（这不是我喜欢的。）
+I&#x27;m afraid I can&#x27;t help you.（恐怕我帮不了你。）
+I can&#x27;t make it today.（我今天去不了。）
+I&#x27;ll take care of it.（我会处理的。）
+I can&#x27;t believe my eyes.（我简直不敢相信。）
+You&#x27;ve got to be kidding me!（你一定是在开玩笑！）
+It&#x27;s worth a shot.（值得一试。）
+I&#x27;m all ears.（我洗耳恭听。）
+Don&#x27;t hold your breath.（别指望了。）
+I&#x27;m not following you.（我没听明白你在说什么。）
+It&#x27;s about time.（早该如此了。）
+That&#x27;s a load off my mind.（我松了一口气。）
+Don&#x27;t let me down.（别让我失望。）
+Let&#x27;s get down to business.（我们开始谈正事吧。）
+I&#x27;ll keep you posted.（我会随时通知你。）
+I didn&#x27;t see that coming.（我没预料到会这样。）
+It&#x27;s too good to be true.（这好得令人难以置信。）
+I wouldn&#x27;t count on it.（我不会指望它。）
+I&#x27;m going to call it a day.（我今天就到这儿吧。）
+Let&#x27;s call it even.（我们扯平了。）
+Don&#x27;t take it for granted.（不要把它当作理所当然。）
+I&#x27;ve got your back.（我支持你。）
+Don&#x27;t get ahead of yourself.（别操之过急。）
+I&#x27;ll sleep on it.（我会再考虑一下。）
+I owe you one.（我欠你一个人情。）
+Let&#x27;s put it this way.（让我们这么说吧。）
+I wouldn&#x27;t mind.（我不介意。）
+I&#x27;ll see to it.（我会负责的。）
+I&#x27;m on the fence.（我还在犹豫。）
+That&#x27;s out of the blue.（这太突然了。）
+I&#x27;m good to go.（我准备好了。）
+You&#x27;ve got nothing to lose.（你没有损失。）
+That&#x27;s a rip-off.（这简直是敲竹杠。）
+I&#x27;ll handle it.（我会处理的。）
+Let&#x27;s make a deal.（我们做个交易吧。）
+It&#x27;s a long shot.（这机会渺茫。）
+I&#x27;m all in.（我全力以赴。）
+It&#x27;s now or never.（就现在，不然就永远没机会了。）
+Let&#x27;s call it a night.（我们今晚到此为止吧。）
+You&#x27;re missing the point.（你没抓住重点。）
+I&#x27;ve been there before.（我有过类似的经历。）
+I&#x27;ll cross that bridge when I get to it.（车到山前必有路。）
+I&#x27;ll believe it when I see it.（眼见为实。）
+I&#x27;ll get back to you on that.（我稍后再回复你。）
+That&#x27;s more like it.（这才对嘛。）
+I can&#x27;t take it anymore.（我再也受不了了。）
+You&#x27;re on the right track.（你在正确的方向上。）
+I couldn&#x27;t care less.（我根本不在乎。）
+Let&#x27;s cut to the chase.（我们开门见山吧。）
+You&#x27;ve got to be joking!（你一定是在开玩笑！）
+You&#x27;re barking up the wrong tree.（你搞错方向了。）
+Let&#x27;s not waste any more time.（我们不要再浪费时间了。）
+I can&#x27;t stand it anymore.（我再也忍不住了。）
+I&#x27;m not in the mood for this.（我没心情做这个。）
+It&#x27;s just a matter of time.（这只是时间问题。）
+It&#x27;s none of your business.（这不关你的事。）
+You&#x27;ve made my day!（你让我今天过得很开心！）
+I can&#x27;t put my finger on it.（我说不上来是什么。）
+Let&#x27;s call it quits.（我们到此为止吧。）
+That&#x27;s the last thing I want.（这是我最不想要的。）
+It&#x27;s my way or the highway.（不照我的做就拉倒。）
+I&#x27;m not in a hurry.（我不着急。）
+I&#x27;ve got to run.（我得走了。）
+It&#x27;s a piece of cake.（这太容易了。）
+I&#x27;m in hot water.（我有麻烦了。）
+It&#x27;s raining cats and dogs.（下着倾盆大雨。）
+I&#x27;m under the weather.（我感觉不舒服。）
+Don&#x27;t beat around the bush.（别拐弯抹角。）
+四、工作与商务沟通
+The ball is in your court.（现在就看你的了。）
+I&#x27;m short on cash.（我手头紧。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+I&#x27;m just killing time.（我只是在消磨时间。）
+Let&#x27;s touch base later.（我们稍后再联系。）
+I&#x27;m just following up on that.（我只是跟进一下那个事情。）
+That sounds good to me.（对我来说听起来不错。）
+Let&#x27;s circle back to this.（我们稍后再讨论这个。）
+I&#x27;ll loop you in.（我会把你包括在内。）
+Keep me in the loop.（随时告诉我进展。）
+I&#x27;ll get back to you on that.（我会再回复你。）
+Let&#x27;s table that for now.（我们暂时搁置这个问题。）
+I&#x27;m on it.（我正在处理。）
+That&#x27;s a game-changer.（这真是改变局面。）
+Let&#x27;s sync up tomorrow.（我们明天再同步一下。）
+I&#x27;m all ears.（我洗耳恭听。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+We need to brainstorm ideas.（我们需要集思广益。）
+I&#x27;ll send that over to you.（我会把那个发给你。）
+I appreciate your feedback.（我很感激你的反馈。）
+That&#x27;s a great point.（这是个很好的观点。）
+I&#x27;ll take care of it.（我来处理这件事。）
+Let me check on that.（让我查一下这个情况。）
+I&#x27;ll be right back.（我马上回来。）
+Let&#x27;s keep it brief.（我们简短一点。）
+Could you give me a moment?（你能给我一点时间吗？）
+We&#x27;re running out of time.（我们时间快不够了。）
+I&#x27;ll catch up with you later.（我稍后跟你联系。）
+Let&#x27;s get the ball rolling.（我们开始吧。）
+This is a priority.（这是优先处理的事项。）
+Let&#x27;s dive into the details.（我们深入讨论细节吧。）
+I need to step out for a moment.（我需要出去一下。）
+Let&#x27;s set up a meeting.（我们安排个会议吧。）
+I&#x27;m looking forward to it.（我期待着。）
+Did you enter the contest?（你参加比赛了吗？）
+I can&#x27;t afford a new car.（我买不起一部新车。）
+That&#x27;s a terrific idea!（真是好主意！）
+Which would you prefer?（你要选哪个？）
+Don&#x27;t let chances pass by.（不要让机遇从我们身边溜走。）
+He owned himself defeated.（他承认自己失败了。）
+Knowledge is power.（知识就是力量。）
+He seems a little nervous.（他显得有点紧张。）
+He strolls about the town.（他在镇上四处溜达。）
+Her tooth ached all night.（她牙疼了一整夜。）
+First come first served.（先到先得。）
+15 divided by 3 equals 5.（15 除以 3 等于 5。）
+All for one, one for all.（我为人人，人人为我。）
+I saw it with my own eyes.（我亲眼所见。）
+I develop films myself.（我自己冲洗照片。）
+He grasped both my hands.（他紧握住我的双手。）
+He is physically mature.（他身体已发育成熟。）
+I am so sorry about this.（对此我非常抱歉。）
+He doesn&#x27;t care about me.（他不在乎我。）
+I do want to see him now.（我现在确实很想去见他。）
+Don&#x27;t cry over spilt milk.（不要做无益的后悔。）
+How about a drink tonight?（今晚喝一杯怎样？）
+Do you accept credit cards?（你们收信用卡吗？）
+I can do nothing but that.（我只会做那件事。）
+I suppose you dance much.（我想你常常跳舞吧。）
+I get hold of you at last.（我终于找到你了。）
+I have a surprise for you.（我有一个意想不到的东西给你看。）
+I like all kinds of fruit.（我喜欢各种各样的水果。）
+I just play it by ear.（我到时随机应变。）
+She has been to school.（她上学去了。）
+I can&#x27;t agree with you more.（我非常同意你。）
+I&#x27;ve had enough of this.（我已经受够了。）
+Could you give me a hand?（你能帮我一下吗？）
+Let&#x27;s grab something to eat.（我们去吃点东西吧。）
+You&#x27;re driving me crazy!（你快把我逼疯了！）
+What are you up to today?（你今天打算做什么？）
+I&#x27;ll be right back.（我马上回来。）
+I&#x27;m on my way.（我正在路上。）
+It&#x27;s out of the question.（这根本不可能。）
+Let&#x27;s keep in touch.（我们保持联系吧。）
+Don&#x27;t get me wrong.（别误会我。）
+I wasn&#x27;t expecting that.（我没想到会那样。）
+I didn&#x27;t see that coming.（我没料到会发生这种事。）
+I&#x27;m running late.（我要迟到了。）
+It&#x27;s not a big deal.（这没什么大不了的。）
+You nailed it!（你做得太棒了！）
+I&#x27;d rather not say.（我不太想说。）
+Can you believe it?（你能相信吗？）
+I&#x27;m over it.（我已经不在乎了。）
+It&#x27;s up to you.（由你决定。）
+Don&#x27;t take it personally.（别往心里去。）
+I&#x27;m out of ideas.（我想不出办法了。）
+I&#x27;m running out of time.（我快没时间了。）
+That&#x27;s not going to happen.（这不可能发生。）
+It&#x27;s your call.（你来决定。）
+You&#x27;re out of your mind.（你疯了吗？）
+I&#x27;ll think about it.（我再想想。）
+That&#x27;s a tough one.（这很难。）
+I&#x27;m not in the mood.（我没心情。）
+Let&#x27;s not jump to conclusions.（我们不要急于下结论。）
+I&#x27;m at a loss for words.（我无话可说。）
+Don&#x27;t push your luck.（别得寸进尺。）
+I&#x27;m having second thoughts.（我又犹豫了。）
+I&#x27;m a bit overwhelmed.（我有点吃不消了。）
+Let me get back to you on that.（我稍后再答复你。）
+I couldn&#x27;t care less.（我一点也不在乎。）
+It&#x27;s water under the bridge.（过去的事就过去了。）
+I&#x27;m not buying it.（我不相信。）
+I&#x27;d like to keep it low-key.（我想保持低调。）
+I&#x27;m on cloud nine.（我高兴极了。）
+That&#x27;s a no-brainer.（这还用说吗？）
+I&#x27;m just messing with you.（我只是开玩笑。）
+I&#x27;m pulling your leg.（我在逗你呢。）
+It&#x27;s easier said than done.（说起来容易做起来难。）
+You can say that again!（我完全同意！）
+That&#x27;s out of my control.（这超出了我的控制范围。）
+I&#x27;ll take it into consideration.（我会考虑的。）
+I&#x27;ll pass.（我就不参加了。）
+It&#x27;s not my cup of tea.（这不是我喜欢的。）
+I&#x27;m afraid I can&#x27;t help you.（恐怕我帮不了你。）
+I can&#x27;t make it today.（我今天去不了。）
+I&#x27;ll take care of it.（我会处理的。）
+I can&#x27;t believe my eyes.（我简直不敢相信。）
+You&#x27;ve got to be kidding me!（你一定是在开玩笑！）
+It&#x27;s worth a shot.（值得一试。）
+I&#x27;m all ears.（我洗耳恭听。）
+Don&#x27;t hold your breath.（别指望了。）
+I&#x27;m not following you.（我没听明白你在说什么。）
+It&#x27;s about time.（早该如此了。）
+That&#x27;s a load off my mind.（我松了一口气。）
+Don&#x27;t let me down.（别让我失望。）
+Let&#x27;s get down to business.（我们开始谈正事吧。）
+I&#x27;ll keep you posted.（我会随时通知你。）
+I didn&#x27;t see that coming.（我没预料到会这样。）
+It&#x27;s too good to be true.（这好得令人难以置信。）
+I wouldn&#x27;t count on it.（我不会指望它。）
+I&#x27;m going to call it a day.（我今天就到这儿吧。）
+Let&#x27;s call it even.（我们扯平了。）
+Don&#x27;t take it for granted.（不要把它当作理所当然。）
+I&#x27;ve got your back.（我支持你。）
+Don&#x27;t get ahead of yourself.（别操之过急。）
+I&#x27;ll sleep on it.（我会再考虑一下。）
+I owe you one.（我欠你一个人情。）
+Let&#x27;s put it this way.（让我们这么说吧。）
+I wouldn&#x27;t mind.（我不介意。）
+I&#x27;ll see to it.（我会负责的。）
+I&#x27;m on the fence.（我还在犹豫。）
+That&#x27;s out of the blue.（这太突然了。）
+I&#x27;m good to go.（我准备好了。）
+You&#x27;ve got nothing to lose.（你没有损失。）
+That&#x27;s a rip-off.（这简直是敲竹杠。）
+I&#x27;ll handle it.（我会处理的。）
+Let&#x27;s make a deal.（我们做个交易吧。）
+It&#x27;s a long shot.（这机会渺茫。）
+I&#x27;m all in.（我全力以赴。）
+It&#x27;s now or never.（就现在，不然就永远没机会了。）
+五、观点与态度表达
+Let&#x27;s call it a night.（我们今晚到此为止吧。）
+You&#x27;re missing the point.（你没抓住重点。）
+I&#x27;ve been there before.（我有过类似的经历。）
+I&#x27;ll cross that bridge when I get to it.（车到山前必有路。）
+I&#x27;ll believe it when I see it.（眼见为实。）
+I&#x27;ll get back to you on that.（我稍后再回复你。）
+That&#x27;s more like it.（这才对嘛。）
+I can&#x27;t take it anymore.（我再也受不了了。）
+You&#x27;re on the right track.（你在正确的方向上。）
+I couldn&#x27;t care less.（我根本不在乎。）
+Let&#x27;s cut to the chase.（我们开门见山吧。）
+You&#x27;ve got to be joking!（你一定是在开玩笑！）
+You&#x27;re barking up the wrong tree.（你搞错方向了。）
+Let&#x27;s not waste any more time.（我们不要再浪费时间了。）
+I can&#x27;t stand it anymore.（我再也忍不住了。）
+I&#x27;m not in the mood for this.（我没心情做这个。）
+It&#x27;s just a matter of time.（这只是时间问题。）
+It&#x27;s none of your business.（这不关你的事。）
+You&#x27;ve made my day!（你让我今天过得很开心！）
+I can&#x27;t put my finger on it.（我说不上来是什么。）
+Let&#x27;s call it quits.（我们到此为止吧。）
+That&#x27;s the last thing I want.（这是我最不想要的。）
+It&#x27;s my way or the highway.（不照我的做就拉倒。）
+I&#x27;m not in a hurry.（我不着急。）
+I&#x27;ve got to run.（我得走了。）
+It&#x27;s a piece of cake.（这太容易了。）
+I&#x27;m in hot water.（我有麻烦了。）
+It&#x27;s raining cats and dogs.（下着倾盆大雨。）
+I&#x27;m under the weather.（我感觉不舒服。）
+Don&#x27;t beat around the bush.（别拐弯抹角。）
+The ball is in your court.（现在就看你的了。）
+I&#x27;m short on cash.（我手头紧。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+I&#x27;m just killing time.（我只是在消磨时间。）
+Let&#x27;s touch base later.（我们稍后再联系。）
+I&#x27;m just following up on that.（我只是跟进一下那个事情。）
+That sounds good to me.（对我来说听起来不错。）
+Let&#x27;s circle back to this.（我们稍后再讨论这个。）
+I&#x27;ll loop you in.（我会把你包括在内。）
+Keep me in the loop.（随时告诉我进展。）
+I&#x27;ll get back to you on that.（我会再回复你。）
+Let&#x27;s table that for now.（我们暂时搁置这个问题。）
+I&#x27;m on it.（我正在处理。）
+That&#x27;s a game-changer.（这真是改变局面。）
+Let&#x27;s sync up tomorrow.（我们明天再同步一下。）
+I&#x27;m all ears.（我洗耳恭听。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+We need to brainstorm ideas.（我们需要集思广益。）
+I&#x27;ll send that over to you.（我会把那个发给你。）
+I appreciate your feedback.（我很感激你的反馈。）
+That&#x27;s a great point.（这是个很好的观点。）
+I&#x27;ll take care of it.（我来处理这件事。）
+Let me check on that.（让我查一下这个情况。）
+I&#x27;ll be right back.（我马上回来。）
+Let&#x27;s keep it brief.（我们简短一点。）
+Could you give me a moment?（你能给我一点时间吗？）
+We&#x27;re running out of time.（我们时间快不够了。）
+I&#x27;ll catch up with you later.（我稍后跟你联系。）
+Let&#x27;s get the ball rolling.（我们开始吧。）
+This is a priority.（这是优先处理的事项。）
+Let&#x27;s dive into the details.（我们深入讨论细节吧。）
+I need to step out for a moment.（我需要出去一下。）
+Let&#x27;s set up a meeting.（我们安排个会议吧。）
+I&#x27;m looking forward to it.（我期待着。）
+Did you enter the contest?（你参加比赛了吗？）
+I can&#x27;t afford a new car.（我买不起一部新车。）
+That&#x27;s a terrific idea!（真是好主意！）
+Which would you prefer?（你要选哪个？）
+Don&#x27;t let chances pass by.（不要让机遇从我们身边溜走。）
+He owned himself defeated.（他承认自己失败了。）
+Knowledge is power.（知识就是力量。）
+He seems a little nervous.（他显得有点紧张。）
+He strolls about the town.（他在镇上四处溜达。）
+Her tooth ached all night.（她牙疼了一整夜。）
+First come first served.（先到先得。）
+15 divided by 3 equals 5.（15 除以 3 等于 5。）
+All for one, one for all.（我为人人，人人为我。）
+I saw it with my own eyes.（我亲眼所见。）
+I develop films myself.（我自己冲洗照片。）
+He grasped both my hands.（他紧握住我的双手。）
+He is physically mature.（他身体已发育成熟。）
+I am so sorry about this.（对此我非常抱歉。）
+He doesn&#x27;t care about me.（他不在乎我。）
+I do want to see him now.（我现在确实很想去见他。）
+Don&#x27;t cry over spilt milk.（不要做无益的后悔。）
+How about a drink tonight?（今晚喝一杯怎样？）
+Do you accept credit cards?（你们收信用卡吗？）
+I can do nothing but that.（我只会做那件事。）
+I suppose you dance much.（我想你常常跳舞吧。）
+I get hold of you at last.（我终于找到你了。）
+I have a surprise for you.（我有一个意想不到的东西给你看。）
+I like all kinds of fruit.（我喜欢各种各样的水果。）
+I just play it by ear.（我到时随机应变。）
+She has been to school.（她上学去了。）
+I can&#x27;t agree with you more.（我非常同意你。）
+I&#x27;ve had enough of this.（我已经受够了。）
+Could you give me a hand?（你能帮我一下吗？）
+Let&#x27;s grab something to eat.（我们去吃点东西吧。）
+You&#x27;re driving me crazy!（你快把我逼疯了！）
+What are you up to today?（你今天打算做什么？）
+I&#x27;ll be right back.（我马上回来。）
+I&#x27;m on my way.（我正在路上。）
+It&#x27;s out of the question.（这根本不可能。）
+Let&#x27;s keep in touch.（我们保持联系吧。）
+Don&#x27;t get me wrong.（别误会我。）
+I wasn&#x27;t expecting that.（我没想到会那样。）
+I didn&#x27;t see that coming.（我没料到会发生这种事。）
+I&#x27;m running late.（我要迟到了。）
+It&#x27;s not a big deal.（这没什么大不了的。）
+You nailed it!（你做得太棒了！）
+I&#x27;d rather not say.（我不太想说。）
+Can you believe it?（你能相信吗？）
+I&#x27;m over it.（我已经不在乎了。）
+It&#x27;s up to you.（由你决定。）
+Don&#x27;t take it personally.（别往心里去。）
+I&#x27;m out of ideas.（我想不出办法了。）
+I&#x27;m running out of time.（我快没时间了。）
+That&#x27;s not going to happen.（这不可能发生。）
+It&#x27;s your call.（你来决定。）
+You&#x27;re out of your mind.（你疯了吗？）
+I&#x27;ll think about it.（我再想想。）
+That&#x27;s a tough one.（这很难。）
+I&#x27;m not in the mood.（我没心情。）
+Let&#x27;s not jump to conclusions.（我们不要急于下结论。）
+I&#x27;m at a loss for words.（我无话可说。）
+Don&#x27;t push your luck.（别得寸进尺。）
+I&#x27;m having second thoughts.（我又犹豫了。）
+I&#x27;m a bit overwhelmed.（我有点吃不消了。）
+Let me get back to you on that.（我稍后再答复你。）
+I couldn&#x27;t care less.（我一点也不在乎。）
+It&#x27;s water under the bridge.（过去的事就过去了。）
+I&#x27;m not buying it.（我不相信。）
+I&#x27;d like to keep it low-key.（我想保持低调。）
+I&#x27;m on cloud nine.（我高兴极了。）
+That&#x27;s a no-brainer.（这还用说吗？）
+I&#x27;m just messing with you.（我只是开玩笑。）
+I&#x27;m pulling your leg.（我在逗你呢。）
+It&#x27;s easier said than done.（说起来容易做起来难。）
+You can say that again!（我完全同意！）
+That&#x27;s out of my control.（这超出了我的控制范围。）
+I&#x27;ll take it into consideration.（我会考虑的。）
+I&#x27;ll pass.（我就不参加了。）
+It&#x27;s not my cup of tea.（这不是我喜欢的。）
+I&#x27;m afraid I can&#x27;t help you.（恐怕我帮不了你。）
+I can&#x27;t make it today.（我今天去不了。）
+I&#x27;ll take care of it.（我会处理的。）
+I can&#x27;t believe my eyes.（我简直不敢相信。）
+You&#x27;ve got to be kidding me!（你一定是在开玩笑！）
+It&#x27;s worth a shot.（值得一试。）
+I&#x27;m all ears.（我洗耳恭听。）
+六、情绪与状态表达
+Don&#x27;t hold your breath.（别指望了。）
+I&#x27;m not following you.（我没听明白你在说什么。）
+It&#x27;s about time.（早该如此了。）
+That&#x27;s a load off my mind.（我松了一口气。）
+Don&#x27;t let me down.（别让我失望。）
+Let&#x27;s get down to business.（我们开始谈正事吧。）
+I&#x27;ll keep you posted.（我会随时通知你。）
+I didn&#x27;t see that coming.（我没预料到会这样。）
+It&#x27;s too good to be true.（这好得令人难以置信。）
+I wouldn&#x27;t count on it.（我不会指望它。）
+I&#x27;m going to call it a day.（我今天就到这儿吧。）
+Let&#x27;s call it even.（我们扯平了。）
+Don&#x27;t take it for granted.（不要把它当作理所当然。）
+I&#x27;ve got your back.（我支持你。）
+Don&#x27;t get ahead of yourself.（别操之过急。）
+I&#x27;ll sleep on it.（我会再考虑一下。）
+I owe you one.（我欠你一个人情。）
+Let&#x27;s put it this way.（让我们这么说吧。）
+I wouldn&#x27;t mind.（我不介意。）
+I&#x27;ll see to it.（我会负责的。）
+I&#x27;m on the fence.（我还在犹豫。）
+That&#x27;s out of the blue.（这太突然了。）
+I&#x27;m good to go.（我准备好了。）
+You&#x27;ve got nothing to lose.（你没有损失。）
+That&#x27;s a rip-off.（这简直是敲竹杠。）
+I&#x27;ll handle it.（我会处理的。）
+Let&#x27;s make a deal.（我们做个交易吧。）
+It&#x27;s a long shot.（这机会渺茫。）
+I&#x27;m all in.（我全力以赴。）
+It&#x27;s now or never.（就现在，不然就永远没机会了。）
+Let&#x27;s call it a night.（我们今晚到此为止吧。）
+You&#x27;re missing the point.（你没抓住重点。）
+I&#x27;ve been there before.（我有过类似的经历。）
+I&#x27;ll cross that bridge when I get to it.（车到山前必有路。）
+I&#x27;ll believe it when I see it.（眼见为实。）
+I&#x27;ll get back to you on that.（我稍后再回复你。）
+That&#x27;s more like it.（这才对嘛。）
+I can&#x27;t take it anymore.（我再也受不了了。）
+You&#x27;re on the right track.（你在正确的方向上。）
+I couldn&#x27;t care less.（我根本不在乎。）
+Let&#x27;s cut to the chase.（我们开门见山吧。）
+You&#x27;ve got to be joking!（你一定是在开玩笑！）
+You&#x27;re barking up the wrong tree.（你搞错方向了。）
+Let&#x27;s not waste any more time.（我们不要再浪费时间了。）
+I can&#x27;t stand it anymore.（我再也忍不住了。）
+I&#x27;m not in the mood for this.（我没心情做这个。）
+It&#x27;s just a matter of time.（这只是时间问题。）
+It&#x27;s none of your business.（这不关你的事。）
+You&#x27;ve made my day!（你让我今天过得很开心！）
+I can&#x27;t put my finger on it.（我说不上来是什么。）
+Let&#x27;s call it quits.（我们到此为止吧。）
+That&#x27;s the last thing I want.（这是我最不想要的。）
+It&#x27;s my way or the highway.（不照我的做就拉倒。）
+I&#x27;m not in a hurry.（我不着急。）
+I&#x27;ve got to run.（我得走了。）
+It&#x27;s a piece of cake.（这太容易了。）
+I&#x27;m in hot water.（我有麻烦了。）
+It&#x27;s raining cats and dogs.（下着倾盆大雨。）
+I&#x27;m under the weather.（我感觉不舒服。）
+Don&#x27;t beat around the bush.（别拐弯抹角。）
+The ball is in your court.（现在就看你的了。）
+I&#x27;m short on cash.（我手头紧。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+I&#x27;m just killing time.（我只是在消磨时间。）
+Let&#x27;s touch base later.（我们稍后再联系。）
+I&#x27;m just following up on that.（我只是跟进一下那个事情。）
+That sounds good to me.（对我来说听起来不错。）
+Let&#x27;s circle back to this.（我们稍后再讨论这个。）
+I&#x27;ll loop you in.（我会把你包括在内。）
+Keep me in the loop.（随时告诉我进展。）
+I&#x27;ll get back to you on that.（我会再回复你。）
+Let&#x27;s table that for now.（我们暂时搁置这个问题。）
+I&#x27;m on it.（我正在处理。）
+That&#x27;s a game-changer.（这真是改变局面。）
+Let&#x27;s sync up tomorrow.（我们明天再同步一下。）
+I&#x27;m all ears.（我洗耳恭听。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+We need to brainstorm ideas.（我们需要集思广益。）
+I&#x27;ll send that over to you.（我会把那个发给你。）
+I appreciate your feedback.（我很感激你的反馈。）
+That&#x27;s a great point.（这是个很好的观点。）
+I&#x27;ll take care of it.（我来处理这件事。）
+Let me check on that.（让我查一下这个情况。）
+I&#x27;ll be right back.（我马上回来。）
+Let&#x27;s keep it brief.（我们简短一点。）
+Could you give me a moment?（你能给我一点时间吗？）
+We&#x27;re running out of time.（我们时间快不够了。）
+I&#x27;ll catch up with you later.（我稍后跟你联系。）
+Let&#x27;s get the ball rolling.（我们开始吧。）
+This is a priority.（这是优先处理的事项。）
+Let&#x27;s dive into the details.（我们深入讨论细节吧。）
+I need to step out for a moment.（我需要出去一下。）
+Let&#x27;s set up a meeting.（我们安排个会议吧。）
+I&#x27;m looking forward to it.（我期待着。）
+Did you enter the contest?（你参加比赛了吗？）
+I can&#x27;t afford a new car.（我买不起一部新车。）
+That&#x27;s a terrific idea!（真是好主意！）
+Which would you prefer?（你要选哪个？）
+Don&#x27;t let chances pass by.（不要让机遇从我们身边溜走。）
+He owned himself defeated.（他承认自己失败了。）
+Knowledge is power.（知识就是力量。）
+He seems a little nervous.（他显得有点紧张。）
+He strolls about the town.（他在镇上四处溜达。）
+Her tooth ached all night.（她牙疼了一整夜。）
+First come first served.（先到先得。）
+15 divided by 3 equals 5.（15 除以 3 等于 5。）
+All for one, one for all.（我为人人，人人为我。）
+I saw it with my own eyes.（我亲眼所见。）
+I develop films myself.（我自己冲洗照片。）
+He grasped both my hands.（他紧握住我的双手。）
+He is physically mature.（他身体已发育成熟。）
+I am so sorry about this.（对此我非常抱歉。）
+He doesn&#x27;t care about me.（他不在乎我。）
+I do want to see him now.（我现在确实很想去见他。）
+Don&#x27;t cry over spilt milk.（不要做无益的后悔。）
+How about a drink tonight?（今晚喝一杯怎样？）
+Do you accept credit cards?（你们收信用卡吗？）
+I can do nothing but that.（我只会做那件事。）
+I suppose you dance much.（我想你常常跳舞吧。）
+I get hold of you at last.（我终于找到你了。）
+I have a surprise for you.（我有一个意想不到的东西给你看。）
+I like all kinds of fruit.（我喜欢各种各样的水果。）
+I just play it by ear.（我到时随机应变。）
+She has been to school.（她上学去了。）
+I can&#x27;t agree with you more.（我非常同意你。）
+I&#x27;ve had enough of this.（我已经受够了。）
+Could you give me a hand?（你能帮我一下吗？）
+Let&#x27;s grab something to eat.（我们去吃点东西吧。）
+You&#x27;re driving me crazy!（你快把我逼疯了！）
+What are you up to today?（你今天打算做什么？）
+I&#x27;ll be right back.（我马上回来。）
+I&#x27;m on my way.（我正在路上。）
+It&#x27;s out of the question.（这根本不可能。）
+Let&#x27;s keep in touch.（我们保持联系吧。）
+Don&#x27;t get me wrong.（别误会我。）
+I wasn&#x27;t expecting that.（我没想到会那样。）
+I didn&#x27;t see that coming.（我没料到会发生这种事。）
+I&#x27;m running late.（我要迟到了。）
+It&#x27;s not a big deal.（这没什么大不了的。）
+You nailed it!（你做得太棒了！）
+I&#x27;d rather not say.（我不太想说。）
+Can you believe it?（你能相信吗？）
+I&#x27;m over it.（我已经不在乎了。）
+It&#x27;s up to you.（由你决定。）
+Don&#x27;t take it personally.（别往心里去。）
+I&#x27;m out of ideas.（我想不出办法了。）
+I&#x27;m running out of time.（我快没时间了。）
+That&#x27;s not going to happen.（这不可能发生。）
+It&#x27;s your call.（你来决定。）
+You&#x27;re out of your mind.（你疯了吗？）
+七、建议与回应表达
+I&#x27;ll think about it.（我再想想。）
+That&#x27;s a tough one.（这很难。）
+I&#x27;m not in the mood.（我没心情。）
+Let&#x27;s not jump to conclusions.（我们不要急于下结论。）
+I&#x27;m at a loss for words.（我无话可说。）
+Don&#x27;t push your luck.（别得寸进尺。）
+I&#x27;m having second thoughts.（我又犹豫了。）
+I&#x27;m a bit overwhelmed.（我有点吃不消了。）
+Let me get back to you on that.（我稍后再答复你。）
+I couldn&#x27;t care less.（我一点也不在乎。）
+It&#x27;s water under the bridge.（过去的事就过去了。）
+I&#x27;m not buying it.（我不相信。）
+I&#x27;d like to keep it low-key.（我想保持低调。）
+I&#x27;m on cloud nine.（我高兴极了。）
+That&#x27;s a no-brainer.（这还用说吗？）
+I&#x27;m just messing with you.（我只是开玩笑。）
+I&#x27;m pulling your leg.（我在逗你呢。）
+It&#x27;s easier said than done.（说起来容易做起来难。）
+You can say that again!（我完全同意！）
+That&#x27;s out of my control.（这超出了我的控制范围。）
+I&#x27;ll take it into consideration.（我会考虑的。）
+I&#x27;ll pass.（我就不参加了。）
+It&#x27;s not my cup of tea.（这不是我喜欢的。）
+I&#x27;m afraid I can&#x27;t help you.（恐怕我帮不了你。）
+I can&#x27;t make it today.（我今天去不了。）
+I&#x27;ll take care of it.（我会处理的。）
+I can&#x27;t believe my eyes.（我简直不敢相信。）
+You&#x27;ve got to be kidding me!（你一定是在开玩笑！）
+It&#x27;s worth a shot.（值得一试。）
+I&#x27;m all ears.（我洗耳恭听。）
+Don&#x27;t hold your breath.（别指望了。）
+I&#x27;m not following you.（我没听明白你在说什么。）
+It&#x27;s about time.（早该如此了。）
+That&#x27;s a load off my mind.（我松了一口气。）
+Don&#x27;t let me down.（别让我失望。）
+Let&#x27;s get down to business.（我们开始谈正事吧。）
+I&#x27;ll keep you posted.（我会随时通知你。）
+I didn&#x27;t see that coming.（我没预料到会这样。）
+It&#x27;s too good to be true.（这好得令人难以置信。）
+I wouldn&#x27;t count on it.（我不会指望它。）
+I&#x27;m going to call it a day.（我今天就到这儿吧。）
+Let&#x27;s call it even.（我们扯平了。）
+Don&#x27;t take it for granted.（不要把它当作理所当然。）
+I&#x27;ve got your back.（我支持你。）
+Don&#x27;t get ahead of yourself.（别操之过急。）
+I&#x27;ll sleep on it.（我会再考虑一下。）
+I owe you one.（我欠你一个人情。）
+Let&#x27;s put it this way.（让我们这么说吧。）
+I wouldn&#x27;t mind.（我不介意。）
+I&#x27;ll see to it.（我会负责的。）
+I&#x27;m on the fence.（我还在犹豫。）
+That&#x27;s out of the blue.（这太突然了。）
+I&#x27;m good to go.（我准备好了。）
+You&#x27;ve got nothing to lose.（你没有损失。）
+That&#x27;s a rip-off.（这简直是敲竹杠。）
+I&#x27;ll handle it.（我会处理的。）
+Let&#x27;s make a deal.（我们做个交易吧。）
+It&#x27;s a long shot.（这机会渺茫。）
+I&#x27;m all in.（我全力以赴。）
+It&#x27;s now or never.（就现在，不然就永远没机会了。）
+Let&#x27;s call it a night.（我们今晚到此为止吧。）
+You&#x27;re missing the point.（你没抓住重点。）
+I&#x27;ve been there before.（我有过类似的经历。）
+I&#x27;ll cross that bridge when I get to it.（车到山前必有路。）
+I&#x27;ll believe it when I see it.（眼见为实。）
+I&#x27;ll get back to you on that.（我稍后再回复你。）
+That&#x27;s more like it.（这才对嘛。）
+I can&#x27;t take it anymore.（我再也受不了了。）
+You&#x27;re on the right track.（你在正确的方向上。）
+I couldn&#x27;t care less.（我根本不在乎。）
+Let&#x27;s cut to the chase.（我们开门见山吧。）
+You&#x27;ve got to be joking!（你一定是在开玩笑！）
+You&#x27;re barking up the wrong tree.（你搞错方向了。）
+Let&#x27;s not waste any more time.（我们不要再浪费时间了。）
+I can&#x27;t stand it anymore.（我再也忍不住了。）
+I&#x27;m not in the mood for this.（我没心情做这个。）
+It&#x27;s just a matter of time.（这只是时间问题。）
+It&#x27;s none of your business.（这不关你的事。）
+You&#x27;ve made my day!（你让我今天过得很开心！）
+I can&#x27;t put my finger on it.（我说不上来是什么。）
+Let&#x27;s call it quits.（我们到此为止吧。）
+That&#x27;s the last thing I want.（这是我最不想要的。）
+It&#x27;s my way or the highway.（不照我的做就拉倒。）
+I&#x27;m not in a hurry.（我不着急。）
+I&#x27;ve got to run.（我得走了。）
+It&#x27;s a piece of cake.（这太容易了。）
+I&#x27;m in hot water.（我有麻烦了。）
+It&#x27;s raining cats and dogs.（下着倾盆大雨。）
+I&#x27;m under the weather.（我感觉不舒服。）
+Don&#x27;t beat around the bush.（别拐弯抹角。）
+The ball is in your court.（现在就看你的了。）
+I&#x27;m short on cash.（我手头紧。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+I&#x27;m just killing time.（我只是在消磨时间。）
+Let&#x27;s touch base later.（我们稍后再联系。）
+I&#x27;m just following up on that.（我只是跟进一下那个事情。）
+That sounds good to me.（对我来说听起来不错。）
+Let&#x27;s circle back to this.（我们稍后再讨论这个。）
+I&#x27;ll loop you in.（我会把你包括在内。）
+Keep me in the loop.（随时告诉我进展。）
+八、习惯用语与俚语表达
+I&#x27;ll get back to you on that.（我会再回复你。）
+Let&#x27;s table that for now.（我们暂时搁置这个问题。）
+I&#x27;m on it.（我正在处理。）
+That&#x27;s a game-changer.（这真是改变局面。）
+Let&#x27;s sync up tomorrow.（我们明天再同步一下。）
+I&#x27;m all ears.（我洗耳恭听。）
+It&#x27;s a win-win situation.（这是双赢的局面。）
+We need to brainstorm ideas.（我们需要集思广益。）
+I&#x27;ll send that over to you.（我会把那个发给你。）
+I appreciate your feedback.（我很感激你的反馈。）
+That&#x27;s a great point.（这是个很好的观点。）
+I&#x27;ll take care of it.（我来处理这件事。）
+Let me check on that.（让我查一下这个情况。）
+I&#x27;ll be right back.（我马上回来。）
+Let&#x27;s keep it brief.（我们简短一点。）
+Could you give me a moment?（你能给我一点时间吗？）
+We&#x27;re running out of time.（我们时间快不够了。）
+I&#x27;ll catch up with you later.（我稍后跟你联系。）
+Let&#x27;s get the ball rolling.（我们开始吧。）
+This is a priority.（这是优先处理的事项。）
+Let&#x27;s dive into the details.（我们深入讨论细节吧。）
+I need to step out for a moment.（我需要出去一下。）
+Let&#x27;s set up a meeting.（我们安排个会议吧。）
+I&#x27;m looking forward to it.（我期待着。）
+Did you enter the contest?（你参加比赛了吗？）
+I can&#x27;t afford a new car.（我买不起一部新车。）
+That&#x27;s a terrific idea!（真是好主意！）
+Which would you prefer?（你要选哪个？）
+Don&#x27;t let chances pass by.（不要让机遇从我们身边溜走。）
+He owned himself defeated.（他承认自己失败了。）
+Knowledge is power.（知识就是力量。）
+He seems a little nervous.（他显得有点紧张。）
+He strolls about the town.（他在镇上四处溜达。）
+Her tooth ached all night.（她牙疼了一整夜。）
+First come first served.（先到先得。）
+15 divided by 3 equals 5.（15 除以 3 等于 5。）
+All for one, one for all.（我为人人，人人为我。）
+I saw it with my own eyes.（我亲眼所见。）
+I develop films myself.（我自己冲洗照片。）
+He grasped both my hands.（他紧握住我的双手。）
+He is physically mature.（他身体已发育成熟。）
+I am so sorry about this.（对此我非常抱歉。）
+He doesn&#x27;t care about me.（他不在乎我。）
+I do want to see him now.（我现在确实很想去见他。）
+Don&#x27;t cry over spilt milk.（不要做无益的后悔。）
+How about a drink tonight?（今晚喝一杯怎样？）
+Do you accept credit cards?（你们收信用卡吗？）
+I can do nothing but that.（我只会做那件事。）
+I suppose you dance much.（我想你常常跳舞吧。）
+I get hold of you at last.（我终于找到你了。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="背完这1000句，你的口语就厉害了";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

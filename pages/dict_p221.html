@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 外贸全流程电话跟进1 7.30</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p221.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：外贸全流程电话跟进1 7.30</h1>
+  <div class="meta"><span class="charspill">240 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">240</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 240 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p221.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Good morning/afternoon, [Name]. This is [Your Name] from [Company Name]. How's your day going so far?", "上午 / 下午好，[姓名]。我是 [公司名称] 的 [你的姓名]。你今天过得怎么样？"], ["Hi [Name], it's [Your Name] calling. We chatted briefly via email last week about [Topic]—hope you've had a chance to look into it.", "嗨，[姓名]，我是 [你的姓名]。上周我们通过邮件简单聊过 [主题]—— 希望你已经有机会了解一下。"], ["Great to finally connect with you over the phone! I’ve been looking forward to discussing [Project/Order] in more detail.", "终于能和你通上电话了，太好啦！我一直期待能更详细地聊聊 [项目 / 订单]。"], ["How have things been going with your business lately? We’ve heard there’s a lot of activity in [Client’s Industry] recently.", "最近你的生意怎么样？我们听说 [客户所在行业] 最近很活跃。"], ["Thanks for taking my call today. I know you’re busy, so I’ll keep this concise unless you’d like to dive deeper.", "感谢你今天接我的电话。我知道你很忙，所以我会长话短说，除非你想深入聊聊。"], ["May I confirm that I’m speaking with [Full Name] from [Client Company]? Just want to make sure I have the right person.", "请问我现在是在和 [客户公司] 的 [全名] 通话吗？只是想确认一下没找错人。"], ["Could you please let me know your company’s registered address? I need to update it in our system for the contract.", "能请你告诉我贵公司的注册地址吗？我需要在系统里更新一下，以便处理合同事宜。"], ["Is the contact person for this order still [Name]? Or has that changed recently?", "这个订单的联系人还是 [姓名] 吗？还是最近有变动了？"], ["We received your payment instruction, but the bank details seem incomplete. Could you recheck and send them again?", "我们收到了你的付款指示，但银行信息似乎不完整。你能再检查一下并重新发送吗？"], ["For the shipping documents, do you need us to include a certificate of origin? Please let us know your requirements.", "关于货运单据，你需要我们附上原产地证书吗？请告知你的要求。"], ["I’m following up on the contract draft I sent on Monday. Did you notice any clauses that need revision?", "我来跟进一下周一发的合同草案。你有没有发现有需要修改的条款？"], ["The production plan I emailed last week—have you had a chance to review it with your team?", "我上周发的生产计划 —— 你有机会和团队一起审核吗？"], ["We sent over the list of available colors for your order. Could you confirm your selection by the end of the day?", "我们已经发送了你的订单可选颜色清单。你能在今天结束前确认你的选择吗？"], ["The sample approval form was emailed yesterday. Once we get your signature, we can proceed to mass production.", "样品确认单昨天已经发邮件了。一旦收到你的签字，我们就可以进行批量生产了。"], ["Has there been any progress on the logo design you mentioned? We need it to finalize the packaging.", "你提到的 logo 设计有什么进展吗？我们需要它来确定包装方案。"], ["The revised quotation I sent this morning—does it align with your budget? Let me know if you need further adjustments.", "我今天早上发的修改后的报价 —— 它符合你的预算吗？如果你需要进一步调整，请告诉我。"], ["When following up on bulk orders, we can provide weekly production reports with photos of the manufacturing process.", "跟进批量订单时，我们可以每周提供生产报告，附带生产过程的照片。"], ["For orders exceeding 10,000 units, we offer a dedicated account manager to handle all communication and updates.", "对于超过 10,000 件的订单，我们会配备专属客户经理，负责所有沟通和进度更新。"], ["Did you receive the pre-shipment inspection report we sent? Please let us know if you need an on-site inspection instead.", "你收到我们发的装船前检验报告了吗？如果你需要现场检验，请告知我们。"], ["The pre-shipment samples have passed our quality check. Would you like us to send them to you for final approval?", "装船前的样品已通过我们的质量检测。你想让我们寄给你做最终确认吗？"], ["It’s been a week since we sent the sample. Have you and your team had a chance to test its performance?", "我们寄出样品已经一周了。你和你的团队有机会测试它的性能了吗？"], ["The sample you received is our standard version. Would you like us to send a customized one based on your feedback?", "你收到的样品是我们的标准版本。你想让我们根据你的反馈再寄一个定制版吗？"], ["Are there any specific features you’d like us to add or remove from the sample? We want to make sure it meets your needs.", "你希望我们在样品中增加或去除哪些特定功能吗？我们想确保它能满足你的需求。"], ["Once the sample is confirmed, we can complete the production in 15 working days. Does that timeline work for you?", "样品一旦确认，我们可以在 15 个工作日内完成生产。这个时间安排对你来说合适吗？"], ["We can send a second sample with the suggested improvements. Would you prefer it via express or standard shipping?", "我们可以寄一个有建议改进的第二版样品。你希望用快递还是标准运输方式？"], ["The sample includes a detailed spec sheet. Let me know if you need any clarification.", "样品包含一份详细的规格表。如果你需要任何澄清，请告诉我。"], ["We’ve included a few extra samples of related products. We think you might find them interesting.", "我们还附上了一些相关产品的额外样品。我们认为你可能会对它们感兴趣。"], ["The sample is shipped in the same packaging as the bulk order. Let us know what you think.", "样品的包装和批量订单的包装相同。告诉我们你的想法。"], ["If you approve the sample, we can start production within 24 hours.", "如果你批准样品，我们可以在 24 小时内开始生产。"], ["Hope the recent shipment arrived in perfect condition. If there’s any damage, please take photos and send them to us immediately.", "希望最近的货物完好无损地到达。如果有任何损坏，请拍照并立即发给我们。"], ["Did the customs clearance process go smoothly? We can provide additional documents if there are any issues.", "清关过程顺利吗？如果有任何问题，我们可以提供额外的文件。"], ["How has the product been selling in your market? We’d love to hear some feedback from your customers.", "这个产品在你的市场上销售情况如何？我们很想听听你客户的一些反馈。"], ["Do you need any marketing materials to promote the product? We have brochures and videos available.", "你需要任何营销材料来推广这个产品吗？我们有宣传册和视频可供使用。"], ["I apologize for the delay in delivery. Our logistics team is working on a solution and will update you within 2 hours.", "对于交货延迟，我深表歉意。我们的物流团队正在解决问题，并将在 2 小时内给你更新。"], ["I understand how frustrating this situation is. Let me offer you a 10% discount on your next order as compensation.", "我理解这种情况有多令人沮丧。作为补偿，我可以在你下一个订单中给你 10% 的折扣。"], ["The issue you reported is being handled by our technical team. They’ll provide a detailed solution by tomorrow noon.", "你报告的问题正在由我们的技术团队处理。他们将在明天中午前提供详细的解决方案。"], ["We’ve arranged for a replacement product to be shipped today. It should reach you within 3-4 days.", "我们已经安排今天寄出替换产品。它应该会在 3-4 天内到达你那里。"], ["We’ve resolved the issue with your order. Let me walk you through what we did to fix it.", "我们已经解决了你的订单问题。让我告诉你我们是怎么解决的。"], ["The replacement parts you needed have been shipped. You should receive them by [Date].", "你需要的替换零件已经发货了。你应该在 [日期] 前收到。"], ["Our technician will visit your location to fix the problem. They’ll arrive at [Time] on [Date].", "我们的技术员会到你的地点解决问题。他们会在 [日期] 的 [时间] 到达。"], ["Let me know if the solution works for you. If not, we’ll try something else.", "告诉我这个解决方案对你是否有效。如果不行，我们会尝试其他方法。"], ["The payment for your order is now overdue. Could you please arrange it as soon as possible to avoid production delays?", "你的订单付款现已逾期。请你尽快安排付款，以避免生产延误好吗？"], ["We noticed that the down payment hasn’t been received yet. Is there any problem with the payment process?", "我们注意到首付款还没有收到。付款过程中出了什么问题吗？"], ["To ensure timely delivery, we kindly ask for the payment to be made within 3 working days.", "为了确保及时交货，我们恳请在 3 个工作日内付款。"], ["You mentioned there was an issue with the invoice. Let me resend it with the corrected information right away.", "你提到发票有问题。我马上重新发送带有更正信息的发票。"], ["Our warehouse has informed us that your order is ready for shipment. We just need your payment confirmation to proceed.", "我们的仓库通知我们，你的订单已准备好发货。我们只需要你的付款确认就可以发货了。"], ["I’ve checked with the production department, and your order is 50% complete. They’re working overtime to finish it earlier.", "我已经和生产部门确认过了，你的订单已经完成了 50%。他们正在加班，争取早点完成。"], ["The shipment was delayed due to bad weather, but it’s now on its way. I’ll send you the updated tracking information.", "由于天气不好，货物延误了，但现在已经在路上了。我会把更新的跟踪信息发给你。"], ["We can arrange for a partial shipment if you need some of the goods urgently. The rest will follow next week.", "如果你急需部分货物，我们可以安排分批发货。剩下的下周发出。"], ["The carrier has confirmed that your order will arrive on [Date]. Someone will need to sign for it upon delivery.", "承运人已确认你的订单将于 [日期] 到达。交货时需要有人签字接收。"], ["Would next Tuesday at 3 PM your time work for a video conference to discuss the new product details?", "下周二下午 3 点（你的时间）开个视频会议讨论新产品细节可以吗？"], ["I’d like to schedule a call with you and your team to go over the marketing strategy. What time suits everyone?", "我想和你以及你的团队安排一个电话会议，讨论营销策略。什么时间适合大家？"], ["How about we meet virtually this Friday? We can review the contract and answer any questions you have.", "我们这周五线上见面怎么样？我们可以审核合同，并解答你的任何问题。"], ["I’ll send you a meeting invite with the agenda included. Please let me know if you need to add any topics.", "我会给你发一个包含议程的会议邀请。如果你需要添加任何议题，请告诉我。"], ["The meeting has been rescheduled to [Date and Time]. I hope this works for you.", "会议已改期至 [日期和时间]。希望这个时间对你合适。"], ["Is [Name] available to take my call later? I can try again in an hour if that’s better.", "[姓名] 稍后有空接我的电话吗？如果那样更好的话，我可以一小时后再打过来。"], ["Could you please ask [Name] to review the email I sent before calling me back? It will save us some time.", "能请 [姓名] 回我电话前先看一下我发的邮件吗？这样可以节省我们一些时间。"], ["I’ll leave a message with my contact information. Thanks for your help.", "我会留下我的联系信息。谢谢你的帮助。"], ["I’ll try calling again tomorrow morning. Have a good day!", "我明天早上再试着打过来。祝你今天愉快！"], ["The line is breaking up. Let me hang up and call you back immediately.", "线路断断续续的。我先挂断，马上再给你打过去。"], ["I didn’t quite catch your email address. Could you spell it out for me?", "我没太听清你的邮箱地址。你能给我拼一下吗？"], ["Let’s switch to a different communication channel. Would you prefer WhatsApp or WeChat?", "我们换个沟通渠道吧。你更喜欢用 WhatsApp 还是微信？"], ["I’ll send you a text message with the key points we discussed. That way you have a record.", "我会把我们讨论的要点发短信给你。这样你就有记录了。"], ["Thanks for your time today. I’ll follow up with an email by the end of the day.", "感谢你今天抽出时间。我会在今天结束前发一封邮件跟进。"], ["It was great talking to you. Let’s keep in touch and move forward with the project.", "和你聊天很愉快。让我们保持联系，推进这个项目。"], ["If you think of any other questions, feel free to reach out anytime.", "如果你想到任何其他问题，随时联系我。"], ["Have a wonderful weekend. I’ll be in touch early next week.", "祝你周末愉快。我下周初会联系你。"], ["We noticed your order is still pending. Is there anything holding you back from confirming it?", "我们注意到你的订单还在待处理状态。有什么阻碍你确认订单吗？"], ["Our team is ready to start working on your order. Just let us know and we’ll get started right away.", "我们团队已经准备好处理你的订单了。只要你告知我们，我们就马上开始。"], ["To ensure we meet your deadline, it would be helpful to have your order confirmation by the end of the week.", "为了确保我们能在你的截止日期前完成，最好能在本周末前收到你的订单确认。"], ["We’re offering a special discount for orders confirmed this month. It would be a shame for you to miss out.", "我们对本月确认的订单有特别折扣。你要是错过了就太可惜了。"], ["The material costs are fluctuating, and we can’t guarantee the current price for much longer.", "材料成本一直在波动，我们不能保证当前价格能维持太久。"], ["With the holiday season approaching, shipping delays are common. Confirming your order now will help avoid that.", "随着假期的临近，运输延误很常见。现在确认订单有助于避免这种情况。"], ["Our production capacity is filling up quickly for the end of the year. Securing your order now is the best way to ensure timely delivery.", "我们年底的生产能力很快就会满了。现在确定你的订单是确保及时交货的最佳方式。"], ["The Chinese New Year break is coming up, and we want to make sure your order is shipped before then.", "春节假期快到了，我们想确保你的订单在那之前发出。"], ["If you confirm your order by [Date], we can guarantee delivery before the holiday shutdown.", "如果你在 [日期] 前确认订单，我们可以保证在假期停工前交货。"], ["We’ve received your request for [special requirement]. Let’s discuss the details to make sure we get it right.", "我们已经收到你对 [特殊需求] 的请求。我们来讨论一下细节，确保我们能做好。"], ["The custom design you want is possible, but it will require some additional engineering work.", "你想要的定制设计是可行的，但需要一些额外的工程工作。"], ["We can accommodate your special packaging request. It will add a small fee to the total cost.", "我们可以满足你特殊的包装要求。这会在总成本上增加一小笔费用。"], ["Let me confirm the special requirements again: [list requirements]. Is that correct?", "我再确认一下特殊要求：[列出要求]。是这样吗？"], ["Just to make sure, the price includes [feature] and excludes [feature], right?", "只是确认一下，这个价格包含 [特性]，不包含 [特性]，对吗？"], ["The payment terms we agreed on are [terms]. Do you need any clarification on that?", "我们商定的付款条件是 [条款]。你需要对此进行任何澄清吗？"], ["The delivery time is [X] days from the date of payment. Does that fit your schedule?", "交货时间是从付款之日起 [X] 天。这符合你的日程安排吗？"], ["We offer a discount for large orders. If you increase your quantity to [X], the price per unit will drop by [Y]%.", "我们对大额订单有折扣。如果你把数量增加到 [X]，单价将下降 [Y]%。"], ["Your order is set to ship on [Date] via [Carrier]. We’ll send you the tracking number as soon as it’s available.", "你的订单定于 [日期] 通过 [承运人] 发货。一旦有跟踪号码，我们会马上发给你。"], ["Would you like us to arrange for insurance for the shipment? It’s an additional cost but provides peace of mind.", "你想让我们为货物安排保险吗？这是一笔额外费用，但能让人放心。"], ["The shipping cost depends on the weight and destination. Let me calculate it for you based on your order.", "运费取决于重量和目的地。让我根据你的订单为你计算一下。"], ["We can use your preferred carrier if you provide us with their account number.", "如果你给我们提供他们的账号，我们可以使用你偏好的承运人。"], ["Your order is scheduled for container loading on [Date]. Would you like to appoint a representative to supervise the process?", "你的订单计划于 [日期] 装柜。你想指定代表监督这一过程吗？"], ["The container has been loaded, and the seal number is [XXX]. We’ll email the loading photos shortly.", "集装箱已装货，封条号是 [XXX]。我们稍后会把装货照片发邮件给你。"], ["We’ve received your request for CIF terms. Let me recalculate the total cost including insurance and freight—will send it within an hour.", "我们收到了你要求按 CIF 条款交易的请求。我重新计算包含保险和运费的总成本，一小时内发给你。"], ["The bill of lading has been issued. We’ll send the original via courier and a scanned copy by email for your reference.", "提单已出具。我们会通过快递寄原件，同时发扫描件到你邮箱供参考。"], ["You mentioned needing the commercial invoice consigned to a third party. Let me confirm the details: [Third Party Name and Address].", "你提到需要把商业发票寄给第三方。确认细节：[第三方名称和地址]。"], ["The packing list includes details of each carton’s weight and dimensions. This should help with your customs clearance.", "装箱单包含每个纸箱的重量和尺寸细节，这应该能帮你顺利清关。"], ["You asked about the possibility of combining two orders into one shipment. It’s feasible and will save $300 on freight.", "你询问能否将两个订单合并成一批发货，这是可行的，还能节省 300 美元运费。"], ["Combining the orders will delay the shipment by 2 days. Are you okay with that for the cost saving?", "合并订单会使发货延迟 2 天，为了节省成本，你能接受吗？"], ["We’ve processed the combined shipment as requested. The new invoice reflects the adjusted total and freight.", "我们已按要求处理合并发货，新发票体现了调整后的总额和运费。"], ["For future orders, would you prefer to set a fixed monthly shipment date to streamline logistics?", "对于未来的订单，你想设定固定的月度发货日期以简化物流吗？"], ["I know you’re considering other suppliers. Let me tell you what makes our product stand out.", "我知道你在考虑其他供应商。让我告诉你我们的产品有什么过人之处。"], ["If you’re worried about the quality, we can provide references from other clients in your industry.", "如果你担心质量，我们可以提供你所在行业其他客户的推荐。"], ["We offer a 30-day trial period. If you’re not satisfied, we’ll refund your money.", "我们提供 30 天的试用期。如果你不满意，我们会退款。"], ["The price is competitive, and we also provide excellent after-sales service. That’s a winning combination.", "价格很有竞争力，而且我们还提供优质的售后服务。这是一个双赢的组合。"], ["You want to change the delivery address to [New Address]? Let me update that in our system immediately.", "你想把交货地址改成 [新地址] 吗？我马上在我们的系统里更新。"], ["Changing the product model in your order is possible, but it will affect the delivery time.", "更改你订单中的产品型号是可以的，但会影响交货时间。"], ["We’ve processed your request to cancel one item from the order. The new total is [Amount].", "我们已经处理了你从订单中取消一个项目的请求。新的总额是 [金额]。"], ["Let me confirm the order changes once more to avoid any mistakes.", "让我再确认一下订单变更，以免出错。"], ["You need the order by [Urgent Date]? We can make it happen, but there will be a rush charge.", "你需要在 [紧急日期] 前收到订单？我们可以做到，但会有加急费。"], ["To meet your urgent deadline, we’ll have to prioritize your order over others.", "为了满足你紧急的截止日期，我们将不得不优先处理你的订单。"], ["We can ship the order via air instead of sea to get it to you faster. The extra cost is [Amount].", "我们可以通过空运而不是海运来更快地把订单发给你。额外费用是 [金额]。"], ["Our team is working around the clock to fulfill your urgent request.", "我们的团队正在夜以继日地工作，以满足你的紧急请求。"], ["The warranty covers parts and labor for the first year. After that, we charge for parts only.", "保修期第一年涵盖零件和人工费用。之后，我们只收取零件费用。"], ["If you need repairs outside the warranty period, we can still help at a reasonable cost.", "如果你在保修期外需要维修，我们仍然可以以合理的费用提供帮助。"], ["To claim warranty service, please contact our customer support team with your order details.", "要申请保修服务，请联系我们的客户支持团队，并提供你的订单详情。"], ["The warranty is transferable if you sell the product to another party. Just let us know.", "如果你把产品卖给另一方，保修期是可以转让的。告诉我们就行。"], ["The invoice shows a different amount because it includes taxes and shipping. Let me explain the breakdown.", "发票上的金额不同，因为它包含了税费和运费。让我解释一下明细。"], ["There was a mistake in the initial invoice. I’ve corrected it and sent it to you.", "最初的发票有误。我已经更正并发送给你了。"], ["The billing cycle is monthly, so you’ll receive an invoice on the first of each month.", "账单周期是每月一次，所以你会在每个月的第一天收到发票。"], ["If you need a duplicate invoice, just let us know and we’ll send it right away.", "如果你需要一份发票副本，告诉我们，我们会马上发送。"], ["We’re sorry to hear you want to cancel the order. Is there anything we can do to change your mind?", "听说你想取消订单，我们很抱歉。有什么我们可以做的来改变你的想法吗？"], ["Canceling the order at this stage will result in a small cancellation fee due to material costs.", "在这个阶段取消订单会因为材料成本产生一笔小额的取消费用。"], ["We’ll process your cancellation request and refund your payment within 5 working days.", "我们会处理你的取消请求，并在 5 个工作日内退还你的付款。"], ["If you cancel now, you’ll lose your spot in the production schedule. It might take longer to fulfill if you reorder later.", "如果你现在取消，你将失去在生产计划中的位置。如果你以后再订购，可能需要更长时间才能完成。"], ["The user manual is available in multiple languages. Which one would you like us to send you?", "使用手册有多种语言版本。你想让我们给你寄哪种？"], ["Our online tutorial videos can guide you through the setup process. I’ll send you the links.", "我们的在线教程视频可以指导你完成设置过程。我会把链接发给你。"], ["If you have a large team that needs training, we can arrange an on-site workshop.", "如果你有一个大团队需要培训，我们可以安排一个现场研讨会。"], ["We offer ongoing support for all our products. Just call or email us anytime.", "我们为所有产品提供持续支持。随时给我们打电话或发邮件。"], ["Your inquiry about product training for your staff has been noted. We can arrange a 2-hour online session next week.", "你关于为员工提供产品培训的询问已记录。我们可以在下周安排一场 2 小时的线上培训。"], ["The training will cover product features, troubleshooting, and sales tips. Would you like to add any specific topics?", "培训内容包括产品特性、故障排除和销售技巧。你想增加什么特定主题吗？"], ["We’ll send the training materials 3 days in advance so your team can prepare questions.", "我们会提前 3 天发送培训材料，方便你的团队准备问题。"], ["A recording of the training session will be provided for those who can’t attend live.", "我们会提供培训课程的录屏，供无法实时参加的人观看。"], ["Your feedback on the training was positive—thank you! We’ll make the suggested adjustments for future sessions.", "你对培训的反馈很积极 —— 谢谢！我们会按建议调整未来的培训。"], ["Our products are designed to integrate with [Common Industry Tool]. Would that be useful for your business?", "我们的产品旨在与 [常见行业工具] 集成。这对你的业务有用吗？"], ["We’re launching a new product line next quarter that I think would be perfect for your customers.", "我们下季度将推出一条新产品线，我认为它非常适合你的客户。"], ["Let’s schedule a meeting to discuss how we can tailor our products to your specific needs.", "让我们安排一个会议，讨论如何根据你的具体需求定制我们的产品。"], ["We’d love to collaborate with you on a promotional campaign. What do you think?", "我们很想和你合作开展一场促销活动。你觉得怎么样？"], ["Our booth at [Exhibition Name] will feature live demonstrations. It would be great to see you there.", "我们在 [展会名称] 的展位将有现场演示。很高兴能在那里见到你。"], ["If you can’t attend the exhibition, we can send you a video tour of our new products.", "如果你不能参加展会，我们可以给你发一个新产品的视频参观。"], ["There will be exclusive discounts for exhibition attendees. We can reserve one for you.", "展会参与者将有独家折扣。我们可以为你预留一个。"], ["The product meets all [Country/Region] safety standards. We can provide the test reports.", "该产品符合所有 [国家 / 地区] 的安全标准。我们可以提供测试报告。"], ["We’re in the process of obtaining [Additional Certification]. It should be ready in a month.", "我们正在获取 [额外认证]。应该一个月内就能准备好。"], ["The compliance documentation is available on our website. I can send you the direct link.", "合规文件在我们的网站上可以找到。我可以给你发直接链接。"], ["We can adjust the product to meet your country’s specific regulations. Let’s discuss the details.", "我们可以调整产品以满足你们国家的特定法规。我们来讨论一下细节。"], ["Delaying the delivery by [X] days is fine. We’ll adjust the production schedule accordingly.", "延迟 [X] 天交货没问题。我们会相应地调整生产计划。"], ["Moving up the delivery date will require us to rearrange our other orders. We’ll do our best.", "提前交货日期需要我们重新安排其他订单。我们会尽力的。"], ["Let’s confirm the new delivery date in writing to avoid any confusion.", "让我们以书面形式确认新的交货日期，以免产生任何混淆。"], ["We understand you’re comparing us with other suppliers. Our key advantage is [Unique Selling Point].", "我们理解你在把我们和其他供应商进行比较。我们的主要优势是 [独特卖点]。"], ["Many of your competitors have chosen us because of our reliable delivery times.", "你的许多竞争对手选择我们是因为我们可靠的交货时间。"], ["We offer longer warranty periods than most of our competitors.", "我们提供的保修期比大多数竞争对手都长。"], ["As a long-term customer, you’re eligible for our loyalty program. It offers [Benefits].", "作为长期客户，你有资格参加我们的忠诚客户计划。它提供 [福利]。"], ["We’re offering a special promotion exclusively for our repeat customers. Let me tell you about it.", "我们为回头客提供独家特别促销。让我告诉你相关情况。"], ["We value your feedback. Is there anything we could do to improve our service?", "我们重视你的反馈。我们在服务方面有什么可以改进的吗？"], ["We’d like to invite you to beta test our new product. Would you be interested?", "我们想邀请你参与我们新产品的 beta 测试。你有兴趣吗？"], ["We’ve noticed your inquiry about product updates. Our R&D team has upgraded [Feature]—would you like a detailed introduction?", "我们注意到你询问产品更新情况。我们的研发团队已升级了 [功能]—— 你想了解详细介绍吗？"], ["The new version of the product will be launched next month. As a valued client, you can pre-order at a 15% discount.", "产品新版本将于下月推出。作为重要客户，你可以 15% 的折扣预订。"], ["We’re conducting a customer satisfaction survey. Would you mind sharing your experience with our last order’s delivery speed?", "我们正在做客户满意度调查。你介意分享一下对我们上批订单交货速度的体验吗？"], ["Your feedback on the product’s durability has been passed to our production team. They’re working on improvements.", "你对产品耐用性的反馈已传达给生产团队，他们正在着手改进。"], ["We’d like to invite you to join our annual client conference next month. It’s a great chance to network with other industry leaders.", "我们想邀请你参加下月的年度客户大会，这是与其他行业领袖交流的好机会。"], ["The conference will include a workshop on [Industry Trend]. Would you like us to reserve a seat for you and your team?", "大会将包含关于 [行业趋势] 的研讨会。你想让我们为你和团队预留席位吗？"], ["You mentioned interest in our sustainable packaging options. Let me send you a sample and cost comparison.", "你提到对我们的环保包装选项感兴趣。我给你寄一份样品和成本对比吧。"], ["Using sustainable packaging will increase the unit cost by $0.5, but it aligns with many markets’ environmental regulations.", "使用环保包装会使单位成本增加 0.5 美元，但符合许多市场的环保法规。"], ["We can print your company’s logo on the packaging free of charge for orders over 5000 units.", "对于 5000 件以上的订单，我们可以免费在包装上印你公司的 logo。"], ["The custom packaging design you sent needs minor adjustments for production. Let me explain the changes.", "你发来的定制包装设计需要做些小调整才能生产，我来解释一下修改之处。"], ["Your order’s packaging is ready for approval. We’ll send photos—please confirm by the end of the day to avoid delays.", "你订单的包装已准备好待确认。我们会发照片 —— 请在今天结束前确认，以免延误。"], ["We’re offering a referral program: if you refer a new client, you’ll get a 5% discount on your next order.", "我们有推荐计划：如果你推荐新客户，下订单可享 5% 折扣。"], ["The referred client has placed an order—your discount code is [XXX], valid for 3 months.", "被推荐的客户已下单 —— 你的折扣码是 [XXX]，有效期 3 个月。"], ["Would you like us to send you physical catalogs for your sales team? We can include some product samples too.", "你想让我们给销售团队寄实体目录吗？我们还可以附带一些产品样品。"], ["The catalogs and samples were shipped today. Let me know if your team needs digital versions for online use.", "目录和样品今天已寄出。如果团队需要电子版用于线上，告诉我一声。"], ["We’ve updated our online catalog with 3D product models. You can share the link with your clients for a better view.", "我们的线上目录已更新 3D 产品模型，你可以把链接分享给客户，方便他们更直观地查看。"], ["Your request for exclusive distribution rights in [Region] is under review. We’ll get back to you by the end of the week.", "你关于 [地区] 独家分销权的请求正在审核中，我们会在本周末前回复你。"], ["Granting exclusive rights would require a minimum annual order quantity of [X]. Does that align with your plans?", "授予独家权需要最低年度订购量 [X]，这符合你的计划吗？"], ["We’re willing to offer a 3-month trial for exclusive distribution. Let’s evaluate the results before formalizing.", "我们愿意提供 3 个月的独家分销试用期，评估效果后再正式确定。"], ["The exclusive distribution agreement draft is ready. We can discuss any clauses you’d like to modify in our next call.", "独家分销协议草案已准备好，下次通话时我们可以讨论你想修改的条款。"], ["To celebrate our 5th year of cooperation, we’re offering a 10% discount on your next order. Enjoy!", "为庆祝我们合作 5 周年，你的下订单可享 10% 折扣，敬请享用！"], ["We’ve prepared a custom gift to mark our long-term partnership. It will be included in your next shipment.", "我们准备了定制礼品纪念我们的长期合作，会随你下批货一起寄出。"], ["Reflecting on our partnership, what’s one area you think we could improve to better support your business?", "回顾我们的合作，你认为我们在哪个方面可以改进，以更好地支持你的业务？"], ["If you can commit to a larger order, we can reduce the price by [X]%. Let’s see if we can find a middle ground.", "如果你能承诺更大的订单，我们可以降价 [X]%。让我们看看是否能找到一个中间方案。"], ["We can’t lower the price, but we can extend the warranty period for free.", "我们不能降价，但我们可以免费延长保修期。"], ["Let’s negotiate a price that works for both of us. What’s your target price?", "让我们协商一个对双方都合适的价格。你的目标价格是多少？"], ["We can offer a discount if you agree to a longer payment term.", "如果你同意更长的付款期限，我们可以提供折扣。"], ["The product you want to return appears to be damaged due to misuse. Unfortunately, we can’t offer a full refund.", "你想要退回的产品似乎因误用而损坏。不幸的是，我们不能提供全额退款。"], ["We can exchange the product for a different model if you prefer.", "如果你愿意，我们可以把产品换成不同的型号。"], ["The return process is simple. Just fill out the form on our website and send the product back.", "退货流程很简单。只需在我们的网站上填写表格，然后把产品寄回来就行。"], ["We’ll inspect the returned product and process the refund within 7 working days.", "我们会检查退回的产品，并在 7 个工作日内处理退款。"], ["Splitting the order into [X] batches is possible. Each batch will be shipped on [Dates].", "把订单分成 [X] 批是可以的。每批将在 [日期] 发货。"], ["The first batch will include [Items], and the second batch will include [Remaining Items].", "第一批将包括 [物品]，第二批将包括 [剩余物品]。"], ["We can adjust the quantity of each batch based on your needs.", "我们可以根据你的需求调整每批的数量。"], ["Partial shipments will require separate invoices for each batch.", "分批发货需要为每批单独开具发票。"], ["We noticed the batch delivery schedule you proposed. Let me confirm: the first shipment of 500 units on October 15th, and the remaining 1000 units on November 5th. Is that accurate?", "我们注意到你提出的分批发货计划。确认一下：10 月 15 日发第一批 500 件，11 月 5 日发剩余 1000 件，对吗？"], ["For partial shipments, each batch will have its own tracking number. We’ll send you a summary list once all batches are dispatched.", "分批发货的话，每批都会有独立的追踪号。所有批次发完后，我们会给你发一份汇总清单。"], ["If you need to adjust the batch quantities later, please inform us at least 7 days in advance to avoid production disruptions.", "如果你之后需要调整各批次数量，请至少提前 7 天告知我们，以免影响生产。"], ["The partial shipment fee is $50 per batch, but we can waive it if the total order amount exceeds $10,000.", "每批发货的附加费是 50 美元，但如果订单总金额超过 10,000 美元，我们可以免除这项费用。"], ["We’ve received your request for a rush on the second batch. Let’s confirm: it will arrive 3 days earlier but incur an extra $200. Does that work?", "我们收到了你要求第二批加急的请求。确认一下：会提前 3 天到达，但需额外支付 200 美元，可以吗？"], ["We can arrange for a third-party inspection agency at your cost. They’ll issue a certificate upon passing.", "我们可以安排第三方检验机构（费用由你承担），合格后他们会出具证书。"], ["For FOB terms, the goods will be at your risk once they’re on board the vessel. We’ll provide the bill of lading immediately after.", "按 FOB 条款，货物装上船后风险由你方承担。我们会在之后立即提供提单。"], ["If your customs require additional documents like a phytosanitary certificate, please let us know 2 weeks in advance.", "如果你们海关需要植物检疫证书等额外文件，请提前 2 周告知我们。"], ["The freight forwarder you appointed has contacted us. We’ll coordinate with them on the delivery schedule.", "你指定的货运代理已联系我们，我们会和他们协调交货时间表。"], ["Your freight forwarder requested a later pickup time. We’ve adjusted accordingly—they’ll collect the goods at 3 PM on [Date].", "你的货运代理要求推迟取货时间，我们已相应调整 —— 他们会在 [日期] 下午 3 点取货。"], ["If there’s a problem with your appointed freight forwarder, we can recommend a reliable one we’ve worked with for years.", "如果你指定的货运代理有问题，我们可以推荐一家我们合作多年的可靠代理。"], ["The freight forwarder informed us of a delay in the vessel departure. The new ETA is [Date]—we’ll update the tracking info.", "货运代理告知我们船只离港延误，新的预计到达时间是 [日期]—— 我们会更新跟踪信息。"], ["We noticed the payment for the extra packaging has been delayed. Could you arrange it this week?", "我们注意到额外包装的费用尚未支付。你能在本周安排一下吗？"], ["You mentioned wanting to upgrade the shipping insurance to cover total loss and partial damage. Let me confirm: the premium will increase by 0.3% of the order value. Is that acceptable?", "你提到想将运输保险升级为涵盖全损和部分损坏。确认一下：保费将增加订单金额的 0.3%，可以接受吗？"], ["The basic insurance only covers total loss during transit. If you need coverage for theft or natural disasters, we can add an extra clause—let me calculate the cost.", "基础保险仅涵盖运输中的全损。如果你需要包含盗窃或自然灾害险，我们可以加保，我来核算费用。"], ["The insurance policy will be issued by [Insurance Company], valid from the date of shipment until delivery. We’ll send you a copy once it’s ready.", "保险单将由 [保险公司] 出具，有效期从发货日至交货日。准备好后我们会发你一份副本。"], ["To file an insurance claim, you’ll need the bill of lading, commercial invoice, and photos of the damage. Shall I email the step-by-step guide?", "申请保险理赔需要提单、商业发票和损坏照片。我把详细流程发邮件给你可以吗？"], ["You requested waterproof packaging for coastal regions. We’ll use plastic film wrapping plus carton reinforcement—this adds $2 per unit. Does that work?", "你要求为沿海地区提供防水包装。我们会用塑料膜包裹加纸箱加固，每单位增加 2 美元，可以吗？"], ["The custom packaging with your brand colors is ready for production. Let me send a digital mock-up for final approval before printing.", "带有你品牌色的定制包装已准备生产。印刷前我发一份数字样稿给你做最终确认吧。"], ["For fragile items, we’ll add foam inserts and “Handle With Care” labels. This ensures 99% protection during transit based on our past data.", "易碎品我们会加泡沫内衬和 “小心轻放” 标签。根据过往数据，这能确保 99% 的运输安全。"], ["You asked for minimal packaging to reduce environmental impact. We can use recyclable materials, though it may slightly increase the risk of minor scratches—are you okay with that?", "你要求简化包装以减少环境影响。我们可以用可回收材料，但可能会略微增加轻微划痕的风险，你能接受吗？"], ["We received your L/C draft. There’s a clause about “inspection certificate issued by buyer” which we can’t accept—shall we negotiate a third-party inspection instead?", "我们收到了你的信用证草稿。其中 “买方出具检验证书” 的条款我们无法接受，改为第三方检验可以吗？"], ["The L/C expiry date is too tight—can you extend it by 15 days to avoid discrepancies? We’ll confirm shipment details once adjusted.", "信用证有效期太紧了，能延长 15 天避免不符点吗？调整后我们会确认发货细节。"], ["The port of destination in the L/C is [Port A], but your email mentioned [Port B]. Let me confirm which one is correct to avoid amendment fees.", "信用证中的目的港是 [港口 A]，但你邮件中提到的是 [港口 B]。确认一下哪个正确，以免产生改证费。"], ["We’ve submitted the documents to the bank. They’ll check for discrepancies and advise you within 3 working days. Let me know if you need updates.", "我们已向银行提交单据。他们会审核不符点，并在 3 个工作日内通知你。需要更新进度的话告诉我。"], ["Your goods arrived at [Port] yesterday. The customs clearance documents were sent to your agent—have they started the process?", "你的货物昨天到 [港口] 了。清关文件已发给你的代理，他们开始处理了吗？"], ["The carrier informed us that storage fees will apply after 7 days at the port. Could you arrange pickup as soon as possible to avoid extra costs?", "承运人告知，货物在港口存放 7 天后会产生仓储费。你能尽快安排提货避免额外费用吗？"], ["Your forwarder hasn’t confirmed pickup yet. If you need help coordinating, we can contact them directly to speed up the process.", "你的货代还没确认提货。如果需要协调，我们可以直接联系他们加快进度。"], ["Once you pick up the goods, please inspect the packaging for damage. If any issues, take photos immediately and we’ll assist with claims.", "提货后请检查包装是否有损坏。如有问题，立即拍照，我们会协助理赔。"], ["The peak season for [Product] starts in 2 months. To ensure stock availability, we recommend placing your order by [Date]—production lead time is 4 weeks.", "[产品] 的旺季还有 2 个月开始。为确保库存，建议你在 [日期] 前下单，生产周期 4 周。"], ["Many clients in your market are stocking up for [Holiday]. We currently have 500 units in stock—reserving them for you would require a 20% deposit.", "你市场的很多客户都在为 [节日] 备货。我们目前有 500 件库存，预留的话需要 20% 的定金。"], ["Based on last year’s data, demand for [Product] increases by 30% in Q4. Shall we discuss a pre-season bulk order to lock in prices?", "根据去年数据，[产品] 在第四季度需求会增长 30%。我们讨论一下季前批量订单来锁定价格好吗？"], ["We’re offering a 5% pre-season discount for orders placed before [Date]. This helps us plan production and ensures your stock arrives on time.", "[日期] 前下单可享 5% 的季前折扣。这能帮我们规划生产，也确保你的库存按时到港。"], ["You want to change the material from [Material A] to [Material B]. It’s available, though the unit price will increase by $3—does that fit your budget?", "你想把材料从 [材料 A] 换成 [材料 B]。有货，但单价会增加 3 美元，符合你的预算吗？"], ["The size adjustment you requested is feasible, but it will require a new mold. The mold cost is $500, which we can waive if your order exceeds 1000 units.", "你要求的尺寸调整可行，但需要新模具。模具费 500 美元，若订单超过 1000 件可免。"], ["Changing the voltage to [Voltage] for your market is fine. We’ll test the first batch to ensure compliance—results will be shared next week.", "为你市场将电压改为 [电压] 没问题。我们会测试第一批确保合规，结果下周分享。"], ["Let me confirm the spec changes: [list changes]. These will delay production by 5 days—are you okay with the new delivery date?", "确认一下规格变更：[列出变更]。这会使生产延迟 5 天，新的交货日期你能接受吗？"], ["You mentioned your partner [Company] might need similar products. Would it be okay if I contact them with a brief introduction, mentioning your referral?", "你提到你的合作伙伴 [公司] 可能需要类似产品。我联系他们做个简单介绍，并提及你的推荐可以吗？"], ["As a token of thanks for your referral, we’ll credit $200 to your account once [Referred Client] places their first order.", "为感谢你的推荐，[被推荐客户] 下第一单后，我们会给你账户充值 200 美元。"], ["Your referred client asked for a meeting—would you like to join to share your experience with our products? It might help their decision.", "你推荐的客户要求开会，你想加入分享使用我们产品的体验吗？这可能有助于他们做决定。"], ["We’ve added a “referral tracker” to your online account. You can check the status of your referrals and earned rewards anytime.", "我们在你的线上账户加了 “推荐追踪器”。你可以随时查看推荐状态和已获奖励。"], ["Due to recent currency fluctuations, the price will be adjusted by 2% starting next month. If you place an order this week, we’ll honor the current rate.", "由于近期汇率波动，下月起价格将上调 2%。本周下单的话，我们仍按当前价格执行。"], ["We offer a 30-day price lock for confirmed orders. This protects you from exchange rate changes during production.", "确认订单后我们提供 30 天价格锁定，避免生产期间汇率变动影响成本。"], ["The payment you made last week was converted at [Rate], which is better than the current market rate—we’ve credited the extra $50 to your next order.", "你上周支付的款项按 [汇率] 兑换，比当前市场价更优，我们已将多的 50 美元计入你下订单。"], ["Would you prefer to settle future payments in [Currency A] or [Currency B]? We can adjust invoices to minimize your exchange costs.", "你希望未来用 [货币 A] 还是 [货币 B] 结算？我们可以调整发票，减少你的汇兑成本。"], ["The custom sample fee is $150, which will be fully refunded once your bulk order exceeds 500 units. Does that work for you?", "定制样品费 150 美元，批量订单超过 500 件可全额退还，你觉得可以吗？"], ["We’re happy to waive the sample fee as a new client. Just cover the shipping cost of $20, and we’ll send it today.", "作为新客户，我们可以免样品费。只需承担 20 美元运费，今天就能寄出。"], ["You returned the sample in good condition—we’ve processed the $100 refund, which should reach you within 3 days.", "你退回的样品完好，100 美元退款已处理，3 天内会到账。"], ["The sample fee for [Complex Product] is higher because of its components, but we can split it into two parts: $80 upfront and the rest upon bulk order.", "[复杂产品] 的样品费较高，因为其组件成本高，但我们可以分两部分支付：预付 80 美元，剩余部分在批量订单时支付。"], ["The draft long-term supply agreement includes quarterly price reviews and minimum order quantities. Can we discuss your thoughts in our next call?", "长期供货协议草案包含季度价格审核和最低订购量。下次通话时我们可以讨论你的想法吗？"], ["Signing a 2-year agreement allows us to reserve production capacity for you, ensuring 100% on-time delivery even during peak seasons.", "签订 2 年协议我们可以为你预留产能，确保即使在旺季也能 100% 按时交货。"], ["As part of the long-term deal, we’ll offer a 3% annual discount for consistent orders—this is outlined in clause 5 of the draft.", "作为长期合作的一部分，稳定订单可享 3% 的年度折扣，协议草案第 5 条有说明。"], ["We can include a termination clause with 30-day notice if either party needs to adjust the agreement—does that provide enough flexibility?", "如果任何一方需要调整协议，我们可以加入 30 天通知的终止条款，这样是否足够灵活？"]];window.__KEY__="外贸全流程电话跟进1";window.__TITLE__="外贸全流程电话跟进1 7.30";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

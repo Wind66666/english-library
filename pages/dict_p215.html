@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 外企面试掌握这些就不怕_8</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p215.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：外企面试掌握这些就不怕_8</h1>
+  <div class="meta"><span class="charspill">106 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">106</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 106 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p215.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Tell me about yourself. -  自我介绍", "面试官并非想让你详述生平，而是期望你简要介绍                             my           past           experiences"], ["Why are you looking for a new job? -  为什么你想换工作？", "成长的机会，避免提及薪资或负面原因。"], ["offers.\"", "o  中文：“我正在寻找新的机会，以承担 更多责任并迎接挑战，我相信这个职 位可以提供这样的机会。”"], ["Tell me what you know about this company. -  你对这家公司了", "解多少？"], ["and I believe your commitment to[company values]aligns  well with my career goals.\"", "o  中文：“ 我知道这家公司成立于  [年  份]，并已成长为  [行业]  的领导者。 你们以  [具体成就]  而闻名，我相信  你们对  [公司价值观]  的承诺与我的  职业目标非常契合。”"], ["Why do you want to work at X Company? -  为什么想来我们公司", "工作？"], ["Company     because      of      its                                  在创新方面的声誉以及对员工发展", "的承诺。我相信我可以为你们的团队"], ["What relevant experience do you have? -  你有哪些相关经验？", "若经验丰富，列举与职位相关的经历；若经验不足，                               roles]has   equipped   me    with"], ["as[example].\"", "o  中文：“我在  [相关领域]  有  [X]  年的 经验，期间我培养了  [具体技能]  方 面的强大能力。此外，  我在  [其他职 位]  的经历让我具备了可转移的技 能，例如  [举例说明] 。”"], ["about you? - 如果你的前同事在这里，他们会怎么评价你？", "保持积极态度，提供具体的正面评价。                                •     回答示例"], ["had ever worked with.\"", "o  中文：“他们会说我是一个努力工作 且值得信赖的团队成员。我的前同事 约翰 ・ 多曾经告诉我，我是他见过的 最具创造力的问题解决者。”"], ["Have you done anything to further your experience? -  你有没", "有做过什么来提升自己的经验？"], ["have helped me develop better time         management         and motivation.\"", "o  中文：“我参加过  [科目]  的夜校课程， 以提升我的技能。我还喜欢家居改造   项目，这些经历帮助我培养了更好的   时间管理和自我激励能力。”"], ["Where else have you applied? -  你还申请了哪些公司？", "可提及其他公司，但无需详细说明， 重点表明自己                              A]and[Company      B].     I      am"], ["keeping   my   options   open  to", "•     回答示例                                                                               ﬁnd the best ﬁt.\""], ["few   other   companies   in   this                              他几家公司，比如  [公司  A]  和  [公", "司  B]。我在保持选择开放，以找到最"], ["How are you when you’re working under pressure? -  在压力", "下工作时，你表现如何？"], ["workload.\"", "o  中文：“我实际上在压力下表现更好， 因为这能帮助我保持专注和动力。我  会有效地优先处理任务，以管理我的  工作量。”"], ["What motivates you to do a good job? - 是什么激励你做好工", "作？"], ["team.    I    also    enjoy    helping others  and  making  a  positive impact.\"", "o  中文：“ 我被渴望在工作中表现出色 并为团队的成功做出贡献的愿望所 激励。我也喜欢帮助他人并产生积极 的影响。”"], ["me deliver high - quality work.\"", "•     回答示例"], ["o  英文：\"I am a strong problem -                                能够迅速应对突发情况。我还非常注", "重细节， 这帮助我交付高质量的工"], ["What’s your biggest weakness? - 你的最大弱点是什么？", "提及一个小的、与工作相关的弱点， 并说明你正在                             working       on       better      time"], ["tasks.\"", "o  中文：“我有时过于关注细节，而忽略 了整体情况。为了改进这一点，我一 直在努力更好地管理时间和优先处 理任务。”"], ["Let’s talk about salary. What are you looking for? - 我们来谈", "谈薪资。你期望的薪资是多少？"], ["o  中文：“我做了一些研究，认为像我这 样的经验应该得到  [X]  到  [Y]  的薪", "酬。然而， 我更感兴趣的是讨论这个 职位如何能推进我的职业生涯。”"], ["Are you good at working in a team? -  你擅长团队合作吗？", "回答 “是 ”，并可提及你在团队中的角色。"], ["believe  I  can  contribute  as  a strong team player.\"", "o  中文：“是的，我非常擅长团队合作。 我喜欢与他人协作，我相信我可以作 为一个优秀的团队成员做出贡献。”"], ["Tell me a suggestion you have made that was implemented.", "- 讲讲你提出的建议被采纳并实施的例子。"], ["adopted  it,  and  it  became  a standard practice.\"", "o  中文：“我曾经建议了一个新的  [任务] 流程，提高了  20%  的效率。团队采  纳了这一建议，它成为了标准做法。”"], ["worked with? - 有没有同事让你感到不愉快的事情？", "保持积极态度，强调团队合作的重要性。                                               them   understand    how   their"], ["with   everyone,   but   I   ﬁnd   it                           o  中文：“我通常和同事相处得很好，但", "如果有人不积极工作，我会觉得有些"], ["Is there anyone you just could not work with? -  有没有你绝对", "无法共事的人？"], ["someone  is  committed  to  the job  and  respects  others,  I  can ﬁnd    a    way    to    collaborate effectively.\"", "o  中文：“ 我相信我可以在职业上与任 何人合作，无论我们之间有什么样的 个人差异。只要对方对工作负责并且 尊重他人，我就能找到有效合作的方 式。”"], ["Tell me about any issues you’ve had with a previous boss. - 讲讲你和前上司之间的问题。", "回答时保持谨慎和外交手腕，避免负面评价。"], ["professionally.\"", "o  中文：“ 我之前的上司大多都非常出  色，我们相处得很好。如果遇到分歧， 我们总是专注于事实，以专业的方式  解决。”"], ["Would you rather work for money or job satisfaction? -  你更", "看重金钱还是工作满意度？"], ["o  英文：\"While money is important,                          o  中文：“虽然金钱很重要，但我更看重", "工作满意度。我相信， 当你热爱自己"], ["Would you rather be liked or feared? - 你更希望被喜欢还是被", "畏惧？"], ["popularity.\"", "o  中文：“我更希望被尊重。被尊重能让 我有效地领导团队，而不需要依靠畏 惧或过于在意他人喜不喜欢我。”"], ["your own? - 你愿意将公司的利益置于个人利益之上吗？", "回答时要表现出对公司的忠诚，但也要保持一定的                             best  for  the  company,   I  also"], ["understand  the  importance  of", "•    回答示例                                                                               maintaining  a  healthy  work  -"], ["company's  objectives.  While  I                                  公司的目标保持一致。我会努力为公", "司做到最好，但我也明白保持健康的"], ["So, explain why I should hire you. - 那么，为什么我应该雇佣你？", "突出自己的优势和与职位的匹配度， 避免贬低其他                             and   committed   to   delivering"], ["Finally, do you have any questions to ask me? -  最后，你有什", "么问题要问我吗？"], ["someone in this role?\"", "o  中文：“有，我想问一下公司内部的职 业发展机会是怎样的？此外，这个职 位的典型一天是什么样的？”"], ["Where do you want to be in 5 to 10 years? - 5  到  10  年后你希", "望在哪里？"], ["Would you rather work for a big company or a small one? - 你更愿意在大公司还是小公司工作？", "强调你对公司的态度，而不是公司规模。                                               my own, regardless of its size,"], ["the company is less important than its culture and values. I'd treat any company  like  it was", "o  中文：“ 我认为公司的规模不如其文  化和价值观重要。无论公司大小， 我  都会像对待自己的公司一样对待它， 并专注于产生积极的影响。”"], ["o  In the XYZ  Corporation, what is a typical  career  path  for  someone with my skills and experiences?", "笑坐下。他们的第一个问题很可能是 “Tell me about yourself”。面试官并不想听你长篇大论，而是希望你 用一两句简洁有力的话为进一步讨论奠定基础，使"], ["How would you describe yourself? -  你如何描述自己？", "这个问题的答案应与招聘广告中对雇员的要求基本 一致。思考面试官的期望，根据招聘广告中的要求，"], ["around other positive people. （不过这           •    回答示例 2：I am motivated by targets.", "样回答可能会让人质疑你是否适合独立工"], ["What do you look for in a job? -  你在工作中看重什么？", "这实际上是关于工作适配性的问题。参考招聘广告 的要求来回答，例如："], ["What is your personal mission statement or motto? -  你的个", "人使命宣言或座右铭是什么？"], ["What do you enjoy most about what you do now? -  你现在的", "工作中最喜欢的部分是什么？"], ["What do you enjoy least about your current role? -  你现在的", "工作中最不喜欢的部分是什么？"], ["current  job/employer  can't  give  me this.", "•    若有其他原因：用自己的真实原因，但回答 时始终保持积极态度。"], ["What do you think of your current boss? -  你如何评价你现在", "的老板？"], ["What will you miss about your present job? -  你会怀念现在工", "作的哪些方面？"], ["What can you tell me about XYZ Company? -  你对  XYZ  公司", "了解多少？"], ["to - day? - 如果你成功入职，你认为日常会做些什么？", "可以这样开头 ：I understand that I'll be...  然后       谈论主要工作职责、其他活动以及预期的工作目标。"], ["What are your strengths/weaknesses? -  你的优势 / 弱点是什", "么？"], ["Why did you think you are suited to this job? -  你为什么认为", "自己适合这份工作？"], ["Why should we give the job to you above other applicants?", "- 为什么我们要录用你而不是其他求职者？"], ["How well do you work under pressure? -  你在压力下工作表现", "如何？"], ["Sell me this pen! -  把这支笔卖给我！", "在销售岗位面试中可能会遇到这个问题，甚至非销 售岗位面试也可能意外被问到。被要求销售的物品 可能是任何东西，面试官想观察你是关注物品的特"], ["this role? - 你认为在这个职位上取得成功需要哪些关键技能？", "因为你的求职申请表、简历符合面试官在招聘广告  中的标准才获得面试机会，回答时在此基础上展开，"], ["Where do you see yourself in five years time? -  你五年内的职", "业规划是什么？"], ["How does this job fit into your career plans? - 这份工作如何", "契合你的职业规划？"], ["Where did you think you'd be at this stage in your life? -  你", "曾认为自己在人生这个阶段会处于什么状态？"], ["make differently? - 如果可以重新开始，你会在职业决策上做出哪些不", "同选择？"], ["How would you approach a typical project? -  你会如何开展一", "个常规项目？"], ["How would you get the best from people? - 你如何激发员工", "的最大潜能？"], ["Give us an example of how you have resolved conflict. - 举", "例说明你是如何解决冲突的？"], ["What did you look for when you hired people in the past? -", "你过去招聘人员时看重什么？"], ["Do you work best by yourself or as part of a team? -  你更适", "合独立工作还是团队合作？"], ["the job. - 讲讲你在工作中处理冲突的经历。", "这是行为面试问题，如果想不到实例，可以如实说， 然后阐述会如何处理，或者举例说明身边人处理冲 突的成功案例。大多数面试官希望看到你能听取双"], ["Can you give me some idea of the salary you're expecting? -", "你期望的薪资是多少？"], ["What influenced you to choose this career? -  是什么影响你选", "择了这个职业？"], ["At what point did you choose this career? -  你在什么时候选择", "了这个职业？"], ["period,   I  was  able  to  satisfactorily                  time.", "当被问到最大弱点时的应对策略"], ["When you're asked what your greatest weakness is,  try  to  turn  a   negative  into  a  positive.   For example,  a   sense  of  urgency  to  get   projects", "措施改进）"], ["o  转化后的优势：表明自己总是能提前                              last          minute          to          set", "求。                                                                                     week,    but    I    realized    that"], ["How well can you work in stressful situations? - 你在压力环", "境下工作表现如何？"], ["stay motivated and productive.", "强调 压力对自己工作的积极作用，以及能区分和 平衡不同压力"], ["under  pressure and  I've found that  I enjoy    working    in     a     challenging environment. （直接说明自己在压力下表", "现更出色，且享受挑战）"], ["helped      me      effectively      manage pressure on the job.", "通过合理安排工作 优先级来应对工作压力，体现工作方法和能 力"], ["implemented   repeatable   processes.  The  teams  achieved  100%  on  -  time  delivery  of  software  products.  I was  motivated  both  by  the  challenge  of  ﬁnishing    the     projects    ahead    of  schedule and by managing the teams  that achieved our goals.", "因项目提前完  成的挑战和带领团队达成目标而受到激励， 体现对工作成果和团队管理的追求"], ["salesperson at my prior employers.", "在 销售岗位中，薪酬激励自己成为顶尖销售人 员，真实反映部分岗位的激励因素，但在面 试时需谨慎表述，避免过度强调金钱"], ["tell  the  employer you'd  like to  know more  about  the  responsibilities  and the   challenges   of   the  job   prior   to discussing salary.（不急于给出具体薪资", "需要考虑 ” 可能争取到更高薪资）"], ["original offer.", "根据前期薪资调研给出薪                  遇"], ["Negotiating a Raise - 协商加薪", "•    步骤 1 ：Be aware of company policy                  managers.（与上级预约会议讨论加薪，准   regarding  compensation.（了解公司的                备充分并理性表达，不要要求立即得到答复， 薪酬政策）                                                                       因为老板可能需与其他部门商议）"], ["mom   with   household   repairs.   As   I                  meet their speciﬁc needs.（热衷于帮助", "他人，体现善良和乐于助人的品质）"], ["of  the  things   I'm   passionate   is  to assist in ﬁnding a cure, however I can.", "因亲人患病而投身癌症研究志愿活动，展 现爱心和社会责任感"], ["What Do People Most Often Criticize About You? -  人们通常", "最常批评你什么？"], ["opportunity to improve.", "表明没有持续                  处的小状况，缓解面试气氛"], ["Why do you want this job? -  你为什么想要这份工作？", "•    回答示例   1 ： This  is  not  only  a  ﬁne                    职位与自身资质的匹配度以及工作的挑战"], ["anticipate every morning.（强调公司和                    terriﬁc.（结合自身能力和过往业绩，以及对", "团队的认可，阐述求职原因）"], ["experience I'd love to repeat.", "出于对  专业研究的热爱和对加入优秀团队的向往， 表达求职意愿"], ["it. I'm good at speaking to people and handling cash. I would like a job with regular hours and I'm always on time.", "基于自身能力和对工作时间的需求，说明 适合这份工作的原因"], ["multitasking and, as a  homemaker,  I have  a  lot  of  practice  in  keeping  all the balls in the air.", "根据对职位的了解和 自身能力特点，表明自己适合这份工作"], ["Don't discuss your goals for returning to school or having a family, they are not relevant and could knock you out of contention for the job. Rather, you want to connect your answer to the job you are applying for.", "最佳答案"], ["University. My past experiences has been in retail and higher education. Both aspects have prepared me well for this career.”", "这个问题的答案应该是和他们的招聘广告上对于雇员的要求的基本一致，所以， 看看你有哪些"], ["company.  内部职位竞聘常会被问到如果你没有得到这份工作的话你将会怎么办", "的问题。 最佳答案"], ["always on time.", "• | 回答示例"], ["highly   motivated,   adaptable, | contribute signiﬁcantly to your team from day one.\"", "o  中文：“我拥有与这个职位完美契合   的独特技能和经验组合。我充满动力， 适应能力强，并且致力于交付成果。 我相信我从第一天起就能为您的团   队做出重要贡献。”"]];window.__KEY__="外企面试掌握这些就不怕_8";window.__TITLE__="外企面试掌握这些就不怕_8";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

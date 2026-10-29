@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 背完这700句 1个月搞定职场英语</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p266.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：背完这700句 1个月搞定职场英语</h1>
+  <div class="meta"><span class="charspill">301 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">301</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 301 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p266.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["We truly appreciate your taking the time to join our meeting today. 感谢您今天抽出时间参加我", "们的会议。"], ["I'm grateful for the opportunity to present my project. 感谢有机会展示我的项目。", "（二）组织会议"], ["Please maintain your focus during the meeting. 请在会议期间保持专注。", "（三）工作报告"], ["The most frequently asked question is, \"How much does it cost?\" 我们最常被问到的问题是：", "它多少钱？”"], ["Apparently, Carr has assumed more responsibilities than he can manage. 显然，卡尔承担了他", "无法承受的更多责任。"], ["From my perspective, after-sales service is more crucial than low prices. 在我看来，售后服务比", "低价更重要。"], ["I think we can attempt to make our product visually appealing. 我认为我们可以尝试让产品在视", "觉上具有吸引力。"], ["We should conduct a survey to determine whether high prices are impacting our sales. 我们", "应该进行一项调查，看看高价格是否正在影响我们的销售。"], ["Please take customer preferences into consideration. 请考虑客户的偏好。", "（七）礼貌打断"], ["May I interject here? Regarding his question, I'd like to say... 我可以插一句吗？对于他的问题，", "我想说..."], ["Are there any other thoughts before I comment on this? 在我对此发表评论之前，还有其他想法", "吗？"], ["Since we still have some time left, let's discuss our next plan in more detail. 既然我们还有时间，", "让我们更详细地讨论下一个计划。"], ["By analyzing our competitors, we discovered that we lack innovation. 通过分析我们的竞争对手，", "我们发现我们缺乏创新。"], ["Most people believe that the price is not commensurate with the quality. 大多数人认为价格与", "质量不成正比。"], ["What customers expect from this type of service is professionalism. 顾客对这种类型的服务期望", "是专业性。"], ["What can we do to attract customers from our competitors? 你认为我们能做些什么来从竞争对", "手那里吸引顾客？"], ["We can enhance our strengths while rectifying our weaknesses. 我们可以在提升优势的同时纠正", "弱点。"], ["Let's formulate some specific and measurable business goals. 让我们制定一些具体可行的商业", "目标。"], ["To succeed, we must determine the direction of our business. 要成功，我们必须知道我们的企业", "将走向何方。"], ["Expanding the market is a crucial step in economic development. 扩大市场是经济发展的关键环", "节之一。"], ["We need to be more ambitious and identify untapped opportunities. 我们需要更有雄心，并识", "别未开发的机遇。"], ["I will provide you with a preliminary report at our next meeting. 下次会议我会给你们一个初步", "报告。"], ["I hope our company will thrive in the future. 我希望我们公司将来会更加繁荣。", "二、接待客户全流程相关"], ["I will come to pick you up and drive you to the hotel. 我会来接您并开车送您到酒店。", "（二）会客室寒暄"], ["working on. 您可以看看手册，快速了解一下我们一直在做的事情。", "（三）名片交换"], ["The business card contains all my basic information. 名片上包含所有我的基本信息。", "（四）介绍公司"], ["This was our first logo used from 2010 to 2019. 这是我们公司的第一个商标，从 2010 年到", "2019 年。"], ["Since 2015, our company has acquired many companies. 从 2015 年以来，我们公司已收购", "了许多家公司。"], ["We had over one billion in sales in 2019. 2019 年我们的销售额超过十亿。", "（五）介绍同事"], ["It's been a tough year, but I've received support from all the members. 这一年很难熬，但", "我从所有成员那里都得到了支持。"], ["We believe a good work environment makes employees more active. 我们相信，好的工作", "环境会让员工更加积极。"], ["The training program will improve our workers' skills and increase their productivity. 培训", "（八）旅游伴游"], ["You're sure to enjoy your vacation more. 你一定会更加享受你的假期。", "（九）机场送机"], ["Could you kindly arrange somebody to take me to the airport? 您能费心派人把我送到机场", "吗？"], ["You are always welcome. 我们永远欢迎您。", "（十）临时访客"], ["You'll have to wait for a long time if you didn't make an appointment. 如果您没有预约，就", "可能要等很长一段时间。"], ["I'm sorry, but you will have to wait until three in the afternoon. 很抱歉，但您可能得等到下", "午 3 点。"], ["Mr. Brian will be free around eleven. Would you like to wait for a few minutes? 布莱恩先", "生 11 点左右会有空，您愿意等一会儿吗？"], ["I'm sorry. I'm afraid that you've dialed the wrong number. 抱歉，您恐怕是打错电话了。", "（二）电话转接"], ["I will connect you to his new extension right away. 我马上为您转接到他的 new extension", "号码。"], ["I will give her the message as soon as she gets back. 她一回来我就把留言转达给她。", "（三）请求回电"], ["I'll have her return your call as soon as she comes back. 等她一回来，我就让她马上给你回", "电。"], ["I want to talk to him briefly about the agenda for the meeting on Friday. 我想跟他简单谈", "谈星期五开会的议程。"], ["I am not available now. Please leave your number and I will call you back. 我现在不方便接", "听电话，请留下您的号码，我会回电给您。"], ["I know you are there. Answer the phone right now! 我知道你在，马上给我接电话！", "（五）国际电话"], ["You have an international collect call from Henry in Britain. 你有一通 Henry 从英国打来的", "国际电话，指定要您付费。"], ["I'm calling to arrange an international conference call. 我打来是想与您安排一场国际电话会", "议。"], ["Please note your client is in a different time zone. 请注意你的客户处于不同时区。", "（六）电话预约"], ["Hello, I am XX and I'm calling to schedule a meeting. 你好，我叫 XX，我打电话是想安排一", "个会议。"], ["Could you please let me know a convenient time for her to meet? 你能告诉我一个方便她谈", "话的时间吗？"], ["I'm flexible with scheduling and can work around her availability. 我很灵活，可以根据她的", "时间安排。"], ["Would sometime this week be suitable, or should we consider next week? 这周的某个时间", "合适吗，还是我们应该考虑下周？"], ["If Mr. XX is unavailable, could I schedule with someone else who can assist me? 如果 XX", "先生不在，请问我能与其他人安排约会吗？"], ["Could you confirm the location where the meeting will take place? 您能确认一下会议地点", "吗？"], ["Is there any specific documentation I should bring to the appointment? 我需要带上一些特", "定的文件吗？"], ["I look forward to meeting with you soon. 我期待着尽快与您见面。", "（七）请求复述"], ["I missed what you just said. Could you please say it again? 我刚才没听到您说的。您能再说", "一遍吗？"], ["I'm sorry. I didn't catch what you said. Could you say it again, please? 对不起，刚刚没听清", "楚。可以请您再说一次吗？"], ["I'm sorry, could you please repeat that last part? I didn't catch it clearly. 对不起，请您再重", "复一遍吗？我没有听清楚最后一部分。"], ["Pardon me, could you please go over that again? I didn't quite follow. 请原谅，您可以再重", "复一遍吗？我没太明白。"], ["I'm having difficulty understanding the conversation over the phone. 我听不太清楚电话里", "的谈话。"], ["Could you provide a summary or transcript via email? 能否通过电子邮件提供摘要或文字记", "录？"], ["Would it be possible for you to relay the conversation through email? 您能通过电子邮件转", "述对话吗？"], ["Could you kindly send me a text message summarizing your points? 能请求您通过短信向", "我概括一下他们的要点吗？"], ["Is there any chance you could send me a written summary of what you just said? 你能否", "给我发个文字摘要，描述一下您刚说的么？"], ["I look forward to our next conversation. Until then, take care. 期待我们下次的交流。在此之", "前，请保重。"], ["I'm confident we can move forward positively. Speak soon! 我相信我们可以积极向前推进。", "很快再联系！"], ["I'll send you a follow - up email summarizing our discussion. 我会给您发送一封总结我们讨", "论的跟进电子邮件。"], ["Feel free to reach out if you have any further questions or concerns. 如果您有任何进一步", "的问题或疑虑，请随时联系我。"], ["It's been a pleasure speaking with you. Have a productive rest of your day. 很高兴与您交", "谈。祝您有一个高效的一天。"], ["Alright, I'll let you back to what you were doing. Bye for now! 好的，我让您继续做您的事情", "吧。再见！"], ["Thanks for calling. I have another phone call so I need to let you go. 感谢来电。我还有一个", "电话所以就不耽误你了。"], ["Thank you for your time today, I appreciate the opportunity to discuss this with you. 谢谢", "您今天抽出宝贵的时间和我交谈，我很感激。"], ["For customer service, press 1. For technical support, press 2. 如需客户服务，请按 1；如需", "技术支持，请按 2。"], ["If you need to reach the switchboard, please press the'star key' on the phone. 如需接线总", "机，请按电话 * 号键。"], ["If you are calling about a recent order, please have your order number ready. 如果您要询", "问最近的订单，请准备好您的订单号。"], ["Please hold the line, and your call will be answered in the order it was received. 请稍等，", "您的电话将按照接收顺序接听。"], ["Our current business hours are Monday through Friday, 9 a.m. to 5 p.m. 我们目前的营业时", "间是周一至周五上午 9 点至下午 5 点。"], ["Thank you for your patience. A representative will be with you shortly. 感谢您的耐心等待。", "稍后会有客服代表为您服务。"], ["I happened to come across your company's information on the Internet. 我偶然在网络上", "看到贵公司的信息。"], ["We would be grateful for the opportunity to discuss cooperation possibilities. 倘若有机会", "探讨合作事宜，我们将不胜感激。"], ["We sincerely hope there will be a chance for us to work together in the near future. 我们", "衷心希望在不久的将来能有合作的机会。"], ["We help foreign companies and their products find local distributors. 我们为外国企业及其", "产品寻找当地的经销商。"], ["We are not only a trading company but also a manufacturer. 我们不仅是贸易商，同时也是", "制造商。"], ["We can offer better products at the same price as our competitors. 同样的价格，我们能提", "供比竞争者更好的产品。"], ["If you are interested in any of our items, please contact us via... 如果您对我们的任何产品感", "兴趣，请通过... 方式联系我们。"], ["An early reply would be highly appreciated. 如能早日回复，将不胜感激。", "（二）咨询试探"], ["We are extremely interested in learning more about your company. 我们非常想进一步了解", "贵公司。"], ["I would be grateful if you could provide me with some corporate brochures. 如您能提供一", "些公司宣传手册，我将不胜感激。"], ["We have heard many excellent things about your products. 我们听说过很多关于你们产品的", "好评。"], ["We would appreciate it if you could send us your catalog. 若你能寄来一份商品目录，我们", "将不胜感激。"], ["We attend the annual international trade show in Moscow every year. 我们每年都参加莫斯", "科的年度国际贸易展。"], ["How much discount can you usually offer for such a large order? 像这么大的订单，你们通", "常能给多少折扣？"], ["Is there a specific delivery method we should use for this package? 这个包裹有特定的递送", "方式吗？"], ["Please show us the shipping costs for different possible methods. 请向我们展示几种可能的", "运输方式的价格。"], ["All terms and conditions should be clearly stated in the estimate. 所有条款和条件都应在报", "价单中清晰列出。"], ["We want to make some minor adjustments to the payment terms. 我们想对付款方式做一", "些细微调整。"], ["We can accept the other terms except the delivery date. 除了交货日期，我们可以接受其他", "条件。"], ["We still want to know your earliest possible delivery date. 我们仍想知道贵公司最早的交货", "日期。"], ["A payment delay of more than 30 days will be regarded as a breach of contract. 付款延迟", "超过 30 天将被视为违约。"], ["We expect you to give us a definite reply at your earliest convenience. 我们期望贵公司尽", "早给我们一个明确的答复。"], ["Over the past year, we have had extensive trade with your company. 过去一年里，我们与", "贵公司有着大量的贸易往来。"], ["We would like to continue working with you for another five years. 我们希望能再与您合作", "五年。"], ["You will be the first to be informed when the stock is replenished. 库存一旦补充，我们会首", "先通知您。"], ["Since you are our most loyal clients, we can give you a 10% discount on the total price. 因", "为您是我们最忠实的客户，我们可以给您总价 10% 的折扣。"], ["The normal price is US$30, but now we can offer you a 10% discount. 正常价格是 30 美", "元，但现在我们可以给您打 9 折。"], ["Your feedback and insights are extremely valuable to us. 您的反馈和见解对我们来说非常宝", "贵。"], ["We are glad to make you a special offer. 我们乐意给您提供特别优惠。", "（六）感谢合作"], ["We are highly satisfied with the premium quality of your sample. 我们对您样品的高品质非", "常满意。"], ["We sincerely thank you for your kind and close cooperation. 我们衷心感谢您的友好和密切", "合作。"], ["It has been a pleasure working with such dedicated and talented partners. 能与如此敬业和", "有才华的合作伙伴共事是一种荣幸。"], ["We appreciate the cooperation and teamwork demonstrated by our partners. 我们感谢合", "作伙伴所展现出的合作与团队精神。"], ["I believe there will be more opportunities for us to collaborate in the future. 我相信未来我", "们会有更多的合作机会。"], ["Our partnership will drive us towards greater achievements in the future. 我们的合作伙伴", "关系将推动我们在未来取得更大的成就。"], ["We look forward to continuing this journey of success and mutual benefit. 我们期待继续", "在未来取得成功和实现互利共赢。"], ["I have no doubt that you will perform excellently in your new position. 我毫不怀疑您在新", "职位上会表现出色。"], ["I would like to congratulate you on the success of the project. 我要祝贺您在这个项目上取", "得的成功。"], ["I will witness your continued growth and success in the days ahead. 我将见证您在未来的持", "续成长和成功。"], ["I am extremely pleased to extend my heartfelt congratulations on your recent promotion.", "我非常高兴地向您的晋升表示诚挚的祝贺。"], ["It's great that you got the promotion. 恭喜您升职了！", "（八）投诉问题"], ["We found that nearly 20% of the packages were damaged. 我们发现将近 20% 的包装有破", "损。"], ["The color difference of your products is too large to accept. 你们产品的色差太大，无法接", "受。"], ["I found the quality worse than the sample you provided earlier. 我发现质量比您之前提供的", "样品还差。"], ["The damage to the goods caused a delay in our customer's delivery date. 货物的损坏导致", "我们客户的交货日期延迟。"], ["Please tell us what we should do with the defective products. 请告诉我们如何处理这些瑕疵", "品。"], ["We want to know how and when you will compensate for our loss. 我们想知道你们将如何", "以及何时补偿我们的损失。"], ["I don't know whether you will replace them or just refund the money. 我不知道您是打算为", "我们更换货物还是直接退款。"], ["I apologize for the damage to your goods during transportation. 对于运输途中造成您货物", "的损坏，我深表歉意。"], ["Please accept our sincere apologies for the damage to your products. 对于您产品的损坏，", "请接受我们诚挚的道歉。"], ["This delivery of wrong goods has a great impact on our sales. 这批送错的货物对我们的销", "售影响很大。"], ["I can assure you that such a mistake will never happen again. 我可以向您保证，这样的错误", "以后不会再发生。"], ["We will deduct the shipping fee directly from your invoice. 我们会直接从您的发票中扣除运", "费。"], ["I will send you the correct shipment at our expense on Friday. 我会在周五自费将正确的货", "物寄给您。"], ["We hope the 20% discount can compensate for the inconvenience we have caused. 我们", "希望 20% 的折扣能够补偿我们给您造成的不便。"], ["There will be a shipment delay due to the shortage of main components. 由于主要部件短", "缺，将会有出货延迟。"], ["You postponed this shipment to February 15th, 2023, because of uncompleted accessories.", "由于配件未完成，你们将这批货物推迟到了 2023 年 2 月 15 日。"], ["We are in urgent need of these goods and will not accept any excuses. 我们急需这批货物，", "并且不接受任何借口。"], ["We will definitely cooperate with a punctual freight company in the future. 我们以后一定", "会和守时的货运公司合作。"], ["We will try our best to avoid late remittance from now on. 从现在起，我们会尽最大努力避", "免汇款延迟。"], ["We would like to hear your opinion regarding this matter. 关于这件事，我们想听听您的意", "见。"], ["msg - message. Can you send me a msg about the meeting, please? 消息或信息。你能给", "我发一条关于会议的消息吗？"], ["COB - Close of Business. I'll submit the document before COB. 营业结束。我会在营业结束", "前提交文件。"], ["KPI - Key Performance Indicator. Our KPIs are off track. 关键绩效指标。我们的关键绩效指标", "偏离了轨道。"], ["OOO - Out of office. You know that? The manager will be OOO next week. 不在办公室。", "你知道吗？经理下周不在办公室。"], ["IRL - In Real Life. Let's arrange a brainstorming session IRL. 在现实生活中。我们安排一个线", "下头脑风暴会议。"], ["TLC - Tender Loving Care. This project requires some TLC. 关爱和照顾。这个项目需要关注", "和照顾。"], ["SME - Subject Matter Expert. The team needs a SME to review the project. 专业领域专家。", "团队需要专家来审查项目。"], ["ROI - Return on Investment. We aim for a 2x ROI. 投资回报率。我们的目标是获得两倍的投", "资回报率。"], ["conf - conference. Let's book a conf call for tomorrow AM. 会议。我们预订明天上午的电话", "会议。"], ["ASAP - As Soon As Possible. The new hire needs to complete the onboarding ASAP. 尽快。", "新员工需要尽快完成入职流程。"], ["FWD - Forward. Please FWD the report to the department heads for review. 转发。请将报", "告转发给部门负责人进行审阅。"], ["R&D - Research and Development. The R&D team is working on a new platform. 研发。", "研发团队正在开发一个新平台。"], ["MVP - Minimum Viable Product. We plan to release an MVP of our new app next month.", "最小可行产品。我们计划下个月发布新应用的最小可行产品。"], ["ID - Identify. We need to ID the root cause of the issue. 识别。我们需要确定问题的根本原", "因。"], ["VIP - Very Important Person. The VIP client is coming for a site visit. 重要人物。重要客户要", "来参观现场。"], ["Q&A - Questions and Answers. Let's have a Q&A session at the end. 问答。我们在最后进", "行问答环节。"], ["Q4 - Fourth Quarter. Our Q4 sales are strong, thanks to holiday shopping. 第四季度。由于", "节日购物，我们第四季度的销售强劲。"], ["FAQ - Frequently Asked Questions. I need you to send me the document in PDF format.", "常见问题。我需要你以 PDF 格式发送文件给我。"], ["B2B - Business-to-Business. Our company specializes in B2B sales. 企业对企业。我们公司专", "门从事企业对企业的销售。"], ["B2C - Business-to-Consumer. The new marketing campaign targets B2C customers. 企业", "对消费者。新的营销活动针对企业对消费者的客户。"], ["CEO - Chief Executive Officer. The CEO wants a POC for the new initiative. 首席执行官。首", "席执行官想要新倡议的试点。"], ["CMO - Chief Marketing Officer. The CMO needs the report by EOW. 首席营销官。首席营销", "官需要在周末结束前拿到报告。"], ["CFO - Chief Financial Officer. The CFO approved the budget for Q4. 首席财务官。首席财务", "官批准了第四季度的预算。"], ["CTO - Chief Technology Officer. Our CTO handles all tech matters. 首席技术官。 我们的 CTO", "处理所有技术事务。"], ["COO - Chief Operating Officer. The COO ensures the smooth running of operations. 首席", "运营官。首席运营官确保运营顺利进行。"], ["HR - Human Resources. HR hires and manages staff. 人力资源。人力资源部门负责招聘和管", "理员工。"], ["VP - Vice President. The VP will join the conference next week. 副总裁。副总裁下周将参加", "会议。"], ["MD - Managing Director. As MD, he makes major decisions. 董事总经理。作为董事总经理，", "他做出重大决策。"], ["PM - Project Manager. The PM manages project tasks. 项目经理。项目经理负责管理项目任", "务。"], ["PR - Public Relations. PR manages the company's image. 公共关系。公共关系部门管理公司", "形象。"], ["ETA - Estimated Time of Arrival. What's your ETA in local time? 预计到达时间。你当地时间", "的预计到达时间是多少？"], ["MoM - Minutes of Meeting. Please take MoM. 会议纪要。请做好会议纪要。", "（三）常用表达"], ["Let's hold a quick stand-up to align our next steps. 让我们开个快速的站立会议来协调下一步", "行动。"], ["We're in agreement. 我们意见一致。", "六、闲聊公司花边相关"], ["Have you caught wind of the latest scandal brewing in the office? 你有没有听说办公室里正", "在酝酿的最新丑闻？"], ["It sometimes feels like we're in a soap opera with all this drama! 有时候感觉我们就像在演", "肥皂剧，这么多戏剧性事件！"], ["Rumor has it that the boss is planning a big surprise for the team. 有传言说老板正在为团", "队准备一个大惊喜。"], ["Don't believe everything you hear through the grapevine. 不要相信你从小道消息听到的一", "切。"], ["Let's take the office gossip with a grain of salt and focus on our work. 让我们对办公室闲话", "持保留态度，专注于工作。"], ["The rumor about the upcoming layoffs has everyone on edge. 关于即将裁员的传言让每个", "人都很紧张。"], ["TGI F! Can't wait to clock out and start the weekend! 感谢上帝，周五了！迫不及待下班开始", "周末！"], ["Who's up for some after -  work drinks to celebrate making it through another week? 谁", "想下班后喝点酒庆祝又熬过了一周？"], ["Already feeling that Friday syndrome. Is it 5 o'clock yet? 已经感觉到周五综合征了。已经 5", "点了吗？"], ["Let's finish strong and wrap up those last - minute tasks before the weekend arrives. 让我", "们在周末到来之前努力完成那些临时任务。"], ["Another day, another dollar. But today feels like a hundred bucks! 又是一天，又是一笔钱。", "但今天感觉像赚了一百块！"], ["I think I've got the Friday lazies. Anyone else feeling it? 我觉得我得了周五懒惰症。有人也有", "同感吗？"], ["Let's power through these last few hours and then it's freedom time! 让我们熬过这最后几", "个小时，然后就是自由时间了！"], ["It seems like everyone's productivity drops by 50% as soon as Friday afternoon hits. 似乎", "周五下午一到，每个人的工作效率都下降了 50%。"], ["Who's pulling the Friday night overtime shift? Let's give them a round of applause! 谁要", "在周五晚上加班？让我们为他们鼓掌！"], ["Is it just me, or does time slow down to a crawl on Friday afternoons? 是只有我这样，还是", "周五下午时间慢得像爬行一样？"], ["Another day, another meeting that could have been an email. 又是一天，又有一个本可以用", "邮件解决的会议。"], ["Let's play Meeting Bingo and see how many buzzwords we can spot today! 我们来玩会议", "宾果游戏，看看今天能发现多少流行词汇！"], ["I think we've reached the maximum amount of fluffy jargon in this meeting. 我觉得我们在", "这次会议上用了最多的废话。"], ["Can we stop using buzzwords for the rest of the meeting, please? 会议剩下的时间里我们能", "停止使用流行词汇吗？"], ["Let's get back to the agenda and try to stay on track this time. 让我们回到议程，这次努力", "保持在正轨上。"], ["Who's ready to break the ice and bring some real talk to this meeting? 谁准备打破僵局，", "给这次会议带来一些真实的谈话？"], ["Let's cut through the fluff and get to the heart of the matter, shall we? 让我们抛开废话，", "直击问题的核心，好吗？"], ["I propose a new rule: for every minute of fluff, we have to take a shot of espresso. 我提议", "一个新规则：每说一分钟废话，我们就得喝一杯浓缩咖啡。"], ["Can we all agree to keep the meeting concise and focused on actionable items? 我们都能", "同意让会议简洁明了，专注于可执行的事项吗？"], ["Just when you thought your inbox couldn't handle more emails, here comes another one.", "就在你以为你的收件箱再也装不下更多邮件的时候，又来了一封。"], ["Let's play a game of Finding the Important Email in this sea of spam. 让我们在这堆垃圾邮", "件中玩找重要邮件的游戏。"], ["I need help! Can someone help me sort through this avalanche of emails? 我需要帮助！有", "人能帮我整理这堆邮件吗？"], ["I declare email bankruptcy! Starting fresh with a clean inbox tomorrow. 我宣布邮件破产！", "明天重新开始，拥有一个干净的收件箱。"], ["Let's see how many Reply All disasters we can avoid today. 让我们看看今天能避免多少次回", "复所有人的灾难。"], ["Please, for the sake of productivity, stop with the never - ending email chains. 拜托，为了", "提高工作效率，停止那些没完没了的邮件链。"], ["Can we agree to use meaningful subject lines from now on? 我们能同意从现在开始使用有", "意义的主题行吗？"], ["I propose a new email policy: one email per topic, maximum. 我提议一个新的邮件政策：每", "个主题最多一封邮件。"], ["Who else is drowning in a sea of unread emails? 还有谁在未读邮件的海洋中挣扎？", "（五）老板口头禅"], ["Let's touch base - the universal signal for an impromptu meeting. 让我们联系一下 —— 这", "是临时会议的通用信号。"], ["Think outside the box - the classic catchphrase for encouraging creativity. 跳出框框思考", "—— 鼓励创造力的经典口头禅。"], ["Low - hanging fruit - the easy wins that everyone loves to chase. 低垂的果实 —— 大家都", "喜欢追逐的容易成果。"], ["Circle back - the polite way of saying let's talk about this later. 回头再谈 —— 委婉地表示", "我们稍后再谈这个。"], ["Drill down into the details -  the command to dig deep into the specifics. 深入细节 ——", "深入探究具体细节的命令。"], ["Synergy - the magical word that means teamwork and collaboration. 协同作用 —— 表示", "团队合作和协作的神奇词汇。"], ["We need to think about this strategically - the signal for long - term planning. 我们需要战", "略性地思考这个问题 —— 表示长期规划的信号。"], ["Let's put a pin in it - the decision to postpone discussion on a topic. 让我们把它钉住 ——", "决定推迟讨论一个话题。"], ["Act busy, look busy, but don't actually get anything done. 假装忙碌，看起来忙碌，但实际", "上什么都没做。"], ["Perfect the art of looking productive without actually being productive. 完美掌握看起来有", "成效但实际上没有成效的艺术。"], ["There's a fine line between seeming to work and actually working. 在看起来在工作和实际", "在工作之间有一条微妙的界限。"], ["Master the art of nodding along in meetings while mentally checking out. 掌握在会议上点", "头但心不在焉的艺术。"], ["The skill of disappearing into the bathroom for long periods to avoid work. 长时间躲在浴", "室里逃避工作的技能。"], ["The delicate dance of avoiding eye contact with your boss to escape being given a task.", "避免与老板眼神接触以逃避被分配任务的微妙舞蹈。"], ["The skill of strategically positioning your desk to minimize supervision. 巧妙安排办公桌位", "置以减少监督的技能。"], ["The ability to disappear into a sea of cubicles when the boss is prowling. 当老板在巡视时", "消失在办公隔间海洋中的能力。"], ["Navigate the murky waters of office politics like a seasoned sailor. 像经验丰富的水手一样", "在办公室政治的浑水中航行。"], ["Play the game of office politics without getting caught in the crossfire. 在办公室政治游戏", "中玩而不被卷入交火。"], ["Master the art of strategic alliances to climb the corporate ladder. 掌握战略联盟的艺术以", "攀登公司阶梯。"], ["The delicate balance between networking and brown - nosing. 在社交和拍马屁之间的微妙", "平衡。"], ["Dodge the landmines of office gossip and backstabbing colleagues. 躲避办公室闲话和背", "后捅刀的同事的地雷。"], ["Build your power base without stepping on too many toes. 在不冒犯太多人的情况下建立自", "己的权力基础。"], ["The art of strategic silence in meetings to avoid stepping on anyone's toes. 在会议上保持", "战略沉默以避免冒犯任何人的艺术。"], ["Play the long game in office politics while keeping your intentions hidden. 在办公室政治", "中玩长线游戏同时隐藏自己的意图。"], ["The skill of deflecting blame and taking credit without anyone noticing. 在不被人注意的情", "况下转移责任和获取功劳的技巧。"], ["The delicate dance of maintaining alliances while keeping your options open. 在保持选择", "开放的同时维持联盟的微妙舞蹈。"], ["The dramatic exit that will be talked about for years to come. 那个将被谈论多年的戏剧性离", "职。"], ["The fine art of leaving on good terms without burning bridges. 以友好的方式离开而不破坏", "关系的微妙艺术。"], ["Master the art of the graceful exit while secretly showing dissatisfaction. 掌握优雅离开的", "艺术同时暗中表示不满。"], ["The dance of joy after finally submitting your resignation letter. 在最终提交辞职信后的欢乐", "之舞。"], ["Craft the perfect excuse for why you're leaving without burning any bridges. 编造一个完", "美的离开理由而不破坏任何关系。"], ["The art of leaving without anyone noticing until it's too late. 在没有人注意到的情况下离开", "直到为时已晚的艺术。"], ["Plan your exit strategy while keeping your poker face intact. 在保持面无表情的同时规划你", "的离职策略。"], ["The delicate balance between excitement and nervousness on your last day of work. 在工", "作的最后一天兴奋和紧张之间的微妙平衡。"], ["interview. 在离职面试中微笑点头时在脑海中构思完美的 “我辞职了” 演讲。", "（九）大数据时代"], ["The art of curating your social media presence to impress potential employers. 精心打造", "你的社交媒体形象以给潜在雇主留下深刻印象的艺术。"], ["Navigate the treacherous waters of social media without leaving a trace. 在社交媒体的危", "险水域中航行而不留下痕迹的艺术。"], ["The delicate dance of balancing personal expression with professional reputation online.", "在网上平衡个人表达和职业声誉的微妙舞蹈。"], ["Master the art of private browsing to keep your digital footprint clean. 掌握私人浏览的艺", "术以保持你的数字足迹干净。"], ["The skill of crafting the perfect social media post that strikes the right tone. 编写完美的社", "交媒体帖子以把握正确语气的技巧。"], ["Navigate the minefield of social media controversies with grace and tact. 优雅而巧妙地穿", "越社交媒体争议的雷区。"], ["Craft the perfect profile picture that says \"hire me\" without saying a word. 制作一张完美的", "个人资料照片，无需言语就能传达 “雇佣我” 的信息。"], ["The skill of conducting a social media cleanup to remove any incriminating evidence. 进", "行社交媒体清理以删除任何罪证的技巧。"], ["The fine line between being genuine online and oversharing. 在网络上保持真诚和过度分享", "之间的微妙界限。"], ["The art of decorating your workspace to enhance productivity and morale. 装饰工作空间", "以提高工作效率和士气的艺术。"], ["The delicate balance between minimalism and personality in office decor. 在办公室装饰中", "保持简约和个性的微妙平衡。"], ["The skill of choosing the perfect office plant that won't die on your watch. 挑选在你照料下", "不会死掉的完美办公室植物的技能。"], ["The art of strategically displaying your diploma without coming off as arrogant. 策略性地", "展示你的文凭而不显得傲慢的艺术。"], ["The delicate dance of finding the perfect office chair that won't give you back pain. 寻找", "不会让你背痛的完美办公椅的微妙过程。"], ["The skill of choosing the right office playlist to set the mood for the day. 挑选合适的办公", "室播放列表来为一天营造氛围的技能。"], ["Good morning! Allow me to introduce myself. I'm [Name] from [Company]. 早上好！请允", "许我介绍一下自己。我是来自 [公司] 的 [姓名]。"], ["Good morning! Have you had a chance to explore our products? 早上好！您有机会了解我", "们的产品了吗？"], ["Hello, my name is [Name]. Is there anything specific you're interested in? 你好，我叫 [姓", "名]。您有什么特别感兴趣的吗？"], ["Hello, welcome! May I introduce myself? I'm [Name]. 你好，欢迎！我可以介绍一下自己吗？", "我是 [姓名]。"], ["Hi, I'm [Name]. How are you finding the exhibition so far? 嗨，我是 [姓名]。到目前为止，", "您觉得这次展览怎么样？"], ["Welcome! What brings you to our exhibition today? 欢迎！今天是什么吸引您来我们的展览", "会？"], ["Allow me to show you how our product can simplify your workflow. 请允许我向您展示我们", "的产品如何简化您的工作流程。"], ["Are you familiar with our product line? Or would you like me to give an overview? 您熟悉", "我们的产品线吗？还是需要我进行概述？"], ["Can I interest you in a demonstration of how the product can transform your operations?", "我能否向您展示产品如何改变您的业务，引起您的兴趣？"], ["Let me introduce our latest product, which features cutting -  edge technology. 让我介绍", "我们的最新产品，它具有尖端技术。"], ["We are looking forward to your early response to this matter. 我们期待您对此事早日作出回", "应。"], ["We hope this dispute can be resolved through friendly negotiation rather than arbitration.", "我们希望此次争端能通过友好协商而不是仲裁解决。"], ["I hope we can cooperate smoothly. 我希望我们能顺利合作。", "（四）业务范围介绍"], ["The main products our company deals in are electrical appliances. 我们公司主要经营的产", "品是电器。"], ["Our company is mainly engaged in agricultural products business. 我们公司主要从事农产", "品业务。"], ["export of canned goods. 我们很高兴介绍自己是一家专门从事罐装货物出口的国有企业。", "（五）产品优势介绍"], ["distinct advantages in the following aspects. 我们的产品不仅与其他制造商的产品价格相同，而且在以", "下方面具有明显优势。"], ["The maximum speed of this variable speed bicycle is 30 K/H. 这种变速自行车的最高速度为", "30 公里 / 小时。"], ["This material has a durable and easy - to - clean surface. 这种材料表面耐用且易于清洁。", "（六）承诺保证"], ["I can assure you that the product we send you will be of top quality. 我可以向您保证，我", "们发给您的产品将是高品质的。"], ["I give you my word that the payment will be made no later than the end of June. 我保证", "付款不迟于 6 月底。"], ["I promise/I will look into these problems and determine if they are our fault. 我保证 / 我", "会调查这些问题并确定是否是我们的过错。"], ["We can ensure that the goods are not damaged during transit. 我们可以确保货物在运输过", "程中不被损坏。"], ["Inside the copy room, you'll find the printer on the left. 在复印室里，你会在左边找到打印", "机。"], ["You'll be able to work easily after reading the company manual. 读完公司手册后你就能轻", "松工作了。"], ["Feel free to ask questions if you're unsure about anything. 如果你有任何不确定的地方，随", "时提问。"], ["Would you mind leaving your phone number with me? 你介意把你的电话号码留给我吗？", "（三）日常工作介绍"], ["They usually have one - on - one meetings on the Internet. 他们通常在互联网上进行一对一", "会议。"], ["Brainstorming is a popular working method in foreign companies.头脑风暴是外企中流行的", "工作方式。"], ["You are assigned to give a presentation tomorrow. 明天你被安排做一个演讲。", "（五）会议通知"], ["If we have time at the end of the meeting, we can come back to this. 如果会议结束时还有", "时间，我们可以再回到这个问题。"], ["Please read the meeting agenda before the meeting and come prepared. 请在会议前阅读", "议程并做好准备。"], ["Why is there a delay? 为什么会有延迟？", "（七）请教工作问题"], ["You'd better operate the machine according to the procedure next time. 下次你最好按照", "程序操作机器。"], ["I'm afraid you forgot to connect the power cable. 恐怕你忘了连接电源线。", "（八）向上司提建议"], ["In my opinion, we should set achievable small goals. 在我看来，我们应该设定可实现的小目", "标。"], ["I have a suggestion for the next season's promotion activities. 我对下一季的促销活动有一", "个建议。"], ["I was wondering if we could increase sales by providing after - sales service. 我在想我们是", "否可以通过提供售后服务来提高销售额。"], ["I hope everyone can form the habit of making suggestions. 我希望每个人都能养成提建议的", "习惯。"], ["I was thinking that maybe you could join us. 我在想也许你可以加入我们。", "（十）迟到与请假"], ["Please fill out the form and give it to your supervisor for approval. 请填好表格交给你的主", "管批准。"], ["I'll be late for work tomorrow for some personal reasons. 由于一些个人原因，我明天上班会", "迟到。"], ["I'm sorry for being late because I had a car accident on my way. 很抱歉我迟到了，因为我在", "来的路上发生了车祸。"]];window.__KEY__="背完这700句1个月搞定职场英语";window.__TITLE__="背完这700句 1个月搞定职场英语";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

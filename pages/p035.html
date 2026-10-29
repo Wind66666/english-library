@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8.28 30天职场英语挑战</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">📝</span>8.28 30天职场英语挑战</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">47,059 字符</span>
+    <span>来源：8.28  30天职场英语挑战.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C8.28%20%2030%E5%A4%A9%E8%81%8C%E5%9C%BA%E8%8B%B1%E8%AF%AD%E6%8C%91%E6%88%98.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p035.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">30天职场英语挑战
+500句外企办公高频短句
+一、破冰期：搞定 “基础办公沟通不翻车”
+日常问候与寒暄
+Good morning! Did you have a good weekend?（早上好！周末过得好吗？）
+Hi there! How’s your day going so far?（嗨！你今天过得怎么样？）
+Good afternoon! Have you finished the morning tasks?（下午好！上午的任务完成了吗？）
+Hey! Did you catch the latest company notice?（嘿！你看到最新的公司通知了吗？）
+Good evening! Are you heading home now?（晚上好！你现在要回家了吗？）
+How are you doing today? Everything going smoothly?（你今天还好吗？一切都顺利吗？）
+Long time no see! How have you been lately?（好久不见！最近过得怎么样？）
+Hi! Did you get my message about the team lunch?（嗨！你收到我关于团队午餐的消息了吗？）
+Good morning! Do you need a cup of coffee?（早上好！需要一杯咖啡吗？）
+Hey there! Did you prepare for the daily meeting?（嘿！你为日常会议做好准备了吗？）
+Good afternoon! Is the printer working properly now?（下午好！打印机现在能正常工作了吗？）
+Hi! How was your commute to the office today?（嗨！今天上班路上顺利吗？）
+Good evening! Did you complete the report you were working on?（晚上好！你之前在做的报告完成了吗？）
+How’s it going? Do you need any help with your work?（进展如何？工作上需要帮忙吗？）
+Hi! Have you met the new colleague in the marketing department?（嗨！你见过市场部的新同事了吗？）
+Good morning! Did you see the email from the manager?（早上好！你看到经理发来的邮件了吗？）
+Hey! How do you like the new office layout?（嘿！你觉得新的办公室布局怎么样？）
+Good afternoon! Do you know where the stationery cabinet is?（下午好！你知道文具柜在哪里吗？）
+Hi there! Did you bring the data we discussed yesterday?（嗨！你带了我们昨天讨论的数据吗？）
+Good evening! Are you going to the company training tomorrow?（晚上好！你明天要去参加公司培训吗？）
+How was your lunch break? Did you have a nice meal?（午休过得怎么样？吃了一顿好饭吗？）
+Hi! Do you know when the IT team will fix the network issue?（嗨！你知道 IT 团队什么时候会解决网络问题吗？）
+Good morning! Did you remember to bring the project materials?（早上好！你记得带项目资料了吗？）
+Hey! How’s the progress of your assigned task?（嘿！你分配到的任务进展如何？）
+Good afternoon! Do you need to borrow my laptop charger?（下午好！你需要借我的笔记本电脑充电器吗？）
+Hi! Have you tried the new coffee machine in the pantry?（嗨！你试过茶水间的新咖啡机了吗？）
+Good evening! Did you confirm the meeting time with the client?（晚上好！你和客户确认会议时间了吗？）
+How are you feeling today? You looked a bit tired yesterday.（你今天感觉怎么样？昨天看你有点累。）
+Hi! Do you know who to contact for travel expense reimbursement?（嗨！你知道联系谁办理差旅费报销吗？）
+Good morning! Did the courier deliver the samples we were waiting for?（早上好！快递把我们等的样品送来了吗？）
+邮件基础沟通
+I’m writing to confirm the meeting time tomorrow.（我写这封邮件是为了确认明天的会议时间。）
+Please find attached the report you requested.（请查收附件中你需要的报告。）
+Thank you for your prompt reply.（感谢你的及时回复。）
+I’ve reviewed the document and have a few questions.（我已经审阅了文件，有几个问题想问。）
+Could you please send me the updated data by Friday?（你能在周五之前把更新后的数据发给我吗？）
+This email is to follow up on our conversation yesterday.（这封邮件是为了跟进我们昨天的谈话。）
+I’m sorry for the delay in responding to your email.（很抱歉延迟回复你的邮件。）
+Please let me know if you need any further information.（如果你需要更多信息，请告诉我。）
+I’ve shared the meeting minutes with all team members.（我已经把会议纪要分享给了所有团队成员。）
+Could you confirm receipt of this email?（你能确认收到这封邮件吗？）
+I’m writing to inform you that the project deadline will be extended.（我写这封邮件是为了通知你项目截止日期将延长。）
+Thank you for providing the useful information.（感谢你提供的有用信息。）
+I’ve made some revisions to the proposal; please check the attachment.（我对提案做了一些修改，请查看附件。）
+Could you please arrange a meeting with the design team?（你能安排一次和设计团队的会议吗？）
+This is to remind you of the team meeting at 3 pm today.（特此提醒你今天下午 3 点有团队会议。）
+I’m afraid I can’t attend the meeting tomorrow due to a personal matter.（由于个人原因，我恐怕无法参加明天的会议。）
+Please forward this email to the relevant departments.（请将这封邮件转发给相关部门。）
+I’ve discussed the issue with my supervisor and will get back to you soon.（我已经和我的主管讨论了这个问题，会尽快回复你。）
+Could you please clarify your requirements for the project?（你能阐明一下对这个项目的要求吗？）
+Thank you for your support on this project.（感谢你在这个项目上的支持。）
+I’m writing to ask for your approval on the budget proposal.（我写这封邮件是为了请求你批准预算提案。）
+Please let me know your thoughts on the new plan.（请告诉我你对新计划的看法。）
+I’ve received your email and will process it as soon as possible.（我已经收到你的邮件，会尽快处理。）
+Could you please resend the document? I didn’t receive it.（你能重新发一下文件吗？我没收到。）
+This email is to update you on the progress of the marketing campaign.（这封邮件是为了向你更新营销活动的进展。）
+I’m sorry for any inconvenience caused by the mistake.（对于这个错误造成的不便，我深感抱歉。）
+Please confirm if the meeting venue has been booked.（请确认会议场地是否已经预订。）
+I’ve attached the agenda for tomorrow’s meeting for your reference.（我已附上明天会议的议程，供你参考。）
+Could you please provide feedback on the draft report by Wednesday?（你能在周三之前对报告草稿提供反馈吗？）
+Thank you for your understanding regarding the schedule change.（感谢你对日程变更的理解。）
+I’m writing to inform you that the training session has been canceled.（我写这封邮件是为了通知你培训课程已取消。）
+Please let me know if you have any concerns about the project.（如果你对项目有任何担忧，请告诉我。）
+I’ve checked the information and it’s correct.（我已经核实过信息，是正确的。）
+Could you please coordinate with the logistics team for the delivery?（你能和物流团队协调一下送货事宜吗？）
+This is to confirm that the payment has been received.（特此确认款项已收到。）
+I’m afraid the requested document won’t be ready until next week.（恐怕你需要的文件要到下周才能准备好。）
+Please forward the meeting invitation to the new team member.（请把会议邀请转发给新团队成员。）
+I’ve discussed the problem with the client and they agree to the solution.（我已经和客户讨论了这个问题，他们同意这个解决方案。）
+Could you please remind me of the deadline for the task?（你能提醒我一下这个任务的截止日期吗？）
+Thank you for your hard work on the project so far.（感谢你到目前为止在项目上的辛勤付出。）
+I’m writing to confirm the details of our upcoming cooperation.（我写这封邮件是为了确认我们即将合作的细节。）
+Please let me know if you have any questions about the attached file.（如果你对附件文件有任何疑问，请告诉我。）
+I’ve updated the project timeline and shared it in the folder.（我已更新项目时间线，并分享到文件夹中。）
+Could you please send me a copy of the meeting recording?（你能把会议录音的副本发给我吗？）
+This email is to remind you to submit the weekly report by Friday.（这封邮件是为了提醒你周五前提交周报。）
+Thank you for your feedback; I’ll revise the plan accordingly.（感谢你的反馈，我会相应修改计划。）
+I’m writing to inform you that the client has approved our proposal.（我写这封邮件是为了通知你客户已批准我们的提案。）
+Could you please check if the data in the report is accurate?（你能检查一下报告中的数据是否准确吗？）
+Please forward this email to your team and collect their opinions.（请将这封邮件转发给你的团队，并收集他们的意见。）
+I’ve scheduled a meeting with you for tomorrow at 10 am.（我已和你约好明天上午 10 点开会。）
+基础任务沟通
+Could you help me finish this task by the end of the day?（你能帮我在今天结束前完成这个任务吗？）
+I need to collect the data from each department this week.（我这周需要从每个部门收集数据。）
+Have you started working on the assigned project?（你已经开始做分配到的项目了吗？）
+I’ll send you the task list by this afternoon.（我今天下午会把任务清单发给你。）
+Could you please double-check the data for errors?（你能再检查一下数据有没有错误吗？）
+I need to discuss the task details with you later.（我之后需要和你讨论一下任务细节。）
+Have you completed the first part of the task?（你已经完成任务的第一部分了吗？）
+I’ll provide you with the necessary materials for the task.（我会给你提供完成任务所需的材料。）
+Could you please update me on the task progress every day?（你能每天向我更新任务进展吗？）
+I’m having some trouble with this task; can you give me some advice?（我在这个任务上遇到了一些困难，你能给我一些建议吗？）
+We need to finish this task before the end of the month.（我们需要在月底前完成这个任务。）
+Have you received the instructions for the new task?（你收到新任务的说明了吗？）
+I’ll help you with the difficult part of the task.（我会帮你处理任务中困难的部分。）
+Could you please prioritize this task? It’s urgent.（你能把这个任务列为优先事项吗？事情很紧急。）
+I need to confirm the requirements for the task with the manager.（我需要和经理确认一下这个任务的要求。）
+Have you found a way to solve the problem in the task?（你找到解决任务中问题的方法了吗？）
+I’ll adjust the task schedule according to the new situation.（我会根据新情况调整任务日程。）
+Could you please share your progress on the task in the team meeting?（你能在团队会议上分享一下任务进展吗？）
+I need to ask for more time to complete this task.（我需要更多时间来完成这个任务。）
+Have you coordinated with other team members for the task?（你已经和其他团队成员为这个任务进行协调了吗？）
+I’ll make a plan for the task and send it to you tomorrow.（我会为这个任务制定一个计划，明天发给你。）
+Could you please help me gather the necessary documents for the task?（你能帮我收集完成任务所需的文件吗？）
+I’m almost done with the task; I just need to check it again.（我快完成这个任务了，只需要再检查一遍。）
+Have you informed the manager about the task progress?（你已经把任务进展告诉经理了吗？）
+I’ll need your assistance to finish this task on time.（我需要你的帮助才能按时完成这个任务。）
+Could you please let me know if you encounter any problems with the task?（如果你在任务中遇到任何问题，请告诉我好吗？）
+I need to revise the task plan because some requirements have changed.（由于一些要求发生了变化，我需要修改任务计划。）
+Have you tested the result of the task to ensure it’s correct?（你已经测试过任务结果以确保正确了吗？）
+I’ll submit the completed task to the manager tomorrow morning.（我明天早上会把完成的任务提交给经理。）
+Could you please explain the task steps to me again? I didn’t catch it earlier.（你能再给我解释一下任务步骤吗？我之前没听明白。）
+We should divide the task into small parts to finish it faster.（我们应该把任务分成小部分，这样能更快完成。）
+Have you prepared all the tools needed for this task?（你已经准备好这个任务所需的所有工具了吗？）
+I’ll check your task results and give feedback this afternoon.（我今天下午会检查你的任务结果并给出反馈。）
+Could you please adjust your work pace to match the task schedule?（你能调整一下工作节奏以配合任务日程吗？）
+I need to discuss with you how to allocate the task properly.（我需要和你讨论如何合理分配这个任务。）
+Have you encountered any unexpected issues during the task?（你在做任务的过程中遇到意外问题了吗？）
+I’ll provide you with examples to help you understand the task.（我会给你提供例子，帮你理解这个任务。）
+Could you please finish this part of the task before the meeting?（你能在会议前完成任务的这部分内容吗？）
+I need to confirm with the client if the task meets their needs.（我需要和客户确认任务是否符合他们的需求。）
+Have you updated the task progress in the project management tool?（你已经在项目管理工具中更新任务进展了吗？）
+I’ll help you solve the technical problems in the task.（我会帮你解决任务中的技术问题。）
+Could you please share your ideas on how to improve the task process?（你能分享一下如何改进任务流程的想法吗？）
+I need to report the task progress to the supervisor every week.（我需要每周向主管汇报任务进展。）
+Have you coordinated with the support team for the task?（你已经为这个任务和支持团队协调过了吗？）
+I’ll make a checklist to ensure we don’t miss any task steps.（我会做一个清单，确保我们不遗漏任何任务步骤。）
+Could you please remind me to submit the task before the deadline?（你能提醒我在截止日期前提交任务吗？）
+I need to adjust the task priorities because of the new request.（由于新的需求，我需要调整任务优先级。）
+Have you discussed the task difficulties with your teammates?（你已经和队友讨论过任务中的难点了吗？）
+I’ll organize a short meeting to clarify the task requirements.（我会组织一个短会，明确任务要求。）
+Could you please provide a brief summary of the task progress?（你能简要总结一下任务进展吗？）
+办公设备与环境沟通
+Hi! Is the scanner working? I need to scan some documents.（嗨！扫描仪能用吗？我需要扫描一些文件。）
+Good morning! The air conditioner in the office is too cold.（早上好！办公室的空调太冷了。）
+Hey! Do you know where to get more printer paper?（嘿！你知道哪里能拿到更多打印纸吗？）
+Good afternoon! My computer keeps freezing; can IT help?（下午好！我的电脑一直死机，IT 能帮忙吗？）
+Hi there! Is the meeting room booked for this afternoon?（嗨！会议室今天下午预订了吗？）
+Good morning! The water dispenser in the pantry is empty.（早上好！茶水间的饮水机没水了。）
+Hey! My desk lamp isn’t working—where’s the maintenance team?（嘿！我的台灯坏了，维修团队在哪里？）
+Good afternoon! Do you know how to connect to the office Wi-Fi?（下午好！你知道怎么连办公室的无线网络吗？）
+Hi! The copier is jammed again; can you help fix it?（嗨！复印机又卡纸了，你能帮忙修一下吗？）
+Good evening! The elevator by the lobby is out of service.（晚上好！大厅旁边的电梯停用了。）
+Hey there! Is there a spare projector in the storage room?（嘿！储藏室里有备用投影仪吗？）
+Good morning! The temperature in the conference room is too high.（早上好！会议室的温度太高了。）
+Hi! My office key is missing—who should I report to?（嗨！我的办公室钥匙丢了，我该向谁报备？）
+Good afternoon! Do you have a spare USB drive I can borrow?（下午好！你有备用的 U 盘可以借我吗？）
+Hey! The window in my cubicle won’t close properly.（嘿！我工位的窗户关不严实。）
+Good evening! The parking lot gate is stuck—how to get out?（晚上好！停车场的门卡住了，怎么出去？）
+Hi there! Is the office printer set up for color printing?（嗨！办公室的打印机可以彩色打印吗？）
+Good morning! The coffee machine needs more coffee beans.（早上好！咖啡机需要加咖啡豆了。）
+Hey! My office chair is wobbly—can I get a new one?（嘿！我的办公椅晃得厉害，能换一把新的吗？）
+Good afternoon! Do you know where the cleaning supplies are kept?（下午好！你知道清洁用品放在哪里吗？）
+Hi! The whiteboard in Meeting Room A has no markers.（嗨！A 会议室的白板没有马克笔了。）
+Good evening! The lights in the hallway are flickering.（晚上好！走廊的灯在闪烁。）
+Hey there! Is the office fridge working? I put my lunch in it.（嘿！办公室的冰箱好用吗？我把午饭放里面了。）
+Good morning! The power outlet at my desk isn’t working.（早上好！我工位的电源插座没电。）
+Hi! Do you know how to reset the office printer?（嗨！你知道怎么重置办公室的打印机吗？）
+Good afternoon! The conference room’s speaker isn’t loud enough.（下午好！会议室的音响声音不够大。）
+Hey! The stationery in the cabinet is almost gone.（嘿！文具柜里的文具快用完了。）
+Good evening! The air purifier in the office needs a new filter.（晚上好！办公室的空气净化器需要换滤网了。）
+Hi there! Is there a first-aid kit in the office?（嗨！办公室里有急救箱吗？）
+Good morning! The clock on the meeting room wall is wrong.（早上好！会议室墙上的钟时间不准。）
+Hey! My laptop can’t connect to the office printer.（嘿！我的笔记本连不上办公室的打印机。）
+Good afternoon! Do you know who to call for AC repairs?（下午好！你知道空调维修该打给谁吗？）
+Hi! The trash cans in the office need to be emptied.（嗨！办公室的垃圾桶该倒了。）
+Good evening! The door to the storage room won’t lock.（晚上好！储藏室的门锁不上了。）
+同事协作基础沟通
+Hi! Can you cover my desk while I go to the restroom?（嗨！我去洗手间的时候能帮我看一下工位吗？）
+Good morning! Do you have a minute to discuss this task?（早上好！你有时间讨论一下这个任务吗？）
+Hey! Can you pass me the document on your desk?（嘿！能把你桌上的文件递给我吗？）
+Good afternoon! Do you know where Lisa is? I need her help.（下午好！你知道莉萨在哪吗？我需要她帮忙。）
+Hi there! Can we work together on this report?（嗨！我们能一起做这份报告吗？）
+Good morning! Did you hear about the new team project?（早上好！你听说新的团队项目了吗？）
+Hey! Can you remind me of the team meeting time?（嘿！能提醒我一下团队会议的时间吗？）
+Good afternoon! Do you have any tips for this software?（下午好！用这个软件你有什么技巧吗？）
+Hi! Can I borrow your pen? I can’t find mine.（嗨！能借我一支笔吗？我找不到我的了。）
+Good evening! Can we go over the task details tomorrow?（晚上好！我们明天能再核对一下任务细节吗？）
+Hey there! Do you know how to fill out this form?（嘿！你知道怎么填这份表格吗？）
+Good morning! Can you share your notes from yesterday’s meeting?（早上好！能把昨天会议的笔记分享给我吗？）
+Hi! Do you want to grab coffee together during the break?（嗨！休息的时候一起去买杯咖啡吗？）
+Good afternoon! Can you check this email before I send it?（下午好！我发这封邮件前能帮我看一下吗？）
+Hey! Do you know if the team lunch is still on Friday?（嘿！你知道团队午餐还是周五吗？）
+Good evening! Can you help me understand this data chart?（晚上好！能帮我理解一下这个数据图表吗？）
+Hi there! Do you have spare time to help with this task?（嗨！你有空闲时间帮着做一下这个任务吗？）
+Good morning! Can you tell me where the meeting minutes are stored?（早上好！能告诉我会议纪要存在哪里吗？）
+Hey! Do you want to carpool to the office tomorrow?（嘿！明天想一起拼车上班吗？）
+Good afternoon! Can you confirm this client’s contact info?（下午好！能确认一下这个客户的联系方式吗？）
+Hi! Do you know who handled this project last quarter?（嗨！你知道上季度是谁负责这个项目吗？）
+Good evening! Can we adjust our collaboration schedule?（晚上好！我们能调整一下协作的时间安排吗？）
+Hey there! Do you have a copy of the company policy manual?（嘿！你有公司规章制度手册的副本吗？）
+Good morning! Can you help me set up this new software?（早上好！能帮我装一下这个新软件吗？）
+Hi! Do you know when the next team building is?（嗨！你知道下一次团建是什么时候吗？）
+Good afternoon! Can you pass along this message to Tom?（下午好！能把这个消息转告给汤姆吗？）
+Hey! Do you have any feedback on my task draft?（嘿！对我的任务草稿你有什么反馈吗？）
+Good evening! Can we split the work to finish faster?（晚上好！我们能分工合作快点完成吗？）
+Hi there! Do you know how to access the shared drive?（嗨！你知道怎么访问共享驱动器吗？）
+Good morning! Can you help me carry these documents to the meeting?（早上好！能帮我把这些文件搬到会议室吗？）
+Hey! Do you know if the manager is in the office today?（嘿！你知道经理今天在办公室吗？）
+Good afternoon! Can you remind the team about the deadline?（下午好！能提醒一下团队截止日期吗？）
+Hi! Do you want to discuss the project plan over lunch?（嗨！午饭的时候一起讨论项目计划吗？）
+Good evening! Can you help me troubleshoot this computer issue?（晚上好！能帮我解决一下这个电脑问题吗？）
+Hey there! Do you have a spare notebook I can use?（嘿！你有备用的笔记本可以借我用吗？）
+Good morning! Can we sync up on our task progress later?（早上好！之后我们能同步一下任务进展吗？）
+Hi! Do you know where to submit the expense report?（嗨！你知道费用报销单要交到哪里吗？）
+Good afternoon! Can you help me prepare for the client call?（下午好！能帮我准备一下客户会议吗？）
+Hey! Do you know if the office will be closed next Monday?（嘿！你知道下周一办公室放假吗？）
+Good evening! Can we finalize the collaboration details tomorrow?（晚上好！我们明天能敲定协作细节吗？）
+二、实践期：聚焦 “职场进阶沟通”
+会议深度沟通
+Let’s start by going over the action items from last week.（我们先回顾一下上周的行动事项吧。）
+Could you elaborate on your project’s current challenges?（你能详细说说你项目目前面临的挑战吗？）
+I’d like to propose a new approach to this problem.（我想针对这个问题提出一个新方法。）
+Let’s move to the next topic: client feedback analysis.（我们进入下一个话题：客户反馈分析。）
+Does anyone have concerns about the proposed timeline?（有人对提议的时间安排有顾虑吗？）
+I think we should prioritize solving the supply chain issue first.（我认为我们应该优先解决供应链问题。）
+Could you clarify how this solution fits our budget?（你能说明一下这个解决方案如何符合我们的预算吗？）
+Let’s assign a deadline for each action item we discuss.（我们为讨论的每个行动事项设定截止日期吧。）
+I agree with your idea, but we need to test its feasibility.（我同意你的想法，但我们需要测试它的可行性。）
+Does anyone have alternative suggestions for the marketing plan?（有人对营销计划有其他建议吗？）
+Let’s summarize the key decisions we’ve made today.（我们总结一下今天做出的关键决定吧。）
+Could you provide more data to support your conclusion?（你能提供更多数据支持你的结论吗？）
+I’m worried about the client’s response to this change.（我担心客户对这次变更的反应。）
+Let’s decide who will be responsible for each task.（我们确定一下每个任务由谁负责吧。）
+Does everyone agree to move forward with this plan?（大家都同意按这个计划推进吗？）
+I think we need to postpone the decision until we have more info.（我认为我们需要推迟决定，直到获得更多信息。）
+Could you share the latest updates from the design team?（你能分享一下设计团队的最新进展吗？）
+Let’s discuss how to improve our customer service process.（我们讨论一下如何改进客户服务流程吧。）
+I disagree with this plan because it risks missing the deadline.（我不同意这个计划，因为它有错过截止日期的风险。）
+Does anyone have ideas for reducing the project’s costs?（有人有降低项目成本的想法吗？）
+Let’s confirm the next meeting’s date and time before we end.（结束前，我们确认一下下次会议的日期和时间吧。）
+Could you explain why the team is behind on this task?（你能解释一下团队为什么在这个任务上进度落后吗？）
+I think we need to involve the finance team in this discussion.（我认为我们需要让财务团队参与这次讨论。）
+Let’s brainstorm more solutions to the current problem.（我们针对当前问题集思广益更多解决方案吧。）
+Does anyone have doubts about the implementation plan?（有人对实施计划有疑问吗？）
+I suggest we make small adjustments to the current strategy.（我建议我们对当前策略做一些小调整。）
+Could you update us on the client’s latest requirements?（你能向我们更新客户的最新需求吗？）
+Let’s talk about how this change affects our team’s workload.（我们谈谈这次变更如何影响团队的工作量吧。）
+I think we need to schedule a follow-up call with the client.（我认为我们需要和客户安排一次跟进会议。）
+Does anyone have questions about the new task assignments?（有人对新的任务分配有疑问吗？）
+Let’s review the progress of last meeting’s action items.（我们回顾一下上次会议行动事项的进展吧。）
+Could you explain the advantages of this new software?（你能说明一下这款新软件的优势吗？）
+I’m concerned we won’t meet the client’s expectations at this rate.（我担心照这个速度我们无法满足客户的期望。）
+Let’s pick someone to lead the implementation of this plan.（我们选一个人来主导这个计划的实施吧。）
+Does everyone understand the next steps we need to take?（大家都明白我们接下来需要采取的步骤吗？）
+I think we need to collect more feedback from the team.（我认为我们需要从团队收集更多反馈。）
+Could you share your experience with similar client projects?（你能分享一下类似客户项目的经验吗？）
+Let’s discuss how to address the issues from the last audit.（我们讨论一下如何解决上次审计中发现的问题吧。）
+I suggest we set up a weekly check-in for this project.（我建议我们为这个项目安排每周的进度检查。）
+Does anyone have concerns about the team’s current capacity?（有人对团队目前的能力有顾虑吗？）
+Let’s confirm which stakeholders need to be informed.（我们确认一下需要通知哪些相关方吧。）
+Could you explain how this decision aligns with our goals?（你能说明一下这个决定如何与我们的目标保持一致吗？）
+I think we need to adjust the project scope to meet the deadline.（我认为我们需要调整项目范围以满足截止日期。）
+Let’s assign a backup person for each key task.（我们为每个关键任务安排一个备用负责人吧。）
+Does anyone have ideas for improving meeting efficiency?（有人有提高会议效率的想法吗？）
+I suggest we prepare a detailed presentation for the client.（我建议我们为客户准备一份详细的演示文稿。）
+Could you update us on the status of the budget approval?（你能向我们更新预算审批的状态吗？）
+Let’s discuss how to handle potential risks in the plan.（我们讨论一下如何处理计划中的潜在风险吧。）
+I think we need to reschedule the meeting if key members can’t attend.（我认为如果关键成员无法参加，我们需要重新安排会议。）
+Does anyone have feedback on the draft meeting agenda?（有人对会议议程草稿有反馈吗？）
+任务交接进阶沟通
+I’ll hand over the project with a list of pending tasks and contacts.（我会把项目交接给你，附带待办任务和联系人清单。）
+Before we hand over, let’s review the project’s current status.（交接前，我们先回顾一下项目的当前状态吧。）
+I’ve organized all project files into a shared folder—here’s the link.（我已将所有项目文件整理到共享文件夹，这是链接。）
+The client expects biweekly progress updates—let me intro their rep.（客户希望每两周更新一次进度，我来介绍他们的代表。）
+There are three pending approvals—let’s go over who to follow up with.（有三项待审批事项，我们过一遍该跟进谁。）
+I’ve noted common project issues and their solutions for you.（我已为你记录了项目常见问题及其解决方案。）
+The vendor needs 5 days’ notice for deliveries—keep that in mind.（供应商需要提前 5 天通知送货，记住这一点。）
+I’ll hand over the project with a list of pending tasks and contacts.（我会把项目交接给你，附带待办任务和联系人清单。）
+Before we hand over, let’s review the project’s current status.（交接前，我们先回顾一下项目的当前状态吧。）
+I’ve organized all project files into a shared folder—here’s the link.（我已将所有项目文件整理到共享文件夹，这是链接。）
+The client expects biweekly progress updates—let me intro their rep.（客户希望每两周更新一次进度，我来介绍他们的代表。）
+There are three pending approvals—let’s go over who to follow up with.（有三项待审批事项，我们过一遍该跟进谁。）
+I’ve noted common project issues and their solutions for you.（我已为你记录了项目常见问题及其解决方案。）
+The vendor needs 5 days’ notice for deliveries—keep that in mind.（供应商需要提前 5 天通知送货，记住这一点。）
+Let’s schedule a 2-hour meeting tomorrow to complete the handover.（我们明天安排一场 2 小时的会议来完成交接吧。）
+I’ll leave my project notes on your desk for quick reference.（我会把项目笔记放在你桌上，方便快速查阅。）
+The team has a 9 am sync-up daily—join to stay updated.（团队每天上午 9 点有同步会，加入就能了解最新情况。）
+I confirmed with finance that 30% of the budget remains.（我和财务确认过，预算还剩 30%。）
+The design team will send feedback by EOD—remind them if needed.（设计团队会在下班前发反馈，必要时可以提醒他们。）
+I’ll share last month’s meeting recordings to catch you up.（我会分享上个月的会议录音，帮你跟上进度。）
+Watch for delayed client feedback—follow up proactively.（要留意客户反馈延迟的情况，主动跟进。）
+I listed all stakeholders’ contacts in the handover document.（我在交接文档里列出了所有相关方的联系方式。）
+The project tool needs a password reset monthly—I’ll send it today.（项目工具每月需要重置密码，我今天把密码发给你。）
+Let’s do a test run together—you walk through steps, I check gaps.（我们一起做次试运行吧，你操作步骤，我检查遗漏。）
+The client’s decision-maker is free Wednesdays—plan talks then.（客户的决策者周三有空，安排沟通就选这天。）
+I marked urgent tasks in red—prioritize those first.（我用红色标注了紧急任务，先优先处理这些。）
+There’s a vendor payment pending—process it by week’s end.（有一笔供应商款项待支付，周末前处理好。）
+I’ll intro you to core team members this afternoon.（今天下午我把你介绍给核心团队成员。）
+The timeline has a 5-day buffer—use only for emergencies.（时间线有 5 天缓冲期，只在紧急情况下使用。）
+The client hates long emails—keep updates short.（客户不喜欢长邮件，更新内容要简洁。）
+Let’s review the handover doc together—ask questions anytime.（我们一起审阅交接文档吧，随时可以提问。）
+IT set up a support channel—here’s the access link.（IT 团队开通了支持渠道，这是访问链接。）
+There are two scope changes pending—discuss with manager next week.（有两项范围变更待处理，下周和经理讨论。）
+I saved key client chats in a separate folder—you can access it.（我把重要的客户聊天记录存在了单独文件夹，你可以查看。）
+The team uses a shared sheet to track progress—here’s how to update.（团队用共享表格跟踪进度，我教你怎么更新。）
+The client needs signed confirmation for budget changes—don’t forget.（客户要求预算变更需签署确认，别忘记这一步。）
+I’ll be available for 5 days if you have handover questions.（如果你有交接问题，未来 5 天我都可以提供帮助。）
+There’s a legal meeting pending—let me coordinate the time.（有一场法务会议待安排，我来协调时间。）
+I noted technical requirements in the doc—share with dev team.（我在文档里记录了技术要求，要分享给开发团队。）
+Custom parts take 3 weeks—order in advance.（定制零件需要 3 周时间，要提前下单。）
+Let’s do a final check of deliverables before handover.（交接前我们最后检查一遍所有交付物吧。）
+Client feedback takes 3 business days—don’t follow up too soon.（客户反馈需要 3 个工作日，别跟进太快。）
+I shared the risk assessment report—review to understand issues.（我分享了风险评估报告，查看一下了解潜在问题。）
+The weekly report is due Friday 4 pm—you’ll take it over.（周报每周五下午 4 点截止，之后由你负责。）
+The marketing plan needs senior manager approval—follow up Monday.（营销计划有待高级经理审批，周一跟进。）
+I’ll show you how to assign tasks in the project tool.（我教你怎么在项目工具里分配任务。）
+Let’s confirm handover completion with the manager afterward.（之后我们和经理确认交接完成情况吧。）
+I’ll share the client’s preferred communication time with you.（我会把客户偏好的沟通时间分享给你。）
+There are two pending client meetings—add them to your calendar.（有两场客户会议待参加，把它们添加到你的日历里。）
+I noted the project’s key milestones in the handover pack.（我在交接资料里记录了项目的关键里程碑。）
+The team has a weekly feedback session—you should join.（团队每周有反馈会，你应该参加。）
+I’ll explain the client’s past concerns to help you avoid issues.（我会向你说明客户过去的顾虑，帮你避免问题。）
+There’s a supplier contract pending renewal—review it first.（有一份供应商合同待续签，先审阅一下。）
+I’ll show you how to access the project’s historical data.（我教你怎么查看项目的历史数据。）
+The client prefers video calls for important discussions—keep that in mind.（客户偏好重要沟通用视频会议，记住这一点。）
+Let’s create a handover summary to share with the team.（我们做一份交接总结分享给团队吧。）
+I’ll remind you of the key deadlines in the first week.（第一周我会提醒你关键的截止日期。）
+加班协调沟通
+I need to work overtime tonight—can we reschedule the meeting?（我今晚需要加班，我们能重新安排会议时间吗？）
+There’s an urgent task due EOD—can anyone stay to help?（有一项紧急任务今天下班前要完成，有人能留下来帮忙吗？）
+I’ll work overtime tomorrow to catch up on the project.（我明天要加班赶项目进度。）
+Can we adjust the deadline? I’ll need to overtime daily otherwise.（我们能调整截止日期吗？不然我每天都得加班。）
+I arranged to work overtime Saturday—send updates via email.（我安排了周六加班，有更新请通过邮件发给我。）
+The client needs the report Monday—we might overtime this weekend.（客户周一需要报告，我们这周末可能要加班。）
+I’ll overtime tonight to fix data errors—can you cover my check-in?（我今晚要加班修正数据错误，你能代我参加签到吗？）
+Let’s split the work to avoid everyone working overtime.（我们分工吧，避免所有人都加班。）
+I’ll overtime until 9 pm—let IT know if they need my desk.（我会加班到晚上 9 点，要是 IT 团队需要用我的工位，跟他们说一声。）
+Can we prioritize tomorrow’s tasks? I want to avoid overtime.（我们能给明天的任务排个优先级吗？我不想加班了。）
+The deadline is tight—we’ll overtime Thursday and Saturday.（截止日期很紧张，我们周四和周六要加班。）
+I’ll overtime tomorrow morning—can we move the 8 am sync-up?（我明天上午要加班，我们能把早上 8 点的同步会改期吗？）
+I finished my work, but I can stay to help others overtime.（我完成了自己的工作，但可以留下来帮其他人加班。）
+Can we discuss workload in the team meeting? Overtime is too frequent.（我们能在团队会议上讨论工作量吗？加班太频繁了。）
+I’ll overtime this evening—let security know I’ll leave late.（我今晚要加班，告知安保团队我会晚些离开。）
+The client’s urgent request means we have to overtime tonight.（客户的紧急需求意味着我们今晚必须加班。）
+I’ll overtime Wednesday—can you handle the 2 pm client call?（我周三要加班，你能负责下午 2 点的客户会议吗？）
+Let’s check if we can get more resources to avoid next week’s overtime.（我们看看能不能争取更多资源，避免下周加班。）
+I’ll overtime until 7 pm—call me if there’s an emergency.（我会加班到晚上 7 点，有紧急情况给我打电话。）
+Can we extend the timeline by 3 days? It’ll avoid unnecessary overtime.（我们能把项目周期延长 3 天吗？这样能避免不必要的加班。）
+The team has overtime 4 days straight—let’s take a short break.（团队已经连续加班 4 天了，我们短暂休息一下吧。）
+I’ll overtime tomorrow to prepare for the audit—share docs today.（我明天要加班准备审计，今天把文件分享给我。）
+Let’s confirm with the manager about overtime compensation.（我们和经理确认一下加班费的事情吧。）
+I’ll overtime this morning—can you bring me a bottle of water?（我今天上午要加班，你上班时能帮我带瓶水吗？）
+Material delays mean we have to overtime to catch up.（物料延迟意味着我们需要加班赶进度。）
+Can we reschedule the team building? We need to overtime next Friday.（我们能重新安排团建吗？下周五我们需要加班。）
+I’ll overtime Saturday morning—let’s set a sync time.（我周六上午要加班，我们定个同步进度的时间吧。）
+Let’s review the task list—cut non-essential work to avoid overtime.（我们审视一下任务清单，删减非必要工作避免加班。）
+I’ll overtime tonight to finish the presentation—can you proofread?（我今晚要加班完成演示文稿，你能帮我校对吗？）
+The end-of-month report needs overtime on the 30th.（月末报告需要在 30 号加班完成。）
+Can we assign more team members to reduce overtime?（我们能分配更多团队成员来减少加班吗？）
+I’ll overtime Wednesday evening—let me know if tasks change.（我周三晚上要加班，要是任务有变动告诉我。）
+The client moved up the deadline—we have to overtime this week.（客户提前了截止日期，我们这周得加班。）
+Can we finish part of the work today to avoid overtime tomorrow?（我们今天完成部分工作，避免明天加班好吗？）
+I’ll overtime tomorrow to attend the night client meeting.（我明天要加班参加晚上的客户会议。）
+Let’s confirm the overtime hours with HR for payroll.（我们和人力资源部确认加班时长，以便算工资。）
+I’ll overtime this afternoon to fix the project’s minor issues.（我今天下午要加班解决项目的小问题。）
+Can we adjust the work schedule to avoid evening overtime?（我们能调整工作安排，避免晚上加班吗？）
+The team needs to overtime twice this week—let’s plan the days.（团队这周需要加班两次，我们安排一下时间吧。）
+I’ll overtime Saturday to finalize the client’s contract.（我周六要加班敲定客户的合同。）
+Can we share the urgent tasks to avoid single-person overtime?（我们能分担紧急任务，避免单个人加班吗？）
+I’ll overtime tonight to update the project’s progress report.（我今晚要加班更新项目进度报告。）
+The supplier’s mistake means we have to overtime to correct it.（供应商的失误意味着我们需要加班修正。）
+Can we reschedule the training to avoid overtime next week?（我们能重新安排培训，避免下周加班吗？）
+I’ll overtime tomorrow morning—save the morning tasks for me.（我明天上午要加班，把上午的任务留给我。）
+Let’s check if we can delay non-urgent tasks to reduce overtime.（我们看看能不能推迟非紧急任务，减少加班。）
+I’ll overtime Wednesday to help the team meet the deadline.（我周三要加班帮团队赶截止日期。）
+Can we confirm the overtime rules with the manager first?（我们先和经理确认加班规定好吗？）
+I’ll overtime tonight to prepare the meeting materials for tomorrow.（我今晚要加班准备明天的会议资料。）
+The project’s final stage needs overtime—let’s inform the team.（项目最后阶段需要加班，我们通知一下团队吧。）
+跨部门协作沟通
+Hi! Can the marketing team share the latest campaign data?（嗨！市场部能分享一下最新的活动数据吗？）
+Good morning! We need the design team’s support for this project.（早上好！这个项目我们需要设计团队的支持。）
+Hey! Can the finance team confirm the budget approval status?（嘿！财务团队能确认一下预算审批状态吗？）
+Good afternoon! The sales team needs IT to fix the CRM issue.（下午好！销售团队需要 IT 团队解决客户关系管理系统的问题。）
+Hi there! Can we schedule a meeting with the HR team next week?（嗨！我们下周能和人力资源团队安排一场会议吗？）
+Good morning! The product team needs feedback from the customer service team.（早上好！产品团队需要客户服务团队的反馈。）
+Hey! Can the logistics team update us on the delivery status?（嘿！物流团队能给我们更新一下送货状态吗？）
+Good afternoon! We need the legal team to review this contract.（下午好！我们需要法务团队审阅这份合同。）
+Hi! Can the admin team help book the meeting room for Friday?（嗨！行政团队能帮忙预订周五的会议室吗？）
+Good evening! The project team needs the procurement team’s support for supplies.（晚上好！项目团队需要采购团队在物资方面提供支持。）
+Hey there! Can we coordinate with the QA team for testing next week?（嘿！我们下周能和质量保证团队协调测试事宜吗？）
+Good morning! The marketing team needs the sales team’s client insights.（早上好！市场部需要销售团队的客户洞察。）
+Hi! Can the IT team help set up the new software for our team?（嗨！IT 团队能帮我们团队安装新软件吗？）
+Good afternoon! The HR team needs the department’s employee feedback.（下午好！人力资源团队需要该部门的员工反馈。）
+Hey! Can the finance team explain the expense reimbursement process?（嘿！财务团队能解释一下费用报销流程吗？）
+Good evening! We need the design team to adjust the logo by Wednesday.（晚上好！我们需要设计团队在周三前调整好 logo。）
+Hi there! Can the logistics team arrange delivery by the end of the week?（嗨！物流团队能在周末前安排送货吗？）
+Good morning! The legal team needs more details about the project.（早上好！法务团队需要更多关于这个项目的细节。）
+Hey! Can the admin team provide the office supply order form?（嘿！行政团队能提供办公用品订购单吗？）
+Good afternoon! The procurement team needs the project’s material list.（下午好！采购团队需要这个项目的物资清单。）
+Hi! Can the marketing team share the latest campaign data?（嗨！市场部能分享一下最新的活动数据吗？）
+Good morning! We need the design team’s support for this project.（早上好！这个项目我们需要设计团队的支持。）
+Hey! Can the finance team confirm the budget approval status?（嘿！财务团队能确认一下预算审批状态吗？）
+Good afternoon! The sales team needs IT to fix the CRM issue.（下午好！销售团队需要 IT 团队解决客户关系管理系统的问题。）
+Hi there! Can we schedule a meeting with the HR team next week?（嗨！我们下周能和人力资源团队安排一场会议吗？）
+Good morning! The product team needs feedback from the customer service team.（早上好！产品团队需要客户服务团队的反馈。）
+Hey! Can the logistics team update us on the delivery status?（嘿！物流团队能给我们更新一下送货状态吗？）
+Good afternoon! We need the legal team to review this contract.（下午好！我们需要法务团队审阅这份合同。）
+Hi! Can the admin team help book the meeting room for Friday?（嗨！行政团队能帮忙预订周五的会议室吗？）
+Good evening! The project team needs the procurement team’s support for supplies.（晚上好！项目团队需要采购团队在物资方面提供支持。）
+Hey there! Can we coordinate with the QA team for testing next week?（嘿！我们下周能和质量保证团队协调测试事宜吗？）
+Good morning! The marketing team needs the sales team’s client insights.（早上好！市场部需要销售团队的客户洞察。）
+Hi! Can the IT team help set up the new software for our team?（嗨！IT 团队能帮我们团队安装新软件吗？）
+Good afternoon! The HR team needs the department’s employee feedback.（下午好！人力资源团队需要该部门的员工反馈。）
+Hey! Can the finance team explain the expense reimbursement process?（嘿！财务团队能解释一下费用报销流程吗？）
+Good evening! We need the design team to adjust the logo by Wednesday.（晚上好！我们需要设计团队在周三前调整好 logo。）
+Hi there! Can the logistics team arrange delivery by the end of the week?（嗨！物流团队能在周末前安排送货吗？）
+Good morning! The legal team needs more details about the project.（早上好！法务团队需要更多关于这个项目的细节。）
+Hey! Can the admin team provide the office supply order form?（嘿！行政团队能提供办公用品订购单吗？）
+Good afternoon! The procurement team needs the project’s material list.（下午好！采购团队需要这个项目的物资清单。）
+Hi! Can we have a sync meeting with the customer service team tomorrow?（嗨！我们明天能和客户服务团队开个同步会议吗？）
+Good evening! The sales team needs the marketing team’s new brochure.（晚上好！销售团队需要市场部的新宣传册。）
+Hey there! Can the IT team troubleshoot the network issue in our department?（嘿！IT 团队能解决我们部门的网络问题吗？）
+Good morning! We need the finance team to approve the payment for the vendor.（早上好！我们需要财务团队批准给供应商的付款。）
+Hi! Can the design team share the draft of the product packaging?（嗨！设计团队能分享产品包装的草稿吗？）
+Good afternoon! The customer service team needs the product team’s FAQ updates.（下午好！客户服务团队需要产品团队更新的常见问题解答。）
+Hey! Can the logistics team confirm the delivery address with the client?（嘿！物流团队能和客户确认送货地址吗？）
+Good evening! The project team needs the legal team’s advice on the contract terms.（晚上好！项目团队需要法务团队对合同条款的建议。）
+Hi there! Can the HR team arrange a training session for new employees?（嗨！人力资源团队能为新员工安排一场培训吗？）
+Good morning! The marketing team needs the sales team’s sales data for last month.（早上好！市场部需要销售团队上个月的销售数据。）
+Hey! Can the admin team update the office contact list?（嘿！行政团队能更新一下办公室通讯录吗？）
+Good afternoon! We need the procurement team to compare prices of two suppliers.（下午好！我们需要采购团队对比两家供应商的价格。）
+Hi! Can the QA team share the test results of the new product?（嗨！质量保证团队能分享新产品的测试结果吗？）
+Good evening! The IT team needs the department’s feedback on the new system.（晚上好！IT 团队需要该部门对新系统的反馈。）
+Hey there! Can we coordinate with the finance team for the budget review?（嘿！我们能和财务团队协调预算审核事宜吗？）
+Good morning! The customer service team needs the logistics team’s delivery updates.（早上好！客户服务团队需要物流团队的送货更新。）
+Hi! Can the design team adjust the color scheme of the marketing poster?（嗨！设计团队能调整一下营销海报的配色方案吗？）
+Good afternoon! The sales team needs the legal team to review the client contract.（下午好！销售团队需要法务团队审阅客户合同。）
+Hey! Can the procurement team confirm the lead time with the supplier?（嘿！采购团队能和供应商确认交货周期吗？）
+Good evening! The project team needs the admin team to book a venue for the workshop.（晚上好！项目团队需要行政团队为研讨会预订场地。）
+Hi there! Can the HR team provide the employee attendance report for this month?（嗨！人力资源团队能提供这个月的员工考勤报告吗？）
+Good morning! The product team needs the marketing team’s market research results.（早上好！产品团队需要市场部的市场调研结果。）
+Hey! Can the IT team help recover the lost data from my computer?（嘿！IT 团队能帮我恢复电脑里丢失的数据吗？）
+Good afternoon! The finance team needs the department’s expense report by Friday.（下午好！财务团队需要该部门周五前提交费用报告。）
+Hi! Can the logistics team arrange a rush delivery for the urgent order?（嗨！物流团队能为紧急订单安排加急送货吗？）
+Good evening! The marketing team needs the design team’s support for the upcoming event.（晚上好！市场部需要设计团队为即将到来的活动提供支持。）
+Hey there! Can we have a joint meeting with the sales and product teams next week?（嘿！我们下周能和销售、产品团队开个联合会议吗？）
+Good morning! The admin team needs the department’s input on the office renovation plan.（早上好！行政团队需要该部门对办公室装修计划的意见。）
+Hi! Can the QA team help test the new feature of the software?（嗨！质量保证团队能帮忙测试软件的新功能吗？）
+Good afternoon! The project team needs the cross-departmental teams to align on the timeline.（下午好！项目团队需要跨部门团队在时间安排上达成一致。）
+三、突破期：瞄准 “职业晋升关键场景”
+客户谈判沟通
+Based on our capabilities, we can deliver the service in 3 weeks.（根据我们的能力，3 周内可交付这项服务。）
+We’ll offer a 5% discount if you sign the contract this month.（若您本月签署合同，我们将提供 5% 的折扣。）
+Let’s discuss the work scope—any unmentioned requirements?（我们聊聊工作范围吧，有未提及的需求吗？）
+Our team has rich similar project experience to reduce delays.（我们团队有丰富的类似项目经验，可减少延迟风险。）
+We can adjust payment terms to 30% advance, 70% after delivery.（我们可将付款方式调整为预付 30%、交付后付 70%。）
+The budget is based on current scope—extra tasks need cost adjustments.（预算基于当前范围，额外任务需调整费用。）
+We provide 3 months of free maintenance after project completion.（项目完成后，我们提供 3 个月的免费维护。）
+Let’s find a middle ground—2 weeks is tight, 3 weeks is achievable.（我们找个折中方案吧，2 周太紧张，3 周可完成。）
+Our solution cuts your annual operational costs by 15%.（我们的方案能为您降低 15% 的年度运营成本。）
+Who else should join as key decision-makers in this negotiation?（本次谈判还有哪些关键决策者需参与？）
+We offer a 1-week trial to help you assess the service fit.（我们提供 1 周试用，帮您评估服务是否符合需求。）
+Cost increase comes from raw material hikes—we’ll share supplier quotes.（费用上涨源于原材料涨价，我们会分享供应商报价。）
+We take responsibility for service defects, not operation issues.（我们对服务缺陷负责，不对操作问题负责。）
+We’re open to timeline adjustments with clear requirement confirmation.（明确需求后，我们愿意调整项目时间线。）
+A dedicated account manager will be your main contact for updates.（专属客户经理将作为您的主要对接人，同步最新进展。）
+Extend the contract for 2 years, and we’ll offer a 10% discount.（续约 2 年，我们将提供 10% 的折扣。）
+We can’t compromise on quality—it’s key to project success.（质量标准上我们无法妥协，这是项目成功的关键。）
+Let’s schedule a follow-up next week to finalize details.（我们下周安排跟进会议敲定细节吧。）
+We adjusted the proposal based on your feedback—let’s review it.（我们已根据您的反馈调整提案，一起审阅一下吧。）
+At least 5 team members are needed—fewer will extend the timeline.（项目至少需 5 名团队成员，人员减少会延长时间线。）
+We offer extra training to help you make the most of our service.（我们提供额外培训，帮您充分利用我们的服务。）
+Would a weekly progress call meet your communication needs?（每周一次进度会议符合您的沟通需求吗？）
+We can align project milestones with your business goals.（我们可调整项目里程碑，使其与您的业务目标一致。）
+Our solution has been tested in similar industries—we’ll share results.（我们的方案已在类似行业测试过，会分享测试结果。）
+Let’s clarify IP rights of deliverables to avoid future disputes.（我们明确交付物的知识产权归属，避免后续纠纷。）
+We offer partial refunds if service fails to meet agreed standards.（若服务未达约定标准，我们提供部分退款。）
+Any scope changes need written approval—let’s confirm the process.（任何范围变更需书面审批，我们确认流程吧。）
+We’ll conduct a mid-project review—would you like to participate?（我们会进行项目中期审查，您想参与吗？）
+Increase order quantity, and we’ll extend the warranty by 6 months.（增加订单量，我们将把质保期延长 6 个月。）
+Let’s confirm delivery location and receiver to avoid logistics issues.（我们确认送货地点和收货人，避免物流问题。）
+We’ll provide a detailed project plan within 3 workdays post-contract.（合同签署后 3 个工作日内，我们提供详细项目计划。）
+Higher technical requirements? We can assign a senior engineer.（有更高技术要求？我们可指派高级工程师。）
+Let’s set a reasonable penalty clause for delayed delivery.（我们制定合理的延迟交货违约金条款吧。）
+We’ll share a real-time updated project progress dashboard.（我们会分享实时更新的项目进度仪表盘。）
+Good credit record allows us to reduce advance payment to 20%.（良好信用记录可让我们将预付款比例降至 20%。）
+Let’s schedule a technical demo next week to show the solution.（我们下周安排技术演示，展示解决方案的运作。）
+We’ll sign an NDA to protect your business information.（我们会签署保密协议，保护您的商业信息。）
+We provide on-site support twice a month during implementation.（项目实施阶段，我们每月提供两次现场支持。）
+Would you prefer USD or EUR for the payment currency?（您偏好以美元还是欧元作为付款货币？）
+Let’s confirm acceptance criteria to avoid misunderstandings.（我们确认交付物的验收标准，避免误解。）
+We can adjust the project schedule based on your business peak.（我们可根据您的业务高峰期调整项目进度。）
+Let’s discuss how to handle unexpected changes during cooperation.（我们聊聊合作期间如何处理突发变更吧。）
+We’ll provide monthly progress reports with key data indicators.（我们会提供含关键数据指标的月度进度报告。）
+Can we agree on a 7-day grace period for payment after delivery?（我们能约定交付后 7 天的付款宽限期吗？）
+Our team will be available 24/7 for critical issues during the project.（项目期间，针对关键问题我们团队将 24 小时待命。）
+Let’s confirm the frequency of progress updates you require.（我们确认您所需的进度更新频率吧。）
+We can provide references from our existing clients in your industry.（我们可提供您所在行业现有客户的推荐参考。）
+Let’s discuss the process for revising the contract terms if needed.（我们聊聊若需修改合同条款的流程吧。）
+We’ll help train your team to operate the delivered system.（我们会帮您培训团队操作交付的系统。）
+Can we finalize the cooperation framework in this meeting?（我们能在本次会议中敲定合作框架吗？）
+汇报与提案沟通
+Today I’ll present Q3 project progress and Q4 plans.（今天我将汇报第三季度项目进度及第四季度计划。）
+Our marketing campaign increased sales by 20%—let’s check details.（我们的营销活动使销售额增长 20%，来看具体细节。）
+I propose investing in new software to boost efficiency by 30%.（我提议投资新软件，将效率提升 30%。）
+Raw material shortage is our key challenge—here are 3 solutions.（原材料短缺是我们的主要挑战，以下是 3 个解决方案。）
+Let’s review the project’s key achievements in the past 6 months.（我们回顾过去 6 个月项目的主要成果吧。）
+My proposal optimizes the supply chain to cut costs by 15%.（我的提案通过优化供应链，将成本降低 15%。）
+85% of clients are satisfied with our service—survey results show.（调查结果显示，85% 的客户对我们的服务满意。）
+I’ll explain the new plan’s implementation steps and resource needs.（我将说明新计划的实施步骤及所需资源。）
+The project is on schedule, but watch for supplier delay risks.（项目进度正常，但需关注供应商延迟的潜在风险。）
+I propose adjusting the team structure for the new business direction.（我提议调整团队结构，以适配新的业务方向。）
+The project achieved an 18% profit margin, exceeding the target.（项目利润率达 18%，超出预期目标。）
+Let’s compare the pros and cons of the two proposed solutions.（我们对比一下两个提案方案的优缺点吧。）
+I’ll share user feedback on the new product and improvement ideas.（我将分享新产品的用户反馈及改进建议。）
+My proposal includes a 6-month trial to test the new strategy.（我的提案包含 6 个月试用期，以测试新策略效果。）
+Market analysis shows 30% demand growth for this product next year.（市场分析显示，明年该产品需求将增长 30%。）
+I’ll outline next-phase milestones and responsible persons.（我将概述下一阶段的关键里程碑及负责人。）
+I propose a 10% R&amp;D budget increase to speed up innovation.（我提议增加 10% 的研发预算，加快产品创新。）
+Unexpected equipment failure caused last month’s delay—we took precautions.（上个月项目延迟源于设备故障，我们已采取预防措施。）
+Let’s review the project’s budget usage and adjust next-phase allocation.（我们回顾一下项目目前的预算使用情况，并调整下一阶段的分配吧。）
+My proposal expands Southeast Asia market share via local partnerships.（我的提案旨在通过建立本地合作关系，扩大我们在东南亚的市场份额。）
+Data comparison proves our new process is more efficient than the old one.（数据对比表明，我们的新流程比旧流程效率更高。）
+I’ll explain how the new policy impacts our team and its implementation plan.（我将说明新政策对我们团队的影响及其实施计划。）
+I propose an employee training program to enhance professional skills.（我提议组织员工培训项目，提升大家的专业技能。）
+Key clients have given positive feedback on the project—here are their comments.（关键客户已对项目给出积极反馈，以下是他们的评价。）
+Let’s discuss the new proposal’s implementation timeline and potential challenges.（我们讨论一下新提案的实施时间线及潜在挑战吧。）
+I’ll present the cost-benefit analysis of the new investment project.（我将汇报新投资项目的成本效益分析。）
+I propose optimizing the customer service process to cut complaint rates by 25%.（我提议优化客户服务流程，将投诉率降低 25%。）
+Team performance evaluation shows most members met or exceeded targets.（团队绩效评估显示，大部分成员已达到或超出目标。）
+Let’s review the project’s encountered problems and implemented solutions.（我们回顾一下项目中遇到的问题及已实施的解决方案吧。）
+My proposal includes a contingency plan for unexpected implementation issues.（我的提案包含应急计划，以应对实施过程中的突发情况。）
+The new product line contributed 30% of total sales—sales report shows.（销售报告显示，新产品线贡献了总销售额的 30%。）
+I’ll explain our solution’s technical advantages over competitors.（我将说明我们的解决方案相较于竞争对手的技术优势。）
+I propose extending the project deadline by 2 weeks to ensure quality.（我提议将项目截止日期延长 2 周，以确保质量。）
+70% of staff support the new work-from-home policy—employee survey shows.（员工调查显示，70% 的员工支持新的居家办公政策。）
+Let’s discuss the new project’s resource allocation and cross-department coordination.（我们讨论一下新项目的资源分配及跨部门协调事宜吧。）
+I’ll present the new proposal’s risk assessment and mitigation measures.（我将汇报新提案的风险评估及缓解措施。）
+I propose establishing a cross-departmental team to advance the new project.（我提议成立跨部门团队，推进新项目的开展。）
+The client approved the next-phase plan in the project review meeting.（与客户的项目评审会议进展顺利，他们已同意下一阶段计划。）
+Let’s review the project’s KPIs and adjust them if necessary.（我们回顾一下项目的关键绩效指标（KPI），必要时进行调整吧。）
+My proposal improves customer loyalty via a membership reward program.（我的提案旨在通过推出会员奖励计划，提升客户忠诚度。）
+I’ll present the reasons for the project’s cost overrun and correction plans.（我将汇报项目超支的原因及整改计划。）
+I propose adjusting the product pricing strategy based on market demand.（我提议根据市场需求调整产品定价策略。）
+Let’s discuss how to align the project goals with the company’s annual targets.（我们讨论一下如何使项目目标与公司年度目标保持一致吧。）
+I’ll share the results of the market competition analysis for our new product.（我将分享新产品的市场竞争分析结果。）
+I propose increasing customer outreach efforts to boost brand awareness.（我提议加大客户拓展力度，提升品牌知名度。）
+Let’s review the project’s deliverable quality and improvement directions.（我们回顾一下项目交付物的质量及改进方向吧。）
+I’ll explain how the new team collaboration tool improves work efficiency.（我将说明新的团队协作工具如何提升工作效率。）
+I propose revising the project’s quality inspection standards to meet client demands.（我提议修订项目质量检测标准，以满足客户需求。）
+Let’s discuss the measures to ensure the project meets the client’s long-term needs.（我们讨论一下如何确保项目满足客户的长期需求吧。）
+I’ll present the summary of the project’s overall performance and future recommendations.（我将汇报项目整体执行情况总结及未来改进建议。）
+团队管理沟通
+Let’s have a one-on-one this afternoon to talk about your work challenges.（今天下午我们进行一对一沟通，聊聊你工作中遇到的挑战。）
+Your contribution to the project was key to its success—well done!（你对项目的贡献是其成功的关键，做得好！）
+We need to adjust the team’s schedule to meet the new deadline.（我们需要调整团队的工作时间表，以满足新的截止日期。）
+Let’s hold a brainstorming session tomorrow to solve this technical issue.（明天我们开一场头脑风暴会议，解决这个技术问题。）
+I’ll arrange extra training on the new software to help you master it.（我会安排新软件的额外培训，帮你更快掌握。）
+We should clarify each member’s responsibilities to avoid work overlap.（我们要明确每位成员的职责，避免工作重叠。）
+Let’s celebrate the team’s achievement of finishing the project early.（我们庆祝团队提前完成项目的成就吧。）
+Everyone is encouraged to share ideas in meetings—all voices matter.（鼓励大家在会议上分享想法，每个声音都很重要。）
+We’ll use a dedicated tool to improve the team’s communication efficiency.（我们会使用专属工具，提升团队的沟通效率。）
+I’ll give you constructive feedback to help you improve your work.（我会给你建设性反馈，帮你提升工作表现。）
+We need to reallocate tasks based on each member’s strengths.（我们要根据每位成员的优势重新分配任务。）
+Let’s set clear goals for next month and track progress weekly.（我们为下个月设定明确目标，并每周跟踪进度。）
+I support your proposal to optimize workflow—let’s discuss implementation.（我支持你优化工作流程的提案，我们讨论实施步骤吧。）
+We need to resolve the conflict between team members promptly.（我们要及时解决团队成员之间的矛盾。）
+Let’s organize a team-building activity next Friday to boost cohesion.（下周五我们组织团建活动，增强团队凝聚力。）
+I’ll delegate the design team coordination task to you—I trust your ability.（我会把与设计团队协调的任务交给你，我相信你的能力。）
+Let’s review the team’s last-quarter performance and make improvement plans.（我们回顾团队上季度的表现，制定改进计划吧。）
+We’ll set up a weekly check-in to share progress and solve problems.（我们建立每周签到会，及时分享进度和解决问题。）
+I’ll advocate for a salary increase for you based on your outstanding work.（基于你出色的工作表现，我会为你争取加薪。）
+We need to secure more resources to support the new project.（我们要争取更多资源，支持新项目的开展。）
+Let’s create a knowledge-sharing platform for team members to exchange experiences.（我们搭建知识共享平台，供团队成员交流经验。）
+I’ll help you analyze and solve the work problem you mentioned.（我会帮你分析并解决你提到的工作问题。）
+We need to adjust the team’s work priorities based on the company’s new strategy.（我们要根据公司新战略，调整团队的工作优先级。）
+Let’s recognize this month’s top performers and learn from their experience.（我们表彰本月的优秀成员，并借鉴他们的经验。）
+I’ll arrange for you to mentor the new member to help them integrate faster.（我会安排你指导新成员，帮他们更快融入团队。）
+We’ll provide regular training to improve the team’s problem-solving ability.（我们会提供定期培训，提升团队的问题解决能力。）
+Let’s discuss the team’s workload and find ways to reduce stress.（我们讨论团队的工作量，找到减轻压力的方法。）
+I’ll update the team on the latest company policies and answer questions.（我会向团队更新公司最新政策，并解答大家的疑问。）
+We need to establish a feedback mechanism for members to share opinions freely.（我们要建立反馈机制，让成员能自由分享想法。）
+Let’s work together to build a positive and efficient team culture.（我们共同努力，打造积极高效的团队文化。）
+I’ll schedule monthly career development talks with each team member.（我会和每位团队成员安排月度职业发展沟通。）
+We need to set up a system to track each member’s work progress.（我们要建立系统，跟踪每位成员的工作进度。）
+Let’s discuss how to improve the team’s collaboration with other departments.（我们讨论如何提升团队与其他部门的协作效率。）
+I’ll share industry best practices to help the team improve work quality.（我会分享行业最佳实践，帮团队提升工作质量。）
+We need to address the team’s low morale and find solutions.（我们要关注团队士气低落的问题，并找到解决办法。）
+Let’s set up a reward system to recognize members’ outstanding contributions.（我们建立奖励机制，表彰成员的突出贡献。）
+I’ll help you identify your strengths and areas for improvement.（我会帮你明确自己的优势和需要改进的地方。）
+We need to adjust the team’s work methods to adapt to remote work.（我们要调整团队的工作方式，以适应远程办公。）
+Let’s hold a quarterly review to evaluate the team’s overall performance.（我们召开季度评审会，评估团队的整体表现。）
+I’ll coordinate with other managers to secure more support for our team.（我会和其他管理者协调，为我们团队争取更多支持。）
+We need to create a clear career path for each team member.（我们要为每位团队成员规划清晰的职业发展路径。）
+Let’s discuss how to handle the team’s workload during peak seasons.（我们讨论如何应对旺季时团队的工作量问题。）
+I’ll provide resources to help members develop new professional skills.（我会提供资源，帮成员培养新的专业技能。）
+We need to improve the team’s decision-making efficiency for urgent tasks.（我们要提升团队处理紧急任务时的决策效率。）
+Let’s organize cross-training among team members to enhance flexibility.（我们在团队内开展交叉培训，提升成员的工作灵活性。）
+I’ll communicate the team’s achievements to senior management regularly.（我会定期向高层管理汇报团队的工作成果。）
+We need to establish clear rules for team communication and collaboration.（我们要制定明确的团队沟通和协作规则。）
+Let’s discuss how to leverage each member’s expertise for project success.（我们讨论如何利用每位成员的专长，助力项目成功。）
+I’ll help the team resolve misunderstandings with external partners.（我会帮团队解决与外部合作方的误解问题。）
+We need to set long-term goals for the team and break them into short-term tasks.（我们要为团队设定长期目标，并将其拆解为短期任务。）
+职业发展沟通
+I’d like to discuss my career development plan with you this week.（我想本周和你聊聊我的职业发展规划。）
+What skills do I need to develop to move to the next position?（要晋升到下一个职位，我需要培养哪些技能？）
+I’m interested in taking on more leadership roles in future projects.（我希望在未来的项目中承担更多领导职责。）
+Can you provide feedback on my performance and areas for improvement?（你能针对我的表现和需改进的地方给出反馈吗？）
+I’d like to participate in the company’s leadership training program.（我想参加公司的领导力培训项目。）
+What opportunities are available for cross-departmental experience?（有哪些跨部门历练的机会可以参与？）
+I’m looking to specialize in project management—how can I prepare?（我希望专攻项目管理领域，该如何准备？）
+Can we set clear performance goals for my career growth?（我们能为我的职业发展设定明确的绩效目标吗？）
+I’d like to mentor new employees to develop my leadership skills.（我想通过指导新员工来培养自己的领导力。）
+What steps should I take to qualify for the senior specialist role?（要具备高级专员职位的资质，我需要采取哪些步骤？）
+I’m interested in learning about the company’s international project opportunities.（我想了解公司的国际项目机会。）
+Can you recommend resources to help me improve my professional English?（你能推荐帮我提升职业英语的资源吗？）
+I’d like to take on more client-facing tasks to build communication skills.（我想承担更多客户对接工作，提升沟通能力。）
+What’s the typical career path for someone in my current position?（我目前这个职位的常规职业发展路径是怎样的？）
+I’m looking to develop my strategic thinking skills—how can I practice?（我希望培养战略思维能力，该如何实践？）
+Can we schedule regular check-ins to discuss my career progress?（我们能安排定期沟通，讨论我的职业进展吗？）
+I’d like to participate in industry conferences to expand my network.（我想参加行业会议，拓展人脉资源。）
+What performance metrics are most important for my promotion?（对我的晋升而言，哪些绩效指标最重要？）
+I’m interested in learning about the company’s innovation projects.（我想了解公司的创新项目情况。）
+Can you connect me with a mentor who has experience in my target role?（你能帮我联系一位有目标职位经验的导师吗？）
+I’d like to improve my data analysis skills—are there training courses available?（我想提升数据分析能力，有可用的培训课程吗？）
+What challenges might I face in the next stage of my career?（在职业发展的下一阶段，我可能会面临哪些挑战？）
+I’m looking to lead a small team—what opportunities are there?（我希望带领一个小团队，有哪些这样的机会？）
+Can you provide guidance on how to balance work and skill development?（你能指导我如何平衡工作与技能提升吗？）
+I’d like to contribute to the company’s sustainability initiatives.（我想为公司的可持续发展项目出一份力。）
+What additional responsibilities can I take on to demonstrate my 能力？（我能承担哪些额外职责来证明自己的能力？）
+I’m interested in transferring to the marketing department—what’s the process?（我想转到市场部，流程是怎样的？）
+Can we discuss how my current work aligns with the company’s long-term goals?（我们能聊聊我目前的工作如何与公司长期目标契合吗？）
+I’d like to develop my negotiation skills for client projects.（我想为客户项目培养自己的谈判能力。）
+What qualifications do I need to obtain for career advancement?（要实现职业晋升，我需要获得哪些资质证书？）
+I’m looking to improve my presentation skills for stakeholder meetings.（我希望提升在相关方会议中的演示能力。）
+Can you share success stories of employees who advanced from my position?（你能分享从类似我当前职位晋升的员工的成功案例吗？）
+I’d like to take on project budgeting tasks to develop financial skills.（我想承担项目预算工作，培养财务能力。）
+What’s the timeline for reviewing my eligibility for promotion?（审核我晋升资格的时间安排是怎样的？）
+I’m interested in learning about the company’s digital transformation projects.（我想了解公司的数字化转型项目。）
+Can you provide feedback on my leadership potential?（你能对我的领导潜力给出反馈吗？）
+I’d like to collaborate with other teams to expand my expertise.（我想和其他团队合作，拓展自己的专业领域。）
+What steps can I take to become a subject matter expert in my field?（要成为所在领域的专家，我需要采取哪些步骤？）
+I’m looking to improve my time management skills for complex projects.（我希望为复杂项目提升自己的时间管理能力。）
+Can we set milestones for my skill development over the next 6 months?（我们能为我未来 6 个月的技能提升设定里程碑吗？）
+I’d like to participate in the company’s mentorship program as a mentee.（我想以学员身份参加公司的导师计划。）
+What impact does the company’s new strategy have on my career path?（公司的新战略对我的职业发展路径有什么影响？）
+I’m interested in taking on international assignments—how can I apply?（我想承担国际外派任务，该如何申请？）
+Can you recommend books or articles to help my professional growth?（你能推荐助力我职业成长的书籍或文章吗？）
+I’d like to develop my conflict resolution skills for team management.（我想为团队管理培养自己的冲突解决能力。）
+What feedback have you received about my work from other departments?（你从其他部门收到过关于我工作的哪些反馈？）
+I’m looking to improve my decision-making skills for high-pressure tasks.（我希望为高压任务提升自己的决策能力。）
+Can we discuss how to showcase my achievements in the performance review?（我们能聊聊如何在绩效评审中展示我的工作成果吗？）
+I’d like to learn about the company’s succession planning process.（我想了解公司的继任计划流程。）
+What long-term skills should I develop to stay competitive in the industry?（要在行业中保持竞争力，我应长期培养哪些技能？）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="82830天职场英语挑战";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

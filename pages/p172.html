@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全英交流500句咖啡色</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">☕</span>全英交流500句咖啡色</h1>
+  <div class="meta">
+    <span class="badge pdf">PDF</span>
+    <span class="charspill">18,005 字符</span>
+    <span>来源：全英交流500句咖啡色.pdf</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%85%A8%E8%8B%B1%E4%BA%A4%E6%B5%81500%E5%8F%A5%E5%92%96%E5%95%A1%E8%89%B2.pdf" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p172.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">全英交流
+ 
+MEMORIZE THESE 
+无非就这599句,稳了
+SENTENCES
+SAY GOODBYE TO BEING TONGUE-TIED IN ENGLISH
+问候与寒暄
+1. How are you doing? 你最近怎么样？
+2. Long time no see! 好久不见！
+3. Nice to meet you! 很高兴见到你！
+4. It&#x27;s a pleasure to meet you. 很高兴见到
+你。
+5. I&#x27;m so glad to meet you. 我很高兴见到
+你。
+6. How are you doing today? 你今天过得
+咋样？
+7. How&#x27;s it going? 最近过得怎么样？
+8. How are you feeling today? 今天你感
+觉咋样？
+9. How&#x27;s everything going? 一切都还好吗？
+10. What&#x27;s up? 最近怎么样？
+提供与寻求帮助
+1. How can I help you? 我能帮你什么吗？
+2. Could you help me, please? 你能帮我一
+下吗？
+3. Could you help me with this? 你能帮我
+一下这个吗？
+4. Excuse me, can you help me with this? 
+劳驾，你能帮我一下这个吗？
+5. Can you give me a hand? 你能帮我一下
+吗？
+6. Do you need any help? 你需要帮助吗？
+7. Can I help you? 我能帮你吗？
+8. Is there anything I can do for you? 我
+能为你做点什么吗？
+表达观点与回应
+1. What do you think? 你觉得怎么样？
+2. What do you think about it? 你咋看这
+件事？
+3. I totally agree with you. 我完全同意你。
+4. I couldn&#x27;t agree more. 我完全同意。
+5. I don&#x27;t think so. 我不这么认为。
+6. That&#x27;s exactly what I was thinking. 这
+正是我所想的。
+7. You&#x27;ve got a point. 你说得有道理。
+8. It doesn&#x27;t make sense. 这说不通。
+9. I&#x27;m not sure about that. 我不太确定。
+10. I have no idea. 我完全不知道。
+11. I&#x27;m not in the mood. 我没心情。
+12. That sounds great. 听起来很棒。
+13. It&#x27;s not a big deal. 这没什么大不了的。
+14. It&#x27;s not my cup of tea. 那不是我的兴趣
+所在。
+15. It&#x27;s none of your business. 这不关你的
+事。
+16. Don&#x27;t take it personally. 别往心里去。
+17. Don&#x27;t take it seriously. 别太当真。
+18. Better late than never. 迟到总比不到好。
+1. Could you repeat that, please? 
+请求重复、解释与放慢语速
+你能再
+重复一遍吗？
+2. Could you please repeat that? 你可以
+再说一遍吗？
+3. Could you please repeat that more 
+slowly? 你能再慢点重复一遍吗？
+4. Sorry, I didn&#x27;t catch that. 抱歉，我没听
+清。
+5. I&#x27;m sorry, I didn&#x27;t catch your name. 很
+抱歉，我没听清你的名字。
+6. I&#x27;m afraid I don&#x27;t understand. 恐怕我不
+明白。
+7. Could you explain that to me? 你能跟
+我解释一下吗？
+8. Could you explain this to me? 你能给
+我解释一下这个吗？
+9. Could you speak a bit slower, please? 
+你可以说慢一点吗？
+10. Could you speak more slowly? 你能说
+得慢一点吗？
+11. Could you speak a little slower? 你能
+说得慢一点吗？
+1. Where are you from? 你来自哪里？
+2. What do you do in your free time? 
+询问个人信息
+你
+空闲时间做什么？
+3. Do you speak English? 你会说英语吗？
+4. What&#x27;s your favorite food? 你最喜欢的
+食物是什么？
+5. What&#x27;s your favorite movie? 你最喜欢
+的电影是什么？
+6. Do you have any hobbies? 你有什么爱
+好吗？
+7. How long have you been living here? 
+你在这里住了多久了？
+8. What&#x27;s your favorite type of music? 
+你最喜欢哪种类型的音乐？
+9. Do you have any dietary restrictions? 
+你有什么饮食限制吗？
+    
+问路与询问地点相关信息
+问洗手间在哪里？
+2. Could you tell me where the 
+1. Excuse me, where is the restroom? 请
+restroom 
+is? 你能告诉我卫生间在哪里吗？
+3. Can you tell me where the nearest 
+station is? 你能告诉我最近的车站在哪里
+吗？
+4. Could you tell me the way to the 
+airport? 你能告诉我去机场的路吗？
+5. How do I get to the airport? 我怎么去
+机场？
+6. How do I get to the train station? 我怎
+么去火车站？
+7. How do I get to the main square? 怎
+么去主广场？
+8. How can I get to the nearest subway 
+station? 最近的地铁站怎么走？
+9. Where is the nearest ATM? 最近的取款
+机在哪里？
+10. Where is the nearest train station? 最
+近的火车站在哪里？
+11. Where is the nearest subway station? 
+最近的地铁站在哪里？
+12. Is there a hospital nearby? 附近有医院
+吗？
+13. Is there a supermarket nearby? 这里附
+近有超市吗？
+14. Is there a place to park nearby? 附近有
+停车的地方吗？
+15. Is there a place to exchange money 
+nearby? 附近有兑换货币的地方吗？
+16. Are there any beaches nearby? 附近有
+沙滩吗？
+17. Are there any vegetarian restaurants 
+around? 附近有素食餐厅吗？
+18. Is there a good place for hiking 
+nearby? 附近有适合徒步的地方吗？
+19. Is there a good place for shopping? 你
+知道购物的好地方吗？
+20. Where can I find a pharmacy? 你知道
+哪里可以找到药店吗？
+21. Where can I find a good coffee shop? 
+哪里可以找到不错的咖啡馆？
+22. Where can I find a public restroom? 
+哪里有公共厕所？
+23. Where can I rent a car? 哪里可以租车？
+24. Where can I buy a SIM card for my 
+phone? 哪里可以买到手机的 SIM 卡？
+25. I&#x27;m looking for a souvenir shop. 我在
+找一家纪念品商店。
+26. I&#x27;m lost. 我迷路了。
+27. I&#x27;m trying to find... 我在试图找…… （ 可 根
+据情境补充具体地点）
+时间相关询问
+1. What time is it now? 现在几点了？
+2. What time is it? 现在几点？
+3. What time does the meeting start? 会
+议几点开始？
+4. What time does the store close? 这家
+店几点关门？
+5. What time do we need to leave? 我们
+需要几点离开？
+6. What time do you usually have dinner? 
+你通常什么时候吃晚饭？
+7. What time is check-out? 退房时间是几
+点？
+8. What time does the last bus leave? 最
+后一班公交车几点发车？
+9. How long will it take? 需要多久？
+10. How long will it take to get there? 到
+那里需要多长时间？
+购物、餐饮与消费相关
+1. How much is this? 这个多少钱？
+2. How much does it cost? 这个多少钱？
+3. How much does it cost for one night? 
+一晚多少钱？
+4. How much does it cost to get in? 入场
+费是多少？
+5. Could I get the bill, please? 我可以结账
+了吗？
+6. Can I have the check, please? 请给我账
+单吗？
+7. I&#x27;d like to have this, please. 我想要这个。
+8. I&#x27;d like a table for two, please. 我想要
+一张两人桌，谢谢。
+9. I&#x27;d like to book a table for two. 我想订
+一个两个人的桌子。
+10. I&#x27;d like to book a room for two nights. 
+我想订一个房间住两晚。
+11. Do you take credit cards? 你们接受信用
+卡吗？
+12. Do you accept credit cards here? 这里
+接受信用卡吗？
+13. Can I pay in cash? 我可以用现金支付吗？
+14. Can I pay by credit card? 我可以刷卡吗？
+15. Can I pay in installments? 我可以分期
+付款吗？
+16. Do you have any special discounts? 你
+们有特别折扣吗？
+17. Is it possible to get a discount? 可以打
+折吗？
+18. What would you like to drink? 你想喝
+点啥？
+19. Can I have a cup of coffee, please? 我
+可以来杯咖啡吗？
+20. Can I have a glass of water, please? 请
+给我一杯水好吗？
+21. Do you have any vegetarian options? 
+你们有素食选择吗？
+22. What&#x27;s the best thing on the menu? 
+菜单上最好的菜是什么？
+23. Could you recommend a good 
+restaurant? 你能推荐一家好的餐厅吗？
+24. Could you recommend a good 
+restaurant around here? 你能推荐一个
+附近不错的餐厅吗？
+25. Could you recommend a good hotel 
+around here? 你能推荐一家附近不错的
+酒店吗？
+26. Could you recommend a good book 
+for me? 你能给我推荐一本好书吗？
+27. Could you recommend something? 你
+能推荐点什么吗？
+28. What do you recommend? 你推荐什么？
+29. Could you recommend some local 
+dishes? 你能推荐些当地的菜吗？
+30. Could you recommend a local dish to 
+try? 你能推荐一个当地菜品吗？
+31. I&#x27;d love to try the local food. 我很想尝
+试当地的食物。
+32. Can I get this to-go? 我可以打包这个吗？
+33. Can you pack this to go? 你能把这个打
+包吗？
+34. I&#x27;ll have the same thing as them. 我点
+跟他们一样的。
+35. I&#x27;m just browsing, thanks. 我只是随便
+看看，谢谢。
+36. I&#x27;m just looking, thanks. 我只是随便看
+看，谢谢。
+37. Do you have this in a different color? 
+你们有其他颜色的吗？
+38. Can I try this on? 我可以试穿一下吗？
+39. Can I have a copy of the receipt? 我可
+以要一份收据吗？
+40. Can you give me a receipt for this? 你
+可以给我这个的收据吗？
+41. That&#x27;s a rip-off. 这简直是抢钱。
+42. That&#x27;s too expensive. 太贵了。
+旅游与活动相关
+1. Can you recommend a good place to 
+visit? 你能推荐个好玩的地方吗？
+2. Could you suggest some places to 
+visit? 你可以推荐一些值得去的地方吗？
+3. What are the main attractions in this 
+area? 这一带的主要景点是什么？
+4. Do you have any brochures or maps? 
+你们有宣传册或地图吗？
+5. Do you have any brochures about 
+local attractions? 你有关于当地景点的
+宣传册吗？
+6. Are there any events happening this 
+week? 这周有活动吗？
+7. Do you offer guided tours? 你们提供导
+游服务吗？
+8. Can I take photos here? 我能在这里拍
+照吗？
+9. Is it safe to walk around at night? 晚
+上在这里走安全吗？
+10. What&#x27;s the temperature like today? 今
+天的温度怎么样？
+11. What&#x27;s the weather like today? 今天天
+气怎么样？
+12. What&#x27;s the weather forecast for 
+tomorrow? 明天的天气预报是什么？
+13. I&#x27;m interested in learning more about 
+your culture. 我对了解你的文化很感兴趣。
+14. Could you tell me more about your 
+culture? 你能多告诉我一些关于你们文化
+的事情吗？
+15. Can I make an international call here? 
+我可以在这里打国际电话吗？
+16. Do you have Wi-Fi here? 这里有无线网
+络吗？
+17. What&#x27;s your Wi-Fi password? 你们的 
+Wi-Fi 密码是什么？
+18. How do I connect to the Wi-Fi here? 
+我该如何连接这里的 Wi-Fi?
+19. Can I leave my luggage here? 我可以把
+行李寄存在这里吗？
+20. What are the opening hours? 营业时间
+是几点到几点？
+日常交流其他表达
+1. Let me think about it. 让我想一想。
+2. Let&#x27;s take a break. 我们休息一下吧。
+3. Let&#x27;s keep in touch. 我们保持联系吧。
+4. I&#x27;m running late. 我快要迟到了。
+5. I&#x27;m on my way. 我正在路上。
+6. I&#x27;ll be back in a minute. 我马上回来。
+7. I&#x27;ll be right back. 我马上回来。
+8. I&#x27;ll take care of it. 我会处理的。
+9. I&#x27;ll get back to you. 我会回复你的。
+10. I&#x27;ll give it a shot. 我试试看。
+11. I&#x27;ll cross that bridge when I come to it. 
+到时候再说。
+12. I&#x27;ll keep that in mind. 我会记住的。
+13. I&#x27;m looking forward to it. 我很期待。
+14. I&#x27;m looking forward to meeting you. 
+我很期待见到你。
+15. I&#x27;m looking forward to working with 
+you. 我很期待和你合作。
+16. I&#x27;m proud of you. 我为你感到骄傲。
+17. Congratulations! 恭喜！
+18. You did a great job! 你干得很好！
+19. You&#x27;re a lifesaver. 你真是我的救星。
+20. That&#x27;s very kind of you. 你真是太好了。
+21. Thank you for your help! 感谢你的帮助！
+22. Thanks for your help, I really 
+appreciate it. 谢谢你的帮助，我真的很感
+激。
+23. You&#x27;re welcome. 不客气。
+24. Don&#x27;t mention it. 别客气。
+25. It&#x27;s my pleasure. 这是我的荣幸。
+26. Sorry, I&#x27;m late. 很抱歉我迟到了。
+27. I&#x27;m sorry to bother you. 很抱歉打扰你。
+28. I&#x27;m sorry to interrupt. 很抱歉打断了。
+29. Sorry for the inconvenience. 抱歉造成
+不便。
+30. Sorry for the trouble. 抱歉添麻烦了。
+31. I&#x27;m sorry, I didn&#x27;t mean to. 抱歉，我不
+是故意的。
+32. It doesn&#x27;t matter. 没关系。
+33. That&#x27;s not a problem. 那不是问题。
+34. Don&#x27;t worry about it. 别担心。
+35. Please don&#x27;t worry about it. 不要担心
+这件事。
+36. Take it easy. 别紧张，放轻松。
+37. Relax. 放松。
+38. Don&#x27;t lose your temper. 别发脾气。
+39. Don&#x27;t make a scene. 别闹了。
+40. Don&#x27;t push me. 别逼我。
+41. Don&#x27;t beat around the bush. 别拐弯抹
+角。
+42. Don&#x27;t jump to conclusions. 别急着下结
+论。
+43. Don&#x27;t judge a book by its cover. 别以
+貌取人。
+44. Don&#x27;t judge too quickly. 别太快下结论。
+45. Don&#x27;t cry over spilled milk. 覆水难收。
+46. Don&#x27;t put all your eggs in one basket. 
+别把所有鸡蛋放在一个篮子里。
+47. Don&#x27;t put the cart before the horse. 本
+末倒置。
+48. Don&#x27;t bite off more than you can chew. 
+不要贪多嚼不烂。
+49. Don&#x27;t burn bridges. 不要断了后路。
+50. Don&#x27;t cry wolf. 别发假警报。
+51. Don&#x27;t let the cat out of the bag. 别泄
+露秘密。
+52. Let&#x27;s call it a day. 今天就到这里吧。
+53. Let&#x27;s get started. 我们开始吧。
+54. Let&#x27;s make a move. 我们行动吧。
+55. Let&#x27;s grab some coffee. 我们去喝杯咖啡
+吧。
+56. Let&#x27;s grab a bite. 一起吃点东西吧。
+57. Let&#x27;s play it by ear. 见机行事。
+58. Let&#x27;s split the bill. 我们分摊账单吧，我们 
+AA 吧。
+59. Let&#x27;s turn over a new leaf. 我们重新开
+始吧。
+60. Let&#x27;s go the extra mile. 我们再加把劲。
+61. Let&#x27;s cut to the chase. 我们开门见山吧。
+62. Let me sleep on it. 让我再想想。
+63. Let me explain. 让我解释一下。
+64. Time flies! 时光飞逝。
+65. Time heals all wounds. 时间会治愈一切。
+66. Time will tell. 时间会证明一切。
+67. Actions speak louder than words. 行
+动胜于言语。
+68. Practice makes perfect. 熟能生巧。
+69. Better safe than sorry. 宁可小心也不要
+后悔。
+70. It&#x27;s better to be safe than sorry. 小心
+为上。
+71. You can&#x27;t have your cake and eat it 
+too. 鱼与熊掌不可兼得。
+72. It&#x27;s not rocket science. 这没那么复杂。
+73. It&#x27;s a piece of cake. 小菜一碟。
+74. It&#x27;s a long story. 说来话长。
+75. It&#x27;s a storm in a teacup. 小题大做。
+76. It&#x27;s the tip of the iceberg. 这是冰山一角。
+77. It&#x27;s a win-win situation. 双赢的局面。
+78. It&#x27;s a blessing in disguise. 因祸得福。
+79. It&#x27;s not the end of the world. 这不是世
+界末日。
+80. It&#x27;s water under the bridge. 过去的事就
+算了。
+81. It&#x27;s now or never. 机不可失。
+82. You&#x27;ve gone too far. 你太过分了。
+83. You&#x27;re barking up the wrong tree. 你
+搞错方向了。
+84. You&#x27;re pulling my leg. 你在开我的玩笑。
+85. You nailed it! 你搞定了。
+86. You&#x27;ve made my day. 你让我今天非常开
+心。
+87. You&#x27;re as cool as a cucumber. 你真沉着
+冷静。
+88. I&#x27;m all ears. 我洗耳恭听。
+89. I&#x27;m all set. 我都准备好了。
+90. I&#x27;m good at multitasking. 我擅长同时处
+理多项任务。
+91. I&#x27;m on cloud nine. 我高兴极了。
+92. I&#x27;m over the moon. 我开心极了。
+93. I&#x27;m feeling blue. 我有点忧郁。
+94. I&#x27;m feeling under the weather. 我感觉
+不太舒服。
+95. I&#x27;m sick and tired of it. 我厌倦了。
+96. I&#x27;m broke. 我没钱了。
+97. I&#x27;m in a hurry. 我赶时间。
+98. I&#x27;m in hot water. 我有麻烦了。
+99. I&#x27;m behind schedule. 我进度落后了。
+100. I&#x27;m on the fence. 我还没决定。
+101. I&#x27;m starving. 我快饿死了。
+102. That&#x27;s ridiculous. 那太荒谬了。
+103. That&#x27;s a no-brainer. 这还用想吗。
+104. That&#x27;s the icing on the cake. 这真是锦
+上添花。
+105. That&#x27;s the last straw. 这是最后一根稻
+草。
+106. That&#x27;s food for thought. 值得深思。
+107. Count me in. 算我一个。
+108. Cross your fingers. 祝你好运。
+109. Keep your fingers crossed. 祝你好运。
+110. Keep up the good work. 继续保持好表
+现。
+111. Keep your chin up. 打起精神。
+112. Break a leg! 祝你好运。
+113. Don&#x27;t blow it. 别搞砸了。
+114. Don&#x27;t hold your breath. 别抱太大希望。
+115. Don&#x27;t put off till tomorrow what you 
+can do today. 今日事今日毕。
+116. I&#x27;ll take your word for it. 我相信你说的。
+117. I can manage it. 我能应付。
+118. I can&#x27;t wait! 我等不及了！
+119. I can&#x27;t hear you clearly. 我听不清楚你
+说的。
+120. I forgot to bring my wallet. 我忘了带
+钱包。
+121. I&#x27;m afraid I can&#x27;t make it. 我恐怕做不
+到。
+122. I&#x27;m afraid I can&#x27;t help you. 我恐怕帮不
+了你。
+123. Can I borrow your pen? 我能借你的笔
+吗？
+124. Could you lend me a pen? 你能借我一
+支笔吗？
+125. Can I have an extra blanket, please? 
+我可以要一条额外的毯子吗？
+126. Can I have extra towels, please? 我可
+以要多一些毛巾吗？
+127. Do you offer laundry services here? 
+这里提供洗衣服务吗？
+128. Could you pass me the salt, please? 
+你能递给我盐吗？
+129. How do you spell that? 这个怎么拼写？
+130. What&#x27;s the emergency contact 
+number here? 这里的紧急联系电话是多
+少？
+131. What&#x27;s the emergency number here? 
+这里的紧急联系电话是多少？
+132. Do you have any plans for the 
+weekend? 你周末有什么计划吗？
+133. Let&#x27;s catch up later. 我们稍后聊。
+134. Are you kidding me? 你在开玩笑吧。
+135. You&#x27;ve got to be kidding me. 你一定
+是在开玩笑。
+136. Can I get a refund? 我可以退款吗？
+137. Could I have a refill, please? 我可以再
+加点吗？
+138. Is tipping customary here? 在这里小
+费是习惯吗？
+139. Where can I exchange currency? 我在
+哪里可以兑换货币？
+140. What&#x27;s the exchange rate today? 今
+天的汇率是多少？
+141. I&#x27;d like to exchange some currency. 
+我想兑换一些货币。
+142. Do I need a reservation? 我需要预订吗？
+143. Can I reserve a table for tonight? 我
+可以预定今晚的餐桌吗？
+144. Do I need a ticket to enter this place? 
+进入这个地方需要票吗？
+145. Can I use your phone to make a local 
+call? 我可以用你的电话打个本地电话吗？
+146. Can I get a guide to explain the 
+history here? 我可以找一个导游来讲解这
+里的历史吗？
+147. Could you take a picture for me? 你
+可以帮我拍张照片吗？
+148. Could you write it down for me? 你能
+帮我写下来吗？
+149. Could you write that down for me? 
+你能帮我写下来吗？
+150. Please feel free to contact me. 请随时
+联系我。
+151. Do you mind if I join you? 你介意我加
+入吗？
+152. Do you mind if I sit here? 你介意我坐
+在这吗？
+153. This is not what I expected. 这不是我
+期待的。
+154. Let me know if you need anything. 
+如果你需要什么，请告诉我。
+155. I have nothing to do with it. 这与我无
+关。
+156. It&#x27;s my turn. 轮到我了。
+157. What&#x27;s the plan? 计划是什么？
+158. What&#x27;s the next step? 下一步是什么？
+159. It&#x27;s up to you. 这由你决定， 这取决于你。
+160. That&#x27;s up to you. 这取决于你。
+161. The ball is in your court. 轮到你行动了。
+162. It&#x27;s up in the air. 还不确定。
+163. Stay tuned. 敬请关注。
+164. I&#x27;m just joking. 我只是开玩笑。
+165. Don&#x27;t judge a person by appearance. 
+不要以貌取人。
+英语俗语谚语
+1. All roads lead to Rome. 条条大路通罗马。
+2. Birds of a feather flock together. 物以
+类聚，人以群分。
+3. A friend in need is a friend indeed. 患
+难见真情。
+4. When in Rome, do as the Romans do. 
+入乡随俗。
+5. Every cloud has a silver lining. 山穷水
+尽疑无路，柳暗花明又一村（黑暗中总有一
+线光明） 。
+6. An apple a day keeps the doctor away. 
+一天一苹果，医生远离我。
+7. A stitch in time saves nine. 小洞不补，
+大洞吃苦（及时处理，事半功倍） 。
+8. The grass is always greener on the 
+other side. 这山望着那山高。
+9. Beauty is in the eye of the beholder. 
+情人眼里出西施。
+10. A penny saved is a penny earned. 省一
+分就是赚一分。
+11. Rome wasn&#x27;t built in a day. 罗马不是一
+天建成的（冰冻三尺非一日之寒） 。
+12. Out of sight, out of mind. 眼不见，心不
+烦。
+13. Barking dogs seldom bite. 吠犬不咬人。
+14. You can lead a horse to water, but you 
+can&#x27;t make it drink. 引马河边易，逼马饮
+水难（师傅领进门，修行靠个人） 。
+15. One man&#x27;s meat is another man&#x27;s 
+poison. 甲之蜜糖，乙之砒霜。
+16. It&#x27;s never too old to learn. 活到老，学
+到老。
+17. There&#x27;s no smoke without fire. 无风不
+起浪。
+18. Practice what you preach. 言行一致。
+19. Don&#x27;t put all your eggs in one basket. 
+别把所有的鸡蛋放在一个篮子里（不要孤注
+一掷） 。
+20. Where there&#x27;s a will, there&#x27;s a way. 有
+志者事竟成。
+21. A fall into a pit, a gain in your wit. 吃
+一堑，长一智。
+22. As you sow, so shall you reap. 种瓜得
+瓜，种豆得豆。
+23. Easy come, easy go. 来得容易去得快。
+24. First come, first served. 先到先得。
+25. Kill two birds with one stone. 一石二鸟；
+一箭双雕。
+26. Let the cat out of the bag. 泄露秘密。
+27. Burn the midnight oil. 开夜车。
+28. Make hay while the sun shines. 趁热打
+铁（把握时机） 。
+29. A good beginning is half done. 良好的
+开端是成功的一半。
+30. All&#x27;s well that ends well. 结果好，一切
+都好。
+31. All work and no play makes Jack a dull 
+boy. 只工作不玩耍，聪明孩子也变傻。
+32. The early bird catches the worm. 早起
+的鸟儿有虫吃。
+33. Honesty is the best policy. 诚实为上策。
+34. Strike while the iron is hot. 趁热打铁。
+35. All good things must come to an end. 
+天下无不散之筵席（好事总有尽头） 。
+36. A picture is worth a thousand words. 
+一图胜千言。
+37. Don&#x27;t cry wolf. 别喊狼来了 （别发假警报） 。
+38. That&#x27;s food for thought. 这值得深思。
+39. It&#x27;s a storm in a teacup. 小题大做。
+40. You are what you eat. 人如其食 （饮食可
+反映一个人的性格与生活环境） 。
+41. Many hands make light work. 众人拾
+柴火焰高。
+42. Don&#x27;t put the cart before the horse. 不
+要本末倒置。
+43. Look before you leap. 三思而后行。
+44. Once bitten, twice shy. 一朝被蛇咬，十
+年怕井绳。
+45. Don&#x27;t put off until tomorrow what 
+you can do today. 今日事，今日毕。
+46. A miss is as good as a mile. 失之毫厘，
+谬以千里。
+47. Two heads are better than one. 三个臭
+皮匠，顶个诸葛亮。
+48. The more, the merrier. 人越多越热闹
+（多多益善） 。
+49. When the going gets tough, the tough 
+get going. 艰难之路，唯勇者行。
+50. Great minds think alike. 英雄所见略同。
+51. It takes two to tango. 一个巴掌拍不响。
+52. The proof of the pudding is in the 
+eating. 实践出真知。
+53. Variety is the spice of life. 变化是生活
+的调味品（丰富多样使生活更精彩） 。
+54. A rolling stone gathers no moss. 滚石
+不生苔，转业不聚财（比喻经常变换工作或
+生活方式的人不会有所积累） 。
+55. You can&#x27;t judge a tree by its bark. 不
+能以貌取人 （与 “don&#x27;t judge a book by 
+its cover” 类似表达） 。
+56. The pen is mightier than the sword. 笔
+诛胜于剑伐（文字的力量胜过武力） 。
+57. All that glitters is not gold. 闪光的未必
+都是金子。
+58. A chain is no stronger than its 
+weakest link. 一着不慎，满盘皆输（链条
+的坚固程度取决于它最薄弱的环节） 。
+59. Don&#x27;t bite the hand that feeds you. 不
+要恩将仇报。
+60. Clothes make the man. 人靠衣装。
+61. Give a dog a bad name and hang him. 
+欲加之罪，何患无辞。
+62. He who laughs last laughs best. 谁笑
+到最后，谁笑得最好。
+63. If you can&#x27;t beat them, join them. 打不
+过，就加入他们。
+64. In for a penny, in for a pound. 一不做，
+二不休。
+65. It&#x27;s no use crying over spilt milk. 覆水
+难收，哭也没用。
+66. Justice has long arms. 天网恢恢， 疏而不
+漏。
+67. Knowledge is power. 知识就是力量。
+68. Laugh and the world laughs with you, 
+weep and you weep alone. 笑，世界与
+你同笑；哭，你独自去哭。
+69. Least said, soonest mended. 少说为佳，
+言多必失。
+70. Life is not all roses. 人生并非处处鸟语花
+香（人生并非一帆风顺） 。
+71. Like father, like son. 有其父必有其子。
+72. Little strokes fell great oaks. 水滴石穿。
+73. Live and let live. 自己活， 也让别人活 （待
+人宽容如待己） 。
+74. Lookers-on see most of the game. 旁
+观者清。
+75. Man proposes, God disposes. 谋事在
+人，成事在天。
+76. Many a little makes a mickle. 积少成多。
+77. Necessity is the mother of invention. 
+需求是发明之母。
+78. Never do things by halves. 做事不要半
+途而废。
+79. Never hit a man when he&#x27;s down. 不要
+落井下石。
+80. Never judge from appearances. 不可
+以貌取人。
+81. No news is good news. 没有消息就是好
+消息。
+82. No pains, no gains. 一分耕耘， 一分收获。
+83. No rose without a thorn. 没有不带刺的
+玫瑰（世上没有十全十美的事） 。
+84. Nothing ventured, nothing gained. 不
+入虎穴，焉得虎子。
+85. One good turn deserves another. 善有
+善报。
+86. One swallow does not make a summer. 
+一燕不成夏（不可仅凭个别现象而下判断） 。
+87. Out of the frying pan into the fire. 刚
+出虎口，又入狼窝。
+88. Practice makes perfect. 熟能生巧。
+89. Prevention is better than cure. 预防胜
+于治疗（防患于未然） 。
+90. Pride goes before a fall. 骄兵必败。
+91. Put the cart before the horse. 本末倒
+置。
+92. Rome was not built in a day. 罗马非一
+日建成（伟业非一日之功） 。
+93. Seeing is believing. 眼见为实。
+94. Share and share alike. 有福同享， 有难同
+当。
+95. Slow and steady wins the race. 稳扎稳
+打，无往不胜（慢工出细活） 。
+96. Strike while the iron is hot. 趁热打铁。
+97. The die is cast. 木已成舟（事已决定，无
+法更改） 。
+98. The end justifies the means. 只要目的
+正当，可以不择手段（此观点具有一定争议
+性 ）。
+99. The eye is bigger than the belly. 眼馋
+肚饱 （形容人贪心， 想要的多但实际吃不下） 。
+100. The grass is always greener on the 
+other side of the fence. 这山望着那山高。
+101. The leopard cannot change its spots. 
+江山易改，本性难移。
+102. The more haste, the less speed. 欲速
+则不达。
+103. The pot calls the kettle black. 五十步
+笑百步。
+104. There&#x27;s no place like home. 金窝银窝，
+不如自家草窝。
+105. There&#x27;s no smoke without fire. 无风
+不起浪。
+106. Time and tide wait for no man. 时不
+我待。
+107. Time flies. 时光飞逝。
+108. To kill two birds with one stone. 一箭
+双雕；一举两得。
+109. Too many cooks spoil the broth. 厨子
+太多煮坏汤（人多手杂反坏事） 。
+110. Two wrongs do not make a right. 别
+人错了，不等于你对了（不能以错纠错） 。
+111. Walls have ears. 隔墙有耳。
+112. Waste not, want not. 不浪费， 不愁缺。
+113. When in Rome, do as the Romans do. 
+入乡随俗。
+114. Where there&#x27;s a will, there&#x27;s a way. 有
+志者事竟成。
+115. While the cat&#x27;s away, the mice will 
+play. 猫儿不在，老鼠翻天。
+116. You can lead a horse to water, but 
+you can&#x27;t make it drink. 牵马到河易，强
+马饮水
+117. You can&#x27;t have your cake and eat it 
+too. 鱼与熊掌不可兼得。
+118. You reap what you sow. 种瓜得瓜，种
+豆得豆。
+119. A bad workman always blames his 
+tools. 拙匠总怪工具差。
+120. A bird in the hand is worth two in the 
+bush. 一鸟在手胜过双鸟在林。
+121. A burnt child dreads the fire. 一朝被
+蛇咬，十年怕井绳。
+122. A constant guest is never welcome. 
+常客招人嫌。
+123. A fair face may hide a foul heart. 笑
+里藏刀；人面兽心。
+124. A friend is easier lost than found. 得
+朋友难，失朋友易。
+125. A good medicine tastes bitter. 良药苦
+口。
+126. A house divided against itself cannot 
+stand. 家和万事兴；内讧则败。
+127. A little knowledge is a dangerous 
+thing. 一知半解，自欺欺人。
+128. A man is known by his friends. 什么
+人交什么朋友。
+129. A new broom sweeps clean. 新官上任
+三把火。
+130. A stitch in time saves nine. 小洞不补，
+大洞吃苦。
+131. A word spoken is past recalling. 一言
+既出，驷马难追。
+132. Absence makes the heart grow 
+fonder. 小别胜新婚；久别情更深。
+133. Accidents will happen. 天有不测风云。
+134. Actions speak louder than words. 行
+动胜于言辞。
+135. Advice when most needed is least 
+heeded. 忠言逆耳。
+136. After a storm comes a calm. 雨过天晴。
+137. All is fair in love and war. 情场战场，
+不择手段。
+138. All is well that ends well. 结果好，一切
+都好。
+139. All roads lead to Rome. 条条大路通罗
+马。
+140. All that glitters is not gold. 闪光的未
+必都是金子。
+141. All things are difficult before they 
+are easy. 万事开头难。
+142. All work and no play makes Jack a 
+dull boy. 只工作，不玩耍，聪明孩子也变
+傻。
+143. An idle youth, a needy age. 少壮不努
+力，老大徒伤悲。
+144. As the tree, so the fruit. 种瓜得瓜，种
+豆得豆。
+145. As you sow, so shall you reap. 一分耕
+耘，一分收获。
+146. Bad news travels fast. 坏事传千里。
+147. Beauty is in the eye of the beholder. 
+情人眼里出西施。
+148. Beggars can&#x27;t be choosers. 饥不择食；
+行乞者不得有选择。
+149. Better be the head of a dog than the
+tail of a lion. 宁为鸡头，不为凤尾。
+150. Better late than never. 迟做总比不做
+好。
+151. Better safe than sorry. 宁可事先谨慎
+有余，不要事后追悔莫及。
+152. Between two stools one falls to the 
+ground. 脚踏两条船， 迟早要落水 （两者皆
+选，一无所得） 。
+153. Birds of a feather flock together. 物
+以类聚，人以群分。
+154. Blood is thicker than water. 血浓于水。
+155. Brevity is the soul of wit. 言以简洁为
+贵。
+156. Business is business. 公事公办。
+157. Business is the salt of life. 事业是人生
+的第一需要。
+158. Call a spade a spade. 直言不讳； 实事求
+是。
+159. Cannot see the wood for the trees. 
+一叶障目，不见泰山。
+160. Care and diligence bring luck. 谨慎和
+勤奋才能抓住机遇。
+161. Caution is the parent of safety. 小心
+驶得万年船。
+162. Cheats never prosper. 骗人发不了财。
+163. Children are what the mothers are. 
+耳濡目染，身教言传。
+164. Choose an author as you choose a 
+friend. 择书如择友。
+165. Christmas comes but once a year. 佳
+节良辰，机会难得。
+166. Circumstances alter cases. 具体情况具
+体分析。
+167. Cleanliness is next to godliness. 清洁
+近乎美德。
+168. Clumsy birds have to start flying 
+early. 笨鸟先飞。
+169. Constant dripping wears away the 
+stone. 水滴石穿，绳锯木断。
+170. Content is better than riches. 知足者
+常乐。
+171. Count one&#x27;s chickens before they are 
+hatched. 过早乐观；打如意算盘。
+172. Courtesy on one side only lasts not 
+long. 来而不往非礼也。
+173. Creep before you walk. 循序渐进。
+174. Cry for the moon. 海底捞月；想做做不
+到的事。
+175. Custom is a second nature. 习惯是后
+天养成的。
+176. Custom makes all things easy. 有个好
+习惯，事事皆不难。
+177. Cut the coat according to the cloth. 
+量体裁衣。
+178. Danger is next neighbor to security. 
+塞翁失马，焉知非福。
+179. Dead men tell no tales. 死人不会告密。
+180. Death is the great leveller. 死亡面前，
+人人平等。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="全英交流500句咖啡色";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

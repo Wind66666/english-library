@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 全英交流1100句英语点餐旅游</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p168.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：全英交流1100句英语点餐旅游</h1>
+  <div class="meta"><span class="charspill">729 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">729</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 729 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p168.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["This is because we feel pain. 这是因为", "我们能感到疼痛。"], ["What you said was quite true. 你 所 说", "的完全符合事实。"], ["Your answer is satisfying. I feel satisfied.", "你的答案是令人满意的。我感到很满意。"], ["I don't think you are right. 我认为你是", "不对的。"], ["Don't trust to chance! 不要碰运气。", "第 2 页 共 38 页"], ["It doesn't make sense. 这没有意义（不", "合常理）。"], ["All that glitters is not gold. 发闪光的不", "全是黄金。"], ["I'm not sure I can do it. 恐怕这事我干", "不了。"], ["I'm not used to drinking. 我 不 习 惯 喝", "酒。"], ["I don't care whether it rains or not. 我", "不管天会不会下雨。"], ["I don't like what you are saying. 我不喜", "欢你说的话。"], ["I would rather stay at home alone. 我", "宁愿独自呆在家。"], ["her mind yet. 然而，苏珊却还没有决定。", "二、日常交流"], ["Good morning /afternoon/evening! 早", "上 / 下午 / 晚上好！"], ["Catch you later. 回头见。", "（二）介绍与回应"], ["This is... 这是……", "I'm... 我是……"], ["Nice to meet you, too. 我也很高兴见到", "你。"], ["How do you do? 你好！（初次见面问候", "（三）询问与回答"], ["What's wrong with you? 你 哪 里 不 对", "劲？"], ["What's the matter with you? 你 怎 么", "了？"], ["What about you? 你呢？", "第 3 页 共 38 页"], ["Why not? 好呀！", "为什么不呢？"], ["Do you need any help? 你 需 要 帮 忙", "吗？"], ["Which one do you like? 你 喜 欢 哪 一", "个？"], ["Is there a... near here? 这 附 近 有 ……", "吗？"], ["It's hard to say. 很难说。", "三、情感与情绪表达"], ["I'm on top of the world. 我高兴极了。", "（二）惊讶与震惊"], ["It really took me by surprise. 这真的让", "我大吃一惊。"], ["Unbelievable! 难以置信！", "（三）担忧与焦虑"], ["I'm anxious about... 我 对 …… 感 到 焦", "虑。"], ["It makes me nervous. 这让我很紧张。", "（四）愤怒与生气"], ["I'm really mad at you. 我真的对你很生", "气。"], ["How could you do that? 你怎么能那样", "做？"], ["That's too much! 太过分了！", "（五）悲伤与难过"], ["I'm sorry to hear that. 听到这个消息我", "很难过。"], ["It's a sad story. 这是个悲伤的故事。 5. I feel so sorry for you. 我为你感到很遗", "憾。"], ["Sure. / Certainly. / Of course. 当 然 可", "以。"], ["Go ahead. 去吧。", "表示允许"], ["All right. 好吧。", "（二）建议与劝告"], ["It's a good idea to... 做 …… 是 个 好 主", "意。"], ["Come on! 来吧", "赶快"], ["Listen to me! 听我说！", "（四）帮助与提供"], ["Help yourself. 别客气。（用于让对方自", "己取用食物等）"], ["Maybe another time. 也许下次吧。", "五、生活场景用语"], ["I'll fix you up. 我会帮你打点的。", "第 5 页 共 38 页"], ["We two finished a bottle of wine. 我俩", "喝完了一瓶酒。"], ["Her family are all music lovers. 她全家", "人都是音乐爱好者。"], ["I have a large collection of CDs. 我收集", "了很多唱片。"], ["She has been collecting stamps. 她 一", "直收集邮票。"], ["My parents want me to go abroad. 我", "父母想让我出国。"], ["We often call him by his nickname. 我", "们经常叫他的绰号。"], ["I go to school by bike every day. 我每", "天骑自行车上学。"], ["I have to catch a plane. Could you hurry?", "你能快点吗？我要赶飞机"], ["I'm good at freestyle and breast stroke.", "我擅长自由泳和蛙泳。"], ["The test finished. We began our holiday.", "考试结束了，我们开始放假。"], ["This question is too complicated for me.", "这个问题对我说来太复杂了。"], ["Tony speaks English and he plays tennis.", "托尼会说英语，打网球。"], ["the game. 要想赢得比赛，我们需要密", "切配合。"], ["Prof.? 你觉得我们的英国文学课的教授", "怎么样？"], ["some time. 希望还能有相见的机会。", "（三）工作职场"], ["We are all busy with work. 我们都忙于", "工作。"], ["My brother is seeking a job. 我弟弟正", "在找工作。"], ["He got a job in a bank. 他在一家银行", "找到了工作。"], ["She is a secretary in a company. 她是一", "家公司的秘书。"], ["I have a lot of work to do. 我有很多工", "作要做。"], ["I'm swamped with work. 我工作忙得不", "可开交。"], ["He is efficient in his work. 他工作效率", "高。"], ["They charged the fault on him. 他们把", "过失归咎于他。"], ["I have to work overtime today. 我今天", "得加班。"], ["What's the price of...? …… 的价 格是多", "少？"], ["Do you have this in another color? 这", "个有别的颜色吗？"], ["Here's your change. 这是找你的钱。", "（五）餐饮美食"], ["I'm hungry. 我饿了。", "第 6 页 共 38 页"], ["What would you like to eat? 你想吃什", "么？"], ["Let's go out to have a dinner, shall we?", "咱们出去吃饭吧，好吗？"], ["The food here is delicious. 这里的食物", "很美味。"], ["I go to... by bus /car/train /plane... 我乘", "公共汽车 / 汽车 / 火车 / 飞机去……"], ["You can take the No. 10 bus. 你可以乘", "坐 10 路公共汽车。"], ["The train arrived on time. 火车准时到", "达。"], ["I'll drive you to the airport. 我会开车送", "你去机场。"], ["Fasten your seat belt. 系好你的安全带。", "（七）住宿居住"], ["This house is my own. 这所房子是我自", "己的。"], ["I'm looking for an apartment. 我在找一", "套公寓。"], ["The room is clean and tidy. 房间干净整", "洁。"], ["room. 房间里有一张床、一张桌子和一", "把椅子。"], ["I need to move to a new place. 我需要", "搬到一个新地方。"], ["My neighbor is very friendly. 我的邻居", "很友好。"], ["I have a nice view from my window. 从", "我的窗户可以看到美丽的景色。"], ["The building is very tall. 这座建筑物很", "高。"], ["What do you do in your free time? 你", "空闲时间做什么？"], ["music... 我喜欢阅读 / 看电视 / 听音", "乐……"], ["Let's go to the movies. 我们去 看 电 影", "吧。"], ["How about going to a concert? 去听音", "乐会怎么样？"], ["I like playing basketball /football... 我喜", "欢打篮球 / 踢足球……"], ["I'm going to the park for a picnic. 我要", "去公园野餐。"], ["We had a great time at the party. 我们", "在聚会上玩得很开心。"], ["They are playing cards. 他们正在打牌。", "（九）医疗健康"], ["I'm not feeling well. 我感觉不舒服。", "第 7 页 共 38 页"], ["You should see a doctor. 你应该去看医", "生。"], ["The doctor examined me carefully. 医", "生仔细地给我做了检查。"], ["I need to take some medicine. 我需要", "吃一些药。"], ["Drink more water and have a good rest.", "多喝水，好好休息。"], ["I hope you get well soon. 我希望你早", "日康复。"], ["What a lovely little girl she is! 她是一个", "多么可爱的小女孩耶！"], ["How peaceful and beautiful the country", "is! 多么平静美丽的国家呀！"], ["It's the hottest day I've had so far. 这是", "迄今为止我经历的最热的一天。"], ["I really need to lose some weight. 我真", "的需要减肥了。"], ["I do want to see him now. 我现在确实", "很想去见他。"], ["He is the happiest man alive. 他是世界", "上最快乐的人。"], ["Because... 因为……", "So... 所以……"], ["And... 和；并且……", "Or... 或者……"], ["Moreover... 此外；而且……", "（三）数字与计算"], ["15 divided by 3 equals 5. 15 除以 3 等", "于 5。"], ["His cake is four times as big as mine.", "他的蛋糕是我的四倍大。"], ["forest. 这一地区三分之一的地方都是森", "林。"], ["check out. 我有 4 本书和 2 本杂志要", "借。"], ["I bought 5 apples and 3 bananas. 我买", "了 5 个苹果和 3 根香蕉。"], ["There are 20 students in the classroom.", "教室里有 20 个学生。"], ["The price of this shirt is $25. 这件衬衫", "的价格是 25 美元。"], ["I need to pay $10 for the ticket. 我需要", "花 10 美元买这张票。"], ["I will be back by the end of next month.", "我下个月底会回来。"], ["August. 我们将在八月份的某个时候休", "假。"], ["The play may begin at any moment. 戏", "随时都有可能开始。"], ["I haven't seen you for ages. 我好久没见", "到你了。"], ["I heard some one laughing just now. 我", "刚才听见有人在笑。"], ["He came to the point at once. 他一下", "子就说到了点子上。"], ["After a pause he continued his story.", "停顿一下之后他继续说他的故事。"], ["Once you begin, you must continue. 一", "旦开始，你就得继续。"], ["It's time to tell her the truth. 是该告诉", "她真相的时候了。"], ["It's time you went to bed. 你早就该睡", "觉了。"], ["We arrived in London this afternoon.", "我们是今天下午到达伦敦的。"], ["They will arrive in half an hour. 他们将", "于半小时之内到达。"], ["What time is it now? 现在几点了？", "（五）比较与对比"], ["He is taller than I by a head. 他比我高", "一头。"], ["This one cannot compare with that one.", "这个与那个无法比较。"], ["She is more beautiful than her sister. 她", "比她姐姐更漂亮。"], ["My watch is faster than yours. 我 的 表", "比你的表快。"], ["the class. 她比班上其他任何人都更努", "力学习。"], ["True and False have opposite meanings.", "真与假含义完全相反。"], ["hope. 与她的朋友的不同之处是，她从", "不放弃希望。"], ["Please. 请。", "第 9 页 共 38 页"], ["May I ask you a question? 我可以问你", "一个问题吗？"], ["Could you do me a favor? 你能帮我个", "忙吗？"], ["It's very kind of you to help me. 你帮助", "我真是太好了。"], ["Would you like some help? 你需要一些", "帮助吗？"], ["family. 请代我向你们全家致以最诚挚的", "问候。"], ["I'm sorry to have bothered you. 对 不", "起，打扰你了。"], ["Sorry to interrupt you. 抱 歉 打 断 你 一", "下。"], ["Bless you! 祝福你！", "（七）谚语与俗语"], ["A barking dog doesn't bite! 吠 犬 不 咬", "人。"], ["All for one, one for all. 我为人人，人人", "为我。"], ["East, west, home is best. 金窝，银窝，", "不如自己的草窝。"], ["Example is better than precept. 身教胜", "于言传。"], ["God helps those who help themselves.", "上帝帮助那些自己帮自己的人。"], ["Opportunity knocks but once. 机 不 可", "失，时不再来。"], ["You can kill two birds with one stone.", "一举两得。"], ["A friend in need is a friend indeed. 患", "难见真情。"], ["Actions speak louder than words. 行动", "胜于言语。"], ["Don't cry over spilt milk. 不要做无益的", "后悔。"], ["at all times. 每个人都有愚蠢的时候，但", "是没有一个人永远愚蠢。"], ["The early bird catches the worm. 早起", "的鸟儿有虫吃。"], ["Could you...? 你能…… 吗？（更委婉地", "表达请求或询问能力）"], ["He is able to solve the problem. 他能够", "解决这个问题。"], ["She can speak three languages. 她能说", "三种语言。"], ["Can the computer ever make a mistake?", "计算机出错吗？"], ["I doubt if I can finish the work on time.", "我怀疑我能否按时完成这项工作。"], ["tomorrow. 明天似乎有可能下雨。", "（九）其他杂项"], ["Just for entertainment. 只 是 为 了 消 遣", "一下。"], ["Let bygones be bygones. 过去的，就让", "它过去吧。"], ["Not a sound was heard. 一点声音也没", "有。"], ["The road divides here. 这条路在这里分", "岔。"], ["He was born in New York. 他出生在纽", "约。"], ["It is just what I need. 这正是我所需要", "的。"], ["It rather surprised me. 那事使我颇感惊", "讶。"], ["Just around the corner. 就在附近。", "第 11 页 共 38 页"], ["Oh, you are kidding me. 哦，你别拿我", "开玩笑了。"], ["Supper is ready at six. 晚餐六点钟就好", "了。"], ["Which would you prefer? 你 要 选 哪", "个？"], ["Does she like ice - cream? 她喜欢吃冰", "淇淋吗？"], ["He is acting an old man. 他正扮演一个", "老人。"], ["He doesn't care about me. 他并不在乎", "我。"], ["I develop films myself. 我 自 己 冲 洗 照", "片。"], ["I felt no regret for it. 对这件事我不觉得", "后悔。"], ["I meet the boss himself. 我见到了老板", "本人。"], ["I owe you for my dinner. 我欠你晚餐的", "钱。"], ["I'm fed up with my work! 我对工作烦死", "了！"], ["It's no use complaining. 发牢骚没什么", "用。"], ["The child sobbed sadly. 小孩伤心地抽", "泣着。"], ["The rumor had no basis. 那谣言没有根", "据。"], ["They praised him highly. 他们大大地表", "扬了他。"], ["Winter is a cold season. 冬天是一个寒", "冷的季节。"], ["You can call me any time. 你可以随时", "打电话给我。"], ["He grasped both my hands. 他紧握住", "我的双手。"], ["He is physically mature. 他身体已发育", "成熟。"], ["I am so sorry about this. 对此我非常抱", "歉（遗憾）。"], ["I can't afford a new car. 我买不起一部", "新车。"], ["I heard some one laughing. 我 听 见 有", "人在笑。"], ["I suppose you dance much. 我 想 你 常", "常跳舞吧。"], ["I walked across the park. 我 穿 过 了 公", "园。"], ["It's too good to be true! 好 得 难 以 置", "信。"], ["Jean is a blue - eyed girl. 珍是个蓝眼睛", "的女孩。"], ["Let's not waste our time. 咱们别浪费时", "间了。"], ["May I ask some questions? 我可以问几", "个问题吗？"], ["Money is not everything. 金钱不是一", "切。"], ["The sun comes up in the east. 太阳从", "东方升起。"], ["The stars are too far away. 星星太遥远", "了。"], ["The sea sparkled in the sunlight. 阳 光", "下，大海波光粼粼。"], ["There is a bridge over the river. 河上有", "一座桥。"], ["The grass is moist early in the morning.", "清晨的草地湿漉漉的。"], ["Spring is a pretty season. 春天是一个", "好季节。"], ["There was a heavy rain last night. 昨晚", "下了一场大雨。"], ["The air in the countryside is fresh. 乡村", "的空气很清新。"], ["The forest is home to many animals. 森", "林是许多动物的家园。"], ["We should protect the environment. 我", "们应该保护环境。"], ["She is a composer for the harp. 她是位", "写竖琴曲的作曲家。"], ["dance party. 他们举办舞会来祝贺他的", "生日。"], ["I like all kinds of music. 我喜欢各种各", "样的音乐。"], ["She loves reading novels. 她喜欢 读 小", "说。"], ["This is a good example of his poetry.", "这是他诗作的一个好例子。"], ["The movie is very touching. 这 部 电 影", "很感人。"], ["He has a great talent for painting. 他有", "绘画的天赋。"], ["They are performing a ballet on stage.", "他们正在舞台上表演芭蕾舞。"], ["The concert was a huge success. 音 乐", "会取得了巨大成功。"], ["She is learning to play the piano. 她正", "在学习弹钢琴。"], ["visitors. 艺术展览吸引了许多参观者。", "（十二）科技与发明"], ["everyday life. 电子计算机正渐渐成为我", "们日常生活的一部分。"], ["changed our lives. 电话的发明改变了", "我们的生活。"], ["He is working on a new project. 他正在", "进行一个新项目。"], ["The technology is advancing rapidly. 技", "术正在迅速进步。"], ["efficiently. 这台机器能更高效地完成工", "作。"], ["many new features. 这款最新的手机有", "许多新功能。"], ["much easier. 互联网使我们的交流更加", "便捷。"], ["the disease. 科学家们正在努力寻找治", "疗这种疾病的方法。"], ["The satellite was launched successfully.", "卫星成功发射了。"], ["The robot can perform various tasks.", "机器人可以执行各种任务。"], ["The development of AI is amazing. 人", "工智能的发展令人惊叹。"], ["They are having a football match. 他们", "正在进行一场足球比赛。"], ["competition. 他 在 比 赛 中 获 得 了 一 等", "奖。"], ["upcoming game. 他们正在为即将到来", "的比赛刻苦训练。"], ["The athlete broke the world record. 这", "位运动员打破了世界纪录。"], ["Let's go to the gym to work out. 我们", "去健身房锻炼吧。"], ["He is a professional athlete. 他 是 一 名", "职业运动员。"], ["audience. 这项体育赛事吸引了大量观", "众。"], ["volleyball team. 她是 学校 排球队 的 成", "员。"], ["They are competing against each other.", "他们正在相互竞争。"], ["The coach is giving them some advice.", "教练正在给他们一些建议。"], ["We should abide by the rules. 我 们 应", "该遵守规则。"], ["He was punished for breaking the law.", "他因违法而受到惩罚。"], ["maintaining law and order. 警察负责维", "护治安。"], ["Do you know the traffic rules? 你知道", "交通规则吗？"], ["regulations. 公司有自己的一套规章制", "度。"], ["Everyone is equal before the law. 法律", "面前人人平等。"], ["They are discussing a new law proposal.", "他们正在讨论一项新的法律提案。"], ["You must follow the instructions. 你必", "须按照指示做。"], ["The rules of the game are very clear. 游", "戏规则非常清楚。"], ["He is studying law at university. 他正在", "大学学习法律。"], ["countries. 我们需要尊重其他国家的法", "律。"], ["enforcement. 政府正在加强执法力度。", "（十五）心理与认知"], ["I think I've caught a cold. 我想我得了感", "冒。"], ["I doubt whether the story is true. 我怀", "疑那故事是不是真的。"], ["She realized her mistake. 她意识到了自", "己的错误。"], ["I can't remember his name. 我记不起他", "的名字了。"], ["She is thinking about her future. 她 正", "在思考自己的未来。"], ["I'm confused about what to do next. 我", "对下一步该做什么感到困惑。"], ["He has a positive attitude towards life.", "他对生活有积极的态度。"], ["I'm confident that I can pass the exam.", "我有信心我能通过考试。"], ["I'm curious about what's inside the box.", "我对盒子里的东西很好奇。"], ["He is proud of his achievements. 他为", "自己的成就感到骄傲。"], ["I'm disappointed with the result. 我 对", "结果感到失望。"], ["She is worried about her son's safety.", "她担心儿子的安全。"], ["He made a lot of friends at school. 他", "在学校交了很多朋友。"], ["We should help those in need. 我们应", "该帮助那些有需要的人。"], ["He is popular among his classmates. 他", "在同学中很受欢迎。"], ["They had an argument yesterday. 他们", "昨天发生了争吵。"], ["other better. 我 们 需 要 更 好 地 相 互 沟", "通。"], ["She is very friendly to everyone. 她 对", "每个人都很友好。"], ["He is respected by his colleagues. 他受", "到同事们的尊敬。"], ["The family is the basic unit of society.", "家庭是社会的基本单位。"], ["They are in a romantic relationship. 他", "们处于恋爱关系中。"], ["We should show kindness to others. 我", "们应该对他人友善。"], ["He is always willing to help others. 他", "总是乐于助人。"], ["good grades. 她是个好学生，总是取得", "好成绩。"], ["He is studying hard for the final exam.", "他正在为期末考试努力学习。"], ["knowledge. 我喜欢读书以扩充我的知", "识。"], ["Learning a foreign language is not easy.", "学习一门外语并不容易。"], ["math. 她参加额外的课程来提高她的数", "学水平。"], ["We should develop good study habits.", "我们应该养成良好的学习习惯。"], ["educational resources. 学校提供各种教", "育资源。"], ["be a scientist. 他对科学感兴趣，想成为", "一名科学家。"], ["I need to review what I learned today.", "我需要复习我今天学的内容。"], ["The library is a quiet place for studying.", "图书馆是个安静的学习场所。"], ["has questions. 她有问题时向老师求助。", "（十八）商业与经济"], ["His father runs a restaurant. 他的父亲", "经营一家餐馆。"], ["some money. 我在找一份兼职工作来赚", "些钱。"], ["They are negotiating a business deal.", "他们正在洽谈一笔商业交易。"], ["The stock market is very volatile. 股票", "市场波动很大。"], ["We need to save money for the future.", "我们需要为将来存钱。"], ["He invested a lot of money in stocks.", "他在股票上投资了很多钱。"], ["The cost of living is getting higher. 生", "活成本越来越高。"], ["The economic situation is improving.", "经济形势正在好转。"], ["The supermarket is having a big sale.", "超市正在大减价。"], ["summer. 我们计划今年夏天到意大利去", "旅行。"], ["I want to visit the Great Wall. 我想去参", "观长城。"], ["attractions. 我们参观了许多著名的旅", "游景点。"], ["travel destinations. 她正在寻找关于旅", "游目的地的信息。"], ["enjoy the scenery. 我喜欢坐火车旅行，", "因为我可以欣赏风景。"], ["around. 他们雇了一名导游带他们四处", "参观。"], ["We need to book the tickets in advance.", "我们需要提前订票。"], ["delicious. 那个地方的当地食物非常美", "味。"], ["I'm packing my luggage for the trip. 我", "正在为旅行收拾行李。"], ["vacation. 我们假期过得非常愉快。", "（二十）健康与养生"], ["I need to lose some weight. 我需要减", "肥。"], ["We should exercise regularly to keep fit.", "我们应该定期锻炼以保持健康。"], ["healthy. 我们应该有足够的睡眠来保持", "健康。"], ["She does yoga to relax. 她做瑜伽来放", "松。"], ["I'm on a diet to control my blood sugar.", "我在节食以控制血糖。"], ["beneficial to health. 乡村的新鲜空气对", "健康有益。"], ["There are many cute animals in the zoo.", "动物园里有很多可爱的动物。"], ["The cat is sleeping on the mat. 猫正在", "垫子上睡觉。"], ["Dogs are loyal to their owners. 狗对主", "人很忠诚。"], ["She has a pet dog named Coco. 她有一", "只宠物狗叫可可。"], ["The birds are singing in the trees. 鸟儿", "在树上唱歌。"], ["beautifully. 花园里的花正盛 开得 很美", "丽。"], ["We planted some trees in the park. 我", "们在公园里种了一些树。"], ["Bees are important for pollination. 蜜", "蜂对授粉很重要。"], ["He studies the behavior of animals. 他", "研究动物的行为。"], ["The dog barked at the stranger. 狗对着", "陌生人叫。"], ["flowers. 蝴蝶在花丛中飞舞。", "（二十二）建筑与场所"], ["There are many tall buildings in the city.", "城市里有很多高楼大厦。"], ["The library is a great place to read. 图", "书馆是个读书的好地方。"], ["We visited the ancient castle. 我们参观", "了古老的城堡。"], ["The hospital is near my house. 医院在", "我家附近。"], ["The shopping mall is always crowded.", "购物中心总是很拥挤。"], ["They are building a new bridge. 他们正", "在建造一座新桥。"], ["The school playground is very large. 学", "校操场很大。"], ["The church has a beautiful architecture.", "教堂有美丽的建筑风格。"], ["I work in an office building. 我在一栋办", "公楼里工作。"], ["The park is a good place for a walk. 公", "园是散步的好地方。"], ["We had a party at the club. 我们在俱乐", "部举办了一个派对。"], ["The theater is showing a new movie. 剧", "院正在上映一部新电影。"], ["The hotel has excellent service. 这家酒", "店服务一流。"], ["The factory produces various products.", "这家工厂生产各种产品。"], ["I sent her a text message this morning.", "我今天早上给她发了一条短信。"], ["Have you checked your email yet? 你查", "看邮件了吗？"], ["part of our lives. 社交媒体已成为我们", "生活的重要部分。"], ["informed. 我经常看电视新闻以了解时", "事。"], ["Instagram. 她喜 欢在 Instagram 上分", "享日常生活。"], ["music. 这个广播电台播放很多好听的音", "乐。"], ["I follow several bloggers for inspiration.", "我关注了几位博主以获取灵感。"], ["You can contact me via WeChat. 你 可", "以通过微信联系我。"], ["wildlife. 他们正在拍摄一部关于野生动", "物的纪录片。"], ["ones. 比起纸质书，我更喜欢读电子书。", "（二十四）节假日"], ["We celebrate Christmas every year. 我", "们每年都庆祝圣诞节。"], ["parties. 新年前夜，人们通常会举办派", "对。"], ["can dress up. 孩子们喜欢万圣节，因为", "他们可以装扮自己。"], ["important festival in China. 春节是中国", "最重要的节日。"], ["the Mid - Autumn Festival. 中秋节时我", "们常常家庭团聚。"], ["I received many gifts on my birthday.", "我生日那天收到了很多礼物。"], ["Labor Day is a time to honor workers.", "劳动节是向劳动者致敬的日子。"], ["Day holiday. 他们在国庆节假期去旅行", "了。"], ["Easter is a religious holiday. 复 活 节 是", "一个宗教节日。"], ["Valentine's Day is a day for lovers. 情人", "节是恋人们的节日。"], ["Festival. 人们在清明节放风筝。", "第 19 页 共 38 页"], ["to honor Qu Yuan. 人们庆祝端午节以", "纪念屈原。"], ["Hanukkah is a Jewish festival. 光明节是", "犹太教的节日。"], ["Red is my favorite color. 红色是我最喜", "欢的颜色。"], ["The sky is blue on a sunny day. 晴天时", "天空是蓝色的。"], ["She is wearing a yellow dress. 她穿着一", "件黄色的连衣裙。"], ["The leaves turn green in spring. 春天树", "叶变绿。"], ["The table is rectangular. 桌子是长方形", "的。"], ["The building has a triangular roof. 那栋", "建筑有一个三角形的屋顶。"], ["The sign is in the shape of a diamond.", "那个标志是菱形的。"], ["The flowerbed is oval. 花 坛 是 椭 圆 形", "的。"], ["Orange is a bright and warm color. 橙", "色是明亮温暖的颜色。"], ["The traffic cone is conical. 交通锥是圆", "锥形的。"], ["Green symbolizes nature and growth.", "绿色象征着自然和成长。"], ["The table is two meters long. 这张桌子", "两米长。"], ["She weighs 50 kilograms. 她 体 重 50", "千克。"], ["is about one kilometer. 从我家到学 校", "的距离大约是一公里。"], ["family for a week. 一加仑牛奶够我们家", "喝一周。"], ["The room is 30 square meters. 这个房", "间 30 平方米。"], ["kilometers per hour. 这条路上的限速是", "每小时 60 公里。"], ["The paper is 8.5 inches by 11 inches. 这", "张纸是 8.5 英寸乘 11 英寸。"], ["The height of the building is 50 meters.", "这栋楼的高度是 50 米。"], ["The volume of the box is 1 cubic meter.", "这个盒子的体积是 1 立方米。"], ["The price of the gold is $50 per gram.", "黄金的价格是每克 50 美元。"], ["I need to buy a new toothbrush. 我需", "要买一把新牙刷。"], ["She uses a hair dryer to dry her hair. 她", "用吹风机吹干头发。"], ["The pen on the desk is mine. 桌子上的", "那支钢笔是我的。"], ["I like the pattern on this towel. 我喜欢", "这条毛巾上的图案。"], ["The lamp in my room is very bright. 我", "房间里的灯很亮。"], ["She is looking for a new handbag. 她在", "找一个新手提包。"], ["remote control. 我们需要给遥控器换电", "池。"], ["The umbrella protects us from the rain.", "雨伞能为我们遮雨。"], ["He bought a new pair of shoes. 他买了", "一双新鞋。"], ["She uses a comb to fix her hair. 她用梳", "子整理头发。"], ["The phone charger is not working. 手", "机充电器坏了。"], ["job offer. 得到这份工作邀请我欣喜若", "狂。"], ["his daughter graduate. 看着女儿毕业，", "他满心骄傲。"], ["competition. 赢得比赛后我高兴得飘飘", "然。"], ["saw her friend's new car. 看到朋友的新", "车，她心里闪过一丝嫉妒。"], ["upcoming trip. 对即将到来的旅行，我", "兴奋得不得了。"], ["his pet passed away. 他的宠物去世时，", "他悲痛欲绝。"], ["finished the project. 完成项目后，她松", "了一口气。"], ["treated unfairly. 受到不公平对待后，我", "怒火中烧。"], ["sick mother. 对生病母亲的担忧让他忧", "心忡忡。"], ["exam results. 等待考试成绩的过程中我", "如坐针毡。"], ["long - lost friend. 看 到 久 别 重 逢 的 朋", "友，她心头涌起一阵喜悦。"], ["parents. 我对父母充满感激。", "第 21 页 共 38 页"], ["when he made a mistake in public. 在", "公共场合犯错后，他尴尬不已。"], ["I'm swamped with deadlines this week.", "这周我被截止日期压得喘不过气。"], ["the project. 我们团队为这个项目集思", "广益，想出了新点子。"], ["years of hard work. 经过多年努力工作，", "他被提拔为经理。"], ["different departments. 我负责与不同部", "门进行协调。"], ["made several key decisions. 这 次 会 议", "很有成效，我们做出了几个关键决策。"], ["the office in the morning. 她总是早上", "第一个到办公室。"], ["month to evaluate our work. 下个月我", "们有绩效评估来考核工作表现。"], ["due to the tight schedule. 由于时间紧", "迫，他在工作上面临很大压力。"], ["work - from - home policy. 我们公司正", "在推行一项新的居家办公政策。"], ["consecutive days. 她已经连续加班三天", "了。"], ["my boss. 我需要为老板准备一份详细的", "报告。"], ["started. 自从新项目开始，工作量大幅增", "加。"], ["opportunities to expand his horizons.", "他正在寻找新的职业机会以拓宽视野。"], ["weekend to improve teamwork. 上周末", "我们举办了团队建设活动以增强团队合"], ["shoes. Do you carry it? 我在找某个特定", "品牌的鞋子。你们有卖吗？"], ["have a larger size? 这条裙子我穿不太", "合身。你们有大一号的吗？"], ["Can you gift - wrap this item for me?", "你能帮我把这个商品包装成礼物吗？"], ["making a purchase. 我在购买前先在网", "上比较价格。"], ["can earn points for purchases. 他 们 有", "一个会员忠诚度计划，购物可以积分。"], ["the clearance sale. 我在清仓大甩卖时", "以很划算的价格买到了这件衬衫。"], ["total cost including tax. 收银员帮我算", "出了含税的总价。"], ["got a refund. 我退回了有缺陷的商品并", "得到了退款。"], ["decor items in this store. 这家店有种类", "繁多的家居装饰品可供选择。"], ["item I want. 我在等商店重新进货我想", "要的商品。"], ["available? 你们有可用的优惠券或折扣", "吗？"], ["customer service. 这位销售人员提供了", "非常出色的客户服务。"], ["anything interesting. 我在店里逛逛，看", "看有没有什么有意思的东西。"], ["most items. 他们大多数 商品都有 30", "天的退货政策。"], ["installment. 我在考虑分期付款购买这", "件商品。"], ["scenic route. 我们租了辆车，沿着风景", "优美的路线行驶。"], ["The bus stop is just around the corner.", "公交车站就在拐角处。"], ["avoid traffic. 他每天骑小型摩托车上班", "以避开交通拥堵。"], ["The train conductor checked our tickets.", "列车员检查了我们的车票。"], ["directly to the terminal. 机场班车直接", "把你送到航站楼。"], ["around the city. 她使用拼车应用在城市", "里出行。"], ["the destination faster. 出租车司机抄近", "路以便更快到达目的地。"], ["car park. 我们把车停在了多层停车场。", "（三十二）住宿相关扩充"], ["great view. 这套公寓有一个视野很棒的", "阳台。"], ["renting the house. 租房子时我们得交", "一笔押金。"], ["maintaining the property. 房东 负 责 维", "护房产。"], ["a wardrobe. 房间里有一张大号床和一", "个衣柜。"], ["for rent. 我 在找 一套 带家 具 出租 的 公", "寓。"], ["annoying. 邻居很吵，这让人很恼火。", "第 23 页 共 38 页"], ["The hotel offers free breakfast and Wi -", "Fi. 这家酒店提供免费早餐和无线网络。"], ["renovation. 我们房间的浴室需要一些", "翻新。"], ["swimming pool and a gym. 这个公寓小", "区有一个游泳池和一个健身房。"], ["rent here is too high. 我要搬到一个新", "地方，因为这里房租太高。"], ["feel like home. 我们装饰了新房间，让", "它有家的感觉。"], ["very convenient. 这栋楼有电梯，非常方", "便。"], ["thrilling experience. 我们去玩了密室逃", "脱，体验非常刺激。"], ["She enjoys knitting in her free time. 她", "空闲时间喜欢编织。"], ["backyard. 他们在后院举办了一场烧烤", "派对。"], ["friends on weekends. 我周末喜欢和朋", "友们玩桌游。"], ["last night. 我们昨晚看了一场单口喜剧", "表演。"], ["plays for hours. 他是个电子游戏迷，经", "常一玩就是几个小时。"], ["new skills. 我们上了绘画课来学习一些", "新技巧。"], ["relaxing day. 他们去湖边钓鱼，度过了", "轻松的一天。"], ["many great bands. 我们参加了一个音", "乐节，看到了很多很棒的乐队。"], ["morning. 他们今天早上在公园打羽毛", "球。"], ["over the weekend. 周末我们在家进行", "了电影马拉松。"], ["favorite novels. 他加入了一个读书俱乐", "部来讨论他喜欢的小说。"], ["had a lot of fun on the rides. 我们去了", "游乐园，在游乐设施上玩得很开心。"], ["more exercise and eat less junk food.", "医生建议我多锻炼，少吃垃圾食品。"], ["a few weeks. 她已经失眠好几周了。", "第 24 页 共 38 页"], ["appointment after the treatment. 治疗", "后我们需要安排一次复诊。"], ["temperature. 护 士 给 我 量 了 血 压 和 体", "温。"], ["recover from his injury. 他正在接受物", "理治疗以从伤病中恢复。"], ["of nicotine patches. 我在尼古丁贴片的", "帮助下努力戒烟。"], ["medical equipment. 这家医院有最先进", "的医疗设备。"], ["and needs to monitor her blood sugar.", "她被诊断出患有糖尿病，需要监测血糖。"], ["the spread of diseases. 我们应该 接种", "疫苗以预防疾病传播。"], ["immune system. 他一直在服用维生素", "来增强免疫系统。"], ["for my headache. 医生给我开了一些治", "头痛的止痛药。"], ["make sure I'm healthy. 我要去做定期体", "检以确保身体健康。"], ["reduce stress. 她一直在练习冥想以减", "轻压力。"], ["for further treatment. 这位患者需要住", "院接受进一步治疗。"], ["to the city. 地震给这座城市造成了严重", "破坏。"], ["lava into the air. 火山爆发，向空中喷出", "火山灰和岩浆。"], ["triggered by underwater earthquakes.", "海啸是巨大的海浪，通常由海底地震引"], ["day and cold at night. 沙漠白天酷热，", "夜晚寒冷。"], ["the world. 亚马逊雨林是世界上最大的", "雨林。"], ["mountain range on Earth. 喜马拉雅山", "脉是地球上最高的山脉。"], ["natural wonder. 大峡谷是一个壮丽的自", "然奇观。"], ["certain regions. 季风给某些地区带来大", "量降雨。"], ["slowly being covered. 潮水正在上涨，", "海滩逐渐被淹没。"], ["regions. 北极光，又称北极曙光，是极", "地地区的壮观景象。"], ["Sandstorms are common in arid areas.", "沙尘暴在干旱地区很常见。"], ["rivers in the world. 长江是世界上最长", "的河流之一。"], ["move slowly over land. 冰川是在陆地", "上缓慢移动的巨大冰块。"], ["much of North Africa. 撒哈拉沙漠横跨", "北非大部分地区。"], ["In Japan, people bow to show respect.", "在日本，人们鞠躬以示尊敬。"], ["with dragon dances and fireworks. 中", "国新年通过舞龙和放烟花来庆祝。"], ["In India, Diwali is a festival of lights. 在", "印度，排灯节是一个光明的节日。"], ["unique traditions like the haka dance.", "新西兰的毛利文化有独特的传统，比如"], ["dawn to dusk. 在斋月期间，穆斯林从黎", "明到黄昏禁食。"], ["famous beer festival. 德国的啤酒节是", "一个著名的节日。"], ["monks by bowing. 在泰国，人们通过鞠", "躬向僧侣表示敬意。"], ["holiday in Mexican culture. 亡灵节是墨", "西哥文化中的重要节日。"], ["integral part of their cultural heritage.", "在苏格兰，风笛音乐是其文化遗产的重"], ["and each represents a year. 中国生肖有", "十二种动物，每种代表一年。"], ["exchange gifts on Christmas. 在许多西", "方国家，人们在圣诞节交换礼物。"], ["a rich oral tradition. 澳大利亚的原住民", "有丰富的口述传统。"], ["originated as a religious festival. 在 希", "腊，奥运会最初是作为宗教节日起源的。"], ["expression. 在一些非洲部落，身体艺术", "和划痕是文化表达的形式。"], ["celebrations. 中国的元宵节标志着中国", "新年庆祝活动的结束。"], ["delicious dishes in a restaurant. 厨师负", "责在餐厅制作美味佳肴。"], ["structures. 建 筑 师 设 计 建 筑 物 和 构 筑", "物。"], ["computer programs and applications.", "软件工程师开发计算机程序和应用。"], ["write articles. 记者报道新闻事件并撰写", "文章。"], ["vehicles. 机械师修理和保养车辆。", "第 26 页 共 38 页"], ["them learn. 教师教育学生并帮助他们", "学习。"], ["and other healthcare settings. 护 士 在", "医院和其他医疗场所照顾病人。"], ["represents clients in court. 律师提供法", "律咨询并在法庭上代表客户。"], ["paintings, sculptures, and music. 艺 术", "家创作艺术作品，如绘画、雕塑和音乐。"], ["and provide banking services. 银 行 家", "管理金融交易并提供银行服务。"], ["products or services. 销售人员推销和", "销售产品或服务。"], ["new knowledge. 科学家进行研究以发", "现新知识。"], ["passengers or cargo. 飞行员驾驶飞机", "运输乘客或货物。"], ["accessories. 时装设计师设计服装和配", "饰。"], ["softener in the wash. 为了让衣服保持", "清新，在洗涤时使用织物柔软剂。"], ["grocery store. 如果你想省钱，去杂货店", "之前列一个购物清单。"], ["bedtime. 为了提高睡眠质量，睡前避免", "使用电子设备。"], ["to water can make pasta cook faster. 烹", "饪时，在水中加一小撮盐可以让面条煮"], ["mixture of vinegar and water. 为了把窗", "户擦得没有条纹，使用醋和水的混合液。"], ["sheet inside each shoe overnight. 如果", "你的鞋子有异味，在每只鞋子里放一张"], ["them with a little lemon juice. 为了让切", "好的水果保鲜更久，在上面撒一点柠檬"], ["to prevent scorching. 熨烫衣服时，使用", "湿布以防止烧焦。"], ["with a stain remover. 要去除衣服上的", "污渍，先将其浸泡在冷水中，然后用去"], ["aid kit in your luggage. 如果你要旅行，", "在行李中装一个小急救包。"], ["sunlight exposure. 为了让你的植物 长", "得更健康，定期转动它们以确保均匀接"], ["containers to keep them fresh. 储存剩", "菜时，使用密封容器以保持新鲜。"], ["baking soda and vinegar down the", "第 27 页 共 38 页"], ["drain. 要疏通下水道，将小苏打和醋的", "混合液倒入下水道。"], ["lights and electronics when not in use.", "如果你想节能，不使用时关闭灯和电器。"], ["washing it too often. 为了保持头发健", "康，避免过于频繁地洗头。"], ["screen. 最新款的智能手机有高分辨率", "摄像头和大屏幕。"], ["simulated environment. 虚拟现实（VR）", "技术让用户沉浸在模拟环境中。"], ["access your files from anywhere. 云 存", "储使你可以从任何地方存储和访问文"], ["activities, heart rate, and sleep patterns.", "智能手表可以追踪你的健身活动、心率"], ["models. 3D 打印机可以根据数字模型", "创建三维物体。"], ["more convenient. 像支付宝和微信支付", "这样的移动支付应用使交易更加便捷。"], ["better control and monitoring. 物联网", "（IoT）将日常物品连接到互联网以实现"], ["TV shows. 像 网 飞 （ Netflix ） 和 葫 芦", "（Hulu）这样的流媒体服务提供各种各"], ["services. 无人机可用于航拍、监视和送", "货服务。"], ["with digital information. 增强现实（AR）", "应用可以用数字信息增强现实环境。"], ["your devices without using cables. 无", "线充电器让你无需使用电缆就能为设备"], ["perform various tasks. 像 Siri 和 Alexa", "这样由人工智能（AI）驱动的语音助手"], ["courses for people to learn new skills.", "在线学习平台为人们提供学习新技能的"], ["remotely. 智能家居系统可以远程控制", "你的家电和安全设备。"], ["secure and transparent transactions. 区", "块链技术用于安全、透明的交易。"], ["become a common sight on the roads.", "未来，自动驾驶汽车可能会在路上随处"], ["demands. 太阳能和风能等可再生能源", "在满足能源需求方面将发挥更重要的作"], ["improving human health. 生 物 技 术 在", "治疗疾病和改善人类健康方面可能会取"], ["communication. 5G 技术的发展将实现", "更快、更可靠的通信。"], ["discovery of new planets and resources.", "太空探索可能会带来新行星和资源的发"], ["expand. 随着电子商务的发展，网上购", "物将继续增长。"], ["arrangements will become the norm.", "在未来几年，更多人可能会远程工作，"], ["various applications. 机 器 人 领 域 将 有", "更多先进的机器人被开发用于各种应"], ["change. 环境保护措施将得到加强以应", "对气候变化。"], ["and entertain. 虚拟现实和增强现实可", "能会改变我们学习、工作和娱乐的方式。"], ["personalized learning methods. 教育系", "统可能会适应并纳入更多在线和个性化"], ["research. 未来，在科学研究方面可能会", "有更多的国际合作。"], ["materials. 时尚行业可能会更多地关注", "可持续和环保材料。"], ["an increase in the use of telemedicine.", "医疗保健行业可能会更多地使用远程医"], ["fields. 人工智能的发展可能会在各个领", "域带来机遇和挑战。"], ["translucent before adding the garlic. 先", "把洋葱炒至半透明，再加入大蒜。"], ["flavor. 把肉放在酱油、醋和香料的混合", "液中腌制，能提升肉的风味。"], ["to beat the eggs well. 做出蓬松煎蛋卷", "的关键是充分搅拌鸡蛋。"], ["results in a tender and flavorful dish. 用", "红酒慢炖牛肉，能做出一道鲜嫩可口的"], ["blend the ingredients for the sauce. 可", "以用食品加工机快速搅拌酱料的原料。"], ["more appealing. 在披萨上撒一些罗勒", "或欧芹等新鲜香草，会让它更诱人。"], ["temperature. 烤饼干时，要确保烤箱预", "热到合适的温度。"], ["allows the flavors to meld together. 把", "汤小火慢炖几个小时，能让味道融合得"], ["cook them. 在微沸的水中煮荷包蛋，是", "一种健康又简单的烹饪方法。"], ["a nice sear on the outside. 用铸铁煎锅", "能让牛排表面煎得金黄酥脆。"], ["color and nutrients. 将蔬菜在沸水中焯", "一下，能保留它们的色泽和营养。"], ["butter is the base for many sauces. 把", "面粉和黄油混合制成油面糊，是许多酱"], ["crispy skin. 用橄榄油、盐和胡椒的混合", "物烤制鸡肉，能让鸡皮变得酥脆。"], ["it a rich, yeasty flavor. 发酵面包面团，", "能让面包有浓郁的酵母味。"], ["adds a touch of sweetness. 在烤坚果上", "淋上蜂蜜，增添了一丝甜味。"], ["way to expand your vocabulary. 阅读英", "文小说是扩充词汇量的绝佳方法。"], ["listening comprehension. 看 有 字 幕 的", "英语电影有助于提高听力理解能力。"], ["enhance your pronunciation. 尽可能多", "地与英语母语者练习口语，以改善发音。"], ["beneficial. 准备一个词汇笔记本，每天", "写下新单词很有帮助。"], ["reinforce grammar knowledge. 尝试将", "母语的简单句子翻译成英语，以巩固语"], ["environment. 加入英语会话小组，能让", "你在轻松的环境中练习口语。"], ["improve your language skills. 通勤时听", "英语播客是提高语言技能的便捷方法。"], ["other for quick review. 用一面写英语单", "词、另一面写翻译的抽认卡进行快速复"], ["expressing your thoughts and ideas. 用", "英语写短文，练习表达自己的想法和观"], ["a better sense of rhythm and intonation.", "唱英语歌曲能让你更好地感受节奏和语"], ["better. 分析英语句子结构，以便更好地", "理解语法。"], ["creativity. 用英语编故事，讲给自己或别", "人听，以激发创造力。"], ["focuses on your specific learning needs.", "参加针对你特定学习需求的英语课程。"], ["forums to interact with other learners.", "参与在线英语论坛，与其他学习者互动。"], ["goals and track your progress regularly.", "设定可实现的语言学习目标，并定期跟"], ["of plastic ones helps reduce waste. 使", "用可重复使用的购物袋代替塑料袋，有"], ["save natural resources. 回收纸张、塑料", "和金属能节省自然资源。"], ["habitat for wildlife. 在社区种树可以改", "善空气质量，为野生动物提供栖息地。"], ["reduces your carbon footprint. 选择节", "能电器能减少你的碳足迹。"], ["teeth conserves water. 刷牙时关掉水龙", "头可以节约用水。"], ["down on emissions. 使用公共交通、拼", "车或骑自行车代替独自开车，能减少排"], ["gardening. 将食 物残 渣和 庭院 垃 圾 堆", "肥，能为园艺创造富含养分的土壤。"], ["big difference. 避免使用一次性塑料，如", "吸管和一次性餐具，会带来很大改变。"], ["broader impact. 鼓励你的工作场所 实", "施绿色环保措施，能产生更广泛的影响。"], ["harness renewable energy. 在屋顶安装", "太阳能电池板可以利用可再生能源。"], ["environment. 使用天然清洁产品，能减", "少环境中的有害化学物质。"], ["helps protect marine life. 参加海滩清洁", "活动有助于保护海洋生物。"], ["transportation. 选择本地食材可以减少", "与运输相关的碳排放。"], ["issues is crucial for making a collective", "第 31 页 共 38 页"], ["change. 向他人宣传环境问题，对实现", "集体改变至关重要。"], ["contribute to a more sustainable diet.", "减少肉类消费有助于实现更可持续的饮"], ["sharing your own. 与朋友发生争执时，", "先倾听他们的观点，再分享自己的看法。"], ["regularly strengthens your relationship.", "经常向伴侣表达感激之情，能巩固你们"], ["friendships. 尊重他人的界限，对维持健", "康的友谊至关重要。"], ["take steps to make amends. 如果在一", "段关系中犯了错，真诚道歉并采取措施"], ["night, builds stronger bonds. 与家人共", "度美好时光，比如每周举行一次游戏之"], ["damage relationships. 避免八卦他人，", "因为这会破坏人际关系。"], ["relationship helps build trust. 在一段关", "系中保持诚实和坦率，有助于建立信任。"], ["constructive suggestions. 给 同 事 反 馈", "时，关注其行为并提供建设性的建议。"], ["support. 庆祝朋友和亲人的成就，表达", "你的支持。"], ["communicate your feelings openly. 如", "果在一段关系中感到嫉妒，坦诚地表达"], ["relationships. 原谅他人的错误，能促进", "关系的修复和发展。"], ["improves communication. 使用积极的", "肢体语言，如微笑和眼神交流，能改善"], ["relationships. 以冷静、理性的方式解决", "冲突，对关系更有益。"], ["care. 记住重要日子，如生日和纪念日，", "表明你在意对方。"], ["means giving your full attention. 在 一", "段关系中做一个好的倾听者，意味着全"], ["create unique effects. 如果你喜欢摄影，", "尝试不同的光线条件以创造独特的效"], ["enhance the growth of your plants. 对", "于喜欢园艺的人来说，了解套种可以促"], ["depth to your artwork. 在绘画中，使用", "不同的笔触和纹理可以为你的作品增添"], ["your technique. 演奏乐器时，定期练习", "音阶可以提高你的技巧。"], ["feedback and inspiration. 如 果 你 喜 欢", "写作，参加写作工作坊能获得有价值的"], ["enjoyment. 对于集邮者来说，研究每枚", "邮票背后的历史会增加乐趣。"], ["complex designs. 在编织中，尝试新的", "针法图案可以让你创造出更复杂的设"], ["can be a lot of fun. 如果你是桌游爱好", "者，和朋友组织一个桌游之夜会非常有"], ["more detailed model. 在模型制作中，", "使用高质量的材料和精密工具能制作出"], ["experience. 对于观鸟者来说，买一副好", "的双筒望远镜能提升观鸟体验。"], ["own unique hand. 在书法中，练习不同", "的字体风格有助于形成你自己独特的笔"], ["techniques. 如果你喜欢烹饪，参加烹饪", "课程可以学习新的食谱和技巧。"], ["towards. 对于跑步者来说，参加当地的", "5 公里或 10 公里比赛可以是一个很好"], ["Lightroom can enhance your photos.", "样的后期处理软件可以提升你的照片质"], ["your thoughts on books. 如果你喜欢阅", "读，加入读书俱乐部可以让你讨论和分"], ["economic hardships. 无 家可 归 在 许 多", "城市地区是一个紧迫的问题，通常由缺"], ["same work. 不同行业的性别薪酬差距", "依然存在，女性从事相同工作的收入普"], ["local residents and law enforcement.", "某些社区犯罪率上升，是当地居民和执"], ["ecosystem. 环境污染，如空气和水污染，", "对公众健康和生态系统构成严重威胁。"], ["exacerbates social inequalities. 数字鸿", "沟，即有机会使用数字技术和没有机会"], ["experience. 青年失业是一个全球性挑", "战，因为年轻人由于经验有限难以进入"], ["better support systems. 抑郁症和焦虑", "症等心理健康问题日益普遍，需要提高"], ["undermining social harmony. 基 于 种", "族、民族或宗教的歧视在许多社会中仍"], ["affects millions around the world. 粮食", "不安全，即人们无法获得足够的营养食"], ["care. 发达国家的人口老龄化给医疗保", "健、养老金制度和社会关怀带来挑战。"], ["and land. 塑料垃圾已成为一个重大环", "境问题，大量塑料污染海洋和陆地。"], ["their social, academic, and mental well", "- being. 青少年网瘾问题日益严重，可"], ["from low - income families. 高等教育的", "高成本使许多低收入家庭的学生无法接"], ["making. 社交媒体上错误信息的传播会", "对公众舆论和决策产生严重后果。"], ["and access to basic services. 农村地区", "缺乏完善的基础设施，阻碍了经济发展"], ["inner turmoil and wonder. 文森特・梵高", "的《星月夜》以其旋转的笔触和鲜艳的"], ["sfumato technique. 列奥纳多・达・芬奇", "的《蒙娜丽莎》以其神秘的微笑和艺术"], ["realistic portrayal of human form and", "第 34 页 共 38 页"], ["emotional depth. 奥古斯塔・罗丹的雕", "塑作品，如《思想者》，因其对人体形"], ["musical structures. 在古典音乐中，路德", "维希・凡・贝多芬的交响曲，如《第五交"], ["of light and color in nature. 印象派画家", "的作品，如克劳德・莫奈的《睡莲》，专"], ["human nature. 莎士比亚的戏剧，如《罗", "密欧与朱丽叶》，是永恒的经典，探讨"], ["movements and enchanting music. 芭", "蕾舞剧《天鹅湖》是编舞的杰作，其动"], ["fragmented and abstract forms. 巴勃罗", "・毕加索的立体派绘画，如《亚威农少"], ["of nature, love, and mortality. 艾米莉・", "狄金森的诗歌以其对自然、爱情和死亡"], ["windows. 哥特式大教堂的建筑，如巴黎", "圣母院，令人敬畏，其高耸的尖顶和彩"], ["storytelling. 朱塞佩・威尔第的歌剧，如", "《茶花女》，以其强大的声乐表演和戏"], ["images. 班克斯的街头艺术常常通过其", "独特且发人深省的图像传达社会和政治"], ["relationships. 简・奥斯汀的小说，如《傲", "慢与偏见》，详细描绘了 19 世纪英国"], ["nature. 安塞尔・亚当斯的摄影作品，以", "其标志性的美国西部图像，展示了自然"], ["experiences for viewers. 草间弥生的当", "代艺术装置，如她的无限镜屋，为观众"], ["check the entry requirements, such as", "第 35 页 共 38 页"], ["visas and vaccination certificates. 出国", "旅行前，务必查看入境要求，如签证和"], ["avoid cultural misunderstandings. 研究", "目的地的当地习俗和传统，有助于避免"], ["matched. 轻装上阵对舒适旅行至关重", "要，所以选择可以混搭的多功能服装。"], ["internet connectivity. 下载离线地图和", "翻译应用程序非常有用，尤其是在网络"], ["stay. 提前预订住宿，尤其是在旅游旺", "季，可确保有地方住。"], ["accordingly. 列出目的地的必游景点，并", "据此规划行程。"], ["emergencies. 考虑购买旅行保险，以应", "对航班取消或医疗紧急情况等意外事"], ["travel experience. 学习一些当地语言的", "基本短语，如问候语和常见问题，可以"], ["idea for any trip. 任何旅行都最好带上", "装有基本药物和用品的急救包。"], ["get around easily. 研 究 当 地 的 交 通 选", "择，无论是公共交通、租车还是拼车，"], ["you bring appropriate clothing. 打包前", "查看目的地的天气预报，有助于携带合"], ["savor authentic cuisine. 寻找当地人推", "荐的当地食品市场和餐馆，品尝正宗美"], ["secure and easily accessible place. 将护", "照、身份证和旅行行程等重要文件放在"], ["and adapters. 如果你携带电子设备旅", "行，别忘了带上必要的充电器和适配器。"], ["and advice from experienced travelers.", "加入旅行论坛或群组，从有经验的旅行"], ["and machine learning. 量子计算有潜力", "第 36 页 共 38 页"], ["improving crop yields. 基因编辑技术，", "高作物产量提供了新的可能性。"], ["maintenance costs. 自愈材料的发展可", "能会产生更耐用的产品，减少浪费和维"], ["experiences. 增强现实（AR）和虚拟现", "实（VR）在教育、培训和娱乐等领域越"], ["systems. 纳米技术涉及纳米尺度的材料", "和设备，正在推动更高效的能量存储和"], ["donor organs. 3D 生物打印有望创造人", "造器官和组织，可能解决供体器官短缺"], ["exploration. 自主机器人正在为从家务", "到太空探索等各种应用而开发。"], ["and more personalized healthcare. 医", "疗物联网（IoMT）连接医疗设备和系统，"], ["fraud and inefficiencies. 基于区块链的", "供应链管理系统提供透明度和安全性，"], ["effective. 可再生能源技术，如先进的太", "阳能电池板和下一代风力涡轮机，正变"], ["diabetics. 可穿戴技术不断发展，不仅可", "以监测健身情况，还能实时监测健康状"], ["experiences. 电子商务平台正在使用人", "工智能驱动的推荐引擎，提供个性化的"], ["energy - efficient buildings. 智 慧 城 市", "正在整合技术以改善城市生活，包括智"], ["vehicles is crucial for their widespread", "第 37 页 共 38 页"], ["adoption. 电动汽车高速充电技术的发", "展对其广泛应用至关重要。"], ["information sharing. 量子通信提供超安", "全的数据传输，这可能会改变敏感信息"], ["through them that defines us. 人 生 是", "一段充满欢乐与悲伤的旅程，正是我们"], ["growth. 真正的幸福往往不在于追求物", "质财富，而在于有意义的人际关系和个"], ["improvement. 失败不是终点，而是通往", "成功的垫脚石。它提供了宝贵的教训和"], ["our lives. 时间是一种宝贵的资源，我们", "如何利用它决定了我们生活的质量。"], ["our well - being. 变化是生活中唯一不", "变的，学会适应它对我们的幸福至关重"], ["fulfillment to ourselves. 对他人的善良", "和同情不仅让世界变得更美好，也给我"], ["journey. 我们面临的最重大的战斗往往", "是内心的，战胜恐惧和不安全感是一生"], ["contribute to the lives of others. 成 功", "不是用我们取得了多少成就来衡量，而"], ["us going. 面对逆境时，是我们的韧性和", "决心让我们坚持下去。"], ["lead to a more contented existence. 生", "活的美好在于其简单，从小事中找到快"], ["burden of anger and resentment. 宽恕", "不仅是为了别人，也是为了我们自己。"], ["the world. 对知识的追求是一段永无止", "境的旅程，每一个新发现都拓宽了我们"], ["and bring out the best in people. 爱有", "改变生活、激发人们最好一面的力量。"], ["around us. 我们都是相互关联的，我们", "的行为会对周围的人产生连锁反应。"], ["reality we live in. 充实生活的关键是在", "我们的梦想和现实生活之间找到平衡。"]];window.__KEY__="全英交流1100句英语点餐旅游";window.__TITLE__="全英交流1100句英语点餐旅游";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

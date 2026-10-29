@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 全英交流500句咖啡色</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p172.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：全英交流500句咖啡色</h1>
+  <div class="meta"><span class="charspill">272 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">272</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 272 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p172.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["It's a pleasure to meet you. 很高兴见到", "你。"], ["I'm so glad to meet you. 我很高兴见到", "你。"], ["How are you doing today? 你今天过得", "咋样？"], ["How are you feeling today? 今天你感", "觉咋样？"], ["What's up? 最近怎么样？", "提供与寻求帮助"], ["Could you help me, please? 你能帮我一", "下吗？"], ["Could you help me with this? 你能帮我", "一下这个吗？"], ["Excuse me, can you help me with this?", "劳驾，你能帮我一下这个吗？"], ["Can you give me a hand? 你能帮我一下", "吗？"], ["Is there anything I can do for you? 我", "能为你做点什么吗？"], ["What do you think about it? 你咋看这", "件事？"], ["That's exactly what I was thinking. 这", "正是我所想的。"], ["It's not my cup of tea. 那不是我的兴趣", "所在。"], ["It's none of your business. 这不关你的", "事。"], ["Could you repeat that, please?", "请求重复、解释与放慢语速"], ["Could you please repeat that? 你可以", "再说一遍吗？"], ["Sorry, I didn't catch that. 抱歉，我没听", "清。"], ["I'm sorry, I didn't catch your name. 很", "抱歉，我没听清你的名字。"], ["I'm afraid I don't understand. 恐怕我不", "明白。"], ["Could you explain that to me? 你能跟", "我解释一下吗？"], ["Could you explain this to me? 你能给", "我解释一下这个吗？"], ["Could you speak a bit slower, please?", "你可以说慢一点吗？"], ["Could you speak more slowly? 你能说", "得慢一点吗？"], ["Could you speak a little slower? 你能", "说得慢一点吗？"], ["What do you do in your free time?", "询问个人信息"], ["What's your favorite food? 你最喜欢的", "食物是什么？"], ["What's your favorite movie? 你最喜欢", "的电影是什么？"], ["Do you have any hobbies? 你有什么爱", "好吗？"], ["How long have you been living here?", "你在这里住了多久了？"], ["What's your favorite type of music?", "你最喜欢哪种类型的音乐？"], ["Do you have any dietary restrictions?", "你有什么饮食限制吗？"], ["restroom", "is? 你能告诉我卫生间在哪里吗？"], ["station is? 你能告诉我最近的车站在哪里", "吗？"], ["How do I get to the airport? 我怎么去", "机场？"], ["How do I get to the train station? 我怎", "么去火车站？"], ["How do I get to the main square? 怎", "么去主广场？"], ["Where is the nearest ATM? 最近的取款", "机在哪里？"], ["Where is the nearest train station? 最", "近的火车站在哪里？"], ["Where is the nearest subway station?", "最近的地铁站在哪里？"], ["Is there a hospital nearby? 附近有医院", "吗？"], ["Is there a supermarket nearby? 这里附", "近有超市吗？"], ["Is there a place to park nearby? 附近有", "停车的地方吗？"], ["Are there any beaches nearby? 附近有", "沙滩吗？"], ["Is there a good place for shopping? 你", "知道购物的好地方吗？"], ["Where can I find a pharmacy? 你知道", "哪里可以找到药店吗？"], ["Where can I find a good coffee shop?", "哪里可以找到不错的咖啡馆？"], ["Where can I find a public restroom?", "哪里有公共厕所？"], ["I'm looking for a souvenir shop. 我在", "找一家纪念品商店。"], ["I'm trying to find... 我在试图找…… （ 可 根", "据情境补充具体地点）"], ["What time does the meeting start? 会", "议几点开始？"], ["What time does the store close? 这家", "店几点关门？"], ["What time do we need to leave? 我们", "需要几点离开？"], ["What time do you usually have dinner?", "你通常什么时候吃晚饭？"], ["What time is check-out? 退房时间是几", "点？"], ["What time does the last bus leave? 最", "后一班公交车几点发车？"], ["How long will it take to get there? 到", "那里需要多长时间？"], ["How much does it cost for one night?", "一晚多少钱？"], ["How much does it cost to get in? 入场", "费是多少？"], ["Could I get the bill, please? 我可以结账", "了吗？"], ["Can I have the check, please? 请给我账", "单吗？"], ["I'd like a table for two, please. 我想要", "一张两人桌，谢谢。"], ["I'd like to book a table for two. 我想订", "一个两个人的桌子。"], ["I'd like to book a room for two nights.", "我想订一个房间住两晚。"], ["Do you take credit cards? 你们接受信用", "卡吗？"], ["Do you accept credit cards here? 这里", "接受信用卡吗？"], ["Can I pay in installments? 我可以分期", "付款吗？"], ["Do you have any special discounts? 你", "们有特别折扣吗？"], ["Is it possible to get a discount? 可以打", "折吗？"], ["What would you like to drink? 你想喝", "点啥？"], ["Can I have a cup of coffee, please? 我", "可以来杯咖啡吗？"], ["Can I have a glass of water, please? 请", "给我一杯水好吗？"], ["Do you have any vegetarian options?", "你们有素食选择吗？"], ["What's the best thing on the menu?", "菜单上最好的菜是什么？"], ["restaurant around here? 你能推荐一个", "附近不错的餐厅吗？"], ["around here? 你能推荐一家附近不错的", "酒店吗？"], ["Could you recommend something? 你", "能推荐点什么吗？"], ["I'd love to try the local food. 我很想尝", "试当地的食物。"], ["Can you pack this to go? 你能把这个打", "包吗？"], ["I'll have the same thing as them. 我点", "跟他们一样的。"], ["I'm just browsing, thanks. 我只是随便", "看看，谢谢。"], ["I'm just looking, thanks. 我只是随便看", "看，谢谢。"], ["Do you have this in a different color?", "你们有其他颜色的吗？"], ["Can I have a copy of the receipt? 我可", "以要一份收据吗？"], ["Can you give me a receipt for this? 你", "可以给我这个的收据吗？"], ["That's too expensive. 太贵了。", "旅游与活动相关"], ["Do you have any brochures or maps?", "你们有宣传册或地图吗？"], ["local attractions? 你有关于当地景点的", "宣传册吗？"], ["Do you offer guided tours? 你们提供导", "游服务吗？"], ["Can I take photos here? 我能在这里拍", "照吗？"], ["Is it safe to walk around at night? 晚", "上在这里走安全吗？"], ["What's the temperature like today? 今", "天的温度怎么样？"], ["What's the weather like today? 今天天", "气怎么样？"], ["culture? 你能多告诉我一些关于你们文化", "的事情吗？"], ["Can I make an international call here?", "我可以在这里打国际电话吗？"], ["Do you have Wi-Fi here? 这里有无线网", "络吗？"], ["How do I connect to the Wi-Fi here?", "我该如何连接这里的 Wi-Fi?"], ["Can I leave my luggage here? 我可以把", "行李寄存在这里吗？"], ["What are the opening hours? 营业时间", "是几点到几点？"], ["I'll cross that bridge when I come to it.", "到时候再说。"], ["I'm looking forward to meeting you.", "我很期待见到你。"], ["appreciate it. 谢谢你的帮助，我真的很感", "激。"], ["Sorry for the inconvenience. 抱歉造成", "不便。"], ["I'm sorry, I didn't mean to. 抱歉，我不", "是故意的。"], ["Please don't worry about it. 不要担心", "这件事。"], ["Don't beat around the bush. 别拐弯抹", "角。"], ["Don't jump to conclusions. 别急着下结", "论。"], ["Don't judge a book by its cover. 别以", "貌取人。"], ["Don't put all your eggs in one basket.", "别把所有鸡蛋放在一个篮子里。"], ["Don't put the cart before the horse. 本", "末倒置。"], ["Don't bite off more than you can chew.", "不要贪多嚼不烂。"], ["Don't let the cat out of the bag. 别泄", "露秘密。"], ["Let's grab some coffee. 我们去喝杯咖啡", "吧。"], ["Let's turn over a new leaf. 我们重新开", "始吧。"], ["Actions speak louder than words. 行", "动胜于言语。"], ["Better safe than sorry. 宁可小心也不要", "后悔。"], ["It's better to be safe than sorry. 小心", "为上。"], ["It's not the end of the world. 这不是世", "界末日。"], ["It's water under the bridge. 过去的事就", "算了。"], ["You're barking up the wrong tree. 你", "搞错方向了。"], ["You've made my day. 你让我今天非常开", "心。"], ["You're as cool as a cucumber. 你真沉着", "冷静。"], ["I'm good at multitasking. 我擅长同时处", "理多项任务。"], ["I'm feeling under the weather. 我感觉", "不太舒服。"], ["That's the icing on the cake. 这真是锦", "上添花。"], ["That's the last straw. 这是最后一根稻", "草。"], ["Keep up the good work. 继续保持好表", "现。"], ["I can't hear you clearly. 我听不清楚你", "说的。"], ["I forgot to bring my wallet. 我忘了带", "钱包。"], ["I'm afraid I can't make it. 我恐怕做不", "到。"], ["I'm afraid I can't help you. 我恐怕帮不", "了你。"], ["Can I borrow your pen? 我能借你的笔", "吗？"], ["Could you lend me a pen? 你能借我一", "支笔吗？"], ["Can I have an extra blanket, please?", "我可以要一条额外的毯子吗？"], ["Can I have extra towels, please? 我可", "以要多一些毛巾吗？"], ["Do you offer laundry services here?", "这里提供洗衣服务吗？"], ["Could you pass me the salt, please?", "你能递给我盐吗？"], ["number here? 这里的紧急联系电话是多", "少？"], ["What's the emergency number here?", "这里的紧急联系电话是多少？"], ["You've got to be kidding me. 你一定", "是在开玩笑。"], ["Could I have a refill, please? 我可以再", "加点吗？"], ["Is tipping customary here? 在这里小", "费是习惯吗？"], ["Where can I exchange currency? 我在", "哪里可以兑换货币？"], ["What's the exchange rate today? 今", "天的汇率是多少？"], ["I'd like to exchange some currency.", "我想兑换一些货币。"], ["Can I reserve a table for tonight? 我", "可以预定今晚的餐桌吗？"], ["Do I need a ticket to enter this place?", "进入这个地方需要票吗？"], ["history here? 我可以找一个导游来讲解这", "里的历史吗？"], ["Could you take a picture for me? 你", "可以帮我拍张照片吗？"], ["Could you write it down for me? 你能", "帮我写下来吗？"], ["Could you write that down for me?", "你能帮我写下来吗？"], ["Please feel free to contact me. 请随时", "联系我。"], ["Do you mind if I join you? 你介意我加", "入吗？"], ["Do you mind if I sit here? 你介意我坐", "在这吗？"], ["This is not what I expected. 这不是我", "期待的。"], ["Let me know if you need anything.", "如果你需要什么，请告诉我。"], ["I have nothing to do with it. 这与我无", "关。"], ["Don't judge a person by appearance.", "不要以貌取人。"], ["Birds of a feather flock together. 物以", "类聚，人以群分。"], ["A friend in need is a friend indeed. 患", "难见真情。"], ["When in Rome, do as the Romans do.", "入乡随俗。"], ["Every cloud has a silver lining. 山穷水", "尽疑无路，柳暗花明又一村（黑暗中总有一"], ["An apple a day keeps the doctor away.", "一天一苹果，医生远离我。"], ["A stitch in time saves nine. 小洞不补，", "大洞吃苦（及时处理，事半功倍） 。"], ["Beauty is in the eye of the beholder.", "情人眼里出西施。"], ["A penny saved is a penny earned. 省一", "分就是赚一分。"], ["Rome wasn't built in a day. 罗马不是一", "天建成的（冰冻三尺非一日之寒） 。"], ["Out of sight, out of mind. 眼不见，心不", "烦。"], ["can't make it drink. 引马河边易，逼马饮", "水难（师傅领进门，修行靠个人） 。"], ["It's never too old to learn. 活到老，学", "到老。"], ["There's no smoke without fire. 无风不", "起浪。"], ["Where there's a will, there's a way. 有", "志者事竟成。"], ["A fall into a pit, a gain in your wit. 吃", "一堑，长一智。"], ["As you sow, so shall you reap. 种瓜得", "瓜，种豆得豆。"], ["Kill two birds with one stone. 一石二鸟；", "一箭双雕。"], ["Make hay while the sun shines. 趁热打", "铁（把握时机） 。"], ["A good beginning is half done. 良好的", "开端是成功的一半。"], ["All's well that ends well. 结果好，一切", "都好。"], ["The early bird catches the worm. 早起", "的鸟儿有虫吃。"], ["All good things must come to an end.", "天下无不散之筵席（好事总有尽头） 。"], ["A picture is worth a thousand words.", "一图胜千言。"], ["You are what you eat. 人如其食 （饮食可", "反映一个人的性格与生活环境） 。"], ["Many hands make light work. 众人拾", "柴火焰高。"], ["Don't put the cart before the horse. 不", "要本末倒置。"], ["Once bitten, twice shy. 一朝被蛇咬，十", "年怕井绳。"], ["A miss is as good as a mile. 失之毫厘，", "谬以千里。"], ["Two heads are better than one. 三个臭", "皮匠，顶个诸葛亮。"], ["The more, the merrier. 人越多越热闹", "（多多益善） 。"], ["Variety is the spice of life. 变化是生活", "的调味品（丰富多样使生活更精彩） 。"], ["A rolling stone gathers no moss. 滚石", "不生苔，转业不聚财（比喻经常变换工作或"], ["The pen is mightier than the sword. 笔", "诛胜于剑伐（文字的力量胜过武力） 。"], ["All that glitters is not gold. 闪光的未必", "都是金子。"], ["weakest link. 一着不慎，满盘皆输（链条", "的坚固程度取决于它最薄弱的环节） 。"], ["Don't bite the hand that feeds you. 不", "要恩将仇报。"], ["Give a dog a bad name and hang him.", "欲加之罪，何患无辞。"], ["He who laughs last laughs best. 谁笑", "到最后，谁笑得最好。"], ["If you can't beat them, join them. 打不", "过，就加入他们。"], ["In for a penny, in for a pound. 一不做，", "二不休。"], ["It's no use crying over spilt milk. 覆水", "难收，哭也没用。"], ["Justice has long arms. 天网恢恢， 疏而不", "漏。"], ["weep and you weep alone. 笑，世界与", "你同笑；哭，你独自去哭。"], ["Least said, soonest mended. 少说为佳，", "言多必失。"], ["Life is not all roses. 人生并非处处鸟语花", "香（人生并非一帆风顺） 。"], ["Live and let live. 自己活， 也让别人活 （待", "人宽容如待己） 。"], ["Lookers-on see most of the game. 旁", "观者清。"], ["Man proposes, God disposes. 谋事在", "人，成事在天。"], ["Necessity is the mother of invention.", "需求是发明之母。"], ["Never do things by halves. 做事不要半", "途而废。"], ["Never hit a man when he's down. 不要", "落井下石。"], ["Never judge from appearances. 不可", "以貌取人。"], ["No news is good news. 没有消息就是好", "消息。"], ["No rose without a thorn. 没有不带刺的", "玫瑰（世上没有十全十美的事） 。"], ["Nothing ventured, nothing gained. 不", "入虎穴，焉得虎子。"], ["One good turn deserves another. 善有", "善报。"], ["One swallow does not make a summer.", "一燕不成夏（不可仅凭个别现象而下判断） 。"], ["Out of the frying pan into the fire. 刚", "出虎口，又入狼窝。"], ["Prevention is better than cure. 预防胜", "于治疗（防患于未然） 。"], ["Put the cart before the horse. 本末倒", "置。"], ["Rome was not built in a day. 罗马非一", "日建成（伟业非一日之功） 。"], ["Share and share alike. 有福同享， 有难同", "当。"], ["Slow and steady wins the race. 稳扎稳", "打，无往不胜（慢工出细活） 。"], ["The die is cast. 木已成舟（事已决定，无", "法更改） 。"], ["The end justifies the means. 只要目的", "正当，可以不择手段（此观点具有一定争议"], ["The eye is bigger than the belly. 眼馋", "肚饱 （形容人贪心， 想要的多但实际吃不下） 。"], ["The leopard cannot change its spots.", "江山易改，本性难移。"], ["The more haste, the less speed. 欲速", "则不达。"], ["The pot calls the kettle black. 五十步", "笑百步。"], ["There's no place like home. 金窝银窝，", "不如自家草窝。"], ["There's no smoke without fire. 无风", "不起浪。"], ["Time and tide wait for no man. 时不", "我待。"], ["To kill two birds with one stone. 一箭", "双雕；一举两得。"], ["Too many cooks spoil the broth. 厨子", "太多煮坏汤（人多手杂反坏事） 。"], ["Two wrongs do not make a right. 别", "人错了，不等于你对了（不能以错纠错） 。"], ["you can't make it drink. 牵马到河易，强", "马饮水"], ["You reap what you sow. 种瓜得瓜，种", "豆得豆。"], ["A burnt child dreads the fire. 一朝被", "蛇咬，十年怕井绳。"], ["A constant guest is never welcome.", "常客招人嫌。"], ["A fair face may hide a foul heart. 笑", "里藏刀；人面兽心。"], ["A friend is easier lost than found. 得", "朋友难，失朋友易。"], ["A good medicine tastes bitter. 良药苦", "口。"], ["A man is known by his friends. 什么", "人交什么朋友。"], ["A new broom sweeps clean. 新官上任", "三把火。"], ["A word spoken is past recalling. 一言", "既出，驷马难追。"], ["All is fair in love and war. 情场战场，", "不择手段。"], ["All is well that ends well. 结果好，一切", "都好。"], ["All roads lead to Rome. 条条大路通罗", "马。"], ["All that glitters is not gold. 闪光的未", "必都是金子。"], ["dull boy. 只工作，不玩耍，聪明孩子也变", "傻。"], ["An idle youth, a needy age. 少壮不努", "力，老大徒伤悲。"], ["As the tree, so the fruit. 种瓜得瓜，种", "豆得豆。"], ["As you sow, so shall you reap. 一分耕", "耘，一分收获。"], ["Beggars can't be choosers. 饥不择食；", "行乞者不得有选择。"], ["Better late than never. 迟做总比不做", "好。"], ["Better safe than sorry. 宁可事先谨慎", "有余，不要事后追悔莫及。"], ["ground. 脚踏两条船， 迟早要落水 （两者皆", "选，一无所得） 。"], ["Birds of a feather flock together. 物", "以类聚，人以群分。"], ["Brevity is the soul of wit. 言以简洁为", "贵。"], ["Business is the salt of life. 事业是人生", "的第一需要。"], ["Call a spade a spade. 直言不讳； 实事求", "是。"], ["Cannot see the wood for the trees.", "一叶障目，不见泰山。"], ["Care and diligence bring luck. 谨慎和", "勤奋才能抓住机遇。"], ["Caution is the parent of safety. 小心", "驶得万年船。"], ["Children are what the mothers are.", "耳濡目染，身教言传。"], ["Christmas comes but once a year. 佳", "节良辰，机会难得。"], ["Circumstances alter cases. 具体情况具", "体分析。"], ["Cleanliness is next to godliness. 清洁", "近乎美德。"], ["Content is better than riches. 知足者", "常乐。"], ["Cry for the moon. 海底捞月；想做做不", "到的事。"], ["Custom is a second nature. 习惯是后", "天养成的。"], ["Custom makes all things easy. 有个好", "习惯，事事皆不难。"], ["Cut the coat according to the cloth.", "量体裁衣。"], ["Danger is next neighbor to security.", "塞翁失马，焉知非福。"], ["Death is the great leveller. 死亡面前，", "人人平等。"]];window.__KEY__="全英交流500句咖啡色";window.__TITLE__="全英交流500句咖啡色";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

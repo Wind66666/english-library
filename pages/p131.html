@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11.25 一个半月全英交</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">📝</span>11.25 一个半月全英交</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">60,132 字符</span>
+    <span>来源：11.25 一个半月全英交 原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C11.25%20%E4%B8%80%E4%B8%AA%E5%8D%8A%E6%9C%88%E5%85%A8%E8%8B%B1%E4%BA%A4%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p131.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">One and a half months, and you can communicate in English
+一个半月，可以全英交流
+一、日常通用场景
+（一）日常问候
+How have you been doing lately?（你最近过得咋样？）
+Fancy meeting you here! What a coincidence!（真没想到在这儿碰到你！太巧了！）
+What a pleasant surprise to run into you!（碰到你可太惊喜啦！）
+It&#x27;s been ages since we last saw each other.（我们都好久没见了。）
+How&#x27;s life treating you?（你最近日子过得咋样？）
+Good to chat and catch up with you.（很高兴能和你聊聊天，叙叙旧。）
+Long time no talk. What&#x27;s new with you?（好久没聊了，你最近有啥新鲜事儿？）
+Hey! Haven&#x27;t seen you for a while.（嘿！有段时间没见你了。）
+How&#x27;s everything going on your end?（你那边一切都咋样？）
+Nice to bump into you!（很高兴撞见你！）
+（二）情感与态度表达
+情感表达
+I&#x27;m over the moon about the good news! I&#x27;m so excited!（听到这个好消息我简直高兴到飞起！太兴奋啦！）
+I&#x27;m feeling on top of the world today! I&#x27;m in a great mood!（我今天感觉棒极了！心情超赞！）
+I&#x27;m really heartbroken because my pet passed away.（我的宠物没了，我心里可难受了。）
+I&#x27;m super excited about the upcoming trip! I can&#x27;t wait!（对于马上要去的旅行，我兴奋得不行！等不及啦！）
+I&#x27;m really worried and anxious about the exam results.（我对考试成绩可担心、焦虑了。）
+I&#x27;m so touched by what you said. It really means a lot to me.（你说的话太让我感动了。对我来说意义重大。）
+I&#x27;m really frustrated with this tough task. It&#x27;s driving me crazy!（我对这项艰巨的任务烦死了。快把我逼疯了！）
+I&#x27;m really thrilled that I won the competition!（赢得比赛我太高兴啦！）
+I&#x27;m really disappointed in myself for making that mistake.（我犯了那个错，对自己可失望了。）
+I&#x27;m really down and hopeless since I lost my job.（失业后我心情超低落，感觉没希望了。）
+态度与观点
+I really believe that hard work will pay off in the end.（我真的相信努力工作最后肯定会有回报的。）
+In my opinion, we should put more money into education.（在我看来，咱们应该在教育上多投点钱。）
+I think technology is making our lives better and better.（我觉得科技正让我们的生活越来越好呢。）
+I don&#x27;t see it that way. I think there&#x27;s another way to look at it.（我可不这么看。我觉得还有别的角度呢。）
+I kind of agree with your suggestion.（我有点同意你的建议。）
+I really don&#x27;t like the idea of cutting down on staff. I&#x27;m against it.（我真不喜欢裁员这个想法。我反对。）
+I think we should try a different way to deal with this problem.（我觉得我们应该换个方法来处理这个问题。）
+From my point of view, it&#x27;s really important to keep a balance between work and life.（在我看来，保持工作和生活的平衡真的很重要。）
+I don&#x27;t really have a strong opinion on this. I&#x27;m kind of neutral.（我对这事没啥特别强烈的看法。我保持中立吧。）
+I&#x27;m sure that if we work together, we can reach our goals.（我肯定要是我们一起努力，就能实现目标。）
+（三）提问与请求
+日常提问
+How did you manage to solve that really difficult problem?（你到底是咋解决那个超难的问题的？）
+What did you think of the last movie you watched?（你觉得你最近看的那部电影咋样？）
+Where did you buy that pretty dress?（你在哪儿买的那件漂亮裙子呀？）
+Who&#x27;s your favorite author and why do you like them?（你最喜欢哪个作家呀，为啥喜欢呢？）
+When will you be free to have a meeting with me?（你啥时候有空和我开个会呀？）
+How often do you go to the gym?（你隔多久去一次健身房呀？）
+What kind of hobbies do you have?（你有啥爱好呀？）
+How did you learn to play the guitar so well?（你是咋把吉他弹得这么厉害的呀？）
+What&#x27;s the best way to get to the city center from here?（从这儿去市中心咋走最好呀？）
+Which subject do you find the most difficult at school?（你觉得在学校里哪门课最难呀？）
+请求帮助
+Could you please explain this concept to me in more detail? I&#x27;m a bit confused.（你能再详细给我讲讲这个概念不？我有点懵。）
+Would you mind lending me your calculator for a minute? I left mine at home.（你介意把你的计算器借我用一下不？我把我的落家里了。）
+I wonder if you could help me carry these heavy boxes. I can&#x27;t do it alone.（不知道你能不能帮我搬搬这些重箱子呀？我一个人搬不动。）
+May I ask you to proofread my essay? I want to make sure it&#x27;s okay.（我能请你帮我校对一下我的文章不？我想确保没啥问题。）
+Please help me find a suitable apartment. I&#x27;m having a hard time with it.（请帮我找套合适的公寓吧。我找得可费劲了。）
+Could you spare a few minutes to help me with this computer problem? I&#x27;m stuck.（你能抽出几分钟帮我解决下这电脑问题不？我卡住了。）
+I need your help to plan this party. Can you give me some ideas? I&#x27;m out of ideas.（我得你帮我策划这个派对。你能给我出出主意不？我没啥头绪了。）
+Would you be able to recommend a good restaurant nearby? I&#x27;m really hungry.（你能给我推荐家附近不错的餐馆不？我可饿了。）
+Please help me figure out how to use this new software. I&#x27;m so confused.（请帮我弄明白咋用这个新软件吧。我太晕乎了。）
+Could you do me a favor and pick up my package from the post office? I&#x27;m really busy.（你能帮我个忙，去邮局取一下我的包裹不？我太忙了。）
+（四）回答与回应
+肯定回答
+Without a doubt!（那肯定！）
+Certainly! That&#x27;s exactly what happened.（当然啦！事情就是那样的。）
+You bet! I&#x27;ll be there on time for sure.（当然！我肯定会准时到的。）
+Affirmative! I&#x27;m ready to start right away.（没错！我准备好马上就开始。）
+Yes, I&#x27;m positive that&#x27;s the right answer.（对，我肯定那就是正确答案。）
+Absolutely right! You&#x27;ve got a great point.（完全正确！你说得太对了。）
+Sure thing! I&#x27;ll take care of it for you.（当然啦！我会帮你处理好的。）
+Exactly! That&#x27;s what I was thinking too.（就是！我也是这么想的。）
+Definitely! I&#x27;m all for it.（当然！我举双手赞成。）
+Yes, I&#x27;m quite certain about it.（对，我对这事可确定了。）
+否定或不确定回答
+I&#x27;m not really sure how to answer that. I need to think about it.（我不太确定咋回答那个问题。我得想想。）
+I&#x27;m afraid I can&#x27;t give you a definite answer right now. I need more info.（恐怕我这会儿没法给你一个确切的答案。我还需要更多信息。）
+I&#x27;m not sure, but I think it might be possible.（我不太确定，但我觉得有可能吧。）
+I&#x27;m not too sure. Maybe we should double-check.（我不太确定。也许我们该再核实一下。）
+I&#x27;m sorry, but I have no idea about that.（不好意思，我对那事儿一点都不知道。）
+I&#x27;m not really convinced that&#x27;s the right way to do it.（我不太相信那是正确的做法。）
+I&#x27;m kind of hesitant to say yes or no. I need more time to think.（我不太敢直接说是或不是。我还得再想想。）
+I&#x27;m not sure, but it could be a possibility.（我不确定，但也有这个可能吧。）
+I&#x27;m not clear on that. We should talk about it more.（我对那事儿不太清楚。我们得再好好讨论讨论。）
+I&#x27;m not sure if I can make it. I&#x27;ll do my best though.（我不确定我能不能做到。不过我会尽力的。）
+（五）建议与意见
+给出建议
+You might want to think about taking a different route to avoid the traffic.（你或许可以考虑换条路走，避开堵车。）
+It would be a good idea to start saving money for your future. You know, it&#x27;s important.（为你的将来开始存钱是个好主意。你知道的，这很重要。）
+I suggest you take a break and relax for a while. You look tired.（我建议你休息一会儿，放松放松。你看起来挺累的。）
+Why don&#x27;t you try joining a club to meet new people? It could be fun.（你为啥不试试加入个俱乐部，认识些新朋友呢？可能会很有意思哦。）
+You could benefit from reading more books to expand your knowledge. It&#x27;s really helpful.（你可以多读点书来增长知识，这真的很有好处。）
+I think it&#x27;s a good idea to double-check your work before you submit it. Just to be safe.（我觉得在交作业之前再检查一遍是个好主意。以防万一嘛。）
+Perhaps you should talk to your boss about your concerns. It might help.（也许你该和你老板说说你的顾虑。说不定会有帮助呢。）
+It might be a good move to invest in some quality equipment. It&#x27;ll make things easier.（投资些质量好的设备可能是个不错的选择。会让事情更轻松些。）
+You should think about practicing more to improve your skills. Practice makes perfect, right?（你应该考虑多练习练习，提高一下你的技能。熟能生巧嘛，对吧？）
+I recommend you take a language course to boost your language ability. It&#x27;s worth it.（我推荐你去上语言课，提高一下你的语言能力。这很值得的。）
+请求建议
+I&#x27;m really in a tough spot. Could you please give me some advice? I&#x27;m stuck.（我真的陷入困境了。你能给我点建议不？我没辙了。）
+I&#x27;m not sure how to deal with this situation. Can you give me some tips?（我不确定咋处理这种情况。你能给我点小窍门不？）
+I&#x27;m looking for some good advice on how to manage my time better. Any suggestions?（我在找些关于咋更好地管理时间的好建议。有啥想法不？）
+I&#x27;m having a hard time with this project. Do you have any good ideas?（我在这个项目上遇到麻烦了。你有啥好主意不？）
+I&#x27;m thinking about changing my career. What do you think I should do?（我在考虑换工作。你觉得我该咋做呀？）
+I&#x27;m planning a trip. Could you share some tips with me? I want it to be great.（我在计划一次旅行。你能和我分享点建议不？我想让旅行超棒。）
+I&#x27;m not sure which option to choose. Can you give me your opinion?（我不确定该选哪个选项。你能说说你的看法不？）
+I&#x27;m trying to improve my relationship with my family. Any advice? I really need it.（我在努力改善和家人的关系。有啥建议不？我真的很需要。）
+I&#x27;m thinking of starting a new hobby. What would you recommend?（我在考虑开始一项新爱好。你有啥推荐不？）
+I&#x27;m facing some financial difficulties. Could you offer me some solutions? I&#x27;m worried.（我正面临一些经济困难。你能给我些解决办法不？我很担心。）
+二、特定功能场景
+（一）工作职场场景
+会议流程
+Before we start, let&#x27;s quickly go over what we want to achieve in this meeting.（在我们开始之前，咱们快速过一下这次会议想要达成的目标。）
+Now, let&#x27;s move on to the second thing on the agenda: the budget review.（现在，咱们进入议程的第二项：预算审查。）
+I&#x27;ll make sure to send the meeting materials to all the people coming to the meeting in advance next time.（下次我肯定会提前把会议材料发给所有来开会的人。）
+Let&#x27;s set aside some time for questions and answers at the end of the meeting.（咱们在会议结束的时候留出点时间来问答环节。）
+After we&#x27;ve talked about all the items, we&#x27;ll sum up the main points.（在我们讨论完所有事项之后，我们会总结一下要点。）
+I think we should set a time limit for each presentation to keep the meeting on track.（我觉得我们应该给每个展示设定个时间限制，好让会议按计划进行。）
+Before we end the meeting, I want to thank everyone for coming and participating.（在我们结束会议之前，我想感谢大家来参加会议。）
+Let&#x27;s schedule a follow-up meeting to see how the tasks we assigned today are going.（咱们安排个后续会议，看看我们今天布置的任务进展得咋样了。）
+I&#x27;ll send out a reminder about the next meeting a few days before it happens.（我会在下次会议前几天发个提醒。）
+At the beginning of the meeting, we&#x27;ll have a quick update on the projects that are still going on.（在会议开始的时候，我们会快速说一下还在进行中的项目的最新情况。）
+工作交流
+I&#x27;m really swamped with work right now. Could you help me figure out which tasks are the most important?（我现在工作忙得不可开交。你能帮我看看哪些任务是最重要的不？）
+I&#x27;m sure that we can get through these challenges together.（我肯定我们能一起克服这些挑战。）
+We&#x27;ve made a lot of progress on the project, but there are still some issues we need to deal with.（我们在这个项目上已经取得了很大进展，但还是有些问题得处理。）
+I&#x27;m having a really hard time dealing with this difficult client. Do you have any good suggestions?（我在应付这个难缠的客户上可费劲了。你有啥好建议不？）
+Our team is working on a new marketing strategy. What do you think of the ideas we have so far?（我们团队正在制定新的营销策略。到目前为止，你觉得我们的想法咋样？）
+I&#x27;m afraid we&#x27;re running behind schedule. We need to speed up the work.（恐怕我们进度落后了。我们得加快工作速度。）
+I&#x27;m really impressed with how you&#x27;ve been performing on this project. Keep it up!（你在这个项目上的表现让我印象深刻。继续保持哦！）
+We should have a brainstorming session to come up with more creative ideas.（我们应该开个头脑风暴会议，想出更多有创意的点子。）
+I&#x27;m not sure if this task is part of my job. Can you clarify that for me?（我不确定这项任务是不是我工作范围内的。你能给我解释一下不？）
+I&#x27;m willing to take on more responsibilities if it helps the team reach its goals.（要是能帮团队实现目标，我愿意多承担些责任。）
+任务与安排
+Please make sure to hand in the report by the end of the day.（请确保在今天结束前交上报告。）
+Could you please look over the document and make any changes that are needed?（你能检查一下这份文件，把需要改的地方改改不？）
+I need you to put the files in alphabetical order.（我需要你把这些文件按字母顺序排好。）
+Please get a presentation ready for the meeting next week.（请为下周的会议准备一个展示。）
+I&#x27;d like you to get in touch with the suppliers and negotiate the prices with them.（我希望你联系一下供应商，和他们谈谈价格。）
+Could you help me prepare the budget proposal? I could use some help.（你能帮我准备一下预算提案不？我需要点帮助。）
+Please make a copy of these important documents and store them somewhere safe.（请复印一下这些重要文件，找个安全的地方存起来。）
+I need you to follow up with the clients and make sure they&#x27;re happy with our service.（我需要你跟进一下客户，确保他们对我们的服务满意。）
+Please arrange the meeting room and make sure all the equipment we need is there.（请安排一下会议室，确保我们需要的设备都有。）
+I&#x27;d like you to do a market research and show the results to the team.（我希望你做一下市场调研，然后给团队展示一下结果。）
+职业发展
+I&#x27;m at a crossroads in my career and I&#x27;m really not sure which direction to take. Do you have any advice based on your own experience?（我正处在职业生涯的十字路口，真的不确定该往哪个方向发展。你能根据你自己的经验给我点建议吗？）
+I&#x27;ve set a long-term goal of becoming a manager in my company. Now I need to figure out what steps I should take to achieve it.（我设定了一个长期目标，就是在公司里当上经理。现在我得想想该采取哪些步骤来实现这个目标。）
+I&#x27;m considering switching careers, but I&#x27;m worried about starting over from scratch. What do you think I should consider before making the leap?（我在考虑换个职业，但又担心得从头开始。你觉得在做这个决定之前，我应该考虑些什么呢？）
+I want to specialize in a particular area of my field. How can I find the right training and development opportunities?（我想在我所在的领域里专注于一个特定的方向。我要怎么找到合适的培训和发展机会呢？）
+I&#x27;m creating a five-year career plan. What kind of milestones do you think I should include?（我正在制定一个五年的职业规划。你觉得我应该设定哪些里程碑呢？）
+I&#x27;m really excited because I&#x27;ve been shortlisted for a promotion. I hope I can impress the interviewers.（我真的很兴奋，因为我已经进入了晋升的候选人名单。我希望我能给面试官留下好印象。）
+I didn&#x27;t get the promotion I was hoping for. I&#x27;m a bit disappointed, but I&#x27;m going to ask for feedback to improve.（我没有得到我期望的晋升。我有点失望，但我会去征求反馈意见，以便改进。）
+I&#x27;m planning to have a conversation with my boss about my career development. What should I say to make my case?（我打算和我的老板谈一谈我的职业发展。我该怎么说才能说明我的情况呢？）
+I&#x27;m aiming to get a pay raise along with my next promotion. How can I negotiate a better salary?（我希望在下次晋升的同时能涨工资。我要怎么谈判才能争取到更高的薪水呢？）
+I&#x27;m taking an online course to improve my presentation skills. I hope it will help me stand out in meetings.（我正在上一门在线课程，来提高我的演讲技能。我希望这能让我在会议上脱颖而出。）
+（二）学习教育场景
+1. 课堂互动
+Let&#x27;s have a group discussion about this topic. Divide yourselves into groups of four.（咱们就这个话题进行小组讨论哈。四个人一组分开来。）
+Raise your hands if you&#x27;ve got a question or want to share your thoughts.（要是你有问题或者想分享自己的想法，就举手哈。）
+Now, I want someone to come up to the front and explain this concept to the whole class.（现在，我想找个人到前面来，给全班同学讲讲这个概念。）
+Let&#x27;s spend a few minutes thinking about the answer before we start discussing it.（在我们开始讨论之前，先花几分钟想想答案哈。）
+Can you sum up what we&#x27;ve learned in this lesson in your own words?（你能用自己的话总结一下我们这节课学了些啥不？）
+I&#x27;ll give you some time to read this passage and then answer the questions.（我会给你们点时间读这篇文章，然后回答问题。）
+Let&#x27;s do a role-play to practice using the new vocabulary.（咱们来进行一次角色扮演，练习一下新学的词汇。）
+Please listen carefully when your classmate is presenting and give some feedback afterwards.（当你的同学在做展示的时候，要认真听哈，然后再给点反馈。）
+I want you to work in pairs and finish the exercise on the worksheet.（我希望你们两人一组，把练习纸上的练习做完。）
+Does anyone want to volunteer to read the text out loud?（有没有人自愿来大声朗读一下这篇课文呀？）
+学习建议
+You should try to make a study schedule and stick to it. It&#x27;ll help you stay organized.（你应该试着制定一个学习计划，然后坚持执行。这能帮你有条理地学习。）
+It&#x27;s really helpful to take notes while you&#x27;re reading to help you remember the key points.（阅读的时候做笔记很有用哦，能帮你记住重点内容。）
+I recommend you find a study buddy to motivate each other and talk about the difficult concepts.（我建议你找个学习伙伴，互相鼓鼓劲，一起讨论那些难懂的概念。）
+You could improve your writing skills by writing a journal every day. It&#x27;s a great way to practice.（你可以通过每天写日记来提高你的写作技能。这是个很好的练习方法。）
+It&#x27;s a good idea to use flashcards to memorize new vocabulary. It&#x27;s easy and effective.（用闪卡来记新单词是个好主意。既简单又有效。）
+You should break down big tasks into smaller, easier steps. That way, it won&#x27;t seem so overwhelming.（你应该把大任务分解成更小、更简单的步骤。这样的话，就不会觉得任务太艰巨啦。）
+I think it&#x27;s really important to review what you&#x27;ve learned regularly to keep it in your mind.（我觉得定期复习你学过的东西很重要，这样才能记住。）
+You might want to watch some educational videos to add to your learning. It can be fun and useful.（你或许可以看些教育视频，丰富一下你的学习内容。既有趣又有用哦。）
+It would be great to join study groups or discussion forums to exchange ideas with others.（参加学习小组或者讨论论坛，和其他人交流交流想法，这会很不错的。）
+Don&#x27;t be shy to ask questions when you don&#x27;t understand something. Teachers and classmates are there to help you out.（当你有不懂的地方时，别不好意思问问题。老师和同学们都可以帮你解决问题的。）
+考试与作业
+If you&#x27;ve got any questions about the assignment, don&#x27;t hesitate to ask your teacher or teaching assistant. They&#x27;re there to help.（要是你对作业有啥疑问，别犹豫，直接问你的老师或者助教。他们就是来帮你的。）
+Make sure to show your work clearly when you&#x27;re solving math problems. That way, you might still get some points even if your final answer is wrong.（解数学题的时候，一定要把解题过程写清楚哦。这样的话，就算最后答案错了，你可能还是能得点分的。）
+I&#x27;m having a hard time finding relevant sources for my research paper. Do you have any ideas on where to look?（我在为我的研究论文找相关资料的时候遇到困难了。你知道该上哪儿找不？）
+When you&#x27;re writing an essay, organize your thoughts first and then start typing. Making an outline can really help you stay on track.（写文章的时候，先整理好你的思路，然后再开始打字。列个提纲真的能帮你写得有条理。）
+You should proofread your work carefully before you hand it in to avoid making silly mistakes.（在交作业之前，你应该仔细检查一遍，别犯那些低级错误。）
+The assignment is due next week, but I&#x27;m still waiting for some important data to come in. I hope I can finish it on time.（作业下周就要交了，可我还在等一些重要的数据呢。希望我能按时完成。）
+I&#x27;m planning to start my project early so that I have enough time to fix and improve it.（我打算早点开始我的项目，这样我就有足够的时间来修改和完善它了。）
+Have you gotten any feedback on your last assignment? How did you use it to make your work better?（你上一次作业收到啥反馈了不？你是怎么根据反馈来改进你的作业的呢？）
+I&#x27;m not sure if I&#x27;m on the right track with my assignment. Can you take a look and give me some advice?（我不确定我的作业思路对不对。你能看一下，给我点建议不？）
+Some teachers like to give extra credit assignments. If you get the chance, it&#x27;s a good idea to do them to boost your grade.（有些老师喜欢布置额外加分的作业。要是你有机会的话，做这些作业来提高你的成绩是个好主意哦。）
+（三）生活日常场景
+基础生活
+It&#x27;s time to get up and start your day. Get out of bed and have a nice breakfast.（该起床开始新的一天啦。赶紧起床，吃顿丰盛的早餐。）
+I&#x27;m running low on cash. I need to go to the bank and withdraw some money.（我的钱快花完了。我得去银行取点钱。）
+I need to do some grocery shopping. We&#x27;re running out of milk and bread.（我得去买点日用品。我们的牛奶和面包快没了。）
+It&#x27;s a beautiful day outside. Let&#x27;s go for a walk in the park and enjoy the fresh air.（外面天气真好。我们去公园散散步，呼吸下新鲜空气吧。）
+I&#x27;m feeling a bit tired today. Maybe I should take a short nap in the afternoon.（我今天感觉有点累。也许下午我该小睡一会儿。）
+I&#x27;m in a hurry to get to work. I hope I don&#x27;t miss the bus.（我急着去上班呢。希望我别错过公交车。）
+I&#x27;m planning to clean the house this weekend. It&#x27;s getting really messy.（我打算这个周末打扫一下房子。房子都乱得不像样了。）
+I&#x27;m looking forward to watching my favorite TV show tonight. It&#x27;s the season finale.（我可期待今晚看我最喜欢的电视剧了。这可是季终集呢。）
+I&#x27;m thinking of trying a new recipe for dinner. Do you have any suggestions?（我在想晚餐试试新菜谱。你有啥建议不？）
+I understand your concerns, but we need to find a solution that works for everyone.（我理解你的担心，但我们得找个对大家都管用的解决办法。）
+家务琐事
+Please remember to water the plants every day. They need enough water to grow well.（请记得每天给植物浇水哈。它们得有足够的水才能长得好。）
+I&#x27;d rather do the laundry on the weekend when I have more free time.（我宁愿在周末有空的时候洗衣服。）
+The house is in a mess. We need to spend some time tidying up the living room.（房子乱糟糟的。我们得花点时间收拾一下客厅了。）
+I can&#x27;t stand the clutter on my desk. I need to organize it and throw away some stuff I don&#x27;t need.（我受不了我桌子上乱七八糟的样子了。我得整理一下，把没用的东西扔掉。）
+Feed the cat and make sure it has enough food and water.（喂喂猫，确保它有足够的吃的和喝的。）
+Wash the clothes in cold water to save energy and keep them from shrinking.（用冷水洗衣服，既能节能，又能防止衣服缩水。）
+Empty the trash bin before it overflows. We don&#x27;t want any bad smells in the house.（在垃圾桶满之前把它倒掉。我们可不想家里有难闻的味道。）
+I need to clean the windows. They&#x27;re so dirty that I can hardly see through them.（我得擦窗户了。窗户太脏了，我都快看不清外面了。）
+Sweep the floor and then mop it to make it really clean.（先扫地，然后拖地，把地弄得干干净净的。）
+Rearrange the furniture in the bedroom to make the space more comfortable.（重新布置一下卧室的家具，让空间更舒服点。）
+出行交通
+Is it a long walk from the subway station to the destination?（从地铁站到目的地得走很久吗？）
+This bus route goes through the city center, so it might be pretty crowded during rush hour.（这条公交线路经过市中心，所以高峰时段可能会很挤哦。）
+Where&#x27;s the nearest taxi stand? I need to catch a taxi to the airport.（最近的出租车停靠点在哪儿呀？我得打个车去机场。）
+How can I get to the train station if I miss the last bus?（要是我错过了最后一班公交车，我咋去火车站呀？）
+Is this seat taken? I&#x27;m looking for an empty seat.（这个座位有人坐吗？我在找个空位呢。）
+I think we should leave a bit earlier to avoid getting stuck in traffic on the way to the concert.（我觉得我们应该早点出发，免得去音乐会的路上堵车。）
+The subway is usually the fastest way to get around in the city, but it can be really crowded at peak times.（在城里出行，地铁通常是最快的方式，不过高峰时段会特别挤。）
+Do you know if there&#x27;s a bike-sharing station nearby? I&#x27;d like to rent a bike for a short ride.（你知道附近有没有共享单车停放点吗？我想租辆自行车骑一小段路。）
+I&#x27;m not familiar with this area. Can you tell me which bus I should take to get to the shopping mall?（我对这一带不太熟。你能告诉我去那个购物中心该坐哪路公交车吗？）
+It&#x27;s a bit far to walk, so I&#x27;m going to take a taxi instead. How much do you think it will cost?（走路有点远，所以我打算打车去。你觉得大概要花多少钱呢？）
+（四）社交人际场景
+社交互动
+How about going to a concert together this weekend? There&#x27;s a band I&#x27;m really eager to see.（这个周末一起去听音乐会咋样？有个乐队我可想去看了。）
+Let&#x27;s plan a game night at my place. We can play board games and have a blast.（我们在我家策划一个游戏之夜吧。我们可以玩棋盘游戏，肯定会玩得超开心。）
+Would you like to come to the opening of my art exhibition? I&#x27;d really love to have you there.（你愿意来参加我的艺术展览开幕式不？我可希望你能来呢。）
+There&#x27;s a new café in town. Do you want to go check it out with me?（镇上开了家新咖啡馆。你想和我一起去看看不？）
+Who else should we invite to the barbecue party? Do you have any good suggestions?（我们还该邀请谁来参加烧烤派对呀？你有啥好点子不？）
+Should we bring some snacks and drinks to the picnic, or just rely on what others will bring?（我们去野餐要不要自己带点零食和饮料呀，还是就指望别人带呢？）
+Thanks for inviting me to your birthday party. I&#x27;m really looking forward to celebrating with you.（谢谢你邀请我参加你的生日派对。我可期待和你一起庆祝啦。）
+Let&#x27;s go for a hike in the mountains this Sunday. I heard the scenery there is amazing.（这个星期天我们去山里徒步旅行吧。我听说那儿的风景美极了。）
+I heard there&#x27;s a great outdoor market nearby. How about we go and have a look around?（我听说附近有个超棒的露天市场。我们去逛逛咋样？）
+Would you be interested in joining a dance class with me? It could be a lot of fun.（你有兴趣和我一起去上舞蹈课不？那肯定会很有意思的。）
+人际关系
+You&#x27;ve been a huge support to me during my tough times. I really appreciate it.（在我困难的时候，你给了我超多支持。我真的很感激。）
+That&#x27;s what friends are for. We should always be there for each other through thick and thin.（这就是朋友嘛。不管遇到啥困难，我们都应该互相支持。）
+I&#x27;m always here to listen if you want to talk about anything.（要是你有啥事儿想聊聊，我随时都在这儿听着呢。）
+I&#x27;ve always admired your honesty and integrity. You&#x27;re a great role model for me.（我一直都很佩服你的诚实和正直。你是我的好榜样。）
+We&#x27;ve had our ups and downs, but our friendship has only gotten stronger.（我们经历过起起落落，但我们的友谊却越来越深厚了。）
+I&#x27;m sorry if I said something that hurt you. I really didn&#x27;t mean it.（要是我说了啥伤害你的话，我很抱歉。我真不是故意的。）
+I know we don&#x27;t see each other often, but I still consider you one of my closest friends.（我知道我们不常见面，但我还是把你当成我最铁的朋友之一。）
+You&#x27;re so generous with your time and energy. I don&#x27;t know what I&#x27;d do without you.（你在时间和精力上都特别慷慨。没有你我都不知道该咋办了。）
+I&#x27;m really glad we could work through our differences and keep our friendship going.（我很高兴我们能解决我们之间的分歧，让我们的友谊继续下去。）
+You&#x27;ve always been so understanding and patient with me. Thank you for being such an amazing friend.（你一直都对我特别理解和有耐心。谢谢你做我这么棒的朋友。）
+邻里关系
+I ran into my neighbor in the hallway the other day, and we had a nice chat about the upcoming community event.（前几天我在走廊碰到了我的邻居，我们聊了聊即将到来的社区活动，聊得很开心。）
+My neighbor is really into gardening, and she always shares tips with me on how to make my plants grow better.（我的邻居特别喜欢园艺，她总是和我分享让植物长得更好的小窍门。）
+I borrowed a cup of sugar from my neighbor last night when I was baking cookies. She was so kind to lend it to me.（昨晚我烤饼干的时候，向邻居借了一杯糖。她人特别好，借给我了。）
+We had a neighborhood barbecue last weekend, and it was a great opportunity to get to know everyone better.（上周末我们举办了邻里烧烤活动，这是一个更好地了解大家的好机会。）
+My neighbor&#x27;s kids are really friendly, and they often play with my kids in the courtyard.（我邻居家的孩子特别友好，他们经常和我家孩子在院子里一起玩。）
+There&#x27;s been some noise coming from my neighbor&#x27;s apartment late at night. I&#x27;m not sure how to approach the issue without causing tension.（最近深夜我邻居的公寓总会传来一些噪音。我不确定怎么在不引起矛盾的情况下处理这个问题。）
+My neighbor&#x27;s dog barks a lot, and it&#x27;s been disturbing my sleep. I&#x27;m thinking of talking to them about it nicely.（我邻居家的狗经常叫，打扰到我睡觉了。我打算好好和他们谈一谈这件事。）
+My neighbor helped me take care of my plants when I was on vacation. I&#x27;m so grateful for her kindness.（我去度假的时候，邻居帮我照料我的植物。我非常感激她的好心。）
+I offered to help my elderly neighbor with her grocery shopping since she has trouble walking long distances.（我主动提出帮我年迈的邻居买日用品，因为她走不了太远的路。）
+We started a neighborhood babysitting co-op where we take turns watching each other&#x27;s children.（我们成立了一个邻里保姆互助小组，大家轮流照看彼此的孩子。）
+（五）消费服务场景
+购物场景
+I&#x27;m looking for a pair of comfortable running shoes. Do you have any recommendations?（我在找一双舒服的跑鞋。你有啥推荐的不？）
+This dress looks really nice, but I&#x27;m not sure if it&#x27;s my size. Can I try it on?（这条裙子看着真好看，但我不确定我能不能穿。我能试一下不？）
+I want to buy a new laptop. What are the latest models with good performance?（我想买台新笔记本电脑。有啥性能好的最新款吗？）
+These apples look fresh. How much are they per kilogram?（这些苹果看着挺新鲜的。一公斤多少钱呀？）
+I&#x27;m not really sure about this color. Do you have it in a different shade?（我不太确定这个颜色好不好。有别的色调吗？）
+This shirt is a bit too expensive for me. Do you have anything similar but cheaper?（这件衬衫对我来说有点贵了。有类似但便宜点的吗？）
+Can you give me a discount on this item? It&#x27;s a bit out of my budget.（这个东西能给我打点折不？有点超出我的预算了。）
+If I buy two of these, can I get a better deal?（要是我买两个这个，能给我便宜点不？）
+How would you like to pay? We accept cash, credit cards, and mobile payments.（您想怎么付款呢？我们收现金、信用卡，还有移动支付。）
+I need a receipt for this purchase. Can you please print one out for me?（我买这个东西需要一张收据。能给我打印一张不？）
+餐饮场景
+What&#x27;s the special of the day? Can you recommend something popular?（今天的特色菜是什么呀？你能推荐点受欢迎的菜不？）
+I&#x27;m a vegetarian. Do you have any dishes that don&#x27;t contain meat?（我是素食者。你们有没有不含肉的菜呀？）
+I&#x27;d like a medium-rare steak, please. And could you bring some ketchup on the side?（我要一份三分熟的牛排，谢谢。能再给我上点番茄酱吗？）
+I&#x27;m allergic to seafood. Please make sure there&#x27;s no seafood in my dish.（我对海鲜过敏。请确保我的菜里没有海鲜。）
+I&#x27;d like a large pizza with extra cheese and mushrooms.（我要一个大披萨，多加点芝士和蘑菇。）
+This dish tastes amazing! I really love the flavor combination.（这道菜太好吃啦！我超喜欢这种味道的搭配。）
+The steak is a bit overcooked. I asked for medium-rare. Can you please take it back and cook it a bit less?（牛排有点煎老了。我要的是三分熟。能帮我拿回去再煎嫩一点吗？）
+The service here is really slow. We&#x27;ve been waiting for our food for a long time.（这儿的服务真的太慢了。我们等上菜等了好久了。）
+I can&#x27;t finish all this food. It&#x27;s too much. Do you think they can wrap it up for me to take home?（我吃不完这些菜了。太多了。你觉得他们能帮我打包带走吗？）
+Let&#x27;s split the bill evenly. How much does each person owe?（咱们平摊账单吧。每个人要付多少钱呀？）
+（六）健康医疗场景
+描述症状
+I&#x27;ve been feeling really tired lately, and I don&#x27;t have much energy.（我最近一直感觉特别累，没啥力气。）
+I have a really bad headache. It&#x27;s been bothering me all day.（我头疼得厉害。一整天都被它折磨着。）
+My throat is sore, and it hurts when I swallow.（我的喉咙疼，咽东西的时候疼。）
+I&#x27;ve got a runny nose and a bit of a cough. I think I might be getting a cold.（我流鼻涕，还有点咳嗽。我觉得我可能要感冒了。）
+I&#x27;ve been having trouble sleeping at night. I keep waking up in the middle of the night.（我晚上一直睡不好。总是半夜就醒了。）
+My stomach is really upset. I feel like I&#x27;m going to throw up.（我的胃特别不舒服。我觉得我要吐了。）
+I have a rash on my arm. It&#x27;s really itchy.（我的胳膊上起了皮疹。特别痒。）
+I sprained my ankle while playing basketball. It&#x27;s swollen and hurts a lot.（我打篮球的时候扭伤了脚踝。肿起来了，特别疼。）
+I&#x27;ve been having some chest pain lately. I&#x27;m a bit worried.（我最近一直有点胸痛。我有点担心。）
+I have a toothache. It&#x27;s so painful that I can&#x27;t eat anything hard.（我牙疼。疼得我啥硬的东西都吃不了。）
+看医生与治疗
+I need to make an appointment with the doctor. Can you tell me when the next available slot is?（我得预约看医生。你能告诉我下一个有空的时间是什么时候吗？）
+The doctor examined me and said I have a mild case of the flu.（医生给我做了检查，说我得了轻度流感。）
+I need to take these pills three times a day with meals.（我得一天吃三次这些药，随餐服用。）
+The doctor recommended that I get some rest and drink plenty of water.（医生建议我多休息，多喝水。）
+I&#x27;m going to have a blood test tomorrow to check for any health problems.（我明天要去验血，看看有没有什么健康问题。）
+The doctor said I need to have an operation to remove my appendix.（医生说我得做手术切除阑尾。）
+I&#x27;m feeling much better after taking the medicine for a few days.（吃了几天药之后，我感觉好多了。）
+I need to go for a follow-up appointment next week to see how my condition is improving.（我下周得去复诊，看看我的病情恢复得怎么样了。）
+The doctor gave me some advice on how to improve my diet and exercise more.（医生给了我一些关于如何改善饮食和多锻炼的建议。）
+I&#x27;m a bit nervous about the surgery. Can you tell me what to expect?（我对手术有点紧张。你能告诉我会怎么样吗？）
+心理健康
+I&#x27;ve been feeling really stressed out lately due to work pressure. I&#x27;m trying to find healthy ways to cope with it, like practicing meditation or going for a run.（最近因为工作压力，我一直感觉非常焦虑。我在尝试寻找健康的方式来应对，比如练习冥想或者去跑步。）
+When I&#x27;m feeling down, I like to listen to uplifting music. It really helps to boost my mood and make me feel better.（当我情绪低落的时候，我喜欢听振奋人心的音乐。这真的有助于改善我的心情，让我感觉好一些。）
+I&#x27;m learning to recognize my negative thought patterns and replace them with positive ones. It&#x27;s a challenging but rewarding process.（我正在学习识别自己的消极思维模式，并用积极的思维模式取而代之。这是一个具有挑战性但很有意义的过程。）
+I find that writing in a journal is a great way to express my emotions. It allows me to release my feelings and gain some perspective.（我发现写日记是表达情绪的好方法。这能让我释放自己的感受，并获得一些新的看法。）
+I&#x27;m taking a break from social media because it was making me feel anxious and inadequate. I&#x27;m focusing on real-life interactions instead.（我正在暂时远离社交媒体，因为它让我感到焦虑和自卑。我现在更专注于现实生活中的人际交往。）
+I&#x27;m seeing a therapist regularly to work on my mental health. It&#x27;s a safe space for me to talk about my feelings and get professional advice.（我定期去看心理治疗师，以维护我的心理健康。这是一个让我可以倾诉感受并获得专业建议的安全空间。）
+I&#x27;m practicing relaxation techniques, such as deep breathing and progressive muscle relaxation, to reduce stress and anxiety.（我在练习放松技巧，比如深呼吸和渐进性肌肉松弛，以减轻压力和焦虑。）
+I&#x27;m trying to maintain a healthy work-life balance. I make sure to set aside time for leisure activities and spending time with loved ones.（我在努力保持健康的工作与生活平衡。我确保留出时间进行休闲活动，并与所爱的人共度时光。）
+I&#x27;m surrounding myself with positive and supportive people. Their encouragement and support have a big impact on my mental health.（我让自己周围都是积极向上、给予支持的人。他们的鼓励和支持对我的心理健康有很大的影响。）
+I&#x27;m practicing gratitude every day. I make a list of things I&#x27;m grateful for, which helps me focus on the positive aspects of my life.（我每天都在练习感恩。我会列出一些我感恩的事情，这有助于我关注生活中的积极方面。）
+（七）兴趣爱好场景
+文化娱乐
+Have you seen the latest blockbuster movie? What did you think of it?（你看了最近那部超火的大片没？你觉得咋样？）
+I&#x27;m really into this new TV series. The plot is so gripping and the characters are amazing.（我超迷这部新的电视剧。剧情太吸引人了，而且角色也超棒。）
+The special effects in that sci-fi movie were mind-blowing. I couldn&#x27;t take my eyes off the screen.（那部科幻电影里的特效太震撼了。我眼睛都舍不得从屏幕上挪开。）
+I&#x27;m going to a concert of my favorite band next week. I&#x27;m so excited! I can&#x27;t wait to sing along with them.（我下周要去看我最喜欢的乐队的演唱会。我太兴奋了！我都等不及要跟着他们一起唱了。）
+The singer&#x27;s voice is so powerful and soulful. I was completely blown away by her performance.（那位歌手的嗓音太有力量又充满情感了。她的表演让我完全折服。）
+I like listening to classical music when I&#x27;m studying. It helps me focus and relax.（我学习的时候喜欢听古典音乐。它能帮我集中注意力，还能放松心情。）
+I just finished reading a really amazing book. It was a page-turner from start to finish.（我刚读完一本超棒的书。从头到尾都特别引人入胜，让我爱不释手。）
+I&#x27;m looking for a good mystery novel. Do you have any suggestions for thrilling books?（我在找一本好看的悬疑小说。你有啥惊险刺激的书可以推荐不？）
+This author&#x27;s writing style is so unique and engaging. I&#x27;ve read all of their books.（这位作者的写作风格太独特又吸引人了。我把他们写的书都读完了。）
+I&#x27;m part of a book club. We meet once a month to discuss the books we&#x27;ve read.（我参加了一个读书俱乐部。我们每个月聚一次，讨论我们读过的书。）
+体育健身
+I&#x27;ve been playing basketball every weekend with my friends. It&#x27;s a great way to stay fit and have fun.（我每个周末都和朋友们一起打篮球。这是保持健康和找乐子的好办法。）
+Running is my favorite form of exercise. I usually go for a jog in the park early in the morning.（跑步是我最喜欢的锻炼方式。我通常一大早在公园里慢跑。）
+I just started taking swimming lessons. I&#x27;m a bit nervous, but I&#x27;m excited to learn a new skill.（我刚开始上游泳课。我有点紧张，但也很兴奋能学到一项新技能。）
+I love practicing yoga. It helps me relax and improve my flexibility.（我喜欢练瑜伽。它能帮我放松，还能提高我的柔韧性。）
+Cycling is a great way to explore the city. I often ride my bike to work instead of taking the bus.（骑自行车是探索城市的好方式。我经常骑自行车上班，而不是坐公交车。）
+I&#x27;ve been going to the gym regularly to lift weights and build some muscle.（我一直定期去健身房举铁，练点肌肉。）
+I do some strength training exercises at home, like push-ups and sit-ups, when I don&#x27;t have time to go to the gym.（我没时间去健身房的时候，就在家做一些力量训练，比如俯卧撑和仰卧起坐。）
+Did you watch the football game last night? It was such an exciting match!（你昨晚看那场足球比赛了吗？太精彩了！）
+I&#x27;m a big fan of the Olympics. I love watching all the different sports and cheering for my country&#x27;s athletes.（我是奥运会的超级粉丝。我喜欢看各种不同的运动项目，为我们国家的运动员加油助威。）
+The basketball finals are coming up. I can&#x27;t wait to see which team will win.（篮球总决赛要来了。我等不及想看看哪支球队会赢了。）
+宠物养护
+I just got a new puppy. It&#x27;s so cute, but it&#x27;s also a lot of work to take care of it.（我刚养了一只新小狗。它太可爱啦，但照顾它也挺费事儿的。）
+I&#x27;m trying to train my cat to use the litter box. It&#x27;s been a bit of a challenge, but we&#x27;re making progress.（我在试着训练我的猫用猫砂盆。有点小挑战，但我们正在慢慢取得进展。）
+I need to buy some more pet food. My dog is running out of its favorite kibble.（我得再买点宠物食品了。我的狗快把它最喜欢的狗粮吃完了。）
+My cat has been coughing a lot lately. I&#x27;m worried it might be sick. Should I take it to the vet?（我的猫最近老是咳嗽。我担心它是不是生病了。我该带它去看兽医吗？）
+I took my dog to the vet for its annual check-up. The vet said it&#x27;s in good health, but I still need to watch its weight.（我带我的狗去兽医那儿做了年度体检。兽医说它身体挺好的，但我还是得留意它的体重。）
+Playing with my dog is one of my favorite things to do. It always makes me feel happy and relaxed.（和我的狗一起玩是我最喜欢做的事情之一。它总能让我感到开心和放松。）
+I like to read to my cat. It seems to enjoy listening to my voice and snuggling up next to me.（我喜欢给我的猫读书。它好像很喜欢听我的声音，还会依偎在我身边。）
+My rabbit loves to be petted. Every time I reach out my hand, it comes hopping over.（我的兔子喜欢被抚摸。每次我伸出手，它就会蹦蹦跳跳地过来。）
+I took my dog to the dog park today. It had a great time playing with other dogs and socializing.（我今天带我的狗去了狗狗公园。它和其他狗狗一起玩，还交了朋友，玩得可开心了。）
+My dog is so loyal. It follows me everywhere I go and always wants to be by my side.（我的狗可忠诚了。我走到哪儿它跟到哪儿，总是想待在我身边。）
+美食烹饪
+I had the most amazing sushi at this new Japanese restaurant downtown. The fish was so fresh, and the presentation was beautiful.（我在市中心的一家新日本餐厅吃到了超棒的寿司。鱼肉特别新鲜，而且摆盘也很漂亮。）
+There&#x27;s a local food truck that serves the best tacos I&#x27;ve ever tasted. The combination of flavors in the fillings is just perfect.（有一辆当地的餐车，卖的玉米卷是我吃过最好吃的。馅料里各种味道的搭配简直绝了。）
+I&#x27;m making a homemade pizza tonight. I&#x27;m starting by preparing the dough, which involves mixing flour, yeast, water, and a little salt.（我今晚要自己做披萨。我先从准备面团开始，这需要把面粉、酵母、水和一点盐混合在一起。）
+I&#x27;m trying out a new recipe for chicken stir-fry. I&#x27;m chopping up some vegetables like bell peppers, onions, and carrots to add to the dish.（我在尝试一个新的鸡肉炒菜食谱。我正在把彩椒、洋葱和胡萝卜之类的蔬菜切碎，准备加到菜里。）
+I&#x27;m baking a cake for my friend&#x27;s birthday. I&#x27;ve already creamed the butter and sugar together and added the eggs one by one.（我在为我朋友的生日烤蛋糕。我已经把黄油和糖打发了，然后一个一个地加入了鸡蛋。）
+One of my top cooking tips is to always use fresh ingredients. It really makes a huge difference in the taste of the dish.（我最重要的烹饪技巧之一就是一定要用新鲜的食材。这真的会让菜肴的味道有很大的不同。）
+When sautéing vegetables, make sure the pan is hot enough before adding them. This helps to retain their texture and flavor.（炒蔬菜的时候，要确保锅足够热了再把蔬菜放进去。这样有助于保持蔬菜的口感和味道。）
+I&#x27;ve learned that when baking, it&#x27;s crucial to measure the ingredients accurately. Even a small difference can affect the outcome of the baked goods.（我了解到，烘焙的时候，准确称量食材是很关键的。哪怕是一点点的差别都可能会影响烘焙食品的成品效果。）
+To make a tender and juicy roast, it&#x27;s important to let the meat rest for a few minutes after cooking. This allows the juices to redistribute.（要做出鲜嫩多汁的烤肉，在烤好后让肉静置几分钟很重要。这能让肉汁重新分布。）
+I like to marinate my meats overnight to infuse them with more flavor. A good marinade can really elevate the taste of the dish.（我喜欢把肉腌制一整晚，让它们更入味。一份好的腌料真的能提升菜肴的味道。）
+时尚潮流
+I&#x27;m really into the current streetwear trend. I love combining oversized hoodies with skinny jeans and sneakers for a casual yet stylish look.（我真的很喜欢当下的街头时尚潮流。我喜欢把宽松的连帽衫和紧身牛仔裤、运动鞋搭配起来，打造出休闲又时尚的造型。）
+This season, floral prints are everywhere. I bought a beautiful floral dress that I can wear to both casual outings and semi-formal events.（这个季节，花卉印花随处可见。我买了一条漂亮的花裙子，既可以在休闲外出时穿，也能在半正式场合穿着。）
+I&#x27;m a big fan of statement accessories. A bold necklace or a pair of eye-catching earrings can really elevate an outfit.（我是个性配饰的忠实粉丝。一条夸张的项链或一对引人注目的耳环真的能提升整体造型。）
+The no-makeup makeup look is still very popular. It gives a natural, fresh appearance while still enhancing your features.（素颜妆仍然非常流行。它能营造出自然、清新的外观，同时还能突出你的五官特点。）
+I&#x27;m loving the current trend of bold lip colors. A bright red or a deep purple lipstick can really make a statement.（我很喜欢当下流行的大胆唇色潮流。鲜艳的红色或深紫色口红真的能让人眼前一亮。）
+I&#x27;m following the trend of using highlighter to add a pop of glow to my face. It makes my skin look more radiant and youthful.（我在追使用高光为脸部增添光彩的潮流。这让我的皮肤看起来更有光泽、更年轻。）
+I&#x27;m really into the hip-hop culture and its influence on fashion. The baggy clothes, sneakers, and accessories are all iconic elements.（我真的很喜欢嘻哈文化及其对时尚的影响。宽松的衣服、运动鞋和配饰都是标志性元素。）
+The rise of sustainable fashion is a trend that I&#x27;m really excited about. It&#x27;s great to see more brands and consumers becoming environmentally conscious.（可持续时尚的兴起是一个让我非常兴奋的潮流。很高兴看到越来越多的品牌和消费者有了环保意识。）
+I&#x27;m following the trend of upcycling clothes. Taking old garments and transforming them into something new and fashionable is not only creative but also sustainable.（我在追旧衣改造的潮流。把旧衣服改造成新的时尚单品，既富有创意又具有可持续性。）
+The trend of gender-neutral fashion is becoming more and more popular. It challenges traditional notions of masculinity and femininity in clothing.（中性时尚的潮流越来越受欢迎。它挑战了服装中关于男性气质和女性气质的传统观念。）
+（八）旅行探险场景
+1. 旅行计划与准备
+I&#x27;m planning a trip to Japan next month. Do you have any suggestions on places to visit in Tokyo?（我下个月打算去日本旅行。你对东京有啥值得一去的地方有建议不？）
+We&#x27;re thinking of going on a beach vacation. Which beach destinations do you recommend?（我们在考虑去海滩度假。你推荐哪些海滩度假地呢？）
+I need to book a hotel for my trip. Are there any good budget hotels near the city center?（我得为我的旅行订一家酒店。市中心附近有什么不错的经济型酒店吗？）
+I&#x27;m making a packing list for my upcoming trip. I&#x27;m including essentials like clothes, toiletries, and my camera, but also some snacks for the journey.（我在为即将到来的旅行列一个打包清单。我把衣服、洗漱用品和相机等必需品都列进去了，还准备了一些旅途中吃的零食。）
+I&#x27;m learning a few basic phrases in the local language of the places I&#x27;m going to visit. It will make communication a lot easier and show respect to the locals.（我在学习我要去的地方的当地语言的一些基本短语。这会让交流更方便，也表示对当地人的尊重。）
+I&#x27;m checking the weather forecast for my travel destination. This will help me pack the right clothes and plan my activities accordingly.（我在查看我旅行目的地的天气预报。这将有助于我带上合适的衣服，并相应地安排我的活动。）
+I&#x27;m trying to find some off-the-beaten-path attractions in the places I&#x27;m visiting. I want to have a more unique and authentic travel experience.（我在努力寻找我要去的地方一些鲜为人知的景点。我想有一个更独特、更真实的旅行体验。）
+I&#x27;m saving up money for my trip. I&#x27;m cutting back on unnecessary expenses and setting aside a certain amount each month.（我在为我的旅行存钱。我在削减不必要的开支，每个月留出一定数额的钱。）
+I&#x27;m looking into travel insurance options. It&#x27;s important to be covered in case of any unexpected events like cancellations, delays, or illnesses during the trip.（我在研究旅行保险的选择。以防在旅行中出现取消行程、延误或生病等意外情况，购买保险是很重要的。）
+I&#x27;m planning my itinerary carefully, making sure to include some free time for exploration and relaxation. I don&#x27;t want to be too rushed.（我在仔细规划我的行程，确保留出一些自由时间用于探索和放松。我不想行程太赶。）
+2. 旅行中的经历
+During my trip to Japan, I visited a traditional tea ceremony. It was a very peaceful and cultural experience, and I learned a lot about Japanese customs.（在我去日本的旅行中，我参加了一次传统的茶道仪式。这是一次非常宁静且富有文化内涵的体验，我学到了很多关于日本习俗的知识。）
+I went hiking in the mountains of New Zealand. The scenery was breathtaking, with lush forests, clear lakes, and stunning views.（我在新西兰的山区徒步旅行。那里的风景令人叹为观止，有茂密的森林、清澈的湖泊和绝美的景色。）
+I took a cooking class in Thailand and learned how to make some delicious local dishes like pad thai and green curry.（我在泰国上了一堂烹饪课，学会了做一些美味的当地菜肴，比如泰式炒河粉和绿咖喱。）
+I visited a local market in Morocco and was amazed by the colorful spices, beautiful handicrafts, and the bustling atmosphere.（我参观了摩洛哥的一个当地市场，那里五颜六色的香料、精美的手工艺品和热闹的氛围让我惊叹不已。）
+I went on a safari in South Africa and saw lions, elephants, and giraffes in their natural habitat. It was an unforgettable experience.（我在南非参加了一次野生动物园之旅，在它们的自然栖息地看到了狮子、大象和长颈鹿。这是一次难忘的经历。）
+I got lost in the narrow streets of an old town in Italy, but it turned out to be a great adventure. I discovered some hidden gems like small cafes and art galleries.（我在意大利一个古老小镇的狭窄街道上迷路了，但结果这成了一次很棒的冒险。我发现了一些隐藏的好去处，比如小咖啡馆和艺术画廊。）
+I attended a local festival in Brazil and joined in the dancing and celebrations. The energy and enthusiasm of the people were contagious.（我参加了巴西的一个当地节日，还参与了跳舞和庆祝活动。人们的活力和热情很有感染力。）
+I took a hot air balloon ride over the Australian outback. The view from above was spectacular, and I could see miles and miles of vast land.（我在澳大利亚内陆乘坐了一次热气球。从上面看到的景色非常壮观，我能看到广袤无垠的大地。）
+The view from the top of the mountain is absolutely breathtaking!（从山顶上看到的景色简直美到窒息！）
+This city has so much history and culture. I&#x27;m really enjoying exploring it.（这座城市有如此丰富的历史和文化。我很享受在这里探索的过程。）
+旅行的收获与感悟
+Traveling has broadened my horizons and made me more open-minded. I&#x27;ve learned to appreciate different cultures and ways of life.（旅行拓宽了我的视野，让我更加豁达包容。我学会了欣赏不同的文化和生活方式。）
+I&#x27;ve made some amazing friends during my travels. Meeting people from different backgrounds and sharing experiences with them has been truly rewarding.（我在旅行中结交了一些很棒的朋友。结识来自不同背景的人，并与他们分享经历，真的很有意义。）
+Traveling has taught me to be more independent and adaptable. I&#x27;ve had to deal with unexpected situations and find solutions on my own.（旅行教会了我更加独立和适应能力更强。我不得不应对一些意外情况，并自己找到解决办法。）
+I&#x27;ve realized the importance of taking time to slow down and enjoy the journey. Sometimes, the best memories are made during the unplanned moments.（我意识到了花时间放慢脚步、享受旅程的重要性。有时候，最美好的回忆是在那些计划之外的时刻产生的。）
+I&#x27;ve developed a deeper appreciation for nature through my travels. Seeing the beauty of mountains, oceans, and forests has made me more conscious of the need to protect our environment.（通过旅行，我对大自然有了更深的热爱。看到山脉、海洋和森林的美丽，让我更加意识到保护环境的必要性。）
+Traveling has given me a sense of adventure and a desire to explore more of the world. I&#x27;m constantly looking for new places to visit and experiences to have.（旅行给了我一种冒险精神，以及探索更多世界的渴望。我一直在寻找新的地方去游览，新的经历去体验。）
+I&#x27;ve learned that language is not a barrier to communication. Even if we don&#x27;t speak the same language, we can still connect with people through smiles, gestures, and a positive attitude.（我明白了语言并不是交流的障碍。即使我们说不同的语言，我们仍然可以通过微笑、手势和积极的态度与人建立联系。）
+My travels have made me more grateful for the things I have at home. It&#x27;s easy to take our daily lives for granted, but traveling has made me see the value of simple things.（我的旅行经历让我更加珍惜家里所拥有的一切。我们很容易把日常生活视为理所当然，但旅行让我看到了简单事物的价值。）
+I had an amazing trip! I made so many great memories and met some wonderful people.（我度过了一次超棒的旅行！我留下了很多美好的回忆，还结识了一些很棒的人。）
+Traveling really broadens my horizons. I&#x27;ve learned so much about different cultures.（旅行真的开阔了我的眼界。我学到了很多关于不同文化的知识。）
+（九）家庭亲子场景
+1. 陪伴成长
+I love spending time reading bedtime stories to my little one. It&#x27;s such a special bonding moment.（我超爱花时间给我的小宝贝读睡前故事。这真是特别能增进感情的时刻。）
+My kid is really into drawing these days. I often sit with them and draw together. It&#x27;s so much fun to see their creativity.（我的孩子最近特别喜欢画画。我经常和他们一起坐下来画画。看到他们的创造力，真的太有趣了。）
+We went to the park last weekend and played on the swings and slides. My child had a blast and didn&#x27;t want to leave.（上周末我们去了公园，玩了秋千和滑梯。我的孩子玩得特别开心，都不想走了。）
+I&#x27;m trying to teach my child how to ride a bike. It&#x27;s a bit challenging, but seeing them gradually get better is so rewarding.（我在试着教我的孩子骑自行车。有点小挑战，但是看着他们慢慢进步，真的很有成就感。）
+I like taking my kid to the zoo. They&#x27;re always so excited to see all the different animals and learn about them.（我喜欢带我的孩子去动物园。他们总是特别兴奋能看到各种各样的动物，还能了解它们。）
+We have a family game night once a week. We play board games and have a lot of laughs together.（我们每周都有一次家庭游戏之夜。我们玩棋盘游戏，一起开怀大笑。）
+I took my kid to a science museum, and they were fascinated by all the exhibits. It&#x27;s a great way to spark their curiosity.（我带我的孩子去了科学博物馆，他们对所有的展品都着迷了。这是激发他们好奇心的好办法。）
+We often go for nature walks in the woods near our house. My child loves exploring and finding interesting things like bugs and leaves.（我们经常在我家附近的树林里散步。我的孩子喜欢探索，还能找到像虫子和树叶这样有趣的东西。）
+I&#x27;m helping my child with their school project. We&#x27;re working together to make it the best it can be.（我在帮我的孩子做学校的项目。我们一起努力，想把它做到最好。）
+My child is learning to play a musical instrument. I encourage them to practice every day and cheer them on.（我的孩子在学一种乐器。我鼓励他们每天练习，还为他们加油打气。）
+教育引导
+My child made a mistake, but instead of scolding them, I talked to them about how to learn from it.（我的孩子犯了个错，但我没有责骂他们，而是和他们聊了聊如何从错误中学习。）
+I&#x27;m trying to teach my child the importance of sharing. We often have discussions about it and practice sharing with friends.（我在试着教我的孩子分享的重要性。我们经常讨论这个话题，还和朋友们一起练习分享。）
+My kid was having a hard time with a math problem. I sat down with them and showed them different ways to solve it.（我的孩子在一道数学题上遇到了困难。我和他们一起坐下来，给他们展示了不同的解题方法。）
+I want my child to be more independent, so I encourage them to do simple tasks like making their bed and picking up their toys on their own.（我希望我的孩子更独立一些，所以我鼓励他们做一些像自己整理床铺、收拾玩具这样简单的事情。）
+My child was feeling a bit down about not winning a game. I comforted them and told them that it&#x27;s the effort that counts.（我的孩子因为没有赢得一场比赛而有点沮丧。我安慰他们，告诉他们努力了就好。）
+I&#x27;m teaching my child about healthy eating habits. We cook together and talk about why it&#x27;s important to eat fruits and vegetables.（我在教我的孩子健康的饮食习惯。我们一起做饭，还讨论为什么吃水果和蔬菜很重要。）
+My kid was being a bit rude to others. I had a serious talk with them about respecting people and using kind words.（我的孩子对别人有点没礼貌。我和他们严肃地谈了谈尊重他人和使用友善语言的问题。）
+I&#x27;m trying to instill a love of learning in my child. We read books on various topics and have discussions to expand their knowledge.（我在试着培养我的孩子对学习的热爱。我们读各种主题的书籍，还进行讨论来拓展他们的知识。）
+My child was afraid of trying something new. I encouraged them to be brave and gave them the confidence to take the first step.（我的孩子害怕尝试新事物。我鼓励他们要勇敢，给他们信心迈出第一步。）
+I&#x27;m helping my child develop good study habits. We set up a study schedule and make sure they have a quiet place to focus.（我在帮我的孩子养成良好的学习习惯。我们制定了一个学习计划，还确保他们有一个安静的地方可以集中精力。）
+亲子沟通
+I always make sure to listen to my child when they want to talk about their day. It makes them feel heard and valued.（当我的孩子想和我聊聊他们的一天时，我总是认真倾听。这让他们觉得自己被听见、被重视。）
+My child came to me with a problem, and we had a long conversation about it. We worked together to find a solution.（我的孩子带着一个问题来找我，我们就这个问题聊了很久，一起努力找到了解决办法。）
+My child had a disagreement with a friend. I listened to their side of the story and gave them advice on how to handle the situation.（我的孩子和一个朋友发生了争执，我听了他们的说法，还给了他们处理这种情况的建议。）
+My child was a bit shy about making new friends at school. I gave them some tips on how to be more outgoing and confident.（我的孩子在学校里有点害羞，不太敢交新朋友，我给了他们一些让自己更外向、更自信的建议。）
+My kid was feeling excited about an upcoming event. I shared in their excitement and talked about all the fun things we could do there.（我的孩子对即将到来的一个活动感到很兴奋，我和他们一起分享这份喜悦，还聊了我们在那儿能做的各种有趣的事。）
+My kid told me a funny story from school, and we laughed together for a long time. It was a great moment of connection.（我的孩子给我讲了一个学校里的有趣故事，我们一起笑了很久，这是一个增进感情的美好时刻。）
+I told my child a story about my own childhood experiences. They were really interested and asked a lot of questions.（我给我的孩子讲了一个我自己童年经历的故事，他们特别感兴趣，还问了很多问题。）
+I had a heart-to-heart talk with my child about their dreams and aspirations. It was so inspiring to hear what they hope to achieve in the future.（我和我的孩子促膝长谈了他们的梦想和志向，听到他们未来希望实现的目标，真的很鼓舞人心。）
+I asked my child for their opinion on a family decision. It made them feel important and involved.（我就一个家庭决策询问了孩子的意见，这让他们觉得自己很重要，也有了参与感。）
+I&#x27;m trying to improve my communication with my child. I make an effort to use positive language and really understand their feelings.（我在努力改善和孩子的沟通方式，尽量使用积极的语言，也努力去真正理解他们的感受。）
+（十）社会议题场景
+环境保护与可持续发展
+I&#x27;ve started using reusable shopping bags instead of plastic ones. It&#x27;s a small step, but it can make a big difference.（我已经开始用可重复使用的购物袋，而不再用塑料袋了。这只是一小步，但能带来很大的改变。）
+I&#x27;m trying to reduce my energy consumption at home. I turn off lights and appliances when I&#x27;m not using them.（我在努力减少家里的能源消耗。不用灯和电器的时候，我就把它们关掉。）
+I grow my own vegetables in a small garden. It&#x27;s not only a great way to have fresh produce but also reduces the carbon footprint of transportation.（我在一个小花园里自己种菜。这不仅是能吃到新鲜农产品的好办法，还能减少运输过程中的碳足迹。）
+I&#x27;m part of a local environmental group that organizes beach cleanups. It&#x27;s really rewarding to see the difference we can make.（我是当地一个环保组织的成员，这个组织会组织海滩清洁活动。看到我们能带来的改变，真的很有成就感。）
+We&#x27;re campaigning for stricter environmental regulations in our city. We believe it&#x27;s necessary to protect our natural resources.（我们正在为我们城市更严格的环境法规发起运动。我们认为保护我们的自然资源是很有必要的。）
+I think sustainable development is crucial for the future of our planet. How can we balance economic growth with environmental protection?（我认为可持续发展对我们星球的未来至关重要。我们要如何在经济增长和环境保护之间取得平衡呢？）
+The concept of circular economy is really interesting. How can we apply it in our daily lives?（循环经济的概念真的很有趣。我们要如何在日常生活中应用它呢？）
+I&#x27;m concerned about the impact of fast fashion on the environment. What can we do to promote more sustainable fashion choices?（我担心快时尚对环境的影响。我们能做些什么来促进更可持续的时尚选择呢？）
+I&#x27;m writing letters to my local politicians to express my concerns about environmental issues. I hope they will take action.（我正在给当地的政客写信，表达我对环境问题的担忧。我希望他们会采取行动。）
+I&#x27;m volunteering at an environmental education center. I enjoy teaching others about how they can protect the environment.（我在一个环境教育中心做志愿者。我喜欢教其他人如何保护环境。）
+跨文化交流
+When I first traveled to Japan, I was really surprised by how polite and respectful everyone was. Bowing is such a common form of greeting there.（我第一次去日本旅行的时候，真的很惊讶那里的每个人都那么有礼貌、懂得尊重他人。鞠躬在那儿是很常见的打招呼方式。）
+In some Western countries, it&#x27;s normal to give a hug or a kiss on the cheek as a greeting, but in my home country, we usually just shake hands. It&#x27;s quite a big difference.（在一些西方国家，拥抱或者亲吻脸颊作为打招呼的方式很常见，但在我的国家，我们通常就只是握手。这差别可不小。）
+I learned that in India, people often use their heads to gesture instead of their hands. It took me a while to get used to it.（我了解到在印度，人们经常用头部来做手势，而不是用手。我花了好一阵子才习惯。）
+I had a great time studying abroad. I made friends with people from different countries and learned so much about their cultures through our conversations.（我在国外留学的时光非常愉快。我和来自不同国家的人交了朋友，通过和他们的交谈，我学到了很多关于他们文化的知识。）
+I attended an international conference where I got to interact with professionals from all over the world. It was a bit challenging at first due to the language and cultural barriers, but I managed to communicate effectively.（我参加了一个国际会议，在那里我得以与来自世界各地的专业人士交流。一开始，由于语言和文化障碍，这有点具有挑战性，但我还是成功地进行了有效的沟通。）
+When interacting with people from different cultures, I always try to be open-minded and respectful of their beliefs and traditions.（当与来自不同文化的人交流时，我总是尽量保持开放的心态，尊重他们的信仰和传统。）
+I think it&#x27;s important to do some research about the culture of the place I&#x27;m visiting before I go. It helps me avoid making cultural faux pas.（我认为在去一个地方之前，对那个地方的文化做一些研究是很重要的。这能帮助我避免犯文化方面的错误。）
+If there&#x27;s a cultural misunderstanding, I try to address it calmly and explain my perspective while also listening to the other person&#x27;s.（如果出现文化误解，我会尽量冷静地处理，解释我的观点，同时也倾听对方的观点。）
+I found out that in South Korea, age and seniority are highly respected in social interactions. There are specific rules for how to address and interact with older people.（我发现在韩国，年龄和资历在社交互动中备受尊重。在如何称呼和与年长者互动方面有特定的规则。）
+Traveling has made it easier for people from different cultures to connect and share ideas. It can promote cultural exchange and understanding, but also sometimes lead to cultural misunderstandings.（旅行让来自不同文化的人们更容易建立联系和分享想法。这可以促进文化交流和理解，但有时也会导致文化误解。）
+志愿服务与社区活动
+I volunteered at a local homeless shelter last weekend. I helped serve meals to the people there and had some really meaningful conversations with them.（上周末我在当地的一个无家可归者收容所做志愿者。我帮忙给那里的人分发饭菜，还和他们进行了一些非常有意义的交谈。）
+I&#x27;m part of a volunteer group that visits elderly people in nursing homes. We play games with them, read to them, and just keep them company. It&#x27;s so heartwarming to see the smiles on their faces.（我是一个志愿者小组的成员，我们会去养老院看望老人。我们和他们一起玩游戏、读书，陪伴着他们。看到他们脸上的笑容，真的很暖心。）
+I volunteered at an animal shelter during my summer vacation. I took care of the cats and dogs, cleaned their cages, and even helped some of them find new homes.（我暑假的时候在一家动物收容所做志愿者。我照顾猫和狗，清理它们的笼子，甚至还帮助一些动物找到了新家。）
+We organized a community concert last month. It was a lot of work to coordinate the performers, find a venue, and promote the event, but it turned out to be a huge success.（上个月我们组织了一场社区音乐会。协调表演者、寻找场地以及宣传活动费了不少功夫，但最后取得了巨大的成功。）
+I&#x27;m on the organizing committee for a neighborhood block party. We&#x27;re planning fun activities like face painting, a barbecue, and live music to bring the community together.（我是社区街区派对组织委员会的成员。我们正在策划一些有趣的活动，比如脸部彩绘、烧烤和现场音乐表演，让社区的人们聚在一起。）
+Volunteering gives me a sense of purpose and fulfillment. Knowing that I&#x27;m making a positive impact on others&#x27; lives is truly rewarding.（做志愿者让我有了目标感和满足感。知道自己正在对他人的生活产生积极影响，真的很有成就感。）
+Community activities are a great way to build relationships and a sense of belonging among residents. They bring people together and create a stronger community spirit.（社区活动是建立居民之间关系和归属感的好方法。它们把人们聚集在一起，营造了更浓厚的社区精神。）
+Through volunteering, I&#x27;ve learned a lot of new skills, such as communication, teamwork, and problem-solving. These skills are valuable in all aspects of my life.（通过做志愿者，我学到了很多新技能，比如沟通、团队合作和解决问题的能力。这些技能在我生活的各个方面都很有价值。）
+I helped organize a community clean-up day in our neighborhood. We divided into teams and cleaned up the streets, parks, and public areas.（我帮忙组织了我们社区的清洁日活动。我们分成小组，清理了街道、公园和公共区域。）
+Community activities play an important role in building a sustainable and vibrant community. They encourage active participation and engagement from residents, which is essential for the community&#x27;s development.（社区活动在建设一个可持续发展且充满活力的社区中起着重要作用。它们鼓励居民积极参与和投入，这对社区的发展至关重要。）
+科技与生活
+The development of smartphones has completely transformed the way we communicate. We can now instantly connect with people all over the world through calls, texts, and various messaging apps.（智能手机的发展彻底改变了我们的通讯方式。现在我们可以通过电话、短信和各种即时通讯应用程序，瞬间与世界各地的人取得联系。）
+Video conferencing tools like Zoom and Skype have made it possible for us to have face-to-face meetings with colleagues, friends, and family, even when we&#x27;re miles apart. It&#x27;s greatly improved work efficiency and maintained relationships.（像 Zoom 和 Skype 这样的视频会议工具，让我们即使相隔千里，也能与同事、朋友和家人进行面对面的交流。这大大提高了工作效率，也维系了人际关系。）
+Smart home devices such as smart thermostats, lights, and security systems have made our homes more comfortable and secure. We can control them remotely through our smartphones.（智能恒温器、智能灯具和智能安防系统等智能家居设备，让我们的家更加舒适和安全。我们可以通过智能手机远程控制它们。）
+Online shopping platforms have revolutionized the way we shop. We can browse and purchase a wide range of products from the comfort of our homes, and have them delivered right to our doorstep.（在线购物平台彻底改变了我们的购物方式。我们可以在家中舒适地浏览和购买各种各样的产品，并且商品会直接送到我们家门口。）
+Mobile payment systems like Apple Pay and Google Pay have made transactions more convenient. We can pay for goods and services with just a scan of our phones, eliminating the need to carry cash or cards.（像苹果支付（Apple Pay）和谷歌支付（Google Pay）这样的移动支付系统，让交易变得更加便捷。我们只需用手机扫描一下就能支付商品和服务费用，无需携带现金或银行卡。）
+The widespread use of technology has led to a decrease in face-to-face interactions. People are often more focused on their devices than on the people around them, which can affect the quality of relationships.（科技的广泛应用导致了面对面交流的减少。人们常常更专注于自己的设备，而不是周围的人，这可能会影响人际关系的质量。）
+Social media can sometimes create a false sense of connection. While we may have a large number of online friends, the depth of these relationships may not be as strong as real-life friendships.（社交媒体有时会营造出一种虚假的连接感。虽然我们可能有很多线上朋友，但这些关系的深度可能不如现实生活中的友谊。）
+The digital divide, which refers to the gap between those who have access to technology and those who don&#x27;t, can exacerbate social inequalities. It&#x27;s important to ensure that everyone has equal access to technological resources.（数字鸿沟，即有技术接入条件的人和没有技术接入条件的人之间的差距，可能会加剧社会不平等。确保每个人都能平等获取技术资源是很重要的。）
+I just upgraded my smartphone to the latest model, and the camera quality is so much better.（我刚把我的智能手机升级到了最新款，这拍照质量可好多了。）
+I&#x27;m having trouble connecting my wireless earbuds to my phone. Do you know what I&#x27;m doing wrong?（我在把无线耳机连接到手机上的时候遇到问题了。你知道我哪儿操作错了不？）
+（十一）金融理财场景
+1. 储蓄与投资
+I&#x27;m trying to save more money each month. I&#x27;ve set up a budget to help me keep track of my expenses.（我每个月都努力多存点钱。我做了个预算，好让我能清楚自己的花销。）
+Do you think it&#x27;s a good idea to invest in stocks? I&#x27;m a bit worried about the risks.（你觉得投资股票是个好主意不？我有点担心风险。）
+I&#x27;ve been putting some money into a mutual fund. So far, it&#x27;s been performing quite well.（我一直在往一只共同基金里投钱。到目前为止，收益还不错。）
+I want to start an emergency fund. How much do you think I should aim to save?（我想存一笔应急资金。你觉得我该存多少合适呢？）
+I&#x27;m considering investing in real estate. What factors should I take into account?（我在考虑投资房地产。我应该考虑哪些因素呢？）
+I&#x27;m not sure if I should put my money in a high-yield savings account or a regular one. What&#x27;s the difference?（我不确定该把钱存进高收益储蓄账户还是普通储蓄账户。这两者有啥区别呢？）
+I&#x27;ve heard that diversifying your investments is important. How can I do that?（我听说投资多元化很重要。我该怎么做呢？）
+I&#x27;m thinking of opening a retirement account. Which type is the best for someone my age?（我在考虑开一个退休账户。对于我这个年纪的人来说，哪种账户最好呢？）
+I&#x27;m trying to cut back on unnecessary expenses so I can save more for my future.（我在努力削减不必要的开支，这样我就能为未来多存点钱了。）
+I&#x27;ve been saving for a down payment on a house. It&#x27;s taking a while, but I&#x27;m getting closer.（我一直在为买房的首付存钱。这花了些时间，但我离目标越来越近了。）
+贷款与债务
+I&#x27;m planning to take out a loan to buy a car. What kind of interest rates should I expect?（我打算贷款买辆车。我大概能遇到什么样的利率呢？）
+I have some credit card debt. I&#x27;m worried about the high interest rates. What&#x27;s the best way to pay it off?（我有一些信用卡欠款。我担心那高额的利息。还清欠款的最好办法是什么呢？）
+I&#x27;m thinking of refinancing my mortgage to get a lower interest rate. Do you think it&#x27;s a good move?（我在考虑重新办理房屋抵押贷款，以获得更低的利率。你觉得这是个好主意吗？）
+I need to apply for a student loan to pay for my college education. What documents do I need to prepare?（我得申请学生贷款来支付我的大学学费。我需要准备哪些文件呢？）
+I&#x27;m having trouble making my loan payments on time. What options do I have?（我没办法按时还贷款了。我还有什么别的选择吗？）
+I&#x27;ve heard that having a good credit score is important when applying for a loan. How can I improve mine?（我听说申请贷款的时候，良好的信用评分很重要。我怎么提高我的信用评分呢？）
+I&#x27;m considering consolidating my debts. Will it really make it easier to manage my finances?（我在考虑合并我的债务。这真的能让我的财务管理更轻松吗？）
+I&#x27;m worried about the terms of the loan I&#x27;m about to sign. Can you help me understand them better?（我对我即将签署的贷款条款有些担心。你能帮我更好地理解一下吗？）
+I&#x27;m trying to pay off my car loan as quickly as possible to avoid paying too much interest.（我在努力尽快还清我的汽车贷款，免得付太多利息。）
+I&#x27;m not sure if I should take on more debt to start my own business. What do you think?（我不确定我是否应该背负更多债务来创业。你怎么看？）
+日常理财
+I use a personal finance app to keep track of my income and expenses. It&#x27;s really helpful.（我用一个个人理财应用程序来记录我的收入和支出。这真的很有帮助。）
+I&#x27;m trying to stick to my budget, but sometimes it&#x27;s hard when there are unexpected expenses.（我努力按照预算来花钱，但有时候遇到意外支出就很难做到了。）
+I&#x27;m thinking of negotiating a raise at work to increase my income. Do you have any tips?（我在考虑跟老板谈涨工资，增加我的收入。你有什么建议吗？）
+I&#x27;m looking for ways to save money on groceries. Do you have any tricks for getting good deals?（我在想办法在买日用品上省钱。你有什么能买到划算东西的小窍门吗？）
+I&#x27;m planning a vacation, but I&#x27;m worried about the cost. How can I budget for it without overspending?（我在计划一次度假，但我担心费用问题。我怎么在不超支的情况下做预算呢？）
+I&#x27;m trying to reduce my monthly utility bills. What can I do to save on electricity and water?（我在努力减少每月的水电费支出。我怎么做才能在用电和用水上省钱呢？）
+I&#x27;m thinking of selling some of my old stuff to make some extra cash. Where&#x27;s the best place to sell them?（我在考虑卖掉一些我的旧东西，赚点外快。在哪儿卖这些东西最好呢？）
+I&#x27;m not very good at managing my money. Do you know any good books or resources to help me improve?（我不太擅长理财。你知道有什么好的书籍或资源能帮我提高理财能力吗？）
+I&#x27;m trying to be more mindful of my spending habits. I want to make sure I&#x27;m using my money wisely.（我在努力更留意自己的消费习惯。我想确保我能明智地使用我的钱。）
+I&#x27;m planning to buy some new clothes, but I want to wait for a sale to get a better price.（我打算买些新衣服，但我想等打折的时候再买，这样能更划算。）
+（十二）家居装修场景
+装修规划
+I&#x27;m thinking about renovating my living room. I want to give it a more modern look. Do you have any ideas?（我在考虑翻新一下我的客厅。我想让它看起来更现代一些。你有什么想法吗？）
+We&#x27;re planning to remodel our kitchen. What kind of layout do you think would be the most practical?（我们打算重新装修厨房。你觉得哪种布局最实用呢？）
+I need to figure out a budget for my home renovation project. How much do you think it will cost to paint the whole house?（我得为我的房屋装修项目制定一个预算。你觉得把整个房子粉刷一遍得花多少钱？）
+I want to add some built-in shelves in my bedroom for more storage space. Do you know any good carpenters?（我想在卧室里做一些嵌入式书架，增加点储物空间。你认识什么好的木匠吗？）
+We&#x27;re considering installing a new floor in the dining room. What type of flooring material do you recommend?（我们在考虑给餐厅换个新地板。你推荐哪种地板材料呢？）
+I&#x27;m not sure whether to go for a minimalist style or a more eclectic one for my apartment. What do you think suits me better?（我不确定我的公寓该装成极简风格还是更混搭的风格。你觉得哪种更适合我呢？）
+I&#x27;m planning to put in a small garden in my backyard. What kind of plants do you think are easy to take care of?（我打算在后院弄个小花园。你觉得种哪些植物比较好打理呢？）
+We need to hire an interior designer to help us with the decoration of our new house. Do you know any reliable ones?（我们得雇一位室内设计师来帮我们装修新房子。你知道有哪些靠谱的设计师吗？）
+I&#x27;m thinking of changing the color scheme of my bathroom. Should I go for light colors or dark ones?（我在考虑改变一下浴室的配色方案。我是该选浅色系还是深色系呢？）
+I want to install a smart home system in my house. What are the essential features I should look for?（我想在房子里安装一套智能家居系统。我应该关注哪些关键功能呢？）
+装修施工
+The construction workers are making a lot of noise. They&#x27;re renovating the apartment next door.（建筑工人弄出了好大的噪音。他们在装修隔壁的公寓呢。）
+The painters are coming tomorrow to paint the walls. I hope they do a good job.（油漆工明天要来刷墙了。我希望他们活儿干得漂亮。）
+We&#x27;re having some trouble with the plumbing in the kitchen. The plumber is coming to fix it this afternoon.（我们厨房的水管出问题了。水管工今天下午会来修。）
+The electrician is installing new light fixtures in the living room. I&#x27;m excited to see how they look when they&#x27;re done.（电工正在客厅安装新的灯具。我很期待完工后它们的样子。）
+The tilers are working on the bathroom floor. It&#x27;s taking longer than expected.（瓷砖工正在铺浴室的地板。比预计的时间要长。）
+We need to make sure the contractors follow the design plan exactly. There have been some misunderstandings so far.（我们得确保承包商严格按照设计方案施工。到目前为止已经出现了一些误解。）
+The carpenters are building the cabinets for the kitchen. They look like they&#x27;re going to be really high quality.（木匠们正在打造厨房的橱柜。看起来质量会很不错。）
+The workers accidentally damaged the wall while moving the furniture. We need to get it repaired as soon as possible.（工人在搬家具的时候不小心把墙弄坏了。我们得尽快找人把它修好。）
+The construction of the new deck in the backyard is almost finished. It&#x27;s going to be a great place to relax.（后院新露台的搭建差不多快完工了。以后这会是个很棒的休闲场所。）
+The roofers are fixing a leak in the roof. I hope they can solve the problem once and for all.（屋顶工人正在修理屋顶的漏水处。我希望他们能彻底解决这个问题。）
+家居装饰
+I just bought a new sofa for the living room. It&#x27;s so comfortable and it really ties the room together.（我刚给客厅买了一张新沙发。它特别舒适，而且让整个房间看起来协调多了。）
+I&#x27;m looking for some wall art to hang in my bedroom. Do you have any suggestions for where to find unique pieces?（我在找一些可以挂在卧室墙上的艺术品。你知道上哪儿能找到独特的作品吗？）
+I want to add some plants to my apartment to make it feel more lively. What kind of indoor plants are good for beginners?（我想在公寓里添些植物，让它更有生气。对于新手来说，养哪些室内植物比较好呢？）
+I&#x27;m thinking of buying a new rug for the dining room. What color and pattern do you think would match the table and chairs?（我在考虑给餐厅买块新地毯。你觉得什么颜色和图案会和餐桌餐椅搭配呢？）
+I found some really cute decorative pillows for the sofa. They add a pop of color to the room.（我给沙发找到了一些超可爱的装饰抱枕。它们给房间增添了一抹亮色。）
+I&#x27;m going to hang some family photos on the wall in the hallway. It will make the space feel more personal.（我打算在走廊的墙上挂一些全家福照片。这会让这个空间更有温馨的感觉。）
+I bought a new chandelier for the dining room. It&#x27;s a bit expensive, but it really makes a statement.（我给餐厅买了一盏新的吊灯。有点小贵，但真的很气派。）
+I&#x27;m looking for a nice bookshelf to put in my study. I want something that&#x27;s both functional and stylish.（我在找一个好看的书架放在书房里。我想要那种既实用又有格调的。）
+I&#x27;m thinking of adding some curtains to the windows in the bedroom. Do you think sheer curtains or heavy ones would be better?（我在考虑给卧室的窗户装些窗帘。你觉得是薄纱窗帘好还是厚窗帘好呢？）
+I found a beautiful vase at the flea market. I&#x27;m going to put some fresh flowers in it and place it on the coffee table.（我在跳蚤市场上发现了一个漂亮的花瓶。我打算插些鲜花放进去，然后摆在咖啡桌上。）
+（十三）自我成长场景
+自我认知与成长
+I&#x27;m on a journey of self-discovery. I&#x27;m trying to figure out my true passions and values, and how I can align my life with them.（我正在进行自我探索之旅。我试图弄清楚自己真正的热情和价值观，以及如何让我的生活与之相符。）
+I&#x27;ve been reflecting on my past experiences and learning from my mistakes. It&#x27;s an important part of personal growth.（我一直在反思自己过去的经历，并从错误中学习。这是个人成长的重要组成部分。）
+I&#x27;m setting goals for myself to help me grow and develop. For example, I want to learn a new language or take up a new hobby.（我正在为自己设定目标，以帮助我成长和发展。比如，我想学习一门新语言或培养一个新爱好。）
+I&#x27;m reading books on personal development to gain new insights and inspiration. They&#x27;ve been really helpful in my self-improvement journey.（我在阅读关于个人成长的书籍，以获得新的见解和灵感。这些书在我的自我提升过程中非常有帮助。）
+I&#x27;m trying to step out of my comfort zone and take on new challenges. It&#x27;s scary, but I know it&#x27;s necessary for growth.（我在努力走出自己的舒适区，接受新的挑战。这很可怕，但我知道这对成长是必要的。）
+I&#x27;m working on building my self-confidence. I&#x27;m trying to focus on my strengths and accomplishments instead of dwelling on my weaknesses.（我在努力建立自信。我试着关注自己的优点和成就，而不是纠结于自己的缺点。）
+I&#x27;m learning to be more assertive in expressing my needs and opinions. It&#x27;s been a struggle, but I&#x27;m making progress.（我在学习更自信地表达自己的需求和观点。这一直是个挑战，但我正在取得进步。）
+I&#x27;m taking time for self-care, like getting enough sleep, eating well, and doing things I enjoy. It&#x27;s essential for my overall well-being.（我在花时间进行自我照顾，比如保证充足的睡眠、合理饮食，以及做一些我喜欢的事情。这对我的整体健康至关重要。）
+I&#x27;m participating in a personal development workshop. It&#x27;s a great opportunity to interact with like-minded people and learn new strategies for growth.（我正在参加一个个人成长研讨会。这是一个与志同道合的人交流并学习新的成长策略的好机会。）
+I&#x27;m reflecting on my life purpose and how I can make a positive impact on the world. It gives me a sense of direction and motivation.（我在思考自己的人生目标，以及如何对世界产生积极的影响。这给了我一种方向感和动力。）
+情绪管理
+When I&#x27;m feeling overwhelmed, I make a list of all the things I need to do. It helps me organize my thoughts and feel more in control.（当我感到不知所措时，我会把所有需要做的事情列一个清单。这有助于我整理思路，让我感觉更能掌控局面。）
+I&#x27;m trying to be more mindful of my emotions in the moment. Instead of suppressing them, I&#x27;m learning to accept and process them.（我在努力更加关注当下的情绪。我不再压抑情绪，而是学着去接受和处理它们。）
+I find that writing in a journal is a great way to express my emotions. It allows me to release my feelings and gain some perspective.（我发现写日记是表达情绪的好方法。这能让我释放自己的感受，并获得一些新的看法。）
+I&#x27;m taking a break from social media because it was making me feel anxious and inadequate. I&#x27;m focusing on real-life interactions instead.（我正在暂时远离社交媒体，因为它让我感到焦虑和自卑。我现在更专注于现实生活中的人际交往。）
+I&#x27;m working on building a support system of friends and family who I can talk to when I&#x27;m feeling down. It&#x27;s important to have people to lean on.（我在努力建立一个由朋友和家人组成的支持系统，当我情绪低落时可以和他们倾诉。有可以依靠的人是很重要的。）
+I&#x27;ve learned to recognize my triggers for negative emotions, like stress from work or conflict with others. Knowing them helps me prepare to handle them better.（我学会了识别引发自己负面情绪的诱因，比如工作压力或与人发生冲突。了解这些诱因能帮助我更好地准备应对它们。）
+When I&#x27;m angry, I try to take a few deep breaths before responding. It prevents me from saying something I might regret later.（当我生气时，我会试着先深呼吸几次再回应。这能避免我说出让自己事后后悔的话。）
+I use positive affirmations every morning to start my day on a good note. Phrases like &quot;I can handle whatever comes my way&quot; boost my confidence.（我每天早上都会用积极的自我暗示开启新的一天。像 “无论遇到什么，我都能应对” 这样的话能增强我的自信。）
+I&#x27;ve started practicing mindfulness meditation for 10 minutes every day. It helps me stay calm and focused, even when things get busy.（我开始每天练习 10 分钟的正念冥想。即使事情变得繁忙，它也能帮助我保持冷静和专注。）
+When I&#x27;m sad, I allow myself to feel the emotion instead of pushing it away. After a while, I do something I love, like listening to music or going for a walk, to lift my mood.（当我难过时，我会允许自己感受这种情绪，而不是刻意压制。过一会儿，我会做一些自己喜欢的事，比如听音乐或散步，来改善心情。）
+（十四）职场协作场景
+团队沟通
+In our team meetings, we always start by sharing updates on our current tasks. It helps everyone stay on the same page.（在我们的团队会议上，我们总是先分享各自当前任务的进展。这能帮助所有人保持信息同步。）
+I had a misunderstanding with a colleague about the project timeline. We sat down to talk openly, and we finally clarified the confusion.（我和一位同事在项目时间线上产生了误解。我们坐下来坦诚沟通，最终理清了困惑。）
+Our team uses a shared online tool to track task progress. It makes it easy for everyone to see who&#x27;s doing what and when things are due.（我们团队使用一个共享的在线工具来跟踪任务进度。这让每个人都能轻松了解谁在做什么、任务什么时候截止。）
+I suggested having weekly check-ins with my team members to address any issues early. It has helped us avoid last-minute problems.（我建议和团队成员每周进行一次沟通，及早解决任何问题。这帮助我们避免了临到最后才出现问题的情况。）
+When giving feedback to a colleague, I try to be specific and focus on their work, not their personality. For example, I say &quot;This part of the report could be more detailed&quot; instead of &quot;You did a bad job.&quot;（给同事提反馈时，我会尽量具体，并且聚焦于他们的工作，而非个人性格。比如，我会说 “报告的这部分可以更详细一些”，而不是 “你做得不好”。）
+A team member was struggling with their workload, so I offered to help with some of their tasks. We finished everything on time together.（一位团队成员在工作量上遇到了困难，所以我主动提出帮他处理一些任务。我们一起按时完成了所有工作。）
+We had a team brainstorming session to come up with ideas for the new marketing campaign. Everyone&#x27;s input was valuable, and we ended up with a great plan.（我们开了一次团队头脑风暴会议，为新的营销活动出主意。每个人的想法都很有价值，最后我们制定出了一个很棒的计划。）
+I always make sure to acknowledge my colleagues&#x27; contributions in team meetings. It helps build a positive and supportive team environment.（在团队会议上，我总会肯定同事们的贡献。这有助于营造积极、互助的团队氛围。）
+There was a conflict between two team members about how to approach a task. I helped them listen to each other&#x27;s perspectives and find a middle ground.（两位团队成员在如何处理一项任务上发生了冲突。我帮助他们倾听彼此的观点，找到了解决方案。）
+Our team leader encourages us to ask questions if we&#x27;re unsure about something. It makes us feel comfortable and ensures we don&#x27;t make mistakes due to confusion.（我们的团队领导鼓励我们如果有不确定的地方就提问。这让我们感到自在，也确保我们不会因为困惑而犯错。）
+职场礼仪
+I always arrive at meetings a few minutes early to set up my materials and greet colleagues. It shows respect for everyone&#x27;s time.（我参加会议时总会提前几分钟到，准备好自己的资料并和同事打招呼。这是对大家时间的尊重。）
+When sending work emails, I make sure to use a clear subject line and keep the content concise. It helps the recipient understand the purpose quickly.（发工作邮件时，我会确保主题清晰、内容简洁。这能帮助收件人快速了解邮件目的。）
+I avoid using slang or casual language in professional communications, like emails to clients or formal reports. It maintains a professional image.（在专业沟通中，比如给客户发邮件或写正式报告时，我会避免使用俚语或随意的表达。这能保持专业形象。）
+When a client visits our office, I offer them a drink and show them to the meeting room. Small gestures like this help make a good impression.（当客户来办公室拜访时，我会主动给他们倒饮料，并带他们去会议室。这样的小举动有助于留下好印象。）
+I always say &quot;please&quot; and &quot;thank you&quot; when asking colleagues for help or receiving assistance. It&#x27;s a simple way to show gratitude and respect.（向同事求助或得到帮助时，我总会说 “麻烦你” 和 “谢谢”。这是表达感激和尊重的简单方式。）
+I avoid discussing personal or controversial topics, like politics or religion, in the workplace. It prevents awkward situations and conflicts.（在工作场合，我会避免谈论个人话题或有争议的话题，比如政治或宗教。这能避免尴尬局面和冲突。）
+When someone is speaking in a meeting, I give them my full attention and don&#x27;t interrupt. It shows respect for their ideas.（会议上有人发言时，我会全神贯注地听，不打断对方。这是对他们想法的尊重。）
+I dress appropriately for work, following the company&#x27;s dress code. It helps me feel more professional and shows I take my job seriously.（我会按照公司的着装要求，穿着得体地上班。这让我感觉更专业，也表明我认真对待工作。）
+If I&#x27;m going to be late for work or a meeting, I let my supervisor or colleagues know in advance. It shows responsibility and consideration.（如果我上班或开会要迟到，我会提前告诉主管或同事。这体现了责任感和体谅他人的态度。）
+When finishing a project with a team, I send a thank-you message to everyone who participated. It acknowledges their hard work and strengthens team bonds.（和团队一起完成项目后，我会给所有参与者发一条感谢信息。这肯定了他们的努力，也增进了团队凝聚力。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="1125一个半月全英交";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

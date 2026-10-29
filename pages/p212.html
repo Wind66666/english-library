@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>外企英语600句商务英语蓝字</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>外企英语600句商务英语蓝字</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">10,420 字符</span>
+    <span>来源：外企英语600句商务英语蓝字.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%A4%96%E4%BC%81%E8%8B%B1%E8%AF%AD600%E5%8F%A5%E5%95%86%E5%8A%A1%E8%8B%B1%E8%AF%AD%E8%93%9D%E5%AD%97.docx" title="在本机打开原文件">打开原文件</a>
+    
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">外企英语
+无非600句，稳了
+MEMORIZE THESE SENTENCES
+AND YOUR ORAL ENGLISH WILL BECOME EXCELLENT
+商务沟通篇 (Communication)
+1. Could you please clarify what you mean? 你能解释一下你的意思吗?
+2. Let&#x27;s schedule a meeting to discuss further. 我们安排个会议来进一步讨论。
+3. I will get back to you as soon as possible. 我会尽快回复你。
+4. Can we take this offline and discuss in more detail? 我们可以私下详细讨论这个问题吗?
+5. I&#x27;m afraid I don&#x27;t have the information right now. 恐怕我现在没有相关信息。
+6. Let me know if you need anything else. 如果你需要其他帮助，告诉我。
+7. Please find the attached document for your reference. 请查收附件文件供您参考。
+8. I&#x27;ll follow up with you tomorrow. 我明天会跟进。
+9. Could you provide more context on this matter? 你能提供更多背景信息吗?
+10. Thank you for bringing this to my attention. 感谢你让我注意到这一点。
+会议场景篇 (Meetings)
+11. Let&#x27;s start the meeting. 让我们开始会议吧。
+12. I&#x27;d like to add something to the agenda. 我想在议程中增加一点内容。
+13. Could you please speak a little slower? 你可以说慢一点吗?
+14. Let&#x27;s summarize the key points from the meeting. 让我们总结一下会议的要点。
+15. Does anyone have any questions or concerns? 有人有任何问题或疑虑吗?
+16. Can we circle back to this later? 我们可以稍后再讨论这个问题吗?
+17. Let&#x27;s table this discussion for now. 我们暂时搁置这个讨论。
+18. Could you share the minutes of the meeting afterward? 你能在会后分享会议记录吗?
+19. I appreciate everyone&#x27;s input today. 感谢大家今天的贡献。
+20. The meeting is adjourned. 会议结束。
+项目管理篇 (Project Management)
+21. We are currently behind schedule. 我们目前落后于进度。
+22. Let&#x27;s prioritize the most urgent tasks first. 让我们优先处理最紧急的任务。
+23. I&#x27;m concerned about the current timeline. 我对目前的时间表有些担忧。
+24. We need to allocate more resources to this project. 我们需要为这个项目分配更多资源。
+25. Can we extend the deadline? 我们可以延长截止日期吗?
+26. We are aiming to complete this by Friday. 我们目标是在周五前完成。
+27. Let&#x27;s ensure all stakeholders are informed. 让我们确保所有相关方都被通知。
+28. I will keep you updated on the progress. 我会随时向你更新进展。
+29. What&#x27;s the next step in the process? 下一步流程是什么?
+30. Could you provide a status update? 你能提供一下最新进展吗?
+客户服务篇 (Customer Service)
+31. How can I assist you today? 我今天能为您提供什么帮助?
+32. We apologize for the inconvenience. 我们为此带来的不便感到抱歉。
+33. We appreciate your feedback and will address the issue. 我们感谢您的反馈并将解决这个问题。
+34. Let me transfer you to the appropriate department. 让我将您转接到相关部门。
+35. Thank you for your patience. 感谢您的耐心等待。
+36. I&#x27;ll escalate this issue to our management team. 我会将这个问题升级给我们的管理团队。
+37. Please allow me a moment to look into your request. 请给我一点时间来处理您的请求。
+38. Your satisfaction is our priority. 您的满意是我们的首要任务。
+39. I will follow up with you on this issue soon. 我会尽快跟进这个问题。
+40. Please provide me with more details. 请提供更多详细信息。
+谈判篇 (Negotiation)
+41. We need to find a mutually beneficial solution. 我们需要找到一个互惠互利的解决方案。
+42. Let&#x27;s discuss the terms of the agreement. 让我们讨论协议的条款。
+43. What&#x27;s your best offer? 你们的最佳报价是多少?
+44. We&#x27;re looking for a long - term partnership. 我们正在寻求长期合作。
+45. Can we come to a compromise? 我们能达成妥协吗?
+46. I think we can be more flexible on this point. 我认为我们可以在这一点上更灵活。
+47. Let&#x27;s explore other alternatives. 让我们探讨其他的替代方案。
+48. I&#x27;m afraid that won&#x27;t work for us. 恐怕这对我们来说行不通。
+49. Can we revisit this point later? 我们可以稍后再谈这个问题吗?
+50. We&#x27;re happy to proceed with the agreement. 我们很高兴继续推进这份协议。
+报告与演示篇 (Presentations &amp; Reporting)
+51. Today, I will present our quarterly results. 今天我将展示我们的季度结果。
+52. Let&#x27;s dive into the data analysis. 让我们深入分析数据。
+53. The graph on this slide shows our sales growth. 这张幻灯片上的图表显示了我们的销售增长。
+54. Could you explain this part in more detail? 你能更详细地解释这一部分吗?
+55. Here are the key takeaways from the report. 这是报告中的关键要点。
+56. I will summarize the findings at the end. 我将在最后总结这些发现。
+57. Let&#x27;s take a look at the performance metrics. 让我们看看绩效指标。
+58. Does anyone have any questions so far? 目前有没有人有问题?
+59. Let&#x27;s wrap up with some final thoughts. 让我们以一些最终的想法总结。
+60. I&#x27;ll provide a full report after this presentation. 我将在演示结束后提供完整的报告。
+61. Let&#x27;s move on to the next slide, which focuses on our key objectives. 接下来我们看下一张幻 灯片，重点是我们的主要目标。
+商务沟通篇 (Communication)
+62. Would you mind elaborating on that point? 您介意详细阐述一下那个观点吗？
+63. I&#x27;m not sure I follow. Could you give an example? 我不太明白，您能举个例子吗？
+64. Let&#x27;s touch base again next week to review progress. 我们下周再沟通一下，回顾进展情况。
+65. Can you send me the relevant materials via email? 您能通过邮件把相关材料发给我吗？
+66. We should align our communication channels for better efficiency. 为了提高效率， 我们应该 统一沟通渠道。
+67. I&#x27;m open to suggestions on how to improve this communication. 关于如何改进这次沟通，我 乐于接受建议。
+68. Could you confirm if you&#x27;ve received my previous message? 您能确认一下是否收到了我之前 的信息吗？
+69. Let&#x27;s set up a regular communication schedule for this project. 针对这个项目，我们建立一个 定期的沟通安排吧。
+70. Is there a specific time that works best for you to talk? 您有没有一个最适合交谈的特定时间？
+会议场景篇 (Meetings)
+71. I&#x27;d like to call attention to the new item on the agenda. 我想提醒大家注意议程上的新项目。
+72. Let&#x27;s break into smaller groups to discuss this sub - topic. 我们分成小组来讨论这个子话题吧。
+73. Can someone volunteer to take notes during the meeting? 有没有人自愿在会议期间做记录？
+74. We need to keep the discussion focused and on - topic. 我们需要让讨论保持专注且切题。
+75. Let&#x27;s hear from those who haven&#x27;t spoken yet. 我们来听听还没发言的人的想法。
+76. Could you repeat the last point? I missed it. 您能重复一下最后一点吗？我没听清。
+77. Let&#x27;s hold off on this discussion until we have more data. 在我们有更多数据之前，先暂停这个讨论。
+78. The next item on the agenda is very crucial. 议程上的下一项非常关键。
+79. I propose we allocate a specific time limit for each topic. 我提议为每个话题设定一个特定的时 间限制。
+80. Can we summarize the action items before we end the meeting? 我们能在会议结束前总结一 下行动事项吗？
+项目管理篇 (Project Management)
+81. We need to conduct a risk assessment for this project. 我们需要对这个项目进行风险评估。
+82. Let&#x27;s assign clear responsibilities for each task. 让我们为每项任务明确分配职责。
+83. The budget for this project needs to be re - evaluated. 这个项目的预算需要重新评估。
+84. We should create a contingency plan in case of unexpected issues. 我们应该制定一个应急计 划，以防出现意外问题。
+85. How are we going to ensure the quality control of this project? 我们要如何确保这个项目的质 量控制？
+86. The resources allocated seem insufficient. What can we do? 分配的资源似乎不够，我们该怎 么办？
+87. Let&#x27;s set up milestones to track the project progress more effectively. 我们设立一些里程碑， 以便更有效地跟踪项目进度。
+88. We need to streamline the project process to save time. 我们需要简化项目流程以节省时间。
+89. Can we get an expert opinion on this technical aspect? 关于这个技术方面，我们能征求一下专 家意见吗？
+90. The project team needs to be more collaborative. 项目团队需要加强协作。
+客户服务篇 (Customer Service)
+91. Is there anything else I can do to enhance your experience? 还有什么我能做的来提升您的体 验吗？
+92. We&#x27;ll conduct an investigation into the issue you reported. 我们会对您反馈的问题展开调查。
+93. Our goal is to resolve your problem within 24 hours. 我们的目标是在24小时内解决您的问题。
+94. Can you tell me more about the specific situation when the problem occurred? 您能多告诉 我一些问题发生时的具体情况吗？
+95. We&#x27;ll keep you informed of the progress of the issue resolution. 我们会随时告知您问题解决 的进展。
+96. I&#x27;m sorry for the confusion. Let me clarify things for you. 很抱歉给您造成了困惑，让我为您解释清楚。
+97. We value your long - term relationship with our company. 我们重视您与我们公司的长期合作 关系。
+98. Have you tried any preliminary solutions before contacting us? 在联系我们之前，您尝试过一 些初步的解决办法吗？
+99. We&#x27;ll offer you a compensation for the inconvenience caused. 对于给您带来的不便，我们会 提供一定的补偿。
+100. Let&#x27;s make sure all your needs are met before you leave. 在您离开之前，我们要确保满足您 的所有需求。
+谈判篇 (Negotiation)
+101. What are the key factors that influence your decision - making? 影响您做决策的关键因素是 什么？
+102. We need to consider the market trends while negotiating. 谈判时我们需要考虑市场趋势。
+103. Let&#x27;s explore the potential synergies between our two parties. 让我们探索一下我们双方之间 潜在的协同效应。
+104. Your proposal is interesting, but we need to consider the cost - benefit ratio. 您的提议很有 趣，但我们需要考虑成本效益比。
+105. Can we discuss the intellectual property rights involved in this agreement? 我们能讨论一下 这份协议中涉及的知识产权问题吗？
+106. We believe our offer is competitive in the current market. 我们相信我们的报价在当前市场上 具有竞争力。
+107. Let&#x27;s not rush into a decision. We need to analyze all aspects. 我们不要急于做决定，需要分 析各个方面。
+108. What are your expectations regarding the payment terms? 关于付款条件，您有什么期望？
+109. We can be more flexible if you can offer something in return. 如果您能有所回报，我们可以 更灵活一些。
+110. The success of this negotiation depends on our mutual understanding. 这次谈判的成功取 决于我们的相互理解。
+报告与演示篇(Presentations &amp; Reporting)
+111. The data presented here is based on a comprehensive market survey. 这里展示的数据是基 于一项全面的市场调查。
+112. Let&#x27;s compare our performance with industry benchmarks. 让我们将我们的表现与行业基准
+进行比较。
+113. Could you highlight the most significant changes in the report? 您能突出报告中最显著的变 化吗？
+114. We&#x27;ll use case studies to illustrate the effectiveness of our strategies. 我们将用案例研究来 说明我们策略的有效性。
+115. The next section of the report focuses on future development plans. 报告的下一部分重点关 注未来的发展计划。
+116. Can you provide some insights on the market trends shown in the graph? 您能对图表中显 示的市场趋势提供一些见解吗？
+117. Let&#x27;s discuss the limitations of this data and how to address them. 让我们讨论一下这些数据 的局限性以及如何解决。
+118. I&#x27;ll be happy to answer any questions related to the methodology of this report. 我很乐意 回答与本报告方法论相关的任何问题。
+119. The visual aids in this presentation are designed to enhance understanding. 本次演示中的 视觉辅助工具旨在增强理解。
+120. Let&#x27;s conclude this presentation with a call to action. 让我们以一个行动呼吁来结束本次演示。
+商务社交篇(Business Socializing)
+121. It&#x27;s a pleasure to finally meet you in person. 很高兴终于能与您当面相见。
+122. I&#x27;ve heard a lot about your company&#x27;s achievements. 我听说了很多贵公司的成就。
+123. Let&#x27;s exchange business cards. 我们交换一下名片吧。
+124. What are your plans for expanding the business in this region? 您在这个地区拓展业务有什 么计划？
+125. The business environment here is full of opportunities. 这里的商业环境充满了机遇。
+126. I&#x27;m interested in learning more about your business philosophy. 我有兴趣更多地了解您的经 营理念。
+127. This networking event is a great opportunity to meet new partners. 这次社交活动是结识新 合作伙伴的好机会。
+128. How do you think we can collaborate in the future? 您认为我们未来可以如何合作？
+129. The industry is evolving rapidly. What&#x27;s your take on it? 行业发展迅速，您对此有什么看法？
+130. It was a great conversation. Let&#x27;s keep in touch. 交谈很愉快，我们保持联系。
+市场与营销篇(Marketing and Sales)
+131. We need to conduct a market segmentation analysis. 我们需要进行市场细分分析。
+132. What&#x27;s the target audience for this new product? 这款新产品的目标受众是谁？
+133. Let&#x27;s brainstorm some creative marketing strategies. 让我们集思广益，想一些有创意的营销 策略。
+134. We should focus on improving brand awareness. 我们应该专注于提高品牌知名度。
+135. The market share of our competitors is a concern. 我们竞争对手的市场份额令人担忧。
+136. Can we launch a promotional campaign to boost sales? 我们能发起一场促销活动来提高销售 额吗？
+137. We need to analyze the customer feedback to refine our product. 我们需要分析客户反馈来 改进我们的产品。
+138. What&#x27;s the unique selling proposition of our service? 我们服务的独特卖点是什么？
+139. Let&#x27;s optimize our online presence to attract more customers. 让我们优化我们的在线形象， 以吸引更多客户。
+140. We should explore new distribution channels for our products. 我们应该为我们的产品探索 新的分销渠道。
+财务与预算篇(Finance and Budget)
+141. The financial statements need to be audited before the end of the month. 财务报表需要在 月底前审计。
+142. What&#x27;s the projected revenue for the next quarter? 下个季度的预计收入是多少？
+143. We need to cut down on unnecessary expenses to balance the budget. 我们需要削减不必 要的开支以平衡预算。
+144. Can you provide a breakdown of the costs involved? 您能提供所涉及成本的明细吗？
+145. The cash flow situation is a bit tight. How can we improve it? 现金流状况有点紧张，我们怎 么改善呢？
+146. Let&#x27;s review the investment portfolio to minimize risks. 让我们审查一下投资组合以将风险降 至最低。
+147. We should consider taking out a loan to fund this project. 我们应该考虑贷款为这个项目提供 资金。
+148. What are the tax implications of this business decision? 这个商业决策有哪些税务影响？
+149. We need to allocate funds for research and development. 我们需要为研发分配资金。
+150. The profit margin is lower than expected. What can we do? 利润率比预期的低，我们该怎么 办？
+人力资源篇(Human Resources)
+151. We&#x27;re looking to recruit some experienced software engineers. 我们正在寻找招聘一些有经 验的软件工程师。
+152. What are the key skills required for this position? 这个职位需要哪些关键技能？
+153. Let&#x27;s organize a training program to enhance employees&#x27; skills. 让我们组织一个培训项目来 提升员工技能。
+154. The employee turnover rate is too high. How can we address it? 员工流失率太高了，我们怎 么解决？
+155. We need to develop a performance appraisal system. 我们需要制定一个绩效评估系统。
+156. Can you schedule interviews for the short - listed candidates? 您能为入围的候选人安排面试 吗？
+157. We should offer competitive benefits to attract top talent. 我们应该提供有竞争力的福利来吸 引顶尖人才。
+158. Let&#x27;s conduct a job analysis to clarify job responsibilities. 让我们进行一项工作分析，以明确 工作职责。
+159. The team morale could be improved. What suggestions do you have? 团队士气有待提高， 您有什么建议？
+160. We need to plan for succession to ensure smooth business operations. 我们需要进行继任 规划，以确保业务平稳运营。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="外企英语600句商务英语蓝字";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

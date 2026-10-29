@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 8.21外贸900词</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p026.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：8.21外贸900词</h1>
+  <div class="meta"><span class="charspill">1,077 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">1,077</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 1,077 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p026.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Export", "出口：货物从本国销往其他国家的行为"], ["Export volume increased by 10%.", "出口量增长 10%。"], ["Import", "进口：货物从其他国家购入本国的行为"], ["Import tariffs will be adjusted.", "进口关税将调整。"], ["Trade", "贸易：涉及商品和服务的跨国 / 跨地区交换"], ["International trade policies matter.", "国际贸易政策很重要。"], ["Quotation", "报价：卖方对买方提出的价格方案"], ["Send your quotation ASAP.", "请尽快提供报价。"], ["Invoice", "发票：记录交易细节的凭证"], ["Commercial invoice is needed.", "需要商业发票。"], ["Contract", "合同：约束买卖双方权利义务的法律文件"], ["Sign the contract before shipment.", "装运前签署合同。"], ["Shipment", "装运：货物的运输安排"], ["Shipment will be next week.", "下周安排装运。"], ["Freight", "运费：货物运输的费用"], ["Freight is in the price.", "价格包含运费。"], ["Customs", "海关：负责监管进出口货物的机构"], ["Goods held by customs now.", "货物被海关扣留。"], ["Tariff", "关税：海关对进出口货物征收的税费"], ["Tariff rates vary by product.", "关税税率因产品而异。"], ["MOQ (Minimum Order Quantity)", "最小订货量：卖方要求的最低采购数量"], ["MOQ is 100 units here.", "该产品最小订货量为 100 件。"], ["FOB (Free On Board)", "离岸价：卖方在装运港交货，风险自货物越过船舷转移"], ["Price is FOB Shanghai.", "价格为上海离岸价。"], ["CIF (Cost, Insurance, and Freight)", "成本、保险费加运费：卖方承担至目的港的成本、保险和运费"], ["Quote CIF London please.", "请报伦敦到岸价。"], ["Payment Terms", "付款条件：约定的付款方式和时间"], ["Lead Time", "生产周期 / 交货期：从订单到交货的时间"], ["Lead time is 2 weeks.", "交货期为 2 周。"], ["Sample", "样品：用于确认产品质量的实物"], ["Send samples for approval.", "寄样品供确认。"], ["Quality Control", "质量控制：确保产品符合标准的过程"], ["Strict quality control applies.", "执行严格的质量控制。"], ["After-sales Service", "售后服务：货物交付后的支持"], ["After-sales service includes repair.", "售后服务包括维修。"], ["Logistics", "物流：货物的运输、仓储等全过程管理"], ["Logistics solution is ready.", "物流方案已准备好。"], ["Consignment", "托运：委托运输货物的行为"], ["Consignment tomorrow maybe.", "明天可能安排托运。"], ["Bill of Lading (B/L)", "提单：海运货物的物权凭证"], ["Original B/L for 提货 needed.", "提货需正本提单。"], ["Container", "集装箱：用于货物运输的标准化箱体"], ["20ft containers used here.", "使用 20 英尺集装箱。"], ["Customs Declaration", "海关申报：向海关提交货物信息的手续"], ["Complete customs declaration first.", "先完成报关。"], ["Marine Insurance", "海运保险：保障海运货物风险的保险"], ["Marine insurance covers loss.", "海运保险涵盖丢失。"], ["Multimodal Transport", "多式联运：多种运输方式结合的运输"], ["Multimodal via sea and rail.", "海运加铁路多式联运。"], ["Freight Forwarder", "货代：代理安排货物运输的企业"], ["Ask freight forwarder details.", "问货代了解细节。"], ["Peak Season Surcharge", "旺季附加费：运输旺季加收的费用"], ["Inland Haulage", "内陆托运：港口与内陆间的运输"], ["Air Freight", "空运费：航空运输的费用"], ["Air freight higher than sea.", "空运费高于海运。"], ["Reefer Cargo Transport", "冷藏品运输：低温货物的运输"], ["Reefer needs temperature control.", "冷藏品需温控。"], ["Warehousing", "仓储：货物的储存管理"], ["Cargo Break-bulk", "货物分拨：将整批货物拆分的过程"], ["Break-bulk at destination port.", "目的港货物分拨。"], ["Consolidation Fee", "拼箱费：货物拼箱运输的费用"], ["Port of Loading", "装货港：货物装载的港口"], ["Port of loading: Shanghai.", "装货港：上海。"], ["Port of Destination", "目的港：货物最终到达的港口"], ["Port of destination: LA.", "目的港：洛杉矶。"], ["Transit Time", "运输所需时间：货物从起运到抵达的时间"], ["30 days to Rotterdam.", "到鹿特丹需 30 天。"], ["Demurrage", "滞期费：货物滞留港口的罚款"], ["Commercial Invoice", "商业发票：用于结算的正式发票"], ["Show FOB value on invoice.", "发票需显示离岸价。"], ["Packing List", "装箱单：记录货物包装细节的单据"], ["Packing list has quantity.", "装箱单包含数量。"], ["Certificate of Origin", "原产地证：证明货物来源的文件"], ["GSP for tariff reduction.", "普惠制原产地证可减税。"], ["Customs Declaration Form", "报关单：向海关申报的表格"], ["Fill form accurately please.", "请准确填写报关单。"], ["Proforma Invoice", "形式发票：用于报价的非正式发票"], ["Proforma for your reference.", "形式发票供参考。"], ["Shipping Order (S/O)", "装运单：船公司签发的装货指令"], ["Submit S/O to warehouse.", "向仓库提交装运单。"], ["Delivery Order (D/O)", "提货单：用于提取货物的单据"], ["Present D/O to collect goods.", "凭提货单提货。"], ["House Bill of Lading (HAWB)", "货代提单：货代签发的提单"], ["HAWB for consolidation.", "拼箱货用货代提单。"], ["Master Bill of Lading (MBL)", "船东提单：船公司签发的提单"], ["MBL is title document.", "船东提单是物权凭证。"], ["Telex Release B/L", "电放提单：无需正本即可提货的提单"], ["Telex release saves time.", "电放提单节省时间。"], ["Whole Set of Documents", "整套单证：交易所需的全部文件"], ["Submit whole set for payment.", "提交整套单证付款。"], ["T/T (Telegraphic Transfer)", "电汇：通过银行电汇付款"], ["L/C (Letter of Credit)", "信用证：银行担保的付款方式"], ["L/C at sight preferred.", "倾向即期信用证。"], ["D/P (Documents Against Payment)", "付款交单：买方付款后获得单据"], ["D/P at sight agreed.", "即期付款交单已同意。"], ["D/A (Documents Against Acceptance)", "承兑交单：买方承兑汇票后获得单据"], ["D/A risky for sellers.", "承兑交单对卖方有风险。"], ["COD (Cash on Delivery)", "货到付款：货物送达后付款"], ["COD for domestic shipment.", "国内运输可货到付款。"], ["5% of cargo value here.", "保费为货物价值的 0.5%。"], ["Surcharge", "附加费：基本费用外的额外收费"], ["Fuel surcharge included.", "包含燃油附加费。"], ["BAF (Bunker Adjustment Factor)", "燃油附加费：因燃油价格波动加收的费用"], ["BAF updated monthly.", "燃油附加费每月更新。"], ["CAF (Currency Adjustment Factor)", "货币调整因素：因汇率波动加收的费用"], ["CAF is 2% of freight.", "货币调整因素为运费的 2%。"], ["Handling Fee", "操作费：处理货物的费用"], ["Documentation Fee", "制单费：制作单据的费用"], ["Documentation fee $50.", "制单费 50 美元。"], ["Minimum Charge", "最低收费：每票货物的最低费用"], ["Chargeable Weight", "计费重量：用于计算运费的重量"], ["Chargeable weight 100kg.", "计费重量为 100 公斤。"], ["CBM (Cubic Meter)", "立方米：货物体积单位"], ["Total 5 CBM in volume.", "总体积 5 立方米。"], ["Seal No", "封箱号：集装箱的铅封号"], ["Seal No: 123456 today.", "封箱号：123456。"], ["Check schedule for departure.", "查船期看开航日。"], ["ETD (Estimated Time of Departure)", "预计离港时间：货物预计离开港口的时间"], ["ETD Shanghai June 1st.", "预计 6 月 1 日离上海港。"], ["ETA (Estimated Time of Arrival)", "预计到港时间：货物预计到达目的港的时间"], ["ETA Rotterdam June 20th.", "预计 6 月 20 日到鹿特丹。"], ["FCL (Full Container Load)", "整箱货：一个集装箱仅装一家货物"], ["Shipment is FCL now.", "货物为整箱运输。"], ["LCL (Less than Container Load)", "拼箱货：多个货主货物拼装一个集装箱"], ["LCL consolidated at port.", "拼箱货在港口拼箱。"], ["Consignor", "发货人：发送货物的一方"], ["Consignor handles packing.", "发货人负责包装。"], ["Consignee", "收货人：接收货物的一方"], ["Consignee needs valid ID.", "收货人需有效证件。"], ["Notifying Party", "通知方：货物到达时需通知的一方"], ["Notifying party local agent.", "通知方为当地代理。"], ["Shipping Agent", "船代：代理船公司业务的企业"], ["Ask agent for berth info.", "问船代要泊位信息。"], ["Customs Broker", "报关行：代理报关业务的企业"], ["Hire broker for clearance.", "委托报关行清关。"], ["Handling Agent", "操作代理：负责货物操作的代理"], ["Agent arranges loading.", "操作代理安排装货。"], ["Force Majeure", "不可抗力：不可预见的意外事件"], ["Delayed due to force majeure.", "因不可抗力延迟。"], ["Liability", "责任：法律或合同规定的义务"], ["Seller liable for defects.", "卖方对缺陷负责。"], ["Claim", "索赔：因损失或违约要求赔偿"], ["File claim for damage.", "就损坏提出索赔。"], ["Arbitration", "仲裁：解决争议的方式"], ["Disputes settled by arbitration.", "争议通过仲裁解决。"], ["ISO (International Organization for Standardization)", "国际标准化组织：制定国际标准的机构"], ["Meets ISO 9001 standards.", "符合 ISO 9001 标准。"], ["Sustainability", "可持续性：环保和长期发展理念"], ["Green logistics for sustainability.", "绿色物流促可持续。"], ["Product", "产品：交易的商品本身"], ["New product next month.", "下月推出新产品。"], ["Specification", "规格：产品的技术参数"], ["Check spec for material.", "看规格了解材质。"], ["Model", "型号：产品的具体类型编号"], ["Quality", "质量：产品的优劣程度"], ["Meet industry standards.", "需符合行业标准。"], ["Quantity", "数量：产品的多少"], ["500 units ordered here.", "订购 500 件。"], ["Package", "包装：产品的包装方式"], ["Cartons with foam inside.", "纸箱加泡沫包装。"], ["Carton", "纸箱：纸质包装容器"], ["10 pieces per carton.", "每箱装 10 件。"], ["Pallet", "托盘：用于堆叠货物的平台"], ["Stacked on wooden pallets.", "堆在木托盘上。"], ["Marking", "唛头：包装上的标识"], ["Marks include destination.", "唛头含目的港。"], ["Drumming", "装桶：将货物装入桶中的操作"], ["Liquid needs drumming.", "液体产品需装桶。"], ["Market Penetration", "市场渗透：扩大产品在市场的份额"], ["Focus on Asia penetration.", "重点亚洲市场渗透。"], ["Brand Awareness", "品牌意识：消费者对品牌的认知度"], ["Ads improve brand awareness.", "广告提升品牌意识。"], ["Market Segment", "市场细分：将市场按需求划分"], ["Target young professionals.", "目标年轻专业人士。"], ["Competitive Advantage", "竞争优势：优于竞争对手的特点"], ["Price and quality advantage.", "价格和质量优势。"], ["Wholesale", "批发：批量销售给零售商"], ["30% lower than retail.", "批价比零售价低 30%。"], ["Retail", "零售：直接销售给消费者"], ["Outlets in major cities.", "主要城市有零售店。"], ["Hot Sale", "热卖：产品畅销状态"], ["Hot sale in Europe now.", "在欧洲热卖中。"], ["Private Label", "自有品牌：零售商定制的品牌"], ["Launch private label soon.", "即将推出自有品牌。"], ["Clause", "条款：合同中的具体约定"], ["Payment clause specifies T/T.", "付款条款明确电汇。"], ["Late delivery is a breach.（延迟交货构成违约。", "三、合同与争议"], ["Penalty", "违约金：违约时的赔偿金额"], ["5% penalty for delay.", "延迟违约金 5%。"], ["Dispute", "争议：交易双方的分歧"], ["Dispute over quality issues.", "因质量问题有争议。"], ["Mediation", "调解：第三方协调解决争议"], ["Try mediation first please.", "先尝试调解。"], ["Indemnity", "赔款：因损失支付的赔偿"], ["Supply Chain", "供应链：从生产到交付的全链条"], ["Optimize chain to cut costs.", "优化供应链降成本。"], ["Supply Chain Management (SCM)", "供应链管理：对供应链的协调控制"], ["Reverse Logistics", "逆向物流：货物从客户返回的流程"], ["Handles returns and recycling.", "处理退货和回收。"], ["Just-In-Time (JIT)", "准时制：按需生产 / 交货以减少库存"], ["JIT minimizes warehouse stock.", "准时制减库存。"], ["Inventory", "库存：存储的货物"], ["Enough for 3 months.", "库存够 3 个月。"], ["Replenishment", "补货：补充库存的操作"], ["Replenish weekly as plan.", "每周按计划补货。"], ["Trade Compliance", "贸易合规：遵守贸易法规"], ["Team checks export licenses.", "团队审核出口许可证。"], ["Commodity Codes", "商品编码：用于归类货物的编码"], ["Correct codes for customs.", "报关需正确编码。"], ["Anti-Dumping Duty", "反倾销税：对低价进口商品征收的附加税"], ["Applies to this product now.", "该产品需反倾销税。"], ["CE Marking", "欧盟认证标志：产品符合欧盟标准的标识"], ["Mandatory for EU sales.", "欧盟销售需 CE 标志。"], ["Inspection Certificate", "检验证书：证明货物合格的文件"], ["Blockchain", "区块链：用于记录交易的分布式账本技术"], ["Enhances supply chain transparency.", "提升供应链透明度。"], ["AI (Artificial Intelligence)", "人工智能：模拟人类智能的技术"], ["Predicts inventory demand.", "预测库存需求。"], ["IoT (Internet of Things)", "物联网：设备互联的网络"], ["Sensors monitor cargo temp.", "传感器监控货物温度。"], ["Big Data", "大数据：海量数据的分析应用"], ["Optimizes shipping routes.", "优化运输路线。"], ["Digital Transformation", "数字化转型：业务流程的数字化升级"], ["Speeds up order processing.", "提升订单处理速度。"], ["SWIFT (Society for Worldwide Interbank Financial Telecommunication)", "环球银行金融电信协会：银行间信息传输系统"], ["Payment via SWIFT sent.", "通过 SWIFT 发送付款。"], ["BIC (Bank Identifier Code)", "银行识别码：识别银行的代码"], ["Provide BIC for transfer.", "转账需提供银行识别码。"], ["F/X (Foreign Exchange)", "外汇：不同货币的兑换"], ["Rate affects import costs.", "汇率影响进口成本。"], ["Hedging", "对冲：降低汇率 / 价格风险的操作"], ["Hedge against currency swings.", "对冲汇率波动。"], ["Liquidity", "流动性：资产变现能力"], ["Ensure liquidity for payments.", "确保支付流动性。"], ["Inquiry", "询盘：买方询问价格等信息"], ["Offer", "报盘：卖方向买方提出交易条件"], ["Valid for 7 days here.", "报盘 7 天内有效。"], ["Counter-Offer", "还盘：买方对报盘的修改"], ["Counter with lower price.", "还盘价格降低。"], ["Confirmation", "确认：认可交易条件"], ["Send after payment done.", "付款后发送确认。"], ["Prior Notice", "提前通知：预先告知事项"], ["3 days’ notice for changes.", "更改需提前 3 天通知。"], ["Feedback", "反馈：对产品 / 服务的评价"], ["Helps improve quality.", "助力质量提升。"], ["Mode of Transport", "运输方式：货物运输的形式"], ["Choose based on urgency.", "按紧急程度选择。"], ["Air Transport", "空运：通过飞机运输货物"], ["Suitable for high-value goods.", "适合高价值货物。"], ["Sea Transport", "海运：通过船舶运输货物"], ["Cost-effective for bulk.", "大宗货物性价比高。"], ["Express Service", "快递服务：快速门到门运输"], ["Rail Transport", "铁路运输：通过火车运输货物"], ["Efficient between China-Europe.", "中欧铁路效率高。"], ["Sea/Air Combined Transport", "海空联运：海运与空运结合的运输方式"], ["Balances cost and speed.", "平衡成本与速度。"], ["MLB (Mini Land Bridge)", "小陆桥运输：海运 + 陆地运输的跨洲运输"], ["Connects Asia to US via West Coast.", "经美西连接亚洲。"], ["Door to Port Quotes", "门到港报价：从发货人门口到目的港的价格"], ["Includes inland haulage.", "含内陆运费。"], ["Local Charge", "本地费用：起运地或目的地的本地费用"], ["Covers trucking and handling.", "含运输和操作费。"], ["Inbound Service Charge", "进口服务费：进口环节的服务费用"], ["Includes customs clearance.", "含清关费用。"], ["Pier Charge", "码头费：港口码头的使用费用"], ["Toll Fee", "桥境费：经过桥梁 / 边境的费用"], ["Included in inland haulage.", "含在内陆运费中。"], ["GRl Increment", "普通运价上调：基础运费的上涨"], ["Takes effect next month.", "下月生效。"], ["Currency Adjustment Factor (CAF)", "货币调整因素：因汇率波动调整的费用"], ["3% of the freight now.", "为运费的 3%。"], ["Accessory Charges", "其他费用：额外产生的杂费"], ["Includes storage and inspection.", "含仓储和检验费。"], ["Purchase Order (PO)", "采购订单：买方发出的订购指令"], ["Production starts after PO.", "收到 PO 后生产。"], ["Sales Order (SO)", "销售订单：卖方确认的销售凭证"], ["SO number for tracking.", "追踪需 SO 号。"], ["Order Fulfillment", "订单履行：完成订单的全过程"], ["Rate is 95% currently.", "履约率 95%。"], ["Backorder", "缺货订单：暂时无法满足的订单"], ["Ships next week as plan.", "下周发货。"], ["Delivery Time", "交货期：从订单到收货的时间"], ["15 days for in-stock items.", "现货交货期 15 天。"], ["Cut-off Date", "截止日期：操作的最后期限"], ["3 days before shipment.", "装运前 3 天。"], ["Risk Assessment", "风险评估：识别和评估潜在风险"], ["Includes weather factors.", "含天气因素。"], ["Due Diligence", "尽职调查：交易前的详细核查"], ["Ensures supplier reliability.", "确保供应商可靠。"], ["Covers all risks as agreed.", "涵盖一切险。"], ["Non-hazardous Cargo", "非危险品：无安全风险的货物"], ["Declare as non-hazardous.", "申报为非危险品。"], ["Quality Assurance (QA)", "质量保证：确保质量的体系"], ["Inspects before shipment.", "装运前验货。"], ["Defect Rate", "缺陷率：不合格产品的比例"], ["Must be below 1% here.", "需低于 1%。"], ["Cultural Sensitivity", "文化敏感性：尊重不同文化的差异"], ["Key in negotiations.", "谈判中的关键。"], ["Language Barrier", "语言障碍：语言差异导致的沟通问题"], ["Use translators to avoid.", "用翻译避免。"], ["Business Etiquette", "商务礼仪：商务场合的行为规范"], ["Varies by country rules.", "因国家而异。"], ["Time Zone Differences", "时区差异：不同地区的时间差"], ["Consider for meetings.", "安排会议需考虑。"], ["Exchange Rate", "汇率：不同货币的兑换比例"], ["Check before payments.", "付款前查询。"], ["Trade Balance", "贸易平衡：进出口的差额"], ["Positive this quarter.", "本季度顺差。"], ["Annual Output", "年产量：一年的生产总量"], ["Reaches 100,000 units.", "达 10 万台。"], ["Profit Margin", "利润率：利润与成本的比例"], ["15% for this product.", "该产品 15%。"], ["Market Share", "市场份额：产品在市场中的占比"], ["Increased to 20% now.", "提升至 20%。"], ["Nominated Shipment", "指定货：买方指定承运人 / 货代的货物"], ["Uses buyer's forwarder.", "用买方货代。"], ["Free-out Basis", "船方不负担交货费：船方不承担卸货后的费用"], ["At destination as terms.", "目的港条款为此。"], ["Open Account (O/A)", "赊账交易：买方收货后延期付款"], ["Needs high trust levels.", "需高度信任。"], ["Payable at sight here.", "即期付款汇票。"], ["Force Majeure Clause", "不可抗力条款：合同中关于意外事件的约定"], ["Covers natural disasters.", "涵盖自然灾害。"], ["Factory Tour", "工厂参观：客户或合作伙伴参观生产场地"], ["Arrange for buyer next week.", "下周为买方安排。"], ["Production Line", "生产线：产品的连续生产流程"], ["Output up by 30% new line.", "新线产量升 30%。"], ["Assembly", "组装：将零部件组合成成品的过程"], ["Requires precision work.", "需高精度。"], ["Workshop", "车间：生产操作的场地"], ["Metal workshop in west wing.", "西翼金属车间。"], ["Raw Materials", "原材料：生产的基础材料"], ["From certified suppliers.", "来自认证供应商。"], ["Finished Goods", "成品：完成生产的产品"], ["Stored in warehouse now.", "储存在仓库。"], ["Capacity", "产能：工厂的生产能力"], ["5,000 units monthly.", "月产能 5000 件。"], ["Lean Manufacturing", "精益生产：减少浪费的生产方式"], ["Cuts production costs.", "降低生产成本。"], ["Quality Control (QC)", "质量控制：生产过程中的质量检查"], ["Inspects every batch first.", "每批先质检。"], ["Conference Call", "电话会议：多方通过电话沟通"], ["With overseas team soon.", "即将与海外团队召开。"], ["Agenda", "议程：会议的议题安排"], ["Send in advance please.", "请提前发送。"], ["Minutes", "会议记录：会议内容的书面记录"], ["Presentation", "演示：展示产品或方案"], ["For client’s review ready.", "供客户审核已准备。"], ["Q&A Session", "问答环节：会议中的提问与解答"], ["Follows the presentation.", "演示后进行。"], ["Follow-up", "后续跟进：会议后的行动落实"], ["On last week’s action items.", "跟进上周行动项。"], ["Intellectual Property Rights (IPR)", "知识产权：对发明、品牌等的法律保护"], ["No infringement in design.", "设计不侵权。"], ["License", "许可证：官方批准的经营许可"], ["Export license required.", "需出口许可证。"], ["Confidential", "机密的：需保密的信息"], ["Contract details are secret.", "合同细节保密。"], ["Liability Clause", "责任条款：合同中关于责任划分的约定"], ["Limits to 50% our part.", "我方责任限 50%。"], ["Termination", "合同终止：合同的解除"], ["30 days’ notice needed.", "需 30 天通知。"], ["Container Yard (CY)", "集装箱堆场：存放集装箱的场地"], ["Stored before loading here.", "装货前存放处。"], ["Cargo Freight Station (CFS)", "集装箱货运站：拼箱货的处理场所"], ["LCL consolidated at CFS.", "拼箱货在 CFS 拼箱。"], ["Stowage", "积载：货物在运输工具中的堆放"], ["Ensures cargo safety en route.", "确保运输安全。"], ["Unloading", "卸货：将货物从运输工具卸下"], ["Takes 2 days at destination.", "目的港需 2 天。"], ["Shipping Marks", "装运标记：货物包装上的识别符号"], ["Include order number and port.", "含订单号和港口。"], ["Unit Price", "单价：每件产品的价格"], ["Total Cost", "总成本：生产和运输的全部费用"], ["Includes material and labor.", "含材料和人工。"], ["Discount", "折扣：价格的减免"], ["10% off over 1,000 units.", "超 1000 件享 9 折。"], ["Commission", "佣金：支付给中间商的费用"], ["5%oftotalordervalue.", "订单总额的5%。"], ["PriceList", "价目表：产品的价格清单"], ["Updatedlistattachedhere.", "附更新价目表。"], ["ValidityPeriod", "有效期：条款或报价的有效时间"], ["15daysforquotation.", "报价有效期15天。"], ["LeadTime", "前置时间：从订单到交货的准备时间"], ["4weeksforcustomgoods.", "定制产品4周。"], ["Cut-offTime", "截止时间：操作的最后时间点"], ["5PMforsubmission.", "提交截止下午5点。"], ["EstimatedTimeofDelivery(ETD)", "预计交货时间：货物预计送达的时间"], ["Delayedduetobadweather.", "因天气延迟。"], ["AsPer", "按照：依据约定或要求"], ["Arrangeaspercontract.", "按合同安排。"], ["ForYourReference(FYI)", "仅供参考：信息供对方了解"], ["LatestratesattachedFYI.", "附最新费率供参考。"], ["SubjectTo", "以……为条件：条款的生效前提"], ["Offersubjecttoconfirmation.", "报盘以确认为准。"], ["WithoutDelay", "立即：无拖延地执行"], ["Replywithoutdelayplease.", "请立即回复。"], ["MutualAgreement", "双方同意：双方达成的共识"], ["Changesneedbothsides’ok.", "变更需双方同意。"], ["Wrapper", "包装纸/封套：包裹产品的材料"], ["Plasticwrapperformoisture.", "塑料纸防潮。"], ["Label", "标签：附着在包装上的说明标识"], ["Includenameandexpirydate.", "含名称和有效期。"], ["GrossWeight(G.W.)", "毛重：含包装的总重量"], ["25kgpercartonG.W.", "每箱毛重25公斤。"], ["NetWeight(N.W.)", "净重：产品本身的重量"], ["20kgpercartonN.W.", "每箱净重20公斤。"], ["MeasurementTon", "计量吨：按体积计算的运费单位"], ["Chargedbymeasurementton.", "按计量吨收费。"], ["AirWaybill(AWB)", "空运提单：航空运输的货运单据"], ["AWBisnon-negotiable.", "空运提单不可转让。"], ["RailwayBill", "铁路运单：铁路运输的凭证"], ["Neededforcross-borderrail.", "跨境铁路需运单。"], ["ConsignmentNote", "托运单：委托运输的单据"], ["Submittocarrierplease.", "向承运人提交。"], ["HouseAirWaybill(HAWB)", "航空分单：货代签发的空运分单"], ["Forconsolidatedaircargo.", "用于空运拼货。"], ["AllRisks", "一切险：保险范围最广的海运险"], ["Coverallshipmentrisks.", "为货物投一切险。"], ["InsuredAmount", "保险金额：保险承担的最高赔偿额"], ["110%ofcargovalue.", "货物价值的110%。"], ["PremiumRate", "保险费率：保费与保险金额的比例"], ["3%forgeneralcargo.", "普货0.3%。"], ["DemandDraft(D/D)", "即期汇票：见票即付的汇票"], ["PaymentbyD/Daccepted.", "接受即期汇票付款。"], ["Prepaid(P/P)", "预付：发货前支付款项"], ["DesignatedAccount", "指定账户：约定的收款账户"], ["Remittodesignatedaccount.", "汇入指定账户。"], ["Distributor", "经销商：负责销售产品的商家"], ["LocaldistributorinSoutheastAsia.", "东南亚本地经销商。"], ["Agent", "代理商：代表卖方进行交易的机构"], ["HandlesEUmarketsales.", "负责欧洲市场销售。"], ["Manufacturer", "制造商：生产产品的企业"], ["Providestechnicalsupport.", "提供技术支持。"], ["Trader", "贸易商：从事进出口贸易的企业"], ["Connectsmanufacturersandbuyers.", "连接制造商与买家。"], ["Litigation", "诉讼：通过法院解决争议"], ["Lastresortfordisputes.", "争议解决最后手段。"], ["Settlement", "和解：双方协商解决争议"], ["Reachsettlementtoavoidarbitration.", "达成和解避仲裁。"], ["ClaimPeriod", "索赔期限：提出索赔的有效时间"], ["30daysafterdelivery.", "交货后30天内。"], ["Forklift", "叉车：搬运货物的设备"], ["Usedtoloadcontainers.", "用于装载集装箱。"], ["ConveyorBelt", "输送带：自动运输货物的设备"], ["Speedsuploadingprocess.", "提高装货效率。"], ["PalletJack", "托盘车：搬运托盘的工具"], ["Usedinwarehousedaily.", "仓库日常使用。"], ["StowagePlan", "积载图：货物在集装箱内的堆放图"], ["Ensuresevenweightdistribution.", "确保重量均匀分布。"], ["Promotion", "促销：刺激销售的活动"], ["Summerpromotionwith10%off.", "夏季促销9折。"], ["Exhibition", "展会：展示产品的活动"], ["JoinGermanytradeexhibition.", "参加德国贸易展。"], ["BrandLoyalty", "品牌忠诚度：客户对品牌的长期偏好"], ["Reducescustomerchurnrate.", "降低客户流失率。"], ["TargetMarket", "目标市场：重点销售的市场"], ["Piece(PC)", "件：单个产品的单位"], ["Dozen(DZ)", "打：12个为一打"], ["Soldindozensretail.", "零售按打销售。"], ["MetricTon(MT)", "公吨：重量单位1000公斤"], ["50MTofgrainshipped.", "运输50公吨谷物。"], ["CubicMeter(CBM)", "立方米：体积单位"], ["Total20CBMvolume.", "总体积20立方米。"], ["Asap(AsSoonAsPossible)", "尽快：要求快速处理"], ["Replytoemailasap.", "尽快回复邮件。"], ["Kindly", "请：礼貌请求"], ["Kindlysendthedocuments.", "请发送文件。"], ["Per", "每：表示单位"], ["SubjecttoChange", "可能变更：条款可能调整"], ["Pricessubjecttochange.", "价格可能变更。"], ["SafetyStock", "安全库存：应对需求波动的预留库存"], ["10%safetystockkept.", "保留10%安全库存。"], ["StockRotation", "库存周转：库存的进出循环"], ["FIFOensuresrotation.", "先进先出保周转。"], ["WarehouseManagementSystem(WMS)", "仓库管理系统：管理库存的软件"], ["Tracksreal-timeinventory.", "实时追踪库存。"], ["Cross-Docking", "交叉配送：货物到港后直接转运"], ["Reduceswarehousingcosts.", "降低仓储成本。"], ["InventoryTurnoverRate", "库存周转率：库存周转频率"], ["6timesayearnow.", "每年6次。"], ["Work-in-Progress(WIP)", "在制品：生产中的产品"], ["Storedinworkshoptemp.", "车间临时存放。"], ["Suitableforseasonalgoods.", "适合季节性商品。"], ["AssemblyLine", "装配线：连续组装生产线"], ["Workersfocusontasks.", "工人专注特定工序。"], ["QualityAudit", "质量审核：对质量体系的检查"], ["Quarterlyauditsdone.", "季度审核进行中。"], ["Calibration", "校准：调整设备精度"], ["Monthlyequipmentchecks.", "设备每月校准。"], ["ImportQuota", "进口配额：限制进口的数量上限"], ["10,000units/yearallowed.", "每年10,000件。"], ["TradeBarrier", "贸易壁垒：阻碍贸易的政策"], ["Tariffsandquotascommon.", "关税和配额常见。"], ["FreeTradeAgreement(FTA)", "自由贸易协定：减免关税的协议"], ["Reducesimportduties.", "降低进口关税。"], ["ExportSubsidy", "出口补贴：政府对出口的支持"], ["Helpscompeteglobally.", "助力国际竞争。"], ["ForwardContract", "远期合约：约定未来汇率的合约"], ["Hedgescurrencyrisk.", "对冲汇率风险。"], ["LetterofGuarantee(L/G)", "保函：银行担保履行义务"], ["Requiredforbidparticipation.", "投标需提供保函。"], ["StandbyL/C", "备用信用证：违约时的支付保障"], ["Safetynetforbuyers.", "买方的保障措施。"], ["VerifiedGrossMass(VGM)", "载货集装箱验证总重：集装箱核实重量"], ["Mandatoryforseashipment.", "海运必须提供。"], ["SecuritySeal", "安全封条：防止篡改的封条"], ["Appliedafterloading.", "装货后加封。"], ["MaritimeSecurity", "海运安全：保障船舶和货物安全的措施"], ["Checkspreventterrorismrisks.", "检查防范恐怖风险。"], ["WarrantyPeriod", "保修期：产品保修时间"], ["1yearfromdelivery.", "交货后1年。"], ["ReturnPolicy", "退货政策：关于退货的规定"], ["After-salesSupport", "售后支持：交货后的支持"], ["Includesinstallationguidance.", "含安装指导。"], ["SalesReport", "销售报告：记录销售数据的报告"], ["Tracksmonthlyperformance.", "追踪月度业绩。"], ["InventoryReport", "库存报告：库存状态记录"], ["Highlightslow-stockitems.", "标注缺货商品。"], ["TradeStatistics", "贸易统计：进出口数据统计"], ["Showelectronicsdemandup.", "显示电子产品需求增长。"], ["AuditReport", "审计报告：财务或流程的审计结果"], ["Confirmsregulationcompliance.", "确认符合法规。"], ["BusinessCardExchange", "名片交换：商务场合交换名片的礼仪"], ["FormalinAsiancultures.", "亚洲文化中正式。"], ["Punctuality", "准时：商务场合的时间观念"], ["Crucialformeetings.", "会议中至关重要。"], ["FormalGreeting", "正式问候：商务场合的问候方式"], ["Includeshandshakeandintro.", "含握手和自我介绍。"], ["CulturalTaboo", "文化禁忌：特定文化中的禁忌行为"], ["AvoidpoliticsinMideast.", "中东会议避谈政治。"], ["On-TimeDelivery(OTD)", "准时交货率：按时交货的比例"], ["98%lastquarter.", "上季度98%。"], ["OrderAccuracy", "订单准确率：订单信息正确比例"], ["99%duetosystemchecks.", "因系统检查达99%。"], ["FreightCostperUnit", "单位货运成本：每件产品的运输成本"], ["Decreasedby5%now.", "下降5%。"], ["WarehousingUtilizationRate", "仓储利用率：仓库实际使用面积占比"], ["80%utilizationcurrent.", "当前80%。"], ["WTO(WorldTradeOrganization)", "世界贸易组织：规范国际贸易的组织"], ["Resolvestradedisputes.", "解决成员国间争端。"], ["Incoterms", "国际贸易术语解释通则：规范贸易术语的规则"], ["UNCTAD(UnitedNationsConferenceonTradeandDevelopment)", "联合国贸易和发展会议：促进发展中国家贸易的组织"], ["Supportsexporters.", "支持出口商。"], ["Cross-borderE-commerce", "跨境电商：不同国家间的线上交易"], ["Platformssimplifyshopping.", "平台简化购物流程。"], ["ImportTariffforE-commerce", "电商进口关税：针对电商进口的关税"], ["Lowerforsmallpackages.", "小包裹关税较低。"], ["OverseasWarehouse", "海外仓：设在国外的仓储设施"], ["Enablesfastlocaldelivery.", "实现本地快速配送。"], ["BondedArea", "保税区：海关监管的特殊区域"], ["Goodsexemptfromtariffstemp.", "货物暂免关税。"], ["SingleWindow", "单一窗口：跨境贸易一站式申报平台"], ["Reducesclearancetime.", "缩短清关时间。"], ["GreenLogistics", "绿色物流：环保的物流方式"], ["Useselectricdeliveryvehicles.", "采用电动配送车。"], ["CarbonFootprint", "碳足迹：活动产生的碳排放"], ["Reduceviaroute优化.", "通过路线优化减少。"], ["Eco-friendlyPackaging", "环保包装：可降解或可回收的包装"], ["MeetEUstandardsnow.", "符合欧盟标准。"], ["SustainableSourcing", "可持续采购：环保的原材料采购"], ["Prioritizesrecycledmaterials.", "优先再生材料。"], ["CarbonOffset", "碳抵消：通过减排项目抵消碳排放"], ["Investinreforestation.", "投资造林抵消。"], ["SpecificPerformance", "实际履行：要求按合同履行义务"], ["Courtordereddeliveryclause.", "法院判决履行交货条款。"], ["LiquidatedDamages", "约定违约金：合同中预先约定的赔偿"], ["AnticipatoryBreach", "预期违约：提前表明不履行合同"], ["Refusaltopayisabreach.", "拒绝付款构成预期违约。"], ["Remedy", "补救措施：违约后的解决方式"], ["Replaceorrefundoptions.", "换货或退款选项。"], ["CleanBill", "光票：不附货运单据的汇票"], ["Usedfornon-tradepayments.", "用于非贸易支付。"], ["DocumentaryBill", "跟单汇票：附货运单据的汇票"], ["Commonintradenow.", "贸易中常见。"], ["Banker’sAcceptance", "银行承兑汇票：银行承诺兑付的汇票"], ["Securepaymentmethod.", "安全的支付方式。"], ["Remittance", "汇款：通过银行转移资金"], ["T/TorM/Toptions.", "电汇或信汇可选。"], ["Hague-VisbyRules", "海牙-维斯比规则：规范海运承运人责任的公约"], ["Limitcarrierliability.", "限制承运人责任。"], ["CMRConvention", "国际公路货物运输合同公约：规范公路运输的公约"], ["Appliestocross-borderroad.", "适用于跨境公路运输。"], ["AllRisksCoverage", "一切险承保范围：保险涵盖的全部风险"], ["Includestheftanddamage.", "含偷窃和损坏。"], ["FreeIn(FI)", "船方不负担装货费：装货费由货方承担"], ["Sellerpaysloadingcharges.", "卖方支付装货费。"], ["Guidesmarketentrystrategy.", "指导市场进入策略。"], ["Assessesmarketrisks.", "评估市场风险。"], ["MarketSegmentation", "市场细分：按特征划分市场"], ["Targetshigh-incomegroups.", "瞄准高收入群体。"], ["CompetitorAnalysis", "竞争对手分析：研究竞争对手的策略"], ["Identifiespricingedges.", "识别价格优势。"], ["RFID(RadioFrequencyIdentification)", "射频识别：用于追踪货物的技术"], ["Tagstrackcargoreal-time.", "标签实时追踪货物。"], ["GPSTracking", "全球定位系统追踪：通过GPS定位货物"], ["Provideslocationupdates.", "提供位置更新。"], ["DigitalBillofLading", "电子提单：数字化的提单凭证"], ["Speedsupdocumenttransfer.", "加快单据传递。"], ["CloudLogistics", "云物流：基于云技术的物流管理"], ["Integratessupplychaindata.", "整合供应链数据。"], ["LaborStandards", "劳工标准：工人权益的规范"], ["Complieswithinternationalrules.", "符合国际规则。"], ["SocialComplianceAudit", "社会责任审核：对企业社会责任的检查"], ["Ensuresfairwagespaid.", "确保支付公平工资。"], ["ExportControl", "出口管制：对敏感商品的出口限制"], ["Appliestomilitarygoods.", "适用于军事相关商品。"], ["Sanctions", "制裁：对特定国家的贸易限制"], ["Prohibittradewithnations.", "禁止与特定国家贸易。"], ["PerishableCargo", "易腐货物：需冷藏的生鲜等货物"], ["Needstemperaturecontrol.", "需温控运输。"], ["OversizedCargo", "超大货物：超出标准尺寸的货物"], ["Requiresspecialpermits.", "需特殊运输许可。"], ["ValuableCargo", "贵重货物：高价值货物"], ["Needsenhancedsecurity.", "需加强安保。"], ["HazardousMaterials(Hazmat)", "危险品：具有易燃等特性的货物"], ["LabeledbyUNstandards.", "按联合国标准贴标签。"], ["CreditRisk", "信用风险：对方不履行付款义务的风险"], ["Assessnewbuyersfirst.", "先评估新买家。"], ["CurrencyRisk", "汇率风险：汇率波动导致的损失"], ["Hedgewithforwardcontracts.", "用远期合约对冲。"], ["PaymentDefault", "付款违约：买方拒绝或无力付款"], ["L/Creducessuchrisks.", "信用证降低此风险。"], ["CreditInsurance", "信用保险：保障应收账款的保险"], ["Coversnon-paymentlosses.", "覆盖未付款损失。"], ["Hub-and-SpokeSystem", "轴辐式物流网络：以枢纽港为中心的运输网络"], ["Usedforglobaldeliveries.", "用于全球配送。"], ["GatewayPort", "门户港：国际物流的重要中转港"], ["ShanghaiforAsia-Europetrade.", "亚欧贸易的上海港。"], ["RegionalDistributionCenter(RDC)", "区域配送中心：覆盖特定区域的节点"], ["SingaporeservesSoutheastAsia.", "新加坡服务东南亚。"], ["IntermodalTerminal", "多式联运枢纽：多种运输方式衔接的节点"], ["Connectsseaandrailtransport.", "连接海运与铁路。"], ["AuthorizedEconomicOperator(AEO)", "经认证的经营者：通过海关认证的企业"], ["Simplifiescustomsclearance.", "简化清关流程。"], ["Risk-BasedInspection", "基于风险的检验：海关根据风险等级选择性查验"], ["Low-riskshipmentsexempt.", "低风险货物免于查验。"], ["PaperlessTrade", "无纸贸易：通过电子单据完成交易"], ["Cutsprocessingtime50%.", "缩短50%处理时间。"], ["MutualRecognitionArrangement(MRA)", "互认协议：国家间对认证结果的互认"], ["Speedsupproductapproval.", "加快产品审批。"], ["DigitalTwin", "数字孪生：供应链的虚拟副本"], ["Predictssupplychainissues.", "预测供应链问题。"], ["InternetofThings(IoT)inLogistics", "物流物联网：通过传感器连接物流要素"], ["Monitorscontainerconditions.", "监控集装箱状态。"], ["BlockchaininTradeFinance", "贸易金融中的区块链：用于记录交易和单据"], ["Reducesfraudrisks.", "减少欺诈风险。"], ["PredictiveAnalytics", "预测分析：通过数据预测需求和风险"], ["Forecastsseasonalspikes.", "预测季节性高峰。"], ["ForumSelectionClause", "法院选择条款：约定争议解决的法院"], ["SpecifiesLondonarbitration.", "约定伦敦仲裁。"], ["ChoiceofLawClause", "法律适用条款：约定合同适用的法律"], ["SelectsNewYorklaw.", "选择纽约州法律。"], ["EntireAgreementClause", "完整协议条款：约定合同构成完整约定"], ["Excludespriorverbalpromises.", "排除先前口头承诺。"], ["IndemnificationClause", "赔偿条款：约定一方对另一方损失的赔偿"], ["Coversthird-partyclaims.", "涵盖第三方索赔。"], ["MontrealConvention", "蒙特利尔公约：规范国际航空运输的公约"], ["Setsliabilitylimitsforaircargo.", "规定航空货物赔偿限额。"], ["RotterdamRules", "鹿特丹规则：现代海运责任公约"], ["Expandscarrierliabilityscope.", "扩大承运人责任范围。"], ["CISG(UnitedNationsConventiononContractsfortheInternationalSaleofGoods)", "联合国国际货物销售合同公约"], ["Appliestomemberstates.", "适用于成员国间合同。"], ["AdValoremDuty", "从价税：按货物价值百分比征收的关税"], ["20%ofCIFvalueforluxurygoods.", "奢侈品为CIF值的20%。"], ["SpecificDuty", "从量税：按货物数量等征收的固定关税"], ["MixedDuty", "混合税：从价税与从量税结合的关税"], ["DutyExemption", "免税：免除关税的情况"], ["Humanitarianaideligible.", "人道主义援助可享受。"], ["TariffClassification", "关税归类：确定货物对应的关税税号"], ["Ensuresaccuratedutycalculation.", "确保关税计算准确。"], ["DigitalCurrency", "数字货币：用于跨境支付的电子货币"], ["Simplifiescross-borderpayments.", "简化跨境支付。"], ["SWIFTgpi", "环球银行金融电信协会全球支付创新：加速国际支付的系统"], ["Enablesreal-timetransfertracking.", "支持转账实时追踪。"], ["OpenBanking", "开放银行：银行共享数据支持第三方支付"], ["Facilitatesplatformintegration.", "促进平台整合。"], ["EscrowService", "托管服务：第三方暂存资金"], ["Reducestrustrisksinnewtrades.", "降低新贸易信任风险。"], ["SupplyChainResilience", "供应链韧性：供应链应对中断的恢复能力"], ["Enhancedbysupplierdiversity.", "供应商多元化提升。"], ["ContingencyPlan", "应急计划：应对突发事件的预案"], ["Includesalternativeroutes.", "含替代运输路线。"], ["DisruptionRisk", "中断风险：供应链因各种因素中断的风险"], ["IdentifiedinAsiansupplychain.", "亚洲供应链中已识别。"], ["Nearshoring", "近岸外包：将供应链转移至邻近国家"], ["ReducesU.S.marketleadtime.", "缩短美国市场交货期。"], ["ArbitrationAgreement", "仲裁协议：约定通过仲裁解决争议的条款"], ["Mustbeinwritingtobevalid.", "需书面形式才有效。"], ["ArbitralTribunal", "仲裁庭：负责审理仲裁案件的机构"], ["Hasthreeneutralarbitrators.", "由三名中立仲裁员组成。"], ["ArbitralAward", "仲裁裁决：仲裁庭作出的裁决结果"], ["EnforceableunderNewYorkConvention.", "依《纽约公约》可执行。"], ["UNCITRALModelLaw", "联合国国际贸易法委员会仲裁示范法：各国仲裁立法的参考模板"], ["Adoptedbymanycountries.", "被多国采用。"], ["GeopoliticalRisk", "地缘政治风险：因国家间关系紧张导致的贸易风险"], ["Affectsenergytrade.", "影响能源贸易。"], ["TradeWar", "贸易战：国家间相互加征关税等限制措施"], ["Ledtohigherelectronicstariffs.", "导致电子产品关税提高。"], ["EconomicSanctions", "经济制裁：通过贸易限制施压的措施"], ["Prohibitexportstotargetindustries.", "禁止向目标行业出口。"], ["BilateralTradeAgreement", "双边贸易协定：两个国家间的贸易协议"], ["Eliminatestariffson80%goods.", "取消80%商品关税。"], ["ActivePackaging", "活性包装：能调节环境的包装"], ["Extendsfreshproduceshelflife.", "延长生鲜保质期。"], ["SmartPackaging", "智能包装：含传感器的包装"], ["Alertstotemperaturechanges.", "预警温度变化。"], ["NanotechnologyinPackaging", "包装纳米技术：用纳米材料增强包装性能"], ["Improvesplasticbarrierproperties.", "提升塑料阻隔性。"], ["CollapsiblePackaging", "可折叠包装：运输时可折叠节省空间"], ["Reducesreturnshippingcosts.", "降低回程运费。"], ["Factoring", "保理：企业将应收账款转让给保理商获取资金"], ["Advances80%ofinvoicevalue.", "预付80%发票金额。"], ["Forfaiting", "福费廷：无追索权贴现远期票据"], ["Eliminatescreditriskformid-termtrades.", "消除中期贸易信用风险。"], ["TradeCreditInsurance", "贸易信用保险：保障应收账款安全"], ["Coversnon-paymentfrombuyerinsolvency.", "覆盖买方破产导致的未付款。"], ["StructuredTradeFinance", "结构性贸易融资：针对大型项目的定制融资方案"], ["Supportsinfrastructureexports.", "支持基建设备出口。"], ["Carrier’sLien", "承运人留置权：承运人因未获运费可留置货物"], ["Exerciseduntilfreightpaid.", "运费到账前行使。"], ["Deviation", "绕航：船舶偏离约定航线"], ["Unreasonableinvalidatesliabilitylimits.", "不合理绕航使责任限制失效。"], ["GeneralAverage", "共同海损：为避免共同危险造成的损失由各方分摊"], ["Allcargoownerssharecosts.", "所有货主分摊费用。"], ["Salvage", "海难救助：对遇险船舶或货物的救助"], ["Awardbasedonsavedpropertyvalue.", "按获救财产价值计报酬。"], ["GDPR(GeneralDataProtectionRegulation)", "通用数据保护条例：欧盟数据保护法规"], ["MandatoryforEUcustomerdata.", "处理欧盟客户数据需遵守。"], ["DataLocalization", "数据本地化：要求数据存储在本地服务器"], ["AffectsIndiacross-borderplatforms.", "影响印度跨境平台。"], ["Cross-BorderDataTransfer", "跨境数据传输：数据在不同国家间传输"], ["PersonalDatainTradeDocuments", "贸易单据中的个人数据：如提单中的联系人信息"], ["Anonymizedtocomplywithrules.", "匿名化以符合法规。"], ["JointVenture(JV)", "合资企业：与本地企业成立合资公司"], ["ReducesAfricaentryrisks.", "降低非洲市场进入风险。"], ["LicensingAgreement", "许可协议：授权本地企业生产/销售"], ["Allowslocalmanufacturingunderourbrand.", "允许本地企业用我方品牌生产。"], ["GreenfieldInvestment", "绿地投资：在海外新建企业"], ["TargetslowlaborcostsinVietnam.", "瞄准越南低成本劳动力。"], ["ExportProcessingZone(EPZ)", "出口加工区：享受税收优惠的特殊区域"], ["Reducesrawmaterialimportduties.", "降低原材料进口关税。"], ["AutomatedGuidedVehicle(AGV)", "自动导引车：仓库中自动运输货物的设备"], ["Cutslaborcostsby30%.", "降低30%劳动力成本。"], ["RoboticProcessAutomation(RPA)", "机器人流程自动化：自动化重复性物流操作"], ["Handles500+shippingdocsdaily.", "每日处理500+运输单据。"], ["WarehouseRobotics", "仓储机器人：用于分拣、搬运的机器人"], ["Halvesorderfulfillmenttime.", "将订单履行时间减半。"], ["AutonomousTrucks", "自动驾驶卡车：用于长途运输的自动驾驶车辆"], ["TestedonU.S.-Mexicoroutes.", "在美墨边境路线测试。"], ["PatentInfringement", "专利侵权：未经许可使用专利技术"], ["Lawsuitovercopieddesign.", "因设计抄袭提起诉讼。"], ["TrademarkCounterfeiting", "商标伪造：非法使用他人商标"], ["10,000fakeproductsseized.", "查获10,000件假冒产品。"], ["IPRDueDiligence", "知识产权尽职调查：交易前核查知识产权状态"], ["Foundunregisteredpatents.", "发现未注册专利。"], ["TradeSecretProtection", "商业秘密保护：对机密信息的保护"], ["NDAsprotectinjointventures.", "保密协议在合资中保护。"], ["CustomsUnion", "关税同盟：成员国间取消关税并对外统一关税"], ["EUhascommonexternaltariff.", "欧盟有共同对外关税。"], ["CommonMarket", "共同市场：关税同盟+要素自由流动"], ["Allowsfreemovementofgoods,labor,capital.", "允许商品、劳动力、资本自由流动。"], ["EconomicUnion", "经济联盟：共同市场+统一经济政策"], ["Eurozonehassinglecurrency.", "欧元区有单一货币。"], ["FreeTradeArea(FTA)", "自由贸易区：成员国间取消关税但保留独立对外关税"], ["NAFTAbetweenU.S.,Canada,Mexico.", "北美自贸区在美加墨间。"], ["WarehousetoWarehouseClause", "仓至仓条款：保险责任从发货人仓库至收货人仓库"], ["Coversfromfactorytodelivery.", "涵盖从工厂到交付全程。"], ["Strike,Riot,andCivilCommotion(SRCC)", "罢工、暴动、民变险：针对社会动荡导致损失的保险"], ["Addedforhigh-riskregions.", "为高风险地区附加。"], ["WarRisk", "战争险：因战争、冲突导致损失的保险"], ["Mandatoryforconflictzones.", "冲突地区运输必须投保。"], ["DelayinTransit", "运输延误险：货物延误导致损失的保险"], ["Neededforperishablegoods.", "易腐货物通常需要。"], ["VAT(Value-AddedTax)Registration", "增值税注册：在目标国注册增值税"], ["RequiredforEUe-commercesales.", "欧盟跨境电商销售需注册。"], ["ImportVATDeferral", "进口增值税递延：延迟缴纳进口增值税"], ["Improvese-sellers’cashflow.", "改善电商卖家现金流。"], ["DigitalServicesTax(DST)", "数字服务税：针对跨境数字服务的税收"], ["Appliestooverseasstreaming.", "适用于向海外销售的流媒体。"], ["IOSS(ImportOne-StopShop)", "进口一站式服务：欧盟简化电商增值税申报的系统"], ["AllowssingleEUVATreturn.", "允许单一申报全欧盟增值税。"], ["InvoiceFinancingPlatforms", "发票融资平台：基于发票的在线融资服务"], ["Connectsupplierswithinvestors.", "连接供应商与投资者。"], ["SupplyChainFinance(SCF)Networks", "供应链金融网络：整合上下游的金融生态"], ["Enabletier-2suppliers’creditaccess.", "使二级供应商获得信贷。"], ["AI-PoweredCreditScoring", "人工智能信用评分：用AI评估企业信用"], ["Reducestradefinancedefaults.", "降低贸易融资违约。"], ["SmartContractsinTrade", "贸易中的智能合约：自动执行的数字化合约"], ["Triggerpaymentsondelivery.", "确认交货后自动付款。"], ["High-ContextCulture", "高语境文化：沟通依赖语境和非语言信号"], ["Asianculturesneednon-verbalcues.", "亚洲文化需关注非语言信号。"], ["Low-ContextCulture", "低语境文化：沟通直接明确"], ["Westernculturesvalueexplicittalk.", "西方文化重视直接表达。"], ["TimePerception", "时间观念：对时间的不同理解"], ["Monochronicculturesprioritizepunctuality.", "单时制文化重视准时。"], ["NegotiationStyles", "谈判风格：不同文化的谈判方式"], ["Collectivistfocusonrelationshipfirst.", "集体主义先建关系。"], ["Demonstratesgreenlogisticscommitment.", "体现绿色物流承诺。"], ["C-TPAT(Customs-TradePartnershipAgainstTerrorism)", "海关-商贸反恐怖联盟：提升供应链安全的认证"], ["Certifiedshipmentsgetfastclearance.", "认证货物快速清关。"], ["FairTradeCertification", "公平贸易认证：保障生产者公平待遇的认证"], ["ValuedbyEUethicalconsumers.", "受欧盟道德消费者重视。"], ["CarbonNeutralLogistics", "碳中和物流：实现碳排放净零的物流服务"], ["Offsetsviarenewableprojects.", "通过可再生能源项目抵消。"], ["Anti-DumpingInvestigation", "反倾销调查：调查进口产品是否以低于正常价值销售"], ["InitiatedagainststeelfromX.", "对X国钢材发起调查。"], ["CountervailingDuty(CVD)", "反补贴税：针对接受政府补贴的进口产品征收的税"], ["Imposedtooffsetforeignsubsidies.", "征收以抵消外国补贴。"], ["SafeguardMeasure", "保障措施：进口激增时采取的限制措施"], ["Limitstextileimportstoprotectlocal.", "限制纺织品进口保护本地产业。"], ["SunsetReview", "日落复审：对反倾销/反补贴措施的到期审查"], ["Determinesifdutiesextend.", "决定是否延长反倾销税。"], ["TACT(TheAirCargoTariff)", "航空货运价目表：国际航空货运的标准运价手册"], ["Providesglobalairrates.", "提供全球航空费率。"], ["ULD(UnitLoadDevice)", "集装设备：航空运输的集装箱或托盘"], ["Improveairloadingefficiency.", "提高航空装载效率。"], ["ValuationCharge", "声明价值费：对高价值货物收取的附加费"], ["5%over$1000declared.", "声明价值超1000美元收0.5%。"], ["GeneralCargoRate(GCR)", "普通货物运价：适用于大多数货物的基础运价"], ["Appliestonon-specializedgoods.", "适用于非特殊货物。"], ["B2BCross-borderE-commerce", "跨境B2B电商：企业间跨境线上交易"], ["Platformsfacilitatebulkorders.", "平台促进批量订单。"], ["Usescouriersfordoor-to-door.", "通过快递门到门配送。"], ["Platform-basedLogistics", "平台型物流：电商平台整合的物流服务"], ["Offersdiscountedratesforsellers.", "为平台卖家提供折扣费率。"], ["SocialCommerceLogistics", "社交电商物流：社交平台交易的配套物流"], ["Emphasizesfastimpulsedelivery.", "强调冲动消费的快速配送。"], ["TradeLens", "贸易透镜：马士基与IBM合作的区块链物流平台"], ["Streamlinesshippingdocumentexchange.", "简化航运单据交换。"], ["ElectronicBillofLading(eBL)", "电子提单：基于区块链的数字化提单"], ["Reducesfraudandspeedstransfer.", "减少欺诈并加快转移。"], ["SupplyChainTraceability", "供应链溯源：区块链记录货物全流程信息"], ["Enablesorganicfoodtraceability.", "实现有机食品全流程溯源。"], ["Cross-borderPaymentSettlement", "跨境支付结算：区块链直接进行资金结算"], ["Cutstimefromdaystominutes.", "时间从几天缩至几分钟。"], ["ICCMediationRules", "国际商会调解规则：国际商会制定的调解程序"], ["Structureddisputeresolutionprocess.", "结构化争议解决流程。"], ["UNCITRALMediationRules", "联合国国际贸易法委员会调解规则：通用的国际调解规则"], ["Widelyacceptedincross-borderdisputes.", "跨境争议中被广泛接受。"], ["MediatorQualification", "调解员资质：调解人的专业要求"], ["Expertiseinlawandcross-culturalcommunication.", "具备法律和跨文化沟通知识。"], ["SettlementAgreement", "和解协议：调解达成的书面协议"], ["Legallybindingandenforceable.", "具有法律约束力且可执行。"], ["FreightConsolidation", "货物拼箱：合并小批量货物降低运费"], ["Cutsper-unitcostsby15%.", "单位成本降低15%。"], ["ModeOptimization", "运输方式优化：根据时效需求选择性价比最高的运输方式"], ["Balancesairspeedandseacost.", "平衡空运速度和海运成本。"], ["RouteOptimizationSoftware", "路线优化软件：计算最优运输路线"], ["Minimizesdistancetosavefuel.", "缩短距离节省燃油。"], ["CarrierNegotiation", "承运人谈判：与物流商协商更优费率"], ["Securesvolume-baseddiscounts.", "获得基于货量的折扣。"], ["LEED(LeadershipinEnergyandEnvironmentalDesign)", "能源与环境设计先锋：物流设施的环保认证"], ["Warehousesuserenewableenergy.", "认证仓库使用可再生能源。"], ["CradletoCradle(C2C)", "从摇篮到摇篮：产品全生命周期环保认证"], ["Ensuresproductsarerecyclable.", "确保产品可回收或可降解。"], ["GreenhouseGasProtocol", "温室气体协议：核算碳排放的国际标准"], ["Measuresandreducessupplychainemissions.", "衡量并减少供应链碳排放。"], ["OrganicCertification", "有机认证：农产品符合有机标准的认证"], ["MandatoryforEUfoodexports.", "向欧盟出口食品必须具备。"], ["CHIPS(ClearingHouseInterbankPaymentsSystem)", "清算所银行间支付系统：美国大额美元支付系统"], ["Processes95%ofinternational美元payments.", "处理95%的国际美元支付。"], ["TARGET2(Trans-EuropeanAutomatedReal-timeGrossSettlementExpressTransferSystem)", "泛欧实时全额自动清算系统：欧元区大额支付系统"], ["FacilitatesEUcross-bordereuropayments.", "支持欧盟内跨境欧元支付。"], ["CIPS(Cross-BorderInterbankPaymentSystem)", "人民币跨境支付系统：人民币跨境清算系统"], ["ReducesSWIFTrelianceforrenminbi.", "降低人民币交易对SWIFT的依赖。"], ["Real-TimeGrossSettlement(RTGS)", "实时全额结算：逐笔实时清算资金"], ["Minimizeslarge-valuesettlementrisk.", "降低大额交易结算风险。"], ["InternationalReturnManagement", "国际退货管理：处理跨国退货的流程"], ["Includesreturnedgoodsclearance.", "包含退货清关环节。"], ["ReturnMerchandiseAuthorization(RMA)", "退货授权：允许退货的官方许可"], ["Numberneededforcross-borderreturns.", "跨境退货需授权号。"], ["ReverseLogisticsNetwork", "逆向物流网络：退货的运输与处理网络"], ["Reducesreturntimeto3days.", "退货时间缩短至3天。"], ["DispositionofReturns", "退货处理：对退回商品的处置方式"], ["Refurbish,recycle,ordestroy.", "翻新、回收或销毁。"], ["AntitrustLaw", "反垄断法：禁止垄断和不正当竞争的法律"], ["Prohibitsprice-fixingintrade.", "禁止国际贸易中的价格垄断。"], ["CartelEnforcement", "卡特尔执法：打击企业联合操纵市场的行为"], ["Heavyfinesforcross-borderprice-fixing.", "跨境价格操纵重罚。"], ["AbuseofDominantPosition", "滥用市场支配地位：具有市场优势的企业不正当竞争"], ["Refusingkeycomponentstocompetitors.", "拒绝向竞争对手提供关键部件。"], ["MergerControl", "并购审查：监管跨国企业并购的反垄断审查"], ["Approvalneededforlargeacquisitions.", "大型收购需批准。"], ["Guideseco-friendlytransportpackaging.", "指导环保运输包装设计。"], ["ExtendedProducerResponsibility(EPR)", "生产者延伸责任：要求企业负责包装回收"], ["ManufacturersfundrecyclinginGermany.", "德国制造商为包装回收出资。"], ["RecycledContentRequirement", "再生材料含量要求：包装中再生材料的比例标准"], ["50%recycledplasticby2025inFrance.", "法国2025年前塑料包装再生材料占50%。"], ["BiodegradablePackagingStandards", "可生物降解包装标准：包装材料降解性能的规范"], ["LexMercatoria", "商人法：国际商事交易中的通用惯例"], ["Appliedwhennogoverninglawspecified.", "未约定适用法律时适用。"], ["ForumNonConveniens", "不方便法院原则：法院以审理不便为由拒绝管辖"], ["U.S.courtsdismissforeign-suitablecases.", "美国法院驳回更适合外国审理的案件。"], ["PreliminaryInjunction", "临时禁令：诉讼期间禁止特定行为的法院命令"], ["Stopsinfringingproductsales.", "禁止诉讼期间销售侵权产品。"], ["ChoiceofForumAgreement", "法院选择协议：约定争议管辖法院的协议"], ["Enforceableiffairandreasonable.", "公平合理则可执行。"], ["DemandSensing", "需求感知：AI实时预测市场需求"], ["Adjustsproductionviareal-timedata.", "根据实时数据调整生产。"], ["PredictiveMaintenance", "预测性维护：AI预测设备故障并提前维护"], ["Cutsequipmentdowntimeby40%.", "设备停机时间减少40%。"], ["AutomatedCustomsClassification", "自动海关归类：AI识别货物并确定税号"], ["Reducestariffcodingerrors.", "减少关税编码错误。"], ["SupplierRiskMonitoring", "供应商风险监控：AI实时追踪供应商风险指标"], ["Flagsgeopoliticalrisksforkeysuppliers.", "标记主要供应商的地缘政治风险。"], ["IATACode", "国际航空运输协会代码：机场、航空公司的三字代码"], ["TACTRules", "航空货运规则：国际航空货运的通用规则"], ["Governaircargodocumentation.", "规范航空货物单据和责任。"], ["CargoAccountSettlementSystem(CASS)", "货运账目结算系统：航空公司与货代的集中结算系统"], ["Simplifiesairline-forwardertransactions.", "简化航空公司与货代财务交易。"], ["IATADangerousGoodsRegulations(DGR)", "国际航空运输协会危险品规则：航空运输危险品的规范"], ["Classifieshazardousmaterialsforairtransport.", "对航空危险品进行分类。"], ["Protectstradesecretdata.", "保护商业秘密数据。"], ["NISTCybersecurityFramework", "美国国家标准与技术研究院网络安全框架：企业数据安全的参考框架"], ["Defendsagainstcyberattacks.", "帮助企业防御网络攻击。"], ["DataEncryption", "数据加密：对贸易数据进行加密处理"], ["Securessensitivedocumenttransfers.", "保障敏感单据跨境传输安全。"], ["PenetrationTesting", "渗透测试：模拟攻击检测系统漏洞"], ["Identifiestradeplatformweaknesses.", "识别贸易平台安全漏洞。"], ["PhytosanitaryCertificate", "植物检疫证书：证明植物产品符合进口国检疫要求"], ["MandatoryforJapanfruitexports.", "向日本出口水果必须提供。"], ["MaximumResidueLimit(MRL)", "最大残留限量：农产品中农药残留的上限"], ["EUstandardsstricterthanglobal.", "欧盟标准比全球更严格。"], ["OrganicEquivalenceArrangement", "有机等效安排：国家间相互认可有机认证"], ["SimplifiesU.S.-EUorganictrade.", "简化美欧有机食品贸易。"], ["ColdChainLogistics", "冷链物流：农产品的恒温运输体系"], ["Maintainsseafoodfreshness.", "保持海鲜国际运输新鲜度。"], ["DocumentaryEvidence", "书面证据：贸易单据作为证据"], ["L/Candinvoicesarekeyindisputes.", "信用证和发票是争议关键证据。"], ["ElectronicEvidence", "电子证据：电子邮件、电子提单等电子记录"], ["Mustbeauthenticatedforarbitration.", "仲裁中需认证才被采纳。"], ["ExpertWitness", "专家证人：提供专业意见的证人"], ["Testifiesoncargodamagecauses.", "就货物损坏原因作证。"], ["BurdenofProof", "举证责任：证明主张的责任"], ["Claimantbearsinitialburden.", "原告承担初步举证责任。"], ["AutomatedStorageandRetrievalSystem(AS/RS)", "自动化立体仓库系统：自动存储和取出货物的系统"], ["Increasescapacityby50%vertically.", "垂直存储使容量增50%。"], ["BarcodeSymbology", "条形码符号体系：不同类型的条形码标准"], ["RFIDStandards", "射频识别标准：RFID技术的统一规范"], ["WarehouseManagementSystem(WMS)Integration", "仓库管理系统集成：WMS与其他系统的数据对接"], ["Real-timeinventorywithERP.", "与ERP集成实现库存实时更新。"], ["CurrencySwap", "货币互换：交换不同货币的本金和利息"], ["Hedgeslong-termforeignliabilities.", "对冲长期外币负债。"], ["OptionsContract", "期权合约：买入或卖出货币的选择权"], ["Flexibleforexchangeratehedging.", "为汇率对冲提供灵活性。"], ["ForwardRateAgreement(FRA)", "远期利率协议：约定未来利率的协议"], ["Managesmulti-currencyloanrisks.", "管理多货币贸易贷款利率风险。"], ["NaturalHedging", "自然对冲：通过业务匹配抵消汇率风险"], ["Usesforeignrevenueforexpenses.", "用外币收入覆盖外币支出。"], ["DangerousGoodsDeclaration", "危险品申报：对危险品的正式申报"], ["Mustbeaccurateasrequired.", "必须准确无误。"], ["Appliedaftercargoloading.", "装货后加封。"], ["1yearfromdeliverydate.", "自交货起1年。"], ["CustomerComplaint", "客户投诉：客户对产品/服务的不满"], ["Tracksmonthlyperformancemetrics.", "追踪月度业绩指标。"], ["Highlightsitemswithlowstock.", "标注库存不足商品。"], ["Showgrowingelectronicsdemand.", "显示电子产品需求增长。"], ["Confirmscompliancewithregulations.", "确认符合相关法规。"], ["FormalpracticeinAsiancultures.", "亚洲文化中为正式礼仪。"], ["Crucialforinternationalmeetings.", "国际会议中至关重要。"], ["Involveshandshakeandintroduction.", "包括握手和自我介绍。"], ["AvoidpoliticsinMiddleEasternmeetings.", "中东会议避免讨论政治。"], ["Reached98%lastquarter.", "上季度达98%。"], ["Decreasedby5%recently.", "近期下降5%。"], ["Currentlyat80%capacity.", "当前利用率80%。"], ["Resolvesdisputesbetweenmembers.", "解决成员国间贸易争端。"], ["Supportsdevelopingcountryexporters.", "支持发展中国家出口商。"], ["Platformssimplifyglobalshopping.", "平台简化全球购物流程。"], ["Lowerratesforsmallpackages.", "小包裹关税较低。"], ["Enablesfastlocaldeliveries.", "实现本地快速配送。"], ["Goodstemporarilyexemptfromtariffs.", "区内货物暂免关税。"], ["Reducescustomsclearancetime.", "缩短清关时间。"], ["Useselectricvehiclesfordelivery.", "采用电动车配送。"], ["Reducedviarouteoptimization.", "通过路线优化减少。"], ["MeetsEUstandardsnow.", "符合欧盟标准。"], ["Investsinreforestationprojects.", "投资造林项目抵消。"], ["Courtordereddeliveryclausefulfillment.", "法院判决履行交货条款。"], ["Buyer’srefusaltopayisabreach.", "买方拒绝付款构成预期违约。"], ["Optionsincludereplacementorrefund.", "措施包括换货或退款。"], ["Commonininternationaltrade.", "国际贸易中常见。"], ["CanbedoneviaT/TorM/T.", "可通过电汇或信汇进行。"], ["Limitcarrierliabilityscope.", "限制承运人责任范围。"], ["Appliestocross-borderroadtransport.", "适用于跨境公路运输。"], ["Includestheftanddamagerisks.", "涵盖偷窃和损坏风险。"], ["Sellerpaysloadingchargeshere.", "卖方支付装货费。"], ["Assessesmarketriskscomprehensively.", "全面评估市场风险。"], ["Targetshigh-incomeconsumergroups.", "瞄准高收入消费群体。"], ["Identifiespricingadvantagesclearly.", "明确识别价格优势。"], ["Tagstrackcargoinrealtime.", "标签实时追踪货物。"], ["Providesshipmentlocationupdates.", "提供货物位置更新。"], ["Speedsupdocumenttransferprocess.", "加快单据传递流程。"], ["Integratessupplychaindataefficiently.", "高效整合供应链数据。"], ["Ensuresfairwagesarepaid.", "确保支付公平工资。"], ["Appliestomilitary-relatedgoods.", "适用于军事相关商品。"], ["Prohibittradewithcertaincountries.", "禁止与特定国家贸易。"], ["Requirestemperature-controlledtransport.", "需温控运输。"], ["Needsspecialtransportpermits.", "需特殊运输许可。"], ["Requiresenhancedsecuritymeasures.", "需加强安保措施。"], ["LabeledaccordingtoUNstandards.", "按联合国标准贴标签。"], ["Assessedfornewbuyersfirst.", "先评估新买家。"], ["Hedgedwithforwardcontracts.", "用远期合约对冲。"], ["ReducedbyusingL/C.", "通过信用证降低。"], ["Usedforglobaldeliveriesefficiently.", "高效用于全球配送。"], ["Connectsseaandrailtransportsmoothly.", "顺畅连接海运与铁路。"], ["Simplifiescustomsclearanceprocedures.", "简化清关流程。"], ["Exemptslow-riskshipments.", "豁免低风险货物查验。"], ["Cutsprocessingtimeby50%.", "缩短50%处理时间。"], ["Speedsupproductapprovalprocesses.", "加快产品审批流程。"], ["Predictssupplychaindisruptions.", "预测供应链中断。"], ["Monitorscontainertemperatureandlocation.", "监控集装箱温度和位置。"], ["Reducesfraudintradefinance.", "减少贸易金融中的欺诈。"], ["Forecastsseasonaldemandspikes.", "预测季节性需求高峰。"], ["SpecifiesarbitrationinLondon.", "约定在伦敦仲裁。"], ["Coversthird-partyclaimseffectively.", "有效涵盖第三方索赔。"], ["Appliestocontractsbetweenmemberstates.", "适用于成员国间合同。"], ["Humanitarianaidiseligible.", "人道主义援助可享受。"], ["Includesalternativeshippingroutes.", "包含替代运输路线。"], ["Consistsofthreeneutralarbitrators.", "由三名中立仲裁员组成。"], ["Affectsenergytradesignificantly.", "显著影响能源贸易。"], ["Exerciseduntilfreightispaid.", "运费到账前行使。"], ["Allcargoownerssharerescuecosts.", "所有货主分摊救助费用。"], ["Appliestooverseasstreamingservices.", "适用于向海外销售的流媒体服务。"], ["Triggerpaymentsondeliveryconfirmation.", "确认交货后自动触发付款。"], ["Limitstextileimportstoprotectlocalindustry.", "限制纺织品进口以保护本地产业。"], ["Providesglobalaircargorates.", "提供全球航空货运的标准费率。"], ["5%over$1000declaredvalue.", "声明价值超过1000美元的部分收取0.5%。"], ["Usescouriersfordoor-to-doordelivery.", "通过国际快递实现门到门配送。"], ["Reducesfraudandspeedstitletransfer.", "降低欺诈风险并加快物权转移。"], ["Enablesorganicfoodend-to-endtraceability.", "实现有机食品出口的全流程溯源。"], ["Providestructureddisputeresolution.", "为争议解决提供结构化流程。"], ["Cutsper-unitshippingcostsby15%.", "使单位运费降低15%。"], ["Cutsfuelcostsbyminimizingdistance.", "通过缩短距离降低燃油成本。"], ["Securesvolume-baseddiscountsannually.", "年度谈判获得基于货量的折扣。"], ["Ensuresproductsarerecyclableorbiodegradable.", "确保产品可回收或可生物降解。"], ["Helpsmeasureandreducesupplychainemissions.", "助力衡量和减少供应链碳排放。"], ["MandatoryforfoodexportstotheEU.", "向欧盟出口食品必须具备有机认证。"], ["Processesover95%ofinternational美元payments.", "处理超过95%的国际美元支付。"], ["Facilitatescross-bordereuropaymentsintheEU.", "为欧盟内跨境欧元支付提供支持。"], ["ReducesrelianceonSWIFTforrenminbitransactions.", "降低人民币交易对SWIFT的依赖。"], ["Minimizessettlementriskinlarge-valuetransactions.", "降低大额交易的结算风险。"], ["Includescustomsclearanceforreturnedgoods.", "包含退货的清关环节。"], ["Numberrequiredfortrackingcross-borderreturns.", "跨境退货追踪需退货授权号。"], ["Reducesreturndeliverytimeto3days.", "欧洲逆向物流网络将退货送达时间缩短至3天。"], ["Includesrefurbishing,recycling,ordestruction.", "包括翻新、回收或销毁。"], ["Prohibitsprice-fixingagreementsintrade.", "禁止国际贸易中的价格垄断协议。"], ["Imposesheavyfinesoncross-borderprice-fixing.", "对跨境市场的价格操纵处以重罚。"], ["Includesrefusingkeycomponentstocompetitors.", "包括拒绝向竞争对手提供关键零部件。"], ["Requiresapprovalforlargeacquisitions.", "超过市场份额阈值的收购需获得批准。"], ["Guideseco-friendlytransportpackagingdesign.", "指导环保运输包装的设计。"], ["ManufacturersfundpackagingrecyclinginGermany.", "德国生产者延伸责任法要求制造商为包装回收提供资金。"], ["Francemandates50%recycledplasticby2025.", "法国要求2025年前塑料包装中再生材料占比达50%。"], ["Appliedwhennogoverninglawisspecified.", "当双方未约定适用法律时可适用。"], ["U.S.courtsmaydismissforeign-suitablecases.", "美国法院可能以不方便法院原则驳回更适合外国法院审理的案件。"], ["Preventssaleofinfringingproducts.", "禁止诉讼期间销售侵权产品。"], ["Reduceslogisticsdowntimeby40%.", "使物流设备停机时间减少40%。"], ["Reduceshumanerrorintariffcoding.", "减少关税编码中的人为错误。"], ["Governaircargodocumentationandliability.", "规范航空货物的单据和责任。"], ["Simplifiesairline-forwarderfinancialtransactions.", "简化航空公司与货代的财务交易。"], ["Ensuresprotectionoftradesecretdata.", "确保商业秘密数据的保护。"], ["Helpstradecompaniesdefendagainstcyberattacks.", "帮助贸易企业防御网络攻击。"], ["Securescross-bordertransferofsensitivedocuments.", "保障敏感单据的跨境传输安全。"], ["Identifiesweaknessesintradeplatformsecurity.", "识别贸易平台安全漏洞。"], ["MandatoryforfruitexportstoJapan.", "向日本出口水果必须提供植物检疫证书。"], ["EUMRLsarestricterthanglobalstandards.", "欧盟农药最大残留限量比全球标准更严格。"], ["SimplifiesU.S.-EUorganicfoodtrade.", "美国与欧盟的有机等效安排简化有机食品贸易。"], ["Maintainsseafoodfreshnessintransit.", "在国际运输中保持海鲜新鲜度。"], ["Claimantbearsinitialburdenindisputes.", "在贸易争议中，原告承担初步举证责任。"], ["Increasescapacityby50%viaverticalstorage.", "通过垂直存储使仓库容量增加50%。"], ["IntegrateswithERPforreal-timeinventory.", "仓库管理系统与企业资源计划系统集成实现库存实时更新。"], ["Hedgeslong-termforeigncurrencyliabilities.", "货币互换对冲长期外币负债。"], ["Providesflexibilityforexchangeratehedging.", "为汇率对冲提供灵活性。"], ["Managesinterestrateriskinmulti-currencyloans.", "管理多货币贸易贷款的利率风险。"], ["Usesforeignrevenuetocoverexpenses.", "用外币收入覆盖外币支出。"], ["Mandatoryforseashipments.", "海运必须提供。"], ["Securepaymentmethodintrade.", "贸易中安全的支付方式。"], ["RestrictedtoU.S.bySchremsII.（SchremsII限制向美国传输。）", "十八、贸易拓展与风险管理"]];window.__KEY__="821外贸900词";window.__TITLE__="8.21外贸900词";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 英文面试70+问红</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p271.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：英文面试70+问红</h1>
+  <div class="meta"><span class="charspill">198 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">198</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 198 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p271.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Certainly, I'd be happy to. I hold a Bachelor's degree in Computer Science and have spent the last six years working in software development. I've had the opportunity to work on various projects, from developing mobile applications to leading a team of developers in my previous role at XYZ Company. I'm known for my problem-solving skills and my ability to work collaboratively with cross-functional teams. Outside of work, I'm passionate about volunteering for coding bootcamps, where I mentor aspiring developers.\"", "当然，我很乐意。我拥有计算机科学学士学位，过去六年一直从事软件开发工作。我有机会参与了各种项目，从开发移动应用程序到在之前任职的 XYZ 公司带领开发团队。我以自己的问题解决能力以及与跨职能团队协作的能力而著称。在工作之余，我热衷于为编程训练营做志愿者，在那里我指导有抱负的开发人员。”"], ["You should hire me because I bring a unique combination of technical expertise, leadership experience, and a proven track record of delivering results. In my previous role at ABC Inc., I not only led a team that completed a critical project ahead of schedule but also identified and implemented process improvements that saved the company 20% in operational costs. My ability to collaborate effectively and my commitment to continuous learning make me a valuable asset to any team.\"", "你们应该雇佣我，因为我具备独特的技术专长、领导经验，并且有取得成果的可靠记录。在我之前任职于 ABC 公司的岗位上，我不仅带领团队提前完成了一个关键项目，还识别并实施了流程改进措施，为公司节省了 20% 的运营成本。我有效协作的能力以及对持续学习的承诺使我成为任何团队的宝贵资产。”"], ["One of my greatest strengths is my adaptability. I thrive in dynamic work environments and have demonstrated the ability to learn new technologies consistently and quickly. For example, at my previous job, I was asked to lead a project that involved using a programming language I had never worked with before. I immersed myself in learning it and successfully delivered the project on time.\"", "我最大的优点之一是我的适应能力。我在动态的工作环境中表现出色，并且一直展示出能够快速学习新技术的能力。例如，在我之前的工作中，我被要求领导一个项目，该项目涉及使用一种我从未接触过的编程语言。我全身心投入学习该语言，并按时成功交付了项目。”"], ["I used to struggle with delegating tasks, often taking on too much myself. However, I recognized this as a weakness and actively worked on improving my delegation skills. I now understand the importance of empowering team members and have seen how it enhances both productivity and team morale.\"", "我过去在分配任务方面存在困难，常常自己承担太多工作。然而，我认识到这是一个缺点，并积极努力提高我的任务分配技能。我现在明白赋予团队成员权力的重要性，并且已经看到这如何提高了生产力和团队士气。”"], ["Certainly. In my previous role, we faced a tight deadline to complete a project with a high degree of complexity. The team was under immense pressure, and conflicts started to arise. I took the initiative to organize a team meeting, where we openly discussed our concerns and brainstormed solutions. By fostering open communication and reassigning tasks based on team members' strengths, we not only met the deadline but also improved team dynamics.\"", "当然可以。在我之前的工作中，我们面临着在紧迫的期限内完成一个高度复杂项目的情况。团队承受着巨大的压力，并且开始出现冲突。我主动组织了一次团队会议，在会上我们公开讨论了我们的担忧并集思广益寻求解决方案。通过促进开放的沟通并根据团队成员的优势重新分配任务，我们不仅按时完成了任务，还改善了团队氛围。”"], ["In five years, I see myself in a leadership role within the company, possibly in a senior project management position. I'm dedicated to continuous growth and would like to leverage my experience to mentor and lead teams to success while contributing to the company's long-term goals.\"", "五年内，我希望自己在公司中担任领导职务，可能是高级项目管理职位。我致力于持续成长，并希望利用我的经验指导和带领团队取得成功，同时为公司的长期目标做出贡献。”"], ["I left my last job because I felt that I had outgrown the opportunities it offered. I was seeking new challenges and a role that aligned better with my career goals. I wanted to contribute my skills and expertise to a company where I could make a more significant impact, which is why I'm excited about the opportunity with your organization.\"", "我离开上一份工作是因为我觉得我已经超越了它所提供的机会。我在寻找新的挑战以及一个更符合我职业目标的职位。我想把我的技能和专业知识贡献给一家我能够产生更大影响的公司，这就是为什么我对贵公司提供的机会感到兴奋。”"], ["One notable failure occurred when I was managing a project that ended up exceeding the budget due to unforeseen challenges. It was a difficult situation, but I took full responsibility, communicated transparently with stakeholders, and devised a cost-cutting plan. This experience taught me the importance of thorough risk assessment and proactive problem-solving, skills I've since honed to prevent similar issues in the future.\"", "一个值得注意的失败经历是，我在管理一个项目时，由于一些意外的挑战，最终项目超出了预算。这是一个艰难的情况，但我承担了全部责任，与利益相关者进行了透明的沟通，并制定了一个削减成本的计划。这次经历让我明白了全面风险评估和积极主动解决问题的重要性，从那以后，我不断磨练这些技能，以防止未来出现类似的问题。”"], ["I handle stress and pressure by first staying organized and breaking down tasks into manageable steps. I also prioritize effectively and maintain open communication with my team to ensure everyone is aligned and informed. Additionally, I make it a point to take short breaks to recharge and maintain a healthy work-life balance.\"", "我应对压力和紧张情绪的方法是，首先保持条理清晰，将任务分解为可管理的步骤。我还会有效地确定任务优先级，并与我的团队保持开放的沟通，以确保每个人都达成一致并了解情况。此外，我会特意安排短暂的休息来恢复精力，保持健康的工作与生活平衡。”"], ["By the end of the meeting, my coworker was more open to the idea and we were able to work together to develop a plan that incorporated both of our ideas. We presented the plan to the rest of the team and it was well-received. Through this experience, I learned the importance of being patient, respectful, and flexible when working with difficult coworkers. I also learned the value of effective communication and collaboration in overcoming challenges and achieving common goals.\"", "在之前的一个项目中，我有一位同事非常固执己见，对新想法持抵触态度。我们当时在进行一个软件开发项目，我提出了一种新的方法来解决一个特定问题，这种方法本可以为我们节省很多时间。然而，这位同事甚至都没有考虑就直接否定了我的想法。"], ["So, tell me a little about yourself.", "说说你自己的情况吧。"], ["You don’t need to explain everything from birth to present day. Relevant facts about education, your career and your current life situation are fine.", "你不用把从出生到现在的所有事情都讲一遍，说说和教育、职业以及你目前生活状况相关的情况就行。"], ["Why are you looking (or why did you leave you last job)?", "你为什么在找工作呢（或者你为什么从上一份工作离职）？"], ["This should be a straightforward question to answer, but it can trip you up. Presumably you are looking for a new job (or any job) because you want to advance your career and get a position that allows you to grow as a person and an employee. It’s not a good idea to mention money here, it can make you sound mercenary. And if you are in the unfortunate situation of having been downsized, If you were fired, you’ll need a good explanation. But once again, stay positive.", "这个问题看似简单，却很容易让你栽跟头。一般来说，你找新工作（或者任何工作）是为了在职业上有所发展，获得一个能让自己作为个人和员工都有所成长的职位。这里最好别提到钱，不然会显得你很功利。要是你很不幸被裁员了，或者是被解雇了，那你得好好解释一下。但不管怎样，回答时都要保持积极的态度。"], ["Tell me what you know about this company.", "跟我讲讲你对这家公司的了解。"], ["Do your homework before you go to any interview. you should know about the company or business you’re going to work for. Has this company been in the news lately? Who are the people in the company you should know about? Do the background work, it will make you stand out as someone who comes prepared, and is genuinely interested in the company and the job.", "去面试前一定要做好功课。你得了解自己即将入职的公司或企业。这家公司最近有上新闻吗？公司里有哪些重要人物是你应该知道的？做好背景调查，这会让你显得有备而来，并且表明你是真的对这家公司和这份工作感兴趣。"], ["Why do you want to work at X Company?", "你为什么想在 X 公司工作？"], ["This should be directly related to the last question. Any research you’ve done on the company should have led you to the conclusion that you’d want to work there. After all, you’re at the interview, right? Put some thought into this answer before you have your interview, mention your career goals and highlight forward-thinking goals and career plans.", "这个问题和上一个问题密切相关。你对这家公司做的任何调查都应该让你得出自己想在这儿工作的结论。毕竟，你都来面试了，不是吗？面试前好好想想这个问题的答案，谈谈你的职业目标，突出具有前瞻性的目标和职业规划。"], ["What relevant experience do you have?", "你有哪些相关经验？"], ["Hopefully if you’re applying for this position you have bags of related experience, and if that’s the case you should mention it all. But if you’re switching careers or trying something a little different, your experience may initially not look like it’s matching up. That’s when you need a little honest creativity to match the experiences required with the ones you have. People skills are people skills after all, you just need to show how customer service skills can apply to internal management positions, and so on.", "如果你申请这个职位，希望你有丰富的相关经验，如果是这样，那就把这些经验都讲出来。但要是你正在转行，或者尝试一些不太一样的工作，你的经验乍一看可能不太匹配。这时候就需要你发挥点实事求是的创造力，把你现有的经验和岗位要求的经验联系起来。人际交往能力总归是人际交往能力，你只要展示出客户服务技能如何能应用到内部管理岗位上，诸如此类就行。"], ["If your previous co-workers were here, what would they say about you?", "要是你之前的同事在这儿，他们会怎么评价你？"], ["Ok, this is not the time for full disclosure. If some people from your past are going to say you’re a boring A-hole, you don’t need to bring that up. Stay positive, always, and maybe have a few specific quotes in mind. “They’d say I was a hard worker” or even better “John Doe has always said I was the most reliable, creative problem-solver he’d ever met.”", "这个问题可不能啥都如实说。要是以前有人会说你是个无趣的讨厌鬼，这种话就别说了。永远要保持积极的态度，心里可以想一些具体的好评。比如 “他们会说我工作很努力”，或者更好一点 “约翰・多伊一直说我是他见过最靠谱、最有创意的问题解决者”。"], ["Have you done anything to further your experience?", "你有没有做过什么来提升自己的经验？"], ["This could include anything from night classes to hobbies and sports. If it’s related, it’s worth mentioning. Obviously anything to do with further education is great, but maybe you’re spending time on a home improvement project to work on skills such as self-sufficiency, time management and motivation.", "这可以包括从夜校课程到兴趣爱好、体育运动等任何事情。只要是相关的，都值得一提。显然，任何和继续教育有关的事情都很不错，但也可能你花时间做家庭装修项目，锻炼了自给自足、时间管理和自我激励等技能。"], ["Where else have you applied?", "你还申请了其他哪些公司？"], ["This is a good way to hint that you’re in demand, without sounding like you’re whoring yourself all over town. So, be honest and mention a few other companies. don’t go into detail. The fact that you’re seriously looking and keeping your options open is what the interviewer is driving at.", "这是个暗示自己很抢手的好办法，但又不会显得你在到处找工作。所以，诚实说出几家其他公司就行，别讲太细。面试官想知道的是你确实在认真找工作，并且没有把自己局限在一处。"], ["How are you when you’re working under pressure?", "你在压力下工作表现如何？"], ["Once again, there are a few ways to answer and should all be positive. You may work well under pressure, you may thrive under pressure, and you may actually PREFER working under pressure. If you say you crumble like aged blue cheese, this is not going to help you get your foot in the door.", "这个问题有好几种回答方式，但都得往积极的方向说。你可以说自己在压力下工作得很好，或者在压力下能超常发挥，甚至可以说自己实际上更喜欢在压力下工作。要是你说自己一有压力就像过期的蓝纹奶酪一样崩溃，那可不利于你获得这份工作。"], ["What motivates you to do a good job?", "是什么激励你把工作做好？"], ["The answer to this one is not money, even if it is. You should be motivated by life’s noble pursuits. You want recognition for a job well done. You want to become better at your job. You want to help others or be a leader in your field.", "这个问题的答案可别说是钱，哪怕真是钱也别这么说。你应该说是生活中的崇高追求激励着你。你希望自己出色完成工作后能得到认可，想要在工作中不断进步，想要帮助他人，或者成为所在领域的领导者。"], ["What’s your greatest strength?", "你最大的优点是什么？"], ["This is your chance to shine. You’re being asked to explain why you are a great employee, so don’t hold back and stay do stay positive. You could be someone who thrives under pressure, a great motivator, an amazing problem solver or someone with extraordinary attention to detail. If your greatest strength, however, is to drink anyone under the table or get a top score on Mario Kart, keep it to yourself. The interviewer is looking for work-related strengths.", "这是你展示自己的好机会。面试官是在问你为什么是一名优秀的员工，所以别谦虚，一定要保持积极的态度。你可以说自己在压力下表现出色、很擅长激励他人、是个厉害的问题解决者，或者是个特别注重细节的人。但要是你最大的优点是喝酒千杯不醉，或者玩《马里奥赛车》总能拿高分，这种话还是别说了。面试官想了解的是和工作相关的优点。"], ["What’s your biggest weakness?", "你最大的缺点是什么？"], ["If you’re completely honest, you may be kicking yourself in the butt. If you say you don’t have one, you’re obviously lying. This is a horrible question and one that politicians have become masters at answering. They say things like “I’m perhaps too committed to my work and don’t spend enough time with my family.” Oh, there’s a fireable offense. I’ve even heard “I think I’m too good at my job, it can often make people jealous.” Please, let’s keep our feet on the ground. If you’re asked this question, give a small, work-related flaw that you’re working hard to improve. Example: “I’ve been told I occasionally focus on details and miss the bigger picture, so I’ve been spending time laying out the complete project every day to see my overall progress.”", "要是你太实诚，可能会后患无穷。要是你说自己没有缺点，那显然是在撒谎。这是个很棘手的问题，而政客们最擅长回答这类问题。他们会说 “我可能太专注于工作，都没什么时间陪家人” 之类的话。这简直就是给自己挖坑。我甚至还听过 “我觉得我工作能力太强了，这经常招人嫉妒”。拜托，咱还是实际点吧。要是被问到这个问题，就说一个和工作相关的小缺点，并且表明自己正在努力改进。比如：“有人说我有时候太关注细节，忽略了大局，所以我现在每天都会花时间梳理整个项目，好了解整体进展。”"], ["Let’s talk about salary. What are you looking for?", "咱们谈谈薪资吧。你期望的薪资是多少？"], ["Run for cover! This is one tricky game to play in an interview. Even if you know the salary range for the job, if you answer first you’re already showing all your cards. You want as much as possible, the employer wants you for as little as you’re willing to take. Before you apply, take a look at salary.com for a good idea of what someone with your specific experience should be paid. You may want to say, “well, that’s something I’ve thought long and hard about and I think someone with my experience should get between X & Y.” Or, you could be sly and say, “right now, I’m more interested in talking more about what the position can offer my career.” That could at least buy you a little time to scope out the situation. But if you do have a specific figure in mind and you are confident that you can get it, I’d say go for it. I have on many occasions, and every time I got very close to that figure (both below and sometimes above).", "这可真是个难题！在面试中谈薪资是个棘手的事。即便你知道这个岗位的薪资范围，要是你先回答，就等于暴露了自己的底线。你想拿尽可能多的钱，而雇主则想以你能接受的最低薪资聘用你。在申请工作前，可以去salary.com网站看看，了解一下像你这种经验水平的人该拿多少工资。你可以说：“这个问题我想了很久，我觉得以我的经验，薪资应该在 X 到 Y 之间。” 或者，你也可以耍点小聪明，说：“目前，我更想多了解一下这个岗位能给我的职业发展带来什么。” 这样至少能为你争取点时间，好摸清情况。但要是你心里已经有了一个具体的数字，并且有信心能拿到，那我觉得不妨直接说出来。我就这么做过很多次，每次都能拿到和预期很接近的薪资（有时比预期低一点，有时还能高一点）。"], ["Are you good at working in a team?", "你擅长团队合作吗？"], ["Unless you have the I.Q. of a houseplant, you’ll always answer YES to this one. It’s the only answer. How can anyone function inside an organization if they are a loner? You may want to mention what part you like to play in a team though; it’s a great chance to explain that you’re a natural leader.", "除非你智商低得像盆植物，不然这个问题肯定得回答 “是”。这是唯一正确的答案。要是一个人不合群，在公司里怎么能好好工作呢？不过，你可以说说自己在团队中喜欢扮演什么角色，这可是个表明自己天生具有领导才能的好机会。"], ["Tell me a suggestion you have made that was implemented.", "说说你提出过的一个被采纳的建议。"], ["It’s important here to focus on the word “implemented.” There’s nothing wrong with having a thousand great ideas, but if the only place they live is on your notepad what’s the point? Better still, you need a good ending. If your previous company took your advice and ended up going bankrupt, that’s not such a great example either. Be prepared with a story about an idea of yours that was taken from idea to implementation, and considered successful.", "这里要重点突出 “被采纳” 这个词。有一千个好点子固然不错，但要是它们只停留在你的笔记本上，那有什么用呢？更重要的是，你得讲一个好的结局。要是你之前的公司采纳了你的建议，结果却破产了，这也不是个好例子。准备好一个故事，讲讲你提出的某个建议是如何从想法变成实际行动，并且取得成功的。"], ["Has anything ever irritated you about people you’ve worked with?", "和你一起工作的人有没有什么地方让你很恼火？"], ["Of course, you have a list as long as your arm. But you can’t say that, it shows you as being negative and difficult to work with. The best way to answer this one is to think for a while and then say something like “I’ve always got on just fine with my co-workers actually.” Use this question as a chance to show that you are a team player: “The only people I have trouble with are those who aren’t team players, who just don’t perform, who complain constantly, and who fail to respond to any efforts to motivate them.” The interviewer is expecting a response focused on personality and personal dislikes. Surprise her by delivering an answer that reflects company values.", "当然，你能列出一长串。但可不能这么说，这会显得你很消极，很难共事。最好的回答方式是先思考一下，然后说 “其实我和同事们一直相处得挺好的”。利用这个问题展示你是个有团队精神的人：“我唯一相处不来的人，就是那些没有团队合作精神、工作不努力、总是抱怨，而且怎么激励都没用的人。” 面试官一般期望你从个人性格和喜好方面回答。给出一个体现公司价值观的答案，肯定能让他们眼前一亮。"], ["Is there anyone you just could not work with?", "有没有你就是无法共事的人？"], ["No. Well, unless you’re talking about murderers, racists, rapists, thieves or other dastardly characters, you can work with anyone. Otherwise you could be flagged as someone who’s picky and difficult if you say, “I can’t work with anyone who’s a Bronco’s fan. Sorry.”", "没有。除非你说的是杀人犯、种族主义者、强奸犯、小偷或其他坏蛋，否则你应该能和任何人共事。不然，要是你说 “不好意思，我没法和野马队的球迷一起工作”，别人会觉得你很挑剔、很难相处。"], ["Tell me about any issues you’ve had with a previous boss.", "说说你和前老板之间有没有什么矛盾。"], ["Arrgh! If you fall for this one you shouldn’t be hired anyway. The interviewer is testing you to see if you’ll speak badly about your previous supervisor. Simply answer this question with extreme tact, diplomacy and if necessary, a big fat loss of memory. In short, you’ve never had any issues.", "哎呀！要是你掉进这个陷阱，那估计也别想被录用了。面试官是在试探你，看你会不会说前上司的坏话。回答这个问题时，一定要非常机智、圆滑，必要时不妨装失忆。总之，就说你从来没和前老板有过矛盾。"], ["The answer to 18 is completely wrong. I am a director at a major media company’s interactive division. Our company is expanding and I am almost in a constant state of hiring. I ask a variation of this question in every single interview and if a candidate has never had one issue or disagreement with anyone, (I stated a variation: I ask if it has happened with anyone in the workplace) I peg them as a liar and reject them immediately.", "第 18 题的答案完全错了。我是一家大型媒体公司互动部门的主管。我们公司在扩张，所以我几乎一直在招人。每次面试我都会问这个问题的变体，如果候选人说自己从未和任何人有过矛盾或分歧（我问的变体是：在工作场合有没有和人发生过这类情况），我就会觉得他们在撒谎，然后直接淘汰。"], ["I went well with my previous boss. If there is a conflict, I will be open mind and talk about facts. Once decision is made, I execute it well.", "我和前老板相处得很好。要是有冲突，我会保持开放的心态，就事论事。一旦做出决定，我也会认真执行。"], ["Would you rather work for money or job satisfaction?", "你更看重薪资还是工作满意度？"], ["It’s not a very fair question is it? We’d all love to get paid a Trump-like salary doing a job we love but that’s rare indeed. It’s fine to say money is important, but remember that NOTHING is more important to you than the job. Otherwise, you’re just someone looking for a bigger paycheck.", "这问题不太公平，对吧？我们都想拿着特朗普那样的高薪，做着自己喜欢的工作，但这太难得了。说钱很重要没问题，但要记住，对自己来说，没有什么比工作本身更重要。不然，你就只是个只看重薪水的人。"], ["Would you rather be liked or feared?", "你希望别人喜欢你还是怕你？"], ["Are you willing to put the interests of X Company ahead of your own?", "你愿意把 X 公司的利益置于自己的利益之上吗？"], ["Again, another nasty question. If you say yes, you’re a corporate whore who doesn’t care about family. If you say no, you’re disloyal to the company. I’m afraid that you’ll probably have to say yes to this one though, because you’re trying to be the perfect employee at this point, and perfect employees don’t cut out early for Jimmy’s little league game.", "这又是一个让人头疼的问题。如果你回答 “是”，别人可能会觉得你是个只知道讨好公司、不顾家庭的人；要是回答 “否”，又显得你对公司不忠诚。不过恐怕你大概率还是得回答 “是”，因为这时候你想展现自己是个完美的员工，而完美的员工不会因为吉米的少年棒球赛就提前下班。"], ["It is situational. If you… ; if you …. Ethics and professionalism", "这得视情况而定。如果你……；如果你……。这关乎职业道德和专业素养。"], ["So, explain why I should hire you.", "那么，说说我为什么要录用你。"], ["As I’m sure you know, “because I’m great” or “I really need a job” are not good answers here. This is a time to give the employer a laundry list of your greatest talents that just so happen to match the job description. It’s also good to avoid taking potshots at other potential candidates here. Focus on yourself and your talents, not other people’s flaws.", "你肯定知道，“因为我很优秀” 或者 “我真的很需要这份工作” 可不是好答案。这时候你应该给雇主列出一长串你的过人之处，而且这些特长还得和岗位要求恰好匹配。同时，最好别去贬低其他潜在候选人。多谈谈自己和自己的才能，别老揪着别人的缺点不放。"], ["Finally, do you have any questions to ask me?", "最后，你有什么问题要问我吗？"], ["I’ll finish the way I started, with one of the most common questions asked in interviews. This directly relates to the research you’ve done on the company and also gives you a chance to show how eager and prepared you are. You’ll probably want to ask about benefits if they haven’t been covered already. A good generic one is “how soon could I start, if I were offered the job of course.” You may also ask what you’d be working on. Specifically, in the role you’re applying for and how that affects the rest of the company. Always have questions ready, greeting this one with a blank stare is a rotten way to finish your interview. Good luck and happy job hunting. Ponder for a moment, and then ask your interviewer “what aspect of your job do you find most challenging”.", "我用面试中最常见的一个问题来结束这部分内容。这个问题和你对公司所做的调查直接相关，也能让你展示自己对这份工作的渴望和准备程度。如果之前没提到福利待遇，你可能会想问这方面的问题。一个通用的好问题是 “如果我被录用了，大概多久可以入职呢？”。你也可以问问入职后具体要做什么工作，特别是和你申请的岗位相关的内容，以及这份工作会对公司其他方面产生什么影响。一定要提前准备好问题，要是面对这个问题你一脸茫然，那这场面试收尾可就太糟糕了。祝你好运，求职顺利。思考片刻后，你可以问问面试官 “你觉得你工作中最具挑战性的是哪方面？”"], ["I would ask the interviewer, “Why do you like to work here?”", "我会问面试官：“你为什么喜欢在这里工作？”"], ["Where do you want to be in 5 to 10 years?", "未来 5 到 10 年，你有什么规划？"], ["They don't want to hear in the same job you are interviewing for. Ultimately, the HR people are searching for someone who can handle the job now, and has the potential to grow into a high level management job in the future. Do you have those goals too?", "他们可不想听到你说还干着现在面试的这份工作。说到底，人力资源部门的人在寻找的是当下能胜任工作，并且未来有潜力晋升到高级管理岗位的人。你有这样的目标吗？"], ["Would you rather work for a big company or a small one?", "你更愿意在大公司还是小公司工作？"], ["Favorite answer: I’d treat any company like it was my own regardless. Total ownership of the situation can get you a long way.", "最佳回答：不管在什么公司，我都会像对待自己的公司一样。把公司的事当成自己的事，这样能让你走得更远。"], ["General, the worst answer was “I don’t know.” I’ve since learned that “it depends,” with a couple of examples, is perfectly appropriate.", "一般来说，最糟糕的回答是 “我不知道”。后来我发现，回答 “视情况而定” 并列举几个例子，是完全没问题的。"], ["What specific goals, including those related to your occupation, have you established for your life?", "你为自己的人生设定了哪些具体目标，包括和职业相关的目标？"], ["I want to be working for an excellent company like yours in a job in which I am managing information. I plan to contribute my leadership, interpersonal, and technical skills. My long-range career goal is to be the best information systems technician I can for the company I work for.", "我希望能在像贵公司这样优秀的企业工作，从事信息管理方面的工作。我打算发挥自己的领导能力、人际交往能力和技术能力。我的长期职业目标是成为所在公司最出色的信息系统技术员。"], ["How has your college experience prepared you for a business career?", "你的大学经历是如何让你为商业职业生涯做准备的？"], ["I have prepared myself to transition into the work force through real-world experience involving travel abroad, internship, and entrepreneurial opportunities. While interning with a private organization in Ecuador, I developed a 15-page marketing plan composed in Spanish that recommended more effective ways the company could promote its services. I also traveled abroad on two other occasions in which I researched the indigenous culture of the Mayan Indians in Todos Santos, Guatemala, and participated in a total language immersion program in Costa Rica. As you can see from my academic, extracurricular, and experiential background, I have unconditionally committed myself to success as a marketing professional.", "我通过出国旅行、实习和创业等实际经历，为进入职场做准备。在厄瓜多尔的一家私人机构实习时，我用西班牙语撰写了一份 15 页的营销计划，为公司推荐了更有效的服务推广方式。我还另外两次出国，一次是在危地马拉托多斯桑托斯研究玛雅印第安人的本土文化，另一次是在哥斯达黎加参加了一个语言沉浸式学习项目。从我的学术、课外和实践经历可以看出，我一心想成为一名成功的营销专业人士。"], ["Please describe the ideal job for you following graduation.", "请描述一下你毕业后理想的工作。"], ["My ideal job is one that incorporates both my education and practical work skills to be the best I can be. Namely combining my education in finance with my working knowledge of customer service operations, entrepreneurial abilities, computer skills, and administrative skills. I want to utilize my analytical expertise to help people meet their financial goals. This is exactly why I am convinced that I would be a very valuable member of the Merrill Lynch team.", "我理想的工作是能将我的教育背景和实际工作技能充分结合，让我发挥出最大能力。具体来说，就是把我在金融方面的学习和客户服务运营的实践知识、创业能力、计算机技能以及管理技能结合起来。我想用自己的分析专长帮助人们实现财务目标。这就是为什么我坚信自己会成为美林团队中非常有价值的一员。"], ["What influenced you to choose this career?", "是什么影响了你选择这个职业？"], ["My past experiences have shown me that I enjoy facing and overcoming the challenge of making a sale. Without a doubt, once I have practiced my presentation and prepared myself for objections, I feel very confident approaching people I don't know and convincing them that they need my product. Lastly, I like sales because my potential for success is limited only by how much of myself I dedicate toward my goal. If any profession is founded on self-determinism, it surely must be sales.", "我过去的经历让我发现，我喜欢迎接并克服销售中的挑战。毫无疑问，一旦我练习好产品介绍，并准备好应对客户的异议，我就会充满信心地去接触陌生人，说服他们购买我的产品。最后，我喜欢销售工作是因为我成功的潜力只取决于我为目标付出多少努力。如果说有哪个职业是建立在自我决定的基础上，那肯定是销售。"], ["At what point did you choose this career?", "你是在什么时候决定选择这个职业的？"], ["I knew that I wanted to pursue information systems technology about my sophomore year in college. It was then that I realized that my hobby (computers) was taking up most of my time. My favorite courses were IT courses. I also realized that I was doing computer-oriented work-study that I enjoyed so much I would have done it for free.", "我大概在大二的时候，就决定要从事信息系统技术相关工作。那时我发现自己的爱好（计算机）占据了我大部分时间。我最喜欢的课程就是信息技术课程。我还意识到，我做的计算机相关勤工俭学工作让我乐在其中，就算没有报酬我也愿意做。"], ["What specific goals have you established for your career?", "你为自己的职业生涯设定了哪些具体目标？"], ["My goals include becoming a Certified Financial Advisor so I can obtain a better working knowledge of financial research analysis, which would allow me to contribute to my client base as a better financial consultant since I would have that extra insight into the companies they are seeking to invest in. Also, this is the foundation block to advancing my career to portfolio manager or even branch office manager.", "我的目标包括成为一名注册财务顾问，这样我就能更好地掌握金融研究分析方面的专业知识，作为一名更优秀的财务顾问为客户提供服务，因为我对他们想要投资的公司会有更深入的了解。而且，这也是我晋升为投资组合经理甚至分公司经理的基础。"], ["What will it take to attain your goals, and what steps have you taken toward attaining them?", "为了实现这些目标，你需要做些什么？你已经采取了哪些行动？"], ["I've already done some research on other workers at Merrill Lynch to see how they achieved similar goals. I know that Merrill Lynch encourages the pursuit and will reimburse for tuition of a graduate degree. I plan on pursuing an MBA to give me an even more extensive knowledge of business and financial analysis.", "我已经研究了美林的其他员工是如何实现类似目标的。我知道美林鼓励员工自我提升，还会报销研究生课程的学费。我打算攻读工商管理硕士学位，让自己在商业和金融分析方面有更广泛的知识储备。"], ["How did you handle a challenge?", "你是如何应对挑战的？"], ["During a difficult financial period, I was able to satisfactorily negotiate repayment schedules with multiple vendors.", "在财务困难时期，我成功地与多家供应商协商好了还款计划。"], ["When the software development of our new product stalled, I coordinated the team which managed to get the schedule back on track. We were able to successfully troubleshoot the issues and solve the problems, within a very short period of time.", "当我们新产品的软件开发停滞不前时，我协调团队，让项目进度重回正轨。我们在很短的时间内成功排查并解决了问题。"], ["A long-term client was about to take their business to a competitor. I met with the customer and was able to change how we handled the account on a day-to-day basis, in order to keep the business.", "一位长期客户差点转投竞争对手。我和这位客户沟通后，调整了日常的账户处理方式，成功留住了这个客户。"], ["When you're asked what your greatest weakness is, try to turn a negative into a positive. For example, a sense of urgency to get projects completed or wanting to triple-check every item in a spreadsheet can be turned into a strength i.e. you are a candidate who will make sure that the project is done on time and your work will be close to perfect.", "当被问到你最大的缺点是什么时，试着把缺点转化为优点。比如，完成项目时的紧迫感，或者想把电子表格里的每一项都反复检查三遍，这些都可以转化为优点，说明你是一个能确保项目按时完成，且工作近乎完美的候选人。"], ["When I'm working on a project, I don't want just to meet deadlines. Rather, I prefer to complete the project well ahead of schedule.", "我做项目的时候，不只想按时完成，还总想提前很久完成。"], ["Being organized wasn't my strongest point, but I implemented a time management system that really helped my organization skills.", "以前我不太擅长规划，但我采用了一套时间管理系统，这极大地提升了我的规划能力。"], ["I like to make sure that my work is perfect, so I tend to perhaps spend a little too much time checking it. However, I've come to a good balance by setting up a system to ensure everything is done correctly the first time.", "我总想确保自己的工作完美无缺，所以可能会花太多时间检查。不过，我建立了一套机制，能保证一次性把事情做对，现在已经能很好地平衡了。"], ["I used to wait until the last minute to set appointments for the coming week, but I realized that scheduling in advance makes much more sense.", "我以前总是等到最后一刻才安排下周的预约，但我现在意识到提前规划更合理。"], ["I have exceeded my sales goals every quarter and I've earned a bonus each year since I started with my current employer.", "自我进入现在这家公司，每个季度我都能超额完成销售目标，每年都能拿到奖金。"], ["My time management skills are excellent and I'm organized, efficient, and take pride in excelling at my work.", "我的时间管理能力很强，做事有条理、效率高，并且为自己出色的工作表现感到自豪。"], ["I pride myself on my customer service skills and my ability to resolve what could be difficult situations.", "我对自己的客户服务能力和处理难题的能力很有信心。"], ["How well can you work in stressful situations?", "你在压力环境下的工作表现如何？"], ["Stress is very important to me. With stress, I do the best possible job. The appropriate way to deal with stress is to make sure I have the correct balance between good stress and bad stress. I need good stress to stay motivated and productive.", "压力对我来说很重要。有压力的时候，我能把工作做到最好。应对压力的正确方法是在良性压力和不良压力之间找到平衡。我需要良性压力来保持动力和工作效率。"], ["I react to situations, rather than to stress. That way, the situation is handled and doesn't become stressful.", "我是对具体情况做出反应，而不是被压力牵着走。这样就能处理好问题，也不会觉得压力很大。"], ["I actually work better under pressure and I've found that I enjoy working in a challenging environment.", "实际上，我在压力下工作得更好，而且我发现自己喜欢在充满挑战的环境中工作。"], ["From a personal perspective, I manage stress by visiting the gym every evening. It's a great stress reducer.", "就我个人而言，我每天晚上去健身房来缓解压力，这是个很好的减压方式。"], ["Prioritizing my responsibilities so I have a clear idea of what needs to be done when, has helped me effectively manage pressure on the job.", "我会对工作任务按重要程度排序，这样就能清楚知道什么时候该做什么，这帮助我有效地应对了工作压力。"], ["If the people I am managing are contributing to my stress level, I discuss options for better handling difficult situations with them.", "如果我管理的人给我带来了压力，我会和他们一起讨论如何更好地处理难题。"], ["What’s motivates you?", "你工作的动力是什么？"], ["I was responsible for several projects where I directed development teams and implemented repeatable processes. The teams achieved 100% on-time delivery of software products. I was motivated both by the challenge of finishing the projects ahead of schedule and by managing the teams that achieved our goals.", "我负责过几个项目，带领开发团队并执行可重复的流程。团队实现了软件产品 100% 按时交付。提前完成项目的挑战，以及带领团队达成目标的成就感，都激励着我。"], ["I've always been motivated by the desire to do a good job at whatever position I'm in. I want to excel and to be successful in my job, both for my own personal satisfaction and for my employer.", "无论在什么岗位，我都想把工作做好，这一直是我工作的动力。我希望自己表现出色，在工作中取得成功，这既是为了自己的满足感，也是为了给雇主带来价值。"], ["I have always wanted to ensure that my company's clients get the best customer service I can provide. I've always felt that it's important, both to me personally, and for the company and the clients, to provide a positive customer experience.", "我一直希望能为公司的客户提供最好的服务。我觉得提供良好的客户体验对我个人、公司和客户都很重要。"], ["I have spent my career in sales, typically in commission-based positions, and compensation has always been a strong factor in motivating me to be the top salesperson at my prior employers.", "我一直从事销售工作，通常是拿提成的岗位，薪资报酬一直是激励我成为前公司销售冠军的重要因素。"], ["If you're asked what your salary requirements are, say that they are open based upon the position and the overall compensation package. Or tell the employer you'd like to know more about the responsibilities and the challenges of the job prior to discussing salary.", "如果被问到薪资要求，你可以说薪资要求会根据岗位和整体薪酬待遇来定，保持开放态度。或者告诉雇主，在讨论薪资之前，你想先了解一下这份工作的职责和挑战。"], ["Another option is to give the employer a salary range based upon the salary research you've done up front. Once you've received the offer you don't need to accept (or reject) it right away. A simple \"I need to think it over\" can get you an", "协商加薪"], ["Be aware of company policy regarding compensation. Be flexible. Would you consider an extra couple of weeks vacation instead of a raise? I know someone who's regularly taken time-off instead of money and now has six vacation weeks a year... Then, ask your supervisor for a meeting to discuss salary. Present your request, supported by documentation, calmly and rationally. Don't ask for an immediate answer. Your boss is mostly likely going to have to discuss it with Human Resources and/or other company managers. Despite your best efforts, there may simply not be enough money in the budget to increase your salary or compensation package offer. The company may also not want to create inequities by paying one person more than others in a similar position. In that case, you can at least know you tried. Plus, if this is a job you really think that you're going to love, consider whether the company culture, the benefits, and the job itself are worth it - regardless of the salary.", "要了解公司的薪酬政策，保持灵活。你会考虑多休几周假而不是加薪吗？我认识一个人，他经常选择休假而不是拿额外的钱，现在他每年有六周的假期…… 然后，和你的主管约个时间讨论薪资问题。提出你的要求，并用相关材料冷静、理性地加以佐证。不要要求对方立即答复。你的老板很可能需要和人力资源部门及（或）其他公司经理讨论。尽管你尽了最大努力，但公司预算里可能确实没有足够的钱给你加薪或提高福利待遇。公司也可能不想因为给某个人比同岗位其他人更高的薪酬而造成不公平。在这种情况下，至少你知道自己努力过了。另外，如果这是一份你真的很喜欢的工作，那就考虑一下公司文化、福利待遇以及工作本身，看看抛开薪资因素，这些是否值得你留下。"], ["One of my greatest passions is helping others. When I was younger, I've enjoyed helping mom with household repairs. As I grew older, that habit grew and I desired to help others as well. I like helping people find solutions that meet their specific needs.", "我最大的爱好之一就是帮助别人。小时候，我喜欢帮妈妈修理家里的东西。长大后，这种习惯愈发强烈，我也渴望帮助更多的人。我喜欢帮人们找到满足他们特定需求的解决方案。"], ["I'm passionate about painting. I take an evening art class once a week and try to find time each weekend to paint. Painting is a good way for me to relax and even though I don't have much talent, I do enjoy it.", "我热爱绘画。我每周上一次晚上的美术课，每个周末也会尽量抽时间画画。绘画是我放松的好方式，虽然我没什么天赋，但我真的很享受这个过程。"], ["I lost my father to pancreatic cancer and ever since then, I have spent time volunteering to help raise awareness and funding for cancer research. I volunteer for PanCan, the advocacy group, and I'm part of their volunteer network. One of the things I'm passionate about is to assist in finding a cure, however I can.", "我的父亲因胰腺癌去世，从那以后，我就开始做志愿者，致力于提高人们对癌症的认识，并为癌症研究筹集资金。我在胰腺癌行动网络（PanCan）这个倡导组织做志愿者，是他们志愿者团队的一员。我一心想为找到癌症的治疗方法尽自己的一份力。"], ["I'm passionate about making a difference. When I'm involved with a project at work I want to do my best to achieve success. I feel the same way about what I do in my personal life.", "我热衷于做出改变。工作中参与项目时，我想尽自己最大的努力取得成功。在生活中做其他事情时，我也是这样的态度。"], ["I'm an avid skier and I like to spend weekends and vacations on the ski slopes.", "我热衷于滑雪，喜欢在周末和假期去滑雪场。"], ["There's no on-going criticism. I'm open to personal and professional growth and welcome the opportunity to improve.", "并没有人一直批评我。我乐于在个人和职业方面不断成长，也很欢迎能有提升自我的机会。"], ["I have a teenage daughter - few things I do are okay on her radar screen.", "我有个十几岁的女儿，在她眼里，我做的很多事都不太对。"], ["This is not only a fine opportunity, but this company is a place where my qualifications can make a difference. As a finance executive well versed in the new stock options law, I see this position as made to order. It contains the challenge to keep me on my toes. That's the kind of job I like to anticipate every morning.", "这不仅是一个好机会，而且这家公司能让我的专业资质发挥作用。作为一名熟悉新股票期权法的财务主管，我觉得这个职位简直是为我量身打造的。它充满挑战，能让我时刻保持警觉。这就是我每天早上都期待去做的工作。"], ["I want this job because it seems tailored to my competencies, which include sales and marketing. As I said earlier, in a previous position I created an annual growth rate of 22 percent in a flat industry. Additionally, the team I would work with looks terrific.", "我想要这份工作，因为它似乎很适合我的能力，包括销售和市场营销方面的能力。正如我之前所说，我在上一个职位上，让一个发展停滞的行业实现了每年 22% 的增长率。而且，和我共事的团队看起来也很棒。"], ["I well understand that this is a company on the way up. Your Web site says the launch of several new products is imminent. I want to be a part of this business as it grows.", "我深知这是一家正在崛起的公司。你们的网站上说，即将推出几款新产品。我想在公司发展的过程中贡献自己的力量。"], ["Having worked through a college business major building decks and porches for neighbors, this entry-level job for the area's most respected home builder has my name on it.", "我大学学的是商科，期间还为邻居搭建过露台和门廊。现在这个当地最受尊敬的房屋建筑商提供的初级职位，我觉得很适合我。"], ["As a dedicated technician, I like doing essential research. Being part of a breakthrough team is an experience I'd love to repeat.", "作为一名专注的技术人员，我喜欢做重要的研究。我很想再次体验加入一个有突破性成果的团队的感觉。"], ["This job is a good fit for what I've been interested in throughout my career. It offers a nice mix of short- and long-term activities. My short-term achievements keep me cranked up and the long-term accomplishments make me feel like a billion bucks.", "这份工作和我整个职业生涯感兴趣的方向很契合。它既有短期任务，也有长期项目。短期成就让我充满动力，长期成果则让我成就感满满。"], ["I want this job selling theater tickets because I'd be good at it. I'm good at speaking to people and handling cash. I would like a job with regular hours and I'm always on time.", "我想要这份卖剧院门票的工作，因为我觉得自己能做好。我善于与人交流，也擅长处理现金交易。我希望有一份工作时间固定的工作，而且我一向守时。"], ["Although some companies are replacing Americans with imported low-wage workers, you are standing tall. This company's successful strategies, good reputation and values make it heads and shoulders above its competition.", "虽然有些公司用低薪的外籍劳工取代美国本土员工，但你们公司却坚守原则。这家公司成功的战略、良好的声誉和价值观，让它在竞争中脱颖而出。"], ["I'd fit right in as a counter clerk in your fine drycleaners. I have observed that the counter clerk position requires competence at handling several activities in quick order -- customer service, payments, bagging and phones. I like multitasking and, as a homemaker, I have a lot of practice in keeping all the balls in the air.", "我觉得自己很适合在你们高档干洗店做前台店员。我注意到，前台店员需要能迅速处理多项工作，比如客户服务、收款、打包和接电话。我喜欢同时处理多项任务，作为一名家庭主妇，我在这方面很有经验。"], ["The work I find most stimulating allows me to use both my creative and research skills. The buzz on this company is that it rewards people who deliver solutions to substantial problems.", "我觉得最有吸引力的工作是能同时发挥我的创造力和研究能力的工作。听说这家公司会奖励那些能解决重大问题的人。"], ["Don't discuss your goals for returning to school or having a family, they are not relevant and could knock you out of contention for the job. Rather, you want to connect your answer to the job you are applying for.", "不要谈论重返校园或组建家庭的目标，这些与工作无关，还可能让你失去这份工作的竞争机会。相反，你的回答应该与你申请的工作相关。"], ["My long-term goals involve growing with a company where I can continue to learn, take on additional responsibilities, and contribute as much of value as I can.", "我的长期目标是在一家公司里与它共同成长，在这个过程中我可以不断学习，承担更多责任，并尽可能地创造价值。"], ["I see myself as a top performing employee in a well-established organization, like this one. I plan on enhancing my skills and continuing my involvement in (related) professional associations.", "我希望自己能成为像贵公司这样成熟企业中的优秀员工。我打算提升自己的技能，并继续参与相关的专业协会活动。"], ["Once I gain additional experience, I would like to move on from a technical position to management.", "积累了更多经验后，我希望从技术岗位转到管理岗位。"], ["In the XYZ Corporation, what is a typical career path for someone with my skills and experiences?", "在 XYZ 公司，像我这样有技能和经验的人，通常的职业发展路径是怎样的？"], ["Give them \"your synopsis about you\" answer, specifically your Unique Selling Proposition. Known as a personal branding or a value-added statement, the USP is a succinct, one-sentence description of who you are, your biggest strength and the major benefit that a company will derive from this strength. Here is an example of a Unique Selling Proposition: \"I'm a seasoned Retail Manager strong in developing training programs and loss prevention techniques that have resulted in revenue savings of over $2.3 Million for (employer's name) during the past 11 years.\"", "给他们一个关于你自己的简要介绍，尤其是你的独特卖点（USP）。独特卖点也被称为个人品牌或增值声明，是用一句话简洁地描述你是谁、你最大的优势，以及公司能从你的这个优势中获得的主要好处。下面是一个独特卖点的例子：“我是一位经验丰富的零售经理，擅长开发培训项目和制定防损策略，在过去 11 年里，为（前雇主名称）节省了超过 230 万美元的收入。”"], ["What a difference you've made with this statement. Your interviewer is now sitting forward in her chair giving you her full attention. At this point, you might add the following sentence: \"I'd like to discuss how I might be able to do something like that for you.\" The ball is now back in her court and you have the beginnings of a real discussion and not an interrogation process.", "这样的表述会让情况大不一样。面试官现在会前倾身体，全神贯注地听你讲话。这时，你可以接着说：“我想谈谈我如何能为贵公司带来类似的价值。” 这样一来，话语权就回到了对方手中，你们也开启了真正的对话，而不是单纯的问答环节。"], ["My background to date has been centered around preparing myself to become the very best financial consultant I can become. Let me tell you specifically how I've prepared myself. I am an undergraduate student in finance and accounting at _________ University. My past experiences has been in retail and higher education. Both aspects have prepared me well for this career.”", "到目前为止，我的经历都围绕着让自己成为一名最优秀的财务顾问展开。让我具体讲讲我是如何准备的。我是____大学金融与会计专业的本科生。我过去在零售和高等教育领域工作过。这些经历都为我从事这份职业奠定了良好的基础。”"], ["Try to think about what the interviewers are looking for and keep this in mind as you answer interview questions. Remember the job advert? Were they looking for initiative, a good communicator, someone with good attention to detail? Describe yourself in these terms. Start with \"I am..\" and not with \"I think...\" or \"I believe..\" so that you sound self aware and confident.", "回答面试问题时，试着想想面试官在寻找什么样的人，并把这一点牢记在心。还记得招聘广告吗？他们是在寻找有主动性、沟通能力强、注重细节的人吗？用这些特质来描述自己。回答时以 “我是……” 开头，而不是 “我认为……” 或 “我相信……”，这样会让你听起来更有自知之明，也更自信。"], ["When you're interviewing for an internal position within your company, you may be asked what you will do if you don't get the job. The interviewer wants to know whether you are concerned about just the advancement opportunity or the company. 内部职位竞聘常会被问到如果你没有得到这份工作的话你将会怎么办的问题。", "最佳答案"], ["I am committed to this company and its advancement so, should I not be selected, I will work with and support whoever might get selected. However, I do feel that my experience in the department and with the team would make me the best candidate.", "我对这家公司很忠诚，也希望它能不断发展。所以，如果我没被选中，我也会配合并支持最终获选的人。不过，我觉得以我在部门里的经验和团队协作经历，我是这个职位的最佳人选。"], ["If you get the job, your interviewer may be your future boss so you need to answer this question carefully. Describe yourself as any boss would want to see you. You might say:", "如果你得到了这份工作，面试官很可能就是你未来的老板，所以你得认真回答这个问题。用老板希望看到的方式来描述自己。你可以这样说："], ["My boss would describe me as hard working, loyal, friendly and committed. He would say that I work well on my own initiative and deliver what he wants on time and to a high standard\".", "我的老板会说我工作努力、忠诚可靠、友善待人且尽职尽责。他会说我工作积极主动，总能按时、高质量地完成他交代的任务。”"], ["Again, don’t use the term “I think my boss would say..” as it gives an element of doubt. Be positive and certain with the interview answer you give.", "同样，不要用 “我觉得我老板会说……” 这样的表述，因为这会让人觉得你不够确定。回答面试问题时要积极肯定。"], ["I am motivated by being around other positive people, we might question if working alone would suit them.", "和积极向上的人在一起会激励我，可能有人会质疑我是否适合独自工作。"], ["I am motivated by targets.", "目标激励着我前进。"], ["This is really a question about suitability, though we've included it here.", "这其实是一个关于岗位匹配度的问题，不过我们把它放在了这里。"], ["Remember the advert? Focus on the advert criteria and you won't go far wrong. For example, if the advert called for someone to lead others, you might say:", "还记得招聘广告吗？紧扣广告上的要求来回答，基本不会出错。比如，如果广告要求应聘者具备领导能力，你可以说："], ["I like a job where I can lead and motivate others and enjoy seeing improvements in team performance\".", "我喜欢能领导和激励他人的工作，看到团队表现不断提升，我会很有成就感。”"], ["If the advert called for a target-focused individual, you might say:", "如果广告要求应聘者目标明确，你"], ["Not everyone has one, but because you might be asked, think what yours would be.", "不是每个人都有座右铭，但因为你可能会被问到，所以想想你的座右铭会是什么。"], ["Just do it!\" \"Right first time, every time\". \"Less talk, more action\". \"Treat others as you'd wish to be treated\". \"Fortune favours the brave\". \"Quality, quality, quality...\".", "想做就做！”“一次做对，每次都对。”“少空谈，多实干。”“己所不欲，勿施于人。”“勇者事成。”“质量至上……”"], ["Our advice: This is one of those times when we ask candidates to explain their answers to our interview questions. So, whatever you say, it's likely you'll be asked to give a reason or example so have one in mind. For most jobs, you want to sound positive and motivated, but possibly not ruthless or inconsiderate.", "我们的建议：这是那种面试官会要求候选人解释答案的问题。所以，无论你说什么，都可能会被要求给出理由或例子，所以心里要有所准备。对于大多数工作来说，你要听起来积极向上、充满动力，但不要显得冷酷无情或不体谅他人。"], ["I really enjoy the technical nature of the job and the speed at which I'm able to fix faults. I get a lot of satisfaction from getting people back to work as soon as possible\".", "我真的很喜欢这份工作的技术含量，以及我能够快速排除故障的感觉。能让大家尽快恢复工作，我从中获得了很大的满足感。”"], ["If working as part of a team is mentioned as a requirement of the job, you might answer:", "如果团队合作被列为工作要求之一，你可以回答："], ["I really enjoy being part of a team. I like it when the team pulls together to achieve something and everyone can take some credit\".", "我真的很喜欢团队合作。我喜欢看到团队齐心协力达成目标，每个人都能从中获得成就感。”"], ["A good interview answer might go something like this:", "一个不错的面试回答可能是这样的："], ["Actually, I enjoy everything about what I do. I suppose if I had to give something up, it would be...\"", "实际上，我喜欢我工作的方方面面。但如果非得说一个的话，我想可能是……”"], ["The'something' depends on you, but it's best to mention something incidental to your job, like admin or paperwork. So you might say:", "这个‘东西’因人而异，但最好说一些与工作相关但不太重要的事情，比如行政工作或文书工作。所以你可以说："], ["I'm not sure (pause). I suppose if I had to pick something to give up it would be paperwork. I know it's important, and I do it well, but if someone else did it for me, that would be great!\"", "我不太确定（停顿）。我想如果非要选一件放弃的事情，那可能是文书工作。我知道它很重要，我也能做好，但要是有人能帮我做，那就太好了！”"], ["If you're applying for a more senior job, you might answer:", "如果你正在申请一份更高级别的工作，你可以回答："], ["I really enjoy what I do, but I'm ready for more responsibility and challenge which your job offers. Unfortunately, my current job/employer can't give me this.\"", "我很喜欢我现在的工作，但我已经准备好承担更多的责任，迎接新的挑战，而这些正是贵公司这份工作所提供的。遗憾的是，我目前的工作 / 雇主无法满足我的这些需求。”"], ["If this isn't the reason, use yours instead, but always be positive in your answers to tough interview questions.", "如果这不是你的原因，那就用你自己的理由，但在回答这类棘手的面试问题时，始终要保持积极的态度。"], ["My current boss is great. He sets the team challenging but realistic targets and motivates us to achieve them...\"", "我现在的老板很棒。他给团队设定的目标具有挑战性，但又切实可行，还激励我们去实现这些目标……”"], ["My current boss is very good. She deals with her team firmly but fairly and enjoys our respect because of this...\"", "我现在的老板非常好。她对待团队既严格又公平，因此赢得了我们的尊重……”"], ["If your current boss is not great, and you are prepared to answer more interview questions about this, say so, but do balance each criticism with a positive point. Remember the need to appear positive in your answers to interview questions. You might say:", "如果你的现任老板不太好，并且你准备好回答更多关于这方面的面试问题，那就如实说，但要在每一条批评中都加上一个积极的观点。记住，在面试回答中要展现出积极的态度。你可以这样说："], ["My current boss has strengths and weaknesses. He is very good at listening to people but sometimes, in my view, doesn't deal with underperformers firmly enough. This affects team morale sometimes...\"", "我现在的老板有优点也有缺点。他很善于倾听员工的意见，但在我看来，有时候他对表现不佳的员工处理不够果断。这有时会影响团队士气……”"], ["People is the best interview answer here. Say anything else and you're suggesting the job you're applying for won't give you everything you had and more, and might even leave you wanting!", "回答这个问题时，说会怀念同事是最好的答案。说其他任何东西，都意味着你暗示自己申请的这份工作无法给予你目前工作所拥有的一切，甚至可能让你有所缺失！"], ["As you think about answers to interview questions, always have in mind the need to create a positive impression.", "在思考面试问题的答案时，始终要记住要给面试官留下积极的印象。"], ["Well I'm confident that the job you're offering will give me everything I have now and more so I don't think I'll miss anything about the job itself. But I'll miss some of the people of course...\"", "嗯，我相信贵公司提供的这份工作会给予我目前工作的一切，甚至更多，所以我觉得我不会怀念这份工作本身的任何方面。当然，我会怀念那里的一些同事……”"], ["If you need to, start by saying \"Is it ok if I refer to my notes?\". When you get the nod, off you go.", "如果有需要，你可以先问 “我可以看一下我的笔记吗？”。得到允许后，就可以开始说了。"], ["A good interview answer should include short factual statements covering such things as the Company's history, its products, staff numbers, turnover and future business objectives. Something like this is fine:", "一个好的面试回答应该包含关于公司历史、产品、员工人数、营业额以及未来商业目标等方面的简短事实陈述。像下面这样回答就可以："], ["I believe the Company began in 1967, with just one outlet, but now has 25. From what I've read, you sell A, B and C products across Europe and the States and have a turnover in excess of $5 million. You employ 125 staff. I believe you hope to enter the Asian market by 2010\". \"I've done some research and can tell you more if you like\".", "我了解到这家公司成立于 1967 年，最初只有一家门店，现在已经发展到 25 家。据我所知，贵公司在欧洲和美国销售 A、B、C 产品，营业额超过 500 万美元，拥有 125 名员工。我还知道你们希望在 2010 年进军亚洲市场。”“我做了一些调查，如果您感兴趣，我还可以告诉您更多信息。”"], ["You will likely hear \"No, that's fine. Thank you.\"", "你很可能会听到对方说 “不用了，这样就可以了。谢谢。”"], ["Your interviewers will be impressed that you prepared and made notes and you're off to a good start.", "面试官会对你的准备充分和做笔记的行为留下深刻印象，这样你就有了一个好的开始。"], ["There are two bits to this interview question, the role and the Company. Mention both. You might say:", "这个面试问题包含两个方面，职位和公司。两个方面都要提到。你可以这样说："], ["I'm told the Company has a firm commitment to individual training and development. This is great news for me because I'm keen to learn and advance in the Company. The role itself appears challenging and rewarding which I'll find very motivating\".", "我听说贵公司非常重视员工的个人培训和发展。这对我来说是个好消息，因为我渴望在公司里学习和成长。这个职位本身看起来既有挑战性又有回报，这让我很有动力。”"], ["You might start by saying \"I understand that I'll be...\". Then you could talk about the main role, any other activities and any targets you expect to be given.", "你可以先这样开头：“我了解到我将会……”。然后你可以谈谈主要工作职责、其他相关活动以及你预期会被分配的目标。"], ["IMPORTANT -- this common job interview question can be asked in many different ways, such as \"What qualities do you admire in others that you would like to develop in yourself?\"", "重要提示 —— 这个常见的面试问题有很多种问法，比如 “你欣赏别人身上的哪些品质，并希望自己也能培养这些品质？”"], ["Strengths should be easy enough to think about (keep the position in mind).", "优点应该比较容易想（要结合应聘的职位来思考）。"], ["Talking about weaknesses can be harder but good interview answers are still possible. Many people choose to mention something which they've recognized as being a weakness but have overcome.", "谈论缺点可能更难一些，但还是有不错的回答方式。很多人会选择提及自己已经认识到并克服了的缺点。"], ["I'd like to be more organized, like one of my colleagues. She doesn't have to try. But because I don't find it as easy as her, I use to - do lists and a diary to help me successfully manage my work\".", "我希望自己能像我的一位同事那样更有条理。她天生就很有条理。但对我来说没那么容易，所以我会使用待办事项清单和日记来帮助自己更好地安排工作。”"], ["On a final note, it's much safer to highlight your lack of experience or knowledge as a weakness than a fault in your personality. Employers can always give you experience but few want to help you overcome shortcomings in your personality! So avoid telling interviewers that you \"get bored\" or \"too involved\" or \"frustrated\"!", "最后要注意，把缺乏经验或知识当作缺点来谈，比暴露性格上的缺陷要稳妥得多。雇主通常可以给你提供积累经验的机会，但很少有人愿意帮你克服性格上的不足！所以不要告诉面试官你 “容易感到无聊”、“过于投入” 或者 “容易沮丧”！"], ["What they are really asking is \"You know what we are looking for so can you tell us what you have done or what you have, that is relevant.\"", "他们真正想问的是 “你知道我们在寻找什么样的人，那么你能告诉我们你做过什么，或者你具备哪些与之相关的能力和经验吗？”"], ["This is often our closing question. We want to know, in a nutshell, why you are the best candidate for the job. This is a chance to list your best attributes as they relate to the vacancy. Don't be cocky, but don't be shy.", "这通常是我们面试的最后一个问题。简而言之，我们想知道为什么你是这份工作的最佳人选。这是一个列出你与该职位相关的最佳特质的机会。不要过于自大，但也不要过于害羞。"], ["I know that all jobs involve some sort of pressure at some time. I can work as well under pressure as I do at any other time but when I am busy, I prioritize activities so that my workload is manageable.”", "我知道所有工作在某些时候都会有一定压力。我在压力下和平时工作表现一样好，而且当我忙碌时，我会对各项任务进行优先级排序，让工作负荷处于可管理的状态。”"], ["If the interviewers focus on other pressure, such as pressure to meet targets, dealing with difficult customers etc, give an appropriate reply, mentioning past situations where you have coped under such pressure.", "如果面试官关注其他类型的压力，比如完成目标的压力、应对难缠客户的压力等，你要给出恰当的回答，提及你过去在类似压力下的应对经历。"], ["I am an easy - going person who seems to get on with everyone. If I have to pick a type of person that bothers me, it's the one who doesn't pull their weight or isn't worried about the standard of their work because it reflects badly on the rest of the team.”", "我是个随和的人，似乎和谁都能相处得来。如果非要选一种让我觉得共事困难的人，那就是那些不努力工作、对工作质量不上心的人，因为他们会影响整个团队。”"], ["In interviews for sales job, you may hear this, believe us! In fact, one of us had a non - sales interview and was asked this, unexpectedly. The object you are asked to sell could in fact be anything. Some interviewers like to see whether you focus on the benefits of the object or its features. The features of the pen might be that it's blue, with a roller ball and plastic coating. The benefits might be that it's reliable, easy to hold and leak proof.", "在销售岗位的面试中，你可能会听到这个问题，相信我们！实际上，我们中有个人在一次非销售岗位的面试中，也意外地被问到了这个问题。你被要求推销的物品实际上可能是任何东西。有些面试官想看看你是关注物品的优点还是特点。这支笔的特点可能是蓝色、有滚珠、塑料笔身。而它的优点可能是书写流畅、握感舒适、不会漏墨。"], ["You got this far because your job application form or resume or CV matched the interviewers' criteria as specified in the job advert. Just expand on this in your job interview answers. List the skills you think are required, giving a little explanation as to why each is needed.", "你能进入面试环节，是因为你的求职申请表、简历或履历符合面试官在招聘广告中列出的标准。在面试回答中，你只需对此进行扩展。列出你认为所需的技能，并简要解释为什么需要这些技能。"], ["You might then be asked to give examples where you've used one or more of these skills. These are behavioural interview questions.", "然后你可能会被要求举例说明你在哪些情况下运用了其中一项或多项技能。这些属于行为面试问题。"], ["This can be a difficult job interview question to answer, especially if you've not thought beyond getting this job! When you answer, you want to sound ambitious enough to be motivated to do a good job, but not too ambitious in case your interviewers think you're only using this job as a stepping - stone to something better.", "这可能是一个很难回答的面试问题，尤其是如果你除了得到这份工作之外，没有更多的职业规划！回答时，你要听起来有足够的雄心壮志，有动力把工作做好，但又不能显得过于野心勃勃，以免面试官认为你只是把这份工作当作通往更好职位的跳板。"], ["I can be successful in this job and taken on additional responsibilities and be considered suitable for promotion.", "我能在这份工作中取得成功，承担更多的责任，并获得晋升机会。"], ["This is a similar job interview question to the one above really, except that it looks beyond five years. Be realistic. You might say something like this if you're going for a middle - management position:", "这个问题和上面那个类似，只是它关注的时间跨度超过了五年。回答要实事求是。如果你应聘的是中层管理岗位，你可以这样说："], ["My ambition is to lead a department and be involved in strategic decision - making at a senior level. I expect the role I'm applying for to give me more experience of leading and some introduction to strategy so that I'm ready for a senior role in a few years time\".", "我的目标是领导一个部门，并参与高层战略决策。我希望我申请的这个职位能让我积累更多领导经验，初步接触战略规划，这样几年后我就能胜任更高级别的职位了。”"], ["Avoid saying further than you are now! It's better to show you've met or exceeded your ambitions than fallen short of them. Tell the interviewers that you are happy with your life and career, but are looking for more challenge as you like to stretch yourself to achieve more.", "不要说自己期望达到比现在更高的位置！最好展示出你已经实现或超越了自己的目标，而不是还差得远。告诉面试官你对自己的生活和职业现状很满意，但因为喜欢挑战自我、追求更多成就，所以在寻找新的挑战。"], ["You're on sticky ground if you start trying to think of hypothetical career changes that might have served you better in the past. Your answers to interview questions will suggest you're not happy with the way things are and no - one wants to hire an unhappy person.", "如果你开始思考过去本可以做出的、可能会让自己发展得更好的职业选择，那你就陷入了困境。你在面试中的回答可能会让人觉得你对现状不满，而没人愿意雇佣一个不开心的人。"], ["I wouldn't change anything. I am happy with my career as it is now but want fresh challenges.”", "我不会做出任何改变。我对现在的职业很满意，但我渴望新的挑战。”"], ["I'm not the kind of person who looks back with regrets. I prefer to invest my energy looking forward\".", "我不是那种会后悔过去的人。我更愿意把精力放在展望未来上。”"], ["If you're applying for a project - based job, such as a project manager, you will be asked this job interview question. Don't give a long - winded answer, but try to demonstrate that you would take into account the main components of effective project planning such as:", "如果你应聘的是基于项目的工作，比如项目经理，你可能会被问到这个面试问题。回答不要冗长，要试着展示你会考虑到有效项目规划的主要方面，比如："], ["Planning the schedule backwards from completion", "从项目完成时间倒推制定时间表"], ["Working out what you need to get the job done effectively and on time", "确定为了高效按时完成工作需要哪些资源"], ["Budgeting -- costs, time and resources", "制定预算 —— 包括成本、时间和资源"], ["If you are applying for any management role, it is highly likely you'll be asked this job interview question. The kind of skills that we'd be looking for in a good applicant are:", "如果你应聘任何管理岗位，很可能会被问到这个面试问题。我们期望优秀应聘者具备的技能包括："], ["As this is a behavioural interview question, you need to find an example of conflict that you have resolved. The sort of skills you need to demonstrate in your interview answer are:", "这是一个行为面试问题，你需要找到一个自己解决过的冲突案例。在面试回答中，你需要展示出的技能包括："], ["Finding a solution that everyone will accept", "找到一个大家都能接受的解决方案"]];window.__KEY__="英文面试70+问红";window.__TITLE__="英文面试70+问红";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

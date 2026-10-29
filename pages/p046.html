@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9.4接待国外客户800句</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">🛎️</span>9.4接待国外客户800句</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">61,872 字符</span>
+    <span>来源：9.4接待国外客户800句  原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C9.4%E6%8E%A5%E5%BE%85%E5%9B%BD%E5%A4%96%E5%AE%A2%E6%88%B7800%E5%8F%A5%20%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p046.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">When hosting foreign clients, these 800 sentences are all you need
+接待国外客户
+无非就这800句
+一、行程确认与规划
+How about your schedule for this business trip?（您这次商务出行的日程安排是怎样的？）
+Where are the key places you plan to visit during your stay?（您停留期间计划前往的重点地点有哪些？）
+Do you need me to help organize your daily itinerary?（需要我帮您整理每日行程吗？）
+Can you share your approximate arrival and departure times?（您能告知大致的抵达和离开时间吗？）
+Will your schedule include any free time for sightseeing?（您的行程里会有空闲时间用于游览吗？）
+How many days do you plan to stay in our city?（您计划在我们这座城市停留几天？）
+Are there specific time slots you prefer for meetings?（您对会议时间有特定偏好的时段吗？）
+Do you have any prior commitments that might affect the itinerary?（您有其他可能影响行程的既定安排吗？）
+Would you like to adjust the meeting time to fit your schedule better?（您想调整会议时间以更契合您的日程吗？）
+Can you confirm if the proposed itinerary works for you?（您能确认拟定的行程是否符合您的需求吗？）
+How many people will be part of your visiting group?（您的来访团队共有多少人？）
+Are there any special requirements for the group members&#x27; arrangements?（团队成员的安排有特殊需求吗？）
+Do we need to prepare separate accommodations for some members?（需要为部分成员准备单独住宿吗？）
+Will there be any VIPs in the visiting group who need extra care?（来访团队中有需要特殊关照的贵宾吗？）
+Can you tell us the job roles of the group members?（您能告知团队成员的工作职责吗？）
+Are there any language preferences among the visiting team?（来访团队成员有语言偏好吗？）
+Do we need to arrange translators for certain members?（需要为部分成员安排翻译吗？）
+Will the group travel together or split up for some activities?（团队会集体行动，还是部分活动分开进行？）
+Can you confirm the final number of visiting personnel?（您能确认来访人员的最终人数吗？）
+The itinerary I drafted is here—does it meet your expectations?（我拟定的行程表在这儿，符合您的预期吗？）
+I can revise the itinerary according to your feedback.（我可以根据您的反馈修改行程。）
+Does the order of activities in the itinerary make sense to you?（行程中活动的顺序您觉得合理吗？）
+Are there any activities in the itinerary you want to add or remove?（行程里有您想增加或删除的活动吗？）
+Will the proposed meeting duration work for your team?（拟定的会议时长对您的团队合适吗？）
+Do you need us to leave more buffer time between activities?（需要我们在活动之间预留更多缓冲时间吗？）
+Can we adjust the itinerary to avoid rush-hour traffic?（我们能调整行程以避开交通高峰期吗？）
+Is there any place you want to add to the itinerary last minute?（您临时有想添加到行程里的地点吗？）
+Do you prefer morning or afternoon for factory visits?（您更喜欢上午还是下午去工厂参观？）
+Will you have any business meetings with other companies during your stay?（您停留期间会和其他公司有商务会议吗？）
+Can you inform us if your travel plans change unexpectedly?（若行程突发变动，您能告知我们吗？）
+Do you need help booking local transportation for your itinerary?（需要我们帮您预订行程中的本地交通吗？）
+Are there any time-sensitive tasks that need to be included in the itinerary?（有需要纳入行程的时效性任务吗？）
+Will you need to prepare any materials before specific activities in the itinerary?（行程中特定活动前，您需要准备材料吗？）
+Can we schedule a brief call to finalize the itinerary?（我们能安排简短通话敲定行程吗？）
+Does the itinerary allow enough time for rest during your trip?（行程给您预留了足够的休息时间吗？）
+Are there any cultural activities you want to experience in the itinerary?（您想在行程中体验哪些文化活动？）
+Will the itinerary be shared with other members of your team?（行程会分享给您团队的其他成员吗？）
+Do you need a printed copy of the itinerary for each group member?（需要为每位团队成员准备行程打印件吗？）
+Can you confirm if the itinerary aligns with your overall business goals?（您能确认行程是否符合您的整体业务目标吗？）
+二、饮食偏好与餐厅选择
+Are there any types of food you don&#x27;t eat due to dietary restrictions?（因饮食限制，您有忌口的食物吗？）
+Do you have any allergies to specific ingredients?（您对特定食材过敏吗？）
+Are you a vegetarian or have any special eating habits?（您是素食者，或有特殊饮食习惯吗？）
+Do you prefer spicy, mild, or sweet flavors?（您偏好辣、清淡还是甜的口味？）
+Are there any cuisines you particularly enjoy?（您有特别喜欢的菜系吗？）
+Do you avoid any food for religious reasons?（因宗教信仰，您有避免食用的食物吗？）
+Are you okay with seafood in the restaurant menu?（餐厅菜单中的海鲜您能接受吗？）
+Do you have a preference for local or international restaurants?（您偏好本地餐厅还是国际餐厅？）
+Are you looking for a casual or formal dining environment?（您想要休闲还是正式的用餐环境？）
+Do you have any requirements for the restaurant&#x27;s location?（您对餐厅位置有要求吗？）
+Are there any restaurants you&#x27;ve heard of that you want to try?（您有听说过想尝试的餐厅吗？）
+Do you prefer buffets, set meals, or a la carte options?（您偏好自助餐、套餐还是单点？）
+Are you okay with eating at a restaurant with a busy atmosphere?（您能接受在热闹的餐厅用餐吗？）
+Do you have any preferences for the restaurant&#x27;s price range?（您对餐厅的价位有偏好吗？）
+Are there any local specialties you want to try during your meal?（用餐时您想尝试哪些本地特色菜？）
+Do you avoid food that&#x27;s too greasy or fried?（您会避免过于油腻或油炸的食物吗？）
+Are you okay with restaurants that serve alcohol?（您能接受提供酒精饮品的餐厅吗？）
+Do you have a preference for indoor or outdoor seating?（您偏好室内还是室外座位？）
+Are there any specific times you prefer to have meals?（您有偏好的用餐时间吗？）
+Do you need the restaurant to accommodate a large group?（需要餐厅能容纳多人团队吗？）
+Are you interested in trying traditional local breakfast?（您有兴趣尝试传统本地早餐吗？）
+Do you prefer light or hearty lunches during workdays?（工作日午餐您偏好清淡还是丰盛的？）
+Are you looking for a quiet restaurant for business dinners?（商务晚餐您想要安静的餐厅吗？）
+Do you have any requirements for the restaurant&#x27;s hygiene standards?（您对餐厅的卫生标准有要求吗？）
+Are you okay with trying new and unique food items?（您愿意尝试新奇的食物吗？）
+Do you prefer restaurants with private dining rooms?（您偏好有包间的餐厅吗？）
+Are there any food ingredients you dislike that we should note?（有您不喜欢、需我们留意的食材吗？）
+Do you need the restaurant to provide vegetarian options?（需要餐厅提供素食选择吗？）
+Are you interested in pairing local drinks with your meal?（您有兴趣搭配本地饮品用餐吗？）
+Do you have a preference for family-style or individual servings?（您偏好分餐制还是合餐制？）
+Are you okay with restaurants that have a waiting time?（您能接受需要等位的餐厅吗？）
+Do you need the restaurant to be wheelchair-accessible?（需要餐厅有无障碍设施吗？）
+Are there any specific cooking methods you prefer for your food?（您对食物的烹饪方式有偏好吗？）
+Do you avoid food with strong odors?（您会避免有刺激性气味的食物吗？）
+Are you interested in trying a themed restaurant?（您有兴趣尝试主题餐厅吗？）
+Do you have any preferences for the restaurant&#x27;s ambiance?（您对餐厅的氛围有偏好吗？）
+Are you okay with restaurants that use organic ingredients?（您能接受使用有机食材的餐厅吗？）
+Do you need the restaurant to offer takeout options if needed?（若有需要，您需要餐厅提供外带服务吗？）
+Are there any local snacks you want to try besides main meals?（除正餐外，您想尝试哪些本地小吃？）
+三、会议室布置准备
+Have we prepared enough snacks for the meeting attendees?（我们为参会人员准备了足够的零食吗？）
+Are the gifts for clients placed neatly on the conference table?（给客户的礼品有整齐摆放在会议桌上吗？）
+Have all the meeting documents been printed and organized?（所有会议文件都已打印整理好吗？）
+Is the voice recorder fully charged and ready to use?（录音笔已充满电并准备好使用了吗？）
+Has the projector been tested to ensure it works properly?（投影仪已测试，确保能正常使用吗？）
+Are there enough pens for each client to use during the meeting?（有足够的笔供每位客户会议中使用吗？）
+Has a product catalog been prepared for every client?（为每位客户都准备了产品目录吗？）
+Is the conference room&#x27;s air conditioning set to a comfortable temperature?（会议室空调已调至舒适温度吗？）
+Have the chairs around the conference table been arranged neatly?（会议桌周围的椅子已摆放整齐吗？）
+Is the whiteboard or flipchart ready with markers and erasers?（白板或活动挂图已备好马克笔和板擦吗？）
+Have we prepared enough drinking water for the meeting?（我们为会议准备了足够的饮用水吗？）
+Is the conference room&#x27;s lighting bright enough for the presentation?（会议室灯光亮度足够支持演示吗？）
+Has the laptop connected to the projector been checked?（连接投影仪的笔记本电脑已检查过吗？）
+Are there any extension cords prepared in case of power needs?（已准备好延长线以防用电需求吗？）
+Has the meeting agenda been printed and distributed to each seat?（会议议程已打印并分发到每个座位吗？）
+Is the conference room&#x27;s Wi-Fi connection stable and accessible?（会议室 Wi-Fi 连接稳定且可使用吗？）
+Have we prepared name tags for all meeting participants?（我们为所有参会者准备了姓名牌吗？）
+Is the conference room door labeled clearly for clients to find?（会议室门有清晰标识，方便客户找到吗？）
+Has the trash bin in the conference room been emptied?（会议室垃圾桶已清理干净吗？）
+Are there any tissues placed on the conference table for use?（会议桌上有摆放纸巾供使用吗？）
+Has the sound system in the conference room been tested?（会议室音响系统已测试过吗？）
+Is there a backup projector bulb prepared in case of failure?（已准备备用投影仪灯泡以防故障吗？）
+Have we prepared a power bank for emergency device charging?（已准备充电宝供设备应急充电吗？）
+Is the conference table clean and free of any unnecessary items?（会议桌干净且无多余物品吗？）
+Are there any plants placed in the conference room for a better ambiance?（会议室有摆放绿植以提升氛围吗？）
+Has the meeting start time been displayed in the conference room?（会议室有显示会议开始时间吗？）
+Is there a first-aid kit prepared near the conference room?（会议室附近有准备急救箱吗？）
+Have we confirmed the number of attendees to adjust the setup?（已确认参会人数以调整布置吗？）
+Is the conference room&#x27;s background music set to a low volume?（会议室背景音乐已调至低音量吗？）
+Has the window in the conference room been cleaned for a clear view?（会议室窗户已清洁，视野清晰吗？）
+Are there any blankets prepared in case clients feel cold?（已准备毯子以防客户觉得冷吗？）
+Has the coffee or tea been prepared and kept warm?（咖啡或茶已准备好并保温吗？）
+Is the remote control for the projector and TV easily accessible?（投影仪和电视遥控器容易获取吗？）
+Have we prepared a list of emergency contacts for the meeting?（已准备会议应急联系人名单吗？）
+Is the conference room&#x27;s ventilation system working well?（会议室通风系统运行良好吗？）
+Are there any promotional materials placed on the conference table?（会议桌上有摆放宣传资料吗？）
+Has the seating arrangement been planned according to client roles?（已根据客户身份规划座位安排吗？）
+Is there a clock in the conference room for time management?（会议室有时钟方便掌控时间吗？）
+Have we checked the conference room for any potential safety hazards?（已检查会议室是否有安全隐患吗？）
+四、客户抵达迎接
+Welcome to our company! It&#x27;s great to finally meet you in person.（欢迎来到我们公司！终于能和您当面见面了，非常开心。）
+Did you have a smooth journey here? We’ve been looking forward to your arrival.（您一路过来顺利吗？我们一直期待您的到来。）
+Let me help you with your luggage—please let me take that for you.（我来帮您拿行李，让我来提吧。）
+It&#x27;s a pleasure to greet you. Thank you for making the trip to our company.（很高兴迎接您。感谢您专程来我们公司。）
+How was your flight? Was there any delay or inconvenience?（您的航班怎么样？有延误或不便吗？）
+Welcome! Our car is waiting outside—let me guide you there.（欢迎！我们的车在外面等着，我带您过去。）
+Did you find our company easily? We were worried you might get lost.（您很容易就找到我们公司了吗？我们之前还担心您会迷路。）
+It&#x27;s wonderful to have you here. Let&#x27;s head to the reception area first.（您能来真是太好了。我们先去接待区吧。）
+How was your train ride? Was the seat comfortable?（您的火车旅程怎么样？座位舒服吗？）
+Welcome! Let me introduce myself—I&#x27;m [Your Name] from the sales team.（欢迎！我先自我介绍一下，我是销售部的 [你的名字]。）
+Did you have any trouble with the local transportation to get here?（您来这儿的本地交通有遇到问题吗？）
+It&#x27;s an honor to welcome you. Would you like a drink first?（很荣幸迎接您。您想先喝点什么吗？）
+How was your journey? Did you get a chance to rest along the way?（您的旅程怎么样？途中有机会休息吗？）
+Welcome to [City Name]! How do you feel about this city so far?（欢迎来到 [城市名]！目前您对这座城市感觉如何？）
+Let me help you carry your handbag—you must be tired from the trip.（我来帮您拿手提包吧，您旅途肯定累了。）
+It&#x27;s great to see you! We&#x27;ve prepared a small gift for your arrival.（见到您真开心！您到来我们准备了份小礼物。）
+Did you have a good meal during your journey? We can arrange lunch soon.（您旅途中用餐了吗？我们很快可以安排午餐。）
+Welcome! Please follow me—I&#x27;ll take you to the meeting room.（欢迎！请跟我来，我带您去会议室。）
+How was the weather during your trip? Did it affect your travel plans?（您旅途中天气怎么样？有影响您的行程吗？）
+It&#x27;s a pleasure to meet you. Our team is ready to start the meeting whenever you are.（很高兴见到您。您准备好了，我们团队就可以开始会议。）
+Did you have any layovers during your flight? Were they tiring?（您的航班有中转吗？中转累吗？）
+Welcome! Let&#x27;s put your luggage in the storage room first, then we&#x27;ll start.（欢迎！我们先把您的行李放储藏室，然后再开始。）
+How was your journey time? Did it feel longer than expected?（您的旅程时长怎么样？感觉比预期久吗？）
+It&#x27;s wonderful to welcome you. Would you like a quick tour of the office first?（很开心迎接您。您想先快速参观下办公室吗？）
+Did you use any navigation apps to find our company? Were they helpful?（您是用导航软件找到我们公司的吗？有帮助吗？）
+Welcome! You must be tired from the trip—let’s take a short break first.（欢迎！您旅途肯定累了，咱们先短暂休息下。）
+How was your journey? Any interesting things happen along the way?（您的旅程怎么样？途中有发生有趣的事吗？）
+It&#x27;s great to have you here. Let me introduce our team members to you.（您能来真是太好了，我给您介绍下我们的团队成员。）
+Did you have to wait long for transportation after arriving at the airport?（您到机场后，等交通工具等了很久吗？）
+Welcome to our company! Is there anything you need right now?（欢迎来到我们公司！您现在有需要的东西吗？）
+How was your flight/train ride? The seats were comfortable, right?（您的飞机 / 火车旅程怎么样？座位还舒服吧？）
+It&#x27;s an honor to meet you. Thank you for taking time out of your busy schedule.（很荣幸见到您，感谢您在百忙之中抽空过来。）
+Did you bring any important documents? Do you need help keeping them safe?（您有带重要文件吗？需要帮忙保管吗？）
+Welcome! Let&#x27;s go to the lounge area first—we have coffee and tea there.（欢迎！咱们先去休息区，那里有咖啡和茶。）
+How was your journey? Did you get used to the time difference?（您的旅程怎么样？倒过时差了吗？）
+It&#x27;s pleasure to greet you. Our meeting room is all set for you.（很高兴迎接您，我们的会议室已经为您准备好了。）
+Did you see any scenic views during your trip? Were they beautiful?（您旅途中有看到风景吗？漂亮吗？）
+Welcome! Do you want to freshen up first before we start the arrangements?（欢迎！开始安排之前，您想先整理下吗？）
+How was your trip? Let me know if you need any help with anything.（您的旅途怎么样？有任何需要帮忙的，随时告诉我。）
+五、车程中沟通
+How do you feel about [City Name] so far? Is it different from what you imagined?（目前您对 [城市名] 感觉如何？和您想象的不一样吗？）
+Is this your first time coming to China after the pandemic? How does it feel?（这是疫情后您第一次来中国吗？感觉怎么样？）
+What’s the main purpose of your business trip this time?（您这次商务出差的主要目的是什么？）
+Besides our company, will you visit any other enterprises in this city?（除了我们公司，您还会去这座城市的其他企业吗？）
+Do you often take business trips to China? How often do you come?（您经常来中国出差吗？多久来一次？）
+What do you usually like to do in your free time? Any hobbies?（您闲暇时间通常喜欢做什么？有爱好吗？）
+Have you followed any recent hot news? What do you think about it?（您有关注最近的热点新闻吗？您怎么看？）
+How’s the traffic in your city? Is it similar to here?（您所在城市的交通怎么样？和这里差不多吗？）
+Do you prefer taking flights or high-speed trains for business trips?（您出差更喜欢坐飞机还是高铁？）
+Are there any local specialties in your city that you recommend?（您所在城市有什么值得推荐的特产吗？）
+What do you think of the weather here? Is it suitable for you?（您觉得这里的天气怎么样？适合您吗？）
+Have you tried any Chinese food before? Which one is your favorite?（您之前吃过中餐吗？最喜欢哪一道？）
+How long have you been working in this industry? Any interesting experiences?（您在这个行业工作多久了？有有趣的经历吗？）
+Do you usually travel alone for business or with a team?（您出差通常是独自去，还是和团队一起？）
+What’s the most unforgettable business trip you’ve ever had?（您有过最难忘的一次商务出差是什么样的？）
+Do you think the business environment here is different from your country?（您觉得这里的商业环境和您国家的不一样吗？）
+Have you learned any Chinese phrases? I can teach you some simple ones.（您学过中文短语吗？我可以教您几句简单的。）
+What’s the biggest challenge you’ve faced in your work recently?（您最近工作中遇到的最大挑战是什么？）
+Do you like listening to music during trips? What kind of music do you prefer?（您旅途喜欢听音乐吗？偏好哪种类型的？）
+Are there any cultural differences you’ve noticed since arriving here?（您到这儿后，有发现什么文化差异吗？）
+How do you usually plan your business trip schedule?（您通常怎么规划商务出差行程？）
+Do you have any plans to travel around after finishing your business here?（处理完这里的业务后，您有游览的计划吗？）
+What do you think of the development of our industry in recent years?（您觉得我们这个行业近几年的发展怎么样？）
+Do you often keep in touch with your family during business trips?（您出差期间经常和家人联系吗？）
+Are there any business customs in China that you find interesting?（您觉得中国有什么有趣的商务习俗吗？）
+How do you usually deal with jet lag after long-distance business trips?（长途出差后，您通常怎么倒时差？）
+What’s the most popular product in your market recently?（您所在市场最近最受欢迎的产品是什么？）
+Do you like drinking Chinese tea? I can recommend some good ones to you.（您喜欢喝中国茶吗？我可以给您推荐几款不错的。）
+How do you evaluate the cooperation between our two companies so far?（您怎么评价我们两家公司到目前为止的合作？）
+Do you have any expectations for this business trip?（您对这次商务出差有什么期望吗？）
+What’s the difference between doing business in China and your country?（在中国和在您国家做生意，有什么区别吗？）
+Do you usually try local food when you go to a new city for business?（去新城市出差时，您通常会尝试当地美食吗？）
+How do you think we can further improve our cooperation?（您觉得我们怎样能进一步提升合作质量？）
+Do you have any favorite Chinese cities? Why do you like them?（您有喜欢的中国城市吗？为什么喜欢？）
+How do you usually relax after a busy day of business meetings?（忙碌的商务会议结束后，您通常怎么放松？）
+Are there any new technologies in our industry that you’re paying attention to?（您有关注我们行业的什么新技术吗？）
+What do you think of the service we’ve provided so far? Any suggestions?（您觉得我们到目前为止提供的服务怎么样？有建议吗？）
+Do you usually take photos during business trips to record moments?（您出差时通常会拍照记录瞬间吗？）
+How do you think the market demand will change in the next six months?（您觉得未来半年市场需求会有什么变化？）
+六、酒店与住宿安排
+We’ll arrive at XX Hotel in about 10 minutes. You can rest once we get there.（我们大概 10 分钟后到 XX 酒店，到了您就能休息了。）
+This hotel has a good reputation locally—many business clients choose it.（这家酒店在本地口碑不错，很多商务客户都会选。）
+Do you have any special requirements for your hotel room? Like a quiet floor?（您对酒店房间有特殊要求吗？比如安静的楼层？）
+The hotel provides 24-hour room service—you can call them anytime you need.（酒店有 24 小时客房服务，您需要时随时可以打电话。）
+Will you need us to help you check in at the hotel?（需要我们帮您在酒店办理入住吗？）
+There’s a gym and a swimming pool in the hotel—do you like working out?（酒店里有健身房和游泳池，您喜欢健身吗？）
+We’ve reserved a non-smoking room for you—does that work?（我们为您预留了无烟房，这样可以吗？）
+The hotel’s breakfast is from 7 a.m. to 10 a.m.—don’t miss it if you want to try.（酒店早餐时间是早上 7 点到 10 点，想尝试的话别错过哦。）
+Do you need extra pillows or quilts in your room? I can tell the hotel staff.（您房间里需要额外的枕头或被子吗？我可以告诉酒店工作人员。）
+The hotel is close to a convenience store—you can buy daily necessities there.（酒店离便利店很近，您可以去买日用品。）
+We’ll pick you up from the hotel lobby at 2 p.m. tomorrow—please be ready on time.（我们明天下午 2 点在酒店大堂接您，请准时准备好。）
+Does the hotel’s location meet your needs? It’s not far from our company.（酒店的位置符合您的需求吗？离我们公司不远。）
+The hotel’s Wi-Fi is free—just ask the front desk for the password.（酒店 Wi-Fi 是免费的，问前台要密码就行。）
+Do you have any dietary requirements for breakfast? I can inform the hotel.（您早餐有饮食要求吗？我可以告知酒店。）
+There’s a business center in the hotel—you can use the printer if needed.（酒店有商务中心，需要的话可以用打印机。）
+We’ve paid the deposit for your room—you just need to show your ID at check-in.（我们已经为您的房间付了押金，入住时您出示身份证就行。）
+Do you like the view from the room? We reserved one with a city view.（您喜欢房间的视野吗？我们预留了一间能看到城市风景的。）
+The hotel’s front desk can help with booking tickets or taxis—feel free to ask them.（酒店前台可以帮忙订票或叫车，随时问他们就行。）
+Is the room temperature suitable for you? You can adjust the air conditioner.（房间温度适合您吗？您可以自己调空调。）
+We’ll send you a message with the hotel’s address and contact info—save it please.（我们会把酒店地址和联系方式发您，记得保存哦。）
+Do you need the hotel to wake you up in the morning? I can arrange a wake-up call.（您早上需要酒店叫醒服务吗？我可以安排叫醒电话。）
+The hotel’s restaurant serves both Chinese and Western food—you can choose what you like.（酒店餐厅有中餐也有西餐，您可以选自己喜欢的。）
+Is there any problem with the room facilities? Let me know if something’s broken.（房间设施有问题吗？要是有坏的，随时告诉我。）
+We’ve reserved a room for you for 3 nights—do you need to extend your stay?（我们为您预留了 3 晚的房间，您需要续住吗？）
+The hotel is in a safe neighborhood—you don’t have to worry about going out at night.（酒店所在区域很安全，晚上出去不用担心中。）
+Do you need us to help you carry your luggage to your room?（需要我们帮您把行李送到房间吗？）
+The hotel provides laundry service—there’s a form in the room if you need it.（酒店有洗衣服务，需要的话房间里有表格。）
+Is the bed in the room comfortable enough? Let me know if you need a different one.（房间里的床够舒服吗？需要换的话告诉我。）
+The hotel is near a park—you can take a walk there after dinner if you like.（酒店离公园近，您要是喜欢，晚饭后可以去散步。）
+Do you have any questions about the hotel’s services? I can explain them.（您对酒店的服务有疑问吗？我可以解释。）
+We’ll confirm your check-out time with you tomorrow—usually it’s 12 p.m.（我们明天和您确认退房时间，一般是中午 12 点。）
+The hotel’s elevator needs a room card to go to the guest floors—keep your card safe.（酒店电梯到客房楼层需要房卡，您保管好房卡哦。）
+Do you need to use the hotel’s meeting room? I can help you book it.（您需要用酒店的会议室吗？我可以帮您预订。）
+The hotel serves afternoon tea in the lobby from 2 p.m. to 4 p.m.—it’s quite nice.（酒店大堂下午 2 点到 4 点有下午茶，很不错哦。）
+Is the noise level in the hotel acceptable? Let me ask for a quieter room if not.（酒店的噪音程度您能接受吗？不行的话我申请换间更安静的。）
+We’ve noted your arrival time— the hotel will keep the room for you.（我们已经告知酒店您的抵达时间，他们会为您保留房间。）
+Do you need to rent a car during your stay? The hotel can help with that.（您停留期间需要租车吗？酒店可以帮忙安排。）
+The hotel’s bathroom has a shower and a bathtub—choose what you prefer.（酒店卫生间有淋浴和浴缸，您选自己喜欢的用就行。）
+If you have any issues during your stay, call me anytime—I’m available 24 hours.（您入住期间有任何问题，随时给我打电话，我 24 小时都在。）
+七、送机安排沟通
+Your flight is at 10 a.m. tomorrow—we’ll leave for the airport at 7 a.m.（您明天的航班是上午 10 点，我们 7 点出发去机场。）
+Our driver will wait for you in the hotel lobby at 7 a.m.—please be there on time.（我们的司机明天早上 7 点在酒店大堂等您，请准时到哦。）
+Do you need to pack any souvenirs? We can help you check if they meet flight requirements.（您需要打包纪念品吗？我们可以帮您看看是否符合航班规定。）
+The airport is about an hour’s drive from the hotel—we’ll leave early to avoid delays.（机场离酒店大概 1 小时车程，我们早点出发以免耽误。）
+Have you prepared all your important documents? Like your passport and boarding pass?（您所有重要文件都准备好了吗？比如护照和登机牌？）
+Do you need us to help you with checked luggage? We can carry it to the car.（需要我们帮您拿托运行李吗？我们可以搬到车上。）
+We’ll stop by a convenience store on the way to the airport—do you need to buy anything?（去机场的路上我们会经过便利店，您需要买东西吗？）
+The check-in counter for your flight closes 1 hour before takeoff—we’ll get there in time.（您航班的值机柜台起飞前 1 小时关闭，我们会准时到的。）
+Do you have any carry-on luggage that exceeds the size limit? Let’s check together.（您有随身行李超过尺寸限制吗？咱们一起检查下。）
+We’ll remind you of the departure time tonight—don’t worry about forgetting.（我们今晚再提醒您出发时间，别担心会忘。）
+The driver knows the shortest route to the airport—we won’t get stuck in traffic.（司机知道去机场的最短路线，不会堵车的。）
+Do you need to exchange any Chinese currency before leaving? We can take you to a bank.（离开前您需要兑换人民币吗？我们可以带您去银行。）
+We’ve prepared some snacks and water for you on the way to the airport—enjoy them.（我们为您准备了些零食和水，路上吃。）
+Have you checked the weather at your destination? Do you need to prepare clothes?（您查过目的地的天气了吗？需要准备衣物吗？）
+Do you need us to help you print your boarding pass? We can do it at the hotel.（需要我们帮您打印登机牌吗？在酒店就能打。）
+The airport has many duty-free shops—do you want to leave some time for shopping?（机场有很多免税店，您想留些时间购物吗？）
+We’ll help you unload your luggage at the airport—you just focus on check-in.（到机场我们帮您卸行李，您专心值机就行。）
+Do you have any questions about the airport procedures? I can explain them to you.（您对机场流程有疑问吗？我可以给您解释。）
+We’ll confirm the driver’s information with you tonight—so you know who to look for.（我们今晚把司机信息发给您，您好知道找谁。）
+Do you need to make a call before going to the airport? We can lend you a phone.（去机场前您需要打电话吗？我们可以借您手机。）
+The airport’s security check may take some time—we’ll arrive early enough.（机场安检可能要花些时间，我们会提前到的。）
+Do you have any liquids in your carry-on luggage? Remember they can’t exceed 100ml each.（您随身行李里有液体吗？记得每瓶不能超过 100 毫升哦。）
+We’ll say goodbye to you at the airport entrance—wish you a smooth flight.（我们在机场入口处和您道别，祝您飞行顺利。）
+Have you packed all your personal items? Don’t leave anything in the hotel room.（您的个人物品都打包好了吗？别把东西落在酒店房间里。）
+Do you need us to help you ask the driver to take a more comfortable route?（需要我们让司机选一条更舒适的路线吗？）
+The flight may provide meals—do you need to prepare some snacks in case you’re hungry?（航班可能会提供餐食，您需要准备些零食以防饿吗？）
+We’ll send you a message after you leave to confirm we’ve arrived back safely.（您离开后我们会发消息给您，确认我们已安全返回。）
+Do you know where the check-in counter is? I can tell you the location in advance.（您知道值机柜台在哪里吗？我可以提前告诉您位置。）
+Have you charged your electronic devices? The airport has charging ports if needed.（您的电子设备充电了吗？需要的话机场有充电口。）
+Do you need to buy any last-minute souvenirs before going to the airport? We can take you to a nearby shop.（去机场前您需要买临时纪念品吗？我们可以带您去附近商店。）
+We’ll help you load your luggage into the car—just wait a moment.（我们帮您把行李装上车，您稍等一下。）
+Do you have any special requests for the ride to the airport? Like adjusting the air conditioner?（去机场的路上您有特殊要求吗？比如调空调温度？）
+The airport’s boarding gate may change—remember to check the display screen.（机场登机口可能会变动，记得看显示屏哦。）
+Have you told your family or colleagues about your arrival time?（您告诉家人或同事您的抵达时间了吗？）
+Do you need us to help you carry your handbag to the airport entrance?（需要我们帮您把手提包送到机场入口吗？）
+We’ll arrive at the airport 2 hours before takeoff—plenty of time for procedures.（我们会在起飞前 2 小时到机场，有充足时间办理手续。）
+Do you have any questions about the flight? I can help you check the flight status.（您对航班有疑问吗？我可以帮您查航班状态。）
+Have you collected all your receipts from this trip? Don’t forget to keep them.（您这次行程的收据都收好了吗？别忘记保存哦。）
+Do you need to exchange your unused Chinese currency back? We can help you find an exchange office at the airport.（您需要把没用完的人民币换回去吗？我们可以帮您在机场找兑换点。）
+八、会议开场与议程沟通
+Before we start, let’s review today’s meeting agenda—does it meet your expectations?（开始前，咱们先确认下今天的会议议程，符合您的预期吗？）
+The meeting will last about 2 hours, with a 10-minute break in the middle.（会议大概持续 2 小时，中间有 10 分钟休息时间。）
+Please feel free to interrupt me if you have any questions during the presentation.（介绍过程中您有任何问题，随时打断我就行。）
+First, we’ll introduce our company background, then move on to product details.（首先我们介绍公司背景，之后再讲产品细节。）
+Do you want to adjust the order of the agenda items? We can rearrange it.（您想调整议程项目的顺序吗？我们可以重新安排。）
+We’ve prepared a printed copy of the agenda for each of you—please take one.（我们为每位准备了议程打印件，您拿一份。）
+The next item on the agenda is discussing cooperation plans—are you ready for that?（议程的下一项是讨论合作方案，您准备好谈这个了吗？）
+If we finish the agenda early, we can use the extra time to answer your questions.（要是我们提前完成议程，多余时间可以用来解答您的问题。）
+Do you have any other topics you want to add to the agenda? Let us know.（您有其他想添加到议程的话题吗？告诉我们就行。）
+Let’s confirm the meeting goals first—we want to make sure we focus on what matters.（咱们先确认会议目标，确保聚焦重点内容。）
+We’ll assign someone to take notes during the meeting and send them to you later.（我们会安排人会议中记笔记，之后发给您。）
+Do you prefer to have a Q&amp;A session after each agenda item or at the end?（您偏好每个议程项目后答疑，还是会议结束后统一答疑？）
+The meeting will be recorded—we’ll share the recording with you if you need it.（会议会录音，您需要的话我们会把录音分享给您。）
+Let’s start with the first agenda item: introducing our latest product line.（咱们从第一个议程项目开始：介绍我们最新的产品线。）
+Do you need more time to discuss a specific agenda item? We can extend the time.（您需要更多时间讨论某个议程项目吗？我们可以延长时长。）
+We’ve prepared relevant materials for each agenda item—they’re on the table.（每个议程项目我们都准备了相关资料，在桌子上。）
+Let’s remind everyone of the meeting rules: keep phones on silent and speak one by one.（咱们提醒下大家会议规则：手机调静音，依次发言。）
+Do you have any suggestions for making the meeting more efficient?（您对提高会议效率有什么建议吗？）
+The break will be at 10:30 a.m.—we’ll provide coffee and snacks then.（休息时间在上午 10 点半，到时我们会提供咖啡和零食。）
+Let’s confirm if everyone here has received the meeting agenda in advance.（咱们确认下在场各位都提前收到会议议程了吗？）
+Do you want to invite any other team members to join the discussion for a specific item?（某个议程项目您想邀请其他团队成员加入讨论吗？）
+We’ll wrap up the meeting on time to avoid delaying your next schedule.（我们会准时结束会议，不耽误您接下来的安排。）
+Let’s start by introducing everyone in the meeting room so we’re all familiar.（咱们先介绍下会议室里的所有人，方便大家认识。）
+Do you need us to explain any part of the agenda in more detail before starting?（开始前您需要我们把议程的某部分解释得更详细吗？）
+The meeting will cover 4 main agenda items—we’ll go through them one by one.（会议会涉及 4 个主要议程项目，咱们逐个讨论。）
+Do you have any time constraints for the meeting? We’ll adjust accordingly.（您对会议有时长限制吗？我们会相应调整。）
+We’ll use the projector to show data for each agenda item—please let us know if the font is too small.（每个议程项目我们会用投影仪展示数据，字体太小的话告诉我们。）
+Let’s confirm the expected outcome of the meeting—what do you hope to achieve today?（咱们确认下会议预期成果，您今天希望达成什么目标？）
+Do you want to take a short break before starting the next agenda item?（开始下一个议程项目前，您想短暂休息下吗？）
+We’ve prepared a summary of the agenda for you to take back after the meeting.（我们准备了议程总结，会议后您可以带回去。）
+Do you need us to slow down when introducing a certain agenda item?（介绍某个议程项目时，您需要我们放慢速度吗？）
+Let’s make sure we stay on topic during the discussion to save time.（咱们讨论时尽量紧扣主题，节省时间。）
+Do you have any questions about the meeting process before we begin?（开始前您对会议流程有疑问吗？）
+We’ll assign a moderator to control the meeting time and keep the discussion on track.（我们会安排主持人把控会议时间，确保讨论不偏离方向。）
+Do you want to change the meeting location if you feel uncomfortable here?（您要是觉得这里不舒服，想换会议地点吗？）
+Let’s start the meeting now—first, let’s welcome our guest [Client Name] to share their thoughts.（咱们现在开始会议，首先欢迎客人 [客户姓名] 分享想法。）
+Do you need us to provide additional materials for a specific agenda item during the meeting?（会议中某个议程项目您需要我们提供额外资料吗？）
+We’ll remind everyone of the remaining time for each agenda item to stay on schedule.（每个议程项目我们会提醒剩余时间，确保按计划进行。）
+Do you have any final thoughts on the agenda before we officially start?（正式开始前，您对议程有最后的想法吗？）
+九、客户公司背景了解
+Can you tell us a bit about your company&#x27;s history? How long have you been in business?（您能给我们讲讲贵公司的历史吗？经营多久了？）
+What are the main products or services your company provides?（贵公司主要提供哪些产品或服务呢？）
+What is your company&#x27;s core business philosophy that guides your operations?（指导贵公司运营的核心经营理念是什么？）
+Who are your company&#x27;s target customers? Are they mainly individuals or enterprises?（贵公司的目标客户是谁？主要是个人还是企业？）
+How does your company usually reach and attract target customers?（贵公司通常如何触达并吸引目标客户呢？）
+What are the main sales channels your company uses? Like online platforms or offline stores?（贵公司主要的销售渠道有哪些？比如线上平台还是线下门店？）
+Does your company have any branches or partners in other countries or regions?（贵公司在其他国家或地区有分公司或合作伙伴吗？）
+What are the key advantages of your company compared to competitors in the market?（和市场上的竞争对手相比，贵公司的核心优势是什么？）
+Has your company won any awards or certifications in the industry?（贵公司在行业内获得过什么奖项或认证吗？）
+What is the size of your company&#x27;s team? How many employees do you have?（贵公司的团队规模如何？有多少员工呢？）
+Does your company have a specific market position, like a leader in a certain segment?（贵公司有特定的市场定位吗？比如某细分领域的领导者？）
+How does your company develop new products or services? Is there a dedicated team?（贵公司如何开发新产品或服务？有专门的团队吗？）
+What are the main markets your company currently operates in? Domestic or international?（贵公司目前主要在哪些市场运营？国内还是国际？）
+Does your company have any long-term development plans or goals for the next 3-5 years?（贵公司未来 3-5 年有长期发展计划或目标吗？）
+How does your company handle customer feedback and complaints?（贵公司如何处理客户反馈和投诉呢？）
+What is the typical workflow when your company cooperates with suppliers?（贵公司和供应商合作时，典型的工作流程是什么？）
+Does your company pay attention to corporate social responsibility? What initiatives have you taken?（贵公司关注企业社会责任吗？有采取哪些举措？）
+How does your company ensure the quality of its products or services?（贵公司如何确保产品或服务的质量呢？）
+What are the main challenges your company has faced in recent years, and how did you overcome them?（贵公司近几年遇到的主要挑战是什么？如何克服的？）
+Does your company have a unique corporate culture? Can you share a bit about it?（贵公司有独特的企业文化吗？能给我们讲讲吗？）
+How does your company promote its brand in the market? Through advertising or events?（贵公司如何在市场上推广品牌？通过广告还是活动？）
+What is the average annual growth rate of your company in recent years?（贵公司近几年的年均增长率大概是多少？）
+Does your company have any plans to expand into new markets or launch new products?（贵公司有开拓新市场或推出新产品的计划吗？）
+How does your company train and develop its employees to improve their skills?（贵公司如何培训和发展员工，提升他们的技能？）
+What are the main factors that drive your company&#x27;s business growth?（推动贵公司业务增长的主要因素是什么？）
+Does your company have a research and development department? What are their recent projects?（贵公司有研发部门吗？近期有什么项目？）
+How does your company manage its supply chain to ensure timely delivery?（贵公司如何管理供应链，确保及时交付？）
+What is the customer retention rate of your company? How do you maintain customer loyalty?（贵公司的客户留存率如何？如何维护客户忠诚度？）
+Does your company have any strategic partnerships with other enterprises?（贵公司和其他企业有战略合作伙伴关系吗？）
+How does your company adapt to changes in the market environment, like new policies?（贵公司如何适应市场环境变化，比如新政策出台？）
+What is the pricing strategy of your company&#x27;s products or services?（贵公司产品或服务的定价策略是什么？）
+Does your company use any advanced technologies in its operations? Like AI or big data?（贵公司运营中使用先进技术吗？比如人工智能或大数据？）
+How does your company measure its business performance? What indicators do you use?（贵公司如何衡量业务绩效？用哪些指标？）
+Does your company have a customer service team? What are their working hours?（贵公司有客户服务团队吗？工作时间是怎样的？）
+What are the main risks your company faces in its business, and how do you mitigate them?（贵公司业务中面临的主要风险是什么？如何规避？）
+Does your company organize any customer events or promotions regularly?（贵公司定期组织客户活动或促销活动吗？）
+How does your company communicate and collaborate with its overseas partners?（贵公司如何与海外合作伙伴沟通协作？）
+What is the most proud achievement of your company since its establishment?（贵公司成立以来，最引以为傲的成就是什么？）
+Does your company have any plans to improve its product quality or service level in the near future?（近期贵公司有提升产品质量或服务水平的计划吗？）
+十、开场热身闲聊
+How do you like [City Name] so far? Is the atmosphere to your liking?（目前您觉得 [城市名] 怎么样？氛围合您心意吗？）
+Are you used to the weather here? It’s a bit humid/dry compared to your city, right?（您习惯这里的天气了吗？和您所在城市比，有点潮湿 / 干燥，对吧？）
+Is this your first time visiting [City Name]? Or have you been here before?（这是您第一次来 [城市名] 吗？还是以前来过？）
+Did you have time to walk around the city a little after arriving?（抵达后您有空逛逛这座城市吗？）
+Have you tried any local food since you got here? Which one left the deepest impression?（到这儿后您尝过本地菜吗？哪一道印象最深？）
+I know the local food here is a bit spicy/sweet—did you find it acceptable?（我知道这里的菜有点辣 / 甜，您觉得能接受吗？）
+If you like the local flavor, I can recommend more popular restaurants.（要是您喜欢本地口味，我可以推荐更多热门餐厅。）
+How was your trip to [City Name]? Was there anything interesting that happened?（您来 [城市名] 的旅途怎么样？有什么有趣的事发生吗？）
+Was your flight/train ride smooth? Did you encounter any delays?（您的飞机 / 火车旅程顺利吗？有遇到延误吗？）
+Jet lag must have made you tired—did you sleep well last night?（时差肯定让您累了，昨晚睡得好吗？）
+Is this your first time attending the Canton Fair/this expo? How do you feel about it?（这是您第一次参加广交会 / 这个展会吗？感觉怎么样？）
+Which hall of the expo has impressed you the most so far? Why?（到目前为止，展会哪个展馆给您印象最深？为什么？）
+Have you met any old partners or made new contacts at the expo?（您在展会上见到老合作伙伴，或者结识新朋友了吗？）
+How do you like the arrangement of the expo? Is it easy to find the booths?（您觉得展会的布置怎么样？展位好找吗？）
+Did you bring any gifts for your family from your country?（您从自己国家带了礼物给家人吗？）
+Is there any local specialty in [City Name] you want to buy as souvenirs?（您想买 [城市名] 的什么特产当纪念品吗？）
+How do you usually spend your free time during business trips?（商务出差时，您通常怎么打发空闲时间？）
+Have you seen any beautiful scenic spots in [City Name]? Do you want to visit them if you have time?（您见过 [城市名] 的美景吗？有空的话想去看看吗？）
+Did you take any photos during your trip? We’d love to see them if you’re willing to share.（您旅途中拍照了吗？愿意的话我们很想看看。）
+How do you feel about the local transportation in [City Name]? Is it convenient?（您觉得 [城市名] 的本地交通怎么样？方便吗？）
+Have you tried the local breakfast here? It’s quite different from Western breakfast, right?（您尝过这里的本地早餐吗？和西式早餐很不一样，对吧？）
+Is there any local custom in [City Name] that you find interesting?（您觉得 [城市名] 有什么有趣的本地习俗吗？）
+Did you have any trouble communicating with locals since you arrived?（您到这儿后和当地人沟通有困难吗？）
+How do you like the local people here? Are they friendly in your opinion?（您觉得这里的本地人怎么样？您觉得他们友好吗？）
+Have you visited any local markets in [City Name]? They have many unique things.（您去过 [城市名] 的本地市场吗？那里有很多特色商品。）
+Is the pace of life in [City Name] faster or slower than your city?（[城市名] 的生活节奏比您所在的城市快还是慢？）
+Did you bring enough clothes for the weather here? Do you need to buy more?（您带的衣服适合这里的天气吗？需要再买些吗？）
+Have you tried any local drinks here? Like Chinese tea or local beverages?（您尝过这里的本地饮品吗？比如中国茶或本地饮料？）
+How do you like the accommodation we arranged for you? Is it comfortable?（您觉得我们为您安排的住宿怎么样？舒服吗？）
+Did you have any interesting conversations with other travelers during your journey?（您旅途中和其他旅客有过有趣的交谈吗？）
+Is there any place in [City Name] you’ve heard of and want to visit?（您有听说过 [城市名] 的什么地方，想去看看吗？）
+Have you noticed any differences between the architecture here and your city?（您注意到这里的建筑和您所在城市的不一样吗？）
+Did you have a chance to try local snacks on the street? They’re very delicious.（您有机会尝过街边的本地小吃吗？非常好吃。）
+How do you feel about the service in local shops or restaurants?（您觉得本地商店或餐厅的服务怎么样？）
+Is there any local festival happening in [City Name] during your stay?（您停留期间，[城市名] 有举办本地节日吗？）
+Have you used any local apps here, like for food delivery or transportation?（您在这里用过本地应用吗？比如外卖或交通类的？）
+How do you like the local art or crafts here? Do you want to buy some as gifts?（您觉得这里的本地艺术品或手工艺品怎么样？想买些当礼物吗？）
+Did you have any unexpected surprises during your trip to [City Name]?（您来 [城市名] 的旅途中有什么意外惊喜吗？）
+Is there anything you find special about the daily life of people in [City Name]?（您觉得 [城市名] 人们的日常生活有什么特别之处吗？）
+十一、家乡文化交流
+I heard your hometown is famous for [local specialty]—is that true?（我听说您的家乡以 [本地特产] 闻名，是真的吗？）
+What’s the most well-known tourist attraction in your hometown?（您家乡最有名的旅游景点是什么？）
+I’ve never been to your hometown—what’s the best season to visit there?（我从没去过您的家乡，什么时候去游玩最合适？）
+Compared to [Current City], is your hometown more crowded or quieter?（和 [当前城市] 比，您的家乡更热闹还是更安静？）
+What’s the typical food people eat in your hometown? Is it spicy or mild?（您家乡的特色美食是什么？口味偏辣还是清淡？）
+Does your hometown have any traditional festivals that only locals celebrate?（您的家乡有只有本地人过的传统节日吗？）
+What’s the weather like in your hometown throughout the year?（您家乡一年的天气怎么样？）
+Is there a unique custom in your hometown that foreigners usually find interesting?（您家乡有外国人通常觉得有趣的独特习俗吗？）
+What’s the most popular form of transportation in your hometown?（您家乡最受欢迎的交通方式是什么？）
+Does your hometown have any famous historical figures or stories?（您的家乡有著名的历史人物或故事吗？）
+How do people in your hometown usually celebrate important festivals like New Year?（您家乡的人通常怎么庆祝新年这类重要节日？）
+Is your hometown known for any art forms, like painting or music?（您的家乡以某种艺术形式闻名吗？比如绘画或音乐？）
+What’s the difference between the local dialect in your hometown and the national language?（您家乡的方言和官方语言有什么区别？）
+Does your hometown have any special plants or animals that can’t be found elsewhere?（您的家乡有其他地方没有的特殊动植物吗？）
+How do people in your hometown usually spend weekends or holidays?（您家乡的人通常怎么过周末或假期？）
+Is there a local dish in your hometown that your family loves to cook?（您家乡有您家人喜欢做的本地菜吗？）
+What’s the biggest change your hometown has undergone in recent years?（您的家乡近几年发生的最大变化是什么？）
+Does your hometown have any traditional markets that have existed for a long time?（您的家乡有历史悠久的传统市场吗？）
+What’s the most unforgettable memory you have of your hometown?（您关于家乡最难忘的回忆是什么？）
+Is the cost of living in your hometown higher or lower than in [Current City]?（您家乡的生活成本比 [当前城市] 高还是低？）
+Does your hometown have any traditional crafts that are passed down from generation to generation?（您的家乡有代代相传的传统手艺吗？）
+How do people in your hometown greet each other when they meet?（您家乡的人见面时通常怎么打招呼？）
+Is there a local sport or activity that’s very popular in your hometown?（您的家乡有很受欢迎的本地运动或活动吗？）
+Does your hometown have any famous universities or schools?（您的家乡有著名的大学或学校吗？）
+What’s the best way to experience the local culture when visiting your hometown?（去您的家乡游玩，体验本地文化的最佳方式是什么？）
+Does your hometown have any taboos or things visitors should avoid doing?（您的家乡有什么禁忌，或者游客应该避免做的事吗？）
+How do people in your hometown usually relax after work?（您家乡的人下班后通常怎么放松？）
+Is there a local song or poem that’s well-known by everyone in your hometown?（您的家乡有家喻户晓的本地歌曲或诗歌吗？）
+What’s the difference between the lifestyle in your hometown and in big cities?（您家乡的生活方式和大城市有什么区别？）
+Does your hometown have any annual events that attract many tourists?（您的家乡有每年举办、吸引很多游客的活动吗？）
+How do people in your hometown preserve their traditional culture?（您家乡的人如何保护他们的传统文化？）
+Is there a local brand or product from your hometown that’s popular nationwide?（您家乡有在全国受欢迎的本地品牌或产品吗？）
+What’s the most beautiful place in your hometown in your opinion?（您觉得您家乡最美的地方是哪里？）
+Does your hometown have any special traditions for weddings or birthdays?（您的家乡有婚礼或生日相关的特殊传统吗？）
+How do people in your hometown usually get along with neighbors?（您家乡的人通常怎么和邻居相处？）
+Is there a local legend in your hometown that’s often told by elders?（您的家乡有长辈常讲的本地传说吗？）
+What’s the typical architecture style in your hometown?（您家乡典型的建筑风格是什么？）
+Does your hometown have any local festivals with special food?（您的家乡有搭配特色美食的本地节日吗？）
+How do you feel when you go back to your hometown after a long time away?（长时间离开后回到家乡，您是什么感觉？）
+十二、行业话题交流
+Have you noticed any new trends in our industry recently?（您最近注意到我们行业有什么新趋势吗？）
+Do you think the demand for our industry’s products will increase next year?（您觉得明年我们行业产品的需求会增长吗？）
+Have you encountered any challenges in supply chain management recently?（您最近在供应链管理方面遇到挑战了吗？）
+Do you think more companies in our industry will adopt eco-friendly solutions?（您觉得我们行业会有更多公司采用环保方案吗？）
+How do you usually deal with price fluctuations of raw materials in our industry?（您通常怎么应对我们行业原材料的价格波动？）
+Have you attended any industry conferences or exhibitions lately? What did you learn?（您最近参加行业会议或展会了吗？学到了什么？）
+Do you think new technologies like AI will change our industry a lot?（您觉得人工智能这类新技术会给我们行业带来大变化吗？）
+How do you evaluate the current competition level in our industry?（您怎么评价我们行业目前的竞争程度？）
+Have you noticed any changes in customers’ preferences for our industry’s products?（您注意到客户对我们行业产品的偏好有变化吗？）
+Do you think our industry will face stricter policy regulations in the future?（您觉得未来我们行业会面临更严格的政策监管吗？）
+How do you usually collect market information for our industry?（您通常怎么收集我们行业的市场信息？）
+Have you tried any new marketing methods for your products in our industry?（您为行业内的产品尝试过新的营销方式吗？）
+Do you think cross-border cooperation will become more common in our industry?（您觉得跨境合作在我们行业会变得更普遍吗？）
+How do you handle product quality complaints from customers in our industry?（您怎么处理我们行业客户的产品质量投诉？）
+Have you seen any new competitors entering our industry recently?（您最近看到有新竞争对手进入我们行业吗？）
+Do you think the profit margin of our industry will increase or decrease?（您觉得我们行业的利润率会上升还是下降？）
+How do you usually train your team to keep up with industry developments?（您通常怎么培训团队，以跟上行业发展？）
+Have you adopted any digital tools to improve work efficiency in our industry?（您采用过数字工具来提高我们行业的工作效率吗？）
+Do you think our industry’s products will become more personalized in the future?（您觉得未来我们行业的产品会更个性化吗？）
+How do you predict the development of our industry in the next five years?（您怎么预测未来五年我们行业的发展？）
+Have you faced any difficulties in expanding your market in our industry?（您在我们行业拓展市场时遇到困难了吗？）
+Do you think more companies in our industry will focus on R&amp;D in the future?（您觉得未来我们行业会有更多公司关注研发吗？）
+How do you cooperate with other enterprises in our industry?（您怎么和我们行业的其他企业合作？）
+Have you noticed any changes in the distribution channels of our industry?（您注意到我们行业的分销渠道有变化吗？）
+Do you think our industry will be affected by global economic changes?（您觉得我们行业会受全球经济变化影响吗？）
+How do you ensure your products are competitive in our industry?（您怎么确保产品在我们行业有竞争力？）
+Have you participated in any industry associations or organizations?（您加入过行业协会或组织吗？）
+Do you think our industry will have more product innovations soon?（您觉得我们行业很快会有更多产品创新吗？）
+How do you deal with the problem of product delivery delays in our industry?（您怎么处理我们行业的产品交货延迟问题？）
+Have you seen any changes in the demographic of customers in our industry?（您注意到我们行业客户的人群特征有变化吗？）
+Do you think our industry will shift to more online sales in the future?（您觉得未来我们行业会更多转向线上销售吗？）
+How do you keep your team updated on the latest industry information?（您怎么让团队及时了解最新的行业信息？）
+Have you encountered any intellectual property issues in our industry?（您在我们行业遇到过知识产权问题吗？）
+Do you think our industry will have more mergers and acquisitions in the future?（您觉得未来我们行业会有更多并购案例吗？）
+How do you adjust your business strategy according to industry changes?（您怎么根据行业变化调整经营策略？）
+Have you noticed any changes in the cost structure of our industry?（您注意到我们行业的成本结构有变化吗？）
+Do you think our industry will pay more attention to corporate social responsibility?（您觉得我们行业会更关注企业社会责任吗？）
+How do you evaluate the quality of products from other companies in our industry?（您怎么评价我们行业其他公司的产品质量？）
+Have you tried any new cooperation models with suppliers in our industry?（您和我们行业的供应商尝试过新的合作模式吗？）
+十三、兴趣生活话题
+What do you usually do to relax on weekends? Do you prefer staying at home or going out?（您周末通常怎么放松？喜欢待在家还是出去？）
+Do you have any hobbies, like reading or playing sports?（您有爱好吗？比如阅读或运动？）
+Do you like listening to music? What type of music is your favorite?（您喜欢听音乐吗？最喜欢哪种类型的音乐？）
+Have you watched any good movies or TV shows recently?（您最近看了什么好看的电影或电视剧吗？）
+Do you like traveling in your free time? What’s the most interesting place you’ve been to?（您空闲时喜欢旅游吗？去过最有趣的地方是哪里？）
+Do you have any pets at home? What kind of pets are they?（您家里有宠物吗？是什么种类的宠物？）
+Do you like cooking? What’s the best dish you can make?（您喜欢做饭吗？最拿手的菜是什么？）
+Do you usually exercise? What kind of sports do you do?（您通常锻炼吗？做什么运动？）
+Do you like reading books? What genre of books do you prefer?（您喜欢看书吗？偏好什么类型的书？）
+Have you tried any new hobbies recently?（您最近尝试新爱好了吗？）
+Do you like going to concerts or music festivals?（您喜欢去听音乐会或音乐节吗？）
+Do you prefer family trips or trips with friends?（您喜欢和家人旅游，还是和朋友旅游？）
+Do you like trying new foods when you travel?（您旅游时喜欢尝试新食物吗？）
+Do you have a favorite sports team? Do you watch their games?（您有喜欢的运动队吗？会看他们的比赛吗？）
+Do you like taking photos? Do you have a favorite photo you’ve taken?（您喜欢拍照吗？有最喜欢的一张自己拍的照片吗？）
+Do you usually spend weekends with your family? What do you do together?（您周末通常和家人一起过吗？一起做什么？）
+Do you like gardening? Do you grow any plants at home?（您喜欢园艺吗？家里种植物吗？）
+Have you been to any art exhibitions or museums lately?（您最近去看艺术展或博物馆了吗？）
+Do you like playing games? What kind of games do you enjoy?（您喜欢玩游戏吗？喜欢什么类型的游戏？）
+Do you like drinking coffee or tea? What’s your favorite type?（您喜欢喝咖啡还是茶？最喜欢哪种类型？）
+Do you usually plan your holidays in advance?（您通常提前规划假期吗？）
+Do you like watching sports events? Which sport do you like the most?（您喜欢看体育赛事吗？最喜欢哪种运动？）
+Do you have a favorite restaurant that you often go to?（您有常去的最喜欢的餐厅吗？）
+Do you like making handicrafts or DIY projects?（您喜欢做手工或 DIY 项目吗？）
+Have you learned any new skills recently, like a new language?（您最近学新技能了吗？比如一门新语言？）
+Do you like going to the park or outdoor places on weekends?（您周末喜欢去公园或户外场所吗？）
+Do you have a favorite season? Why do you like it?（您有最喜欢的季节吗？为什么喜欢？）
+Do you like collecting anything, like stamps or coins?（您喜欢收藏东西吗？比如邮票或硬币？）
+Do you usually listen to podcasts? What topics are you interested in?（您通常听播客吗？对什么主题感兴趣？）
+Have you tried any outdoor activities like hiking or camping?（您尝试过徒步、露营这类户外活动吗？）
+Do you like watching documentaries? What type of documentaries do you prefer?（您喜欢看纪录片吗？偏好什么类型的纪录片？）
+Do you usually cook at home or eat out on weekends?（您周末通常在家做饭还是出去吃？）
+Do you have a favorite singer or band? Have you seen them perform live?（您有喜欢的歌手或乐队吗？去看过他们的现场演出吗？）
+Do you like playing musical instruments? What instrument can you play?（您喜欢玩乐器吗？会演奏什么乐器？）
+Have you been to any theme parks? Which one is your favorite?（您去过主题公园吗？最喜欢哪一个？）
+Do you like reading newspapers or magazines? What kind do you usually read?（您喜欢看报纸或杂志吗？通常看哪种？）
+Do you usually take walks after dinner?（您晚饭后通常会散步吗？）
+Have you tried any traditional crafts from your country?（您尝试过自己国家的传统手工艺吗？）
+Do you like planning trips by yourself or joining group tours?（您喜欢自己规划旅行，还是参加跟团游？）
+十四、轻业务话题沟通
+Has the demand for your company’s products in the local market changed recently?（最近贵公司产品在本地市场的需求有变化吗？）
+Some of our clients said retail orders are down a bit—does your company have the same situation?（我们有些客户说零售订单略有下降，贵公司也有这种情况吗？）
+Do you think the recent market changes are seasonal, or will they last longer?（您觉得最近的市场变化是季节性的，还是会持续更久？）
+Does your company usually work with local suppliers, or more with overseas ones?（贵公司通常和本地供应商合作，还是更多和海外供应商合作？）
+I noticed different regions have different sourcing habits—what’s common in your area?（我发现不同地区采购习惯不一样，您所在地区常见的采购方式是什么？）
+More companies are using dual sourcing strategies now—do you think that’s necessary?（现在更多公司采用 “双供应源” 策略，您觉得有必要吗？）
+Have your clients asked for more eco-friendly product solutions lately?（最近贵公司的客户有提出更多环保产品解决方案的需求吗？）
+Many of our clients are asking about recycled materials—do you get similar questions?（我们很多客户都在问环保材料的事，您也会被问到这类问题吗？）
+Our team is exploring greener production methods—would you like to know more about it?（我们团队正在探索更环保的生产方式，您想了解更多相关信息吗？）
+What’s the biggest challenge your team is facing in business this quarter?（贵团队本季度在业务上面临的最大挑战是什么？）
+Some clients mentioned staffing shortages—has your company encountered this issue?（有些客户提到人手短缺，贵公司也遇到这个问题了吗？）
+How does your company usually adjust to changes in market demand?（贵公司通常怎么应对市场需求的变化？）
+Do your clients have higher requirements for product delivery time recently?（最近贵公司的客户对产品交货期要求更高了吗？）
+Have you noticed any new preferences in your clients’ product choices?（您注意到客户在产品选择上有什么新偏好吗？）
+How does your company collect feedback from clients to improve products?（贵公司通常怎么收集客户反馈来改进产品？）
+Do you think the current price level of raw materials will affect your business?（您觉得当前原材料价格水平会影响贵公司业务吗？）
+Has your company tried any new sales channels to expand the market?（贵公司尝试过新的销售渠道来拓展市场吗？）
+How do you usually maintain long-term relationships with your key clients?（您通常怎么和核心客户维持长期合作关系？）
+Do your clients pay more attention to product quality certifications now?（现在贵公司的客户更关注产品质量认证了吗？）
+Have you noticed any changes in the competition pattern of your local market?（您注意到本地市场的竞争格局有变化吗？）
+How does your company balance product quality and production cost?（贵公司怎么平衡产品质量和生产成本？）
+Do you think online marketing is more effective for your products now?（您觉得现在网络营销对贵公司产品更有效吗？）
+Has your company made any adjustments to product specifications based on client needs?（贵公司有根据客户需求调整产品规格吗？）
+How do you usually predict the future market demand for your products?（您通常怎么预测产品未来的市场需求？）
+Do your clients have any special requirements for product packaging lately?（最近贵公司的客户对产品包装有特殊要求吗？）
+Has your company participated in any local trade shows to promote products?（贵公司参加过本地展会来推广产品吗？）
+How does your company handle unexpected changes in client orders?（贵公司怎么处理客户订单的突发变动？）
+Do you think the current economic environment will affect your company’s business plans?（您觉得当前经济环境会影响贵公司的业务计划吗？）
+Has your company introduced any new products to meet market needs recently?（最近贵公司有推出新产品来满足市场需求吗？）
+How do you usually communicate product updates to your clients?（您通常怎么把产品更新信息告知客户？）
+Do your clients ask for more after-sales service support now?（现在贵公司的客户要求更多售后服务支持了吗？）
+Has your company collaborated with other enterprises to develop new products?（贵公司有和其他企业合作开发新产品吗？）
+How does your company ensure the stability of product supply to clients?（贵公司怎么确保给客户的产品供应稳定？）
+Do you think the trend of digital transformation will affect your industry?（您觉得数字化转型趋势会影响您所在的行业吗？）
+Has your company used any data analysis tools to understand market trends?（贵公司使用过数据分析工具来了解市场趋势吗？）
+How do you usually deal with price negotiations with clients?（您通常怎么和客户进行价格谈判？）
+Do your clients pay more attention to the carbon footprint of products now?（现在贵公司的客户更关注产品的碳排放量吗？）
+Has your company made any improvements to the product testing process?（贵公司对产品检测流程做过改进吗？）
+How do you usually identify new market opportunities for your products?（您通常怎么为产品寻找新的市场机会？）
+十五、产品介绍与咨询
+This is our latest product model—would you like to take a closer look?（这是我们的最新产品型号，您想仔细看看吗？）
+Here’s our product catalog with detailed specifications—you can keep it for reference.（这是我们的产品目录，里面有详细参数，您可以留着参考。）
+This product is designed for the European market—does it fit your needs?（这款产品是针对欧洲市场设计的，符合您的需求吗？）
+The key feature of this product is energy-saving—can save 30% of electricity compared to similar products.（这款产品的核心特点是节能，比同类产品省电 30%。）
+Do you have any questions about the product’s usage method?（您对产品的使用方法有疑问吗？）
+We can provide a sample of this product for you to test—would you like that?（我们可以提供这款产品的样品供您测试，您需要吗？）
+This product has passed international quality certifications—here’s the certification document.（这款产品通过了国际质量认证，这是认证文件。）
+What aspects of the product are you most concerned about? Quality, price, or delivery time?（您最关注产品的哪些方面？质量、价格还是交货期？）
+The product’s warranty period is 2 years—we provide free maintenance within that time.（这款产品保修期 2 年，期间我们提供免费维修。）
+Do you need us to demonstrate how the product works?（您需要我们演示产品的使用方法吗？）
+This product is very popular in Southeast Asia—many clients repurchase it.（这款产品在东南亚很受欢迎，很多客户都会回购。）
+Can you tell us your specific requirements for the product? We can customize it.（您能说说对产品的具体要求吗？我们可以提供定制服务。）
+The product’s main material is environmentally friendly—meets EU environmental standards.（这款产品的主要材质是环保的，符合欧盟环保标准。）
+How do you think this product compares with the ones you currently use?（您觉得这款产品和您现在使用的相比怎么样？）
+We have a discount for bulk orders of this product—would you like to know the details?（这款产品批量订购有折扣，您想了解详情吗？）
+Do you have any special requirements for the product’s packaging?（您对产品的包装有特殊要求吗？）
+The product’s production cycle is 15 days—we can deliver it on time.（这款产品的生产周期是 15 天，我们能按时交货。）
+Have you used similar products before? What do you think of their performance?（您之前用过同类产品吗？觉得它们的性能怎么样？）
+This product has a high safety coefficient—suitable for household use.（这款产品安全系数高，适合家庭使用。）
+Do you need us to provide technical parameters of the product in writing?（您需要我们提供书面的产品技术参数吗？）
+The product’s design is user-friendly—easy to operate even for beginners.（这款产品设计人性化，即使是新手也容易操作。）
+We can adjust the product’s functions according to your market needs—just let us know.（我们可以根据您的市场需求调整产品功能，告诉我们就行。）
+What’s the usual order quantity of such products for your company?（贵公司这类产品的常规订购量是多少？）
+This product has a long service life—can be used for more than 5 years under normal use.（这款产品使用寿命长，正常使用下能用到 5 年以上。）
+Do you have any questions about the product’s after-sales service?（您对产品的售后服务有疑问吗？）
+The product’s appearance can be customized—we have multiple color options.（这款产品外观可以定制，我们有多种颜色可选。）
+We can arrange a factory visit for you to see the product’s production process—would you like to go?（我们可以安排您去工厂参观产品生产过程，您想去吗？）
+How does the product’s price range fit your company’s budget?（这款产品的价格区间符合贵公司的预算吗？）
+This product is compatible with most of the equipment on the market—no need to replace existing devices.（这款产品兼容市场上大部分设备，无需更换现有装置。）
+Do you need us to send the product sample to your company after the meeting?（会议结束后，您需要我们把产品样品寄到贵公司吗？）
+The product’s transportation is convenient—we have cooperative logistics companies.（这款产品运输方便，我们有合作的物流公司。）
+Have you received feedback from your clients about similar products? What do they say?（您收到过客户对同类产品的反馈吗？他们怎么说？）
+This product has a low failure rate—less than 1% in the past year.（这款产品故障率低，去年还不到 1%。）
+Do you need us to introduce the product’s competitive advantages compared to competitors?（您需要我们介绍这款产品相对于竞争对手的优势吗？）
+The product can be used in multiple scenarios—both commercial and household.（这款产品适用场景多，商用和家用都可以。）
+We can provide a test report of the product—proving its performance.（我们可以提供产品的检测报告，证明其性能。）
+What’s the delivery address you usually use for product orders?（贵公司订购产品时常用的交货地址是哪里？）
+This product is currently in stock—we can deliver it within 3 days after order confirmation.（这款产品目前有库存，订单确认后 3 天内就能发货。）
+Do you have any other requirements for the product that we haven’t mentioned?（除了我们提到的，您对产品还有其他要求吗？）
+十六、合作流程沟通
+Have you worked with Chinese suppliers before? What was your previous cooperation process?（您之前和中国供应商合作过吗？之前的合作流程是怎样的？）
+What does your ideal supplier cooperation process look like? We can adjust accordingly.（您理想的供应商合作流程是什么样的？我们可以相应调整。）
+After confirming the order, we will send you a contract—could you tell us your requirements for the contract terms?（确认订单后我们会给您发合同，能说说您对合同条款的要求吗？）
+Our usual payment terms are 30% advance payment and 70% balance before delivery—does this work for you?（我们常规付款方式是 30% 预付款，70% 发货前付清，这样您能接受吗？）
+Do you need us to provide a production schedule after the order is placed?（订单下达后，您需要我们提供生产进度表吗？）
+How do you usually confirm the product sample before mass production?（批量生产前，您通常怎么确认产品样品？）
+After production is completed, we will conduct a pre-shipment inspection—would you like to send someone to supervise it?（生产完成后我们会做装船前检验，您想派人监督吗？）
+What logistics method do you usually prefer for product transportation? Sea freight, air freight, or express?（产品运输您通常偏好什么物流方式？海运、空运还是快递？）
+Do you have a designated logistics company, or do you want us to arrange it?（您有指定的物流公司，还是想让我们来安排？）
+How do you usually handle product quality issues that may arise after delivery?（交货后若出现产品质量问题，您通常怎么处理？）
+We will send you a shipping notice with tracking information after the goods are shipped—do you need other documents?（货物发出后我们会给您发带有物流跟踪信息的装船通知，您还需要其他文件吗？）
+What’s the usual lead time you expect from suppliers? Can we discuss it?（您期望供应商的常规交货周期是多久？我们可以商量一下吗？）
+Do you need us to update you on the production progress every week?（您需要我们每周向您更新生产进度吗？）
+How do you confirm the delivery address and contact person for the goods?（您怎么确认货物的交货地址和联系人？）
+After receiving the goods, how long do you usually take to inspect them and confirm receipt?（收到货物后，您通常多久完成检验并确认收货？）
+Do you have any special requirements for the commercial invoice or packing list?（您对商业发票或装箱单有特殊要求吗？）
+Our cooperation process includes sample confirmation, contract signing, production, inspection, and shipment—would you like to add any links?（我们的合作流程包括样品确认、签合同、生产、检验、发货，您想增加环节吗？）
+How do you usually communicate with suppliers about order changes?（订单有变动时，您通常怎么和供应商沟通？）
+Do you need us to provide certificates of origin for the goods?（您需要我们提供货物的原产地证书吗？）
+What’s your company’s process for approving supplier cooperation? Do we need to provide additional materials?（贵公司审批供应商合作的流程是怎样的？我们需要提供额外资料吗？）
+After the first cooperation, if both parties are satisfied, do you have plans for long-term cooperation?（第一次合作若双方满意，您有长期合作的计划吗？）
+How do you usually settle disputes that may arise during cooperation?（合作中若出现纠纷，您通常怎么解决？）
+Do you need us to sign a non-disclosure agreement to protect your business information?（您需要我们签保密协议来保护贵公司商业信息吗？）
+What’s the minimum order quantity you usually require for products?（您对产品的常规最小订购量是多少？）
+Do you have any requirements for the frequency of communication during cooperation?（合作期间，您对沟通频率有要求吗？）
+After the goods are shipped, if there are delays due to logistics, how do you want us to handle it?（货物发出后若因物流导致延误，您希望我们怎么处理？）
+Do you need us to provide a warranty certificate for each batch of products?（您需要我们为每批产品提供保修证书吗？）
+What’s your company’s process for returning or exchanging defective products?（贵公司对不合格产品的退换货流程是怎样的？）
+Do you want us to arrange for the goods to be delivered to your warehouse directly, or to a third-party location?（您想让我们把货物直接送到贵公司仓库，还是送到第三方地点？）
+How do you confirm the product specifications again before mass production? Do you need a written confirmation?（批量生产前，您怎么再次确认产品规格？需要书面确认吗？）
+Our team will assign a dedicated person to follow up on your order—would you like to know their contact information in advance?（我们团队会安排专人跟进您的订单，您想提前知道 TA 的联系方式吗？）
+Do you have any special requirements for the labeling of the goods? Such as barcodes or logos?（您对货物的标签有特殊要求吗？比如条形码或标识？）
+After the contract is signed, how long do you usually take to make the advance payment?（合同签订后，您通常多久支付预付款？）
+If there is a shortage of raw materials that may affect the delivery time, how do you hope we will inform you?（若原材料短缺可能影响交货期，您希望我们如何通知您？）
+Do you need us to provide photos or videos of the product during the production process?（您需要我们提供生产过程中的产品照片或视频吗？）
+What’s your company’s process for verifying the authenticity of the documents we provide?（贵公司验证我们提供文件真实性的流程是怎样的？）
+After the goods arrive, if there is a quantity discrepancy, how do you want us to cooperate with the verification?（货物到达后若出现数量不符，您希望我们如何配合核实？）
+Do you have plans to adjust the order quantity in the future? If so, how much advance notice do you need to give us?（您未来有调整订单数量的计划吗？若有，需要提前多久通知我们？）
+After the cooperation is completed, would you like us to send a summary report of the order execution?（合作完成后，您需要我们发送订单执行情况的总结报告吗？）
+十七、特殊场景应对
+We understand your schedule has changed—would you prefer to reschedule the factory tour to tomorrow morning or the day after?（我们理解您的行程有变动，您更希望将工厂参观改到明天上午还是后天？）
+Thank you for letting us know about the additional document you need—we can prepare it and send it to you within 20 minutes.（感谢您告知需要额外文件，我们 20 分钟内就能准备好并发送给您。）
+We apologize for the sudden malfunction of the meeting TV—our maintenance staff is on the way, and we’ve prepared a laptop for temporary use.（非常抱歉会议电视突发故障，维修人员已在赶来的路上，我们已准备好笔记本电脑临时使用。）
+Due to heavy rain, the driver will be 20 minutes late—we’ve arranged hot drinks for you in the lobby, and we’re truly sorry for the inconvenience.（因大雨，司机将迟到 20 分钟，我们已在大堂为您准备了热饮，对此不便我们深表歉意。）
+We noticed you need to add a product demonstration session—we can adjust the meeting agenda and extend the time by 30 minutes.（我们注意到您需要增加产品演示环节，我们可以调整会议议程，延长 30 分钟时长。）
+The sample you requested is temporarily out of stock—we can prioritize production for you and send it within 3 working days.（您所需的样品暂时缺货，我们可以为您优先生产，3 个工作日内寄出。）
+We apologize that the originally reserved restaurant is fully booked—we’ve found two alternative restaurants nearby, both with good reviews. Which one do you prefer?（非常抱歉原定预订的餐厅已订满，我们在附近找到了两家评价不错的替代餐厅，您更倾向于哪家？）
+Due to a temporary road closure, the route to the factory needs to be changed—it will take 15 more minutes, and we’ll explain the new route to you in detail.（因道路临时封闭，去工厂的路线需更改，会多花 15 分钟，我们会向您详细说明新路线。）
+Thank you for pointing out the error in the meeting materials—we’ve reprinted the corrected version and will deliver it to you immediately.（感谢您指出会议资料中的错误，我们已重新打印修正版，会立即送到您手中。）
+The air conditioner in the meeting room is being repaired—we’ve brought portable fans and will adjust the windows for better ventilation.（会议室空调正在维修，我们已带来便携风扇，并会开窗保持良好通风。）
+We understand you need to advance the departure time for the airport—we can arrange the driver to pick you up 1 hour earlier, and we’ll confirm the new time with you again.（我们理解您需要提前去机场的出发时间，我们可以安排司机提前 1 小时接您，并会再次和您确认新时间。）
+The printer in the business center is not working—we can take your documents to a nearby print shop and bring them back within 10 minutes.（商务中心的打印机无法使用，我们可以将您的文件送到附近打印店，10 分钟内带回。）
+We apologize that the coffee prepared is cold—we’ll make a new pot immediately and bring it to you as soon as possible.（非常抱歉准备的咖啡凉了，我们会立即重新煮一壶，尽快送到您面前。）
+Due to a flight cancellation, you need to stay an extra night—we can rearrange the hotel room and adjust the next day’s schedule accordingly.（因航班取消您需多停留一晚，我们可以重新安排酒店房间，并相应调整次日行程。）
+Thank you for informing us of the dietary restriction you just remembered—we’ll contact the restaurant immediately to change the menu.（感谢您告知刚想起的饮食禁忌，我们会立即联系餐厅更改菜单。）
+The Wi-Fi in the meeting room is unstable—we’ve connected a mobile hotspot and will share the password with you right away.（会议室 Wi-Fi 信号不稳定，我们已连接移动热点，会立即将密码分享给您。）
+We understand you want to shorten the meeting time—we can focus on the core agenda items first and leave the supplementary content for a follow-up call.（我们理解您想缩短会议时长，我们可以先聚焦核心议程，补充内容留到后续电话沟通。）
+The gift we prepared for you has a small defect—we’ve replaced it with a new one, and we apologize for the oversight.（我们为您准备的礼品有小瑕疵，已更换新的，对此疏忽我们深感抱歉。）
+Due to a factory emergency, the production line visit needs to be postponed—we can arrange a detailed video tour of the production line first.（因工厂突发情况，生产线参观需推迟，我们可以先安排详细的生产线视频讲解。）
+Thank you for reminding us of the time zone difference for the follow-up meeting—we’ll confirm the meeting time with you again based on your local time.（感谢您提醒后续会议的时区差异，我们会根据您的当地时间再次确认会议时间。）
+The pen prepared for you can’t write—we’ve brought a new box of pens, and you can choose any style you like.（为您准备的笔无法书写，我们已带来一盒新笔，您可以选喜欢的款式。）
+We apologize that the product catalog has missing pages—we’ve printed a complete version and will hand it to you immediately.（非常抱歉产品目录有缺页，我们已打印完整版本，会立即交给您。）
+Due to a sudden power outage in the office area, the meeting needs to be moved to the backup conference room—we’ll guide you there right away.（因办公区突发停电，会议需转移到备用会议室，我们会立即带您过去。）
+We understand you need to add a colleague to the meeting—we can prepare an extra chair and meeting materials immediately.（我们理解您需增加一位同事参会，我们会立即准备额外的椅子和会议资料。）
+The recording pen prepared for the meeting has no power—we’ve brought a fully charged backup one and will start recording right away.（为会议准备的录音笔没电了，我们已带来充满电的备用设备，会立即开始录音。）
+Thank you for telling us you’re not used to the chair in the meeting room—we can replace it with a more comfortable one within 5 minutes.（感谢您告知不习惯会议室的椅子，我们 5 分钟内就能更换一把更舒适的。）
+Due to a logistics delay, the sample you wanted to see can’t arrive on time—we can send a high-definition video of the sample to you first.（因物流延误，您想查看的样品无法按时送达，我们可以先给您发送样品的高清视频。）
+We apologize for the noise from the nearby construction site—we’ve closed the windows and turned up the volume of the sound system appropriately.（非常抱歉附近工地有噪音，我们已关上窗户，并适当调大了音响音量。）
+We understand you need to end the meeting 1 hour early—we can simplify the agenda and focus only on the key points.（我们理解您需提前 1 小时结束会议，我们可以简化议程，只聚焦重点内容。）
+The drinking water prepared has a strange taste—we’ve replaced it with bottled mineral water and will deliver it to you immediately.（准备的饮用水有异味，我们已换成瓶装矿泉水，会立即送到您面前。）
+Due to a colleague’s sudden illness, the person in charge of product introduction can’t attend—we’ve arranged another experienced colleague to take over.（因同事突发疾病，负责产品介绍的人员无法参会，我们已安排另一位有经验的同事接替。）
+Thank you for pointing out the mistake in the product parameter data—we’ve corrected it and will re-explain the relevant content.（感谢您指出产品参数数据中的错误，我们已修正，并会重新讲解相关内容。）
+We apologize that the parking space reserved for you is occupied—we’ve found another nearby parking space and will guide the driver there.（非常抱歉为您预留的停车位被占用，我们已在附近找到另一个停车位，会引导司机过去。）
+We understand you need to change the hotel to one closer to the airport—we can book a suitable hotel for you within 30 minutes.（我们理解您需将酒店换成离机场更近的，我们 30 分钟内就能为您预订合适的酒店。）
+The projector remote control is missing—we’ve found a universal remote control that can be used, and we’ll test it for you first.（投影仪遥控器不见了，我们找到一个可使用的万能遥控器，会先为您测试。）
+Due to a sudden change in your company’s schedule, you need to cancel the factory visit—we can reschedule it for your next trip to China.（因贵公司行程突发变动，您需取消工厂参观，我们可以将其改到您下次来中国时。）
+We apologize for the incorrect name on the meeting name tag—we’ve reprinted the correct one and will replace it for you immediately.（非常抱歉会议姓名牌上的名字有误，我们已重新打印正确的，会立即为您更换。）
+We understand you need to add a discussion on after-sales service—we can insert this topic after the product introduction session.（我们理解您需增加售后服务的讨论环节，我们可以在产品介绍之后插入这个话题。）
+The snacks prepared are not in line with your dietary habits—we’ve contacted the restaurant to prepare suitable snacks and will deliver them as soon as possible.（准备的零食不符合您的饮食习惯，我们已联系餐厅准备合适的零食，会尽快送达。）
+十八、客户送别沟通
+Thank you again for taking the time to visit our company—we wish you a safe and smooth journey back.（再次感谢您抽空来访我司，祝您返程安全顺利。）
+It was a great pleasure working with you during this visit—we look forward to your next arrival.（此次来访合作非常愉快，我们期待您的下次到来。）
+This is a local specialty of [City Name]—we hope you like it and share it with your family.（这是 [城市名] 的本地特产，希望您喜欢，并能和家人分享。）
+We’ve collected all the meeting materials and product samples you need—please check if there’s anything missing.（我们已整理好您需要的所有会议资料和产品样品，请检查是否有遗漏。）
+If you have any questions or needs after returning to your country, please feel free to contact us via email or phone.（回国后若有任何疑问或需求，欢迎通过邮件或电话联系我们。）
+Could we take a group photo with you to commemorate this pleasant cooperation?（我们能和您一起拍张合影，纪念这次愉快的合作吗？）
+We value the partnership with your company very much and hope to establish a long-term and stable cooperative relationship.（我们非常珍视与贵公司的合作，期待建立长期稳定的合作关系。）
+The driver will help you load your luggage into the car—please take your personal items and don’t leave anything behind.（司机会帮您把行李装上车，请带好个人物品，别遗漏东西。）
+We are very satisfied with the discussion results today and believe they will lay a good foundation for our future cooperation.（我们对今天的沟通成果非常满意，相信这会为我们未来的合作奠定良好基础。）
+The flight information has been sent to your phone—please check the departure time and boarding gate again.（航班信息已发送到您的手机，请再次确认起飞时间和登机口。）
+It’s a pity you don’t have time to visit the local scenic spots this time—we can arrange a tour for you next time you come.（很遗憾您这次没时间参观本地景点，下次您来，我们可以为您安排游览。）
+Thank you for your valuable suggestions during the meeting—we will study and improve them seriously.（感谢您在会议中提出的宝贵建议，我们会认真研究并改进。）
+We will send the meeting minutes to your email within 24 hours—please check and confirm if there are any adjustments needed.（我们会在 24 小时内将会议纪要发送到您的邮箱，请查看并确认是否需要调整。）
+The weather at your destination may be cold—please remember to take warm clothes with you.（您目的地的天气可能较冷，请记得随身携带保暖衣物。）
+We hope you have a comfortable flight and can have a good rest after returning home.（祝您飞行舒适，回国后能好好休息。）
+If you need any help during the airport procedures, you can call the driver—he will stay nearby to assist you.（若您在机场办理手续时需要帮助，可以给司机打电话，他会在附近协助您。）
+We have prepared some small gifts for your family—they are in the gift bag, please take them.（我们为您的家人准备了些小礼物，放在礼品袋里，请您收下。）
+The cooperation plan we discussed today will be followed up by our colleague [Colleague Name]—we will keep you updated on the progress.（今天讨论的合作方案将由我们的同事 [同事姓名] 跟进，我们会及时向您同步进展。）
+Thank you for trusting our company’s products and services—we will live up to your expectations.（感谢您信任我司的产品和服务，我们不会辜负您的期望。）
+Please pass our greetings to your team members—we look forward to communicating with them in the future.（请代我们向您的团队成员问好，期待未来能与他们沟通交流。）
+The airport may have a long queue for security check—we suggest you go through the check-in procedures as soon as possible.（机场安检可能需要排队，建议您尽快办理值机手续。）
+We are very grateful for your patience and support during this visit—wish you all the best in your work and life.（非常感谢您此次来访期间的耐心与支持，祝您工作生活一切顺利。）
+If you have any needs for product information in the future, please let us know—we will provide it for you in a timely manner.（未来若您有产品信息方面的需求，请告知我们，我们会及时为您提供。）
+The gift bag contains a guide to local specialties—you can share it with your friends who may be interested in coming to China.（礼品袋里有本地特产指南，您可以分享给可能感兴趣来中国的朋友。）
+We will keep in touch with you regularly to share the latest industry information and product updates.（我们会定期与您保持联系，分享最新的行业资讯和产品动态。）
+Please take care of yourself during the journey—if you encounter any problems, don’t hesitate to contact us.（旅途期间请您照顾好自己，若遇到问题，随时联系我们。）
+Thank you for your participation in the factory visit—we hope the introduction helped you understand our products better.（感谢您参与工厂参观，希望讲解能帮助您更好地了解我们的产品。）
+We have prepared a bottle of water and some snacks for you on the way to the airport—you can eat them if you feel hungry.（去机场的路上，我们为您准备了一瓶水和一些零食，饿了可以吃。）
+The cooperation opportunities we discussed today are very valuable—we will actively promote the implementation of relevant matters.（今天讨论的合作机会非常宝贵，我们会积极推进相关事宜的落实。）
+Please remember our company’s contact information—we are always here to serve you.（请记住我司的联系方式，我们随时为您提供服务。）
+It’s a pleasure to have built a deeper understanding with you through this visit—we believe our cooperation will be more smooth in the future.（通过此次来访，能与您建立更深的了解，我们非常开心，相信未来合作会更顺畅。）
+The airport duty-free shops have many cost-effective products—you can take a look if you have time.（机场免税店有很多高性价比的商品，有空您可以逛逛。）
+We will summarize the problems you mentioned during the visit and give you a solution within a week.（我们会汇总您来访期间提出的问题，并在一周内给您解决方案。）
+Please don’t forget to take your passport and boarding pass with you—they are essential for boarding the plane.（请别忘了带上护照和登机牌，它们是登机的必备证件。）
+It was an honor to cooperate with you—we hope to have more in-depth exchanges in the future.（能与您合作是我们的荣幸，期待未来有更多深度交流。）
+If you have friends or partners who need our products, please feel free to recommend us—we will provide excellent service.（若您有朋友或合作伙伴需要我们的产品，欢迎推荐，我们会提供优质服务。）
+We have adjusted the follow-up work plan according to your requirements—we will send you a copy for confirmation.（我们已根据您的要求调整了后续工作计划，会发一份给您确认。）
+The journey back may be tiring—we hope you can relax well on the plane and return to work with energy.（返程旅途可能较累，希望您能在飞机上好好休息，精力充沛地投入工作。）
+Thank you again for your trust and support—we look forward to creating more value for your company through our cooperation.（再次感谢您的信任与支持，期待通过合作为贵公司创造更多价值。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="94接待国外客户800句";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

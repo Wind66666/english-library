@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 外贸口语背熟它白底蓝字</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p226.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：外贸口语背熟它白底蓝字</h1>
+  <div class="meta"><span class="charspill">151 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">151</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 151 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p226.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["propose a collaborative solution to maintain our partnership while managing cost impacts（我们", "提出一项协同方案，在管控成本的同时维护合作关系）:"], ["o Supplier absorbs [Y%] of the tariff increase", "我方承担 **[Y%]** 的关税增量"], ["o Customer shares [Z%] (only $[Specific Amount] per unit)（您方分担**[Z%]，折合每", "单位仅增加$[具体金额]**）"], ["Enclosure: Excel Sheet - Tariff Cost-Sharing Calculation", "附件：关税分摊比例计算表（Excel 文件）"], ["tariff for [Product HS Code] will rise from X% to Y% effective [Date]（**[产品 HS 编码]进口关税", "守护您的利润空间，强烈建议您）:"], ["original price（于 **[日期]前预付 30% 定金）, avoiding a [X%] cost increase per unit（避", "第 3 页 共 29 页"], ["hassle-free procurement（我们优化贸易条款，为您提供无忧采购体验）:", "调整为DDP（完税后交货））"], ["and clearance fees)", "每单位**$X.XX**，包含生产成本、海运费、关税及清关杂费"], ["receive the goods（我方全程处理清关文件，您只需签收货物）.", "第 4 页 共 29 页"], ["committed to providing high - quality products and services to outstanding enterprises like yours.", "第 5 页 共 29 页"], ["I'm looking forward to the opportunity to cooperate and create more value together.（您好！能在", "众多客户中与您取得联系，我觉得特别幸运。通过了解，我发现您在行业内的成就令人钦佩，我们公司一"], ["24 hours. Looking forward to working with you!（感谢您的询盘！我们已收到您的需求，24 小时内将", "提供详细报价单。期待与您合作！）"], ["more details?", "注意到您对 [产品] 感兴趣，我们提供免费样品和定制服务。是否需要进一步资料？"], ["specs or certifications needed.（我们做这行 10 年了，老客户都说靠谱！你需要什么规格或者认证直接", "告诉我就行。）"], ["usually take three people.", "使用这台机器，您生产率可以提升 30%，而且它可以完成三个人的工作量。"], ["2% off.", "这个价格真的很实在啦！你要是多订点，比如 1000 件以上，我可以跟老板申请再降 2%。"], ["for you once you confirm?（现在原材料涨价厉害，这个价格只能保留到月底哦！要不等你确认订单，我", "再帮你锁价？）"], ["if your order increases by 10%.（我们的报价已包含 [技术 / 服务 / 质量] 优势，若您订单量增加 10%，", "我们可再优惠 3%。）"], ["market.", "老实说，我们这个价格已经没赚什么钱了，就是为了打开市场。"], ["you pay for.", "我们价格虽然小贵，但质量绝对是市面上最好的，一分价钱一分货嘛。"], ["it has to be reasonable.", "咱们做生意最重要的是双方都满意，价格可以商量，但要合理。"], ["discount.", "如果您能现款现货，我们可以稍微考虑一下价格优惠。"], ["cooperation can bring you higher value.（我们理解您对价格的关注。但我们的产品在品质把控上极为", "严格，采用的都是优质原材料和先进工艺，在耐用性和性能方面远超同价位竞品。而且我们也会为长期合"], ["may not last as long or perform as well.（我们的价格体现了产品卓越的质量和工艺。更便宜的替代品", "第 7 页 共 29 页"], ["processes. Our products are built to meet the highest standards.（虽然其他人可能报价更低，但他们", "往往在材料和生产过程中偷工减料。我们的产品是按照最高标准生产的。）"], ["advancements.（我们价格高的原因是我们在研发上投入更多，以确保我们的产品处于创新的前沿。便宜", "的产品可能缺乏这些进步。）"], ["cases for your reference.（请您放心，我们的产品都经过了严格的质量检测，拥有相关的质量认证证书。", "并且我们在市场上已经服务了众多客户，获得了一致好评。如果您需要，我们可以提供一些客户的反馈案"], ["stable cooperative relationship.（我们很感谢您的合作意向。目前的价格已经是我们能给出的最优惠价", "格了。不过，如果您后续的订单量达到一定规模，我们可以为您提供更有竞争力的价格方案。希望我们能"], ["so I'm fairly professional. I can offer you some objective advice. What do you think?（当然，购买东", "西时谨慎考虑是好事。我感觉您对我们的产品挺满意的，是不是还有什么顾虑呢？您尽管跟我说。我们就"], ["me to help you out?（做决定挺难的，尤其是咱们还隔了这么远。您需要什么信息我这就给您提供，只要", "能帮到您。）"], ["you again.", "或许我先前的解释还没到位，给我个机会再给您详细说说。"], ["together.", "您那边有什么特别的需求或问题，直接跟我说，咱们一起搞定。"], ["time.", "我会密切关注您订单的进展和生产情况，并实时向您更新。"], ["don't hesitate to contact us. We're here to serve you.（如果您在使用我们产品的过程中遇到任何困难", "或有建议，请随时与我们联系，我们随时为您服务。）"], ["you have any concerns, feel free to reach out.（感谢您对订单 xxx 的付款，我们将在 3 个工作日内安", "排发货。如果您有任何疑虑，请随时与我们联系。）"], ["provide you with better service.（感谢您一直以来对我们公司的信任和支持，我们会继续努力为您提供", "更好的服务。）"], ["meet your needs.", "非常感谢您向我们提供宝贵的建议，我们会不断改进产品和服务，以满足您的需求。"], ["satisfactory answer as soon as possible.（感谢您的耐心等待，我们正在努力解决您的问题，会尽快给您", "一个满意的答复。）"], ["to make you satisfied is our biggest pursuit.（非常抱歉给您带来不便，我们会尽快处理您的问题，让", "您满意是我们最大的追求。）"], ["quality and service level.", "感谢您的信任和支持，我们会继续努力提升产品质量和服务水平。"], ["and services to meet your needs.（感谢您对我们的关注和支持，我们会不断推出新的产品和服务，以满", "足您的需求。）"], ["like you who's passionate about...（您好！展会总能聚集很多有意思的人，很高兴遇到像您这样对…… 热", "情的伙伴。）"], ["products?", "日安！欢迎来到我们的展位，想了解我们产品的哪些信息呢？"], ["Come in!", "您好！逛累了吧？来我们展位休息一下，有咖啡和精彩产品展示，进来坐坐！"], ["some insights.", "请问您在 xx 行业主要关注哪些方向？我们合作过很多该领域客户，或许能交流些经验。"], ["solutions to your needs.", "您对 [产品 / 行业话题] 的见解很独特，特别想探讨如何为您定制解决方案。"], ["that might help your business.（即使暂时没合作，我也很乐意分享对您业务有帮助的市场趋势或行业报", "告。）"], ["spark more ideas for our collaboration.（加个领英吧！我会分享产品动态和行业洞察，说不定能碰撞出", "更多合作灵感。）"], ["December 31st.", "请注意，我们的报价是基于上海离岸价而非香港到岸价，并且有效期至 12 月 31 日。"], ["over ten years, so I'm fairly professional. I can offer you some objective advice. What do you think?", "（当然，购买东西时谨慎考虑是好事。我感觉您对我们的产品挺满意的，是不是还有什么顾虑呢？您尽管"], ["some changes in your business needs, we can be a reliable alternative for you.（我完全理解拥有长", "期供应商会给您带来稳定感和信任感。对商业合作伙伴的忠诚度非常可贵。不过探索新的选择总是有益的。"], ["product that better suits your needs.（很遗憾听到我们的产品目前似乎不符合您的要求。不知您是否可", "以详细地和我分享一下哪些方面不符合您的预期。我们的研发团队非常强大，并且我们一直在进行改进和"], ["excellent. You can choose us with confidence. If there are any problems with the product in the", "第 13 页 共 29 页"], ["cause you any trouble in the future regarding the product.（是的，价格是公开透明的，您肯定做过调", "研。我理解大家都想用最合理的价格买到最满意的产品。不过，我想跟您说，虽然我们的价格不是最低的，"], ["money. Our prices reflect the superior quality and after - sales service we offer.（我理解您想要最优", "惠的价格。然而，我们注重提供物有所值的产品。我们的价格反映了我们提供的卓越品质和售后服务。）"], ["standards.（我尊重您的意见。不过，我们可以讨论一个双赢的解决方案，比如调整订单数量或付款条件，", "在符合您预算的同时仍保持我们的质量标准。）"], ["certainly provide a discount for your initial order as a gesture of goodwill and to encourage a long", "- term partnership.（很高兴听到您这么说！我们感谢有机会与您合作，肯定会为您的首次订单提供折扣，"], ["both our companies.（很高兴听到您的产品在市场上很受欢迎。这进一步让我们确信其质量和市场需求。", "让我们讨论一下如何利用这一成功使我们双方公司都受益。）"], ["warranty or customization options?（我理解您的立场，我们也不想在质量上妥协。我们探讨一下其他", "提升合作价值的方式怎么样，比如延长保修或定制选项？）"], ["partnership. Let's delve deeper into how we can create mutual benefit beyond just the cost.（我们", "承认您提供了有竞争力的报价。然而，我们关注的不仅仅是价格，还有整体价值以及在整个合作过程中我"], ["discounts or future order incentives that could work within your budget.（我们感谢您对定价的坦诚。", "我们的重点是建立基于信任和互利的关系。如果价格是您关心的问题，我们可以讨论潜在的批量折扣或未"], ["could be on the table if we establish a lasting partnership.（我们尊重您对这笔订单定价的立场。我们", "考虑一下长期合作的潜在利益怎么样？如果我们建立长期合作关系，忠诚度折扣或独家产品供应都可以商"], ["materials or optimize production processes to mitigate these increases.（我们理解原材料成本对您", "定价的影响。让我们一起努力寻找节约成本的措施，同时不影响质量。也许我们可以探索替代材料或优化"], ["switching to us.（我们的价格体现了（认证 / 耐用性 / 定制化），这些特性可直接降低您的（售后成本 /", "退货率）。例如，客户 A 转用我们产品后，维护成本节省了 XX%。）"], ["the price could drop by X%, but we don't recommend it because higher failure risk.（此报价包含（免", "费技术支持 / 3 年质保）。若取消这些服务，价格可降低 X%，但我们不建议这样做，因为可能导致（更高"], ["now by paying 30% deposit.（因（原材料短缺），4 月 1 日起价格将上涨 5%。立即支付 30% 定金可", "锁定当前价格。）"], ["t lower prices further, we’ll prioritize your emergency orders this quarter.（作为 VIP 客户，您自", "2025 年起享有 5% 专属折扣。尽管无法进一步降价，但本季度我们将优先处理您的紧急订单。）"], ["the price difference.（我们尊重您的决定。但在最终确认前，建议对比（此处厚度测量数据 vs 竞品）。", "许多客户通过我们的红外检测报告理解了价差原因。）"], ["China. I call today to look for the chance to cooperate with you. Just one minute please, ok?（下午", "好，弗兰克，我是来自中国 LED 制造商的埃里克。很抱歉打扰你，但我今天打电话是想寻求与你合作的机"], ["would like to provide free samples if needed.（好的，没关系。我会给你发一封电子邮件，详细介绍我", "们的报价供你参考。当然，如果需要的话，我很乐意提供免费样品。）"], ["yesterday, Right?（下午好，蒂娜，我是 AC 公司的埃里克。你昨天向我们询问了关于 AC 产品的事项，", "对吧？）"], ["call me.", "我已经给您回复了详细信息，请查收。如果您有任何不清楚的地方，请随时给我打电话。"], ["Because I think she needs these information urgently.（蒂娜刚给我发了一封关于 AC 产品的邮件。我", "想和她通过电话讨论一下，因为我觉得她急需这些信息。）"], ["regular supplier.（早上好，蒂娜。我是埃里克。我相信你已经查看了我昨天的报价。可能你有一些不太清", "楚或不太满意的地方。我会尽我最大的努力让你把我们视为你的常规供应商。）"], ["communicate once. What I want is to get a chance. Pls accept our free samples.（我知道你们有一", "个很好的供应商。我们从未希望你们只通过一次沟通就向我们下单。我所希望的是得到一个机会。请接受"], ["about our quote?", "您好，我注意到您还没有下单。您能分享一下对我们报价的疑虑或问题吗？"], ["help you make a decision.", "如果这能帮助您做出决定，我很乐意提供额外信息、样品或甚至演示。"], ["supply.", "根据我们目前的需求，库存可能会很快耗尽。现在下单可以确保您的供应。"], ["whenever you're ready.", "感谢您的时间和考虑。请慢慢来，我们随时准备在您准备好后提供帮助。"], ["do our best to address it.", "是否还有其他因素阻止您下单呢？我们会尽力解决。"], ["the fulfillment.", "感谢您向我们下单。我们已经确认了订单详情，并将开始处理。"], ["changes.", "这是您的订单摘要：[产品名称]，[数量]，[总金额]。如果有任何变动，请通知我们。"], ["number once it's dispatched.（我们预计您的订单将在 [发货时间] 内发货。发货后，您将收到一个追踪", "号码。）"], ["available to assist you.", "如果您对订单有任何疑问或担忧，我们的客户服务团队随时为您提供帮助。"], ["you.", "我们重视您的反馈。请告诉我们如何为您改进服务或产品。"], ["and support.", "我们期待与您建立长期而成功的合作关系。再次感谢您的信任和支持。"], ["more info!", "亲，我注意到您已经读了我的邮件，怎么样，是不是哪里还不清楚？您尽管问我！"], ["more, feel free to hit reply!（您好！看来您已经浏览过我的邮件了，有啥疑问或者需要讨论的随时可以回", "我哦。）"], ["know, happy to help out!", "您好，我发的邮件是不是没说清楚？有什么地方需要我解释的，您尽管提！"], ["a good chat with you.", "亲，看完邮件就给个回应，我在这边翘首以待，想和您好好聊聊。"], ["Let me explainmore about it.", "这价格确实不便宜，但咱家的东西质量您放心，让我来给您说道说道。"], ["good deal for you", "如果价格真让您犹豫，那咱可以考虑长期合作，给您个好价。"], ["start to finish.", "您的业务对我们很重要，我们努力为您提供从始至终的无缝体验。"], ["let us know. Best regards, Coco（亲爱的 [客户姓名]，早上好！我们诚挚邀请您参加即将举行的 [展会名", "称]，展会将于 [展会日期] 在 [展会地址] 举办。作为重要合作伙伴，我们非常希望您能参观我们的展位，"], ["potential collaborations. Even if we don't start working together immediately, we see this as a", "第 20 页 共 29 页"], ["invitation. Looking forward to your response. Best regards, Coco（亲爱的 [客户姓名]，希望您一切安", "好。我是 xx 公司的可可，我们专注于 [产品类型]。我们将参加 [展会名称]，展会时间为 [展会日期]，地"], ["you and our director.（早上好，[客户名]，我是 [公司名] 的 [你的名字]。上周我给您发了 [展会名称] 的", "邀请，但还没有收到您的回复。我只是想跟进一下，看看您是否有机会查看。我们很早就了解贵公司，知"], ["experience the unique charm of our city.（感谢您的赞美！我们为这座城市感到骄傲。如果您感兴趣，", "我可以推荐一些当地景点，比如古城墙或美食街，在那里您可以体验我们城市的独特魅力。）"], ["schedule.（我理解您可能工作很忙。如果您有任何想了解的具体信息，或者有任何想去参观的地方，尽管", "告诉我。我们可以尽量把它安排进您的日程。）"], ["this field?", "您在这个行业工作了多久？能分享一下您是如何开始从事这一领域的吗？"], ["and worked my way up to my current position.（我在这个行业已经超过 20 年了。我从一名销售代表", "做起，一步步晋升到现在的职位。）"], ["industry?（太厉害了！您丰富的经验一定让您有很多宝贵的见解。我相信我们可以相互学习很多。您认为", "在我们这个行业取得成功的关键因素是什么？）"], ["and moved up to this role recently.（我在这个行业才工作了几年。我从初级经理做起，最近才晋升到这", "个职位。）"], ["support each other in achieving our goals.（进步很大啊！我们公司重视创新和成长。我相信我们可以", "相互支持，实现各自的目标。）"], ["traditional tea - tasting session for you if you're interested.（您之前有机会体验过中国的茶文化吗？", "如果您感兴趣的话，我们可以为您安排一次传统的品茶活动。）"], ["s a great way to experience the rich history and culture of Chinese tea.（太棒了！我们肯定可以为您", "安排一次传统品茶活动。这是体验中国茶文化丰富历史的好方法。）"], ["example, we can take you to see a traditional Chinese opera or visit a historical site. What would", "第 22 页 共 29 页"], ["you be interested in?（没关系。中国文化还有很多其他方面您可能会喜欢。比如，我们可以带您去看一", "场传统京剧，或者参观一个历史遗迹。您对哪个感兴趣呢？）"], ["for your continuous support and trust. We will strive to do better.（非常感谢您反馈问题，您的意见", "对我们来说无比重要。我们会立即展开调查，一定给您一个满意的答复。也感谢您一直以来对我们的支持"], ["solution more quickly.", "您能详细说说遇到了什么问题吗？这样我们能更快找到解决办法。"], ["root cause of the problem, and give you a satisfactory reply.（我们马上安排质检团队对产品进行检查，", "找出问题的根源，给您一个满意的答复。）"], ["forward any ideas you have.（您看我们怎么做，才能弥补给您造成的麻烦呢？您有什么想法都可以提出", "来。）"], ["understand the situation more clearly.（方便的话，您能不能给我们发一些问题的照片或者视频，这样", "能帮助我们更清楚地了解情况。）"], ["ideas and open a new chapter for the cooperation between our two sides.（今天能与贵方这样在行", "业内极具影响力和前瞻性的团队坐下来谈判，我们深感荣幸。相信这次交流一定会碰撞出不少新的火花，"], ["which can bring a lot of convenience to your subsequent business development. In terms of", "第 23 页 共 29 页"], ["comprehensive benefits, this price is definitely worth every penny.（我明白您在价格把控上非常专业，", "也十分理解您对成本的考量。但您看，我们的产品在品质和服务上都有着独特的优势，这些能为您后续的"], ["both sides.（大家都是为了促成合作，实现双赢，我们都有着共同的目标。目前这点分歧只是暂时的，以", "贵方的丰富经验和开阔视野，相信我们一起再探讨探讨，一定能找到一个双方都满意的解决方案。）"], ["wishes, XX（亲爱的 XX，根据你在 Inctaaram 上表达的对 XX (产品) 的喜爱，我决定再次与您取得联系。", "顺便提及一下，我们已获得授权为南非的 XX 公司制作一批赠品。我已经附上了相关的图片供您参考，请"], ["deeper into this topic.（亲爱的 XX，我是 XX，来自 ABC 中国。希望这封邮件送达时您一切安好。让您", "在中国的采购整合变得前所未有的轻松是我们一直以来的目标。我们在欧洲已经成功完成了众多项目，并"], ["you have any questions, please feel free to contact me. Let's work together to achieve more in", "（感谢您在假期中的耐心等待。假期结束，我们今天正式复工。附件是我们的最新报价，供您参考。"], ["Thank you for your attention!（祝一切顺利！我是 xxx 公司的 xxx，我们本周已恢复正常工作。我了解", "到您在寻找 xxx 产品，如果您近期有采购计划，请随时告诉我。附件是相关产品目录供您参考。如果有任"], ["complete the transaction with you on this basis.（由于您提出的价位远低于我们的成本，我们无法基于", "此价格与贵方完成交易。）"], ["been confirmed and we can't offer you any further discount.（在经过仔细考量后，我想坦诚地告知您，", "我方的价格已经确定，并无法针对您提供进一步的折扣。）"], ["really can't be the same as before. This is also the current situation in the whole industry.（您也知", "道，现在原材料成本涨了不少，所以价格确实没法和以前一样，这也是整个行业的现状。）"], ["labor costs, so that you can understand the reasons for the price adjustment.（我们可以给您看看原", "材料和人工成本上涨的数据，这样您就知道价格调整的原因了。）"], ["after - sales protection, so that you don't have to worry.（这个价格真没办法再低啦，因为我们的定价", "把售后保障都考虑进去了，就为了让您没有后顾之忧。）"], ["there are more suitable product combinations.（方便说下您的预算大概是多少吗？我帮您看看，有没", "有更合适的产品组合。）"], ["the right one is the key. We just want to help you find the most suitable products.（价格不同，产", "品品质也有差别。贵的不一定适合，便宜的又怕质量没保障，选对的才是关键，我们就是想帮您找到最对"], ["business well. We always operate with integrity and offer fair prices.（现在 xx 市场竞争这么激烈，", "没有哪个商家会傻到同样品质的东西卖高价，除非不想好好做下去了。我们一直秉持着诚信经营，都是实"], ["that we can find a solution more quickly.（您能详细说说遇到了什么问题吗？这样我们能更快找到解决", "办法。）"], ["product, find out the root cause of the problem, and give you a satisfactory reply.（我们马上安排质", "检团队对产品进行检查，找出问题的根源，给您一个满意的答复。）"], ["You can put forward any ideas you have.（您看我们怎么做，才能弥补给您造成的麻烦呢？您有什么想", "法都可以提出来。）"], ["problem? This can help us understand the situation more clearly.（方便的话，您能不能给我们发一", "些问题的照片或者视频，这样能帮助我们更清楚地了解情况。）"], ["optimizations.", "我们注重用户体验，产品经过多次迭代和优化。"], ["requirements.", "我们有专业的设计团队，可以根据您的要求进行定制。"], ["brilliance together.（贵方在行业内的口碑和实力有目共睹，我们一直期待能与贵方达成长期稳定的合作。", "这次谈判，我们也带着十足的诚意和满满的决心，希望能携手共进，共创辉煌。）"], ["clarify some details, such as the quantity you need and the specific requirements for the product?", "（感谢您的询价。为给您提供更准确的报价，能否请您说明一些细节，比如您需要的数量以及产品的具体"], ["to its innovative features. Would you like me to send you the detailed information?（我们最近推出", "了新的产品线。由于其创新的特点，我觉得您可能会很感兴趣。要我给您发送详细信息吗？）"], ["know more.（节日快乐！希望您过得愉快。我只是想联系一下，提醒您我们新年有一些特别优惠。想了解", "更多的话就告诉我。）"], ["meet your expectations?", "我们还没有收到您对产品样品的评价。有什么不符合您期望的地方吗？"], ["share.", "希望我们的产品符合您的期望。如果您有任何反馈，欢迎分享。"], ["beneficial solution.", "我理解价格是一个重要因素。我们讨论一下，看看能否找到一个互利的解决方案。"], ["and tell me everything so I can give you a price.（你问了价格，但没给我足够信息。赶紧都告诉我，我", "好给你报价。）"], ["haven't you replied yet?", "我们的新产品太棒了！我给你发了好几次宣传册了。你怎么还不回复？"], ["many offers. You should reply during this holiday, or you'll miss good deals.（现在是假期，但别把", "我们的生意忘了。我给你发了这么多优惠信息。你假期就该回复，不然会错过好机会。）"], ["approximately when you can reply to me?（这是我本周给你发的第四封邮件了。你能大概告诉我什么", "时候回复我吗？）"], ["different quality or specification.（针对您刚刚提到的价格，我相信我们说的不是同一款产品，可能会有", "质量或者其他的差异。）"], ["other suppliers.", "为了让您得到最合适的价格，您最好是把别的供应商提供的价格表给我们看看。"], ["soon. We need to arrange the mass production asap, to keep the delivery on time!（很抱歉再次给", "您添麻烦。由于繁忙的订单季节即将到来，请尽快确认详细信息。我们需要尽快安排批量生产，以确保按"], ["we're really looking forward to moving forward with your order. Is everything okay on your end?", "（您好，我只是想跟进一下付款的事。我们有段时间没收到您的消息了，我们真的很期待推进您的订单。"], ["from proceeding. If there's anything we can do to help, please let us know.（我注意到我们还没收到", "您的付款。我希望没有什么问题阻碍您继续。如果有什么我们可以帮忙的，请告诉我们。）"]];window.__KEY__="外贸口语背熟它白底蓝字";window.__TITLE__="外贸口语背熟它白底蓝字";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

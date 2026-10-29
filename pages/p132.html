@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11.26 small talk850</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">☕</span>11.26 small talk850</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">49,966 字符</span>
+    <span>来源：11.26  small talk850原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C11.26%20%20small%20talk850%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p132.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">idiomatic English 850 Practical Sentences for Small Talk
+small talk
+地道表达850句，足够了
+一、基础问候与初次见面
+How are you doing? （你过得怎么样？）
+How have you been? （你近来可好？）
+How’s it going? （最近怎么样？）
+How’s your day going so far? （你今天过得怎么样？）
+How was your weekend? （周末过得如何？）
+How was your week? （这周过得怎么样？）
+How’s your month going? （这个月过得如何？）
+I’m doing great! How about you? （我挺好的！你呢？）
+I’m doing well, thank you. And you? （我很好，谢谢。你呢？）
+I’m doing okay. Thank you! How about yourself? （我还不错。谢谢！你呢？）
+Not so bad. （还不算差。）
+Pretty good! （挺不错的！）
+Couldn’t be better! （再好不过了！）
+Just so-so. （一般般。）
+A bit busy, but good. （有点忙，但还不错。）
+I’ve been better. （不太好。）
+Nice to meet you! （很高兴认识你！）
+Nice to see you! （很高兴见到你！）
+Great to meet you! （很开心认识你！）
+Great to see you again! （很高兴再次见到你！）
+Long time no see! （好久不见！）
+It’s been ages since we last met! （我们好久没见了！）
+I don’t think we’ve met before. I’m [Your Name]. （我们好像还没见过。我是 [你的名字]。）
+Allow me to introduce myself. I’m [Your Name] from [Company/Department]. （请允许我自我介绍。我是 [公司 / 部门] 的 [你的名字]。）
+This is my colleague [Colleague’s Name]. （这是我的同事 [同事名字]。）
+May I introduce you to [Person’s Name]? （我可以把你介绍给 [某人名字] 吗？）
+Have we met before? （我们以前见过吗？）
+I think we crossed paths at [Event/Place] last month. （我想我们上个月在 [活动 / 地点] 见过。）
+Is this your first time here? （你是第一次来这儿吗？）
+What brings you here today? （今天是什么风把你吹来的？）
+How did you find out about this place/event? （你是怎么知道这个地方 / 活动的？）
+Are you new here? （你是新来的吗？）
+Welcome! （欢迎！）
+Welcome to [Place/Company]! （欢迎来到 [地方 / 公司]！）
+It’s a pleasure to meet you. （很荣幸认识你。）
+The pleasure is mine. （我才荣幸呢。）
+I’ve heard a lot about you! （我早就听说过你了！）
+I’ve been looking forward to meeting you. （我一直很期待见到你。）
+How do you spell your name? （你的名字怎么拼？）
+Could you repeat your name, please? （能请你重复一下你的名字吗？）
+Where are you from originally? （你老家是哪儿的？）
+What do you do? （你是做什么工作的？）
+二、短时偶遇场景
+（一）电梯 / 走廊（3-5 秒速聊）
+Finally Friday! Any weekend plans? （终于周五了！周末有什么安排吗？）
+Finally Friday! Any fun plans to escape this heat? （终于周五了！这么热的天有 “逃跑计划” 吗？）
+Monday again—how’s your week starting? （又到周一了 —— 这周开局怎么样？）
+Love your sneakers! Are they as comfy as they look? （这双运动鞋太帅了！好穿吗？）
+That jacket is awesome! Where did you get it? （这件外套超赞！你在哪儿买的？）
+Your bag is so stylish! （你的包真时髦！）
+That meeting ran so long… need coffee to reboot! （会开太久了…… 急需咖啡续命！）
+That commute was brutal this morning! （今早通勤太折磨人了！）
+The elevator is taking forever today! （今天电梯也太慢了吧！）
+Hey! I think we’ve passed each other a few times—I’m [Your Name], by the way. （嘿！我们好像碰到过几次 —— 对了，我是 [你的名字]。）
+Ah, cool. I’m over in [Your Department]. Small world in a big building! （哇，不错。我在 [你的部门]。这么大的楼，世界真小！）
+Did you catch the rain this morning? （你今早淋雨了吗？）
+It’s so hot/cold outside! （外面也太热 / 冷了吧！）
+Have you tried the new vending machine downstairs? （你试过楼下的新自动售货机吗？）
+The coffee in the pantry is surprisingly good today! （今天茶水间的咖啡居然挺好喝！）
+Rush hour is the worst—did you get stuck in traffic? （高峰时段太糟了 —— 你堵车了吗？）
+I can’t believe how busy the hallway is today! （真不敢相信今天走廊这么挤！）
+Are you heading to the meeting too? （你也去开那个会吗？）
+Off to lunch? Any recommendations? （去吃午饭吗？有什么推荐吗？）
+Need to grab something from the convenience store? （要去便利店买东西吗？）
+（二）会议开始前（避免冷场）
+Looks like we’re a few minutes early. Always better than rushing in late, right? （看来我们早到了几分钟。总比慌慌张张迟到好，对吧？）
+Same here. I was just thinking I should’ve grabbed a coffee on the way—do you have a favorite spot nearby? （我也是。我刚才还在想，路上应该买杯咖啡的 —— 你有附近喜欢的咖啡店吗？）
+Saw your slides—they look really impressive! （刚看了你的 PPT—— 做得真不错！）
+Saw your slides—that chart on slide 5 was genius! （刚看了你的 PPT—— 第 5 页的图表绝了！）
+10AM meetings should be illegal… thanks for the coffee! （早 10 点的会简直 “反人类” 啊…… 感恩咖啡救命！）
+This meeting agenda looks packed—do you think we’ll finish on time? （这次会议议程好满 —— 你觉得我们能按时结束吗？）
+Have you prepared for the discussion today? （你为今天的讨论做准备了吗？）
+Do you know what the main topic of the meeting is? （你知道会议的主要议题是什么吗？）
+I hope this meeting doesn’t drag on too long. （希望这个会别开太久。）
+It’s good to see so many people here today. （今天来了这么多人，真不错。）
+Did you have any trouble finding the meeting room? （你找会议室没遇到麻烦吧？）
+Your background is [Place]? Jealous! Best [Spot] there? （你（视频）背景是 [地方] 吗？慕了！那儿最棒的 [地点，如海滩 / 餐厅] 是哪里？）
+I love your office decor—very cozy! （我喜欢你的办公室布置 —— 太温馨了！）
+Is that a new plant on your desk? It looks great! （你桌上那盆是新植物吗？真好看！）
+The meeting room AC is so cold—did you bring a jacket? （会议室空调太冷了 —— 你带外套了吗？）
+Have you tried the snacks they prepared for the meeting? （你尝过他们为会议准备的点心了吗？）
+I heard the boss will be joining us later—are you nervous? （我听说老板待会儿会来 —— 你紧张吗？）
+This project update is crucial—do you think we’re on track? （这次项目更新很关键 —— 你觉得我们进展顺利吗？）
+I’m looking forward to hearing your thoughts on the proposal. （我很期待听你对这个提案的看法。）
+Let’s hope this meeting is productive! （希望这次会议能有成效！）
+（三）远程会议早到
+Hi there! Looks like we’re a bit early. （嗨！看来我们都早到了一会儿。）
+Yeah, just trying to stay ahead of things today. （是啊，就是想今天把事情赶在前头。）
+I know the feeling. Do you usually work from home or mix it up? （我懂这种感觉。你通常居家办公，还是混合办公呀？）
+Your plant’s thriving! Is it low-maintenance? （你的植物长得真好！是 “懒人款”（不用费心照顾）吗？）
+If I freeze again, I’m blaming my cat on the router! （等会卡了可别怪我 —— 我家猫在啃路由器呢！）
+9PM for you? Appreciate you burning the midnight oil! （你那边已经晚上 9 点了？感谢你挑灯夜战啊！）
+Your internet connection seems stable—mine kept dropping earlier. （你的网络看起来很稳定 —— 我刚才老断网。）
+Do you prefer remote meetings or in-person ones? （你更喜欢远程会议还是线下会议？）
+I just grabbed a cup of tea—do you need a minute to get settled? （我刚泡了杯茶 —— 你需要点时间准备一下吗？）
+The background noise in your place is so quiet—how do you manage that? （你那儿的背景音好安静 —— 你是怎么做到的？）
+Have you tested your microphone and camera beforehand? （你提前测试过麦克风和摄像头了吗？）
+I love your virtual background—where is that place? （我喜欢你的虚拟背景 —— 那是哪儿呀？）
+It’s nice to put faces to names finally! （终于能把名字和脸对应上了，真不错！）
+Did you have any trouble logging into the meeting? （你登录会议没遇到问题吧？）
+I’m still getting used to this video conferencing tool—have you used it before? （我还在适应这个视频会议工具 —— 你以前用过吗？）
+The meeting should start in 5 minutes—are you ready? （会议 5 分钟后开始 —— 你准备好了吗？）
+Do you have a pen and paper handy, or do you prefer taking notes digitally? （你手边有纸笔吗，还是更喜欢电子记笔记？）
+I just realized I forgot to mute my phone—thanks for the reminder! （我刚意识到忘了把手机静音 —— 谢谢你提醒！）
+Your workspace looks so organized—mine is a mess today! （你的工作区好整洁 —— 我今天的乱糟糟的！）
+Let’s hope everyone joins on time so we can start promptly. （希望大家都能准时到，这样我们就能按时开始了。）
+三、中时交流场景
+（一）茶水间
+Are you trying the new matcha powder? It’s my secret focus booster! （在试新抹茶粉？这是我的 “专注神器”！）
+The water cooler’s moody today… fridge water is colder though! （饮水机又闹脾气了…… 不过冰箱里的水更冰哦！）
+Quick poll: Sugar in coffee—yes or no? （紧急调研：咖啡加糖派还是无糖派？）
+This coffee smells amazing—homemade or takeout? （这咖啡闻起来太香了 —— 是自己冲的还是外卖呀？）
+Leftovers from last night—Thai curry. （昨晚的剩菜 —— 泰式咖喱。）
+Delicious. I keep saying I’ll learn to cook more but end up rotating three dishes every week. （太香了。我总说要多学几道家常菜，结果每周还是翻来覆去吃那三样。）
+Do you prefer tea or coffee? （你更喜欢茶还是咖啡？）
+How do you take your coffee? （你喝咖啡怎么调？）
+I’m obsessed with this new herbal tea—have you tried it? （我迷上这款新花草茶了 —— 你试过吗？）
+The snacks in the pantry are gone already—did you get any? （茶水间的点心已经没了 —— 你抢到了吗？）
+I brought homemade cookies—help yourself! （我带了自制饼干 —— 随便吃！）
+Do you know where the paper cups are? I can’t find them. （你知道纸杯在哪儿吗？我找不到了。）
+The microwave is acting up again—did you manage to heat your food? （微波炉又坏了 —— 你把饭热好了吗？）
+It’s so crowded in here—want to go grab a drink downstairs? （这儿人太多了 —— 要不要去楼下买杯喝的？）
+I need a break from work—want to join me for a cup of coffee? （我需要从工作中抽个身 —— 要不要陪我喝杯咖啡？）
+Have you tried the new vending machine snacks? They’re actually good! （你试过新售货机的零食吗？居然还挺好吃！）
+How’s your lunch today? （你今天的午饭怎么样？）
+Did you bring lunch or order takeout? （你是带饭还是点外卖呀？）
+This fruit is so fresh—where did you get it? （这水果好新鲜 —— 你在哪儿买的？）
+I’m trying to cut down on sugar—any healthy drink recommendations? （我在试着少吃糖 —— 有什么健康饮品推荐吗？）
+（二）活动 / 研讨会
+Hi, I’m [Your Name]. Mind if I join you? （嗨，我是 [你的名字]。我能加入你们吗？）
+Not at all! I’m [Their Name]. （当然可以！我是 [对方名字]。）
+Nice to meet you. What brings you to the event—are you in the same industry? （很高兴认识你。你是为什么来参加这个活动呀 —— 咱们是同一个行业的吗？）
+Yeah, I work in [Your Industry]! What about you—do you specialize in a specific area here? （对呀，我在 [你的行业] 工作！你呢，在这一行有专门深耕的领域吗？）
+Oh, [Their Industry] sounds interesting! Have you been part of this field for a long time? （哇，[对方的行业] 听起来好有意思！你在这个领域已经做了很久了吗？）
+I just started last year, still learning a lot. Did you come to this event for networking, or more for the talks? （我去年才刚入行，还在学很多东西。你过来参加这个活动，主要是为了拓展人脉，还是更想听听讲座呀？）
+Networking was my main goal too—so far, everyone here has been really friendly. Have you met anyone cool before me? （拓展人脉也是我的主要目的 —— 目前来看，这儿的人都特别友好。在我之前，你有遇到什么有趣的人吗？）
+That’s awesome! I haven’t run into many people from [Target Field] yet—do you know if there are more folks like us here? （太厉害了！我到现在还没碰到几个 [目标领域] 的人 —— 你知道这儿还有更多和咱们同领域的人吗？）
+I heard the keynote later is about [Keynote Topic]—are you planning to stick around for that? （我听说待会儿的主旨演讲是关于 [演讲主题] 的 —— 你打算留下来听吗？）
+Me too! Maybe we can grab a coffee before it starts, and chat more about what we’ve been working on lately? （我也打算听！说不定咱们可以在开始前先去买杯咖啡，多聊聊最近在忙的项目呀？）
+What did you think of the last speaker? （你觉得上一个演讲者怎么样？）
+The content of this workshop is so valuable—have you learned anything new? （这个研讨会的内容太有价值了 —— 你学到新东西了吗？）
+Do you attend events like this often? （你经常参加这种活动吗？）
+How did you hear about this conference? （你是怎么知道这个会议的？）
+The venue is beautiful—have you had a chance to look around? （这个场地真漂亮 —— 你有机会四处看看吗？）
+Are you planning to attend any of the breakout sessions? （你打算去参加分会场讨论吗？）
+I’m looking forward to the panel discussion later—what about you? （我很期待待会儿的圆桌讨论 —— 你呢？）
+Have you met the speaker yet? I heard they’re an expert in the field. （你见过演讲者了吗？我听说他们是这个领域的专家。）
+The food at the buffet is great—have you tried the salad? （自助餐的食物真不错 —— 你尝过沙拉了吗？）
+Do you have any business cards to exchange? （你有名片可以交换吗？）
+Let’s connect on LinkedIn later—would you be interested? （咱们待会儿加个领英吧 —— 你愿意吗？）
+I’ve been wanting to learn more about [Topic]—do you have any resources to recommend? （我一直想多了解 [话题]—— 你有什么推荐的资料吗？）
+This event is much better than I expected—have you been to any similar ones before? （这个活动比我预期的好多了 —— 你以前参加过类似的吗？）
+The networking opportunities here are amazing—have you made any useful connections? （这儿的人脉拓展机会太棒了 —— 你有没有结识一些有用的人脉？）
+Are you staying for the reception after the event? （活动结束后的招待会你会留下来吗？）
+I traveled all the way from [City] for this event—was it worth it for you? （我从 [城市] 特意赶来参加这个活动 —— 对你来说值得吗？）
+Do you think you’ll come to this event again next year? （你觉得明年还会来参加这个活动吗？）
+The organizers did a great job—everything is so well-prepared. （主办方做得真好 —— 一切都准备得很周到。）
+Have you had a chance to ask the speaker any questions? （你有机会向演讲者提问吗？）
+I love the atmosphere here—everyone is so passionate about [Industry]. （我喜欢这儿的氛围 —— 每个人都对 [行业] 充满热情。）
+（三）社交聚会（派对 / 聚餐 / 朋友聚会）
+How do you know the host? （你是怎么认识主办方 / 主人的呀？）
+We used to work together a few years back. （几年前我们一起工作过。）
+Nice! Always interesting how people stay connected through work. I’m a friend from [e.g., their yoga class]. （真好！人们通过工作保持联系，这点总很有意思。我是她 [比如：瑜伽课上] 认识的朋友。）
+Yoga class connections are the best—such a relaxed way to meet people! Has she been doing yoga for as long as you have? （瑜伽课上认识的朋友最棒了，这种认识人的方式特别轻松！她练瑜伽的时间和你一样久吗？）
+I actually just started going with her last month—still getting the hang of it! Did you two work on any fun projects back when you were colleagues? （其实我上个月才刚开始跟她一起去练，还在慢慢适应呢！你们以前当同事的时候，一起做过什么有意思的项目吗？）
+Oh, that client project sounds intense but rewarding! Do you still collaborate with her on work stuff sometimes now? （哇，那个客户项目听起来虽然有挑战，但肯定很有成就感！你们现在有时候还会在工作上合作吗？）
+We only catch up over coffee now, no work stuff anymore. How did you hear about this event, since you know her through yoga? （我们现在就偶尔约咖啡聊聊，不聊工作啦。你既然是通过瑜伽认识她的，那是怎么知道这个活动的呀？）
+She mentioned it last week and said I’d love the vibe—turns out she was right! Have you been to any of her hosted events before? （她上周提过这个活动，还说我肯定会喜欢这儿的氛围，结果真被她说中了！你以前参加过她主办的活动吗？）
+This is my first one too—so far, I’m loving how casual and not too “network-y” it is. Have you tried any of the snacks they’re serving over there? （这也是我第一次来，目前感觉特别轻松，没有那种刻意 “搞人脉” 的压力。你尝过那边摆的点心了吗？）
+I haven’t yet—let’s go check them out together! Do you have a favorite type of snack you’re hoping to find? （我还没呢！咱们一起去看看吧！你有没有特别想吃到的点心呀？）
+The music here is great—do you know who the DJ is? （这儿的音乐真不错 —— 你知道 DJ 是谁吗？）
+Have you tried the signature drink here? It’s delicious! （你尝过这儿的特调饮品吗？超好喝！）
+How long have you known each other? （你们认识多久了？）
+This party is so much fun—did you expect it to be this lively? （这个派对太有意思了 —— 你没想到会这么热闹吧？）
+Do you have any plans for the rest of the evening? （你晚上接下来有什么安排吗？）
+I love your outfit—where did you get it? （我好喜欢你的衣服 —— 你在哪儿买的？）
+Are you here with friends or family? （你是和朋友一起来的还是和家人？）
+The food is amazing—have you tried the grilled chicken? （这儿的食物太赞了 —— 你尝过烤鸡吗？）
+Let’s play a game—have you ever played [Game Name] before? （咱们玩个游戏吧 —— 你以前玩过 [游戏名称] 吗？）
+I’m getting a bit hungry—want to grab some food together? （我有点饿了 —— 要不要一起去拿点吃的？）
+The decorations are so cute—who put them up? （这些装饰真可爱 —— 是谁布置的呀？）
+Have you met anyone interesting here tonight? （你今晚在这儿遇到什么有趣的人了吗？）
+Do you like this type of music? （你喜欢这种类型的音乐吗？）
+I’m glad I came—this is exactly what I needed after a busy week. （我真庆幸来了 —— 这正是我忙碌一周后需要的。）
+Are you staying late or leaving early? （你会待到很晚还是早点走？）
+Let’s take a photo together—could you ask someone to help us? （咱们一起拍张照吧 —— 你能请人帮我们一下吗？）
+The host is such a great person—they always throw the best parties! （主人人真好 —— 他们总能办最棒的派对！）
+Have you tried the dessert table? The cakes are incredible! （你去过甜品台了吗？蛋糕简直绝了！）
+Do you live nearby or did you travel far? （你住附近还是远道而来？）
+I’ve never been to a party like this before—it’s unique! （我以前从没参加过这样的派对 —— 太特别了！）
+Let’s dance—want to join me on the dance floor? （咱们跳舞吧 —— 要不要和我一起去舞池？）
+Have you had enough to drink? I can get you another one. （你喝够了吗？我可以再给你拿一杯。）
+The weather is perfect for an outdoor party—don’t you think? （这天气太适合户外派对了 —— 你不觉得吗？）
+Do you know when the party will end? （你知道派对什么时候结束吗？）
+I’m having a great time—thanks for inviting me! （我玩得很开心 —— 谢谢你邀请我！）
+Have you tried the cocktails here? They’re very creative. （你尝过这儿的鸡尾酒吗？很有创意。）
+Are you a fan of [Type of Cuisine]? （你喜欢 [菜系类型] 吗？）
+The seating area is so cozy—want to sit down and chat for a bit? （休息区好温馨 —— 要不要坐下来聊会儿？）
+I met [Person’s Name] earlier—they mentioned they work in [Field] too! （我刚才遇到了 [某人名字]—— 他们说自己也在 [领域] 工作！）
+This is the best party I’ve been to all year—thank you for bringing me! （这是我今年参加过的最棒的派对 —— 谢谢你带我来！）
+四、长时深度交流
+（一）午餐社交
+Hidden gem near office: The pasta place behind [Landmark, e.g., HSBC]! （公司附近的宝藏小店：[地标，如汇丰银行] 后面那家意面店！）
+You’re from [Place, e.g., Mumbai]? I tried making [Local Food, e.g., butter chicken]—total disaster! （你是 [地方，如孟买] 来的？我试着做了 [当地菜，如奶油鸡]—— 大型翻车现场！）
+Meal prepping too? Share your veggie hack please! （你也带饭呀？求分享蔬菜保鲜秘籍！）
+Have you tried the new coffee shop downstairs? Their cold brew is my favorite now! （你试过楼下那家新咖啡店吗？他们的冷萃咖啡现在是我的最爱！）
+Do you have any lunch spot recommendations? I’m kind of tired of cafeteria food. （你有推荐的午餐地点吗？我已经有点吃腻食堂了。）
+Oh, I totally get that—cafeteria food gets boring fast! There’s a tiny sandwich shop two blocks away that makes fresh paninis—you should try their turkey avocado one! （太懂了，食堂的饭很快就吃腻了！两个街区外有家小三明治店，现做的帕尼尼超好吃，你一定要试试他们的火鸡牛油果口味！）
+I made too much homemade soup this morning—want a container? It’s tomato basil, super easy to heat up in the office microwave. （我今早熬的家常汤太多了，要不要拿一份？是番茄罗勒味的，在公司微波炉里热一下就行。）
+You like cold brew? The convenience store next to the subway station has a cheaper version that’s just as good—way better than spending $5 every day! （你喜欢冷萃呀？地铁站旁边的便利店有款平价的，味道一点不差，比每天花 5 美元买划算多了！）
+I’m from [Place, e.g., Seoul]—butter chicken sounds tricky! If you want, I can send you a simple recipe for [Local Food, e.g., kimchi fried rice] that even beginners can’t mess up. （我是 [地方，如首尔] 来的，奶油鸡听起来确实难搞！要是你想试，我可以发你一个 [当地菜，如泡菜炒饭] 的简易食谱，新手都不会翻车。）
+That pasta place behind HSBC? I went there last week—their truffle pasta is insane! Just a heads up, they get busy at noon, so you might want to go 15 minutes early. （汇丰银行后面那家意面店？我上周去过，他们的松露意面好吃到爆！提醒你一句，中午人特别多，最好提前 15 分钟去。）
+What are you having for lunch today? （你今天午饭吃什么？）
+Did you bring your own lunch or are we ordering together? （你是带饭了还是咱们一起点外卖？）
+Let’s go out for lunch—any preferences on cuisine? （咱们出去吃午饭吧 —— 对菜系有什么偏好吗？）
+I’m craving sushi—want to try that new sushi place downtown? （我想吃寿司了 —— 要不要去市中心那家新开的寿司店试试？）
+The salad bar at the cafeteria is actually pretty good—have you tried it? （食堂的沙拉吧其实还不错 —— 你试过吗？）
+Do you have any dietary restrictions? （你有什么饮食禁忌吗？）
+I’m trying to eat healthier—any low-calorie lunch recommendations? （我在试着吃得更健康 —— 有什么低卡路里的午餐推荐吗？）
+This restaurant has great vegan options—are you vegan? （这家餐厅有很棒的素食选择 —— 你是素食主义者吗？）
+How’s your food? （你点的菜怎么样？）
+The service here is a bit slow—did you have to wait long for your order? （这儿的服务有点慢 —— 你等了很久才上菜吗？）
+Let’s split the bill—does that work for you? （咱们 AA 制吧 —— 你觉得可以吗？）
+I’ll treat you to lunch—my turn! （这顿我请你 —— 该我了！）
+Have you been to this restaurant before? （你以前来过这家餐厅吗？）
+The ambiance here is so nice—perfect for a business lunch. （这儿的氛围真不错 —— 太适合商务午餐了。）
+I love the flavor of this dish—what’s in it? （我喜欢这道菜的味道 —— 里面放了什么呀？）
+Do you want to try a bite of my food? It’s delicious! （你想尝尝我的菜吗？超好吃！）
+The portions here are huge—I can’t finish mine. （这儿的分量好大 —— 我吃不完了。）
+Let’s get dessert—have you tried their cheesecake? （咱们点份甜品吧 —— 你尝过他们的芝士蛋糕吗？）
+I’m stuffed—did you eat too much too? （我撑死了 —— 你也吃多了吗？）
+The walk back to the office will do us good after this meal. （吃完这顿饭，走回公司对我们有好处。）
+Let’s make this a weekly thing—lunch together every Friday? （咱们把这变成每周的固定活动吧 —— 每周五一起吃午饭？）
+I found a great noodle shop near the office—want to check it out tomorrow? （我在公司附近发现一家超赞的面馆 —— 明天要不要去试试？）
+The soup here is homemade—you should try it. （这儿的汤是自制的 —— 你应该试试。）
+Do you prefer spicy food or mild food? （你喜欢吃辣的还是清淡的？）
+I’m not a big fan of seafood—do you have any other recommendations? （我不太喜欢吃海鲜 —— 你有其他推荐吗？）
+The prices here are very reasonable—much cheaper than I expected. （这儿的价格很公道 —— 比我预期的便宜多了。）
+Have you tried the local specialty here? It’s famous for [Dish]. （你尝过这儿的特色菜吗？这儿的 [菜品] 很有名。）
+I need to grab lunch quickly—do you know any fast but good places? （我得快点吃午饭 —— 你知道有什么快又好的地方吗？）
+Let’s eat at the park—it’s such a nice day outside! （咱们去公园吃吧 —— 外面天气真好！）
+The sandwich I had yesterday was amazing—you should order that. （我昨天吃的三明治超赞 —— 你应该点那个。）
+（二）工作深聊
+How’s the project going? （项目进展怎么样了？）
+Are you on track to meet the deadline? （你能按时完成截止日期吗？）
+Do you need any help with your workload? （你的工作量需要帮忙吗？）
+I’m struggling with [Task]—have you done this before? （我在 [任务] 上遇到困难了 —— 你以前做过这个吗？）
+What do you think of the new project proposal? （你觉得这个新的项目提案怎么样？）
+We need to brainstorm some ideas—can you join the meeting tomorrow? （我们需要头脑风暴一些想法 —— 你明天能参加会议吗？）
+The client has some feedback on the last deliverable—have you seen it? （客户对上次的交付物有一些反馈 —— 你看到了吗？）
+I think we should adjust our strategy—what’s your opinion? （我觉得我们应该调整策略 —— 你怎么看？）
+How’s the collaboration with the other team going? （和另一个团队的合作怎么样了？）
+Have you finished your part of the work? （你负责的部分完成了吗？）
+I’m worried about the budget—do you think we can cut costs somewhere? （我有点担心预算 —— 你觉得我们能在什么地方削减开支吗？）
+The market is changing rapidly—how do you think we should adapt? （市场变化很快 —— 你觉得我们应该如何适应？）
+I’ve been working on [Project]—would you like to hear the latest updates? （我一直在做 [项目]—— 你想听听最新进展吗？）
+Do you have any suggestions for improving our workflow? （你对改进我们的工作流程有什么建议吗？）
+The team is doing a great job—we should celebrate once this project is done. （团队做得很棒 —— 这个项目完成后我们应该庆祝一下。）
+I’m having trouble communicating with the client—can you give me some tips? （我和客户沟通有困难 —— 你能给我一些建议吗？）
+What’s your plan for the rest of the week? （你这周剩下的时间有什么计划？）
+We need to hire more people for the team—what qualities are you looking for? （我们团队需要再招些人 —— 你在找什么样的人才？）
+The training session yesterday was very helpful—did you learn anything useful? （昨天的培训很有帮助 —— 你学到有用的东西了吗？）
+I’m thinking of proposing a new idea to the manager—do you think it’s feasible? （我在想向经理提一个新想法 —— 你觉得可行吗？）
+How do you handle stress at work? （你在工作中如何应对压力？）
+The new software is a bit tricky—have you figured out how to use it yet? （这个新软件有点难用 —— 你已经弄明白怎么用了吗？）
+I’m excited about the new project—it’s a great opportunity to learn. （我对这个新项目很兴奋 —— 这是一个很好的学习机会。）
+Do you think we should postpone the meeting? Some team members are unavailable. （你觉得我们应该推迟会议吗？有些团队成员来不了。）
+The presentation went well—thanks for your help with the slides. （演示很成功 —— 谢谢你帮忙做幻灯片。）
+I need to update the project timeline—can you provide me with your progress? （我需要更新项目时间表 —— 你能给我提供一下你的进展吗？）
+What do you think of the new company policy? （你觉得新的公司政策怎么样？）
+We need to improve our customer service—any ideas on how to do that? （我们需要改进客户服务 —— 有什么办法吗？）
+I’m considering a promotion—do you have any advice for me? （我在考虑晋升 —— 你有什么建议吗？）
+The team building activity last week was fun—did you enjoy it? （上周的团建活动很有意思 —— 你玩得开心吗？）
+How’s your relationship with your manager? （你和你的经理关系怎么样？）
+I’m having trouble balancing work and life—do you have any tips? （我在平衡工作和生活方面有困难 —— 你有什么建议吗？）
+The new hire is doing well—have you worked with them yet? （新员工表现不错 —— 你和他们一起工作过吗？）
+We need to prepare for the audit—can you help gather the necessary documents? （我们需要为审计做准备 —— 你能帮忙收集必要的文件吗？）
+What’s your long-term career goal? （你的长期职业目标是什么？）
+I’m thinking of taking a course to improve my skills—have you taken any lately? （我在想报个班提升一下技能 —— 你最近有报过吗？）
+The company is expanding—do you know if there will be new opportunities? （公司在扩张 —— 你知道会有新的机会吗？）
+I’m not happy with my current role—should I talk to HR about a transfer? （我对我现在的职位不满意 —— 我应该和人力资源部谈谈调动吗？）
+How do you stay motivated at work? （你在工作中如何保持动力？）
+We need to increase sales—what marketing strategies do you think will work? （我们需要提高销售额 —— 你觉得什么营销策略会有效？）
+The client meeting is tomorrow—are you prepared? （明天和客户的会议 —— 你准备好了吗？）
+I made a mistake on the report—how should I fix it? （我在报告中犯了一个错误 —— 我该怎么修正？）
+What do you think of the team’s performance lately? （你觉得团队最近的表现怎么样？）
+We need to reduce turnover—any ideas on how to improve employee satisfaction? （我们需要降低离职率 —— 有什么提高员工满意度的办法吗？）
+I’m going to attend a conference next month—would you like to come with me? （我下个月要去参加一个会议 —— 你想和我一起去吗？）
+The new office space is great—do you like your new desk? （新的办公空间很棒 —— 你喜欢你的新办公桌吗？）
+How do you prioritize your tasks? （你如何优先处理你的任务？）
+I’m having trouble with time management—can you give me some advice? （我在时间管理方面有困难 —— 你能给我一些建议吗？）
+The company is offering a training program—are you interested in participating? （公司提供了一个培训项目 —— 你有兴趣参加吗？）
+What do you think of the current market situation? （你觉得当前的市场形势怎么样？）
+（三）朋友畅谈
+How’s life been treating you lately? （你最近生活过得怎么样？）
+What’s new with you? （你最近有什么新鲜事？）
+Anything exciting happening in your life? （你生活中有什么有趣的事吗？）
+I haven’t seen you in ages—what have you been up to? （我好久没见你了 —— 你最近在忙什么？）
+How’s your family doing? （你家人怎么样？）
+Did you achieve any of your goals this year? （你今年实现了什么目标吗？）
+What are your plans for the future? （你未来有什么计划？）
+I’m thinking of moving to a new city—what do you think? （我在想搬到一个新城市 —— 你觉得怎么样？）
+Have you traveled anywhere interesting lately? （你最近去什么有趣的地方旅行了吗？）
+What’s the best book/movie/show you’ve seen recently? （你最近看的最好的书 / 电影 / 电视剧是什么？）
+I’m trying to pick up a new hobby—do you have any suggestions? （我在试着培养一个新爱好 —— 你有什么建议吗？）
+How’s your relationship going? （你感情生活怎么样？）
+I’m having some personal issues—can I talk to you about it? （我有一些个人问题 —— 我能跟你聊聊吗？）
+What do you think about [Current Event]? （你对 [时事] 有什么看法？）
+I’m feeling a bit down lately—do you have any advice? （我最近有点低落 —— 你有什么建议吗？）
+Have you tried any new restaurants lately? （你最近有没有试过什么新餐厅？）
+What’s your favorite memory from childhood? （你童年最喜欢的回忆是什么？）
+I’m planning a trip—have you been to [Place] before? （我在计划一次旅行 —— 你以前去过 [地方] 吗？）
+How do you handle difficult situations? （你如何处理困难的情况？）
+What’s the most adventurous thing you’ve ever done? （你做过最冒险的事是什么？）
+I’m thinking of changing jobs—what do you think I should do? （我在想换工作 —— 你觉得我该怎么办？）
+Have you kept in touch with any of our old friends? （你还和我们以前的朋友有联系吗？）
+What’s the best piece of advice you’ve ever received? （你收到过的最好的建议是什么？）
+I’m learning a new language—have you ever learned one? （我在学一门新语言 —— 你以前学过吗？）
+How do you stay healthy? （你是如何保持健康的？）
+What’s your dream job? （你梦想的工作是什么？）
+I’m having trouble sleeping lately—do you have any tips? （我最近睡眠不好 —— 你有什么建议吗？）
+What’s the most beautiful place you’ve ever visited? （你去过的最美丽的地方是什么？）
+I’m planning a birthday party—can you help me organize it? （我在计划一个生日派对 —— 你能帮我组织吗？）
+What do you like to do in your free time? （你空闲时间喜欢做什么？）
+I’m trying to eat healthier—do you have any recipe recommendations? （我在试着吃得更健康 —— 你有什么食谱推荐吗？）
+What’s the worst job you’ve ever had? （你做过最糟糕的工作是什么？）
+I’m feeling stressed about [Situation]—how would you handle it? （我对 [情况] 感到压力很大 —— 你会怎么处理？）
+Have you seen any good concerts or events lately? （你最近有没有看过什么好的音乐会或活动？）
+What’s your favorite season and why? （你最喜欢哪个季节，为什么？）
+I’m thinking of getting a pet—do you have any recommendations? （我在想养宠物 —— 你有什么推荐吗？）
+How do you deal with conflict with friends/family? （你如何处理和朋友 / 家人的矛盾？）
+What’s the most delicious meal you’ve ever had? （你吃过的最美味的一餐是什么？）
+I’m planning to buy a new [Item]—do you have any brand recommendations? （我在计划买一个新的 [物品]—— 你有什么品牌推荐吗？）
+What’s your biggest fear? （你最大的恐惧是什么？）
+I’m trying to save money—do you have any budgeting tips? （我在试着存钱 —— 你有什么理财建议吗？）
+What’s the best gift you’ve ever received? （你收到过的最好的礼物是什么？）
+I’m feeling lost about my career—can you give me some guidance? （我对我的职业感到迷茫 —— 你能给我一些指导吗？）
+Have you tried any new hobbies lately? （你最近有没有尝试什么新爱好？）
+What’s your favorite way to relax? （你最喜欢的放松方式是什么？）
+I’m thinking of going back to school—what do you think? （我在想重返校园 —— 你觉得怎么样？）
+What’s the most important thing in your life right now? （你现在生活中最重要的事情是什么？）
+I’m having trouble making a decision—can you help me weigh the options? （我在做决定时遇到困难 —— 你能帮我权衡一下选择吗？）
+Have you ever had a life-changing experience? （你有过改变人生的经历吗？）
+What’s your favorite quote? （你最喜欢的名言是什么？）
+I’m trying to be more positive—do you have any tips? （我在试着更积极乐观 —— 你有什么建议吗？）
+What’s the most interesting fact you know? （你知道的最有趣的事实是什么？）
+I’m planning a road trip—have you ever been on one? （我在计划一次公路旅行 —— 你以前去过吗？）
+How do you stay organized in your life? （你在生活中如何保持有条理？）
+What’s your favorite type of music and why? （你最喜欢什么类型的音乐，为什么？）
+I’m having trouble with a friend—how should I approach it? （我和一个朋友闹矛盾了 —— 我该怎么处理？）
+Have you ever volunteered for a charity? （你有没有为慈善机构做过志愿者？）
+What’s your dream vacation? （你梦想的假期是什么样的？）
+I’m trying to reduce my screen time—do you have any suggestions? （我在试着减少屏幕使用时间 —— 你有什么建议吗？）
+What’s the best thing that’s happened to you this year? （你今年遇到的最好的事情是什么？）
+五、热门话题延伸
+（一）聊宠物（Pet Talk）
+Aww, so cute! What’s his/her name? （哇，好可爱！它叫什么名字呀？）
+He/she looks so fluffy! （它看起来毛茸茸的！）
+How old is he/she now? （它现在多大啦？）
+He/she must bring you so much joy. （它一定给你带来了很多快乐吧。）
+He/she looks like a happy dog/cat! （它看起来超开心～）
+I have a cat/dog too! They’re great company. （我也有只猫 / 狗！它们真是好伙伴。）
+Do you take him/her for walks every day? （你每天都带它出去遛吗？）
+He/she looks well-trained! （它好乖，看起来训练得很好！）
+Pets make life better, right? （有宠物生活真的更有趣，对吧？）
+I bet he/she’s the boss at home! （我敢说它在家肯定是老大吧～）
+What breed is he/she? （它是什么品种呀？）
+How did you choose his/her name? （你是怎么给它取名字的？）
+Does he/she have any funny habits? （它有什么有趣的习惯吗？）
+I love his/her color—so unique! （我喜欢它的颜色 —— 太特别了！）
+Do you feed him/her homemade food or kibble? （你给它喂自制食物还是狗粮 / 猫粮？）
+Has he/she ever done anything naughty? （它有没有做过什么调皮的事？）
+How long have you had him/her? （你养它多久了？）
+Does he/she get along with other pets? （它和其他宠物相处得好吗？）
+I want to get a pet—do you have any recommendations? （我想养宠物 —— 你有什么推荐吗？）
+He/she’s so well-behaved—how did you train him/her? （它真乖 —— 你是怎么训练它的？）
+Does he/she sleep with you at night? （它晚上和你一起睡吗？）
+What’s the hardest part about having a pet? （养宠物最困难的地方是什么？）
+He/she looks so healthy—what do you do to keep him/her in shape? （它看起来很健康 —— 你是怎么让它保持健康的？）
+Have you ever taken him/her to a pet café? （你带它去过宠物咖啡馆吗？）
+Does he/she like to play fetch? （它喜欢玩捡东西的游戏吗？）
+I’m allergic to cats/dogs—are there any other pets you recommend? （我对猫 / 狗过敏 —— 你有其他宠物推荐吗？）
+He/she has such big eyes—so adorable! （它的眼睛好大 —— 太可爱了！）
+Do you take him/her to the vet regularly? （你定期带它去看兽医吗？）
+What’s the best thing about having a pet? （养宠物最好的地方是什么？）
+He/she’s so energetic—does he/she ever tire out? （它精力真充沛 —— 它会累吗？）
+Does he/she like to cuddle? （它喜欢抱抱吗？）
+I saw your pet’s photo on social media—so cute! （我在社交媒体上看到你宠物的照片了 —— 太可爱了！）
+Do you have any pet accessories for him/her? （你给它买宠物配饰了吗？）
+Has he/she ever saved you from something? （它有没有救过你？）
+What’s his/her favorite toy? （它最喜欢的玩具是什么？）
+I’m going on vacation—do you know a good pet sitter? （我要去度假了 —— 你知道好的宠物保姆吗？）
+He/she’s so small—can you hold him/her in your arms? （它好小 —— 你能把它抱在怀里吗？）
+Does he/she bark/meow a lot? （它经常叫吗？）
+I love spending time with pets—they’re so calming. （我喜欢和宠物待在一起 —— 它们能让人平静下来。）
+What’s the most expensive thing you’ve bought for your pet? （你给你的宠物买过最贵的东西是什么？）
+（二）聊家人（Family Talk）
+Your kids are adorable! （你家孩子太可爱了！）
+Your daughter looks just like you! （你女儿和你长得一模一样！）
+How old is your son/daughter now? （你儿子 / 女儿几岁啦？）
+Time flies so fast, kids grow up in a blink! （时间真快，孩子一转眼就长大了。）
+You must be a proud parent. （你一定很为孩子骄傲吧。）
+I can see you’re a family person. （看得出来你很重视家庭。）
+That’s such a sweet picture of your family! （这张全家福太温馨了！）
+He/she looks just like a mini version of you! （他 / 她简直是你的小号版本！）
+Family time is the best time. （和家人在一起是最幸福的。）
+You have a lovely family! （你家人真可爱！）
+How many kids do you have? （你有几个孩子呀？）
+Are your parents still living in [Hometown]? （你父母还住在 [老家] 吗？）
+Do you have any siblings? （你有兄弟姐妹吗？）
+How often do you visit your family? （你多久回一次家看家人？）
+Your wife/husband is so kind—you make a great couple! （你妻子 / 丈夫人真好 —— 你们真是天造地设的一对！）
+What does your brother/sister do for a living? （你哥哥 / 弟弟 / 姐姐 / 妹妹是做什么工作的？）
+Did you grow up in this city with your family? （你是和家人在这个城市长大的吗？）
+Your family gets along so well—what’s your secret? （你们家人相处得真好 —— 有什么秘诀吗？）
+Do you have family dinners together every weekend? （你们每周都一起吃家庭聚餐吗？）
+Your mom’s cooking must be amazing—did you learn from her? （你妈妈的厨艺一定很棒 —— 你是跟她学的吗？）
+How did your family celebrate the holidays last year? （你们家去年是怎么过节的？）
+Is your family planning a trip together soon? （你们家最近有一起旅行的计划吗？）
+Your grandparents look so healthy—what’s their secret? （你爷爷奶奶看起来真健康 —— 有什么秘诀吗？）
+Do you have any nieces or nephews? （你有侄子侄女或外甥外甥女吗？）
+Your family has a great sense of humor—where does that come from? （你们家人都很有幽默感 —— 这是遗传的吗？）
+How do you balance work and family life? （你是如何平衡工作和家庭生活的？）
+Did your family support your career choice? （你的家人支持你的职业选择吗？）
+What’s your favorite family tradition? （你最喜欢的家庭传统是什么？）
+Your kids are so polite—you’ve raised them well! （你家孩子真有礼貌 —— 你教得真好！）
+Do you and your family have any hobbies in common? （你和家人有共同的爱好吗？）
+Where did your family go for vacation last year? （你们家去年去哪儿度假了？）
+Is your family big or small? （你家是大家庭还是小家庭？）
+Your spouse is very supportive—how did you meet? （你的配偶很支持你 —— 你们是怎么认识的？）
+Do your kids go to school nearby? （你家孩子在附近上学吗？）
+What’s the most memorable family trip you’ve taken? （你最难忘的家庭旅行是什么时候？）
+Does your family like to play games together? （你们家人喜欢一起玩游戏吗？）
+Your family is so warm—always a pleasure to be around! （你们家人真热情 —— 和你们在一起真开心！）
+Did you inherit any traits from your parents? （你遗传了你父母的什么特质吗？）
+How does your family usually spend weekends? （你们家人通常怎么过周末？）
+Your kids are talented—do they take any classes （music/art/sports）? （你家孩子真有天赋 —— 他们报了什么兴趣班（音乐 / 美术 / 体育）吗？）
+（三）聊健康与压力（Health &amp; Stress）
+Oh no, hope you feel better soon. （哎呀，希望你早点好起来。）
+Take good care of yourself. （要好好照顾自己哦。）
+Don’t work too hard! （别太拼命啦！）
+Health always comes first. （健康永远是第一位。）
+Sometimes rest is the best medicine. （有时候，休息才是最好的良药。）
+Stress has been crazy lately, right? （最近压力都挺大的吧？）
+Yeah, everyone’s been so busy these days. （是啊，最近大家都太忙了。）
+You deserve a good break. （你真的该好好休息一下。）
+Hope you can get some me-time soon. （希望你能早点有点属于自己的时间。）
+Drink more water and sleep early! （多喝水早点睡！）
+How’s your health lately? （你最近身体怎么样？）
+Have you been getting enough sleep? （你最近睡眠充足吗？）
+I’ve been trying to exercise more—do you have a workout routine? （我一直在试着多锻炼 —— 你有固定的健身计划吗？）
+Are you feeling stressed about work/life? （你是不是因为工作 / 生活感到压力大？）
+I’ve been having headaches lately—do you have any tips? （我最近老头疼 —— 你有什么建议吗？）
+What do you do to relieve stress? （你平时怎么缓解压力的？）
+Have you tried meditation or yoga? They’re great for relaxation. （你试过冥想或瑜伽吗？对放松很有帮助。）
+I’m trying to eat a balanced diet—any healthy recipes to share? （我在试着均衡饮食 —— 有什么健康食谱可以分享吗？）
+You look tired—did you pull an all-nighter? （你看起来很累 —— 昨晚熬夜了吗？）
+Don’t push yourself too hard—burnout is real. （别给自己太大压力 —— burnout（过度劳累）真的会找上门。）
+How often do you exercise? （你多久锻炼一次？）
+I’ve joined a gym recently—have you ever been a member of one? （我最近办了张健身卡 —— 你以前办过吗？）
+Do you take any vitamins or supplements? （你有吃维生素或保健品吗？）
+I’m trying to quit drinking/smoking—any advice? （我在试着戒酒 / 戒烟 —— 你有什么建议吗？）
+You look so energetic—what’s your secret? （你看起来精力充沛 —— 有什么秘诀吗？）
+Have you had a check-up lately? （你最近体检了吗？）
+I’ve been feeling sluggish—maybe I need to exercise more. （我最近觉得没力气 —— 可能需要多锻炼了。）
+What’s your go-to healthy snack? （你最常吃的健康零食是什么？）
+I injured my knee while working out—have you ever had a fitness injury? （我健身的时候伤了膝盖 —— 你健身时受过伤吗？）
+Do you prefer working out alone or with a friend? （你更喜欢独自健身还是和朋友一起？）
+I’m trying to lose a few pounds—do you have any tips for healthy weight loss? （我在试着减几磅 —— 有什么健康减肥的建议吗？）
+Sleep is so important—I can’t function without 7 hours. （睡眠太重要了 —— 我睡不够 7 小时就没法正常工作。）
+Have you tried any healthy smoothies? They’re quick and nutritious. （你试过健康冰沙吗？又快又有营养。）
+I’m feeling anxious lately—how do you calm down? （我最近有点焦虑 —— 你是怎么让自己平静下来的？）
+Do you walk or bike to work? It’s a great way to exercise. （你步行或骑自行车上班吗？这是个很好的锻炼方式。）
+I’ve been cutting down on sugar—my energy levels are better now. （我一直在少吃糖 —— 现在精力好多了。）
+Have you ever tried therapy to manage stress? （你试过通过心理咨询缓解压力吗？）
+What’s the most important thing for maintaining good health? （保持健康最重要的是什么？）
+I’m trying to establish a morning routine—wake up early and exercise. （我在试着建立晨练习惯 —— 早起锻炼。）
+You have great skin—do you have a skincare routine? （你皮肤真好 —— 有护肤流程吗？）
+I’ve been drinking herbal tea instead of coffee—helps me sleep better. （我现在用花草茶代替咖啡了 —— 有助于睡眠。）
+Do you get enough sunlight during the day? （你白天晒太阳够吗？）
+I’m trying to reduce screen time before bed—helps with sleep. （我在试着睡前少看屏幕 —— 对睡眠有帮助。）
+Have you ever had a cold this season? （你这个季节感冒过吗？）
+What do you do when you’re feeling under the weather? （你不舒服的时候会怎么做？）
+I’m taking a break from work next week—need to recharge. （我下周要休个假 —— 需要充电了。）
+Do you practice any mindfulness techniques? （你有练习正念技巧吗？）
+I’ve been eating more fruits and vegetables—they’re packed with vitamins. （我最近吃更多蔬菜水果了 —— 富含维生素。）
+You look refreshed—did you have a good vacation? （你看起来容光焕发 —— 假期过得不错吧？）
+Don’t neglect your mental health—it’s just as important as physical health. （别忽视心理健康 —— 和身体健康一样重要。）
+（四）聊旅行与度假（Travel &amp; Vacation）
+Wow, that sounds amazing! （哇，听起来太棒了！）
+Where are you heading to this time? （这次要去哪儿玩？）
+Enjoy your trip and take lots of photos! （好好享受旅程，多拍点照片！）
+Don’t check emails too often, just relax! （假期别老看邮件，好好放松！）
+I’ve heard that place is beautiful. （我听说那地方很美！）
+Any food you’re excited to try there? （你有没有特别想吃的当地美食？）
+Traveling really clears the mind. （旅行真能让人放松心情。）
+You totally deserve a holiday! （你真的该好好休息一下！）
+Hope the weather’s great when you go. （希望你去的时候天气超好！）
+Can’t wait to see your travel photos! （等着看你的旅行照哦！）
+Have you booked your flights and accommodation yet? （你订好机票和酒店了吗？）
+How long are you going to stay there? （你要在那儿待多久？）
+Are you traveling alone or with friends/family? （你是独自旅行还是和朋友 / 家人一起？）
+What’s the first thing you’re going to do when you arrive? （你到了之后第一件事要做什么？）
+Have you learned any basic phrases in the local language? （你学了几句当地语言的基础表达吗？）
+Is this your first time traveling to [Continent/Country]? （这是你第一次去 [大洲 / 国家] 旅行吗？）
+What’s the most beautiful place you’ve ever visited? （你去过最美丽的地方是哪儿？）
+Do you prefer beach vacations or mountain getaways? （你更喜欢海滩度假还是山区度假？）
+I’m planning a trip to [Place]—have you been there before? （我在计划去 [地方] 旅行 —— 你以前去过吗？）
+What’s the best time of year to visit [Place]? （去 [地方] 旅行最好的季节是什么时候？）
+Did you have any trouble with jet lag last time you traveled? （你上次旅行倒时差困难吗？）
+What’s the most memorable travel experience you’ve had? （你最难忘的旅行经历是什么？）
+Do you like to plan every detail of your trip or go with the flow? （你喜欢把旅行细节都计划好，还是随遇而安？）
+Have you ever traveled to a place with a completely different culture? （你去过文化完全不同的地方吗？）
+What’s the best souvenir you’ve ever bought on a trip? （你旅行时买过最好的纪念品是什么？）
+I’m afraid of flying—do you have any tips to stay calm? （我害怕坐飞机 —— 你有什么保持冷静的建议吗？）
+Have you ever tried local street food while traveling? （你旅行时吃过当地小吃吗？）
+What’s the most adventurous thing you’ve done while traveling? （你旅行时做过最冒险的事是什么？）
+Do you prefer staying in hotels, hostels, or Airbnb? （你更喜欢住酒店、青旅还是民宿？）
+I’m traveling on a budget—any tips for saving money? （我预算有限 —— 有什么省钱技巧吗？）
+Have you ever missed a flight or train while traveling? （你旅行时错过过飞机或火车吗？）
+What’s the worst travel experience you’ve had? （你最糟糕的旅行经历是什么？）
+Do you like to visit tourist attractions or off-the-beaten-path spots? （你喜欢去热门景点还是小众秘境？）
+I’m planning a road trip—have you ever been on one? （我在计划公路旅行 —— 你以前去过吗？）
+Have you ever traveled abroad for work? （你出过差吗？）
+What’s the best travel app you use for bookings or navigation? （你订行程或导航用什么好用的旅行 APP？）
+Do you bring a lot of luggage or travel light? （你旅行是带很多行李还是轻装出行？）
+Have you ever met any interesting people while traveling? （你旅行时遇到过有趣的人吗？）
+What’s the one thing you can’t travel without? （你旅行时必备的东西是什么？）
+I’m dreaming of a trip to [Place]—what should I not miss? （我梦想去 [地方] 旅行 —— 有什么必体验的吗？）
+Have you ever had a cultural shock while traveling? （你旅行时遇到过文化冲击吗？）
+Do you like to try local activities, like hiking or cooking classes? （你喜欢尝试当地活动吗，比如徒步或烹饪课？）
+What’s the best travel advice you’ve ever received? （你收到过最好的旅行建议是什么？）
+I’m traveling with kids—any family-friendly destination recommendations? （我要带孩子旅行 —— 有什么适合家庭的目的地推荐吗？）
+Have you ever traveled during peak season? It must be crowded! （你在旺季旅行过吗？肯定很挤吧！）
+Do you take travel insurance? （你买旅行保险吗？）
+What’s the most remote place you’ve ever visited? （你去过最偏远的地方是哪儿？）
+I’m planning a solo trip—any safety tips? （我在计划独自旅行 —— 有什么安全技巧吗？）
+Have you ever visited a place because of a movie or book? （你有没有因为一部电影或一本书去某个地方旅行？）
+What’s the next destination on your travel list? （你下一个旅行目的地是什么？）
+（五）客户 / 友人来中国出差 / 旅行（Visit to China）
+Welcome to China! （欢迎来中国！）
+Have you tried hotpot yet? （你试过火锅吗？）
+If you like spicy food, I can recommend some great restaurants! （如果你喜欢吃辣，我可以推荐几家好店！）
+How’s your stay so far? （目前住得还习惯吗？）
+Is this your first time in China? （这是你第一次来中国吗？）
+You should try bubble tea—it’s everywhere now! （你一定要试试奶茶，现在到处都有～）
+Have you visited the Great Wall? （你去过长城吗？）
+Beijing and Chengdu are both great to explore. （北京和成都都挺好玩的！）
+I can show you around if you have time. （如果有空，我可以带你转转～）
+Hope you enjoy the Chinese hospitality! （希望你喜欢中国的热情好客！）
+How do you like Chinese food so far? （你目前觉得中国菜怎么样？）
+Have you tried Peking duck? It’s a must-try in Beijing! （你吃过北京烤鸭吗？这是北京必吃的！）
+Do you need help with transportation? I can show you how to use Didi/Subway. （你需要交通方面的帮助吗？我可以教你用滴滴 / 地铁。）
+The Forbidden City is amazing—have you planned to visit it? （故宫超棒的 —— 你计划去参观吗？）
+Chinese tea is famous—would you like to try some jasmine tea? （中国茶很有名 —— 你想尝尝茉莉花茶吗？）
+Is the language barrier causing any trouble? I can help translate if needed. （语言障碍有没有带来麻烦？需要的话我可以帮忙翻译。）
+Shanghai’s skyline is breathtaking—you should go to the Bund at night. （上海的天际线太美了 —— 你应该晚上去外滩看看。）
+Have you tried dumplings? They’re a traditional Chinese dish for festivals. （你试过饺子吗？这是中国节日的传统美食。）
+Chengdu is famous for spicy food and pandas—do you like pandas? （成都以辣食和熊猫闻名 —— 你喜欢熊猫吗？）
+How long will you stay in China? （你要在中国待多久？）
+Do you have any specific places you want to visit? I can give you recommendations. （你有特别想去的地方吗？我可以给你推荐。）
+Chinese snacks like stinky tofu and fried squid are popular—dare to try? （臭豆腐、烤鱿鱼这类中国小吃很受欢迎 —— 敢试试吗？）
+The Summer Palace is a beautiful garden—perfect for a relaxing walk. （颐和园是个美丽的园林 —— 很适合悠闲散步。）
+Have you shopped at any local markets? You can find unique souvenirs there. （你去过当地市场购物吗？那儿能找到特别的纪念品。）
+The weather in [City] can be [hot/cold/humid]—did you bring appropriate clothes? （【城市】的天气可能会【热 / 冷 / 潮湿】—— 你带对衣服了吗？）
+Would you like to experience a Chinese family dinner? My family would love to host you. （你想体验中国家庭聚餐吗？我家人很乐意招待你。）
+Guilin’s landscapes are like a painting—have you heard of it? （桂林山水甲天下 —— 你听说过吗？）
+Have you tried mapo tofu? It’s a classic Sichuan dish, spicy but delicious. （你试过麻婆豆腐吗？这是经典川菜，辣但超香。）
+Do you need help booking tickets for attractions? （你需要帮忙订景点门票吗？）
+Chinese people are very friendly—don’t hesitate to ask for help if you need it. （中国人都很友好 —— 有需要的话别犹豫，尽管开口。）
+Hangzhou’s West Lake is romantic—great for a boat ride. （杭州西湖很浪漫 —— 坐船游览超棒。）
+Have you tried congee for breakfast? It’s light and comforting. （你早餐试过粥吗？清淡又养胃。）
+The Terracotta Army in Xi’an is a world wonder—worth a visit. （西安的兵马俑是世界奇观 —— 值得一去。）
+Do you prefer spicy or non-spicy food? I can recommend restaurants accordingly. （你喜欢辣的还是不辣的？我可以相应地推荐餐厅。）
+Have you experienced Chinese massage? It’s great for relieving fatigue. （你体验过中式按摩吗？缓解疲劳超有效。）
+Local fruits in China are fresh—try lychees or longans if you see them. （中国的本地水果很新鲜 —— 看到荔枝或龙眼可以试试。）
+Is there any Chinese cuisine you want to try but haven’t yet? （有什么想吃但还没试过的中国菜吗？）
+The Great Wall at Mutianyu is less crowded than Badaling—better for photos. （慕田峪长城比八达岭人少 —— 拍照更合适。）
+Do you need tips on using mobile payment in China? Alipay and WeChat Pay are widely used. （你需要中国移动支付的使用技巧吗？支付宝和微信支付应用很广泛。）
+Qingdao is famous for beer and seafood—have you planned to go there? （青岛以啤酒和海鲜闻名 —— 你计划去那儿吗？）
+（六）聊美食（Food Talk）
+You should try dumplings—they’re my favorite! （你一定要试试饺子，我最爱这个！）
+Do you like spicy food? （你喜欢吃辣吗？）
+Hotpot is perfect for a group dinner. （火锅超适合朋友聚餐！）
+Have you tried Peking duck? （你吃过北京烤鸭吗？）
+Chinese food is all about sharing. （中国菜讲究 “分享”，很有意思。）
+What’s your favorite dish so far? （目前你最喜欢哪道菜？）
+You should try Sichuan food—it’s spicy but amazing! （你得试试川菜，辣但超香！）
+Chinese snacks are so diverse, right? （中国的小吃太丰富了吧？）
+Let me know if you need restaurant tips! （想要餐厅推荐可以找我！）
+Next time you come, I’ll take you for local food! （下次来我带你去吃地道的！）
+What’s your favorite cuisine? （你最喜欢什么菜系？）
+Have you tried homemade noodles? They’re chewier than store-bought ones. （你试过手擀面吗？比买的更有嚼劲。）
+I’m a foodie—do you know any good restaurants in this area? （我是吃货 —— 你知道这附近有什么好餐厅吗？）
+Do you prefer sweet or savory food? （你更喜欢甜食还是咸食？）
+I can cook a simple Chinese dish—would you like to learn? （我会做一道简单的中国菜 —— 你想学习吗？）
+Have you tried dim sum? It’s a popular Cantonese breakfast. （你试过点心吗？这是很受欢迎的粤式早餐。）
+What’s the spiciest food you’ve ever eaten? （你吃过最辣的食物是什么？）
+I’m craving sushi—know any good Japanese restaurants? （我想吃寿司 —— 知道什么好的日料店吗？）
+Do you have any favorite street food? （你有最喜欢的街头小吃吗？）
+This restaurant serves authentic Italian food—have you been here before? （这家餐厅的意大利菜很正宗 —— 你以前来过吗？）
+I’m trying to cook more at home—do you have any easy recipes? （我在试着多在家做饭 —— 你有简单的食谱吗？）
+Have you tried Thai curry? It’s creamy and flavorful. （你试过泰式咖喱吗？香浓又入味。）
+Do you like seafood? There’s a great seafood restaurant downtown. （你喜欢海鲜吗？市中心有一家超棒的海鲜餐厅。）
+What’s your go-to comfort food when you’re tired? （你累的时候最想吃的治愈系美食是什么？）
+Have you tried matcha desserts? They’re so trendy now. （你试过抹茶甜品吗？现在超火的。）
+I’m allergic to nuts—do you know any nut-free restaurants? （我对坚果过敏 —— 你知道有没有不含坚果的餐厅？）
+Do you know how to make coffee? I’m trying to master pour-over. （你会煮咖啡吗？我在试着掌握手冲咖啡。）
+Have you tried Korean barbecue? It’s fun to cook at the table. （你试过韩式烤肉吗？在桌上自己烤很有意思。）
+What’s the best dessert you’ve ever had? （你吃过最好吃的甜品是什么？）
+I’m on a diet—any low-calorie food recommendations? （我在减肥 —— 有什么低卡路里的食物推荐吗？）
+Have you tried falafel? It’s a delicious Middle Eastern dish. （你试过法拉费吗？这是超好吃的中东美食。）
+Do you like cheese? This pizza has extra mozzarella. （你喜欢奶酪吗？这款披萨加了超多马苏里拉。）
+What’s your favorite breakfast food? （你最喜欢的早餐是什么？）
+Have you tried Mexican tacos? They’re quick and tasty. （你试过墨西哥塔可吗？简单又好吃。）
+I love baking cookies—would you like to try some? （我喜欢烤饼干 —— 你想尝尝吗？）
+Do you prefer eating at home or dining out? （你更喜欢在家吃还是出去吃？）
+Have you tried Indian butter chicken? It’s rich and creamy. （你试过印度奶油鸡吗？浓郁又香浓。）
+What’s your favorite fruit? （你最喜欢什么水果？）
+I’m looking for a good bakery—do you have any suggestions? （我在找一家好的面包店 —— 你有推荐吗？）
+Have you tried Vietnamese pho? It’s a comforting noodle soup. （你试过越南河粉吗？暖心暖胃的 noodle 汤。）
+Do you like chocolate? This dark chocolate is 70% cocoa. （你喜欢巧克力吗？这款黑巧克力是 70% 可可含量。）
+What’s the most unusual food you’ve ever eaten? （你吃过最特别的食物是什么？）
+I’m trying to eat more vegetables—any creative veggie recipes? （我在试着多吃蔬菜 —— 有什么有创意的蔬菜食谱吗？）
+Have you tried Greek salad? It’s fresh and healthy. （你试过希腊沙拉吗？新鲜又健康。）
+Do you drink alcohol? What’s your favorite cocktail/wine/beer? （你喝酒吗？你最喜欢的鸡尾酒 / 红酒 / 啤酒是什么？）
+What’s your favorite fast food? （你最喜欢的快餐是什么？）
+Have you tried homemade pizza? It’s easier than you think. （你试过自制披萨吗？比你想象的简单。）
+Do you like herbs and spices? Basil and oregano are my favorites. （你喜欢香草和香料吗？罗勒和牛至是我的最爱。）
+What’s the best meal you’ve ever had at a restaurant? （你在餐厅吃过最好吃的一餐是什么？）
+I’m learning to make sushi—do you have any tips? （我在学做寿司 —— 你有什么技巧吗？）
+（七）聊工作与生活节奏（Work &amp; Life）
+Yeah, it’s been a busy week! （是啊，这周太忙了！）
+Let’s take it one step at a time. （我们一步一步来。）
+You’ve been working so hard lately! （你最近真的太拼了！）
+I totally understand how you feel. （我完全懂你的感受。）
+Sometimes small progress is still progress. （一点点进步也是进步。）
+Hope the workload gets lighter soon. （希望工作量快点减少吧！）
+You’re doing great—don’t stress too much! （你做得很好，别太焦虑！）
+The market’s been tough recently, right? （最近市场确实有点难做吧？）
+Everyone’s adapting to the changes. （大家都在努力适应变化。）
+Let’s stay positive—it always helps! （保持好心态，真的很重要！）
+How do you balance work and personal life? （你是如何平衡工作和个人生活的？）
+I’m feeling overwhelmed with work—need to prioritize tasks. （我觉得工作压力好大 —— 需要优先处理任务。）
+Do you work overtime often? （你经常加班吗？）
+I’m trying to set boundaries between work and life. （我在试着给工作和生活划清界限。）
+What’s the most challenging part of your job? （你工作中最有挑战性的部分是什么？）
+I’m looking forward to the weekend—need to relax. （我很期待周末 —— 需要放松一下。）
+Do you prefer working in the office or from home? （你更喜欢在办公室工作还是居家办公？）
+I’ve been working on a big project—hope it goes well. （我一直在做一个大项目 —— 希望一切顺利。）
+What’s the best part of your job? （你工作中最棒的部分是什么？）
+I’m feeling burnt out—need a vacation. （我觉得 burnout 了 —— 需要度假。）
+Do you have a morning routine before work? （你上班前有晨间习惯吗？）
+The team did a great job—we should celebrate. （团队做得很棒 —— 我们应该庆祝一下。）
+I’m learning new skills for work—have you taken any courses lately? （我在学习工作所需的新技能 —— 你最近有报课程吗？）
+Do you find your job fulfilling? （你觉得你的工作有成就感吗？）
+I’m trying to be more efficient at work—any time management tips? （我在试着提高工作效率 —— 有什么时间管理技巧吗？）
+The new project is exciting but challenging. （这个新项目很令人兴奋，但也有挑战。）
+Do you get along with your colleagues? （你和同事相处得好吗？）
+I’m thinking of changing jobs—what do you think? （我在想换工作 —— 你觉得怎么样？）
+How’s your relationship with your manager? （你和你的经理关系怎么样？）
+I’m attending a work conference next month—have you been to any? （我下个月要去参加一个工作会议 —— 你去过吗？）
+Do you work on weekends often? （你经常周末工作吗？）
+The company culture here is great—everyone’s supportive. （这儿的公司文化很棒 —— 每个人都很支持彼此。）
+I’m trying to delegate more tasks—hard to let go sometimes. （我在试着多分配任务 —— 有时候很难放手。）
+What’s your career goal for this year? （你今年的职业目标是什么？）
+I’m feeling unmotivated at work lately—how do you stay inspired? （我最近工作没动力 —— 你是怎么保持积极性的？）
+Do you have any work-from-home tips? （你有什么居家办公的技巧吗？）
+The team building last week was fun—did you enjoy it? （上周的团建很有意思 —— 你玩得开心吗？）
+I’m trying to improve my communication skills at work. （我在试着提高工作中的沟通技巧。）
+What’s the most rewarding project you’ve worked on? （你做过最有成就感的项目是什么？）
+I’m stressed about the upcoming deadline—need to hurry. （我对即将到来的截止日期感到压力 —— 得快点了。）
+Do you prefer working alone or in a team? （你更喜欢独自工作还是团队合作？）
+The new software at work is tricky—have you figured it out? （工作中的新软件有点难用 —— 你弄明白了吗？）
+I’m trying to network more in the industry. （我在试着多拓展行业人脉。）
+What’s the best career advice you’ve ever received? （你收到过最好的职业建议是什么？）
+I’m feeling stuck in my job—need a change. （我觉得工作陷入瓶颈了 —— 需要改变。）
+Do you get enough breaks during work? （你工作期间有足够的休息时间吗？）
+The client meeting went well—they liked our proposal. （客户会议很顺利 —— 他们喜欢我们的提案。）
+I’m trying to be more organized at work—using a to-do list. （我在试着让工作更有条理 —— 用待办清单。）
+What’s the biggest lesson you’ve learned from work? （你从工作中学到的最大教训是什么？）
+I’m looking for a promotion—how can I stand out? （我在争取晋升 —— 怎么才能脱颖而出？）
+（八）聊行业与商务（Business Talk）
+The market trend is quite unpredictable. （市场趋势最近挺难预估的。）
+Flexibility is the key now. （现在灵活应变最重要。）
+The shipping costs have been crazy lately. （最近运费真的离谱。）
+Yeah, logistics is still a challenge. （没错，物流还是挺麻烦的。）
+Hopefully it’ll stabilize soon. （希望快点稳定下来吧。）
+How’s the competition in your industry lately? （你所在行业最近的竞争情况怎么样？）
+The new regulations will impact our business—have you prepared? （新法规会影响我们的业务 —— 你做好准备了吗？）
+We’re exploring new markets—have you considered expanding abroad? （我们在开拓新市场 —— 你有考虑过海外扩张吗？）
+What’s your take on the latest industry report? （你对最新的行业报告有什么看法？）
+Digital transformation is essential for our sector now. （数字化转型现在对我们行业至关重要。）
+We’re looking for reliable partners—do you have any recommendations? （我们在寻找可靠的合作伙伴 —— 你有推荐吗？）
+The demand for [Product/Service] has increased recently. （最近 [产品 / 服务] 的需求增长了。）
+How do you think we can improve customer satisfaction? （你觉得我们如何能提高客户满意度？）
+We’re launching a new product next quarter—would you be interested in a demo? （我们下季度要推出新产品 —— 你有兴趣看演示吗？）
+Cost control is a top priority for us this year. （成本控制是我们今年的首要任务。）
+Have you noticed any emerging technologies in our industry? （你注意到我们行业有什么新兴技术吗？）
+The partnership with [Company] has been fruitful—would you consider similar collaborations? （和 [公司] 的合作很有成效 —— 你会考虑类似的合作吗？）
+How’s the supply chain holding up for your business? （你们业务的供应链运转得怎么样？）
+We’re investing in R&amp;D—do you think it’s worth the investment? （我们在研发上投入 —— 你觉得这笔投资值得吗？）
+The market is shifting to sustainable products—are you adapting? （市场正在向可持续产品转型 —— 你在适应吗？）
+What’s your strategy for dealing with economic uncertainty? （你应对经济不确定性的策略是什么？）
+We’re restructuring the team to boost efficiency—have you done similar changes? （我们在重组团队以提高效率 —— 你做过类似的调整吗？）
+The customer feedback on our latest service is positive—how’s yours? （客户对我们最新服务的反馈很好 —— 你们的呢？）
+Have you attended any industry trade shows lately? （你最近参加过行业展会吗？）
+We’re negotiating a big contract—any tips for successful negotiations? （我们在谈一份大合同 —— 有什么谈判成功的技巧吗？）
+The price of raw materials has gone up—how are you handling it? （原材料价格上涨了 —— 你在怎么应对？）
+What’s the most promising segment in our industry right now? （目前我们行业最有前景的领域是什么？）
+We’re improving our online presence—do you have any digital marketing tips? （我们在提升线上曝光度 —— 你有什么数字营销技巧吗？）
+The pandemic changed how we do business—have you adopted permanent remote work? （疫情改变了我们的经营方式 —— 你采用长期居家办公了吗？）
+How do you measure success in your business? （你如何衡量业务上的成功？）
+We’re facing some cash flow issues—any advice on managing finances? （我们遇到了一些现金流问题 —— 有什么财务管理建议吗？）
+The new software has streamlined our operations—have you upgraded your systems? （新软件简化了我们的运营 —— 你升级系统了吗？）
+What’s the biggest opportunity for our industry in the next five years? （未来五年我们行业最大的机会是什么？）
+We’re focusing on customer retention—what strategies do you use? （我们在专注于客户留存 —— 你用什么策略？）
+Have you experienced any issues with intellectual property in your business? （你在业务中遇到过知识产权问题吗？）
+（九）日常寒暄与生活琐事（Everyday Talk）
+How’s the weather over there? （你那边天气怎么样？）
+It’s been raining a lot here lately. （我们这边最近老下雨。）
+Can’t believe it’s Friday already! （真不敢相信又到周五了！）
+Time flies so fast, right? （时间过得真快，对吧？）
+Any weekend plans? （周末有什么安排吗？）
+I love slow weekends—just coffee and movies. （我喜欢那种慢节奏的周末，喝咖啡看电影。）
+The weather makes me want to travel again! （这天气让我又想出去玩了！）
+How’s your coffee today? You always have one! （今天咖啡怎么样？你每天都一杯！）
+Mondays always come too fast, right? （周一来得太快了吧？）
+It’s such a beautiful day, isn’t it? （今天天气真好，对吧？）
+Can you believe this heat? （这天气太热了吧！）
+Looks like we might get some rain later. （看起来等会儿可能要下雨了。）
+It’s finally starting to feel like [season]! （终于有 [季节] 的感觉了！）
+The snow is beautiful—have you gone skiing yet? （雪真美 —— 你去滑雪了吗？）
+It’s so humid today—I’m sweating just walking! （今天太潮湿了 —— 走两步就出汗！）
+The wind is really strong—don’t forget your jacket! （风好大 —— 别忘了带外套！）
+Have you seen the new movie that just came out? （你看那部刚上映的电影了吗？）
+What’s your favorite TV show lately? （你最近最喜欢的电视剧是什么？）
+I’m hooked on this podcast—have you listened to it? （我迷上了这个播客 —— 你听过吗？）
+Did you read the news this morning? （你看今早的新闻了吗？）
+I just finished a great book—would you like to borrow it? （我刚看完一本好书 —— 你想借吗？）
+The traffic was terrible this morning—did you get stuck? （今早交通太糟了 —— 你堵车了吗？）
+I missed the bus—had to take a taxi to work. （我没赶上公交车 —— 只好打车上班。）
+Do you use public transportation or drive to work? （你上班是坐公共交通还是开车？）
+My phone died this morning—such a hassle! （我手机今早没电了 —— 太麻烦了！）
+Have you tried the new grocery store downtown? （你试过市中心那家新超市吗？）
+I need to do laundry this weekend—procrastinating as usual. （我这周末要洗衣服 —— 还是像往常一样拖延。）
+The internet is so slow today—can’t get anything done! （今天网速太慢了 —— 什么都做不了！）
+I’m running out of groceries—need to go shopping. （我的食材快用完了 —— 得去购物了。）
+Have you fixed your broken [appliance] yet? （你那台坏了的 [电器] 修好了吗？）
+I’m thinking of redecorating my apartment—any ideas? （我在想重新装修公寓 —— 有什么想法吗？）
+The neighbor’s dog is so cute—do you know their name? （邻居家的狗真可爱 —— 你知道它们的名字吗？）
+I just planted some flowers—hope they grow! （我刚种了些花 —— 希望它们能活！）
+Do you like gardening? I’m just starting out. （你喜欢园艺吗？我刚开始尝试。）
+I’m learning to play the guitar—still practicing basic chords. （我在学吉他 —— 还在练基础和弦。）
+Have you ever tried painting? It’s really relaxing. （你试过画画吗？真的很放松。）
+I’m trying to learn a new language—any tips for beginners? （我在学一门新语言 —— 有什么新手技巧吗？）
+The café down the street has the best pastries—have you tried them? （街角的咖啡店有最好吃的糕点 —— 你试过吗？）
+I forgot my umbrella—hope it doesn’t rain! （我忘了带伞 —— 希望别下雨！）
+Do you prefer morning or night? I’m a night owl. （你更喜欢早上还是晚上？我是夜猫子。）
+I’m trying to wake up earlier—still struggling! （我在试着早起 —— 还是很困难！）
+Have you tried the new fitness class at the gym? （你试过健身房的新健身课吗？）
+My favorite band is coming to town—are you getting tickets? （我最喜欢的乐队要来这儿了 —— 你要买票吗？）
+I’m organizing a garage sale—want to come? （我在组织一场车库拍卖会 —— 想来吗？）
+The library has a great event this weekend—did you hear about it? （图书馆这周末有个很棒的活动 —— 你听说了吗？）
+I’m craving ice cream—want to get some later? （我想吃冰淇淋 —— 待会儿去买些吗？）
+Do you like board games? We’re having a game night this Saturday. （你喜欢桌游吗？我们这周六有桌游夜。）
+I just got a new phone—love the camera! （我刚换了新手机 —— 摄像头真好用！）
+Have you updated your computer software lately? （你最近更新电脑软件了吗？）
+I’m trying to cut down on screen time—harder than I thought. （我在试着减少屏幕使用时间 —— 比我想象的难。）
+六、节日与祝福
+Happy Halloween! Did you dress up this year? （万圣节快乐！今年你有装扮吗？）
+Love all the spooky decorations! （我超喜欢那些搞怪的装饰！）
+Happy Thanksgiving to you and your family! （感恩节快乐！祝你和家人幸福平安！）
+What’s your favorite Thanksgiving dish? （你最喜欢的感恩节菜是什么？）
+I’m thankful for all our great teamwork this year! （很感激我们今年的合作！）
+Merry Christmas! （圣诞快乐！）
+Hope your holidays are full of joy and good food! （希望你的假期充满快乐和美食！）
+Did you already put up the Christmas tree? （你圣诞树已经布置好了吗？）
+Wishing you a peaceful holiday season. （祝你度过一个平安、温暖的节日。）
+Happy New Year! May all your wishes come true. （新年快乐！愿你所有的愿望都能实现。）
+Have a wonderful holiday break! （假期愉快！）
+Best wishes for the new year! （祝你新年万事如意！）
+Happy Valentine’s Day! Hope you have a romantic day. （情人节快乐！愿你有个浪漫的一天。）
+Happy Easter! Enjoy the chocolate eggs. （复活节快乐！好好享用巧克力蛋。）
+Wishing you a joyful Spring Festival! （祝你春节快乐！）
+Happy Mid-Autumn Festival! May the moon bring you happiness. （中秋节快乐！愿明月带给你幸福。）
+Happy Dragon Boat Festival! Hope you like zongzi. （端午节快乐！希望你喜欢粽子。）
+Happy National Day! （国庆节快乐！）
+Wishing you a prosperous year ahead. （祝你来年事业兴旺。）
+Happy Birthday! May you have a fantastic day. （生日快乐！愿你有美好的一天。）
+Congratulations on your promotion! （恭喜你晋升！）
+Well done on completing the project! （项目完成得真棒！）
+Congratulations on your new job! （恭喜你找到新工作！）
+Best wishes for your wedding! （祝你新婚快乐！）
+Congratulations on the arrival of your baby! （恭喜你喜得贵子 / 千金！）
+Get well soon! Hope you recover quickly. （早日康复！希望你快点好起来。）
+Happy anniversary! Here’s to many more years together. （周年快乐！愿你们相守更多岁月。）
+Wishing you success in your exams! （祝你考试顺利！）
+Congratulations on your business success! （恭喜你事业成功！）
+Happy Mother’s Day! Thank you for all you do. （母亲节快乐！感谢你所做的一切。）
+Happy Father’s Day! You’re the best dad. （父亲节快乐！你是最棒的爸爸。）
+Wishing you a relaxing vacation! （祝你假期放松愉快！）
+Congratulations on buying a new house! （恭喜你买房！）
+Happy Teacher’s Day! Thank you for your guidance. （教师节快乐！感谢你的指导。）
+Best wishes for your trip! Safe travels. （祝你旅途愉快！一路平安。）
+Congratulations on winning the award! （恭喜你获奖！）
+Wishing you good luck in your new venture! （祝你新事业好运！）
+Happy St. Patrick’s Day! May the luck of the Irish be with you. （圣帕特里克节快乐！愿爱尔兰的好运伴你左右。）
+Happy Independence Day! （独立日快乐！）
+Wishing you a happy and healthy year! （祝你一年快乐健康！）
+七、接话技巧与赞美
+No way! That’s awesome! （不会吧！太棒了！）
+That sounds like a lot of fun! （听起来很有趣！）
+Oh really? Tell me more! （真的吗？说来听听！）
+That’s wild! （太疯狂了吧！）
+I can totally relate. （我完全能理解。）
+You’re kidding, right? （你在开玩笑吧？）
+That must have been an experience! （那一定是一次特别的经历！）
+That’s incredible! （太不可思议了！）
+I’m impressed! （太厉害了！）
+That’s such a great idea! （这主意太棒了！）
+I love your [outfit/shoes/bag]! （我好喜欢你的 [衣服 / 鞋子 / 包]！）
+That’s a great color on you! （这个颜色很适合你！）
+You’ve got great taste! （你的品味真棒！）
+I wish I could do that! （我真希望我也会这个！）
+You make it look so easy! （你做起来太轻松了！）
+You’re so talented! （你太有天赋了！）
+Your work is amazing! （你的工作做得太棒了！）
+You’re such a kind person! （你真是个善良的人！）
+You have a great sense of humor! （你真有幽默感！）
+That’s a wonderful achievement! （这真是了不起的成就！）
+You’re so organized! （你太有条理了！）
+Your presentation was fantastic! （你的演示太精彩了！）
+You’re a great listener! （你真是个好倾听者！）
+This meal is delicious—you’re a great cook! （这顿饭太好吃了 —— 你厨艺真好！）
+You’re so dedicated to your work! （你对工作真投入！）
+Your smile is contagious! （你的笑容真有感染力！）
+You’re so easy to talk to! （和你聊天真轻松！）
+That’s a beautiful photo—you have an eye for photography! （这张照片真好看 —— 你真有摄影天赋！）
+You handled that situation perfectly! （你把那件事处理得太好了！）
+You’re an inspiration! （你真是个榜样！）
+八、结束对话与道别
+It was great chatting with you! （和你聊天很愉快！）
+I’ll let you get back to it. （我就不打扰你了。）
+Let’s catch up again soon! （改天再聊吧！）
+Enjoy the rest of your day! （祝你今天愉快！）
+Have a wonderful weekend! （周末愉快！）
+See you later! （待会儿见！）
+See you tomorrow! （明天见！）
+Goodbye for now! （先再见啦！）
+Take care! （保重！）
+Stay in touch! （保持联系！）
+It was nice meeting you! （很高兴认识你！）
+I look forward to our next chat. （期待下次再聊。）
+Have a safe trip! （一路平安！）
+Until next time! （下次见！）
+Thanks for talking with me! （谢谢你陪我聊天！）
+Let’s connect again soon. （咱们尽快再联系。）
+Enjoy your evening! （晚上过得愉快！）
+Catch you later then! （那待会儿见！）
+Wishing you all the best! （祝你一切顺利！）
+It’s been a pleasure! （和你相处很愉快！）
+Good morning! （早上好！）
+Good afternoon! （下午好！）
+Good evening! （晚上好！）
+Good night! （晚安！）
+Hi there! （嗨！）
+Hello! （你好！）
+Hey! （嘿！）
+How are you? （你好吗？）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="1126smalltalk850";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

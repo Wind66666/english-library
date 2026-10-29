@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>默写 · 10.24 英文邮件追问</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="review.html">🔁 复习中心</a>
+  &nbsp;·&nbsp;
+  <a class="back" href="p096.html">阅读本文</a>
+  <h1><span style="margin-right:8px">✍️</span>默写：10.24 英文邮件追问</h1>
+  <div class="meta"><span class="charspill">452 句</span><span>看中文翻译，默写英文原句</span></div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="dict-wrap">
+
+    <div id="start" class="dict-center">
+      <div class="dict-big">📋 本资料共解析出 <b style="color:#a5b1fb">452</b> 个句对<br>看中文 → 默写英文 → 自动判分</div>
+      <div class="dict-opt">
+        <label><input type="checkbox" id="shuffle"> 🔀 乱序出题</label>
+        <select id="range" class="btn btn-ghost" style="padding:9px 14px">
+          <option value="all">全部 452 句</option>
+          <option value="20" selected>前 20 句</option>
+          <option value="50">前 50 句</option>
+          <option value="100">前 100 句</option>
+        </select>
+      </div>
+      <button class="btn btn-main" style="font-size:15px;padding:13px 34px" onclick="start()">开始默写 →</button>
+      <div id="hist" class="dict-hist"></div>
+      <p style="color:#5d6479;font-size:12.5px;margin-top:18px">判定规则：忽略大小写和标点；相似度 ≥ 90% 记为“接近正确”</p>
+    </div>
+
+    <div id="quiz" style="display:none">
+      <div class="dict-progress"><span class="num" id="num">0 / 0</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="dict-zh" id="zh"></div>
+      <input id="input" class="dict-input" type="text" placeholder="在这里默写英文…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="dict-actions">
+        <button id="btnCheck" class="btn btn-main" onclick="check()">检查（Enter）</button>
+        <button id="btnHint" class="btn btn-ghost" onclick="hint()">💡 提示</button>
+        <button id="btnFav" class="btn btn-ghost btn-fav" onclick="favToggle()" title="收藏这句，之后可在复习中心查看">☆ 收藏</button>
+        <button class="btn btn-ghost" onclick="reveal()">显示答案</button>
+        <button class="btn btn-ghost" onclick="skip()">跳过 ⏭</button>
+        <button id="btnNext" class="btn btn-main" style="display:none" onclick="next()">下一句（Enter）→</button>
+      </div>
+      <div id="fb" class="dict-fb"></div>
+    </div>
+
+    <div id="result" style="display:none" class="dict-center">
+      <div class="dict-big">🏁 本轮默写完成！</div>
+      <div class="dict-stats">
+        <div class="dict-stat g"><b id="sg">0</b><span>完全正确</span></div>
+        <div class="dict-stat n"><b id="sn">0</b><span>接近正确</span></div>
+        <div class="dict-stat w"><b id="sw">0</b><span>错误</span></div>
+        <div class="dict-stat"><b id="sa">0%</b><span>正确率</span></div>
+      </div>
+      <div class="dict-actions" style="justify-content:center">
+        <button class="btn btn-main" onclick="start()">🔄 再来一轮</button>
+        <a class="btn btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center" href="p096.html">📖 回去阅读</a>
+      </div>
+      <div id="wronglist" class="dict-wronglist"></div>
+    </div>
+
+  </div>
+</div>
+<footer>课程大礼包 · 网页版 · 默写练习</footer>
+<script>window.__PAIRS__=[["Just to confirm, is this the direction you’d like me to take?", "只是确认一下，这就是您希望我采取的方向吗？"], ["Are there specific standards or benchmarks we should aim for?", "我们是否应该达到特定的标准或基准？"], ["Could you outline any expectations you have for this phase of the project?", "您能概述一下对这个项目阶段的期望吗？"], ["Could you provide more details on what you’d like to see in the final output?", "您能提供更多关于最终产出的细节吗？"], ["What additional information should I consider before proceeding?", "在继续之前，我还需要考虑哪些其他信息？"], ["Are there any particular aspects you want me to prioritize?", "是否有您希望我优先关注的特定方面？"], ["Could you share examples of similar projects that meet your expectations?", "您能分享一些符合您期望的类似项目的示例吗？"], ["Is there a previous project you could reference for this task?", "有没有可以参考的以前的项目？"], ["Would it be possible to see samples to better understand the style or format?", "能否提供一些样本，以便我更好地理解风格或格式？"], ["What criteria will be used to evaluate the success of this project?", "将使用哪些标准来评估该项目的成功？"], ["How will we measure if the outcomes meet your expectations?", "我们将如何衡量结果是否符合您的期望？"], ["Are there specific metrics or indicators we should aim to achieve?", "我们是否应实现特定的指标？"], ["Can you confirm if the document I sent over looks good to you?", "您能确认一下我发的文件是否没问题吗？"], ["Let me know if the timeline works for you, or if we need to adjust it.", "请告诉我时间表是否适合您，或者是否需要调整。"], ["Do you think this approach works, or should we consider other options?", "您觉得这个方案可以吗？还是需要考虑其他选项？"], ["Can you confirm if the points above align with what you're expecting?", "您能确认一下上面的内容是否符合您的预期吗？"], ["It would be great if you could let me know if this plan fits your needs.", "如果您觉得这个计划符合需求，麻烦告知我一下。"], ["I just wanted to reconfirm if we're aligned on [specific detail].", "想再确认一下，我们关于 [具体事项] 的理解是否一致？"], ["Could you confirm if we're still on track with the agreed timeline?", "麻烦确认一下我们之前定的时间表是否还在计划内？"], ["Just making sure we're on the same page regarding [specific task].", "想确保我们在 [具体任务] 这件事情上理解一致。"], ["Is there any issue with the information I provided?", "我提供的信息有任何问题吗？"], ["Do you need more time to review this?", "您需要更多时间来审查吗？"], ["Is there anything preventing you from responding?", "是否有什么原因阻碍您回复？"], ["Please let me know if you need further information.", "如果您需要进一步的信息，请告诉我。"], ["Is there any confusion I can clarify?", "是否有任何疑惑需要我澄清？"], ["Are there any obstacles I should be aware of?", "是否有我需要注意的障碍？"], ["Do you need any additional details from me?", "您是否需要我提供更多详细信息？"], ["Is there something I can assist with to expedite the process?", "我可以帮忙加快进程吗？"], ["Would it help if I provided more context?", "如果我提供更多背景信息，是否会有帮助？"], ["Is there anything holding you back from responding?", "有什么阻碍您回复的吗？"], ["Let me know if anything has changed so I can adjust accordingly.", "如果有任何变动，随时告诉我，我好相应调整。"], ["Please confirm if there's anything that needs to be reviewed again on your end.", "请确认是否有需要您那边再审阅的地方？"], ["If I missed anything or misunderstood, let me know and I'll fix it.", "如果我有遗漏或者理解错误的地方，请告诉我，我会及时修正。"], ["Can you let me know if the schedule I proposed works for you?", "您能告诉我我提出的时间安排是否合适吗？"], ["If you have any suggestions or adjustments, I'm all ears.", "如果您有任何建议或需要调整的地方，我都很乐意听取。"], ["Let me know if there's anything else you need from me to keep things moving smoothly.", "如果还有什么需要我协助的地方，请随时告诉我，确保事情顺利推进。"], ["If anything isn't clear, just let me know, and I'll explain further.", "如果有哪里不清楚，随时告诉我，我会再详细说明。"], ["Let me know if there's a better way to approach this—I'm open to suggestions.", "如果有更好的解决方法，请告诉我，我很乐意听取建议。"], ["Do you think this solution will address the issue, or should we explore other options?", "您觉得这个方案能解决问题吗？还是我们需要考虑其他方法？"], ["If there's anything specific holding things up, let me know so I can help.", "如果有什么具体问题卡住了，请告诉我，我可以帮忙解决。"], ["Whenever you have a moment, I’d appreciate an update on the latest developments.", "您有空时，能否分享一下最新的进展？"], ["I wanted to check in and see if there’s been any progress. Feel free to reach out if you need any support from my side.", "我想跟进一下，看看是否有新的进展。如果需要我这边提供支持，请随时联系。"], ["I’d really appreciate it if you could give me a quick update on where things stand at the moment.", "如果您能简要告知目前的进展，我将不胜感激。"], ["Could you let me know how things are going? I just want to make sure we’re aligned with the planned schedule.", "能告诉我目前的进展吗？我只是想确认我们是否仍按计划进行。"], ["Quick question—are we all set to proceed to the next step?", "简单问一下 —— 我们是否已经准备好进入下一步了？"], ["Just a gentle reminder to please prioritize [task/request] and provide an update on the progress.", "友情提醒一下，请优先处理 [任务 / 请求] 并告知进展情况。"], ["I understand you're busy, but it would be greatly appreciated if you could accelerate the progress on [task/request].", "我知道您很忙，但如果您能加快 [任务 / 请求] 的进展，我们将非常感激。"], ["Just a quick reminder to keep [task/request] on track and ensure timely completion.", "简单提醒一下，请确保 [任务 / 请求] 按计划进行并及时完成。"], ["Just a gentle reminder to respond to my previous email regarding [subject] please. Your input is crucial for moving the project forward.", "（仅作温馨提醒，请回复我之前关于 [主题] 的电子邮件。您的反馈对于我们推进这个项目非常重要。"], ["I wanted to follow up on my previous email dated [date] concerning [subject]. Could you please provide your feedback at your earliest convenience?", "我想跟进一下我之前在 [日期] 发给您关于 [主题] 的邮件。请您尽早提供反馈。"], ["I wanted to touch base and see if you have had a chance to review my email from [date] about [subject]. Your feedback would be greatly appreciated.", "我想联系一下，看看您是否有机会审阅我在 [日期] 发给您的关于 [主题] 的邮件。对您的反馈会不胜感激。"], ["Can you please confirm if you've received my email regarding [subject]? Looking forward to your response.", "您能否确认是否收到了我关于 [主题] 的邮件？期待您的回复。"], ["I just wanted to gently remind you about [subject].", "我只是想温和地提醒您关于 [主题] 的事情。"], ["I wanted to follow up on my previous email regarding [subject].", "我想跟进一下我之前关于 [主题] 的邮件。"], ["I’m just checking in to see if you had a chance to review my previous email about [subject].", "我只是跟进一下，看看您是否有机会审阅我之前关于 [主题] 的邮件。"], ["I’m touching base to see if there are any updates regarding [subject].", "我只是联系一下，看看关于 [主题] 是否有最新进展。"], ["Could you please let me know if you have any updates on [subject]?", "能否请您告知我关于 [主题] 是否有最新进展？"], ["Could you please provide an update on [subject] at your earliest convenience?", "能否请您在方便时尽快提供关于 [主题] 的最新进展？"], ["I look forward to hearing from you regarding [subject].", "我期待收到您关于 [主题] 的回复。"], ["I’ll check back with you next week to see how things are progressing.", "我会在下周再联系您，看看事情的进展情况。"], ["Could you please expedite [task/request]? We're looking forward to the completion.", "请尽快推进 [任务 / 请求]，我们期待着完成。"], ["Could you please provide an update on the status of [subject]? Your response is needed by [specific time/date] please.", "您能否更新一下 [主题] 的最新情况？请您在 [具体时间 / 日期] 前回复。"], ["I'm writing to request an update on the [project/issue] we discussed. Please let me know if you need any further information from my end.", "我写信是想请求更新我们讨论过的 [项目 / 问题]。如果您需要我提供更多信息，请告知。"], ["Your prompt response to my previous email is appreciated as we must respond to the marketing team by [date] which is fast approaching.", "我们必须在即将到来的 [日期] 前回复市场团队，感谢您尽快回复我之前的电子邮件。"], ["I understand you are busy, but we need your input on [subject] to proceed. Could you please reply by [specific time/date] as we are working to a tight deadline.", "我理解您很忙，但我们需要您对 [主题] 的反馈来推进下一步。由于我们的工作期限紧迫，请您在 [具体时间 / 日期] 前回复。"], ["Could you please reply by [date]?", "您能否在 [日期] 之前回复？"], ["Can I expect a response by the end of the day?", "我可以在今天结束前收到您的回复吗？"], ["I would appreciate a response by tomorrow.", "我希望能在明天收到您的回复。"], ["Please let me know by [date] if possible.", "如果可能，请在 [日期] 前告诉我。"], ["Could you get back to me before [deadline]?", "您能在 [截止日期] 前回复我吗？"], ["I need a response by [time].", "我需要在 [时间] 前得到回复。"], ["Can you please provide an update by [date]?", "您能在 [日期] 前提供更新吗？"], ["A response before [date] would be greatly appreciated.", "如果能在 [日期] 前回复，我将不胜感激。"], ["Could you let me know your thoughts by [date]?", "您能否在 [日期] 前告诉我您的想法？"], ["Please respond by [time] if possible.", "如果可能，请在 [时间] 前回复。"], ["Apologies for the urgency, but we really need an update on the status of [task/request].", "很抱歉这么急，但我们真的需要 [任务 / 请求] 的最新进展情况。"], ["This is quite urgent, could you please respond ASAP?", "这件事非常紧急，您能尽快回复吗？"], ["Your prompt attention to this matter is appreciated.", "感谢您对这件事的及时关注。"], ["I need your feedback as soon as possible.", "我需要您尽快给出反馈。"], ["Could you please prioritize this?", "您能优先处理这件事吗？"], ["I would greatly appreciate a quick response.", "我将非常感激您的快速回复。"], ["This matter requires urgent attention.", "这件事需要紧急处理。"], ["Please treat this as a high priority.", "请将此事作为优先事项处理。"], ["Time is of the essence, could you reply urgently?", "时间紧迫，您能尽快回复吗？"], ["Your immediate response would be highly appreciated.", "非常感谢您的立即回复。"], ["I need to hear back from you urgently.", "我需要您尽快回复我。"], ["This matter is very important, and I need your input.", "这件事非常重要，我需要您的意见。"], ["Your response is critical to moving forward.", "您的回复对下一步工作至关重要。"], ["This issue needs your urgent attention.", "这个问题需要您立即关注。"], ["Your input is crucial for the next steps.", "您的意见对下一步至关重要。"], ["This is a key issue that requires your feedback.", "这是个需要您反馈的关键问题。"], ["Your response will help us move forward with the project.", "您的回复将帮助我们推进项目。"], ["It's essential that we get your feedback on this.", "得到您的反馈对此至关重要。"], ["Your opinion is highly valued and necessary.", "您的意见非常宝贵且必要。"], ["We cannot proceed without your response.", "没有您的回复，我们无法继续。"], ["Your input will significantly impact our decision-making process.", "您的意见将极大地影响我们的决策过程。"], ["I just wanted to flag this as something quite time-sensitive.", "想提醒一下，这件事情比较紧急。"], ["This has become a priority for us, so I'd really appreciate your quick input.", "这件事情现在是我们的重点，能尽快得到您的意见就非常好了。"], ["Your feedback is critical for us to move forward on [specific project].", "您的反馈对我们推进 [具体项目] 非常重要。"], ["Just to emphasize, we're on a tight timeline for this.", "再次强调一下，这件事情时间上有些紧张。"], ["I'd appreciate it if you could prioritize this, as it directly impacts [specific outcome].", "如果可以的话麻烦优先处理一下，因为它直接关系到 [具体结果]。"], ["Without your input, we're at risk of delays on [specific task].", "如果没有你的反馈，我们可能会在 [具体任务] 上耽搁。"], ["Apologies for pushing, but this has become quite urgent.", "抱歉催促您了，但这件事确实已经比较紧急了。"], ["Just following up again, as this is now on a tight deadline.", "再次跟进一下，因为现在这件事情的截止时间已经很紧了。"], ["If you could get back to me by [specific date/time], it would be greatly appreciated.", "如果能在 [具体日期 / 时间] 前回复我，我会非常感激。"], ["I’m reaching out again because we really need your input to avoid delays.", "再次联系您是因为我们确实需要您的意见以避免延误。"], ["Without your feedback, we risk missing some key deadlines.", "没有您的反馈，我们可能会错过一些关键的时间节点。"], ["Kindly let me know if you need any further assistance.", "如果您需要任何进一步的帮助，请随时通知我。"], ["Please let me know if you have any additions or if I captured anything wrongly.", "如果有任何需要补充或者错误的地方，请告诉我。"], ["For any questions or clarifications, please don't hesitate to contact me.", "任何问题或者不清楚的，尽管联系我。"], ["If you need further information, please just let me know.", "如果你需要更多的信息，请告诉我。"], ["Any questions or queries please let me know.", "任何疑问的地方，请告诉我。"], ["Let me know if there is any issue.", "任何问题请告诉我。"], ["Please do not hesitate to contact us in case of questions.", "如果有任何问题尽管联系我。"], ["In case of questions, please do not hesitate to come back to me.", "如果有任何问题，请随时回复我。"], ["For questions or further info, reach out anytime.", "如果有疑问或者进一步的消息，请随时联系。"], ["If there's anything holding this up, feel free to let me know.", "如果有任何原因耽搁了，随时告诉我哦。"], ["Let me know if there's anything I can do to help move this forward.", "如果有我能帮忙推进的地方，尽管告诉我！"], ["Please let me know if there's any way I can help to get this moving faster.", "如果有任何我能帮忙加快推进的地方，请随时告诉我！"], ["I wanted to check if there's anything I can do to assist you with this.", "想问问看这件事情有没有什么我能帮得上的？"], ["Let me know if there's any additional info or resources you might need from me.", "如果你需要我这边提供更多信息或资源，随时告诉我哦。"], ["I'd be happy to help clarify anything if that's causing a delay.", "如果有任何需要我澄清的地方，请告诉我，我很乐意协助。"], ["If you're facing any challenges, feel free to let me know—I'm here to help.", "如果你遇到任何困难，请随时告诉我，我可以协助解决。"], ["Just checking in to see if there's anything blocking progress that I could help with.", "想确认一下有没有什么我能帮忙处理的阻碍问题？"], ["If this is stuck for any reason, let me know, and I can help move it along.", "如果有任何卡住的地方，告诉我，我可以帮忙推动一下。"], ["Please don't hesitate to reach out if there's anything I can do to make this easier.", "如果有任何事情我能帮忙让进展更顺利，请不要犹豫联系我！"], ["I'm happy to jump in wherever needed—just let me know!", "如果需要我参与任何环节，告诉我就好，我很乐意帮忙！"], ["I can make adjustments on my end if that helps—just let me know what works for you.", "如果需要的话，我可以调整这边的安排，请告诉我什么对您更合适。"], ["Would it help if I set up a quick meeting to sort this out together?", "如果开个短会一起解决这个问题会更有效果吗？"], ["I'll keep digging into this and get back to you with updates soon.", "我会继续研究这个问题，并尽快向您汇报进展。"], ["Let's keep the lines of communication open so we can resolve this smoothly.", "我们保持沟通，这样可以更顺利地解决问题。"], ["Do you think we're ready to move forward with this plan?", "您觉得我们现在可以推进这个计划了吗？"], ["Let me know if you need more details to make a decision.", "如果您需要更多细节来做决定，请告诉我。"], ["Is there anything holding us back from moving ahead?", "有什么阻碍我们推进的地方吗？"], ["If you're comfortable with this direction, I can take the next steps right away.", "如果您对这个方向没问题，我可以马上开始下一步工作。"], ["Let me know if there's a specific area you'd like me to focus on before we proceed.", "如果推进之前有需要我重点处理的地方，请告诉我。"], ["I'd love to hear your final thoughts before we move forward.", "推进之前，我很想听听您的最终意见。"], ["Once you give me the green light, I'll make sure everything is on track.", "您一旦同意，我会确保所有事情按计划进行。"], ["If there's anything still unclear, let's discuss it now so we can make a confident decision.", "如果还有什么不清楚的地方，我们现在讨论一下，这样可以更有信心地做决定。"], ["I have to recheck the price and see if we could meet your target.", "我需要重新核算一下价格，看是否能达到您的目标价。"], ["We are desperate to get your price confirmation to proceed.", "我们非常需要您的价格确认，从而推进这个订单。"], ["To be candid with you, we have no margin to reduce the pricing again.", "坦白地说，我们没有再降价的余地了。"], ["We will arrange the production as long as we receive your approval email.", "只要收到您的确认邮件，我们就会安排生产。"], ["Kindly review & check the attached photos of samples and give us your comments.", "请查看附件的样品图片，并提供您的意见。"], ["I'm desperate to get your approval for samples.", "我非常希望您能确认样品。"], ["We look forward to receiving your approval in 3 days.", "我们希望 3 天内能收到您的确认。"], ["Hope our samples could match your request.", "希望我们的样品能达到贵方的要求。"], ["Could you let me know once you've received this email?", "收到邮件后能告诉我一声吗？"], ["If anything I mentioned isn't clear, just let me know—I'm happy to clarify.", "如果我提到的内容有不清楚的地方，随时告诉我，我很乐意说明。"], ["Let me know if anything here needs tweaking before we move forward.", "如果有任何地方需要调整再推进，请告诉我。"], ["Let's keep in touch—I'd love to hear how things go on your end.", "我们保持联系，我很想知道您那边的进展情况。"], ["Feel free to reach out anytime if you need anything from me.", "如果您有需要，请随时联系我。"], ["I'll make sure to follow up with you soon to check in.", "我会尽快跟您联系，了解一下情况。"], ["Let's connect later this week to catch up on progress.", "这周晚些时候我们联系一下，聊聊进展吧。"], ["Don't hesitate to drop me a line if something comes up.", "如果有什么事情，请随时给我发消息。"], ["I'll stay in touch to make sure we're aligned moving forward.", "我会保持联系，确保我们接下来的步调一致。"], ["It's always great to hear from you—let me know if there's anything I can help with.", "很高兴能收到您的消息，如果有需要我帮忙的地方，请告诉我。"], ["Looking forward to hearing from you soon!", "希望很快能收到您的消息！"], ["Thanks so much for taking the time to go through this—it means a lot.", "非常感谢您花时间来处理这件事，这对我很重要。"], ["I really appreciate your input and support on this.", "我非常感谢您对这件事的意见和支持。"], ["Thanks in advance for helping to move this forward—I truly appreciate it.", "感谢您提前帮忙推进这件事，真的非常感谢！"], ["I'm grateful for your patience and guidance throughout this process.", "感谢您在这个过程中一直给予的耐心和指导。"], ["Thanks for jumping on this so quickly—I know you're busy!", "感谢您这么快就处理了这件事，我知道您很忙！"], ["Your help on this has been invaluable—thank you so much.", "您对这件事的帮助太重要了，真的非常感谢！"], ["I really appreciate you taking the time to consider this proposal.", "非常感谢您抽出时间来考虑这个提议。"], ["Thanks again for everything—I couldn't do this without your support.", "再次感谢您的所有支持，没有您的帮助，我很难做到这一点。"], ["Your prompt reply would be greatly appreciated!", "若您能尽快回复，我们非常感激！"], ["Thank you in advance for your prompt reply.", "先感谢您的及时回复。"], ["Thanks for understanding the urgency—I'm looking forward to your response.", "感谢您理解事情的紧急性，我期待尽快收到您的回复！"], ["I'd love to hear your thoughts when you get a chance.", "等您有空了，我很想听听您的想法。"], ["Just a quick check to see if we're good to proceed with [specific action].", "快速确认一下，我们是否可以继续推进 [具体行动]？"], ["Just looping back to make sure we're all set to move forward.", "再次跟进一下，确保我们可以顺利推进下一步。"], ["Could you please allocate more resources to [task/request] to speed up the progress?", "请为 [任务 / 请求] 分配更多资源以加快进展速度好吗？"], ["Please let me know your thoughts on this.", "请告知您对此的看法。"], ["Have you had a chance to review my previous email?", "您是否有机会查看我之前的邮件？"], ["Could you confirm receipt of my last email?", "您能否确认收到我上一封邮件？"], ["I would appreciate a quick update.", "我会非常感激您能快速更新。"], ["I'm looking forward to your response.", "我期待您的回复。"], ["Just wanted to kindly remind you about my email below.", "温馨提醒一下我下面的邮件。"], ["Could you kindly provide an update?", "您能否提供一个更新？"], ["Thank you for your \"OK\" response. Could you please share your initial thoughts on the project timeline?", "感谢您回复 “OK”，能否分享您对项目时间线的初步想法？"], ["I noticed your confirmation with \"OK\". To move forward smoothly, could you specify which version of the draft you approved?", "注意到您用 “OK” 确认，为顺利推进，能否明确您认可的是草稿哪个版本？"], ["Your \"OK\" is much appreciated. Could you let me know if there are any specific resources we need to prepare for this task?", "非常感谢您的 “OK”，能否告知这项任务需要我们准备哪些特定资源？"], ["Thanks for replying \"OK\". Would you mind clarifying whether the budget we proposed is acceptable?", "感谢您回复 “OK”，能否澄清我们提出的预算是否可接受？"], ["I received your \"OK\" and want to ensure alignment. Could you share your expectations for the final deliverable?", "已收到您的 “OK”，为确保目标一致，能否分享您对最终交付物的期望？"], ["Your \"OK\" helps us proceed. Could you confirm if the meeting time on Wednesday at 2 PM works for you?", "您的 “OK” 助力我们推进，能否确认周三下午 2 点的会议时间是否合适？"], ["Thank you for the \"OK\". Could you let me know if there are any stakeholders we need to involve in the next step?", "感谢您的 “OK”，能否告知下一步需要纳入哪些相关方？"], ["I saw your \"OK\" response. To avoid misunderstandings, could you specify the key priorities for this phase?", "看到您回复 “OK”，为避免误解，能否明确本阶段的核心优先级？"], ["Thanks for confirming with \"OK\". Would you please provide feedback on the risk assessment we attached?", "感谢您用 “OK” 确认，能否对我们附件中的风险评估给出反馈？"], ["Your \"OK\" is noted. Could you clarify whether we need to adjust the scope based on the latest requirements?", "已记录您的 “OK”，能否澄清是否需根据最新需求调整范围？"], ["Thank you for replying \"OK\". Could you share how much time you expect to allocate for reviewing the final report?", "感谢您回复 “OK”，能否分享您预计花多少时间审核最终报告？"], ["I appreciate your \"OK\". Would you mind letting me know if there are any regulatory requirements we need to consider?", "感谢您的 “OK”，能否告知是否有需考虑的监管要求？"], ["Your \"OK\" moves us forward. Could you confirm if the team composition we proposed is acceptable?", "您的 “OK” 推动我们前进，能否确认我们提出的团队构成是否可接受？"], ["Thanks for the \"OK\" response. Could you provide details on the approval process we need to follow?", "感谢您的 “OK” 回复，能否提供我们需遵循的审批流程细节？"], ["I received your \"OK\" and want to plan ahead. Could you let me know if there are any potential delays we should anticipate?", "已收到您的 “OK”，为提前规划，能否告知是否有需预判的潜在延误？"], ["Thank you for confirming \"OK\". Would you please clarify the quality standards we need to meet for this project?", "感谢您确认 “OK”，能否明确本项目需满足的质量标准？"], ["Your \"OK\" is helpful. Could you share if there are any changes to the client's requirements we haven't addressed?", "您的 “OK” 很有帮助，能否分享客户需求是否有我们未覆盖的变更？"], ["Thanks for replying \"OK\". Could you let me know if we need to schedule a follow-up call to discuss details?", "感谢您回复 “OK”，能否告知是否需安排跟进会议讨论细节？"], ["I noticed your \"OK\" and want to ensure clarity. Could you specify which action items you will take on your end?", "注意到您的 “OK”，为确保清晰，能否明确您方将承担哪些行动项？"], ["Thank you for the \"OK\". Would you mind confirming if the data we provided is sufficient for your analysis?", "感谢您的 “OK”，能否确认我们提供的数据是否足够您进行分析？"], ["Your \"OK\" allows us to start. Could you let me know if there are any preferences for the communication frequency moving forward?", "您的 “OK” 让我们可以启动，能否告知未来沟通频率是否有偏好？"], ["Thanks for confirming with \"OK\". Could you share feedback on the proposed solution to the recent issue?", "感谢您用 “OK” 确认，能否对近期问题的解决方案给出反馈？"], ["I received your \"OK\" and want to avoid gaps. Could you clarify if there are any dependencies we need to coordinate?", "已收到您的 “OK”，为避免遗漏，能否澄清需协调哪些依赖项？"], ["Thank you for replying \"OK\". Would you please let me know if the deadline of next Friday is still feasible?", "感谢您回复 “OK”，能否告知下周五的截止日期是否仍可行？"], ["Your \"OK\" is appreciated. Could you specify if there are any additional costs we need to account for?", "感谢您的 “OK”，能否明确是否有需计入的额外成本？"], ["Thanks for the \"OK\" response. Could you confirm if the presentation format we agreed on needs adjustment?", "感谢您的 “OK” 回复，能否确认我们商定的演示格式是否需调整？"], ["I saw your \"OK\" and want to align steps. Could you share your timeline for completing your assigned tasks?", "看到您的 “OK”，为对齐步骤，能否分享您完成分配任务的时间线？"], ["Thank you for confirming \"OK\". Would you mind letting me know if there are any team members who need additional training?", "感谢您确认 “OK”，能否告知是否有团队成员需额外培训？"], ["Your \"OK\" helps finalize plans. Could you let me know if the supplier we selected meets your expectations?", "您的 “OK” 助力敲定计划，能否确认我们选定的供应商是否符合您的期望？"], ["Thanks for replying \"OK\". Could you clarify if the feedback from last week's meeting has been incorporated?", "感谢您回复 “OK”，能否澄清上周会议的反馈是否已纳入？"], ["I appreciate your \"OK\". Could you share if there are any external partners we need to collaborate with in this phase?", "感谢您的 “OK”，能否分享本阶段需合作的外部合作伙伴？"], ["Your \"OK\" moves the project ahead. Would you please confirm if the testing phase will start as scheduled?", "您的 “OK” 推动项目前进，能否确认测试阶段是否按计划启动？"], ["Thanks for the \"OK\" confirmation. Could you let me know if there are any adjustments to the communication channels?", "感谢您的 “OK” 确认，能否告知沟通渠道是否有调整？"], ["I received your \"OK\" and want to ensure preparedness. Could you specify the equipment we need to prepare for the on-site visit?", "已收到您的 “OK”，为确保准备充分，能否明确现场拜访需准备的设备？"], ["Thank you for replying \"OK\". Would you mind providing your thoughts on the proposed marketing strategy?", "感谢您回复 “OK”，能否对提出的营销策略给出想法？"], ["Your \"OK\" is noted. Could you confirm if the legal terms in the contract are acceptable?", "已记录您的 “OK”，能否确认合同中的法律条款是否可接受？"], ["Thanks for confirming with \"OK\". Could you share if there are any customer feedback points we need to address urgently?", "感谢您用 “OK” 确认，能否分享需紧急处理的客户反馈点？"], ["I saw your \"OK\" and want to avoid delays. Could you let me know if you need any support from our team?", "看到您的 “OK”，为避免延误，能否告知是否需要我方团队支持？"], ["Thank you for the \"OK\". Could you clarify if the project milestones we set need to be revised?", "感谢您的 “OK”，能否澄清我们设定的项目里程碑是否需修订？"], ["Your \"OK\" helps us coordinate. Would you please let me know if the meeting agenda needs to be updated?", "您的 “OK” 助力我们协调，能否告知会议议程是否需更新？"], ["Thanks for replying \"OK\". Could you share if there are any technical requirements we haven't considered?", "感谢您回复 “OK”，能否分享是否有我们未考虑的技术要求？"], ["I appreciate your \"OK\". Could you confirm if the travel arrangements for the off-site meeting are finalized?", "感谢您的 “OK”，能否确认异地会议的差旅安排是否敲定？"], ["Your \"OK\" allows us to proceed. Would you mind letting me know if there are any changes to the reporting structure?", "您的 “OK” 让我们可以推进，能否告知汇报结构是否有变更？"], ["Thanks for the \"OK\" response. Could you provide details on the client's feedback from their last review?", "感谢您的 “OK” 回复，能否提供客户上次审核的反馈细节？"], ["I received your \"OK\" and want to align expectations. Could you let me know your availability for the next coordination call?", "已收到您的 “OK”，为对齐期望，能否告知下次协调会议的可用时间？"], ["Thank you for confirming \"OK\". Could you clarify if the budget adjustment we requested is approved?", "感谢您确认 “OK”，能否澄清我们申请的预算调整是否获批？"], ["Your \"OK\" is helpful. Would you please share if there are any best practices we should follow for this task?", "您的 “OK” 很有帮助，能否分享这项任务需遵循的最佳实践？"], ["Thanks for replying \"OK\". Could you confirm if the training materials we prepared meet your standards?", "感谢您回复 “OK”，能否确认我们准备的培训材料是否符合您的标准？"], ["I noticed your \"OK\" and want to plan resources. Could you let me know how many team members you will assign to this task?", "注意到您的 “OK”，为规划资源，能否告知您将分配多少团队成员到这项任务？"], ["Thank you for the \"OK\" confirmation. Could you share your thoughts on the risk mitigation plan we proposed?", "感谢您的 “OK” 确认，能否对我们提出的风险缓解计划给出想法？"], ["I hope this email finds you well. I'd like to invite you to a project kickoff meeting on [Date] at [Time] via [Platform]. The agenda includes project goals alignment and role assignment.", "希望您一切顺利，诚邀您参加 [日期][时间] 通过 [平台] 召开的项目启动会，议程包括项目目标对齐与角色分配。"], ["Could you please confirm your availability for a 30-minute follow-up meeting on [Day] at [Time] to discuss the action items from our last call?", "能否确认您是否有空参加 [星期][时间] 的 30 分钟跟进会议，讨论上次会议的行动项？"], ["To review the latest progress, we plan to hold a team meeting on [Date] at [Venue/Platform]. Please let me know if the time conflicts with your schedule.", "为回顾最新进展，我们计划于 [日期] 在 [地点 / 平台] 召开团队会议，若时间与您的日程冲突，请告知。"], ["I'm writing to invite you to join a client review meeting on [Date] at [Time]. Your input on the project deliverables will be crucial for finalizing the plan.", "特此邀请您参加 [日期][时间] 的客户审核会议，您对项目交付物的意见对敲定计划至关重要。"], ["We need to coordinate on the budget adjustment, so I propose a meeting on [Day] at [Time]. Please reply to confirm if this works for you.", "我们需协调预算调整事宜，故提议于 [星期][时间] 召开会议，请回复确认是否合适。"], ["I'm writing to update you on the project progress: the draft report has been completed, and we're now waiting for internal review feedback.", "特此同步项目进度：报告草稿已完成，目前正在等待内部审核反馈。"], ["As of [Date], 70% of the task has been finished. We expect to meet the deadline of [Deadline] if there are no unexpected delays.", "截至 [日期]，任务已完成 70%，若无意外延误，预计可在 [截止日期] 前完成。"], ["There was a minor delay in the supplier delivery, which has pushed the component arrival to [Date]. We're working on accelerating the subsequent steps to minimize impact.", "供应商交付出现小幅延误，组件到货时间推迟至 [日期]，我们正加快后续步骤以降低影响。"], ["The testing phase was completed ahead of schedule, and the results show all functions meet the required standards. We will start the deployment next week.", "测试阶段提前完成，结果显示所有功能均符合要求标准，下周将启动部署。"], ["I'd like to share the weekly progress: the design team has finalized the logo, and the marketing team is drafting the promotion plan.", "特此分享周进度：设计团队已敲定 logo，市场团队正在起草推广计划。"], ["Could you please confirm if the requirements we documented in the attached file match your expectations?", "能否确认附件中我们记录的需求是否符合您的期望？"], ["To ensure we understand your needs correctly, could you clarify whether you require the system to support multi-language functionality?", "为确保正确理解您的需求，能否澄清您是否需要系统支持多语言功能？"], ["We noted your request for a custom report. Could you specify the key metrics and format you want included?", "我们已记录您定制报告的需求，能否明确您希望包含的核心指标与格式？"], ["Please review the requirement list below and let us know if there are any additions or modifications you'd like to make.", "请审核下方需求清单，若有需添加或修改的内容，请告知。"], ["To avoid misalignment, could you confirm if the project scope we agreed on last month still applies to the current phase?", "为避免偏差，能否确认我们上月商定的项目范围是否仍适用于当前阶段？"], ["We encountered an issue with the data integration, and the system keeps showing an error message. Could you provide guidance on how to resolve it?", "我们在数据集成中遇到问题，系统持续显示错误提示，能否提供解决指导？"], ["I'm not familiar with the approval process for budget adjustments. Could you share the steps we need to follow or point me to the relevant document?", "我对预算调整的审批流程不熟悉，能否分享需遵循的步骤或指向相关文档？"], ["The client raised a question about the after-sales service scope, which is beyond my knowledge. Could you help address their concern?", "客户就售后服务范围提出疑问，此领域非我专长，能否协助解答他们的疑虑？"], ["We need to confirm the regulatory requirements for this product in the European market. Could you connect us with the compliance team or share relevant information?", "我们需确认该产品在欧洲市场的监管要求，能否协助对接合规团队或分享相关信息？"], ["The meeting room booking system is not working, and we have an urgent client call scheduled. Could you help reserve a room for us?", "会议室预订系统故障，而我们有紧急客户会议需召开，能否协助预订会议室？"], ["After reviewing the draft proposal, I think the market analysis section is comprehensive, but the risk assessment could be more detailed.", "审核提案草稿后，我认为市场分析部分很全面，但风险评估可更细致。"], ["Your presentation was clear and well-structured. One suggestion is to add more case studies to support the proposed strategy.", "您的演示清晰且结构完整，一个建议是添加更多案例研究以支撑提出的策略。"], ["The report meets most requirements, but there are a few typos in the data table on Page 5 that need correction.", "报告基本符合要求，但第 5 页的数据表中有几处拼写错误需修正。"], ["The new workflow you proposed is more efficient, but it may require additional training for the team to adapt quickly.", "您提出的新工作流程更高效，但团队可能需要额外培训以快速适应。"], ["I appreciate the effort put into the project plan. To improve it, we could adjust the timeline to account for potential supplier delays.", "感谢您为项目计划付出的努力，若要优化，可调整时间线以应对潜在的供应商延误。"], ["I apologize for the delay in sending the report; there was an unexpected technical issue with our file server. I have attached the report here and will ensure timely delivery in the future.", "抱歉延迟发送报告，我们的文件服务器出现意外技术问题，现附上报告，未来将确保及时交付。"], ["We regret the mistake in the invoice amount. A corrected invoice has been sent to your email, and we will double-check all documents before sending them next time.", "对发票金额的错误深表歉意，更正后的发票已发送至您邮箱，下次发送前我们将双重核对所有文件。"], ["I'm sorry for the confusion caused by the unclear meeting agenda. I have updated the agenda with detailed action items and re-shared it with all participants.", "抱歉因会议议程不清晰造成困惑，我已更新议程并添加详细行动项，重新分享给所有参会者。"], ["We apologize for the delayed response to your inquiry—our team was handling an urgent client issue. We’ve now reviewed your request and will provide a detailed reply by the end of today.", "抱歉延迟回复您的咨询，我方团队此前在处理紧急客户问题。目前已审核您的需求，将于今日下班前给出详细回复。"], ["I’m sorry that the delivered materials didn’t match the agreed specifications. We’ve arranged for a replacement shipment to be sent tomorrow and will cover all related logistics costs.", "很抱歉交付的材料与商定规格不符，我们已安排明日寄送替换货物，并承担所有相关物流费用。"], ["Thank you for your prompt support in resolving the data error—your expertise helped us meet the client’s deadline successfully.", "感谢您快速协助解决数据错误，您的专业能力帮助我们成功赶上客户截止日期。"], ["I really appreciate your willingness to adjust your schedule for the urgent meeting; your flexibility made the coordination much smoother.", "非常感谢您愿意为紧急会议调整日程，您的灵活配合让协调工作顺利许多。"], ["Thank you for sharing the market research report—your insights will be crucial for finalizing our product launch strategy.", "感谢您分享市场调研报告，您的见解对敲定产品发布策略至关重要。"], ["I want to express my gratitude for your help in onboarding the new team member; their quick adaptation wouldn’t have been possible without your guidance.", "想感谢您协助新团队成员融入，若无您的指导，他们难以快速适应工作。"], ["Thank you for your patience during the budget negotiation process—your collaborative attitude helped us reach a mutually beneficial agreement.", "感谢您在预算谈判中的耐心，您的合作态度帮助我们达成双赢协议。"], ["I’m writing to send the draft contract for your review; please let me know if you have any revisions or questions by [Date].", "特此发送合同草稿供您审核，若有修改意见或疑问，请于 [日期] 前告知。"], ["Could you please sign the attached service agreement and return a scanned copy via email? Once received, we’ll proceed with the project kickoff.", "能否请您签署附件中的服务协议，并将扫描件通过邮件返回？收到后我们将启动项目。"], ["I’ve updated the contract based on our last discussion and highlighted the revised clauses in yellow. Please review and confirm if it meets your expectations.", "已根据上次讨论更新合同，并将修改条款用黄色标注，请审核并确认是否符合您的期望。"], ["To finalize the partnership, we need both parties to sign the agreement by [Deadline]. If you need extra time, please inform us in advance.", "为敲定合作，需双方于 [截止日期] 前签署协议，若需额外时间，请提前告知。"], ["The signed contract has been received—thank you for your efficiency! I’ve shared a copy with our legal team, and we’ll start preparing the project timeline.", "已收到签署后的合同，感谢您的高效配合！我已将副本分享给法务团队，将着手准备项目时间线。"], ["I’m writing to remind you that the invoice #12345 (issued on [Date]) is due on [Due Date]. Please arrange the payment at your earliest convenience to avoid late fees.", "特此提醒，编号 12345 的发票（开具于 [日期]）将于 [到期日] 到期，请尽早安排付款以避免滞纳金。"], ["Could you please confirm if you’ve received the invoice we sent on [Date]? We haven’t received the payment yet and want to ensure there’s no delivery issue.", "能否确认您是否收到我们于 [日期] 发送的发票？目前尚未收到付款，希望确认无交付问题。"], ["We’ve received your payment for invoice #67890—thank you for your promptness! I’ve attached a payment confirmation receipt for your records.", "已收到您针对编号 67890 发票的付款，感谢您的及时支付！附件为付款确认凭证，供您存档。"], ["Due to a system update, the invoice we sent earlier contained a formatting error. Please find the corrected invoice attached and disregard the previous version.", "因系统更新，此前发送的发票存在格式错误，请以附件中的更正版发票为准，忽略旧版本。"], ["Could you please provide your company’s billing address and contact person? We need this information to issue the official invoice for the services provided.", "能否提供贵公司的开票地址及联系人？我们需此信息为已提供的服务开具正式发票。"], ["I’m writing to inform you that I’ll be leaving [Company Name] on [Last Working Day]. It’s been a pleasure working with you, and I’ll ensure a smooth handover of my ongoing tasks.", "特此告知，我将于 [最后工作日] 离开 [公司名称]。与您共事非常愉快，我将确保妥善交接手头工作。"], ["To facilitate the handover, I’ve prepared a document listing all ongoing projects, key contacts, and pending tasks—please find it attached.", "为方便交接，我已整理包含所有在途项目、核心联系人及待办任务的文档，详见附件。"], ["My colleague [Colleague Name] will take over the [Project Name] after my departure. I’ve scheduled a meeting on [Date] to introduce you and align on next steps.", "我离职后，同事 [姓名] 将接手 [项目名称]，已安排 [日期] 的会议为您双方介绍并对齐后续步骤。"], ["Thank you for your guidance and support during my time at [Company Name]. Please feel free to reach out to me at [Email/Phone] if you need further clarification on past tasks.", "感谢您在我任职 [公司名称] 期间的指导与支持，若需进一步澄清过往工作，可通过 [邮箱 / 电话] 联系我。"], ["I’ve updated the shared drive with the latest versions of all project files and labeled them clearly for easy access. [Colleague Name] will also have full access to these documents.", "已在共享盘更新所有项目文件的最新版本，并清晰标注以便查找，[同事姓名] 也将拥有这些文档的完整访问权限。"], ["Invitation: Client Review Meeting – [Date] [Time]", "邀请：客户审核会议 – [日期][时间]"], ["Request: Share Market Research Data for Product Launch", "请求：分享产品发布所需的市场调研数据"], ["Confirmation: Your Meeting with [Client Name] on [Date]", "确认：您与 [客户姓名] 于 [日期] 的会议"], ["Thank You: For Supporting the Recent Client Onboarding", "感谢：支持近期客户接入工作"], ["Action Required: Provide Billing Information for Invoice", "需行动：提供开票所需的账单信息"], ["Invitation: Join Workshop on \"Effective Remote Collaboration\"", "邀请：参加 “高效远程协作” 研讨会"], ["Request: Clarify Requirements for System Upgrade Project", "请求：澄清系统升级项目的需求"], ["Confirmation: Replacement Shipment Sent for Incorrect Materials", "确认：已寄送错误材料的替换货物"], ["Request: Approve Travel Arrangements for Off-Site Meeting", "请求：审批异地会议的差旅安排"], ["Invitation: Budget Negotiation Meeting – [Date] [Time]", "邀请：预算谈判会议 – [日期][时间]"], ["Request: Share Client Feedback from Last Review", "请求：分享上次审核的客户反馈"], ["Confirmation: Payment Received for Invoice #67890", "确认：已收到编号 67890 发票的付款"], ["Request: Connect Us with Compliance Team for Regulatory Check", "请求：协助对接合规团队进行监管核查"], ["Invitation: Team Building Activity on [Date]", "邀请：[日期] 的团队建设活动"], ["Request: Review Risk Assessment for New Project", "请求：审核新项目的风险评估"], ["Confirmation: Access to Shared Drive Granted", "确认：已授予共享盘访问权限"], ["Request: Provide Input on Team Composition for Project Y", "请求：对 Y 项目的团队构成给出意见"], ["Invitation: Webinar on \"Digital Transformation Trends\"", "邀请：“数字化转型趋势” 网络研讨会"], ["Request: Share Training Records for Compliance Audit", "请求：分享合规审核所需的培训记录"], ["Confirmation: Meeting Room Booked for [Date] [Time]", "确认：已预订 [日期][时间] 的会议室"], ["Request: Clarify Approval Process for Budget Adjustment", "请求：澄清预算调整的审批流程"], ["American colleagues often prioritize concise emails, so keep the body focused on key points—avoid long paragraphs.", "美国同事通常偏好简洁邮件，正文需聚焦核心要点，避免冗长段落。"], ["The best time to send emails to US teams is 9:00-11:00 AM local time (Eastern Time Zone), as they’re most productive at the start of the workday.", "给美国团队发邮件的最佳时间是当地时间（东部时区）上午 9:00-11:00，此时是他们工作日效率最高的时段。"], ["Americans tend to respond to work emails within 24 hours, especially for urgent matters marked with \"Urgent\" or \"Action Needed\".", "美国人通常会在 24 小时内回复工作邮件，尤其是标注 “Urgent”（紧急）或 “Action Needed”（需行动）的事宜。"], ["When emailing US clients, it’s common to include a clear call-to-action (CTA) at the end, such as \"Please approve by EOD\".", "给美国客户发邮件时，结尾加入清晰的行动指令（如 “请今日下班前审批”）是常见做法。"], ["US teams often use casual but professional language in emails—avoid overly formal phrases like \"With all due respect\" unless necessary.", "美国团队邮件语言通常轻松但专业，除非必要，避免使用 “With all due respect”（恕我直言）等过于正式的表达。"], ["British colleagues prefer polite and formal email tone, so start with \"Dear [Name]\" and end with \"Best regards\" instead of casual sign-offs.", "英国同事偏好礼貌且正式的邮件语气，开头用 “Dear [姓名]”，结尾用 “Best regards”，而非随意的落款。"], ["The optimal time to send emails to the UK is 10:00 AM-12:00 PM local time, after they’ve settled into their workday and checked initial tasks.", "给英国发邮件的最佳时间是当地时间上午 10:00-12:00，此时他们已进入工作状态并处理完初始任务。"], ["Britons usually respond to non-urgent emails within 48 hours; urgent matters may require a follow-up call if no reply comes in 24 hours.", "英国人通常会在 48 小时内回复非紧急邮件，紧急事宜若 24 小时无回复，可跟进电话。"], ["When discussing projects with UK teams, avoid overly direct language—phrase feedback as suggestions, e.g., \"It might be helpful to adjust...\".", "与英国团队讨论项目时，避免过于直接的表达，反馈需以建议形式呈现，如 “调整…… 或许会有帮助”。"], ["British emails often include a brief polite opening, such as \"I hope you had a good weekend\", before getting to the main topic.", "英国邮件通常在进入主题前加入简短礼貌的开头，如 “希望您周末愉快”。"], ["German colleagues value detail and structure—include clear sections (e.g., \"Background\", \"Action Items\") in emails to avoid confusion.", "德国同事注重细节与结构，邮件需包含清晰板块（如 “背景”“行动项”），避免混乱。"], ["The best time to send emails to Germany is 9:30 AM-11:30 AM local time, as they typically start work promptly at 9:00 AM and review emails first.", "给德国发邮件的最佳时间是当地时间上午 9:30-11:30，他们通常 9:00 AM 准时上班，优先查看邮件。"], ["Germans respond to emails promptly, usually within 24-36 hours, and expect accurate data (e.g., deadlines, budgets) in every communication.", "德国人回复邮件很及时，通常 24-36 小时内回复，且期望每次沟通中包含准确数据（如截止日期、预算）。"], ["When emailing German clients, avoid vague language—specify exact dates instead of \"next week\", e.g., \"by October 20th\".", "给德国客户发邮件时，避免模糊表达，不用 “下周”，而需明确日期，如 “10 月 20 日前”。"], ["German emails rarely include casual small talk; start with a brief greeting, then directly address the main issue.", "德国邮件几乎不包含随意闲聊，开头简短问候后，直接切入核心事宜。"], ["Japanese colleagues prioritize formality and respect—use honorific language (e.g., \"san\" after names) and avoid abbreviations in emails.", "日本同事注重正式与尊重，邮件中需用敬称（如姓名后加 “san”），且避免缩写。"], ["The optimal time to send emails to Japan is 10:00 AM-12:00 PM local time, as they often have morning meetings from 9:00-10:00 AM.", "给日本发邮件的最佳时间是当地时间上午 10:00-12:00，他们通常 9:00-10:00 AM 召开晨会。"], ["Japanese colleagues usually respond to emails within 48-72 hours for non-urgent matters, as they often consult with team members before replying to ensure alignment.", "日本同事对非紧急邮件通常会在 48-72 小时内回复，因为他们回复前常与团队成员协商以确保意见一致。"], ["When emailing Japanese clients, avoid using overly direct requests—phrase them with politeness, e.g., \"Would it be possible to share the document by next Monday?\".", "给日本客户发邮件时，避免使用过于直接的请求，需用礼貌语气表达，如 “能否在下周一前分享该文档？”。"], ["Japanese emails often end with a formal closing that acknowledges the recipient’s time, such as \"Thank you for taking the time to review this email\".", "日本邮件结尾通常会有正式落款，感谢收件人花费时间，如 “感谢您抽出时间查看此邮件”。"], ["French colleagues appreciate formal but not overly rigid email tone—use \"Cher/Cherie [Name]\" (Dear [Name]) for greetings and \"Cordialement\" (Sincerely) for sign-offs.", "法国同事偏好正式但不过于刻板的邮件语气，问候用 “Cher/Cherie [姓名]”（亲爱的 [姓名]），落款用 “Cordialement”（诚挚地）。"], ["The best time to send emails to France is 10:30 AM-12:00 PM local time, avoiding 12:00 PM-2:00 PM when they typically take lunch breaks.", "给法国发邮件的最佳时间是当地时间上午 10:30-12:00，避开中午 12:00-14:00 的午餐时间。"], ["French professionals usually respond to emails within 36-48 hours, and they value context—briefly explain the background of the matter before stating the request.", "法国职场人士通常 36-48 小时内回复邮件，且注重背景信息，提出请求前需简要说明事情背景。"], ["When discussing work with French teams, avoid using jargon or abbreviations; use clear, standard English to ensure mutual understanding.", "与法国团队讨论工作时，避免使用行话或缩写，用清晰、标准的英文确保双方理解。"], ["French emails often include a short personal note, such as \"I hope your week is going well\", to build a friendly professional relationship.", "法国邮件通常包含简短的个人问候，如 “希望您本周一切顺利”，以建立友好的职场关系。"], ["Australian colleagues prefer casual and friendly email language—greetings like \"Hi [Name]\" and sign-offs like \"Cheers\" are widely accepted in professional settings.", "澳大利亚同事偏好轻松友好的邮件语言，“Hi [姓名]” 这样的问候和 “Cheers” 这样的落款在职场中被广泛接受。"], ["The optimal time to send emails to Australia is 1:00 PM-3:00 PM GMT (8:00 AM-10:00 AM local time in Sydney), as it aligns with their morning work hours.", "给澳大利亚发邮件的最佳时间是格林威治时间 13:00-15:00（悉尼当地时间 08:00-10:00），与他们的上午工作时间相符。"], ["Australians tend to respond to emails quickly, usually within 24 hours, and they appreciate directness—state the main purpose of the email early.", "澳大利亚人回复邮件通常很迅速，一般 24 小时内回复，且喜欢直截了当，邮件开头就说明核心目的。"], ["When emailing Australian clients, avoid overly formal phrases; use conversational language, e.g., \"Just wanted to check in on the project progress\".", "给澳大利亚客户发邮件时，避免过于正式的表达，用口语化的语言，如 “只是想了解下项目进度”。"], ["Australian emails rarely include complex structures—keep paragraphs short and use bullet points for action items to enhance readability.", "澳大利亚邮件几乎没有复杂结构，段落要简短，行动项用项目符号列出以提高可读性。"], ["Indian colleagues value respect and clarity—use formal greetings like \"Dear [Name]\" and clearly outline action items to avoid miscommunication.", "印度同事注重尊重与清晰，问候用 “Dear [姓名]” 等正式表达，明确列出行动项以避免沟通误解。"], ["The best time to send emails to India is 10:00 AM-12:30 PM local time, as they often start work at 9:30 AM and handle administrative tasks first.", "给印度发邮件的最佳时间是当地时间上午 10:00-12:30，他们通常 9:30 AM 上班，先处理行政事务。"], ["Indian professionals usually respond to emails within 24-48 hours, and they may ask detailed follow-up questions to fully understand the requirements.", "印度职场人士通常 24-48 小时内回复邮件，且可能会提出详细的后续问题以充分理解需求。"], ["When discussing projects with Indian teams, provide specific timelines and expectations, as they prioritize meeting agreed-upon deadlines.", "与印度团队讨论项目时，要提供具体的时间线和期望，因为他们重视遵守商定的截止日期。"], ["Indian emails often include a polite closing that expresses willingness to assist, such as \"Please let me know if you need any further information\".", "印度邮件结尾通常会有礼貌的表达，体现提供帮助的意愿，如 “若需更多信息，请告知”。"], ["Brazilian colleagues prefer warm and friendly email tone—start with a personal greeting like \"Bom dia, [Name]\" (Good morning, [Name]) and add a brief small talk.", "巴西同事偏好热情友好的邮件语气，开头用 “Bom dia, [姓名]”（早上好，[姓名]）等个性化问候，并加入简短闲聊。"], ["The optimal time to send emails to Brazil is 2:00 PM-4:00 PM local time, avoiding the 12:00 PM-2:00 PM lunch break which is often longer in Brazil.", "给巴西发邮件的最佳时间是当地时间 14:00-16:00，避开中午 12:00-14:00 的午餐时间，巴西的午餐休息通常较长。"], ["Brazilians usually respond to emails within 48-72 hours, and they value building rapport—mention a previous conversation or shared experience to strengthen the connection.", "巴西人通常 48-72 小时内回复邮件，且重视建立融洽关系，可提及之前的对话或共同经历以增进联系。"], ["When emailing Brazilian clients, avoid using overly technical language; explain complex concepts in simple terms to ensure clarity.", "给巴西客户发邮件时，避免使用过于专业的术语，用简单的语言解释复杂概念以确保清晰。"], ["Brazilian emails often end with an open offer of help, such as \"Please don’t hesitate to contact me if you have any questions\".", "巴西邮件结尾通常会主动提供帮助，如 “若有任何问题，请随时联系我”。"], ["Canadian colleagues prefer polite and concise email language—balance formality with friendliness, using greetings like \"Dear [Name]\" and sign-offs like \"Best regards\".", "加拿大同事偏好礼貌简洁的邮件语言，在正式与友好间找到平衡，问候用 “Dear [姓名]”，落款用 “Best regards”。"], ["The best time to send emails to Canada is 9:00 AM-11:00 AM local time (Eastern Time Zone), as it’s the most productive period of their workday.", "给加拿大发邮件的最佳时间是当地时间（东部时区）上午 9:00-11:00，是他们工作日效率最高的时段。"], ["Canadians tend to respond to emails within 24 hours, especially for work-related matters, and they appreciate clear, organized content with a clear purpose.", "加拿大人通常 24 小时内回复邮件，尤其是工作相关事宜，且喜欢内容清晰有条理、目的明确的邮件。"], ["When discussing tasks with Canadian teams, be specific about expectations and deadlines, as they prioritize accountability and on-time delivery.", "与加拿大团队讨论任务时，要明确期望和截止日期，因为他们重视责任落实和按时交付。"], ["Canadian emails rarely include overly emotional language; keep the tone professional but approachable to maintain a positive working relationship.", "加拿大邮件几乎不包含过于情绪化的语言，语气保持专业且亲切，以维护良好的工作关系。"], ["Singaporean colleagues value efficiency and formality—use clear subject lines and structured content to convey information quickly.", "新加坡同事注重效率与正式性，用清晰的主题行和结构化内容快速传递信息。"], ["The optimal time to send emails to Singapore is 9:30 AM-11:30 AM local time, as they start work at 9:00 AM and quickly transition into work tasks.", "给新加坡发邮件的最佳时间是当地时间上午 9:30-11:30，他们 9:00 AM 上班，能快速进入工作状态。"], ["Singaporean professionals usually respond to emails within 24 hours, and they expect accurate information and logical reasoning in every communication.", "新加坡职场人士通常 24 小时内回复邮件，且期望每次沟通都包含准确信息和合理逻辑。"], ["When emailing Singaporean clients, avoid ambiguity—state requests and expectations clearly, e.g., \"We need your approval on the draft by Friday\".", "给新加坡客户发邮件时，避免模糊不清，明确说明请求和期望，如 “我们需您周五前审批草稿”。"], ["Singaporean emails often end with a concise closing that confirms next steps, such as \"I’ll follow up with you next week to discuss further\".", "新加坡邮件结尾通常简洁，明确后续步骤，如 “我下周会跟进，进一步讨论相关事宜”。"], ["Avoid writing \"The number of participants in the workshop is TBD\"—use \"The number of participants in the workshop has not been confirmed yet, and we are counting the registrations\".", "九、日常沟通中替换 “but” 的 10 个英文连接词"], ["The draft report is well-structured; however, it lacks specific data to support the conclusions.", "这份报告草稿结构清晰；然而，它缺乏支撑结论的具体数据。"], ["We have received the client’s feedback; however, some of their requirements need further clarification.", "我们已收到客户的反馈；然而，他们的部分需求还需进一步澄清。"], ["The team has made great efforts in the project; however, there are still some minor issues to be resolved.", "团队在项目中付出了很多努力；然而，仍有一些小问题需要解决。"], ["The new workflow can improve efficiency; however, it requires the team to adapt to new operating methods.", "新的工作流程能提高效率；然而，它需要团队适应新的操作方式。"], ["The product has many advantages; however, its price may be a concern for some customers.", "这款产品有很多优势；然而，它的价格可能会让部分客户顾虑。"], ["We have completed the first phase of the task; however, the second phase will be more challenging.", "我们已完成任务的第一阶段；然而，第二阶段会更具挑战性。"], ["The marketing plan is creative; however, it needs to be adjusted according to the current market situation.", "这个营销计划很有创意；然而，需要根据当前市场情况进行调整。"], ["The supplier promised to deliver on time; however, they informed us of a delay this morning.", "供应商承诺按时交付；然而，他们今早告知我们会有延误。"], ["The training course covers rich content; however, the duration may be too short for beginners.", "这个培训课程内容丰富；然而，对于初学者来说时长可能太短。"], ["The meeting achieved some results; however, we still need to follow up on the unresolved issues.", "这次会议取得了一些成果；然而，我们仍需跟进未解决的问题。"], ["The project encountered unexpected difficulties; nevertheless, the team is still committed to meeting the deadline.", "项目遇到了意外困难；尽管如此，团队仍致力于按时完成。"], ["The client raised high demands; nevertheless, we believe we can meet their expectations through hard work.", "客户提出了较高要求；尽管如此，我们相信通过努力能满足他们的期望。"], ["The cost of the plan is higher than expected; nevertheless, it can bring long-term benefits to the company.", "这个计划的成本高于预期；尽管如此，它能为公司带来长期收益。"], ["The test results were not ideal; nevertheless, we can find solutions by analyzing the problems.", "测试结果不太理想；尽管如此，我们可以通过分析问题找到解决办法。"], ["The team members have heavy workloads; nevertheless, they are willing to take on the additional task.", "团队成员工作量很大；尽管如此，他们仍愿意承担这项额外任务。"], ["The market competition is fierce; nevertheless, our product has unique advantages to stand out.", "市场竞争激烈；尽管如此，我们的产品有独特优势能脱颖而出。"], ["The communication with the partner had some obstacles; nevertheless, we successfully reached an agreement after further discussions.", "与合作伙伴的沟通存在一些障碍；尽管如此，经过进一步讨论我们成功达成了协议。"], ["The weather may affect the on-site work; nevertheless, we have prepared a backup plan.", "天气可能会影响现场工作；尽管如此，我们已准备了备用方案。"], ["The new employee has limited work experience; nevertheless, he learns quickly and shows great potential.", "这位新员工工作经验有限；尽管如此，他学习能力强，潜力很大。"], ["The deadline is approaching; nevertheless, we must ensure the quality of the work while accelerating the progress.", "截止日期临近；尽管如此，我们在加快进度的同时必须保证工作质量。"], ["The plan has been discussed many times; yet, there are still differences of opinion among team members.", "这个计划已经讨论了很多次；然而，团队成员之间仍有意见分歧。"], ["We have provided detailed explanations to the client; yet, they still have doubts about the project.", "我们已向客户提供了详细解释；然而，他们对项目仍有疑虑。"], ["The technology has been updated continuously; yet, some old equipment in the company cannot be compatible with it.", "技术在不断更新；然而，公司的一些旧设备无法与之兼容。"], ["The team has worked overtime for several days; yet, the task is still not completed.", "团队已经加班好几天了；然而，任务仍未完成。"], ["We have adjusted the strategy according to the feedback; yet, the effect is not obvious.", "我们已根据反馈调整了策略；然而，效果并不明显。"], ["The product has passed the quality inspection; yet, some customers reported minor problems after use.", "这款产品已通过质量检测；然而，部分客户在使用后反映有小问题。"], ["The meeting agenda was prepared in advance; yet, the discussion still went off track.", "会议议程提前准备好了；然而，讨论还是偏离了主题。"], ["We have contacted multiple suppliers; yet, none of them can meet our requirements.", "我们已经联系了多家供应商；然而，没有一家能满足我们的要求。"], ["The training has been completed; yet, some employees still do not master the key skills.", "培训已经完成；然而，部分员工仍未掌握关键技能。"], ["The budget has been increased; yet, it is still not enough to cover all the expenses of the project.", "预算已经增加了；然而，仍不足以覆盖项目的所有开支。"], ["The marketing team focuses on promoting the product; whereas the sales team is responsible for customer acquisition.", "营销团队专注于产品推广；然而，销售团队负责客户获取。"], ["The old system is stable; whereas the new system has more advanced functions but requires adaptation.", "旧系统很稳定；然而，新系统功能更先进但需要适应。"], ["The first proposal emphasizes cost control; whereas the second proposal pays more attention to innovation.", "第一个提案强调成本控制；然而，第二个提案更注重创新性。"], ["The team in the headquarters has rich resources; whereas the branch team needs to be more flexible to adapt to local markets.", "总部团队拥有丰富资源；然而，分公司团队需要更灵活以适应本地市场。"], ["The short-term goal is to complete the project on time; whereas the long-term goal is to establish a long-term cooperative relationship with the client.", "短期目标是按时完成项目；然而，长期目标是与客户建立长期合作关系。"], ["The offline promotion can directly interact with customers; whereas the online promotion has a wider coverage.", "线下推广能与客户直接互动；然而，线上推广覆盖范围更广。"], ["The traditional manufacturing process is mature; whereas the new process can improve production efficiency but needs more investment.", "传统制造工艺很成熟；然而，新工艺能提高生产效率但需要更多投入。"], ["The first phase of the project focuses on research and development; whereas the second phase will focus on production and sales.", "项目第一阶段专注于研发；然而，第二阶段将专注于生产和销售。"], ["The domestic market has a stable demand; whereas the international market has more uncertainties but greater potential.", "国内市场需求稳定；然而，国际市场不确定性更多但潜力更大。"], ["The part-time employees are flexible in working hours; whereas the full-time employees have more responsibilities and benefits.", "兼职员工工作时间灵活；然而，全职员工承担更多责任，也享有更多福利。"], ["The plan can help us expand the market share; on the other hand, it may increase the financial pressure.", "这个计划能帮助我们扩大市场份额；另一方面，它可能会增加财务压力。"], ["Working from home can save commuting time; on the other hand, it may reduce the efficiency of team communication.", "居家办公能节省通勤时间；另一方面，它可能会减少团队沟通效率。"], ["Choosing a local supplier can reduce logistics costs; on the other hand, an international supplier may provide higher-quality materials.", "选择本地供应商能降低物流成本；另一方面，国际供应商可能提供更高质量的材料。"], ["Increasing the advertising budget can boost brand awareness; on the other hand, it may reduce the funds allocated to product research.", "增加广告预算能提升品牌知名度；另一方面，这可能会减少分配给产品研发的资金。"], ["Shortening the project timeline can meet the client’s urgent needs; on the other hand, it may increase the workload of the team.", "缩短项目时间线能满足客户的紧急需求；另一方面，这可能会增加团队的工作量。"], ["Using mature technology can ensure the stability of the product; on the other hand, adopting new technology may bring more competitive advantages.", "使用成熟技术能确保产品稳定性；另一方面，采用新技术可能带来更多竞争优势。"], ["Hiring experienced employees can reduce training time; on the other hand, recruiting fresh graduates may bring more innovative ideas.", "招聘有经验的员工能减少培训时间；另一方面，招聘应届毕业生可能带来更多创新想法。"], ["Focusing on a single market can deepen customer understanding; on the other hand, expanding to multiple markets may disperse business risks.", "专注单一市场能加深对客户的了解；另一方面，拓展多个市场可能分散经营风险。"], ["Providing more after-sales services can improve customer satisfaction; on the other hand, it may increase the company’s operating costs.", "提供更多售后服务能提升客户满意度；另一方面，这可能会增加公司的运营成本。"], ["Using online meetings can save travel expenses; on the other hand, face-to-face meetings may facilitate more in-depth communication.", "采用线上会议能节省差旅费用；另一方面，面对面会议可能更利于深入沟通。"], ["While the project has made progress, there are still some key issues that need to be addressed.", "虽然项目已有进展，但仍有一些关键问题需要解决。"], ["While the new policy can standardize the workflow, it may take some time for the team to adapt.", "虽然新政策能规范工作流程，但团队可能需要一些时间适应。"], ["While the client is satisfied with the product quality, they have raised concerns about the delivery time.", "虽然客户对产品质量满意，但他们对交付时间提出了顾虑。"], ["While the marketing campaign has attracted attention, its conversion rate is lower than expected.", "虽然营销活动已吸引关注，但转化率低于预期。"], ["While the team has a clear goal, they lack sufficient resources to achieve it quickly.", "虽然团队目标明确，但缺乏足够资源快速实现目标。"], ["While the budget for this quarter is sufficient, we still need to control unnecessary expenses.", "虽然本季度预算充足，但我们仍需控制不必要的开支。"], ["While the training has improved employees’ skills, some still struggle with practical operations.", "虽然培训提升了员工技能，但部分人在实际操作中仍有困难。"], ["While the supplier offers a competitive price, their delivery history is not very stable.", "虽然供应商报价有竞争力，但他们的交付记录不太稳定。"], ["While the report provides detailed data, it lacks a clear analysis of the market trends.", "虽然报告提供了详细数据，但缺乏对市场趋势的清晰分析。"], ["While working overtime can speed up the task, it may affect the team’s work-life balance.", "虽然加班能加快任务进度，但可能会影响团队的工作生活平衡。"], ["Though the task is challenging, the team is confident in completing it on time.", "尽管任务有挑战性，但团队有信心按时完成。"], ["Though the client’s requirements are strict, we can meet them with careful planning.", "尽管客户要求严格，但通过周密规划我们能满足需求。"], ["Though the cost of the new equipment is high, it can improve production efficiency in the long run.", "尽管新设备成本较高，但长期来看能提升生产效率。"], ["Though the initial test results were not good, we have found ways to optimize the program.", "尽管初始测试结果不佳，但我们已找到优化方案的方法。"], ["Though the meeting lasted longer than expected, it reached important agreements.", "尽管会议比预期时间长，但达成了重要共识。"], ["Though the sales volume increased last month, the profit margin decreased slightly.", "尽管上个月销量有所增长，但利润率略有下降。"], ["Though the team has a new leader, the work progress has not been affected.", "尽管团队换了新负责人，但工作进度未受影响。"], ["Though the market competition is intense, our product has unique features to attract customers.", "尽管市场竞争激烈，但我们的产品有独特优势吸引客户。"], ["Though the document has been revised multiple times, there are still minor errors to correct.", "尽管文件已修改多次，但仍有一些小错误需要修正。"], ["Though the off-site meeting requires more preparation, it can promote better communication among teams.", "尽管异地会议需要更多准备，但能促进团队间更好的沟通。"], ["We should not rush to finalize the plan; instead, we need to collect more feedback from stakeholders.", "我们不应急于敲定计划，反而需要收集更多相关方的反馈。"], ["The team should not focus only on speed; instead, they should pay more attention to the quality of the work.", "团队不应只关注速度，反而应更注重工作质量。"], ["We should not rely on a single supplier; instead, we should establish cooperation with multiple suppliers to reduce risks.", "我们不应依赖单一供应商，反而应与多家供应商合作以降低风险。"], ["The company should not cut the R&D budget; instead, it should increase investment to drive innovation.", "公司不应削减研发预算，反而应增加投入推动创新。"], ["We should not ignore the customer’s complaints; instead, we should solve their problems promptly to retain them.", "我们不应忽视客户投诉，反而应及时解决问题以留住客户。"], ["The team should not stick to old methods; instead, they should try new approaches to improve efficiency.", "团队不应固守旧方法，反而应尝试新方式提升效率。"], ["We should not postpone the meeting indefinitely; instead, we should set a clear time to discuss the issues.", "我们不应无限期推迟会议，反而应确定明确时间讨论问题。"], ["The project should not focus only on short-term goals; instead, it should consider long-term development of the company.", "项目不应只关注短期目标，反而应考虑公司的长期发展。"], ["We should not rely solely on online promotion; instead, we should combine it with offline activities to expand influence.", "我们不应仅依赖线上推广，反而应结合线下活动扩大影响力。"], ["The team should not blame each other for the mistake; instead, they should analyze the cause and prevent it from happening again.", "团队不应为错误互相指责，反而应分析原因并防止再次发生。"], ["We should focus on improving the product quality rather than simply reducing the production cost.", "我们应专注提升产品质量，而不是单纯降低生产成本。"], ["The team should communicate more with the client rather than making decisions based on assumptions.", "团队应多与客户沟通，而不是凭猜测做决定。"], ["We should allocate resources to key projects rather than spreading them evenly across all tasks.", "我们应将资源分配给重点项目，而不是在所有任务中平均分配。"], ["The company should invest in employee training rather than only pursuing short-term profits.", "公司应投资员工培训，而不是只追求短期利润。"], ["We should solve the root cause of the problem rather than dealing with the surface symptoms.", "我们应解决问题的根源，而不是只处理表面现象。"], ["The team should use data to support their proposals rather than relying on personal experience.", "团队应用数据支撑提案，而不是依赖个人经验。"], ["We should adjust the strategy according to market changes rather than sticking to the original plan.", "我们应根据市场变化调整策略，而不是固守原计划。"], ["The company should build long-term customer relationships rather than focusing on one-time transactions.", "公司应建立长期客户关系，而不是专注一次性交易。"], ["We should test the new function thoroughly rather than launching it hastily.", "我们应彻底测试新功能，而不是仓促上线。"], ["The team should share work progress regularly rather than waiting for the final deadline to report.", "团队应定期分享工作进度，而不是等到截止日期才汇报。"], ["The client has not given a clear reply; even so, we need to prepare the backup plan in advance.", "客户尚未给出明确回复；即便如此，我们仍需提前准备备用方案。"], ["The project has encountered unexpected delays; even so, we are still trying our best to catch up with the schedule.", "项目遇到意外延误；即便如此，我们仍在尽力追赶进度。"], ["The cost of materials has increased; even so, we need to ensure the product quality is not compromised.", "材料成本上涨；即便如此，我们仍需确保产品质量不受影响。"], ["The new employee is not familiar with the workflow; even so, he is learning quickly and making progress.", "新员工不熟悉工作流程；即便如此，他学习速度快且有进步。"], ["The market demand has decreased slightly; even so, our product sales have remained stable.", "市场需求略有下降；即便如此，我们的产品销量仍保持稳定。"], ["The meeting did not reach all the expected goals; even so, it clarified the next steps for the team.", "会议未达成所有预期目标；即便如此，明确了团队的下一步行动。"], ["The supplier cannot deliver all the goods on time; even so, they have promised to send the most urgent parts first.", "供应商无法按时交付全部货物；即便如此，他们承诺优先发送最紧急的部件。"], ["The training course was affected by technical problems; even so, the trainer managed to complete the key content.", "培训课程受技术问题影响；即便如此，培训师仍设法完成了核心内容。"], ["The client has raised new requirements at the last minute; even so, we will adjust the plan to meet their needs.", "客户在最后时刻提出新需求；即便如此，我们会调整计划满足他们的要求。"], ["The team’s workload has increased significantly; even so, no one has complained and everyone is working hard.", "团队工作量大幅增加；即便如此，没人抱怨，所有人都在努力工作。"]];window.__KEY__="1024英文邮件追问";window.__TITLE__="10.24 英文邮件追问";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+
+(function(){try{
+  var d=getRec().dict;
+  if(d&&d.rounds){document.getElementById('hist').innerHTML=
+    '📊 练习记录：已练 <b>'+d.rounds+'</b> 轮 · 累计默写 <b>'+(d.good+d.near+d.wrong)+
+    '</b> 句 · 历史最好成绩 <b>'+d.best+'%</b>'}
+}catch(e){}})();
+
+var PAIRS=window.__PAIRS__;
+var seq=[],pos=0,stats={good:0,near:0,wrong:0},wrongList=[],lastGood=false;
+function $(id){return document.getElementById(id)}
+function show(id){['start','quiz','result'].forEach(function(s){$(s).style.display=(s===id)?'':'none'})}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  if(!m)return n;if(!n)return m;
+  for(i=0;i<=m;i++){d[i]=[i]}for(j=0;j<=n;j++){d[0][j]=j}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}
+  return d[m][n]}
+function start(){
+  var n=PAIRS.length;
+  var range=$('range').value, shuffle=$('shuffle').checked;
+  var take=(range==='all')?n:Math.min(parseInt(range),n);
+  seq=PAIRS.slice(0,take).map(function(p,i){return i});
+  if(shuffle){seq.sort(function(){return Math.random()-0.5})}
+  pos=0;stats={good:0,near:0,wrong:0};wrongList=[];show('quiz');render()}
+function render(){
+  var done=stats.good+stats.near+stats.wrong;
+  $('bar').style.width=(done/seq.length*100)+'%';
+  $('num').textContent=(done)+' / '+seq.length;
+  $('zh').textContent=PAIRS[seq[pos]][1];
+  $('input').value='';$('input').className='dict-input';$('input').focus();
+  $('fb').className='dict-fb';$('fb').innerHTML='';
+  $('btnNext').style.display='none';$('btnCheck').style.display='';
+  lastGood=false;
+  var f=isFav(PAIRS[seq[pos]][0]);
+  $('btnFav').textContent=f?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',f)}
+function favToggle(){
+  var p=PAIRS[seq[pos]];
+  var added=toggleFav(p[0],p[1]);
+  $('btnFav').textContent=added?'★ 已收藏':'☆ 收藏';
+  $('btnFav').classList.toggle('on',added)}
+function check(){
+  var inp=$('input');
+  var mine=norm(inp.value),ans=norm(PAIRS[seq[pos]][0]);
+  var fb=$('fb');
+  if(!mine){fb.className='dict-fb show wrong';
+    fb.innerHTML='先写点什么吧～ 提示：共 '+PAIRS[seq[pos]][0].split(/\s+/).length+' 个单词';return}
+  if(mine===ans){
+    stats.good++;lastGood=true;
+    fb.className='dict-fb show good';fb.innerHTML='✔ 完全正确！';
+    inp.className='dict-input ok';after()}
+  else{
+    var sim=1-lev(mine,ans)/Math.max(mine.length,ans.length);
+    if(sim>=0.9){
+      stats.near++;lastGood=false;
+      fb.className='dict-fb show near';
+      fb.innerHTML='△ 非常接近，注意细节！<b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()
+    }else{
+      stats.wrong++;lastGood=false;
+      wrongList.push(seq[pos]);
+      recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1]);
+      fb.className='dict-fb show wrong';
+      fb.innerHTML='✘ 再想想～ <b class="ans">正确答案：'+esc(PAIRS[seq[pos]][0])+'</b>';
+      inp.className='dict-input bad';after()}
+  }}
+function after(){
+  $('btnCheck').style.display='none';
+  $('btnNext').style.display='';
+  $('btnNext').focus()}
+function next(){
+  pos++;
+  if(pos>=seq.length){result()}else{render()}}
+function hint(){
+  var words=PAIRS[seq[pos]][0].split(/\s+/);
+  var h=words.map(function(w){return w.charAt(0)+w.slice(1).replace(/[A-Za-z]/g,'·')}).join(' ');
+  var fb=$('fb');fb.className='dict-fb show near';
+  fb.innerHTML='💡 提示（共 '+words.length+' 词）：'+esc(h)}
+function reveal(){
+  var fb=$('fb');fb.className='dict-fb show wrong';
+  fb.innerHTML='正确答案：<b class="ans">'+esc(PAIRS[seq[pos]][0])+'</b>';
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  $('btnCheck').style.display='none';$('btnNext').style.display='';$('btnNext').focus()}
+function skip(){
+  if(!lastGood){stats.wrong++;wrongList.push(seq[pos]);lastGood=true;
+    recordWrong(PAIRS[seq[pos]][0],PAIRS[seq[pos]][1])}
+  next()}
+function result(){
+  show('result');
+  var total=stats.good+stats.near+stats.wrong;
+  $('sg').textContent=stats.good;$('sn').textContent=stats.near;$('sw').textContent=stats.wrong;
+  var acc=total?Math.round((stats.good+stats.near*0.5)/total*100):0;
+  $('sa').textContent=acc+'%';
+  try{
+    var r=getRec();var d=r.dict||{rounds:0,good:0,near:0,wrong:0,best:0};
+    d.rounds++;d.good+=stats.good;d.near+=stats.near;d.wrong+=stats.wrong;
+    d.best=Math.max(d.best,acc);r.dict=d;putRec(r)
+  }catch(e){}
+  var wl=$('wronglist');
+  if(wrongList.length){
+    wl.style.display='';
+    wl.innerHTML='<h3>✘ 错题回顾（'+wrongList.length+' 句）</h3>'+wrongList.map(function(i){
+      return '<div class="wp"><span>'+esc(PAIRS[i][1])+'</span><i>'+esc(PAIRS[i][0])+'</i></div>'
+    }).join('')
+  }else{wl.style.display='none'}
+  window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.addEventListener('keydown',function(e){
+  if($('quiz').style.display==='none')return;
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if($('btnCheck').style.display!=='none'){check()}
+    else{next()}}});
+</script>
+</body>
+</html>

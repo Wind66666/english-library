@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8.13背完这1200句 2个月全英交流加设计</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>8.13背完这1200句 2个月全英交流加设计</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">6,100 字符</span>
+    <span>来源：8.13背完这1200句 2个月全英交流加设计.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C8.13%E8%83%8C%E5%AE%8C%E8%BF%991200%E5%8F%A5%202%E4%B8%AA%E6%9C%88%E5%85%A8%E8%8B%B1%E4%BA%A4%E6%B5%81%E5%8A%A0%E8%AE%BE%E8%AE%A1.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p003.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">Master these 1,200 sentences - conquer any conversation!
+背熟这1200句
+口语交流没问题
+日常问候与寒暄
+1. ➡ Hello! Allow me to introduce myself.（你好！请允许我自我介绍。） ↪ Hi, nice to meet you!（嗨，很高兴认识你！）
+➡ Hey there! How&#x27;s it going?（嘿！最近怎么样？）
+↪ Pretty good, thanks. How about you?（挺好的，谢谢。你呢？）
+1/94
+➡ Hey, stranger! Long time no see!（嘿，好久不见！）
+↪ Yeah, it&#x27;s been ages! How have you been?（是啊，好久了！你最近还好吗？）
+4. ➡ Hi, nice to see you again!（嗨，很高兴再次见到你！） ↪ Nice to see you too!（我也很高兴见到你！）
+5. ➡ Howdy! How&#x27;s everything going?（你好！一切都好吗？） 
+↪ Everything&#x27;s going well. Thanks for asking.（一切都很顺利。谢谢关心。）
+➡ Long time, no chat! How have you been?（好久没聊了！你最近怎样？） 
+ ↪ I&#x27;ve been busy with work, but overall good.（一直在忙工作，但总体还 好。）
+7. ➡ Glad to meet you!（很高兴认识你！） 
+↪ Glad to meet you too!（我也很高兴认识你！）
+8. ➡ Pleased to meet you.（很高兴认识你。） 
+↪ Pleased to meet you as well.（我也很高兴认识你。）
+9. ➡ This is my friend, [Name].（这是我的朋友，[名字]。） ↪ Nice to meet you, [Name]!（很高兴认识你，[名字]！）
+10. ➡ What&#x27;s up? How have you been?（最近有什么新鲜事吗？你怎么样？） ↪ Not much, just keeping busy.（没什么特别的，就是一直在忙。）
+11. ➡ Good morning! Did you sleep well?（早上好！睡得好吗？） ↪ Yes, thanks. And you?（挺好的，谢谢。你呢？）
+12. ➡ Evening! How was your day?（晚上好！今天过得怎么样？） ↪ It was okay. A bit tiring.（还行，有点累。）
+2/94
+13. ➡ Fancy meeting you here!（真没想到在这儿碰到你！） ↪ What a coincidence!（太巧了！）
+14. ➡ How&#x27;s life treating you lately?（最近生活怎么样？） ↪ Not bad. Can&#x27;t complain.（还不错，没什么可抱怨的。）
+15. ➡ You look great today!（你今天看起来气色很好！） ↪ Thanks, you too!（谢谢，你也是！）
+16. ➡ Did you have a good weekend?（周末过得好吗？） ↪ Yes, it was relaxing.（挺好的，很放松。）
+17. ➡ What have you been up to?（最近在忙什么？） 
+↪ Just work and some chores.（就是工作和一些杂事。）
+18. ➡ Is this your first time here?（这是你第一次来这儿吗？） ↪ No, I&#x27;ve been here a few times.（不是，我来过几次了。）
+19. ➡ How do you like the weather today?（你觉得今天天气怎么样？） ↪ It&#x27;s perfect for a walk.（很适合散步。）
+➡ I haven&#x27;t seen you around lately.（最近没怎么见到你。） ↪ I&#x27;ve been traveling a lot.（我一直在出差。）
+➡ Hi, are you new here?（嗨，你是新来的吗？）
+↪ Yes, I just moved in last week.（是的，我上周刚搬来。）
+➡ How&#x27;s your family doing?（你家人都好吗？） ↪ They&#x27;re all fine, thanks.（他们都很好，谢谢。）
+➡ What&#x27;s the best part of your day?（你今天最开心的事是什么？） ↪ Having coffee with a friend.（和朋友喝了咖啡。）
+3/94
+➡ Do you have any plans for tonight?（今晚有什么计划吗？） ↪ Not yet. Maybe watch a movie.（还没，可能看场电影。）
+➡ It&#x27;s good to see you back!（很高兴看到你回来！） ↪ Thanks, it&#x27;s good to be back.（谢谢，回来真好。）
+➡ How was your trip?（旅行怎么样？）
+↪ It was amazing. I had a great time.（太棒了，我玩得很开心。）
+27. ➡ What&#x27;s new with you?（你有什么新鲜事吗？） ↪ I started a new hobby.（我培养了一个新爱好。）
+➡ Are you busy right now?（你现在忙吗？） ↪ Not really. What&#x27;s up?（不太忙，怎么了？）
+➡ Did you hear the news?（你听说那个消息了吗？） ↪ No, what happened?（没有，发生什么了？）
+➡ How&#x27;s your project going?（你的项目进展怎么样？） ↪ It&#x27;s going well, thanks.（挺顺利的，谢谢。）
+31. ➡ Morning! Want to grab coffee?（早上好！去喝杯咖啡吗？） ↪ Sure, that sounds good.（好啊，听起来不错。）
+➡ What do you think of this place?（你觉得这个地方怎么样？） ↪ It&#x27;s really nice. I like it.（很不错，我喜欢。）
+33. ➡ Have you eaten yet?（你吃饭了吗？） 
+↪ Not yet. Want to get lunch?（还没，去吃午饭吗？）
+➡ How&#x27;s your weekend looking?（周末打算怎么过？） ↪ I might go hiking.（可能去徒步。）
+4/94
+➡ You seem happy today.（你今天好像很开心。） ↪ Yes, I got some good news.（是啊，我有好消息。）
+➡ Long time no see! You&#x27;ve changed a lot.（好久不见！你变化挺大的。） ↪ Really? I didn&#x27;t notice.（真的吗？我没注意到。）
+37. ➡ Do you know what time it is?（你知道现在几点吗？） ↪ It&#x27;s around 3 o&#x27;clock.（大概 3 点。）
+➡ Is this seat taken?（这个座位有人吗？） ↪ No, you can sit here.（没有，你可以坐。）
+➡ How was your meal?（吃得怎么样？） 
+↪ It was delicious. Thanks.（很美味，谢谢。）
+➡ What&#x27;s your favorite season?（你最喜欢哪个季节？） ↪ I like autumn the most.（我最喜欢秋天。）
+41. ➡ Did you enjoy the party?（派对玩得开心吗？） ↪ Yes, it was a lot of fun.（是的，很有趣。）
+➡ How do you get to work?（你怎么去上班？） ↪ I take the subway.（我坐地铁。）
+➡ What&#x27;s your favorite food here?（你最喜欢这儿的什么菜？） ↪ The pasta is really good.（意大利面很不错。）
+44. ➡ Are you free this weekend?（这周末你有空吗？） ↪ I think so. Why?（应该有，怎么了？）
+➡ How&#x27;s your English coming along?（你的英语进步怎么样？） ↪ Slowly, but I&#x27;m trying.（很慢，但我在努力。）
+5/94
+➡ What&#x27;s the best movie you&#x27;ve seen lately?（你最近看的最好的电影是什么？）
+↪ I saw a great one last week.（我上周看了一部很棒的。）
+47. ➡ Do you like living here?（你喜欢住在这儿吗？） 
+↪ Yes, it&#x27;s a nice neighborhood.（喜欢，这小区不错。）
+➡ How&#x27;s your pet doing?（你的宠物怎么样？）
+↪ He&#x27;s good, thanks. Getting big.（很好，谢谢，长大了不少。）
+➡ Did you finish your homework?（你作业做完了吗？） ↪ Yes, I just finished it.（嗯，刚做完。）
+➡ What&#x27;s your plan for the holiday?（假期有什么计划？） ↪ I&#x27;m going to visit my parents.（我要去看我父母。）
+51. ➡ Hi, can you help me with this?（嗨，你能帮我一下吗？） ↪ Sure, what do you need?（当然，你需要什么？）
+➡ How was your meeting?（会议开得怎么样？） ↪ It was productive.（很有成效。）
+➡ What&#x27;s the weather like tomorrow?（明天天气怎么样？） ↪ It&#x27;s supposed to rain.（应该会下雨。）
+➡ Have you met our new colleague?（你见过我们的新同事吗？） ↪ No, not yet.（还没。）
+➡ How do you like your new job?（你觉得新工作怎么样？） ↪ It&#x27;s challenging but fun.（有挑战性但很有趣。）
+➡ Did you sleep well last night?（昨晚睡得好吗？）
+6/94
+↪ Not really, I had a bad dream.（不太好，做了个噩梦。）
+57. ➡ What&#x27;s your favorite sport?（你最喜欢的运动是什么？） ↪ I like playing basketball.（我喜欢打篮球。）
+➡ Do you want to join us for dinner?（想和我们一起吃晚饭吗？） ↪ I&#x27;d love to, thanks.（好啊，谢谢。）
+59. ➡ How&#x27;s your garden looking?（你的花园怎么样了？） ↪ The flowers are blooming.（花开了。）
+60. ➡ What&#x27;s the time now?（现在几点了？） ↪ It&#x27;s 5:30 in the afternoon.（下午 5 点半。）
+61. ➡ Did you have a good trip?（旅途愉快吗？） ↪ Yes, it was smooth.（嗯，很顺利。）
+➡ How&#x27;s your sister doing?（你妹妹怎么样？） ↪ She&#x27;s good, thanks.（她挺好的，谢谢。）
+➡ What&#x27;s your favorite book?（你最喜欢的书是什么？） ↪ I like &quot;The Great Gatsby&quot;.（我喜欢《了不起的盖茨比》。）
+➡ Are you going to the party tonight?（你今晚去派对吗？） ↪ I&#x27;m not sure yet.（还不确定。）
+65. ➡ How do you get here?（你怎么来这儿的？） ↪ I drove my car.（我开车来的。）
+66. ➡ What&#x27;s your favorite drink?（你最喜欢的饮料是什么？） ↪ I like coffee with milk.（我喜欢加奶的咖啡。）
+7/94
+67. ➡ Did you enjoy the concert?（音乐会好听吗？） ↪ Yes, it was fantastic.（嗯，太棒了。）
+68. ➡ How&#x27;s your boss?（你老板怎么样？） 
+↪ He&#x27;s nice, but strict.（他人不错，但很严格。）
+69. ➡ What&#x27;s your plan for tomorrow?（明天有什么计划？） ↪ I&#x27;m going shopping.（我要去购物。）
+70. ➡ Do you know where the restroom is?（你知道洗手间在哪吗？） ↪ It&#x27;s around the corner.（在拐角处。）
+71. ➡ How&#x27;s your weekend going?（周末过得怎么样？） ↪ It&#x27;s great. Very relaxing.（很棒，很放松。）
+72. ➡ What&#x27;s your favorite color?（你最喜欢的颜色是什么？） ↪ I like blue.（我喜欢蓝色。）
+73. ➡ Did you watch the game last night?（昨晚看比赛了吗？） ↪ Yes, it was exciting.（看了，很精彩。）
+74. ➡ How do you like this restaurant?（你觉得这家餐厅怎么样？） ↪ The food is great.（菜很好吃。）
+75. ➡ Are you busy tomorrow?（你明天忙吗？） ↪ No, I&#x27;m free all day.（不忙，一整天都有空。）
+76. ➡ What&#x27;s your favorite music?（你最喜欢的音乐是什么？） ↪ I like pop music.（我喜欢流行音乐。）
+77. ➡ Did you finish the report?（报告写完了吗？） ↪ Yes, I sent it this morning.（嗯，今天早上发了。）
+8/94
+78. ➡ How&#x27;s the weather outside?（外面天气怎么样？） ↪ It&#x27;s sunny and warm.（阳光明媚，很暖和。）
+79. ➡ Have you been to this park before?（你以前来过这个公园吗？） ↪ Yes, it&#x27;s very beautiful.（来过，很美。）
+➡ What&#x27;s your favorite hobby?（你最喜欢的爱好是什么？） ↪ I like reading books.（我喜欢看书。）
+81. ➡ Do you want to go for a walk?（想去散步吗？） ↪ Sure, that&#x27;s a good idea.（好啊，好主意。）
+82. ➡ How&#x27;s your brother?（你弟弟怎么样？） 
+↪ He&#x27;s doing well in school.（他在学校表现不错。）
+➡ What&#x27;s the best part of your job?（你工作中最棒的部分是什么？） ↪ Working with nice people.（和友好的人一起工作。）
+➡ Are you going on vacation soon?（你很快要去度假吗？） ↪ Yes, next month.（是的，下个月。）
+➡ Did you have a good lunch?（午饭吃得好吗？） ↪ Yes, it was tasty.（嗯，很好吃。）
+86. ➡ What&#x27;s your favorite movie genre?（你最喜欢的电影类型是什么？） ↪ I like action movies.（我喜欢动作片。）
+87. ➡ How do you usually spend your evenings?（你晚上通常做什么？） ↪ I watch TV or read.（看电视或看书。）
+➡ Do you know how to cook?（你会做饭吗？） 
+↪ A little. I can make pasta.（会一点，我会做意大利面。）
+9/94</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="813背完这1200句2个月全英交流";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

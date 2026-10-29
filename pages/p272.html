@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英语零基础语法大全白</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">📝</span>英语零基础语法大全白</h1>
+  <div class="meta">
+    <span class="badge pdf">PDF</span>
+    <span class="charspill">22,547 字符</span>
+    <span>来源：英语零基础语法大全白.pdf</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E8%8B%B1%E8%AF%AD%E9%9B%B6%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E7%99%BD.pdf" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p272.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">1
+英语零基础语法大全
+一、26 个英文字母
+Aa、Bb、Cc、Dd、Ee、Ff、Gg、Hh、Ii、Jj、Kk、Ll、Mm、Nn、Oo、Pp、Qq、Rr、Ss、Tt、Uu、Vv、
+Ww、Xx、Yy、Zz
+二、10 种单词词性
+1. 动词：表示动作或状态，如 look（看）、cry（哭）、smile（笑）、run（跑）、jump（跳）等。
+2. 形容词：修饰名词，描述人或事物的性质或特征，如 good（好的）、green（绿色的）、beautiful（美
+丽的）等。
+3. 名词：表示人、物、地点、抽象概念的名称，如 Smith（史密斯）、apple（苹果）、China（中国）等。
+4. 冠词：用于名词前限定其意义，不能单独使用，包括 a、an、the。
+5. 副词：修饰动词或形容词，说明时间、地点、程度等，如 quickly（迅速地）、now （现在）、luckily
+（幸运地）等。
+6. 连词：用来连接词、短语或句子，如 and（和）、as well as（也）、both…and…（两者都）等。
+7. 代词：替代人或事物，如 I（我）、his（他的）、this（这个）、myself（我自己）等。
+8. 数词：表示数目或顺序，如 one（一）、ten（十）、twenty - first（第二十一）等。
+9. 介词：用于名词或代词前，表示它们与其他词的关系，如 on（在…… 上）、by（通过）、in（在…… 
+里）等。
+10.感叹词：独立于句子之外，表示情感变化，如 oh（哦）、dear（天哪）、well（嗯）等。
+三、8 种句子成分
+1. 主语：句子中动作的发出者。例如：She made her brother the little John sad yesterday and she felt 
+guilty.（昨天她惹得她的弟弟小约翰伤心了，她感到内疚。）
+2. 谓语：句子中的动作。例如：She made her brother the little John sad yesterday and she felt guilty.
+3. 宾语：动作的承受者。例如：She made her brother the little John sad yesterday and she felt guilty.
+2
+4. 表语：说明主语的品质、状态、特征等。例如：She made her brother the little John sad yesterday 
+and she felt guilty.（felt 为系动词，guilty 作表语）
+5. 定语：修饰描述主语或宾语的词，常为形容词。例如：She made her brother the little John sad 
+yesterday and she felt guilty.（little 修饰 brother 作定语）
+6. 状语：表示动作发生的时间、地点、原因、目的、结果、方式等。例如：She made her brother the 
+little John sad yesterday and she felt guilty.（yesterday 为时间状语）
+7. 宾补：对宾语进行进一步补充说明。例如：She made her brother the little John sad yesterday and 
+she felt guilty.（sad 补充说明 brother 的状态）
+8. 同位语：用一个名词说明另一个名词。例如：She made her brother the little John sad yesterday and 
+she felt guilty.（“her brother” 和 “the little John” 为同位语）
+四、8 种句子结构
+1. 主 + 谓：He runs.（他跑。）
+2. 主 + 谓 + 宾：I like apple.（我喜欢苹果。）
+3. 主 + 系 + 表：She is beautiful.（她很漂亮。）
+4. 主 + 谓 + 宾 + 宾补：They call me John.（他们叫我约翰。）
+5. 主 + 谓 + 双宾：She shows me a book.（她给我看一本书。）
+6. 名词性从句：包括主语从句、宾语从句、表语从句、同位语从句。例如：That the earth is round is 
+real.（主语从句，地球是圆的这件事是真实的。）
+7. 形容词性从句（定语从句）：He remembers the thing that his father is back.（他记得他父亲回来这
+件事。）
+8. 副词性从句（状语从句）：包括时间、条件、结果、目的、原因、让步、地点、方式状语从句。例如：
+When it rains, I go to school by bus.（时间状语从句，天下雨时，我坐公交车去上学。）
+五、16 种时态
+1. 一般现在时：表示客观事实或某种规律。结构：do 。例如：I do my homework.（我做作业。）
+2. 一般过去时：表示过去发生的动作。结构：did 。例如：I did my homework yesterday. （我昨天做了
+作业。）
+3. 一般将来时：表示将来发生的动作。结构：will do 。例如：I will do my homework tomorrow.（我明
+3
+天会做作业。）
+4. 过去将来时：在过去的时间说将来的动作。结构：would do 。例如：I said I would do my homework 
+tomorrow.（我说过明天我会做作业。）
+5. 现在进行时：表示现在正在发生的动作。结构：be doing 。例如：I am doing my homework now.
+（我现在正在做作业。）
+6. 将来进行时：表示将来某个时间点正在发生的动作。结构：will be doing 。例如：I will be doing my 
+homework at 9:00 tomorrow.（明天九点我会正在做作业。）
+7. 现在完成时：表示现在已经完成的某个动作。结构：have/has done 。例如：I have done my 
+homework.（我做完作业了。）
+8. 过去进行时：表示过去某个时间点正在发生的动作。结构：was/were doing 。例如：I was doing my 
+homework when you opened the door.（你开门的时候，我正在做作业。）
+9. 过去完成时：表示过去某个时间前已经完成的某个动作。结构：had done 。例如：I had done my 
+homework before you opened the door.（你开门前，我已做完作业了。）
+10.将来完成时：表示将来某个时间前已经完成的某个动作。结构：will have done 。例如：I will have 
+done my homework tomorrow.（明天我就会完成作业。）
+11.过去将来进行时：在过去的时间说将来的某个时间点正在进行的动作。结构：would be doing 。例如：
+I said I would be doing my homework at 9:00 tomorrow.（我说过明天九点钟我正在做作业。）
+12.过去将来完成时：在过去的时间说将来的某个时间已经完成的动作。结构：would have done 。例如：I 
+said I would have done my homework before you open the door. （我说过我会在你开门前完成作
+业。）
+13.现在完成进行时：表示现在已经完成（一段时间）并且还在持续进行的动作。结构：have been doing 。
+例如：I have been doing my homework for 3 hours.（我已经做了 3 个小时作业了。）
+14.过去完成进行时：表示过去已经完成（一段时间）并且还在持续进行的动作。结构：had been doing 。
+例如：I had been doing my homework for 3 hours before you opened the door. （在你开门前，
+我已经做了 3 个小时作业了。）
+15.将来完成进行时：在将来的某个时间已经完成（一段时间）并且还在持续进行的动作。结构：will have 
+been doing 。例如：I will have been teaching for 3 years next week.（到了下周，我就教学教了 3 
+年了，并且还在教。）
+16.过去将来完成进行时：结构：would have been doing
+4
+六、4 大特殊句式
+1. There be 结构：表示 “某地有某物 / 人”。例如：There is a book on the table.（桌子上有一本书。）
+2. It is...that 强调句：用于强调句子的某一成分。例如：It is Tom that I met in the street yesterday.
+（我昨天在街上遇到的是汤姆。）
+3. 倒装句：将谓语的一部分或全部提到主语之前。例如：Never have I seen such a beautiful place.（我
+从未见过如此美丽的地方。）
+4. 省略句：为了避免重复、突出新信息等，省略句子中的一个或几个成分。例如：（ I）Hope to see you 
+soon.（希望很快见到你。）
+七、19 个疑问代词及用法
+1. 问什么：用 what 。例如：What are you doing?（你在做什么？）
+2. 问年龄：用 how old 。例如：How old are you?（你多大了？）
+3. 问原因：用 why 。例如：Why are you late?（你为什么迟到？）
+4. 问多少（可数）：用 how many 。例如：How many books do you have?（你有多少本书？）
+5. 问哪里：用 where 。例如：Where are you from?（你从哪里来？）
+6. 问价格：用 how much 。例如：How much is this book?（这本书多少钱？）
+7. 问哪个：用 which 。例如：Which book do you like?（你喜欢哪本书？）
+8. 问多高（人或物）：用 how tall 。例如：How tall is the building?（这栋楼多高？）
+9. 问谁：用 who 。例如：Who is that man?（那个男人是谁？）
+10.问多大（物体大小）：用 how big 。例如：How big is your room?（你的房间多大？）
+11.问谁的：用 whose 。例如：Whose book is this?（这是谁的书？）
+12.问多长（物体长度或时间长度）：用 how long 。例如：How long is the river?（这条河多长？）How 
+long have you been here?（你在这里多久了？）
+13.问颜色：用 what colour 。例如：What colour is your dress?（你的裙子是什么颜色？）
+14.问频率：用 how often 。例如：How often do you exercise?（你多久锻炼一次？）
+15.问几点：用 what time 。例如：What time is it?（现在几点了？）
+5
+16.问多久（将来时间）：用 how soon 。例如：How soon will you come back?（你多久会回来？）
+17.问怎样：用 how 。例如：How do you go to school?（你怎么去上学？）
+18.问多重：用 how heavy 。例如：How heavy is the box?（这个箱子多重？）
+19.问时候：用 when 。例如：When will you go to Beijing?（你什么时候去北京？）
+八、8 大时态标志词
+（一）一般现在时
+1. always（总是）
+2. usually（通常）
+3. often（经常）
+4. sometimes（有时）
+5. never（从不）
+6. every day（每天）
+7. every time（每次）
+8. in the morning（早上）
+9. once a week（每周一次）
+10.twice a month（每月两次）
+11.hardly ever（几乎不）
+12.every Sunday（每个周日）
+13.at night（在晚上）
+14.three times a week（每周三次）
+（二）一般过去时
+1. ago（以前）
+2. yesterday（昨天）
+3. just now（刚才）
+4. last time（上次）
+5. last night（昨晚）
+6. last year（去年）
+7. last term（上学期）
+8. last Monday（上周星期一）
+9. once（曾经）
+10.once upon a time（从前）
+11.in + 过去时间（过去某时）
+12.in the early days（在早期）
+13.the day before yesterday（前天）
+（三）一般将来时
+1. tomorrow（明天）
+2. by the end of + 将来时间
+3. tomorrow night（明晚）
+4. next time（下次）
+5. next Friday（下周五）
+6. next month（下个月）
+6
+7. next term（下学期）
+8. in + 一段时间（多久之后）
+9. soon（很快）
+10.sooner or later（迟早）
+11.at once（立刻）
+（四）现在进行时
+1. now（现在）
+2. look（看）
+3. listen（听）
+4. at this time（此时）
+5. at this moment（此刻）
+6. at present（现在）
+（五）将来进行时
+1. tomorrow（明天）
+2. soon（待会）
+3. next week/month/year... （下个周 / 月 / 
+明年……）
+4. the day after tomorrow（后天）
+（六）现在完成时
+1. already（已经）
+2. yet（还）
+3. just（刚才）
+4. never（从不）
+5. ever（曾经）
+6. before（以前）
+7. up to now（目前为止）
+8. so far（目前为止）
+9. for + 一段时间
+10.since + 过去某时间
+（七）过去完成时
+1. by + 过去时间点
+2. by the time（到…… 时候为止）
+3. by then（到那时候）
+4. by last time（最后一次）
+5. by the end of last week（到了上周末）
+6. before + 过去时间点
+7. up until + 过去时间点
+8. up until then（直到那时）
+（八）过去进行时
+1. at that time（在那时）
+2. at that moment（在那时）
+九、10 大单词词性详解
+1. 名词：表示人、物、地点、抽象概念等的名称。例如：teacher （教师）、book （书）、London （伦
+敦）、love（爱）。
+7
+o 主要语法：
+o 单复数：名词分为可数名词和不可数名词，可数名词有单数和复数形式。一般在词尾加 -
+s 构成复数，如 books；以 s, x, ch, sh 结尾的名词加 -es，如 boxes；以辅音字母 + y 
+结尾的名词，变 y 为 i 再加 -es，如 cities 等。不可数名词一般没有复数形式。
+o 名词所有格：表示所属关系，一般在名词后加 ’s，如 Tom’s book（汤姆的书）；以 s 结
+尾的复数名词在词尾加 ’，如 the students’ classroom（学生们的教室）。
+o 集合名词：如 family（家庭；家人），当强调整体时，谓语动词用单数；当强调个体成员
+时，谓语动词用复数。例如：My family is a big one. （我的家庭是个大家庭。）My 
+family are all early risers.（我的家人都是早起的人。）
+o 主谓一致：主语是名词时，谓语动词的形式要和主语在人称和数上保持一致。如： A dog 
+likes running.（一只狗喜欢奔跑。）Dogs like running.（狗喜欢奔跑。）
+2. 动词：表示动作或状态。例如：play（玩）、sleep（睡觉）、be（是）、seem（似乎）。
+o 主要语法：
+o be 动词：am, is, are （现在式）；was, were（过去式）。I am a student. （我是一名
+学生。）He was at home yesterday.（他昨天在家。）
+o 情态动词：can（能）, could （能，过去式）, may （可以）, might （可以，过去式）, 
+must（必须）等，后接动词原形。I can swim.（我会游泳。）He must be at school.
+（他一定在学校。）
+o 及物动词和不及物动词：及物动词后需接宾语，如 I love music. （love 为及物动词，
+music 为宾语）；不及物动词后不能直接接宾语，若要接宾语，需借助介词，如 He is 
+looking at the picture.（look 为不及物动词，at 为介词，the picture 为宾语）。
+o 助动词：do, does（一般现在时第三人称单数）, did（一般过去时），用于构成疑问句、
+否定句或强调句。Do you like English?（你喜欢英语吗？）He doesn’t like sports.（他
+不喜欢运动。）I did finish my work.（我确实完成了我的工作。）
+o 系动词：用来连接主语和表语，说明主语的状态、性质等，常见的有 be, look（看起来）, 
+sound（听起来）, feel （感觉）, taste （尝起来）, smell （闻起来）等。The flower 
+smells sweet.（这朵花闻起来很香。）
+o 实义动词：具有实际意义的动词，即除了 be 动词、情态动词、助动词和系动词之外的动
+词。如 run, jump, eat 等。
+8
+o 被动语态：当句子的主语是动作的承受者时，要用被动语态。结构为 be + 过去分词。
+The book was written by him.（这本书是他写的。）
+o 主谓一致 ：主语为第三人称单数时，一般现在时的实义动词要加 -s 或 -es。如：He 
+plays football every day.（他每天踢足球。）
+o 动名词：动词的 -ing 形式，具有名词的特征，可作主语、宾语等。Reading is my 
+hobby.（阅读是我的爱好。）I like reading books.（我喜欢读书。）
+o 分词：包括现在分词（动词 -ing 形式）和过去分词，现在分词常表主动、进行；过去分
+词常表被动、完成。The boy standing there is my brother. （站在那里的男孩是我弟
+弟。）The broken window needs to be repaired.（破碎的窗户需要修理。）
+3. 形容词：修饰名词，表明人或事物的性质或特征。例如：big （大的）、small （小的）、happy （高兴
+的）、interesting（有趣的）。
+o 主要语法：
+o 比较级：用于两者之间的比较，一般在词尾加 -er，以不发音的 e 结尾的词加 -r，重读闭
+音节词双写最后一个辅音字母再加 -er，以辅音字母 + y 结尾的词变 y 为 i 再加 -er 等。
+如：big - bigger，nice - nicer，hot - hotter，happy - happier。比较级常用结构为
+“比较级 + than”。He is taller than me.（他比我高。）
+o 最高级：用于三者或三者以上的比较，一般在词尾加 -est，变化规则与比较级类似。最高
+级前一般要加 the。如：big - biggest，nice - nicest，hot - hottest，happy -
+happiest。He is the tallest in our class.（他是我们班最高的。）
+o 形副同形：有些词既可以作形容词也可以作副词，且形式相同，如 fast（快的；快地），
+early（早的；早地）。He runs fast. （他跑得快。）He is an early bird.（他是个早起
+的人。）
+4. 冠词：置于名词前，限定名词的意义，不能单独使用。包括 a，an，the。
+o 主要语法：
+o 定冠词 the：表示特指，指双方都知道的人或事物，上文提到过的人或事物，世界上独一
+无二的事物等。The book on the table is mine. （桌子上的那本书是我的。）The sun 
+rises in the east.（太阳从东方升起。）
+o 不定冠词 a/an：a 用于辅音音素开头的单词前，an 用于元音音素开头的单词前，表示
+“一个”。a book（一本书），an apple（一个苹果）。
+9
+o 零冠词：在某些专有名词、复数名词表示一类人或事物、不可数名词表示泛指等情况下，
+不用冠词。I like music.（我喜欢音乐。）Children like playing.（孩子们喜欢玩耍。）
+5. 副词：修饰动词、形容词或其他副词，说明时间、地点、程度、方式等。例如：quickly （快速地）、
+here（这里）、very（非常）、well（很好地）。
+o 主要语法：
+o 时间副词：表示时间，如 now（现在）, then（那时）, yesterday （昨天）, tomorrow
+（明天）等。I will go there tomorrow.（我明天会去那里。）
+o 频率副词：表示动作发生的频率，如 always（总是）, usually（通常）, often（经常）, 
+sometimes（有时）, seldom（很少）, never （从不）等。He often goes to school 
+by bike.（他经常骑自行车去上学。）
+o 方式副词：表示动作发生的方式，一般由形容词加 -ly 构成，如 slowly（慢慢地）, 
+carefully（仔细地）, happily（高兴地）等。He reads the book carefully. （他仔细地
+读书。）
+o 程度副词：用来修饰形容词或副词，说明程度，如 very（非常）, too （太）, quite （相
+当）, rather（相当）, almost（几乎）等。The book is very interesting.（这本书非常
+有趣。）
+o 其他副词：包括地点副词（如 there, here, home 等）、疑问副词（如 where, when, 
+how, why 等）等。Where are you from?（你来自哪里？）
+6. 数词：表示数目或顺序。例如：one（一）, two（二）, first（第一）, second（第二）。
+o 主要语法：
+o 基数词：表示数量，如 one, two, three 等。I have two brothers.（我有两个兄弟。）
+o 序数词：表示顺序，一般在基数词后加 -th 构成，但有一些特殊变化，如 first, second, 
+third, fifth, eighth, ninth, twelfth 等。The first lesson is very easy. （第一课很简
+单。）
+o 年份、日期、小数、分数等的表达：年份用基数词，如 2024 读作 two thousand and 
+twenty - four；日期用序数词，如 June 1st 读作 June the first ；小数用基数词，小数
+点读 point，如 3.14 读作 three point one four ；分数的表达是分子用基数词，分母用
+序数词，当分子大于 1 时，分母加 -s，如 1/3 读作 one third，2/3 读作 two thirds。
+7. 介词：用于名词或代词前，表明名词或代词与其他词的关系。例如：in（在…… 里面）, on （在…… 上
+10
+面）, at（在…… 地点或时刻）, with（和…… 一起；具有）。
+o 主要语法：
+o 地点介词：in 表示在较大的地方，如城市、国家等；on 表示在物体表面；at 表示在较小
+的地点或具体的时刻。I live in Beijing.（我住在北京。）The book is on the desk.（书
+在桌子上。）I get up at 6:00.（我六点起床。）
+o 方向介词：to 表示 “到……”，from 表示 “从……”，towards 表示 “朝…… 方向” 等。He 
+goes to school every day.（他每天去上学。）
+o 时间介词：in 用于年、月、季节、上午、下午、晚上等；on 用于具体的某一天或某一天
+的上午、下午、晚上；at 用于具体的时刻。in 2024（在 2024 年），on Monday（在星
+期一），at noon（在中午）。
+o 方式介词：by 表示 “通过…… 方式”，如 by bus（乘公交车）；with 表示 “用…… 工具”，
+如 write with a pen（用钢笔写）。
+o 涉及介词： about（关于），of （…… 的），for （为了；对于）等。This is a book 
+about history.（这是一本关于历史的书。）
+8. 感叹词：独立于句子之外，表达情感变化。例如：oh （哦）, dear （天哪）, well （嗯）, wow （哇）, 
+hey（嘿）。Oh, I see.（哦，我明白了。）Wow, what a beautiful flower!（哇，多漂亮的花啊！）
+9. 连词：用来连接词、短语、句子。例如：and （和）, or （或者；否则）, but （但是）, because （因
+为）。
+o 主要语法：
+o 并列连词：连接同等成分，如 and, or, but 等。I like reading and writing.（我喜欢阅
+读和写作。）Hurry up, or you’ll be late. （快点，否则你会迟到的。）He is rich but 
+not happy.（他很富有但不开心。）
+o 从属连词：引导从句，如 because 引导原因状语从句，when 引导时间状语从句，if 引导
+条件状语从句等。I didn’t go to school because I was ill.（我没去上学因为我生病了。）
+When I got home, my mother was cooking. （当我到家时，我妈妈正在做饭。）If it 
+rains tomorrow, we will stay at home.（如果明天下雨，我们就待在家里。）
+o 转折连词：如 but, however 等，表示转折关系。He is young but very clever.（他很年
+轻但很聪明。）However, he didn’t pass the exam.（然而，他没有通过考试。）
+o 因果连词：如 because, so 等。Because it was raining, we stayed at home.（因为下
+11
+雨，我们待在家里。）It was raining, so we stayed at home.（下雨了，所以我们待在
+家里。）
+10.代词：代替人或事物，使语言表达更简洁。例如：I（我）, you （你；你们）, he （他）, she （她）, it
+（它）, we（我们）, they（他们）。
+o 主要语法：
+o 人称代词：分为主格（I, you, he, she, it, we, they）和宾格（me, you, him, her, it, us, 
+them），主格作主语，宾格作宾语。 He loves me. （他爱我。）（He 为主格作主语，
+me 为宾格作宾语）
+o 物主代词：分为形容词性物主代词（my, your, his, her, its, our, their）和名词性物主代
+词（mine, yours, his, hers, its, ours, theirs）。形容词性物主代词后需接名词，名词性
+物主代词相当于 “形容词性物主代词 + 名词”。This is my book. = This book is mine.
+（这是我的书。）
+o 反身代词：myself（我自己）, yourself （你自己）, himself （他自己）, herself （她自
+己）, itself（它自己）, ourselves（我们自己）, yourselves（你们自己）, themselves
+（他们自己）。He hurt himself.（他伤到了自己。）
+o 指示代词：this（这个）, that（那个）, these（这些）, those（那些）。This is a book.
+（这是一本书。）Those are my friends.（那些是我的朋友。）
+o 疑问代词：如 what, who, whom, whose, which 等，用于构成特殊疑问句。What do 
+you want?（你想要什么？）Who is he?（他是谁？）
+o 不定代词：如 some, any, many, much, few, little, all, both, neither, either 等。Some 
+students like reading.（一些学生喜欢阅读。）I don’t have any money.（我没有钱。）
+十、英语句子结构拓展
+1. 主 + 谓：此结构中谓语动词为不及物动词，句子表达完整的意思，不需要宾语。例如：The birds are 
+flying.（鸟儿在飞。）The sun rises.（太阳升起。）
+2. 主 + 谓 + 宾：谓语动词为及物动词，后面必须接宾语才能使句子意思完整。例如：I love music.（我喜
+欢音乐。）She eats an apple.（她吃一个苹果。）
+3. 主 + 系 + 表：系动词本身有一定的词义，但不能单独作谓语，必须和后面的表语一起构成谓语。表语可
+以是名词、形容词、副词、介词短语等。例如：He is a student. （他是一名学生。）（名词作表语）
+The flower is beautiful.（这朵花很漂亮。）（形容词作表语）My father is out. （我父亲出去了。）
+（副词作表语）The book is on the desk.（书在桌子上。）（介词短语作表语）
+12
+4. 主 + 谓 + 宾 + 宾补：宾语补足语是对宾语的补充说明，使句子的意义更加完整。宾语和宾补之间存在
+逻辑上的主谓关系或主表关系。例如：We made the room clean. （我们使房间干净。）（clean 补充
+说明 room 的状态，room 与 clean 是主表关系）I saw him play football.（我看见他踢足球。）（play 
+football 补充说明 him 的动作，him 与 play football 是主谓关系）
+5. 主 + 谓 + 双宾：有些及物动词可以接两个宾语，一个指人（间接宾语），一个指物（直接宾语）。间接
+宾语一般放在直接宾语之前，若将间接宾语置于直接宾语之后，则需在间接宾语前加 to 或 for 等介词。
+例如：He gave me a book. = He gave a book to me.（他给了我一本书。）She bought her mother 
+a dress. = She bought a dress for her mother.（她给她妈妈买了一条裙子。）
+6. 名词性从句：
+o 主语从句：在复合句中作主语，引导词有 that, whether, who, what, which, when, where, 
+how, why 等。That he is a good student is known to us all.（他是个好学生，这一点我们都
+知道。）Whether he will come is still a question.（他是否会来还是个问题。）
+o 宾语从句：在复合句中作宾语，引导词的用法与主语从句类似。I know that he is honest. （我
+知道他很诚实。）Do you know where he lives?（你知道他住在哪里吗？）
+o 表语从句：在复合句中作表语，位于系动词之后。The problem is how we can get there. （问
+题是我们怎样才能到达那里。）My dream is that I can become a doctor.（我的梦想是我能成
+为一名医生。）
+o 同位语从句：用于对前面的名词作进一步解释说明，引导词多为 that。The news that he won 
+the game is exciting. （他赢得比赛的消息令人兴奋。）（“that he won the game” 解释说明
+“news” 的内容）
+7. 形容词性从句（定语从句）：在复合句中作定语，修饰名词或代词，被修饰的词称为先行词。引导定语
+从句的关系词有关系代词（who, whom, whosewhich, that）和关系副词（when, where, why）。
+• 关系代词引导的定语从句：
+o who 指人，在从句中作主语或宾语。The man who is standing there is my teacher.（站在那
+儿的那个人是我的老师。）（who 在从句中作主语）
+o whom 指人，在从句中作宾语，可省略。The boy (whom) I met yesterday is Tom.（我昨天遇
+到的那个男孩是汤姆。）
+o whose 指人或物，在从句中作定语。The book whose cover is green is mine.（封面是绿色的
+那本书是我的。）
+o which 指物，在从句中作主语或宾语。The pen which I bought yesterday is very nice.（我昨
+13
+天买的那支钢笔很漂亮。）（which 在从句中作宾语，可省略）
+o that 指人或物，在从句中作主语或宾语。The movie that we saw last night was wonderful.
+（我们昨晚看的那部电影很棒。）（that 在从句中作宾语，可省略）
+• 关系副词引导的定语从句：
+o when 指时间，在从句中作时间状语。I still remember the day when I first came to this 
+school.（我仍然记得我第一次来到这所学校的那一天。）
+o where 指地点，在从句中作地点状语。This is the house where I lived ten years ago. （这就
+是我十年前住过的房子。）
+o why 指原因，在从句中作原因状语，其先行词通常是 reason。I don&#x27;t know the reason why he 
+was late.（我不知道他迟到的原因。）
+8. 副词性从句（状语从句）：在复合句中作状语，根据其表达的意义可分为时间、条件、结果、目的、原
+因、让步、地点、方式等状语从句。
+o 时间状语从句：常用引导词有 when, while, as, before, after, since, until, till 等。When I was 
+a child, I liked reading stories. （当我还是个孩子的时候，我喜欢读故事。）While I was 
+watching TV, my mother was cooking.（我在看电视的时候，我妈妈在做饭。）
+o 条件状语从句：常用引导词有 if, unless, as long as 等。If it doesn&#x27;t rain tomorrow, we will 
+go for a picnic.（如果明天不下雨，我们就去野餐。）Unless you work hard, you won&#x27;t pass 
+the exam.（除非你努力学习，否则你不会通过考试。）
+o 结果状语从句：常用引导词有 so...that, such...that 等。He is so tired that he can&#x27;t walk any 
+further.（他太累了，以至于走不动了。）It is such a beautiful day that we want to go out.
+（天气如此好，以至于我们想出去。）
+o 目的状语从句：常用引导词有 so that, in order that 等。He gets up early so that he can 
+catch the first bus.（他早起以便能赶上第一班公交车。）
+o 原因状语从句：常用引导词有 because, since, as, for 等。I didn&#x27;t go to school because I was 
+ill.（我没去上学，因为我生病了。）Since you are here, you can help me. （既然你在这儿，
+你可以帮我。）
+o 让步状语从句：常用引导词有 although, though, even though, even if 等。Although it was 
+raining hard, he still went to school on time.（尽管雨下得很大，他仍然按时去上学。）
+o 地点状语从句：常用引导词有 where, wherever 等。Where there is a will, there is a way.（有
+14
+志者，事竟成。）Wherever you go, I will follow you.（无论你去哪里，我都会跟着你。）
+o 方式状语从句：常用引导词有 as, as if, as though 等。Do as I told you.（照我告诉你的做。）
+He looks as if he is ill.（他看起来好像生病了。）
+十一、16 种时态用法拓展
+1. 一般现在时：
+o 表示经常性、习惯性的动作或存在的状态：He often goes to school by bike.（他经常骑自行车
+去上学。）
+o 表示客观事实、普遍真理：The earth moves around the sun.（地球围绕太阳转。）
+o 在时间、条件状语从句中，用一般现在时表示将来：If it rains tomorrow, we will stay at home.
+（如果明天下雨，我们就待在家里。）When he comes back, I will tell him the news. （他回
+来时，我会告诉他这个消息。）
+2. 一般过去时：
+o 表示过去某个时间发生的动作或存在的状态：I visited my grandparents last week.（上周我看
+望了我的祖父母。）She was at home yesterday.（她昨天在家。）
+o 表示过去经常或反复发生的动作：When I was a child, I often played football in the street.
+（我小时候经常在街上踢足球。）
+3. 一般将来时：
+o 表示将来某个时间要发生的动作或存在的状态：I will go to Beijing next week.（下周我要去北
+京。）
+o 表示将来经常或反复发生的动作：He will come to see me every Sunday. （他每个周日都会来
+看我。）
+o 常见表达结构：
+o will + 动词原形：最常见的表达将来的结构，常表示临时决定或单纯的将来事实。
+o be going to + 动词原形：表示打算、计划做某事，或根据某种迹象判断将要发生某事。I 
+am going to visit my friend tomorrow.（我打算明天去看望我的朋友。）Look at the 
+clouds. It is going to rain.（看那些云，要下雨了。）
+o be to + 动词原形 ：表示按计划、安排即将发生的动作，或表示命令、禁止等。The
+15
+meeting is to be held next Monday.（会议将于下周一举行。）You are not to smoke 
+here.（你不准在这里吸烟。）
+o be about to + 动词原形：表示即将发生的动作，通常不与具体的时间状语连用。I was 
+about to leave when he came in.（我正要离开，这时他进来了。）
+4. 过去将来时：
+o 表示从过去的某个时间看将来要发生的动作或存在的状态：He said he would come to see me 
+the next day.（他说他第二天会来看我。）
+o 常用于宾语从句中，主句为过去时态时，从句表示将来的动作：She asked if I would go with 
+her.（她问我是否会和她一起去。）
+5. 现在进行时：
+o 表示现在正在进行的动作：I am writing a letter now.（我现在正在写信。）
+o 表示现阶段正在进行，但此刻不一定正在进行的动作：He is studying for the exam these days.
+（这些天他一直在为考试学习。）
+o 表示按计划、安排即将发生的动作，常用于表示位置移动的动词，如 come, go, leave, start 等：
+He is leaving for Shanghai tomorrow.（他明天要去上海。）
+6. 将来进行时：
+o 表示在将来的某个时间正在进行的动作：At this time tomorrow, I will be having a meeting.
+（明天这个时候，我将正在开会。）
+o 表示按计划、安排将来某段时间内持续进行的动作：Next week, I will be traveling in Europe.
+（下周，我将在欧洲旅行。）
+o 与一般将来时的区别 ：一般将来时强调将来某个时间会发生某个动作，而将来进行时更强调在将
+来某个特定时间动作正在进行。例如：I will study tomorrow.（我明天会学习。）强调明天会有
+学习这个动作；I will be studying at 9 o&#x27;clock tomorrow.（明天九点我将正在学习。）强调明
+天九点这个特定时间学习的动作正在进行。
+7. 现在完成时：
+o 表示过去发生的动作对现在造成的影响或结果：I have lost my key. I can&#x27;t open the door.（我
+丢了钥匙，现在打不开门。）（丢钥匙这个过去的动作导致现在打不开门的结果）
+o 表示从过去开始一直持续到现在的动作或状态，常与 for + 时间段，since + 时间点等时间状语
+16
+连用：He has lived here for ten years.（他在这里住了十年了。）She has been ill since last 
+week.（她从上周就生病了。）
+o 现在完成时与一般过去时的区别 ：现在完成时强调过去动作与现在的联系，而一般过去时只强调
+过去发生的动作，与现在无关。例如：I saw the film yesterday.（我昨天看了这部电影。）单纯
+陈述昨天看电影这个过去的动作；I have seen the film. （我看过这部电影了。）强调现在对这
+部电影有了解这个结果。
+8. 过去进行时：
+o 表示过去某个时间点或时间段正在进行的动作：I was watching TV at 8 o&#x27;clock last night.（昨
+晚八点我正在看电视。）
+o 常与一般过去时连用，一个动作发生时，另一个动作正在进行 ：When the phone rang, I was 
+having a shower.（电话响的时候，我正在洗澡。）
+9. 过去完成时：
+o 表示在过去某个时间或动作之前已经发生或完成的动作，即 “过去的过去”：By the time I got to 
+the station, the train had left. （我到达车站时，火车已经开走了。）（“火车开走” 这个动作发
+生在 “我到达车站” 这个过去动作之前）
+o 在含有 after, before 等引导的时间状语从句的复合句中，如果主从句的动作先后发生，先发生的
+动作常用过去完成时：After he had finished his homework, he went out to play.（他完成作
+业后，出去玩耍了。）
+10.将来完成时：
+o 表示在将来某个时间之前已经完成的动作：By the end of next month, I will have finished this 
+project.（到下个月底，我将完成这个项目。）
+o 常与 by + 将来时间点等时间状语连用，表达对将来某个时间之前动作完成情况的推测：He will 
+have arrived home by 9 o&#x27;clock.（他九点前应该已经到家了。）
+11.过去将来进行时：
+o 表示从过去某个时间看将来某个时间正在进行的动作：He said he would be waiting for me at 
+the station at 3 o&#x27;clock the next day.（他说第二天三点他会在车站等我。）
+o 常用来描述过去计划或预期在将来某个时间会正在进行的动作 ：She told me she would be 
+working in the office this time next week.（她告诉我下周这个时候她会在办公室工作。）
+12.过去将来完成时：
+17
+o 表示从过去某个时间看将来某个时间之前已经完成的动作：He said he would have finished the 
+work before the end of the month.（他说他会在月底前完成这项工作。）
+o 常用于宾语从句中，主句为过去时态，从句表示在过去看来将来某个时间之前会完成的动作 ：
+She thought she would have passed the exam by then.（她认为到那时她会通过考试。）
+13.现在完成进行时：
+o 表示从过去开始一直持续到现在并且还可能继续下去的动作：I have been learning English for 
+five years.（我学英语已经五年了，并且还会继续学下去。）
+o 强调动作的持续性和重复性：He has been running every morning for a month.（一个月来他
+每天早上都跑步。）
+14.过去完成进行时：
+o 表示从过去某个时间之前开始一直持续到过去某个时间的动作，这个动作在过去那个时间可能刚
+刚结束，也可能还在继续：He had been waiting for the bus for half an hour when it finally 
+came.（公交车终于来的时候，他已经等了半个小时了。）
+o 常与 by, before 等引导的时间状语连用：By the end of last year, she had been working in 
+this company for ten years.（到去年年底，她已经在这家公司工作十年了。）
+15.将来完成进行时：
+o 表示在将来某个时间之前开始一直持续到将来那个时间的动作，并且这个动作可能还会继续下去：
+By next month, I will have been teaching in this school for 20 years. （到下个月，我就在
+这所学校教书 20 年了，并且还会继续教下去。）
+o 强调动作在将来某个时间段内的持续性：In another five years, he will have been living in this 
+city for 30 years.（再过五年，他就在这个城市生活 30 年了。）
+16.过去将来完成进行时：
+o 表示从过去某个时间看，到将来某个时间之前一直在进行的动作，且该动作在将来那个时间可能
+刚刚结束，也可能还会继续：She said she would have been studying in this university for 
+four years by the end of next month.（她说到下个月底，她就在这所大学学习四年了。）
+o 此时态相对较少使用，常用于复杂的过去语境中描述未来的动作持续情况 ：He thought he 
+would have been working on this project for a long time before it was completed.（他认
+为在这个项目完成之前，他会一直在做这个项目很长时间。）
+十二、4 大特殊句式详解
+18
+1. There be 结构：
+o 基本结构：There be + 主语 + 地点状语，表示 “某地有某物 / 人”。There is a book on the 
+table.（桌子上有一本书。）
+o be 动词的形式要与主语的单复数保持一致：如果主语是单数或不可数名词，be 动词用 is；如果
+主语是复数名词，be 动词用 are。There is some water in the bottle. （瓶子里有一些水。）
+There are many students in the classroom.（教室里有很多学生。）
+o There be 结构的时态变化：除了一般现在时，还有 There was/were （一般过去时），There 
+will be（一般将来时），There have/has been（现在完成时）等。There was a party in our 
+school yesterday.（昨天我们学校有一场派对。）There will be a new park in our city next 
+year.（明年我们城市将会有一个新公园。）
+2. It is...that 强调句：
+o 基本结构：It is/was + 被强调部分 + that/who + 句子其他部分。当被强调部分是人时，可用
+who 代替 that；当被强调部分是物或其他情况时，用 that。It is Tom that/who I met in the 
+street yesterday. （我昨天在街上遇到的是汤姆。）It is the book that I bought yesterday.
+（我昨天买的是这本书。）
+o 强调句的判断方法：去掉 It is/was...that/who 结构后，剩余部分仍然是一个完整的句子。例如
+上面两个句子去掉结构后分别为：I met Tom in the street yesterday. 和 I bought the book 
+yesterday. 都是完整的句子，所以是强调句。
+o 强调句的时态：根据句子的需要，be 动词可以是 is（一般现在时），was（一般过去时）。如果
+原句是一般现在时，强调句用 It is...that；如果原句是一般过去时，强调句用 It was...that。
+3. 倒装句：
+o 完全倒装：将句子中的谓语动词全部置于主语之前。常见于以下情况：
+o 表示地点、方向、时间等的副词或介词短语位于句首时：Here comes the bus. （公交车
+来了。）Out rushed the children.（孩子们冲了出去。）In the front of the classroom 
+stood a teacher.（教室前面站着一位老师。）
+o 在 “There be + 主语 + 地点状语” 结构中，有时可用 “There + 不及物动词 + 主语 + 地
+点状语” 结构代替，如 There lies a river near our village.（我们村子附近有一条河。）
+o 部分倒装：将谓语动词的一部分（如助动词、情态动词或 be 动词）置于主语之前。常见于以下
+情况：
+19
+o 含有否定意义的词或短语位于句首时，如 never, seldom, hardly, rarely, not only...but 
+also, neither...nor 等：Never have I seen such a beautiful place. （我从未见过如此
+美丽的地方。）Not only does he speak English well, but also he can write in it.（他
+不仅英语说得好，而且还能用英语写作。）
+o only 修饰副词、介词短语或状语从句且位于句首时：Only in this way can you solve the 
+problem.（只有用这种方法你才能解决这个问题。） Only when he came back did I 
+know the news.（只有当他回来时我才知道这个消息。）
+o so/such...that 结构中，当 so 或 such 位于句首时 ：So excited was he that he 
+couldn&#x27;t say a word. （他如此激动以至于说不出话来。）Such a kind man is he that 
+everyone likes him.（他是如此善良的一个人，以至于每个人都喜欢他。）
+4. 省略句：
+o 为了避免重复、突出新信息等，省略句子中的一个或几个成分 ：在对话中，常常省略主语、谓语
+等成分。例如：（I）Hope to see you soon. （希望很快见到你。）（Are you）Coming with 
+us?（和我们一起来吗？）
+十三、语法运用中的常见错误及解析
+1. 名词方面
+o 单复数错误：误：I have many book. 正： I have many books. （many 后接可数名词复数，
+book 应加 -s）
+o 名词所有格错误：误：This is Tom book. 正：This is Tom’s book. （表示所属关系，要用名
+词所有格形式 Tom’s）
+2. 动词方面
+o 主谓不一致：误：He play football every day. 正：He plays football every day. （主语 he 是
+第三人称单数，一般现在时中动词 play 要加 -s）
+o 时态误用：误：I will went to school tomorrow. 正：I will go to school tomorrow. （一般将
+来时结构是 will + 动词原形，went 是 go 的过去式，应改为 go）
+o 及物动词与不及物动词混淆：误：I listen the music. 正：I listen to the music. （listen 是不
+及物动词，后接宾语时要加介词 to）
+3. 形容词和副词方面
+o 形容词与副词混淆 ：误：He runs quick. 正： He runs quickly. （修饰动词 run 要用副词
+20
+quickly，quick 是形容词）
+o 比较级和最高级错误：误：He is the taller in our class. 正： He is the tallest in our class. 
+（在三者或三者以上比较要用最高级 tallest，taller 是比较级）
+4. 冠词方面
+o 不定冠词误用：误：I have an apple and a orange. 正：I have an apple and an orange. 
+（orange 是以元音音素开头，要用 an）
+o 定冠词漏用：误：I like playing piano. 正：I like playing the piano. （在乐器前要用定冠词
+the）
+5. 代词方面
+o 人称代词主宾格误用：误：Give the book to I. 正：Give the book to me. （to 是介词，后面
+要用宾格 me，I 是主格）
+o 物主代词误用：误：This is mine book. 正：This is my book. （修饰名词 book 要用形容词性
+物主代词 my，mine 是名词性物主代词）
+6. 数词方面
+o 基数词与序数词误用：误：Today is my the first day in this school. 正：Today is my first 
+day in this school. （物主代词 my 和定冠词 the 不能同时修饰序数词 first，应去掉 the）
+7. 介词方面
+o 介词搭配错误：误：I am good in English. 正：I am good at English. （“ 擅长” 是 be good 
+at，at 是固定搭配的介词）
+8. 连词方面
+o 连词误用：误：Because he was ill, so he didn&#x27;t go to school. 正：Because he was ill, he 
+didn&#x27;t go to school. 或 He was ill, so he didn&#x27;t go to school. （because 和 so 不能同时使
+用，在英语中，一个句子只能用一个表示因果关系的连词）
+9. 句子结构方面
+o 成分残缺：误：Going to school by bike. 正：I go to school by bike. （原句缺少主语，应补
+充主语 I）
+o 句式杂糅：误：The reason why he was late is because he got up late. 正：The reason why
+21
+he was late is that he got up late. 或 He was late because he got up late. （“the reason 
+why...is that...” 是正确结构，不能与 because 杂糅）
+10.从句方面
+o 名词性从句引导词误用：误：I don&#x27;t know if he will come or not. 正：I don&#x27;t know whether 
+he will come or not. （在表示 “是否” 且与 or not 连用时，只能用 whether 引导宾语从句）
+o 定语从句关系词误用：误：The man whom is standing there is my father. 正：The man who 
+is standing there is my father. （关系词在从句中作主语，要用 who，whom 作宾语）
+o 状语从句引导词误用：误：Although he is rich, but he is not happy. 正：Although he is rich, 
+he is not happy. 或 He is rich, but he is not happy. （although 和 but 不能同时使用，与
+because 和 so 的用法类似）
+十四、语法学习方法建议
+1. 系统学习：从基础的词性、句子成分学起，逐步深入到时态、从句等较为复杂的内容。可以参考权威的
+语法教材或者在线课程，按照章节顺序，全面、系统地学习语法知识。
+2. 多做练习：通过做练习题，如选择题、填空题、改错题等，加深对语法规则的理解和记忆。练习题可以
+从教材配套练习册、语法专项练习书或者在线学习平台获取。做完练习后，认真分析错题，找出错误原
+因，强化对相关语法点的掌握。
+3. 阅读与写作结合：阅读英语文章、书籍、报纸等，在阅读过程中注意观察句子的语法结构，分析作者是
+如何运用各种语法知识来表达意思的。同时，进行写作练习，将所学的语法知识运用到作文中，通过写
+作来检验自己对语法的掌握程度。可以从写短文、日记开始，逐渐过渡到议论文、记叙文等不同体裁的
+写作。
+4. 模仿与背诵：选择一些经典的英语句子、段落或者短文进行模仿和背诵。模仿其语法结构、词汇运用和
+表达方式，背诵可以帮助形成语感，在语言输出时能够更加自然地运用正确的语法。例如，背诵一些名
+言警句、优美的散文段落等。
+5. 语境学习：不要孤立地学习语法，要将语法知识放在具体的语境中理解和运用。可以通过观看英语电影、
+电视剧、听英语广播、参加英语角等方式，在真实的语言环境中感受语法的实际运用，这样能更好地理
+解语法规则在不同情境下的变化。
+6. 总结归纳：定期对所学的语法知识进行总结归纳，制作思维导图或者语法笔记。将相似的语法点进行对
+比，找出它们的异同点，例如一般现在时和现在进行时的区别、各种从句的引导词用法对比等。这样有
+助于梳理知识体系，加深记忆。
+7. 寻求帮助：如果在学习过程中遇到困难，不要独自纠结，可以向老师、同学请教，或者在英语学习论坛、
+22
+社区等平台提问。与他人交流学习经验和心得，也能从不同的角度理解和掌握语法知识。</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="英语零基础语法大全白";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

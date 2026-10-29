@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全英交流700句</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>全英交流700句</h1>
+  <div class="meta">
+    <span class="badge pdf">PDF</span>
+    <span class="charspill">25,992 字符</span>
+    <span>来源：全英交流700句.pdf</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%85%A8%E8%8B%B1%E4%BA%A4%E6%B5%81700%E5%8F%A5.pdf" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p175.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">1 / 18
+MASTER THE MOST COMMON EXPRESSIONS 
+AND ACE ENGLISH COMMUNICATION
+一、日常交流（Daily Communication）
+1. How are you today?（你今天过得怎么样？）
+2. Long time no see!（好久不见！ ）
+3. What’s up?（有什么新鲜事吗？/ 怎么了？）
+4. Nice to meet you!（很高兴见到你！ ）
+5. How’s the weather today?（今天天气如何？）
+6. It’s a beautiful day, isn’t it?（今天天气真好，
+不是吗？）
+7. Where are you from?（你来自哪里？）
+8. I’m just passing by.（我只是路过。 ）
+9. Have you eaten yet? (亚洲常用) （你饭了了吗？）
+10. What’s your plan for the weekend?（你周
+末有什么计划？）
+11. I’ve been busy lately.（我最近一直很忙。 ）
+12. You look great today!（你今天看起来很棒！ ）
+13. How was your trip?（你的旅行怎么样？）
+14. Tell me about your day.（跟我讲讲你今天的
+情况。 ）
+15. Mind if I join you?（介意我加入你们吗？）
+16. Catch you later!（待会儿见！ ）
+17. Take care!（保重！ ）
+18. See you around!（回头见！ ）
+19. Happy birthday!（生日快乐！ ）
+20. Congratulations on your promotion!（恭喜
+你升职！ ）
+二、购物与餐饮（Shopping &amp; Dining）
+2 / 18
+1. How much is this?（这个多少钱？）
+2. Do you have this in a larger size?（这个有大
+一点的尺码吗？）
+3. Can I try this on?（我可以试穿一下吗？）
+4. I’ll take it.（我买了。 ）
+5. Is there a discount?（有折扣吗？）
+6. Where is the fitting room?（试衣间在哪里？）
+7. I’m just looking, thanks. （我只是看看， 谢谢。 ）
+8. Do you accept credit cards? （你们受信用卡 
+付款吗？）
+9. Can I pay by Alipay? (中国场景)（我可以卡支
+付宝付款吗？）
+10. Keep the change.（不卡找零了。 ）
+11. Waiter, can I have the menu?（服务员，能
+给我菜单吗？）
+12. I’d like to order…（我想点……）
+13. Could I get a high chair for the kid?（能给
+小孩拿一把高脚椅吗？）
+14. Is this dish spicy?（这道菜辣吗？）
+15. Can I have more water, please?（请再给我
+来点水好吗？）
+16. Check, please.（请结账。 ）
+17. Do you have vegetarian options?（你们有
+素食菜品吗？）
+18. I’m allergic to nuts.（我对坚果过敏。 ）
+19. Can we split the bill? （我们可以开付付账吗？）
+20. The food was delicious!（食物太美味了！ ）
+三、旅行与交通（Travel &amp; Transportation）
+1. Excuse me, where’s the nearest subway 
+station?（打扰一下，最近的地铁站在哪里？）
+2. How far is it from here?（离这儿有多远？）
+3. Which bus goes to the airport?（哪路公交车
+去机场？）
+4. Can you show me on the map?（你能在地图
+上指给我看吗？）
+5. Is there a taxi stand nearby? （附近有出租车
+停靠点吗？）
+6. I’d like a one-way ticket to London.（我想要
+一张去伦敦的单程票。 ）
+7. How long does it take?（需要多长时间？）
+8. When does the next train leave?（下一趟火
+车什么时候发车？）
+9. Can I reserve a seat?（我可以预订座位吗？）
+10. Is this seat taken?（这个座位有人坐吗？）
+11. Where can I park my car?（我可以在哪里停
+车？）
+12. How much is the parking fee?（停车费是多
+少？）
+13. I need a taxi now.（我现在需要一辆出租车。 ）
+14. Follow me, please. ( 司机用语)（请跟我来。 ）
+15. Keep the receipt.（留好收据。 ）
+16. The traffic is terrible today.（今天交通太糟
+糕了。 ）
+17. Can you drive faster?（你能付快点吗？）
+18. Stop here, please.（请在这里停车。 ）
+19. I’ve missed my flight.（我错过了我的航班。 ）
+20. Where’s the baggage claim? （行提取处在在
+哪里？）
+21. I need a taxi to the airport.（我需要一辆出租
+车去机场。 ）
+22. How do I buy train tickets online?（我如何
+在网上购买火车票呢？）
+23. Is there a bus to the city center?（有去市中
+心的公交车吗？）
+24. I’d like to rent a car.（我想租一辆车。 ）
+3 / 18
+25. What’s the parking situation here?（这里的
+停车情况怎么样？）
+26. Can I get a refund for my ticket?（我的票能
+退款吗？）
+27. I missed my flight —what now?（我错过了
+我的航班，现在该怎么办？）
+28. How do I check flight status? （我如何询航航
+班状态呢？）
+29. I need a travel adapter.（我需要一个旅行转
+换器。 ）
+30. Let’s plan a road trip! （咱们计划一次自驾游
+吧！ ）
+31. I want to book a cruise. （我想预订一次游轮
+旅行。 ）
+32. How do I get to the train station?（我怎么去
+火车站呢？）
+33. I need a bike rental.（我需要租一辆自行车。 ）
+34. What’s the best way to explore the city?
+（探索这座城市的最佳方式是什么？）
+35. I’d like to book a private tour.（我想预订一
+次私人旅行团。 ）
+36. Can I get a student discount? （我能享信学
+生折扣吗？）
+37. I need to exchange currency.（我需要兑换
+货币。 ）
+38. How do I use public transport here?（我在
+这里如何使卡公共交通工具呢？）
+39. I want to visit local attractions.（我想去参观
+当地的景点。 ）
+40. Let’s go on a city tour! （咱们去城市观吧吧！ ）
+41. I’d like to book a flight to Paris.（我想预订
+一张去巴黎的机票。 ）
+42. What’s the weather like there? （里里的天气
+怎么样？）
+43. Do you have any deals for this season? （这
+个季节有什么优惠吗？）
+44. I need a single room with a view.（我需要
+一间能看到风景的单人间。 ）
+45. Is breakfast included?（含早餐吗？）
+46. How do I get to the airport? （我怎么去机场？）
+47. Can I have a map of the city? （我能要一份
+城市地图吗？）
+48. What time does the tour start?（旅游团什么
+时候出发？）
+49. I’d like to visit the local market.（我想去参
+观当地的市场。 ）
+50. Is this ticket refundable? （这张票可以退款
+吗？）
+51. Can I pay in cash or card?（我可以卡现金或
+用卡 付款吗？）
+52. I lost my luggage.（我的行提丢了。 ）
+53. Where’s the nearest ATM?（最近的自动处款
+机在哪里？）
+54. How do I say “hello” in French?（卡法语怎
+么说 “你好”？）
+55. I need a translator app. （我需要一个翻译应
+卡程序。 ）
+56. The Wi - Fi password is…?（Wi - Fi 密码
+是……？）
+57. Can I extend my stay?（我可以延长住宿时间
+吗？）
+58. I want to try local street food.（我想尝尝当
+地的街头小饭。 ）
+59. Is it safe to walk here at night?（晚上在这里
+走路安全吗？）
+60. I’d like to book a guided tour.（我想预订一
+个有导游的旅行团。 ）
+四、职场与商务（Workplace &amp; Business）
+1. Let me introduce myself. （让我自我介绍一下。 ）2. I’m in charge of marketing. （我责市市场销。。 ）
+4 / 18
+3. Nice to meet you all.（很高兴见到大家。 ）
+4. What department are you in? （你在哪个部
+门？）
+5. Could you tell me about your role?（你能跟
+我讲讲你的工作职市吗？）
+6. We’ve met before at…（我们之前在…… 见过
+面。 ）
+7. Do you have a business card? （你有片吗吗？）
+8. Here’s my contact info.（这是我的联系方式。 ）
+9. Let’s keep in touch.（让我们保持联系。 ）
+10. I’ll reach out later.（我稍后会联系你。 ）
+11. Let’s start with the agenda. （我们从议程付
+始吧。 ）
+12. Does anyone have any questions?（有人有
+问题吗？）
+13. I’d like to propose a new idea.（我想取出一
+个新想法。 ）
+14. Can we revisit this point later?（我们可以稍
+后再讨论这一点吗？）
+15. Let’s put it to a vote.（我们来投票决定吧。 ）
+16. That’s a good point.（这是个好观点。 ）
+17. I see your concern, but… （我白你你的虑，，
+但是……）
+18. Let’s table this discussion. ( 注意：美式 = 
+讨论， 英式 = 搁置) （我们把把这个讨论置一一下 / 
+我们来讨论这个问题。 ）
+19. We need more data to decide.（我们需要更
+多数据才能做决定。 ）
+20. Let’s move on to the next topic.（我们受着
+讨论下一个话题吧。 ）
+21. What’s your bottom line? （你的线是是什么？）
+22. Can we find a middle ground?（我们能找到
+一个折中的办法吗？）
+23. I’m afraid we can’t accept this term.（恐怕
+我们不能受信这个条款。 ）
+24. Let’s compromise on the price. （我们在价
+格上妥协一下吧。 ）
+25. Do you offer a discount for bulk orders?
+（批量订购有折扣吗？）
+26. We need a written agreement. （我们需要一
+份书面协议。 ）
+27. When can we sign the contract?（我们什么
+时候可以签合同？）
+28. What’s the delivery timeline?（交货时间是
+什么时候？）
+29. We value long - term cooperation.（我们重
+视长期合作。 ）
+30. Let’s schedule a follow - up call.（我们安排
+一次后续通话吧。 ）
+五、学术与教育（Academic &amp; Education）
+1. Could you repeat that, please?（请你重复一
+下好吗？）
+2. I didn’t catch your last point.（我没听懂你最
+后一点。 ）
+3. Can I ask a question?（我可以问个问题吗？）
+4. What does this term mean?（这个术语是什么
+意思？）
+5. May I borrow a pen?（我可以借支笔吗？）
+6. I’m stuck on this problem. （我被这道题难住
+了。 ）
+7. Can we form a study group?（我们可以组成
+一个学习小组吗？）
+8. When’s the deadline for the essay?（这篇论
+文的截止日期是什么时候？）
+9. I need an extension.（我需要延期。 ）
+10. Can I submit my work online?（我可以在是
+取交作业吗？）
+11. Let’s outline the structure first.（我们把列出
+结构大纲吧。 ）
+12. This paragraph lacks evidence.（这段缺乏
+5 / 18
+证据。 ）
+13. How do I cite this source?（我该如何引卡这
+个资料来源？）
+14. Avoid using informal language.（避免使卡
+非正式语言。 ）
+15. Proofread for grammar mistakes.（检询语
+法错误。 ）
+16. The thesis needs more clarity.（论文的论点
+需要更清晰。 ）
+17. Use MLA/APA format. （使卡 MLA/APA 格式。 ）
+18. Let’s peer - review each other’s drafts. （我
+们互相评阅一下草稿吧。 ）
+19. The conclusion is too weak. （结论太弱了了。 ）
+20. Submit it to Turnitin for plagiarism check.
+（把它取交到 Turnitin 进行抄袭检测。 ）
+六、社交与情感（Social &amp; Emotional）
+1. Would you like to join us for dinner?（你愿
+意和我们一起饭晚餐吗？）
+2. Let’s catch up over coffee. （我们一起喝杯咖
+啡叙叙旧吧。 ）
+3. Thanks for your help!（谢谢你的帮助！ ）
+4. I really appreciate it.（我真的很感激。 ）
+5. You’re welcome!（不客气！ ）
+6. No problem at all.（一点也不麻烦。 ）
+7. Let me treat you this time.（这次我请你。 ）
+8. Don’t mention it.（别客气。 ）
+9. I owe you one.（我欠你一个人情。 ）
+10. Happy to help!（很乐意帮忙！ ）
+11. I’m sorry for being late.（我很抱歉迟到了。 ）
+12. My bad, I didn’t mean it.（是我的错，我不是
+故意的。 ）
+13. It’s okay, no worries.（没关系，别担心。 ）
+14. Are you alright?（你还好吗？）
+15. That’s too bad…（太糟糕了……）
+16. Everything will be fine. （一都会会好起来的。 ）
+17. Take your time.（别着急。 ）
+18. I understand how you feel. （我理解你的感
+信。 ）
+19. Let me know if you need anything. （如果
+你需要什么，告诉我。 ）
+20. Hang in there!（坚持住！ ）
+七、紧急情况（Emergency Situations）
+1. I need help!（我需要帮助！ ）
+2. Call the police!（报警！ ）
+3. I’ve lost my passport.（我的护照丢了。 ）
+4. Where’s the nearest hospital? （最近的院在在
+哪里？）
+5. I don’t feel well.（我感觉不舒服。 ）
+6. Can you call an ambulance? （你能叫一辆救
+护车吗？）
+7. I’ve been robbed!（我被抢劫了！ ）
+8. This is an emergency!（这是紧急情况！ ）
+9. Help! He’s chasing me!（救命！他在追我！ ）
+10. Please stay with me.（请陪着我。 ）
+11. I’ve been in a car accident. （我遇了了车。。 ）
+12. Call an ambulance now!（现在叫救护车！ ）
+13. I need to report a theft. （我要报，，西被被 
+了。 ）
+14. There’s a fire in the building!（大楼里着火
+了！ ）
+6 / 18
+15. I’m lost—can you help?（我迷路了，你能帮
+忙吗？）
+16. I need to contact my embassy.（我需要联系
+我的大使馆。 ）
+17. Someone is following me.（有人在跟踪我。 ）
+18. I’ve been attacked.（我被袭击了。 ）
+19. I need a translator urgently.（我急需一片翻
+译。 ）
+20. This is a life - threatening situation.（这是
+危及生命的情况。 ）
+21. I can’t breathe—help! （我不不过气来， 救命！ ）
+22. I’ve been poisoned.（我中毒了。 ）
+23. I need to evacuate immediately.（我需要立
+即疏散。 ）
+24. There’s a gas leak!（有煤气泄漏！ ）
+25. I’m trapped in here!（我被困在这里了！ ）
+26. Call the fire department!（拨打消防电话！ ）
+27. I need an interpreter now.（我现在需要一片
+口译员。 ）
+28. I’ve been robbed at gunpoint.（我被持枪抢
+劫了。 ）
+29. I need to file a police report.（我需要报警备
+，。 ）
+30. I’m in danger—please help!（我有危险，请
+帮帮我！ ）
+八、家庭与生活（Family &amp; Daily Life）
+1. What’s for dinner tonight?（今晚饭什么？）
+2. Can you help me with the dishes?（你能帮我
+洗碗吗？）
+3. I’m doing laundry later. （我一会儿要洗衣服。 ）
+4. Don’t forget to lock the door.（别忘了锁门。 ）
+5. Who’s picking up the kids? （谁去受孩子？）
+6. Let’s plan a family movie night.（我们计划一
+个家庭电影之夜吧。 ）
+7. I need to do grocery shopping.（我需要去买
+日卡品。 ）
+8. Can you babysit tonight?（你今晚能帮忙看孩
+子吗？）
+9. I’m trying a new recipe. （我在尝试一种新食
+谱。 ）
+10. The trash needs to be taken out.（垃圾需要
+倒了。 ）
+11. I’m going to clean the garage.（我要去打扫
+车库。 ）
+12. Let’s set the table.（我们摆好餐具吧。 ）
+13. Don’t leave your shoes there!（别把鞋子放
+在里儿！ ）
+14. I’ll handle the bills this month.（这个月我来
+在理账单。 ）
+15. Let’s have a family game night.（我们来个
+家庭游戏之夜吧。 ）
+16. I need to fix the sink.（我需要修理水槽。 ）
+17. Who’s taking out the recycling?（谁去扔可
+回收垃圾？）
+18. I’m going to mow the lawn. （我要去修剪草
+坪。 ）
+19. Let’s plan a weekend getaway.（我们计划
+一次周末度假吧。 ）
+20. I’ll walk the dog later.（我一会儿去遛狗。 ）
+九、健康与医疗（Health &amp; Medical）
+1. I have a headache.（我头疼。 ） 2. Where’s the nearest clinic?（最近的诊所在哪
+7 / 18
+里？）
+3. I need to make an appointment. （我需要预 
+一下。 ）
+4. What are the symptoms?（有哪些症状？）
+5. I think I have a fever.（我觉得我发烧了。 ）
+6. Can I get a prescription? （我能拿到在方吗？）
+7. How long should I take this medicine?（这
+药我该饭多久？）
+8. I need a flu shot.（我需要打流感疫苗。 ）
+9. Do you accept insurance? （你们受信保险支付
+吗？）
+10. I’ve been having trouble sleeping. （我一直
+睡眠不好。 ）
+11. I need to see a dentist.（我需要看牙院。 ）
+12. My back hurts.（我后背疼。 ）
+13. Can you recommend a good doctor? （你
+能推荐一位好院生吗？）
+14. I’m on a diet.（我在节食。 ）
+15. How can I stay healthy?（我怎样才能保持健
+康？）
+16. I need to exercise more.（我需要多锻炼。 ）
+17. What’s the best way to lose weight?（减肥
+的最佳方法是什么？）
+18. I’m trying to quit smoking. （我正在努力戒
+烟。 ）
+19. I need mental health support.（我需要心理
+健康方面的支持。 ）
+20. I need to check my blood pressure.（我需
+要量一下血压。 ）
+21. Can you recommend a specialist?（你能推
+荐一位专科院生吗？）
+22. I’ve been feeling stressed lately. （我最近一
+直感觉压力很大。 ）
+23. Do you have any painkillers?（你有止痛药
+吗？）
+24. I need a physical exam for work. （我工作
+需要做一次体检。 ）
+25. I think I pulled a muscle.（我觉得我拉伤了肌
+肉。 ）
+26. Can I get a second opinion?（我可以再听听
+其他院生的意见吗？）
+27. I’m allergic to penicillin. （我对霉素素过敏。 ）
+28. How do I take this medication? （这药怎么
+饭？）
+29. I need a referral to a hospital.（我需要转诊
+到院在。 ）
+30. I’ve been having chest pains. （我一直痛痛。 ）
+31. Can you do a blood test? （你能做个血检检询
+吗？）
+32. I need crutches for my knee. （我的盖需需要
+拐杖。 ）
+33. I’m recovering from surgery. （我正在从术术
+中恢复。 ）
+34. I need physical therapy. （我需要物理疗。。 ）
+35. I’ve been coughing a lot. （我一直咳嗽得很
+厉害。 ）
+36. Can I get a flu jab?（我可以打流感疫苗吗？）
+37. I need to monitor my sugar levels.（我需要
+监测我的血糖水平。 ）
+38. I’m trying to eat healthier.（我在努力饭得更
+健康。 ）
+39. I need advice on weight loss.（我需要减肥
+方面的建议。 ）
+十、科技与数码（Technology &amp; Digital）
+1. How do I reset my password?（我怎么重一密
+码？）
+2. My phone isn’t charging. （我的术机充不进电。 ）
+3. Can you help me fix my laptop?（你能帮我修
+一下笔记本电脑吗？）
+4. I need to update my software.（我需要更新我
+8 / 18
+的软件。 ）
+5. Where can I buy a new charger?（我在哪里
+能买到新的充电器？）
+6. My computer is running slow. （我的电脑行行
+很慢。 ）
+7. How do I transfer files to another device?
+（我怎么把文件传输到另一个设备上？）
+8. I lost my data—can I recover it?（我的数据丢
+失了，还能恢复吗？）
+9. What’s the Wi -Fi password?（Wi-Fi 密码是
+多少？）
+10. I need to scan this document.（我需要扫描
+这份文件。 ）
+11. How do I set up email on my phone?（我怎
+么在术机上设一电子邮件？）
+12. My headphones aren’t working.（我的耳机
+坏了。 ）
+13. I need to back up my photos. （我需要备份
+我的照吗。 ）
+14. How do I block spam calls?（我怎么屏蔽骚
+扰电话？）
+15. I want to download this app.（我想下载这个
+应卡程序。 ）
+16. My tablet screen is cracked.（我的平板电脑
+屏幕裂了。 ）
+17. How do I connect to Bluetooth? （我怎么连
+受蓝牙？）
+18. I need to print this file. （我需要打印这份文
+件。 ）
+19. My camera battery died. （我的相机电没没电
+了。 ）
+20. How do I edit this video?（我怎么编辑这个视
+频？）
+21. How do I fix a frozen screen?（我怎么修复死
+机的屏幕？）
+22. I need to recover deleted files. （我需要恢
+复删除的文件。 ）
+23. How do I set up a hotspot? （我怎么设一热
+点？）
+24. My phone keeps crashing. （我的术机是是死
+机。 ）
+25. I want to learn graphic design. （我想学平
+面设计。 ）
+26. How do I use Photoshop basics? （Photoshop 
+的基本操作怎么卡？）
+27. I need to clean my laptop fan.（我需要清理
+笔记本电脑的风扇。 ）
+28. How do I transfer photos from iPhone to 
+PC?（我怎么把照吗从 iPhone 传到电脑上？）
+29. I want to start a YouTube channel.（我想付
+一个 YouTube 频道。 ）
+30. How do I edit videos on my phone?（我怎
+么在术机上编辑视频？）
+31. I need to secure my Wi-Fi network.（我需
+要保护我的 Wi-Fi 网络安全。 ）
+32. How do I block ads on my browser?（我怎
+么在浏览器上屏蔽广告？）
+33. I want to learn coding for beginners. （我
+想从基础学编程。 ）
+34. How do I create a website? （我怎么创建一
+个网站？）
+35. I need to fix my printer.（我需要修理我的打
+印机。 ）
+36. How do I scan documents with my phone?
+（我怎么卡术机扫描文件？）
+37. I want to improve my typing speed.（我想
+取高我的打字速度。 ）
+38. How do I use Excel formulas?（我怎么使卡 
+Excel 公式？）
+39. I need to back up my phone data.（我需要
+备份我的术机数据。 ）
+40. How do I set up a smart home device?（我
+怎么设一智能家居设备？）
+9 / 18
+十一、兴趣爱好（Hobbies &amp; Interests）
+1. I love photography—do you have tips?（我
+喜欢摄影，你有什么技巧吗？）
+2. Let’s go hiking this weekend!（这个周末我们
+去徒步旅行吧！ ）
+3. I’m learning to play the guitar.（我在学弹吉
+他。 ）
+4. Do you know any good bookstores? （你知
+道有什么好的书店吗？）
+5. I enjoy cooking Italian food. （我喜欢做意大 
+菜。 ）
+6. Let’s try painting together.（我们一起试试画
+画吧。 ）
+7. I’m into fitness and yoga. （我喜欢健和和伽。。 ）
+8. Have you seen this new movie?（你看了这部
+新电影吗？）
+9. I like collecting stamps.（我喜欢集邮。 ）
+10. Let’s play chess later.（我们一会儿下棋吧。 ）
+11. I’m thinking of starting a garden. （我在考
+，付辟一个花园。 ）
+12. Do you have any workout routines?（你有
+什么锻炼计划吗？）
+13. I enjoy writing short stories.（我喜欢写短篇
+小说。 ）
+14. Let’s go camping next month.（我们下个月
+去露销吧。 ）
+15. I’m learning to bake bread. （我在学面面。。 ）
+16. Do you play any team sports?（你参加团队
+行动吗？）
+17. I like watching documentaries. （我喜欢看
+纪录吗。 ）
+18. Let’s try a new restaurant.（我们去试试新付
+的餐厅吧。 ）
+19. I’m interested in astronomy.（我对天文学感
+兴趣。 ）
+20. Do you have any DIY projects? （你有什么 
+DIY 项目吗？）
+21. I love hiking—any recommendations? （我
+喜欢徒步旅行，有什么推荐的地方吗？）
+22. Let’s go stargazing tonight.（今晚我们去观
+星吧。 ）
+23. I’m into photography —tips?（我喜欢摄影，
+求技巧？）
+24. Do you have a book club?（你们有读书俱乐
+部吗？）
+25. I enjoy knitting and crafting.（我喜欢编织和
+术工制作。 ）
+26. Let’s try rock climbing. （我们试试攀岩吧。 ）
+27. I’m learning to code.（我在学编程。 ）
+28. Do you play video games? （你玩电子游戏
+吗？）
+29. I like collecting coins.（我喜欢收集硬币。 ）
+30. Let’s go fishing this weekend.（这个周末我
+们去钓鱼吧。 ）
+31. I’m interested in calligraphy. （我对书法感兴
+趣。 ）
+32. Do you have any art classes? （你们有美术
+课吗？）
+33. I enjoy playing chess.（我喜欢下棋。 ）
+34. Let’s try pottery making. （我们试试做陶艺
+吧。 ）
+35. I’m into fitness challenges. （我喜欢健和挑
+战。 ）
+36. Do you have running groups?（你们有跑步
+俱乐部吗？）
+37. I like writing poetry.（我喜欢写诗。 ）
+38. Let’s plan a picnic.（我们计划一次野餐吧。 ）
+39. I’m curious about meditation.（我对冥想很
+好奇。 ）
+40. Do you have dance lessons?（你们有舞蹈课
+吗？）
+10 / 18
+十二、社交与人际关系（Social &amp; Relationships）
+1. How do I apologize sincerely? （我怎样才能
+真诚地道歉？）
+2. I want to make new friends. （我想结交新朋
+友。 ）
+3. Let’s celebrate your birthday! （我们来祝你你
+的生日吧！ ）
+4. I need relationship advice.（我需要一些人际
+关系方面的建议。 ）
+5. How do I ask someone out?（我怎么 某人出
+去？）
+6. I think we need some space.（我觉得我们需
+要一些空间。 ）
+7. Let’s reconcile and talk. （我们和解谈谈谈吧。 ）
+8. I need to set boundaries.（我需要设定界限。 ）
+9. How do I handle a breakup? （我该如何应对
+开术？）
+10. I want to reconnect with an old friend.（我
+想和一位是朋友重新联系。 ）
+11. Let’s plan a group outing.（我们计划一次团
+体出游吧。 ）
+12. I need help resolving a conflict.（我需要帮
+助解决冲突。 ）
+13. How do I give a compliment?（我怎么赞美
+别人？）
+14. I want to join a club or group.（我想加入一
+个俱乐部或团体。 ）
+15. I need advice on parenting.（我需要育儿方
+面的建议。 ）
+16. How do I deal with a difficult person?（我
+该如何应对难相在的人？）
+17. I want to improve my communication 
+skills.（我想取高我的沟通技巧。 ）
+18. Let’s have a heart-to-heart talk.（我们来一
+次坦诚的谈话吧。 ）
+19. I need support during a tough time.（我在
+困难时期需要支持。 ）
+十三、工作与职业发展（Work &amp; Career）
+1. I’m looking for a new job. （我在找一份新工
+作。 ）
+2. Can I schedule a performance review?（我
+可以安排一次绩效评估吗？）
+3. I want to ask for a raise.（我想申请加薪。 ）
+4. How do I negotiate a promotion?（我如何协
+商升职的事？）
+5. I need to prepare for an interview.（我需要
+准备面试。 ）
+6. What are the company benefits?（公司有哪
+些福 ？）
+7. I’m interested in a career change.（我对转行
+感兴趣。 ）
+8. How do I write a strong CV? （我怎样写一份
+出色的简历？）
+9. I need networking tips. （我需要一些交交技巧。 ）
+10. Let’s discuss my career goals.（我们来讨论
+一下我的职业目标吧。 ）
+11. I want to improve my leadership skills. （我
+想取高我的领导能力。 ）
+12. How do I handle workplace stress?（我该
+如何应对职场压力？）
+13. I need to manage my team better.（我需要
+更好地管理我的团队。 ）
+14. Let’s brainstorm new ideas.（我们集思广益
+想些新点子吧。 ）
+15. I want to learn project management.（我想
+学项目管理。 ）
+11 / 18
+16. How do I delegate tasks effectively?（我如
+何有效地开配任务？）
+17. I need to improve my time management.
+（我需要取高我的时间管理能力。 ）
+18. Let’s set clear objectives.（我们设定白确的
+目标吧。 ）
+19. I want to enhance my professional skills.
+（我想取升我的专业技能。 ）
+20. How do I prepare for a meeting?（我如何准
+备一场会议？）
+十四、购物与消费（Shopping &amp; Consumer）
+1. Do you have this in another color?（这个有
+其他颜色的吗？）
+2. Can I pay with WeChat Pay?（我可以卡微用
+支付吗？）
+3. Is this tax-free?（这个免税吗？）
+4. I need a gift receipt.（我需要一张礼品收据。 ）
+5. Where’s the customer service desk?（客服
+台在哪里？）
+6. Can I return this item? （我可以退这件商品吗？）
+7. I’m looking for a birthday present.（我在找
+一份生日礼物。 ）
+8. Do you offer installment payments?（你们取
+供开期付款吗？）
+9. What’s the warranty on this?（这个的保修期
+是多久？）
+10. I need a price match.（我需要价格匹配。 ）
+11. Can I see more options?（我能看看更多的选
+择吗？）
+12. I’m just browsing, thanks. （我只是便看看看，
+谢谢。 ）
+13. Do you have discounts for students?（你们
+有学生折扣吗？）
+14. I need a loyalty card.（我需要一张会员 。 ）
+15. Can I order online and pick up in -store?
+（我可以在是下单，然后到店处货吗？）
+16. I want to compare prices.（我想比较一下价
+格。 ）
+17. Do you ship internationally?（你们取供国际
+邮寄服务吗？）
+18. I need a gift box.（我需要一个礼品盒。 ）
+19. Can I try this before buying?（我可以在购买
+前试一下这个吗？）
+20. I’m looking for something unique.（我在找
+一些特别的西被。 ）
+十五、餐厅点餐
+1. Table for two, please.（请给我们两人一桌。 ）
+2. We&#x27;d like to sit by the window.（我们想坐窗
+边。 ）
+3. Do you have a table available right now? 
+（现在有空位吗？）
+4. We have a reservation under Lee.（我们订
+位的片字是提。 ）
+5. Can we see the menu, please?（可以给我们
+看下菜单吗？）
+6. Do you have a kids’ menu? （有儿菜菜单吗？）
+7. Everything smells amazing. （闻起来会太香
+了。 ）
+8. I&#x27;m starving! （我饿死了！ ）
+9. What&#x27;s the house special? （你们的招牌菜是
+啥？）
+10. I&#x27;ll have what they&#x27;re having. （我来来他们点
+的里个。 ）
+11. Can I get this without onions? （这个能不加
+12 / 18
+洋葱吗？）
+12. I’d like it extra spicy.（我要辣一点。 ）
+13. Can you make it less salty? （能清点点吗？）
+14. No peanuts, please.（请不要放花生，我对花
+生过敏。 ）
+15. I&#x27;m allergic to shellfish.（我对海鲜过敏。 ）
+16. Is this dish vegetarian? （这个是素的吗？）
+17. I don&#x27;t eat pork.（我不饭猪肉。 ）
+18. What&#x27;s in this sauce?（这酱里会放了啥？）
+19. I&#x27;ll take the chicken sandwich.（我要一份鸡
+肉三白疗。 ）
+20. I&#x27;ll go with the steak, medium rare.（我要
+一份五开熟牛排。 ）
+21. Can I substitute the fries with a salad?  （ 
+条能换成沙拉吗？）
+22. What sides come with this? （这个配什么配
+菜？）
+23. I’ll have the soup of the day.（我要今天的例
+汤。 ）
+24. I&#x27;d like a bowl of clam chowder.（来碗蛤蜊
+浓汤。 ）
+25. I&#x27;m just getting an appetizer. （我来来个付 
+菜。 ）
+26. Let&#x27;s start with some nachos. （把来点玉米
+吗。 ）
+27. I&#x27;ll skip the appetizer. （我跳过付 菜了。 ）
+28. Can we order drinks first? （我们把点饮料
+吧。 ）
+29. I’ll take a coke, no ice. （我要可乐，不加。。 ）
+30. Just water for me, thanks. （我只要水， 谢谢。 ）
+31. I’ll have an iced tea.（我要杯。红茶。 ）
+32. What kind of beer do you have? （你们这
+有什么啤酒？）
+33. I&#x27;ll try the local brew. （我要试试本地啤酒。 ）
+34. I’ll take a glass of red wine.（我要杯红酒。 ）
+35. Make it a double.（给我双份量。 ）
+36. Cheers!（来，干杯！ ）
+37. Is everything made fresh?  （会是现做的吗？）
+38. That smells so good.（味道真香。 ）
+39. This looks amazing.（看起来太棒了。 ）
+40. Do we need to wait long? （还要很很久吗？）
+41. How long does it usually take?（一般得多久
+上菜？）
+42. Can you bring everything together? （能
+一起上菜吗？）
+43. Please bring the salad first.（把上沙拉。 ）
+44. I want my burger well done.（我的汉堡要全
+熟。 ）
+45. No cheese on mine, please.（我的不要加奶
+酪。 ）
+46. Could you toast the bread? （面。能面一下
+吗？）
+47. Can I get some ketchup? （能给我点番茄酱
+吗？）
+48. I need some extra napkins. （能再给些餐巾
+纸吗？）
+49. Can we get more water, please?（能加点水
+吗？）
+50. The food&#x27;s taking a while.（菜上得有点慢。 ）
+51. Is our order coming soon?（我们的菜快上了
+吗？）
+52. Sorry, this isn&#x27;t what I ordered.（抱歉，这不
+是我点的。 ）
+53. I think something&#x27;s missing.（好像少了点什
+么。 ）
+54. This tastes amazing.（这太好饭了！ ）
+55. The seasoning&#x27;s perfect.（调味刚刚好。 ）
+56. This is way too salty.（这也太咸了。 ）
+57. The steak&#x27;s a bit overcooked.（牛排煎得有
+点是了。 ）
+58. The soup&#x27;s not hot enough. （汤不太热了。 ）
+59. This fish is super fresh.（这鱼特别新鲜。 ）
+13 / 18
+60. The pasta&#x27;s cooked just right. （意面煮得刚
+刚好。 ）
+61. The burger&#x27;s so juicy.（这汉堡太多汁了。 ）
+62. I&#x27;m loving this dish.（我太喜欢这道菜了。 ）
+63. Can I try a bite of yours? （能尝一口你的不？）
+64. Wanna share a dessert? （要不要一起点甜
+点？）
+65. What desserts do you have? （你们有啥甜
+点？）
+66. I’ll take the cheesecake.（我要起司蛋糕。 ）
+67. I’ll pass on dessert.（我甜点来不点了。 ）
+68. Do you have anything sugar -free? （有无
+糖的甜点吗？）
+69. Can I get the dessert menu?（能给我甜点菜
+单吗？）
+70. This chocolate cake is next level. （这巧克
+力蛋糕太绝了。 ）
+71. Let&#x27;s split this.（一起饭这个吧。 ）
+72. I&#x27;m too full for dessert.（我饭太撑了，甜点饭
+不下了。 ）
+73. Everything was delicious. （一都会很好饭。 ）
+74. Compliments to the chef.  （师做做得太棒了。 ）
+75. Can we get the check, please? （可以给我们
+账单了吗？）
+76. We&#x27;d like to pay separately.（我们想开付结
+账。 ）
+77. Let&#x27;s split the bill. （咱们 AA 吧。 ）
+78. I got this one.（我请客。 ）
+79. Can I pay with card? （可以刷 吗？）
+80. Do you take Apple Pay?  （支持果果支付吗？）
+81. Do you accept cash?（收现金吗？）
+82. Here&#x27;s a tip for you.（给你的小费。 ）
+83. Keep the change.（不卡找了。 ）
+84. Thanks, everything was great! （谢谢，一
+都会很棒。 ）
+85. We’ll definitely come back.（我们一定会再
+来的。 ）
+86. Can we take the rest to go?（剩下的能打。
+吗？）
+87. Can I get a to-go box? （能给我个打。盒吗？）
+88. I&#x27;d like to order to go.（我要点外带。 ）
+89. How long for takeout?（外带要很多久？）
+90. I’ll pick it up in 20 minutes. （二十开钟后我
+来拿。 ）
+91. Can I place an order over the phone?（可
+以打电话点餐吗？）
+92. Do you offer delivery? （有外送服务吗？）
+93. Is there a delivery fee?（外送要收钱吗？）
+94. I want to place a large order. （我要点一大
+单。 ）
+十六、饮品点单
+1. I’ll take a medium latte. （我要一杯中杯拿铁。 ）
+2. Can I get an iced Americano?（给我来一杯。
+美式。 ）
+3. One cappuccino, please.（来杯 布奇诺。 ）
+4. I’ll have a flat white.（我要一杯澳你。 ）
+5. Make it a large.（给我大杯的。 ）
+6. Can I get that to go?（这个我想外带。 ）
+7. For here or to go?（在这喝还是带走？）
+8. I’ll drink it here.（我在这喝。 ）
+9. Add an extra shot, please. （加一份浓缩，谢
+谢。 ）
+10. Can you make it decaf? （可以做无咖啡因的
+吗？）
+11. I want it half-caf. （我要一半咖啡因的。 ）
+14 / 18
+12. Do you have oat milk?（有燕麦奶吗？）
+13. Make it with soy milk.（卡豆奶做。 ）
+14. No dairy, please.（别加奶制品。 ）
+15. I&#x27;ll take it with almond milk. （给我仁奶奶的。 ）
+16. Can I get a caramel macchiato?（来杯焦糖
+玛奇朵可以吗？）
+17. Hold the whipped cream.（不要奶油。 ）
+18. Add whipped cream on top. （上面加奶油。 ）
+19. I’ll take it with light ice.（。块少一点。 ）
+20. No ice, please.（不加。。 ）
+21. Can I get that extra hot?（给我做得热一点。 ）
+22. Is it sweetened?（是加糖的吗？）
+23. Make it unsweetened.（不要糖。 ）
+24. I’ll have it lightly sweetened. （甜一点来好。 ）
+25. Can you add vanilla syrup? （加点香草糖
+浆。 ）
+26. I want hazelnut in mine.（我要榛子味的。 ）
+27. I&#x27;ll go with mocha today. （今天来杯卡 吧。 ）
+28. That smells amazing. （味道太香了。 ）
+29. What&#x27;s the most popular drink here? （你
+们这儿什么最信欢迎？）
+30. I&#x27;ll try your seasonal special. （我要试试你
+们的季节限定。 ）
+31. What&#x27;s in a cold brew?  （萃里里会有什么？）
+32. I&#x27;ve never had a nitro cold brew.（我还没喝
+过氮气萃里。 ）
+33. I&#x27;m in the mood for something strong.（想
+来点儿浓的。 ）
+34. Something not too sweet, please.（别太甜
+的里种。 ）
+35. I&#x27;m just grabbing my usual. （跟平常一样来
+行。 ）
+36. Surprise me with something good. （给我推
+荐点好喝的吧。 ）
+37. Can I get a chai latte?（给我来杯印度奶茶拿
+铁。 ）
+38. I&#x27;d like a matcha latte.（我要一杯抹茶拿铁。 ）
+39. Do you have frappuccinos? （有星。乐吗？）
+40. One caramel frappe, please. （来杯焦糖星。
+乐。 ）
+41. I’ll take a blended mocha.  （我要卡 。沙。 ）
+42. Do you have non -coffee drinks? （有不含
+咖啡的饮料吗？）
+43. I’ll have a hot chocolate. （给我一杯热可可。 ）
+44. Just a cup of tea for me.（我只要一杯茶。 ）
+45. Got any herbal teas?（有花草茶吗？）
+46. I&#x27;ll take a green tea.（来杯绿茶。 ）
+47. Can I see the drink menu?（我能看看饮品菜
+单吗？）
+48. I&#x27;ll order when I&#x27;m ready.（我准备好再点。 ）
+49. Give me a minute to decide.（我想一下。 ）
+50. What size do your drinks come in? （你们
+的饮料会有什么大小？）
+51. I&#x27;ll take the smallest size. （我要最小杯的。 ）
+52. Make it a venti. （我要最大杯的。 ）
+53. Do you have loyalty cards? （有会员 吗？）
+54. Can I use my rewards? （我能卡我的分开吗？）
+55. I&#x27;ve got a coupon here.（我有优惠券。 ）
+56. Can I pay with my app?（能卡术机 app 付款
+吗？）
+57. I’ll pay with my card. （我卡 付。 ）
+58. Cash okay?（可以卡现金吗？）
+59. Keep the change.（不卡找了。 ）
+60. Thanks, have a good one! （谢啦，你你愉
+快！ ）
+61. Is my order ready yet?  （我的饮料好了没？）
+62. How long&#x27;s the wait?（还得很多久？）
+63. Order for Jenny! （Jenny 的订单！ ）
+64. That&#x27;s mine, thanks! （里是我的，谢谢！ ）
+15 / 18
+65. This isn&#x27;t what I ordered.（这不是我点的。 ）
+66. I asked for no sugar.（我说了不要糖。 ）
+67. Can you remake this one? （能重新做一杯
+吗？）
+68. Thanks, this looks perfect. （谢谢，这杯看
+着太棒了。 ）
+69. Smells so good, I can&#x27;t wait! （味道太香了，
+很不及了！ ）
+70. Just what I needed.（正是我想要的。 ）
+71. This is way too sweet. （这也太甜了。 ）
+72. It&#x27;s a bit too bitter.（有点苦。 ）
+73. The milk&#x27;s too frothy.（奶泡太多了。 ）
+74. This is so smooth.（这杯好顺口。 ）
+75. I love the flavor.（味道我太喜欢了。 ）
+76. This is super refreshing.（这太解渴了。 ）
+77. It&#x27;s a little watered down.（有点稀了。 ）
+78. Perfect temperature.（温度刚刚好。 ）
+79. I could drink this every day.（我每天会能喝
+这个。 ）
+80. This just made my day. （喝了这杯我付心一 
+天。 ）
+81. I&#x27;ll be back for another. （我很会儿还来一杯。 ）
+82. Do you have snacks too? （你们还有小饭吗？）
+83. I’ll grab a muffin with that. （再来个饼吧吧。 ）
+84. Got any croissants left?（还有羊角。吗？）
+85. I&#x27;ll take a bagel too.（给我来个贝果。 ）
+86. Toast it, please.（面一下。 ）
+87. Add some cream cheese.（加点奶油奶酪。 ）
+88. Heat this up for me?（帮我加热下这个？）
+89. I&#x27;m just here for a snack. （我来来饭点西被。 ）
+90. Can I get a straw?（给我根吸管？）
+91. Do you have napkins?（有纸巾吗？）
+92. Can I get a lid?（能给我个需子吗？）
+93. Do you guys recycle cups? （你们回收杯子
+吗？）
+94. I’ll use my own mug.（我卡自己的杯子。 ）
+95. That&#x27;s such a cute cup!（杯子好好看！ ）
+96. Love the vibe in here.（这店里氛围真不错。 ）
+97. The music&#x27;s chill.（音乐挺舒服的。 ）
+98. Can I get Wi-Fi info?（能告诉我 Wi-Fi 密码
+吗？）
+十七、酒店入住
+1. Hi, I have a reservation.（嗨，我有预订。 ）
+2. I booked a room under the name Chen.  （我
+是卡陈的片字订了房。 ）
+3. I’d like to check in.（我想办理入住。 ）
+4. Is early check -in possible?（可以取前入住
+吗？）
+5. I&#x27;d prefer a room on a higher floor. （我想
+要高楼层的房间。 ）
+6. Can I get a room with a view? （能安排个有
+风景的房间吗？）
+7. I&#x27;d like a non-smoking room. （我想要无烟房。 ）
+8. Is breakfast included?（。早餐吗？）
+9. Do you have room service? （有客房服务吗？）
+10. How late is room service available?（客房
+服务到几点？）
+11. Can I have my bags sent to the room?（能
+把行提送到房间吗？）
+12. What&#x27;s the Wi -Fi password? （Wi-Fi 密码
+是多少？）
+13. Is the Wi-Fi free?（Wi-Fi 是免费的吗？）
+14. The Wi-Fi isn&#x27;t working.（Wi-Fi 连不上。 ）
+15. The air conditioning isn&#x27;t working. （空调坏
+16 / 18
+了。 ）
+16. Can I get extra pillows and blankets?（可
+以多要点枕头和毯子吗？）
+17. The water in the shower is cold.（淋浴的水
+太凉了。 ）
+18. There&#x27;s no hot water.（没热水了。 ）
+19. The TV isn&#x27;t turning on.（电视打不付。 ）
+20. Someone&#x27;s being too loud next door. （隔
+壁太吵了。 ）
+21. The room smells weird.（房间有点异味。 ）
+22. The lights are flickering.（灯忽闪忽闪的。 ）
+23. The key card doesn&#x27;t work.（房 刷不了。 ）
+24. I locked myself out.（我把自己锁外面了。 ）
+25. Is there a safe in the room? （房间有保险箱
+吗？）
+26. Can I leave my valuables at the front desk? 
+（贵重物品可以放前台吗？）
+27. I&#x27;d like a wake-up call at 6 a.m. （我想要白
+早六点的叫醒服务。 ）
+28. What time is breakfast? （早餐几点付始？）
+29. Where&#x27;s the restaurant? （餐厅在哪里？）
+30. Is there a buffet? （有自助餐吗？）
+31. Do you serve vegetarian options? （有素
+食供应吗？）
+32. Can I get a menu? （能给我一份菜单吗？）
+33. I’ll have the continental breakfast. （我要
+一份欧式早餐。 ）
+34. I’ll just have coffee, thanks. （我只要咖啡，
+谢谢。 ）
+35. Can I take this to go? （这个我可以打。带走
+吗？）
+36. Where can I get some drinking water? 
+（我在哪里可以拿到饮卡水？）
+37. Is there a mini fridge in the room? （房间
+里有小。箱吗？）
+38. I didn&#x27;t use anything from the minibar. 
+（小。箱里的西被我什么会没动。 ）
+39. The room wasn&#x27;t cleaned today. （今天房
+间没有打扫。 ）
+40. Can I get fresh towels? （能给我换些干净的
+毛巾吗？）
+41. The toilet&#x27;s not flushing. （马桶冲不了水。 ）
+42. Can someone come fix it?  （能人人来修一下
+吗？）
+43. There&#x27;s no toilet paper. （没有卫生纸了。 ）
+44. Can I get some shampoo and soap? （能
+多给我一些洗发水和香皂吗？）
+45. Is there laundry service?  （有洗衣服务吗？）
+46. How much is it per item? （洗一件衣服要多
+少钱？）
+47. Can you press this shirt? （能帮我熨一下这
+件衬衫吗？）
+48. I need to iron my clothes. （我需要熨一下我
+的衣服。 ）
+49. Do you have an iron I can borrow? （有熨
+斗我可以借一下吗？）
+50. Is there a business center here? （这里有
+商务中心吗？）
+51. Can I use a printer? （我可以卡打印机吗？）
+52. I need to scan a document. （我需要扫描一
+份文件。 ）
+53. Where can I make a copy? （在哪里我可以
+复印西被？）
+54. Can you send a fax for me? （能帮我发一份
+传真吗？）
+55. I need an envelope. （我需要一个用封。 ）
+56. Do you have stamps for sale? （有邮票出售
+吗？）
+57. Is there a mail drop here? （这里有投用箱
+吗？）
+58. Can I rent a conference room? （我可以租
+一间会议室吗？）
+59. How many people can it hold? （它能容纳
+多少人？）
+60. Is there a projector available?  （有投影可可
+17 / 18
+卡吗？）
+61. I need help with the AV setup. （我需要有
+人帮忙设一一下音视频设备。 ）
+62. Can we get some water for the meeting? 
+（可以为会议准备一些水吗？）
+63. Where can I park my car?  （我可以把车停在
+哪里？）
+64. Is parking free? （停车是免费的吗？）
+65. How much is valet parking?  （客客车车要多
+少钱？）
+66. I need my car in 10 minutes. （十开钟后我
+需要卡车。 ）
+67. Can I rent a car through the hotel? （我可
+以通过酒店租车吗？）
+68. Is there an airport shuttle? （有机场受送班
+车吗？）
+69. What time does the next shuttle leave? 
+（下一班班车什么时候出发？）
+70. Can you call a taxi for me? （能帮我叫一辆
+出租车吗？）
+71. I&#x27;m expecting a delivery.  （我在很一个快。。 ）
+72. Has my package arrived? （我的。裹到了
+吗？）
+73. I left something in the room. （我把西被落
+在房间里了。 ）
+74. I think I lost my charger. （我想我把充电器
+弄丢了。 ）
+75. Can you check the lost and found? （能帮
+我询一下失物招领在吗？）
+76. I forgot my room number.  （我忘了我的房间
+号了。 ）
+77. I need a new key. （我需要一把新的房 。 ）
+78. Can I get a late checkout? （我可以晚点退
+房吗？）
+79. What&#x27;s the latest I can check out? （最晚我
+可以几点退房？）
+80. I&#x27;ll be checking out tomorrow morning. 
+（我白天早上退房。 ）
+81. I&#x27;d like to extend my stay. （我想续住。 ）
+82. How much is it per night? （每晚多少钱？）
+83. Are there any promotions right now? （现
+在有什么优惠活动吗？）
+84. Can I change my room? （我可以换个房间
+吗？）
+85. This one&#x27;s a bit too small. （这个房间有点太
+小了。 ）
+86. Is there a suite available? （有套房可供入住
+吗？）
+十八、出国旅行
+1. Is there a currency exchange nearby? （附
+近有货币兑换点吗？）
+2. My boarding pass won&#x27;t scan properly.（我
+的登机牌扫不出来。 ）
+3. Can I get extra legroom seats?（能选腿部空
+间大的座位吗？）
+4. The hotel safe jammed with my passport 
+inside.（酒店保险箱 住了，护照在里面。 ）
+5. This street food&#x27;s spicier than expected. （这
+街头小饭比预期辣多了。 ）
+6. Where&#x27;s the mobile charging station? （术
+机充电站在哪儿？）
+7. My luggage got sent to the wrong country.
+（行提被寄错国家了。 ）
+8. The taxi meter&#x27;s jumping too fast.（出租车计
+价器跳得太快了。 ）
+9. Do you have gluten-free options? （有无麸
+质餐食吗？）
+10. The hostel&#x27;s fire alarm keeps 
+malfunctioning.（霉旅火警器是误响。 ）
+11. Can I get a dental emergency referral? 
+（能推荐牙科急诊吗？）
+18 / 18
+12. This souvenir&#x27;s authenticity certificate 
+looks fake.（这纪念品的真品证书看起来是假的。 ）
+13. My e-ticket QR code won&#x27;t load.（电子票二
+维码加载不出。 ）
+14. Where&#x27;s the luggage wrapping service? 
+（行提打。服务在哪儿？）
+15. The hotel&#x27;s blackout curtains are torn.（酒
+店遮吧窗帘破了。 ）
+16. Can I dispute this credit card charge?  （能
+申诉这笔用卡 消费吗？）
+17. This SIM card data speed&#x27;s terrible.（电话
+ 网速太差了。 ）
+18. The museum&#x27;s audio guide battery died.
+（博物馆讲解器没电了。 ）
+19. My Airbnb has cockroach infestation.  （ 
+宿有蟑螂横行。 ）
+20. Where&#x27;s the lost luggage compensation 
+desk?（行提遗失赔偿柜台在哪？）
+21. The hostel&#x27;s bunk bed ladder&#x27;s broken.
+（霉旅的双层床梯子坏了。 ）
+22. Can I get a vegan breakfast option? （能
+取供纯素早餐吗？）
+23. My rental car&#x27;s GPS is outdated.（租来的车
+的导航系统过时了。 ）
+24. The hotel pool&#x27;s filtration system&#x27;s noisy.
+（酒店泳没过滤系统噪音大。 ）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="全英交流700句";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

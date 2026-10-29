@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全英交流900 8.12</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>全英交流900 8.12</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">27,106 字符</span>
+    <span>来源：全英交流900   8.12.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E5%85%A8%E8%8B%B1%E4%BA%A4%E6%B5%81900%20%20%208.12.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p177.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">全英交流
+搞定这900句，稳了
+一、日常问候与寒暄
+Long time no see.
+（好久不见。）
+How have you been?
+（你近来怎么样？）
+Pretty good.
+（还不错。）
+What&#x27;s up?
+（最近怎么样？）
+Not much.
+（没什么。）
+How&#x27;s it going?
+（情况如何？）
+Same old, same old.
+（还是老样子。）
+What&#x27;s new?
+（有什么新鲜事吗？）
+Nothing special.
+（没什么特别的。）
+How are things?
+（事情进展如何？）
+Everything&#x27;s good.
+（一切都好。）
+How&#x27;s your day?
+（你今天过得怎么样？）
+It&#x27;s going well.
+（过得不错。）
+You look great.
+（你看起来很棒。）
+Thanks, you too.
+（谢谢，你也是。）
+Did you sleep well?
+（你睡得好吗？）
+Yes, thanks.
+（是的，谢谢。）
+Where do you work?
+（你在哪里工作？）
+I work in a company.
+（我在一家公司工作。）
+Do you like your job?
+（你喜欢你的工作吗？）
+Yes, I enjoy it.
+（是的，我很喜欢。）
+What&#x27;s your hobby?
+（你的爱好是什么？）
+I like reading books.
+（我喜欢看书。）
+Do you have any hobbies?
+（你有什么爱好吗？）
+I like playing basketball.
+（我喜欢打篮球。）
+How&#x27;s the weather today?
+（今天天气怎么样？）
+It&#x27;s sunny today.
+（今天天气晴朗。）
+Is it going to rain?
+（会下雨吗？）
+I think it will rain.
+（我想会下雨。）
+It&#x27;s very hot today.
+（今天很热。）
+It&#x27;s cold outside.
+（外面很冷。）
+What&#x27;s the temperature?
+（气温是多少？）
+It&#x27;s 25 degrees.
+（25 度。）
+Have a good day.
+（祝你今天愉快。）
+Hello!
+（你好！）
+Hi!
+（嗨！）
+Good morning.
+（早上好。）
+Good afternoon.
+（下午好。）
+Good evening.
+（晚上好。）
+Good night.
+（晚安。）
+How are you?
+（你好吗？）
+I&#x27;m fine, thanks.
+（我很好，谢谢。）
+And you?
+（你呢？）
+Nice to meet you.
+（很高兴认识你。）
+Nice to meet you too.
+（我也很高兴认识你。）
+What&#x27;s your name?
+（你叫什么名字？）
+My name is Tom.
+（我叫汤姆。）
+May I know your name?
+（我可以知道你的名字吗？）
+I&#x27;m Lisa.
+（我是莉萨。）
+Where are you from?
+（你来自哪里？）
+I&#x27;m from China.
+（我来自中国。）
+How old are you?
+（你多大了？）
+I&#x27;m 30 years old.
+（我 30 岁了。）
+What do you do?
+（你是做什么的？）
+I&#x27;m a teacher.
+（我是一名教师。）
+You too.
+（你也是。）
+See you later.
+（回头见。）
+See you tomorrow.
+（明天见。）
+Bye-bye.
+（再见。）
+Goodbye.
+（再见。）
+二、日常交际与表达
+What can I do for you?
+（我能为你做什么？）
+Could you do me a favor?
+（你能帮我个忙吗？）
+I&#x27;ll try my best.
+（我会尽力的。）
+Let me help you.
+（让我帮你。）
+Thank you for your help.
+（谢谢你的帮助。）
+You&#x27;re very kind.
+（你真好。）
+How shall I address you?
+（我该怎么称呼你？）
+Just call me John.
+（就叫我约翰吧。）
+Nice to talk to you.
+（很高兴和你聊天。）
+Me too.
+（我也是。）
+Can I ask you a question?
+（我能问你一个问题吗？）
+Go ahead.
+（问吧。）
+I don&#x27;t understand.
+（我不明白。）
+Can you explain it?
+（你能解释一下吗？）
+Let me think.
+（让我想想。）
+I see.
+（我明白了。）
+That makes sense.
+（有道理。）
+I agree with you.
+（我同意你的看法。）
+I don&#x27;t agree.
+（我不同意。）
+What do you think?
+（你觉得呢？）
+In my opinion.
+（在我看来。）
+Maybe you&#x27;re right.
+（也许你是对的。）
+I&#x27;m not sure.
+（我不确定。）
+Probably.
+（可能吧。）
+Definitely.
+（当然。）
+Absolutely.
+（绝对地。）
+Maybe later.
+（也许晚点。）
+Let&#x27;s talk later.
+（我们晚点再聊。）
+I have to go.
+（我得走了。）
+Why are you leaving?
+（你为什么要走？）
+I&#x27;m in a hurry.
+（我赶时间。）
+Take care.
+（保重。）
+You too.
+（你也是。）
+Keep in touch.
+（保持联系。）
+I will.
+（我会的。）
+Excuse me.
+（打扰一下。）
+Sorry.
+（对不起。）
+I&#x27;m sorry.
+（我很抱歉。）
+That&#x27;s all right.
+（没关系。）
+It&#x27;s okay.
+（没事。）
+Thank you.
+（谢谢。）
+Thanks a lot.
+（非常感谢。）
+You&#x27;re welcome.
+（不客气。）
+No problem.
+（没问题。）
+Can you help me?
+（你能帮我吗？）
+Sure.
+（当然可以。）
+Of course.
+（当然。）
+I&#x27;m afraid not.
+（恐怕不行。）
+Let&#x27;s meet again.
+（我们再见面吧。）
+Good idea.
+（好主意。）
+When can we meet?
+（我们什么时候能见面？）
+How about tomorrow?
+（明天怎么样？）
+That&#x27;s fine with me.
+（我没问题。）
+Where shall we meet?
+（我们在哪里见面？）
+At the coffee shop.
+（在咖啡店。）
+What time?
+（几点？）
+At 3 o&#x27;clock.
+（三点钟。）
+I&#x27;ll be there on time.
+（我会准时到的。）
+Don&#x27;t be late.
+（别迟到。）
+I won&#x27;t.
+（我不会的。）
+三、饮食相关
+I&#x27;m hungry.
+（我饿了。）
+I&#x27;m starving.
+（我饿死了。）
+What&#x27;s for breakfast?
+（早餐吃什么？）
+I had bread and milk.
+（我吃了面包和牛奶。）
+What&#x27;s for lunch?
+（午餐吃什么？）
+Let&#x27;s have noodles.
+（我们吃面条吧。）
+What&#x27;s for dinner?
+（晚餐吃什么？）
+We&#x27;re having rice.
+（我们吃米饭。）
+I like Chinese food.
+（我喜欢中国菜。）
+Do you like spicy food?
+（你喜欢辣的食物吗？）
+Yes, I do.
+（是的，我喜欢。）
+No, I don&#x27;t.
+（不，我不喜欢。）
+What&#x27;s your favorite food?
+（你最喜欢的食物是什么？）
+I like dumplings.
+（我喜欢饺子。）
+What&#x27;s your favorite drink?
+（你最喜欢的饮料是什么？）
+I like coffee.
+（我喜欢咖啡。）
+Would you like a drink?
+（你想喝点什么吗？）
+Yes, a cup of tea.
+（是的，一杯茶。）
+No, thanks.
+（不了，谢谢。）
+Let&#x27;s go out to eat.
+（我们出去吃吧。）
+Good idea.
+（好主意。）
+Where shall we go?
+（我们去哪里？）
+How about that restaurant?
+（那家餐馆怎么样？）
+What&#x27;s the food like there?
+（那里的食物怎么样？）
+It&#x27;s very delicious.
+（非常美味。）
+May I have a menu?
+（请给我菜单。）
+Do you have a Chinese menu?
+（有中文菜单吗？）
+I&#x27;d like to order now.
+（我现在想点餐。）
+What do you recommend?
+（你有什么推荐吗？）
+The steak is good.
+（牛排不错。）
+I&#x27;ll have the steak.
+（我要一份牛排。）
+How would you like it?
+（你想几分熟？）
+Medium rare, please.
+（请要三分熟。）
+Can I have some salt?
+（能给我一些盐吗？）
+Here you are.
+（给你。）
+My order hasn&#x27;t arrived.
+（我点的餐还没到。）
+I&#x27;ll check for you.
+（我帮你查一下。）
+This food is cold.
+（这食物凉了。）
+Can you heat it up?
+（能热一下吗？）
+The food is delicious.
+（这食物很美味。）
+I&#x27;m full.
+（我吃饱了。）
+I&#x27;m stuffed.
+（我吃撑了。）
+May I have the bill?
+（请给我账单。）
+We&#x27;re ready for the bill.
+（我们要买单。）
+How much is it?
+（多少钱？）
+It&#x27;s 100 yuan.
+（100 元。）
+Can I pay by credit card?
+（我可以用信用卡支付吗？）
+Yes, you can.
+（是的，可以。）
+I&#x27;ll pay for it.
+（我来付钱。）
+Let&#x27;s split the bill.
+（我们 AA 制吧。）
+This is my treat.
+（我请客。）
+Thank you for the meal.
+（谢谢你的款待。）
+You&#x27;re welcome.
+（不客气。）
+Let&#x27;s have dessert.
+（我们吃点甜点吧。）
+What kind of dessert do you have?
+（你们有什么甜点？）
+I&#x27;d like ice cream.
+（我想要冰淇淋。）
+Can I have a glass of water?
+（能给我一杯水吗？）
+Sure.
+（当然可以。）
+The service is good here.
+（这里的服务很好。）
+I&#x27;ll come again.
+（我会再来的。）
+四、购物相关
+Let&#x27;s go shopping.
+（我们去购物吧。）
+Good idea.
+（好主意。）
+Where is the supermarket?
+（超市在哪里？）
+It&#x27;s on Main Street.
+（在主街上。）
+When does the store open?
+（商店什么时候开门？）
+It opens at 9 am.
+（早上 9 点开门。）
+When does it close?
+（什么时候关门？）
+It closes at 10 pm.
+（晚上 10 点关门。）
+What do you want to buy?
+（你想买什么？）
+I need some clothes.
+（我需要一些衣服。）
+How much is this shirt?
+（这件衬衫多少钱？）
+It&#x27;s 80 yuan.
+（80 元。）
+That&#x27;s too expensive.
+（太贵了。）
+Can you lower the price?
+（能便宜点吗？）
+I&#x27;ll give you 70 yuan.
+（我给你 70 元。）
+Deal.
+（成交。）
+Can I try it on?
+（我可以试穿吗？）
+Yes, the fitting room is there.
+（可以，试衣间在那里。）
+It fits me well.
+（很适合我。）
+I&#x27;ll take it.
+（我买了。）
+Do you have this in red?
+（这件有红色的吗？）
+Yes, here you are.
+（有，给你。）
+What size do you wear?
+（你穿多大码？）
+I wear size M.
+（我穿 M 码。）
+Do you have a smaller size?
+（有小一点的码吗？）
+I&#x27;m sorry, we don&#x27;t.
+（抱歉，没有。）
+What&#x27;s this made of?
+（这是什么做的？）
+It&#x27;s made of cotton.
+（棉制的。）
+Is this on sale?
+（这个在打折吗？）
+Yes, 20% off.
+（是的，打八折。）
+How many do you want?
+（你想要多少？）
+I want two.
+（我要两个。）
+Can I pay by cash?
+（我可以用现金支付吗？）
+Yes, you can.
+（是的，可以。）
+Here&#x27;s the money.
+（给你钱。）
+Here&#x27;s your change.
+（找你的钱。）
+Do you have a bag?
+（有袋子吗？）
+Yes, here you go.
+（有，给你。）
+Do you sell shoes?
+（你们卖鞋子吗？）
+Yes, over there.
+（是的，在那边。）
+I&#x27;m looking for a gift.
+（我在找一件礼物。）
+What about this?
+（这个怎么样？）
+It&#x27;s very nice.
+（很不错。）
+How much is this watch?
+（这块手表多少钱？）
+It&#x27;s 500 yuan.
+（500 元。）
+Do you have any other colors?
+（有其他颜色吗？）
+Yes, black and white.
+（有，黑色和白色。）
+I&#x27;ll take the black one.
+（我要黑色的那个。）
+Can I return it if I don&#x27;t like it?
+（如果我不喜欢可以退货吗？）
+Yes, within 7 days.
+（可以，7 天内。）
+Do you have a receipt?
+（有收据吗？）
+Yes, here&#x27;s your receipt.
+（有，这是你的收据。）
+Thank you for your help.
+（谢谢你的帮助。）
+You&#x27;re welcome.
+（不客气。）
+I&#x27;m done shopping.
+（我买完了。）
+Let&#x27;s go home.
+（我们回家吧。）
+This store has a lot of things.
+（这家商店东西很多。）
+I had a good time shopping.
+（购物很开心。）
+I&#x27;ll come back again.
+（我会再回来的。）
+The prices here are reasonable.
+（这里的价格很合理。）
+五、交通出行
+How can I get there?
+（我怎么去那里？）
+You can take a bus.
+（你可以坐公交车。）
+Where is the bus stop?
+（公交站在哪里？）
+It&#x27;s across the street.
+（在街对面。）
+Which bus should I take?
+（我该坐哪路公交车？）
+Bus No. 5.
+（5 路公交车。）
+How much is the bus fare?
+（公交车费多少钱？）
+It&#x27;s 2 yuan.
+（2 元。）
+Does this bus go to the park?
+（这路公交车去公园吗？）
+Yes, it does.
+（是的，去。）
+When will the bus arrive?
+（公交车什么时候到？）
+In about 5 minutes.
+（大约 5 分钟后。）
+Is this seat taken?
+（这个座位有人吗？）
+No, it&#x27;s free.
+（没有，空着呢。）
+Where is the taxi stand?
+（出租车招呼站在哪里？）
+Over there, near the exit.
+（在那边，出口附近。）
+How much is the fare to the airport?
+（到机场车费多少？）
+About 100 yuan.
+（大约 100 元。）
+Do you use the meter?
+（你使用计价器吗？）
+Yes, of course.
+（是的，当然。）
+Please take me to this address.
+（请带我去这个地址。）
+Sure, get in please.
+（好的，请上车。）
+Can you drive a bit faster?
+（能开快一点吗？）
+I&#x27;ll try, but be careful.
+（我尽量，但得注意安全。）
+Please stop at the next intersection.
+（请在下个路口停车。）
+All right.
+（好的。）
+Keep the change, please.
+（不用找钱了。）
+Thank you very much.
+（非常感谢。）
+Can I pay by credit card?
+（我可以用信用卡付车费吗？）
+Sorry, only cash.
+（抱歉，只收现金。）
+Where is the subway station?
+（地铁站在哪里？）
+It&#x27;s under the shopping mall.
+（在购物中心下面。）
+How do I buy a subway ticket?
+（我怎么买地铁票？）
+Use the machine over there.
+（用那边的机器。）
+Which line should I take?
+（我该坐哪条线？）
+Line 2, then transfer to Line 4.
+（2 号线，然后转 4 号线。）
+How long does it take by subway?
+（坐地铁要多久？）
+About 30 minutes.
+（大约 30 分钟。）
+Is there a train to Beijing?
+（有去北京的火车吗？）
+Yes, at 8 o&#x27;clock tonight.
+（有，今晚 8 点的。）
+How much is a train ticket?
+（火车票多少钱？）
+200 yuan for a seat.
+（座位票 200 元。）
+When does the train depart?
+（火车什么时候发车？）
+At 9 am tomorrow.
+（明天早上 9 点。）
+Where is the train station?
+（火车站在哪里？）
+It&#x27;s on the north side of the city.
+（在城市的北边。）
+Do I need to book a ticket in advance?
+（我需要提前订票吗？）
+Yes, especially during holidays.
+（是的，尤其是节假日期间。）
+How can I get to the railway station?
+（我怎么去火车站？）
+Take a taxi, it&#x27;s faster.
+（坐出租车吧，更快。）
+Please turn left here.
+（请在这里左转。）
+OK, no problem.
+（好的，没问题。）
+I&#x27;m in a hurry, please hurry.
+（我赶时间，请快点。）
+I&#x27;ll do my best.
+（我会尽力的。）
+The traffic is very heavy.
+（交通很拥堵。）
+We might be late.
+（我们可能会迟到。）
+Is there a shortcut?
+（有近路吗？）
+Yes, follow this lane.
+（有，走这条小巷。）
+Where can I park my car?
+（我可以在哪里停车？）
+There&#x27;s a parking lot over there.
+（那边有个停车场。）
+六、旅游与出行
+I&#x27;m here on vacation.
+（我来这里度假。）
+Where is the tourist information center?
+（旅游信息中心在哪里？）
+It&#x27;s in the city square.
+（在城市广场。）
+What&#x27;s the most famous place here?
+（这里最有名的地方是哪里？）
+The old castle is very famous.
+（那座古堡很有名。）
+How much is the entrance fee?
+（门票多少钱？）
+50 yuan per person.
+（每人 50 元。）
+What time does it open?
+（什么时候开门？）
+At 8 am every day.
+（每天早上 8 点。）
+Can I take photos here?
+（这里可以拍照吗？）
+Yes, but no flash.
+（可以，但不能用闪光灯。）
+Is there a guided tour?
+（有导游带领的游览吗？）
+Yes, at 10 am and 2 pm.
+（有，上午 10 点和下午 2 点。）
+How long does the tour last?
+（游览持续多久？）
+About 2 hours.
+（大约 2 小时。）
+Where can I rent a bike?
+（我在哪里可以租自行车？）
+Near the hotel entrance.
+（在酒店门口附近。）
+How much is it per hour?
+（每小时多少钱？）
+10 yuan per hour.
+（每小时 10 元。）
+Can you recommend a good restaurant?
+（你能推荐一家好餐馆吗？）
+The seafood restaurant by the lake is good.
+（湖边的那家海鲜餐馆不错。）
+Is there a hotel near here?
+（这附近有酒店吗？）
+Yes, the Grand Hotel is nearby.
+（有，格兰德酒店就在附近。）
+How much is a room for one night?
+（一晚的房费多少钱？）
+300 yuan for a single room.
+（单人间 300 元。）
+Do you have a reservation?
+（你有预订吗？）
+Yes, under the name of Smith.
+（有，以史密斯的名字预订的。）
+I&#x27;d like to check in, please.
+（我想办理入住。）
+Please fill out this form.
+（请填写这张表格。）
+When is check-out time?
+（退房时间是什么时候？）
+Before 12 pm.
+（中午 12 点前。）
+Can I extend my stay?
+（我可以延长住宿吗？）
+Yes, if there&#x27;s a room available.
+（可以，如果有空房的话。）
+Where is the beach?
+（海滩在哪里？）
+It&#x27;s about 5 kilometers from here.
+（离这里大约 5 公里。）
+What&#x27;s the weather like at the beach?
+（海滩的天气怎么样？）
+It&#x27;s sunny and warm.
+（晴朗又温暖。）
+Is there a bus to the mountain?
+（有去山上的公交车吗？）
+Yes, Bus No. 10 goes there.
+（有，10 路公交车去那里。）
+How long does it take to get there?
+（到那里要多久？）
+About an hour by bus.
+（坐公交车大约一小时。）
+I want to buy some souvenirs.
+（我想买些纪念品。）
+The souvenir shop is in the lobby.
+（纪念品商店在大厅里。）
+What&#x27;s a good souvenir from here?
+（这里什么纪念品好？）
+The local crafts are nice.
+（当地的手工艺品很不错。）
+Can you speak Chinese?
+（你会说中文吗？）
+A little bit.
+（会一点。）
+I need a map of the city.
+（我需要一张城市地图。）
+Here you are, free of charge.
+（给你，免费的。）
+Where is the nearest restroom?
+（最近的洗手间在哪里？）
+Over there, next to the café.
+（在那边，咖啡馆旁边。）
+I&#x27;m lost. Can you help me?
+（我迷路了。你能帮我吗？）
+Sure, where do you want to go?
+（当然可以，你想去哪里？）
+How far is it from here?
+（离这里有多远？）
+It&#x27;s about 2 kilometers.
+（大约 2 公里。）
+Can I walk there?
+（我可以步行去那里吗？）
+Yes, it&#x27;s not very far.
+（可以，不太远。）
+Have a good trip!
+（祝你旅途愉快！）
+Thank you, the same to you.
+（谢谢，你也一样。）
+I enjoy traveling very much.
+（我非常喜欢旅游。）
+七、机场与航班
+Where is the check-in counter?
+（值机柜台在哪里？）
+It&#x27;s on the second floor.
+（在二楼。）
+Can I have a window seat?
+（可以给我一个靠窗的座位吗？）
+Sure, let me check.
+（当然可以，我查一下。）
+Is this bag allowed as hand luggage?
+（这个包可以作为手提行李带上飞机吗？）
+Yes, it&#x27;s within the limit.
+（可以，在限制范围内。）
+My luggage is overweight.
+（我的行李超重了。）
+You&#x27;ll have to pay an extra fee.
+（你得付额外费用。）
+Where is the security check?
+（安检在哪里？）
+Straight ahead, then turn right.
+（一直往前走，然后右转。）
+Can I take this through security?
+（这个可以通过安检吗？）
+I&#x27;m afraid not, it&#x27;s prohibited.
+（恐怕不行，这是违禁品。）
+Where is Gate 5?
+（5 号登机口在哪里？）
+It&#x27;s at the end of this corridor.
+（在这条走廊的尽头。）
+Is my flight on time?
+（我的航班准点吗？）
+Yes, it will depart on time.
+（是的，会准点起飞。）
+How long is the delay?
+（延误多久？）
+About 2 hours.
+（大约 2 小时。）
+Where is the airport lounge?
+（机场休息室在哪里？）
+Near Gate 10, for VIPs.
+（在 10 号登机口附近，供贵宾使用。）
+Can I get a trolley?
+（我可以拿一个行李车吗？）
+Yes, over there by the exit.
+（可以，在出口旁边。）
+Where can I get my luggage?
+（我在哪里取行李？）
+At Baggage Claim Area 3.
+（在 3 号行李提取区。）
+My luggage is missing.
+（我的行李不见了。）
+Please go to the lost and found office.
+（请去失物招领处。）
+How long is my transfer time?
+（我的换乘时间有多久？）
+About 1 hour and 30 minutes.
+（大约 1 小时 30 分钟。）
+Where do I make my connection?
+（我在哪里转机？）
+Go to Gate 15 for your next flight.
+（去 15 号登机口乘坐下一班飞机。）
+Have I missed my connection?
+（我错过转机航班了吗？）
+No, there&#x27;s still 20 minutes.
+（没有，还有 20 分钟。）
+May I see your passport?
+（我可以看一下你的护照吗？）
+Here you are.
+（给你。）
+Do you have a return ticket?
+（你有回程机票吗？）
+Yes, here it is.
+（有，这就是。）
+How long will you stay here?
+（你会在这里停留多久？）
+About two weeks.
+（大约两周。）
+I&#x27;m just passing through.
+（我只是过境而已。）
+You don&#x27;t need a visa then.
+（那你不需要签证。）
+Where is the duty-free shop?
+（免税店在哪里？）
+On the third floor, near the restaurants.
+（在三楼，餐馆附近。）
+What time does boarding start?
+（什么时候开始登机？）
+At 9:30 am.
+（上午 9 点 30 分。）
+Can I board now?
+（我现在可以登机了吗？）
+Yes, your group is boarding.
+（可以，你的批次正在登机。）
+Where is my seat?
+（我的座位在哪里？）
+Row 12, seat C.
+（12 排 C 座。）
+May I have a blanket?
+（请给我一条毛毯。）
+Sure, I&#x27;ll get one for you.
+（好的，我去给你拿一条。）
+Could I get a magazine?
+（请给我一本杂志好吗？）
+Yes, there are some in the pocket.
+（可以，座位口袋里有一些。）
+Is it okay to loosen my seat belt?
+（现在可以解开安全带了吗？）
+Yes, after the fasten seat belt sign is off.
+（可以，等安全带指示灯熄灭后。）
+Could you change my seat, please?
+（请问能换一下我的座位吗？）
+I&#x27;ll see if there&#x27;s an available seat.
+（我看看有没有空座位。）
+How long is the flight?
+（飞行时间有多久？）
+About 3 hours.
+（大约 3 小时。）
+When will we arrive?
+（我们什么时候到达？）
+At 3 pm local time.
+（当地时间下午 3 点。）
+八、住宿相关
+Do you have a room available?
+（你们有空房吗？）
+Yes, we have a double room.
+（有，我们有一间双人房。）
+How much is a double room?
+（双人房多少钱？）
+400 yuan per night.
+（每晚 400 元。）
+Does the price include breakfast?
+（这个价格包含早餐吗？）
+Yes, breakfast is included.
+（是的，包含早餐。）
+I&#x27;d like to book a room.
+（我想预订一间房。）
+For how many nights?
+（住几晚？）
+For three nights, starting tomorrow.
+（从明天开始，住三晚。）
+What&#x27;s your name, please?
+（请问你叫什么名字？）
+My name is Wang Lin.
+（我叫王林。）
+Can I have a room with a view?
+（我可以要一间有景观的房间吗？）
+Let me check, we have one left.
+（我查一下，我们还剩一间。）
+When is breakfast served?
+（早餐什么时候供应？）
+From 7 am to 9 am.
+（从早上 7 点到 9 点。）
+Is there a restaurant in the hotel?
+（酒店里有餐馆吗？）
+Yes, on the first floor.
+（有，在一楼。）
+What time does the restaurant open?
+（餐馆什么时候开门？）
+It opens at 6 pm.
+（下午 6 点开门。）
+Can I have room service?
+（可以提供客房服务吗？）
+Yes, 24 hours a day.
+（可以，全天 24 小时。）
+I need to make a phone call.
+（我需要打个电话。）
+You can use the phone in your room.
+（你可以用房间里的电话。）
+Is there free Wi-Fi in the hotel?
+（酒店有免费 Wi-Fi 吗？）
+Yes, the password is on the card.
+（有，密码在卡片上。）
+Where is the elevator?
+（电梯在哪里？）
+Over there, next to the stairs.
+（在那边，楼梯旁边。）
+My room key is not working.
+（我的房间钥匙不好用了。）
+I&#x27;ll get you a new one.
+（我给你换一把新的。）
+Can you send someone to clean my room?
+（你能派人来打扫我的房间吗？）
+Yes, right away.
+（好的，马上就来。）
+There&#x27;s no hot water in the shower.
+（淋浴没有热水。）
+I&#x27;ll send a repairman immediately.
+（我马上派修理工过去。）
+What time is check-out?
+（退房时间是几点？）
+Before 12:00 noon, please.
+（请在中午 12 点前。）
+Can I leave my luggage here?
+（我可以把行李放在这里吗？）
+Yes, we can keep it for you.
+（可以，我们可以为您保管。）
+Is there a swimming pool in the hotel?
+（酒店有游泳池吗？）
+Yes, on the third floor.
+（有，在三楼。）
+What are the pool hours?
+（游泳池开放时间是几点？）
+From 8 am to 8 pm.
+（从早上 8 点到晚上 8 点。）
+Can I borrow an umbrella?
+（我可以借一把伞吗？）
+Sure, please sign here.
+（可以，请在这里签字。）
+The air conditioner isn&#x27;t working.
+（空调坏了。）
+I&#x27;ll have it fixed right away.
+（我马上让人修好。）
+Is breakfast continental or buffet?
+（早餐是欧陆式还是自助餐？）
+It&#x27;s a buffet with many options.
+（是自助餐，有很多选择。）
+Can I get a late check-out?
+（我可以延迟退房吗？）
+You can check out at 2 pm for a fee.
+（付费的话可以下午 2 点退房。）
+How much is the extra fee?
+（额外费用是多少？）
+100 yuan per hour.
+（每小时 100 元。）
+Where is the hotel&#x27;s gym?
+（酒店的健身房在哪里？）
+On the fifth floor, next to the pool.
+（在五楼，游泳池旁边。）
+Do I need to book the gym?
+（使用健身房需要预约吗？）
+No, it&#x27;s open to all guests.
+（不需要，对所有客人开放。）
+I forgot my room number.
+（我忘了我的房间号。）
+What&#x27;s your name, please?
+（请问您叫什么名字？）
+There&#x27;s a noise outside my room.
+（我房间外面很吵。）
+I&#x27;ll ask them to keep quiet.
+（我会让他们安静点。）
+Thank you for your service.
+（谢谢你的服务。）
+九、健康与医疗
+I don&#x27;t feel well.
+（我感觉不舒服。）
+What&#x27;s wrong with you?
+（你怎么了？）
+I have a headache.
+（我头疼。）
+I have a fever.
+（我发烧了。）
+I have a sore throat.
+（我喉咙痛。）
+I have a stomachache.
+（我肚子疼。）
+I have a runny nose.
+（我流鼻涕。）
+I can&#x27;t sleep well.
+（我睡不好。）
+I feel tired all the time.
+（我一直觉得累。）
+I have a cough.
+（我咳嗽。）
+Where is the nearest hospital?
+（最近的医院在哪里？）
+It&#x27;s three blocks from here.
+（离这里三个街区。）
+Do you have a doctor here?
+（这里有医生吗？）
+Yes, we have a clinic on site.
+（有，我们这里有诊所。）
+I need to see a doctor.
+（我需要看医生。）
+Can you make an appointment for me?
+（你能帮我预约吗？）
+What time is the doctor available?
+（医生什么时候有空？）
+At 3 pm this afternoon.
+（今天下午 3 点。）
+I&#x27;m allergic to penicillin.
+（我对青霉素过敏。）
+Please tell the doctor that.
+（请告诉医生这一点。）
+How long have you been sick?
+（你病了多久了？）
+For two days.
+（两天了。）
+Should I take some medicine?
+（我需要吃点药吗？）
+The doctor will prescribe some.
+（医生会开一些的。）
+Where can I buy medicine?
+（我在哪里可以买到药？）
+At the pharmacy across the street.
+（在街对面的药店。）
+Do you have this medicine?
+（你们有这种药吗？）
+Yes, here you are.
+（有，给你。）
+How many times a day should I take it?
+（我一天要吃几次？）
+Three times a day after meals.
+（一天三次，饭后吃。）
+I need a bandage.
+（我需要绷带。）
+Here&#x27;s a bandage and some ointment.
+（这是绷带和一些药膏。）
+My arm hurts.
+（我的胳膊疼。）
+Let me have a look.
+（让我看看。）
+I cut my finger.
+（我割到手指了。）
+It&#x27;s not serious, but clean it.
+（不严重，但要清理一下。）
+I sprained my ankle.
+（我扭伤了脚踝。）
+You should rest and ice it.
+（你应该休息并冰敷一下。）
+When will I feel better?
+（我什么时候会好点？）
+In a few days, with rest.
+（休息几天就会好。）
+Do I need to stay in bed?
+（我需要卧床休息吗？）
+Yes, for a day or two.
+（是的，休息一两天。）
+I have a toothache.
+（我牙疼。）
+There&#x27;s a dentist nearby.
+（附近有牙医。）
+Can you recommend a good doctor?
+（你能推荐一个好医生吗？）
+Dr. Lee is very good.
+（李医生很不错。）
+I need a medical certificate.
+（我需要一份医疗证明。）
+The doctor can issue one.
+（医生可以开一份。）
+How much is the consultation fee?
+（诊疗费是多少？）
+200 yuan.
+（200 元。）
+I&#x27;m feeling better now.
+（我现在感觉好多了。）
+That&#x27;s good to hear.
+（很高兴听到这个消息。）
+I need to get a flu shot.
+（我需要打流感疫苗。）
+The clinic offers them on weekdays.
+（诊所工作日提供疫苗接种。）
+My blood pressure is high.
+（我的血压高。）
+You should see a doctor regularly.
+（你应该定期看医生。）
+I have trouble breathing.
+（我呼吸困难。）
+Please call an ambulance.
+（请叫救护车。）
+Is there a 24-hour pharmacy?
+（有 24 小时药店吗？）
+Yes, on Main Street.
+（有，在主街上。）
+十、工作与职场
+I work in an office.
+（我在办公室工作。）
+What do you do for a living?
+（你靠什么谋生？）
+I&#x27;m a software engineer.
+（我是一名软件工程师。）
+Where do you work?
+（你在哪里工作？）
+At a tech company downtown.
+（在市中心的一家科技公司。）
+What time do you start work?
+（你几点开始工作？）
+At 9 am every morning.
+（每天早上 9 点。）
+What time do you finish work?
+（你几点下班？）
+Usually at 6 pm.
+（通常下午 6 点。）
+Do you work on weekends?
+（你周末工作吗？）
+Sometimes, but not often.
+（有时候，但不经常。）
+I have a meeting this afternoon.
+（我今天下午有个会议。）
+Where is the meeting?
+（会议在哪里举行？）
+In the conference room.
+（在会议室。）
+What time is the meeting?
+（会议几点开始？）
+At 2 pm sharp.
+（下午 2 点整。）
+I need to prepare a report.
+（我需要准备一份报告。）
+When is the deadline?
+（截止日期是什么时候？）
+By the end of the week.
+（本周末之前。）
+Can you help me with this task?
+（你能帮我做这项任务吗？）
+Sure, I&#x27;ll help after lunch.
+（可以，午饭后我来帮你。）
+I&#x27;m busy right now.
+（我现在很忙。）
+Can we talk later?
+（我们可以晚点谈吗？）
+I need to make a phone call.
+（我需要打个电话。）
+Can I use your phone?
+（我可以用一下你的电话吗？）
+My computer isn&#x27;t working.
+（我的电脑坏了。）
+I&#x27;ll call IT support.
+（我会叫 IT 支持人员。）
+Do you have a business card?
+（你有名片吗？）
+Yes, here you are.
+（有，给你。）
+Let&#x27;s exchange contact information.
+（我们交换一下联系方式吧。）
+What&#x27;s your email address?
+（你的电子邮箱地址是什么？）
+It&#x27;s john@example.com.
+（是 john@example.com。）
+I&#x27;ll send you an email later.
+（我稍后给你发邮件。）
+Did you receive my email?
+（你收到我的邮件了吗？）
+Yes, I&#x27;ll reply soon.
+（收到了，我很快回复。）
+I&#x27;m going on a business trip.
+（我要去出差。）
+Where are you going?
+（你要去哪里？）
+To Shanghai for three days.
+（去上海，待三天。）
+Do you need help booking a hotel?
+（需要帮忙预订酒店吗？）
+Yes, that would be great.
+（是的，那太好了。）
+I&#x27;m attending a conference.
+（我要参加一个会议。）
+What&#x27;s the conference about?
+（会议是关于什么的？）
+It&#x27;s about new technology.
+（是关于新技术的。）
+I need to take a day off.
+（我需要请一天假。）
+Is everything okay?
+（一切都好吗？）
+I need to see a doctor.
+（我需要去看医生。）
+Your request is approved.
+（你的请求批准了。）
+Thank you very much.
+（非常感谢。）
+I&#x27;ll be back tomorrow.
+（我明天回来。）
+Please cover my work while I&#x27;m gone.
+（我不在的时候请帮我处理一下工作。）
+I&#x27;ll do my best.
+（我会尽力的。）
+What&#x27;s the progress on the project?
+（项目进展如何？）
+We&#x27;re on schedule.
+（我们按计划进行。）
+I need to discuss this with you.
+（我需要和你讨论一下这个。）
+Let&#x27;s meet in my office.
+（我们在我的办公室见吧。）
+Do you have any questions?
+（你有什么问题吗？）
+Yes, I have a few.
+（是的，我有几个问题。）
+I&#x27;ll explain it to you.
+（我会向你解释的。）
+I understand now.
+（我现在明白了。）
+Let&#x27;s work together on this.
+（我们一起做这件事吧。）
+十一、学习与教育
+I&#x27;m studying English.
+（我在学英语。）
+How long have you been studying?
+（你学了多久了？）
+For about a year.
+（大约一年了。）
+Do you like learning English?
+（你喜欢学英语吗？）
+Yes, it&#x27;s very useful.
+（是的，它很有用。）
+Where do you study?
+（你在哪里学习？）
+At a language school.
+（在一所语言学校。）
+How many classes do you have a week?
+（你一周有几节课？）
+Four classes a week.
+（一周四节课。）
+Who is your teacher?
+（你的老师是谁？）
+Mr. Brown, he&#x27;s very good.
+（布朗先生，他很棒。）
+What&#x27;s your favorite subject?
+（你最喜欢的科目是什么？）
+I like math very much.
+（我非常喜欢数学。）
+Do you have a dictionary?
+（你有字典吗？）
+Yes, an English-Chinese dictionary.
+（有，一本英汉词典。）
+Can I borrow your book?
+（我可以借你的书吗？）
+Sure, return it tomorrow.
+（可以，明天还我。）
+What&#x27;s the meaning of this word?
+（这个单词是什么意思？）
+Let me look it up.
+（让我查一下。）
+How do you spell that?
+（那个怎么拼？）
+It&#x27;s spelled S-T-U-D-Y.
+（拼作 S-T-U-D-Y。）
+Can you repeat that, please?
+（请你再说一遍好吗？）
+I didn&#x27;t catch what you said.
+（我没听清你说的话。）
+Do you understand this sentence?
+（你理解这个句子吗？）
+Not completely, please explain.
+（不完全理解，请解释一下。）
+I need to practice speaking.
+（我需要练习口语。）
+Let&#x27;s talk in English.
+（我们用英语交谈吧。）
+What&#x27;s the answer to this question?
+（这个问题的答案是什么？）
+I think it&#x27;s option B.
+（我认为是选项 B。）
+When is the exam?
+（考试是什么时候？）
+Next Friday morning.
+（下周五早上。）
+Are you ready for the exam?
+（你为考试做好准备了吗？）
+I&#x27;m studying hard for it.
+（我正在努力复习。）
+Where is the library?
+（图书馆在哪里？）
+It&#x27;s on the second floor.
+（在二楼。）
+What time does the library open?
+（图书馆什么时候开门？）
+At 8 am on weekdays.
+（工作日早上 8 点。）
+Can I borrow this book?
+（我可以借这本书吗？）
+Yes, for two weeks.
+（可以，借两周。）
+How many books can I borrow?
+（我可以借几本书？）
+Up to five books at a time.
+（一次最多五本。）
+I need to return this book.
+（我需要还这本书。）
+Put it in the return box.
+（把它放在还书箱里。）
+Do you have a study group?
+（你们有学习小组吗？）
+Yes, we meet every Tuesday.
+（有，我们每周二见面。）
+Can I join your study group?
+（我可以加入你们的学习小组吗？）
+Of course, welcome.
+（当然可以，欢迎。）
+What&#x27;s your major?
+（你的专业是什么？）
+I&#x27;m majoring in business.
+（我主修商业。）
+Do you have any homework?
+（你有作业吗？）
+Yes, a lot of math homework.
+（有，很多数学作业。）
+Can you help me with my homework?
+（你能帮我做家庭作业吗？）
+I&#x27;ll help you after dinner.
+（晚饭后我帮你。）
+What time is the class?
+（课几点开始？）
+At 10 am in Room 201.
+（上午 10 点，201 教室。）
+I&#x27;m late for class.
+（我上课要迟到了。）
+Hurry up, it&#x27;s starting soon.
+（快点，马上开始了。）
+Did I miss anything important?
+（我错过什么重要的内容了吗？）
+We just started, don&#x27;t worry.
+（我们刚开始，别担心。）
+I enjoy learning new things.
+（我喜欢学习新东西。）
+十二、天气与环境
+What&#x27;s the weather like today?
+（今天天气怎么样？）
+It&#x27;s sunny and warm.
+（天气晴朗且温暖。）
+Is it going to rain tomorrow?
+（明天会下雨吗？）
+The forecast says it will.
+（天气预报说会下雨。）
+It&#x27;s raining heavily outside.
+（外面雨下得很大。）
+Don&#x27;t forget to take an umbrella.
+（别忘了带伞。）
+It&#x27;s snowing for the first time.
+（这是今年第一场雪。）
+The ground is covered with snow.
+（地面被雪覆盖了。）
+It&#x27;s very windy today.
+（今天风很大。）
+The wind is blowing strongly.
+（风刮得很猛。）
+It&#x27;s too hot to go out.
+（天太热了，没法出门。）
+The temperature is 35 degrees.
+（气温是 35 度。）
+It&#x27;s freezing cold today.
+（今天冷得刺骨。）
+The temperature dropped sharply.
+（气温骤降。）
+It&#x27;s a cloudy day, no sun.
+（今天阴天，没有太阳。）
+There are dark clouds in the sky.
+（天空乌云密布。）
+A storm is coming soon.
+（暴风雨很快就要来了。）
+We should stay indoors today.
+（我们今天应该待在室内。）
+The weather is perfect for a walk.
+（天气适合散步。）
+Let&#x27;s go hiking while it&#x27;s nice.
+（趁天气好，我们去远足吧。）
+How&#x27;s the weather in your city?
+（你所在的城市天气怎么样？）
+It&#x27;s usually rainy in spring.
+（春天通常多雨。）
+Summer here is very humid.
+（这里的夏天很潮湿。）
+Autumn brings cool weather.
+（秋天带来凉爽的天气。）
+Winter is my favorite season.
+（冬天是我最喜欢的季节。）
+The weather changes a lot lately.
+（最近天气变化很大。）
+It rained cats and dogs last night.
+（昨晚下了倾盆大雨。）
+The sun is shining brightly.
+（阳光明媚。）
+I like the fresh air after rain.
+（我喜欢雨后的新鲜空气。）
+The rainbow is very beautiful.
+（彩虹很漂亮。）
+It&#x27;s foggy, drive carefully.
+（有雾，开车小心。）
+The fog will lift in the morning.
+（早上雾会散。）
+It&#x27;s a bit chilly in the evening.
+（晚上有点凉。）
+You should wear a jacket tonight.
+（今晚你应该穿件夹克。）
+The weather forecast is accurate.
+（天气预报很准。）
+When will the rain stop?
+（雨什么时候停？）
+Maybe in the afternoon.
+（可能下午会停。）
+It&#x27;s a nice day for a picnic.
+（今天适合野餐。）
+Let&#x27;s go to the park if it&#x27;s fine.
+（如果天气好，我们去公园吧。）
+The wind is getting stronger.
+（风越来越大了。）
+We might have a typhoon.
+（我们可能会遇到台风。）
+The river flooded after the rain.
+（雨后河水泛滥了。）
+The air quality is good today.
+（今天空气质量很好。）
+There&#x27;s a lot of smog in the city.
+（城市里有很多雾霾。）
+We should protect the environment.
+（我们应该保护环境。）
+Don&#x27;t litter on the ground.
+（不要在地上乱扔垃圾。）
+The park is clean and tidy.
+（公园干净整洁。）
+There are many trees in this area.
+（这个区域有很多树。）
+The beach is crowded in summer.
+（夏天海滩很拥挤。）
+The mountain is covered with green.
+（山上一片翠绿。）
+It&#x27;s a dry season, be careful with fire.
+（这是旱季，小心火灾。）
+The lake is frozen in winter.
+（冬天湖面结冰了。）
+The snow is good for skiing.
+（这雪适合滑雪。）
+The temperature is rising slowly.
+（气温在慢慢上升。）
+It&#x27;s muggy, I can&#x27;t breathe.
+（天气闷热，我喘不过气。）
+The weather is terrible today.
+（今天天气糟透了。）
+I hope the weather improves.
+（我希望天气好转。）
+It&#x27;s pleasant in the countryside.
+（乡村的天气很宜人。）
+The city is hot in summer.
+（夏天城市很热。）
+The wind from the sea is cool.
+（海风很凉爽。）
+十三、情感与态度
+I&#x27;m happy to see you.
+（见到你我很高兴。）
+She looks very excited.
+（她看起来很兴奋。）
+I&#x27;m sad about the news.
+（我对这个消息感到难过。）
+He seems a bit angry.
+（他看起来有点生气。）
+I&#x27;m worried about my exam.
+（我担心我的考试。）
+She is afraid of dogs.
+（她害怕狗。）
+I&#x27;m nervous about the speech.
+（我对演讲感到紧张。）
+He is proud of his son.
+（他为他的儿子感到骄傲。）
+I&#x27;m sorry for your loss.
+（对你的损失我感到难过。）
+She is grateful for your help.
+（她感谢你的帮助。）
+I&#x27;m satisfied with the result.
+（我对结果很满意。）
+He is disappointed with himself.
+（他对自己感到失望。）
+I&#x27;m surprised by the news.
+（我对这个消息感到惊讶。）
+She is interested in painting.
+（她对绘画感兴趣。）
+I&#x27;m bored with this movie.
+（我对这部电影感到厌烦。）
+He is tired of waiting.
+（他厌倦了等待。）
+I&#x27;m curious about your trip.
+（我对你的旅行很好奇。）
+She is jealous of her sister.
+（她嫉妒她的妹妹。）
+I&#x27;m ashamed of my mistake.
+（我为我的错误感到羞愧。）
+He is confident of winning.
+（他有信心获胜。）
+I&#x27;m anxious about the future.
+（我对未来感到焦虑。）
+She is relaxed on vacation.
+（她度假时很放松。）
+I&#x27;m lonely without friends.
+（没有朋友我感到孤独。）
+He is content with his life.
+（他对自己的生活很满足。）
+I&#x27;m thrilled with the gift.
+（我对这份礼物感到兴奋。）
+She is upset about the delay.
+（她对延误感到心烦。）
+I&#x27;m hopeful for tomorrow.
+（我对明天充满希望。）
+He is doubtful about the plan.
+（他对这个计划持怀疑态度。）
+I&#x27;m grateful for your kindness.
+（我感谢你的好意。）
+She is proud of her achievement.
+（她为自己的成就感到骄傲。）
+I&#x27;m sorry I forgot your birthday.
+（对不起，我忘了你的生日。）
+He is angry about the decision.
+（他对这个决定感到愤怒。）
+I&#x27;m worried that I&#x27;ll fail.
+（我担心我会失败。）
+She is excited to meet you.
+（她很兴奋能见到你。）
+I&#x27;m happy with my new job.
+（我对我的新工作很满意。）
+He is sad to leave his home.
+（离开家他感到难过。）
+I&#x27;m nervous before the interview.
+（面试前我很紧张。）
+She is afraid to go alone.
+（她害怕独自前往。）
+I&#x27;m surprised at how fast time flies.
+（我惊讶于时间过得如此之快。）
+He is interested in your story.
+（他对你的故事感兴趣。）
+I&#x27;m bored with the same routine.
+（我厌倦了同样的常规。）
+She is tired of his complaints.
+（她厌倦了他的抱怨。）
+I&#x27;m curious to know the truth.
+（我好奇想知道真相。）
+He is jealous of their success.
+（他嫉妒他们的成功。）
+I&#x27;m ashamed to admit my fault.
+（我羞于承认我的错误。）
+She is confident in her ability.
+（她对自己的能力有信心。）
+I&#x27;m anxious to hear from you.
+（我急于收到你的消息。）
+He is relaxed after the exam.
+（考试后他很放松。）
+I&#x27;m lonely living by myself.
+（独自生活我感到孤独。）
+She is content with small things.
+（她对小事很满足。）
+I&#x27;m thrilled to be here.
+（能在这里我很兴奋。）
+He is upset about the mistake.
+（他对这个错误感到心烦。）
+I&#x27;m hopeful that things will get better.
+（我希望情况会好转。）
+She is doubtful about the result.
+（她对结果持怀疑态度。）
+I&#x27;m grateful for your support.
+（我感谢你的支持。）
+He is proud to be a teacher.
+（他为成为一名教师感到骄傲。）
+I&#x27;m sorry for being late.
+（对不起，我迟到了。）
+She is angry with her friend.
+（她对她的朋友感到愤怒。）
+I&#x27;m worried about my parents.
+（我担心我的父母。）
+He is excited about the trip.
+（他对这次旅行感到兴奋。）
+十四、时间与日期
+What time is it now?
+（现在几点了？）
+It&#x27;s 8 o&#x27;clock in the morning.
+（现在是早上 8 点。）
+What day is today?
+（今天星期几？）
+Today is Monday.
+（今天是星期一。）
+What&#x27;s the date today?
+（今天几号？）
+It&#x27;s October 15th.
+（今天是 10 月 15 日。）
+What time does the store open?
+（商店几点开门？）
+It opens at 9 am.
+（早上 9 点开门。）
+When will the meeting start?
+（会议什么时候开始？）
+It will start at 2 pm.
+（下午 2 点开始。）
+How long will it take?
+（这需要多长时间？）
+It will take about an hour.
+（大约需要一个小时。）
+When did you arrive here?
+（你什么时候到这里的？）
+I arrived yesterday.
+（我昨天到的。）
+How long have you been here?
+（你在这里多久了？）
+I&#x27;ve been here for three days.
+（我在这里三天了。）
+When will you leave?
+（你什么时候离开？）
+I&#x27;ll leave next Friday.
+（我下周五离开。）
+What time is the train?
+（火车几点的？）
+The train departs at 7:30 pm.
+（火车晚上 7 点 30 分发车。）
+Is it morning or afternoon?
+（现在是上午还是下午？）
+It&#x27;s 3 pm, in the afternoon.
+（现在是下午 3 点。）
+What time do you get up?
+（你几点起床？）
+I usually get up at 6:30 am.
+（我通常早上 6 点 30 分起床。）
+When do you go to bed?
+（你几点睡觉？）
+I go to bed around 11 pm.
+（我大约晚上 11 点睡觉。）
+What&#x27;s the time difference?
+（时差是多少？）
+There&#x27;s a 3-hour time difference.
+（时差是 3 小时。）
+Is it daylight saving time?
+（现在是夏令时吗？）
+Yes, clocks go forward an hour.
+（是的，时钟拨快了一小时。）
+When is your birthday?
+（你的生日是什么时候？）
+My birthday is on June 20th.
+（我的生日是 6 月 20 日。）
+What time is the movie?
+（电影几点开始？）
+The movie starts at 7 pm.
+（电影晚上 7 点开始。）
+How long is the movie?
+（电影时长多久？）
+It&#x27;s two hours long.
+（时长两小时。）
+When is the deadline?
+（截止日期是什么时候？）
+The deadline is next Monday.
+（截止日期是下周一。）
+What time does the bus come?
+（公交车几点来？）
+The bus comes every 15 minutes.
+（公交车每 15 分钟一班。）
+When did you finish the work?
+（你什么时候完成工作的？）
+I finished it this morning.
+（我今天早上完成的。）
+How long will you stay here?
+（你会在这里待多久？）
+I&#x27;ll stay for a week.
+（我会待一个星期。）
+What time is dinner?
+（晚饭几点吃？）
+Dinner is at 6:30 pm.
+（晚饭在晚上 6 点 30 分。）
+When is the next flight?
+（下一班飞机是什么时候？）
+The next flight is at 10 am.
+（下一班飞机是早上 10 点。）
+Is the event on Saturday or Sunday?
+（活动是在周六还是周日？）
+It&#x27;s on Sunday afternoon.
+（在周日下午。）
+What time do you have lunch?
+（你几点吃午饭？）
+I have lunch at 12:30 pm.
+（我中午 12 点 30 分吃午饭。）
+When will the rain stop?
+（雨什么时候停？）
+It might stop by evening.
+（可能到晚上会停。）
+How long ago did you see him?
+（你多久前见过他？）
+I saw him a month ago.
+（我一个月前见过他。）
+What&#x27;s the opening time?
+（开放时间是什么时候？）
+It&#x27;s open from 9 am to 5 pm.
+（从早上 9 点到下午 5 点开放。）
+When is the concert?
+（音乐会是什么时候？）
+The concert is on Friday night.
+（音乐会在周五晚上。）
+十五、请求与帮助
+Can you help me, please?
+（请问你能帮我吗？）
+Could you pass the salt?
+（你能把盐递给我吗？）
+May I use your phone?
+（我可以用一下你的电话吗？）
+Can you tell me the way?
+（你能告诉我路吗？）
+Could you open the window?
+（你能打开窗户吗？）
+May I borrow your pen?
+（我可以借你的笔吗？）
+Can you speak more slowly?
+（你能说慢一点吗？）
+Could you repeat that?
+（你能再说一遍吗？）
+May I ask a question?
+（我可以问一个问题吗？）
+Can you wait for me?
+（你能等我一下吗？）
+Could you take a photo for me?
+（你能帮我拍张照吗？）
+May I sit here?
+（我可以坐在这里吗？）
+Can you help me carry this?
+（你能帮我拿这个吗？）
+Could you tell me the time?
+（你能告诉我时间吗？）
+May I leave early today?
+（我今天可以早点走吗？）
+Can you recommend a hotel?
+（你能推荐一家酒店吗？）
+Could you fix this for me?
+（你能帮我修好这个吗？）
+May I have another cup?
+（我可以再要一杯吗？）
+Can you show me how to do it?
+（你能教我怎么做吗？）
+Could you remind me later?
+（你能稍后提醒我吗？）
+May I use your bathroom?
+（我可以用一下你的洗手间吗？）
+Can you call a taxi for me?
+（你能帮我叫辆出租车吗？）
+Could you hold the door, please?
+（请你扶一下门好吗？）
+May I have a glass of water?
+（我可以要一杯水吗？）
+Can you tell me your name?
+（你能告诉我你的名字吗？）
+Could you explain this to me?
+（你能给我解释一下这个吗？）
+May I join your conversation?
+（我可以加入你们的谈话吗？）
+Can you help me find my keys?
+（你能帮我找一下钥匙吗？）
+Could you turn down the music?
+（你能把音乐关小一点吗？）
+May I take a message for you?
+（我可以帮你带个口信吗？）
+Can you tell me the price?
+（你能告诉我价格吗？）
+Could you give me a discount?
+（你能给我打折吗？）
+May I try this on?
+（我可以试穿这个吗？）
+Can you help me with my luggage?
+（你能帮我拿一下行李吗？）
+Could you tell me the schedule?
+（你能告诉我日程安排吗？）
+May I have a menu, please?
+（请给我一份菜单好吗？）
+Can you recommend a good book?
+（你能推荐一本好书吗？）
+Could you wake me up early?
+（你能早点叫醒我吗？）
+May I use your computer?
+（我可以用一下你的电脑吗？）
+Can you tell me the weather forecast?
+（你能告诉我天气预报吗？）
+Could you send this email for me?
+（你能帮我发一下这封邮件吗？）
+May I have a receipt, please?
+（请给我一张收据好吗？）
+Can you help me translate this?
+（你能帮我翻译一下这个吗？）
+Could you park the car here?
+（你能把车停在这里吗？）
+May I have a refund, please?
+（请给我退款好吗？）
+Can you tell me where the restroom is?
+（你能告诉我洗手间在哪里吗？）
+Could you pass me the remote control?
+（你能把遥控器递给我吗？）
+May I take a break now?
+（我现在可以休息一下吗？）
+Can you help me book a ticket?
+（你能帮我订一张票吗？）
+Could you tell me the departure time?
+（你能告诉我出发时间吗？）
+May I have a blanket, please?
+（请给我一条毛毯好吗？）
+Can you help me carry this suitcase?
+（你能帮我提一下这个行李箱吗？）
+Could you tell me the arrival time?
+（你能告诉我到达时间吗？）
+May I use your Wi-Fi?
+（我可以用一下你的无线网络吗？）
+Can you tell me how to get there?
+（你能告诉我怎么去那里吗？）
+Could you give me directions?
+（你能给我指一下路吗？）
+May I have some more bread?
+（我可以再要一些面包吗？）
+Can you help me with this problem?
+（你能帮我解决这个问题吗？）
+Could you remind me of the meeting?
+（你能提醒我开会的事吗？）
+May I have your signature, please?
+（请你签个名好吗？）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="全英交流900";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

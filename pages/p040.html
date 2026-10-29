@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9.1 职场英语，无非就这500句应急</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>9.1 职场英语，无非就这500句应急</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">69,082 字符</span>
+    <span>来源：9.1  职场英语，无非就这500句应急  原.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C9.1%20%20%E8%81%8C%E5%9C%BA%E8%8B%B1%E8%AF%AD%EF%BC%8C%E6%97%A0%E9%9D%9E%E5%B0%B1%E8%BF%99500%E5%8F%A5%E5%BA%94%E6%80%A5%20%20%E5%8E%9F.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p040.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">Workplace Englis These 500 Emergency Phrases Are All You Need
+职场英语
+应急无非就这500句
+一、会议急救：没听懂 / 卡壳 / 临时被点名
+Could you say that last part again? I want to make sure I get it right.
+（您能把最后那部分再说一遍吗？我想确认自己听明白了。）
+Sorry, I didn’t catch what you said about the project schedule. Can you explain a little more?
+（抱歉，我没听清您说的项目进度相关内容。您能再多解释一下吗？）
+When you talk about the new rules, could you slow down a bit? I need to take notes.
+（您讲新规定的时候，能慢一点吗？我得记笔记。）
+The data you showed just now is a bit confusing. How did you get these numbers?
+（您刚才展示的数据有点让人困惑。这些数字是怎么来的呀？）
+Sorry, I forgot what the main goal of this stage is. Could you remind me?
+（抱歉，我忘了这个阶段的主要目标是什么了。您能提醒我一下吗？）
+When you mentioned working with the marketing team, what specific jobs do we need to do?
+（您提到和市场部合作，我们需要做哪些具体的工作呢？）
+I don’t really get the logic behind this solution. Can you walk me through it step by step?
+（我不太明白这个解决方案背后的逻辑。您能一步步给我讲清楚吗？）
+Can you rephrase that sentence? I’m not familiar with the words you used.
+（您能换种说法吗？您用的那些词我不太熟悉。）
+Sorry, the internet is unstable, and I didn’t hear the end of your speech. Could you repeat it?
+（抱歉，网络不太稳定，我没听到您发言的最后部分。您能再讲一遍吗？）
+When you talked about adjusting the budget, I didn’t hear how much we can give to the R&amp;D department. Can you confirm that?
+（您讲调整预算的时候，我没听清能给研发部门多少钱。您能确认一下吗？）
+I need a minute to process the info you just shared. Can we pause for 30 seconds before moving on?
+（我需要点时间消化您刚分享的信息。我们能暂停 30 秒再继续吗？）
+Sorry, a sudden message distracted me. Did you talk about the client meeting next week?
+（抱歉，一条突然的消息让我分神了。您提到下周的客户会议了吗？）
+Can you highlight the key points of our discussion so far? I don’t want to miss anything important.
+（您能强调一下到目前为止我们讨论的重点吗？我不想错过重要内容。）
+I’m not sure when the report is due. Did you say it’s the end of this week or next week?
+（我不确定报告什么时候要交。您说是这周末还是下周末来着？）
+When you said “priority tasks”, which ones are the most important?
+（您说 “优先任务” 的时候，哪些是最要紧的呀？）
+Sorry, I’m still trying to understand the new workflow. Can you give an example?
+（抱歉，我还在努力理解这个新的工作流程。您能举个例子吗？）
+Can you speak a little louder? There’s background noise, and I can’t hear you well.
+（您能说大声一点吗？这里有背景噪音，我听不太清。）
+I didn’t hear who’s in charge of the follow-up work. Can you tell me?
+（我没听清谁负责后续工作。您能告诉我吗？）
+Sorry, I’m a bit behind on this topic. Can you briefly recap what was discussed before I joined?
+（抱歉，我对这个话题有点跟不上。您能简要回顾一下我来之前讨论的内容吗？）
+When you talked about risk factors, I didn’t get how we can reduce them. Can you explain the steps?
+（您讲风险因素的时候，我没明白我们该怎么降低风险。您能解释一下步骤吗？）
+I’m stuck on how to respond to the client’s request mentioned in the meeting. Does anyone have suggestions?
+（我不知道该怎么回应会议上提到的客户需求。有人有建议吗？）
+Sorry, my mind went blank for a second. Can you repeat the question you asked me?
+（抱歉，我刚才脑子突然一片空白。您能重复一下问我的问题吗？）
+I can’t express my thoughts clearly right now. Can I have a minute to organize them?
+（我现在没法清楚地表达我的想法。能给我一分钟整理一下吗？）
+When I try to talk about my task progress, I don’t know which details to focus on. Can you give me a hint?
+（我想讲自己的任务进度，却不知道该重点说哪些细节。您能给我点提示吗？）
+I’m stuck because I don’t have the latest data to support my point. Can someone give it to me quickly?
+（我卡壳了，因为没有最新数据支撑我的观点。有人能快点给我吗？）
+Sorry, I can’t find the right words to describe the problem we’re facing. Can you help me rephrase it?
+（抱歉，我找不到合适的词描述我们遇到的问题。您能帮我换种说法吗？）
+I can’t decide whether to propose Option A or Option B. Can we talk about their pros and cons again?
+（我拿不定主意该提议方案 A 还是方案 B。我们能再聊聊它们的优缺点吗？）
+When I share feedback, I’m worried I’ll sound too negative. Can you tell me how to say it more constructively?
+（分享反馈的时候，我担心自己听起来太消极。您能告诉我怎么说更有建设性吗？）
+I’m stuck because I need to check some old records first. Can I come back to this after the meeting?
+（我卡壳了，因为得先查一些旧记录。我能会后再谈这个问题吗？）
+Sorry, I can’t connect my point to the overall agenda. Can you help me link them?
+（抱歉，我没法把我的观点和整体议程联系起来。您能帮我串联一下吗？）
+Oh, I didn’t expect to be called on. Let me quickly get my thoughts together.
+（哦，我没料到会被点名。让我快点整理一下思路。）
+Thanks for asking. In my opinion, the main challenge we’re facing is…
+（谢谢提问。在我看来，我们面临的主要挑战是……）
+I need to check my notes to give a correct answer. Can you give me 20 seconds?
+（我得查下笔记才能给出准确答案。您能给我 20 秒吗？）
+About this issue, I’ve been working on it with my team, and so far we’ve achieved…
+（关于这个问题，我一直在和团队一起处理，到目前为止我们已经取得了……）
+I’m glad you brought this up. I think we should deal with it by…
+（很高兴您提到这个问题。我觉得我们应该通过…… 来处理。）
+I haven’t fully analyzed this part yet, but based on what I know now, I think…
+（我还没完全分析这部分，但根据我现在了解的情况，我觉得……）
+Let me start by sharing the progress of my recent work related to this topic.
+（先跟大家分享一下我最近和这个话题相关的工作进度吧。）
+This is a very important question. From what I’ve seen, the root cause might be…
+（这是个很重要的问题。根据我的观察，根本原因可能是……）
+I need to check with a colleague to confirm some details. Can I give a more complete response later?
+（我得和同事确认些细节。我能之后再给出更完整的答复吗？）
+Thanks for giving me the chance to share. I think the key to solving this problem is…
+（谢谢给我分享的机会。我觉得解决这个问题的关键是……）
+I’m still learning about this area, but I can share what I understand so far.
+（我还在学习这个领域，但可以分享一下目前的理解。）
+Let me think carefully. From a practical point of view, we can take these steps…
+（让我仔细想想。从实际角度出发，我们可以采取这些步骤……）
+I have some basic data related to this question, and I want to show it first.
+（我有一些和这个问题相关的基础数据，想先展示一下。）
+As someone who worked on the initial phase of the project, I can say that…
+（作为参与过项目初始阶段的人，我可以说……）
+Before I answer, I need to make sure. Do you mean…
+（回答之前，我得确认一下。您是指…… 吗？）
+This question reminds me of a similar situation we had before. Back then, we solved it by…
+（这个问题让我想起之前遇到的类似情况。那时候我们是通过…… 解决的。）
+I’m not 100% sure about the answer, but I can look into it and get back to everyone by the end of the day.
+（我不能 100% 确定答案，但我会去调查，今天结束前给大家回复。）
+Let me split my answer into two parts. First, about the current situation…
+（我把答案分成两部分吧。首先，关于目前的情况……）
+Thanks for the question. This is something we need to think about carefully. In my view…
+（谢谢这个问题。这是我们需要仔细考虑的事情。在我看来……）
+I need to check the client’s latest update first. Can I answer this after the break?
+（我得先看一下客户的最新消息。我能休息后再回答这个问题吗？）
+I just thought of an extra point related to the cost control talk—can I share it briefly?
+（我刚想到一个和成本控制讨论相关的补充观点，能简单说一下吗？）
+Sorry, I need to clarify one thing about the client feedback mentioned earlier. Did they specifically object to the design style or just the color scheme?
+（抱歉，关于之前提到的客户反馈，我需要确认一点。他们是明确反对设计风格，还是只反对配色方案呀？）
+I’m still not sure how the new policy will affect our team’s daily work. Can someone give a real example?
+（我还是不清楚新政策会怎么影响我们团队的日常工作。有人能举个实际例子吗？）
+When we talked about the project risk assessment, I didn’t catch how we’ll handle possible supply chain problems. Can you explain more?
+（我们讨论项目风险评估的时候，我没听清该怎么处理可能出现的供应链问题。您能多解释一下吗？）
+I’m a bit confused about how work is divided between our team and the finance team. Can we confirm our responsibilities again?
+（我对我们团队和财务团队的分工有点困惑。我们能再确认一下各自的职责吗？）
+Sorry, my train of thought was interrupted by a phone notification. Can you repeat the last question about the marketing strategy?
+（抱歉，手机通知打断了我的思路。您能重复一下关于营销策略的最后一个问题吗？）
+I need a minute to check the latest sales data on my tablet—can we pause for 1 minute so I can share accurate numbers?
+（我需要花点时间在平板上查最新的销售数据，咱们能暂停 1 分钟，好让我分享准确的数据吗？）
+When you mentioned optimizing the workflow, I don’t know which tools we’ll use to make the changes. Can you recommend some?
+（您提到优化工作流程的时候，我不知道我们会用哪些工具来推进这些改动。能推荐一些吗？）
+I’m stuck on whether the client’s extra requirements are within our project scope. Can we talk about if we need to adjust the budget accordingly?
+（我纠结的是客户的额外需求是否在我们的项目范围内。咱们能讨论一下是否需要相应调整预算吗？）
+Thanks for calling on me. Based on the data I collected last week, the main reason for low efficiency is the overlapping approval processes…
+（谢谢点到我。根据我上周收集的数据，效率低的主要原因是审批流程重叠……）
+I just got a message from the client saying they’ll join the meeting 10 minutes later. Can we adjust the agenda to start with topics that don’t involve the client first?
+（我刚收到客户的消息，说他们 10 分钟后才能参加会议。咱们能调整一下议程，先从和客户无关的议题开始吗？）
+Sorry, I still don’t understand the connection between the new marketing plan and our sales targets. Can you explain the logical link again?
+（抱歉，我还是没理清新营销计划和我们销售目标之间的关联。您能再解释一下逻辑关系吗？）
+When you mentioned “cross-departmental collaboration”, I’m not sure which departments we need to coordinate with. Can you list them specifically?
+（您提到 “跨部门协作” 的时候，我不确定需要和哪些部门协调。能具体列出来吗？）
+I need to step out for a 2-minute urgent call—can we pause the discussion about the budget and wait for me to come back?
+（我需要出去接个 2 分钟的紧急电话，咱们能暂停关于预算的讨论，等我回来再继续吗？）
+Thanks for letting me share. Besides what we’ve already discussed, I think we also need to consider how the new policy will affect our existing clients…
+（谢谢让我分享。除了已经讨论过的内容，我觉得我们还得考虑新政策对现有客户的影响……）
+I didn’t catch the name of the expert you recommended for the project. Can you repeat it so I can contact them later?
+（我没听清您为项目推荐的专家名字。能重复一下吗？方便我之后联系。）
+I’m stuck on how to balance project quality and the tight deadline. Does anyone have practical suggestions?
+（我纠结怎么平衡项目质量和紧张的截止日期。有人有实用的建议吗？）
+Sorry, I need to confirm if the data you cited is from the first quarter or the second quarter. It will affect my analysis of the project progress.
+（抱歉，我需要确认您引用的数据是第一季度的还是第二季度的。这会影响我对项目进度的分析。）
+I just realized I forgot to bring the sample product we planned to show. Can someone from my team send it to the conference room right away?
+（我刚发现忘了带咱们计划展示的样品。我团队里有人能马上把它送到会议室吗？）
+When we talked about the post-project evaluation, I don’t know what criteria we’ll use to judge success. Can we define them together now?
+（我们讨论项目后评估的时候，我不知道会用什么标准来衡量成功。现在能一起明确一下吗？）
+Could you repeat the part about the client’s special requests? I want to make sure I don’t miss any details.
+（您能重复一下关于客户特殊要求的部分吗？我想确保自己没漏掉任何细节。）
+Sorry, I didn’t quite get how the new process connects to our current work. Can you explain the link?
+（抱歉，我不太明白新流程和我们当前工作的关联。您能解释一下这种联系吗？）
+When you talk about the project milestones, could you speak a bit slower? I need to note down the key dates.
+（您讲项目里程碑的时候，能慢一点吗？我需要记下关键日期。）
+The chart you showed is a bit confusing. Can you explain what each section represents?
+（您展示的图表有点让人困惑。您能解释一下每个部分代表什么吗？）
+Sorry, I forgot what action we agreed to take for the feedback issue. Could you remind me?
+（抱歉，我忘了针对反馈问题我们商定要采取什么行动了。您能提醒我一下吗？）
+When you mentioned working with the design team, what specific support do they need from us?
+（您提到和设计团队合作，他们需要我们提供哪些具体支持呢？）
+I don’t understand why we need to change the current plan. Can you walk me through the reasons?
+（我不明白为什么我们要改变当前计划。您能一步步给我讲清楚原因吗？）
+Can you rephrase the part about the risk assessment? The terms are a bit hard for me to follow.
+（您能换种说法讲风险评估那部分吗？那些术语我有点跟不上。）
+Sorry, my internet cut out for a second, and I missed the last thing you said. Could you repeat it?
+（抱歉，我的网络断了一下，没听到您最后说的话。您能再讲一遍吗？）
+When you talked about the budget cut, I didn’t hear how it will affect our team’s tasks. Can you confirm that?
+（您讲预算削减的时候，我没听清这会对我们团队的任务有什么影响。您能确认一下吗？）
+I need a minute to think about the implications of this decision. Can we pause briefly before moving on?
+（我需要一分钟思考这个决定的影响。我们能暂停一下再继续吗？）
+Sorry, a sudden work message pulled my attention away. Did you mention anything about the project review date?
+（抱歉，一条突发的工作消息让我分神了。您提到项目评审日期的事情了吗？）
+Can you summarize the key points we’ve discussed so far? I want to make sure my notes are complete.
+（您能总结一下我们到目前为止讨论的重点吗？我想确保我的笔记是完整的。）
+I’m not sure when we need to submit the revised proposal. Did you say it’s next Monday or Tuesday?
+（我不确定我们需要什么时候提交修订后的提案。您说是下周一还是下周二来着？）
+When you said “key priorities”, which tasks should we focus on first?
+（您说 “核心优先事项” 的时候，我们应该先聚焦哪些任务呢？）
+Could you explain the part about the new collaboration rules again? I want to make sure I follow them correctly.
+（您能再解释一下新协作规则的部分吗？我想确保自己能正确遵守。）
+Sorry, I didn’t catch how the client’s feedback will change our work plan. Can you elaborate a little?
+（抱歉，我没听清客户的反馈会如何改变我们的工作计划。您能再详细说说吗？）
+When you talk about the project’s next phase, could you slow down? I need to write down the key tasks.
+（您讲项目下一阶段的时候，能慢一点吗？我需要记下关键任务。）
+The data you mentioned about the market trend is confusing. Can you explain how you got that conclusion?
+（您提到的关于市场趋势的数据有点让人困惑。您能解释一下这个结论是怎么得出来的吗？）
+Sorry, I forgot what the deadline for the client’s report is. Could you remind me once more?
+（抱歉，我忘了客户报告的截止日期了。您能再提醒我一下吗？）
+When you mentioned coordinating with the sales team, what specific information do we need to provide them?
+（您提到和销售团队协调，我们需要给他们提供哪些具体信息呢？）
+I don’t understand the benefit of choosing this new supplier. Can you walk me through the advantages?
+（我不明白选择这家新供应商的好处。您能一步步给我讲清楚优势吗？）
+Can you rephrase the part about the contract terms? I’m not familiar with some of the expressions.
+（您能换种说法讲合同条款那部分吗？有些表述我不太熟悉。）
+Sorry, the audio cut out for a second, and I missed the last part of your explanation. Could you repeat it?
+（抱歉，声音断了一下，我没听到您解释的最后部分。您能再讲一遍吗？）
+When you talked about the team’s workload adjustment, I didn’t hear how it will affect my tasks. Can you confirm that?
+（您讲团队工作量调整的时候，我没听清这会对我的任务有什么影响。您能确认一下吗？）
+I need a minute to process how this decision will impact our project timeline. Can we pause for a moment before moving on?
+（我需要一分钟思考这个决定会如何影响我们的项目时间线。我们能暂停一下再继续吗？）
+Sorry, a sudden notification from my computer distracted me. Did you mention anything about the upcoming client visit?
+（抱歉，电脑突然弹出的通知让我分神了。您提到即将到来的客户拜访了吗？）
+Can you highlight the key action items from our discussion so far? I want to make sure I don’t miss any tasks.
+（您能强调一下到目前为止讨论的关键行动项吗？我想确保自己没漏掉任何任务。）
+I’m not sure when we need to submit the budget application. Did you say it’s this Thursday or Friday?
+（我不确定我们需要什么时候提交预算申请。您说是本周四还是本周五来着？）
+When you said “critical tasks”, which ones should we prioritize first?
+（您说 “关键任务” 的时候，我们应该优先处理哪些呢？）
+二、邮件急救：发错邮件 / 需紧急修改 / 催反馈
+I’m writing to say sorry for sending the last email to the wrong person. Please ignore it.
+（我写这封邮件是为了道歉，上一封邮件不小心发给错的人了。请忽略它。）
+There was a mistake in the email I sent earlier. I’ve attached the corrected version for you to refer to.
+（我之前发的邮件里有错误。我已经附上了更正后的版本，供您参考。）
+I’m sorry for the confusion in the last email. The correct info is as follows…
+（很抱歉上一封邮件造成了混乱。正确的信息如下……）
+Please ignore the email I sent you 10 minutes ago. I made a mistake in the project timeline, and the revised one is attached.
+（请忽略我 10 分钟前发给您的邮件。我在项目时间线上犯了错，修订版已经附上了。）
+I’m really sorry for sending the incomplete report in the last email. Here’s the full and correct version.
+（很抱歉上一封邮件里发了不完整的报告。这是完整且正确的版本。）
+There was a typo in the contact info in the last email. The correct phone number is +86-XXX-XXXXXXX.
+（上一封邮件的联系方式里有个拼写错误。正确的电话号码是 + 86-XXX-XXXXXXX。）
+I apologize for the wrong data in the email I sent earlier. I’ve checked and updated it, and you can find the new file in the attachment.
+（我为之前邮件里的错误数据道歉。我已经核对并更新了，您可以在附件里找到新文件。）
+Please note that the email I sent at 9 a.m. has the wrong meeting venue. The correct place is Conference Room 3.
+（请注意，我上午 9 点发的邮件里会议地点错了。正确的地点是 3 号会议室。）
+I’m sorry for the confusion caused by the last email. The task deadline is this Friday, not next Friday.
+（很抱歉上一封邮件造成了混乱。任务截止日期是这周五，不是下周五。）
+I made a mistake in the recipient list of the last email. This one is only for you, and I’m sorry for the trouble.
+（我在上一封邮件的收件人列表里犯了错。这封只给您一个人，给您带来麻烦很抱歉。）
+I’m writing to correct the mistake in my earlier email. The project leader is Ms. Johnson, not Mr. Smith.
+（我写这封邮件是为了更正之前的错误。项目负责人是约翰逊女士，不是史密斯先生。）
+Please ignore the draft email I sent you by accident just now. The final version will be sent to you within an hour.
+（请忽略我刚才不小心发给您的草稿邮件。最终版本会在一小时内发给您。）
+I apologize for the wrong attachment in the last email. The correct report is attached now, and I’ve checked all the content.
+（我为上一封邮件里的错误附件道歉。现在附上了正确的报告，而且我已经核对了所有内容。）
+There was a misunderstanding in the last email. What I actually meant was we need to submit the proposal by the end of this month, not next month.
+（上一封邮件里有个误解。我实际想表达的是我们要在本月底前提交提案，不是下月底。）
+I’m sorry for sending you the old version of the contract. The updated one with the latest terms is attached here.
+（很抱歉发给您的是旧版本合同。这里附上了有最新条款的更新版本。）
+I need to urgently change the content of the email I sent you yesterday. The key change is that the meeting time has been rescheduled to 2 p.m. tomorrow.
+（我急需修改昨天发给您的邮件内容。关键改动是会议时间改到了明天下午 2 点。）
+This is an urgent update to my last email. Due to unexpected issues, the project kick-off meeting will be postponed by a week, and I need to correct this in the earlier message.
+（这是对我上一封邮件的紧急更新。因为突发情况，项目启动会要推迟一周，我得更正之前邮件里的信息。）
+I’m writing to make an urgent change to the task assignment email I sent this morning. Please assign Task 3 to Tom instead of Lily, because Lily has an urgent task.
+（我写这封邮件是为了紧急修改今天上午发的任务分配邮件。请把任务 3 分给汤姆，不是莉莉，因为莉莉有紧急任务。）
+The budget figures in my earlier email need an urgent correction. The correct total budget is $50,000, not $5,000, and I need to update this right away.
+（我之前邮件里的预算数字需要紧急更正。正确的总预算是 5 万美元，不是 5 千美元，我得马上更新。）
+I need to urgently correct the client info in the email I sent yesterday. The client’s company name is ABC Corporation, not ABD Corporation, and I’m sorry for the mistake.
+（我需要紧急修改昨天邮件里的客户信息。客户公司名称是 ABC 公司，不是 ABD 公司，这个错误我很抱歉。）
+This is an urgent update to the meeting agenda email. We need to add a discussion about the new market strategy, so please update the agenda accordingly, and I’m correcting this in the previous email.
+（这是对会议议程邮件的紧急更新。我们要增加关于新市场战略的讨论，请相应更新议程，我也会更正之前的邮件。）
+I’m writing to make an urgent change to the travel arrangement email I sent last week. The departure date should be June 10th, not June 15th, so please adjust your plans.
+（我写这封邮件是为了紧急修改上周发的行程安排邮件。出发日期应该是 6 月 10 日，不是 6 月 15 日，请调整您的计划。）
+There’s an urgent mistake in the product specification email I sent earlier. The product weight is 5kg, not 3kg, and I need to correct this right away to avoid misunderstandings.
+（我之前发的产品规格邮件里有个紧急错误。产品重量是 5 公斤，不是 3 公斤，我得马上更正，避免误解。）
+I need to urgently revise the feedback email I sent to the team this morning. I forgot to mention that we also need to collect feedback from the sales department, so please add this to the task list.
+（我需要紧急修改今天上午发给团队的反馈收集邮件。我忘了说还要从销售部收集反馈，请把这个加到任务清单里。）
+This is an urgent correction to the invoice email I sent yesterday. The invoice number is INV-2024-0567, not INV-2024-0576, so please use the correct number for payment.
+（这是对昨天发票邮件的紧急更正。发票号码是 INV-2024-0567，不是 INV-2024-0576，请用正确的号码付款。）
+I’m following up on the report I sent you three days ago. Could you let me know if you’ve had time to review it and share your feedback?
+（我在跟进三天前发给您的报告。您要是有时间查看并分享反馈，能告诉我一声吗？）
+This is a gentle follow-up about the project proposal I submitted last week. We need your input to move forward, so could you give your comments by the end of today if possible?
+（这是对我上周提交的项目提案的温馨跟进。我们需要您的意见才能推进，要是可以，您能在今天结束前给出反馈吗？）
+I’m checking in about the feedback on the marketing plan I shared with you on Monday. Since the project deadline is approaching, your timely response would be really appreciated.
+（我在跟进周一和您分享的营销计划的反馈情况。因为项目截止日期快到了，非常感谢您能及时回复。）
+I wanted to follow up on the client feedback I asked you to collect last Friday. Have you received any updates from them, and could you pass that information along to me soon?
+（我想跟进上周五让您收集的客户反馈。您从客户那里得到最新消息了吗？能尽快把信息同步给我吗？）
+This email is to follow up on the budget approval request I sent you two days ago. We need the approval to start purchasing materials, so could you let me know the progress?
+（这封邮件是为了跟进两天前发给您的预算审批申请。我们需要审批通过才能开始采购材料，您能告知一下进展吗？）
+I’m writing to follow up on the feedback for the new product design. We plan to finalize the design next week, so your thoughts by this Thursday would help us stay on track.
+（我写这封邮件是为了跟进新产品设计的反馈。我们计划下周确定设计方案，您要是能在本周四前给出意见，会帮我们按计划推进。）
+I wanted to check in about the review of the contract draft I sent last Wednesday. Do you have any revision suggestions, or can we move forward with the signing process?
+（我想跟进上周三发的合同草案审核情况。您有修改建议吗？还是我们可以推进签署流程了？）
+This is a follow-up regarding the team’s performance report. I need your feedback to summarize the key points for the management meeting, so could you share it by tomorrow morning?
+（这是对团队绩效报告的跟进。我需要您的反馈来为管理层会议总结要点，您能在明天上午前分享给我吗？）
+I’m following up on the feedback you promised to provide for the training program. We’re adjusting the program content based on feedback, so your input is crucial.
+（我在跟进您之前承诺给培训项目的反馈。我们正根据反馈调整项目内容，您的意见很关键。）
+I wanted to remind you about the feedback for the website revision plan. The development team is waiting to start work, so could you let me know your thoughts as soon as possible?
+（我想提醒您关于网站修订计划的反馈。开发团队正等着开工，您能尽快告知想法吗？）
+This email is to follow up on the proposal for the client event. We need to confirm the plan with the client next week, so your feedback by this Friday would be very helpful.
+（这封邮件是为了跟进客户活动提案。我们下周需要和客户确认方案，您要是能在本周五前给出反馈，会非常有帮助。）
+I’m checking in about the review of the financial report. The audit team needs it by the end of the month, so could you share your feedback on the draft by next Tuesday?
+（我在跟进财务报告的审核情况。审计团队月底前需要这份报告，您能在下周二前分享对草案的反馈吗？）
+I wanted to follow up on the feedback for the employee training materials. We need to print them before the training starts next month, so your revisions should be sent by this weekend.
+（我想跟进员工培训材料的反馈。我们需要在下月培训开始前打印材料，您的修改意见请在本周末前发送。）
+This is a gentle follow-up regarding the feedback on the project timeline adjustment. We need to inform the client of the new timeline, so could you let me know your approval status?
+（这是对项目时间线调整反馈的温馨跟进。我们需要把新时间线告知客户，您能告知审批状态吗？）
+I’m writing to follow up on the feedback you mentioned you’d provide for the marketing campaign. The campaign will launch in two weeks, so your input this week is essential.
+（我写这封邮件是为了跟进您之前说会给营销活动的反馈。活动两周后就要启动，您本周的意见很关键。）
+I’m following up on the contract revision request I sent 5 days ago. We need to finalize it before the client’s visit next week, so your feedback by Wednesday would be crucial.
+（我在跟进 5 天前发的合同修改请求。我们需要在客户下周来访前确定下来，所以您周三前的反馈很关键。）
+This is a reminder about the team training plan feedback. The HR department needs to book the venue in advance, so could you share your thoughts by this Friday?
+（这是关于团队培训计划反馈的提醒。人力资源部需要提前预订场地，您能在本周五前分享意见吗？）
+I made a mistake in the project timeline attached to the previous email—the phase 2 deadline should be July 20th, not July 10th. Please use the corrected version here.
+（我之前邮件附件里的项目时间线有误，第二阶段的截止日期应该是 7 月 20 日，不是 7 月 10 日。请用这里的更正版本。）
+Please disregard the email with the subject “Quarterly Report Draft” sent at 3:15 p.m. I forgot to include the regional sales data, and the complete version is attached now.
+（请忽略下午 3 点 15 分发送的、主题为 “季度报告草案” 的邮件。我忘了包含区域销售数据，现在附上完整版本。）
+I’m writing to correct the contact person for the logistics team in my earlier email—it’s Sarah Miller (sarah.miller@company.com) instead of John Miller.
+（我写这封邮件是为了更正之前邮件里物流团队的联系人，应该是萨拉・米勒
+（sarah.miller@company.com），不是约翰・米勒。）
+I’m following up on the feedback for the new employee onboarding plan. We need to roll it out next month, so your comments by the end of this week would help us finalize it.
+（我在跟进新员工入职计划的反馈。我们需要下个月推行这个计划，您本周末前的意见能帮我们确定最终方案。）
+Please ignore the email I sent at 11:30 a.m. about the team building activity—the date was mistakenly set to next Monday, but the correct date is next Friday.
+（请忽略我上午 11 点 30 分发送的关于团建活动的邮件，日期误设成了下周一，正确日期是下周五。）
+There was a mistake in the price list attached to my previous email—the unit price of Product A is $25, not $35. I’ve attached the corrected price list here for your reference.
+（我之前邮件附件里的价目表有误，A 产品的单价是 25 美元，不是 35 美元。我已在此附上更正后的价目表，供您参考。）
+This is a reminder about the feedback for the client proposal. The client is waiting for our revised version, so could you share your input by tomorrow noon?
+（这是关于客户提案反馈的提醒。客户在等我们的修订版，您能在明天中午前分享意见吗？）
+I’m writing to correct the meeting time in my earlier email—the meeting will start at 3:00 p.m. instead of 2:00 p.m. to accommodate the client’s schedule.
+（我写这封邮件是为了更正之前邮件里的会议时间，为配合客户行程，会议将在下午 3 点开始，不是下午 2 点。）
+I’m following up on the approval for the business trip application I submitted last week. I need to book the flight tickets in advance, so could you let me know the approval result as soon as possible?
+（我在跟进上周提交的出差申请审批。我需要提前订机票，您能尽快告知审批结果吗？）
+There was a mistake in the recipient list of the previous email—I accidentally included external partners, but the content is for internal use only. I’ve sent a withdrawal request and apologize for the mistake.
+（之前邮件的收件人列表有误，我不小心加入了外部合作伙伴，但邮件内容只供内部使用。我已发送撤回请求，对此错误深表歉意。）
+I need to urgently modify the content of the email I sent yesterday about the project review—the review will be led by Ms. Lee instead of Mr. Wang, as Mr. Wang has a conflicting meeting.
+（我需要紧急修改昨天发送的关于项目评审的邮件内容，评审将由李女士主持，不是王先生，因为王先生有会议冲突。）
+This is an urgent follow-up to the feedback for the website launch plan. The development team needs to start coding next week, so your feedback by Wednesday is essential.
+（这是对网站上线计划反馈的紧急跟进。开发团队下周要开始编码，您周三前的反馈很关键。）
+I apologize for the incorrect contact email of the technical support team in the previous email—the correct one is support@company.com, not techsupport@company.com.
+（我为之前邮件里技术支持团队的错误联系邮箱道歉，正确邮箱是 support@company.com，不是 techsupport@company.com。）
+I’m following up on the feedback for the training manual I sent last week. We need to print it soon, so could you share your comments by this Wednesday?
+（我在跟进上周发送的培训手册的反馈。我们很快就要打印了，您能在本周三前分享意见吗？）
+Please ignore the email I sent at 2 p.m. about the budget plan—I made a mistake in the calculation, and the corrected version is attached now.
+（请忽略我下午 2 点发送的关于预算计划的邮件 —— 我在计算中出了错，现在附上了更正后的版本。）
+I’m writing to correct the contact person for the client meeting in my earlier email—it’s David Chen, not Daniel Chen. His phone number is +86-XXX-XXXXXXX.
+（我写这封邮件是为了更正之前邮件中客户会议的联系人，应该是陈大卫，不是陈丹尼尔。他的电话号码是 + 86-XXX-XXXXXXX。）
+This is a reminder about the feedback for the new website design. The launch is in three weeks, so could you let me know your thoughts by this Friday?
+（这是关于新网站设计反馈的提醒。网站三周后就要上线了，您能在本周五前告知想法吗？）
+I need to urgently modify the meeting agenda email I sent this morning—we need to add a discussion about the client’s new demands, so please update your notes accordingly.
+（我需要紧急修改今天上午发送的会议议程邮件 —— 我们要增加关于客户新需求的讨论，请相应更新您的笔记。）
+I’m following up on the feedback for the client presentation slides I sent 4 days ago. We need to finalize them next week, so could you share your comments by this Tuesday?
+（我在跟进 4 天前发送的客户演示幻灯片的反馈。我们下周需要确定最终版本，您能在本周二前分享意见吗？）
+Please ignore the email I sent at 10 a.m. about the travel schedule—I mixed up the departure and return dates, and the corrected version is attached now.
+（请忽略我上午 10 点发送的关于行程安排的邮件 —— 我把出发和返回日期弄混了，现在附上了更正后的版本。）
+I’m writing to correct the contact email of the project consultant in my earlier email—it’s mike.brown@consult.com, not mike.brown@company.com.
+（我写这封邮件是为了更正之前邮件中项目顾问的联系邮箱，应该是 mike.brown@consult.com，不是 mike.brown@company.com。）
+This is a reminder about the feedback for the new product brochure. We need to send it to the client next week, so could you let me know your thoughts by this Thursday?
+（这是关于新产品宣传册反馈的提醒。我们下周需要把它发给客户，您能在本周四前告知想法吗？）
+I need to urgently modify the task assignment email I sent yesterday—Task 5 should be assigned to Emma instead of Jack, as Jack is busy with another urgent project.
+（我需要紧急修改昨天发送的任务分配邮件 —— 任务 5 应该分给艾玛，不是杰克，因为杰克在忙另一个紧急项目。）
+I’m following up on the approval for the marketing budget I submitted last Tuesday. We need to start the campaign soon, so could you let me know the progress by the end of today?
+（我在跟进上周二提交的营销预算审批。我们很快就要启动活动了，您能在今天结束前告知进展吗？）
+Please disregard the email with the subject “Project Update” sent at 3:30 p.m. I forgot to include the latest progress data, and the complete version is attached now.
+（请忽略下午 3 点 30 分发送的、主题为 “项目更新” 的邮件。我忘了包含最新的进度数据，现在附上完整版本。）
+I’m writing to correct the meeting location in my earlier email—the meeting will be in Conference Room 7, not Conference Room 5. The room has been reserved for us.
+（我写这封邮件是为了更正之前邮件中的会议地点，会议将在 7 号会议室举行，不是 5 号会议室。该会议室已为我们预留。）
+This is a gentle follow-up regarding the feedback for the team’s work plan. We need to adjust it based on your input, so could you provide your comments by tomorrow noon?
+（这是对团队工作计划反馈的温馨跟进。我们需要根据您的意见调整，您能在明天中午前给出反馈吗？）
+I need to urgently update the client information in the email I sent this morning—the client’s contact person has changed to Lisa Green, and her phone number is +86-XXX-XXXXXXX.
+（我需要紧急更新今天上午发送的邮件中的客户信息 —— 客户的联系人已变更为莉萨・格林，她的电话号码是 + 86-XXX-XXXXXXX。）
+三、沟通急救：和外籍同事协作遇障碍
+I have a bit of trouble understanding the technical terms you used just now. Can you explain them in simpler words?
+（我对您刚才用的专业术语有点理解困难。您能用更简单的话解释一下吗？）
+When you talked about “process optimization”, I’m not sure I fully get what steps we need to take. Can you break it down for me?
+（您提到 “流程优化” 的时候，我不确定完全明白需要采取哪些步骤。您能给我拆解开讲吗？）
+I think there might be a misunderstanding here. What I meant was we need to finish the task by Friday, not next Monday. Did I make myself clear?
+（我觉得这里可能有误解。我的意思是我们要在周五前完成任务，不是下周一。我之前说清楚了吗？）
+Your accent makes it a bit hard for me to catch every word. Can you speak a little slower so I can follow better?
+（您的口音让我很难听清每个词。您能说慢一点，好让我更容易跟上吗？）
+I’m not familiar with the workflow you mentioned that’s common in your country. Can you give a short example to help me understand?
+（我对您提到的贵国常用的工作流程不太熟悉。您能举个简短的例子帮我理解吗？）
+I think I misheard the deadline you said. Did you mention it’s the 15th or the 25th of this month?
+（我觉得我听错了您说的截止日期。您说是这个月 15 号还是 25 号来着？）
+When discussing the collaboration mode, I’m confused about how we’ll divide the daily tasks. Can we clarify the responsibilities first?
+（讨论协作模式的时候，我对日常任务怎么分配感到困惑。咱们能先明确职责吗？）
+Cultural differences might affect our work coordination. Can you share some common practices in your team to avoid misunderstandings?
+（文化差异可能会影响我们的工作协作。您能分享一些您团队里的常见做法，好避免误解吗？）
+I’m not sure what the phrase “loop in the stakeholders” means in this context. Can you explain what action we need to take?
+（我不确定在这个语境里 “让利益相关者参与进来” 这句话是什么意思。您能解释一下我们需要采取什么行动吗？）
+I think there’s a language barrier here. Let me rephrase my point to make sure you understand: we need to confirm the client’s needs before starting the design.
+（我觉得这里有语言障碍。我重新组织一下我的观点，确保您能理解：我们需要在开始设计前确认客户的需求。）
+When you talked about “prioritizing the low-hanging fruit”, I’m not sure which tasks you’re referring to. Can you specify them?
+（您提到 “优先处理容易完成的任务” 的时候，我不确定您指的是哪些任务。能明确一下吗？）
+The time zone difference makes it hard to schedule real-time meetings. Can we agree on a fixed weekly meeting time that works for both sides?
+（时区差异让我们很难安排实时会议。咱们能商定一个双方都方便的固定周会时间吗？）
+I have trouble following the logic of the solution you proposed. Can you explain the reasoning step by step?
+（我很难跟上您提出的解决方案的逻辑。您能一步步解释一下思路吗？）
+I’m not familiar with the software tool you recommended for project management. Can you share a quick tutorial or user guide?
+（我对您推荐的项目管理软件工具不太熟悉。您能分享一个快速教程或者使用指南吗？）
+I think I misinterpreted your request earlier. Did you want me to send the report to the whole team or just you?
+（我觉得我之前误解了您的要求。您是想让我把报告发给整个团队，还是只发给您一个人？）
+When discussing the risk control measures, some of the methods you mentioned are new to me. Can you explain how they work in practice?
+（讨论风险控制措施时，您提到的一些方法我是第一次接触。您能解释一下它们实际怎么操作吗？）
+The speed of your speech makes it a bit hard for me to keep up. Can you pause once in a while so I can take notes?
+（您说话的速度让我有点跟不上。您能偶尔停一下，好让我记笔记吗？）
+I’m not sure about the communication preferences in your team—do you like using instant messages for quick updates or emails for formal matters?
+（我不确定您团队的沟通偏好 —— 快速更新的话，你们更喜欢用即时消息，还是正式事务用邮件？）
+I think there’s a misunderstanding about the project goals. Let’s confirm together: our main target is to increase sales by 10% this quarter, right?
+（我觉得关于项目目标有误解。咱们一起确认一下：我们的主要目标是本季度把销售额提高 10%，对吗？）
+When you talked about “aligning with the company’s strategy”, I don’t see how our current task connects to that. Can you explain more?
+（您提到 “和公司战略保持一致” 时，我不清楚我们现在的任务和这有什么关联。您能多解释一下吗？）
+I have trouble understanding the context of the client feedback you shared. Can you provide a bit more background info?
+（我很难理解您分享的客户反馈的背景。您能多提供一点背景信息吗？）
+The terminology related to local regulations is new to me. Can you explain which rules we need to follow for this project?
+（和当地法规相关的术语我不太熟悉。您能解释一下这个项目我们需要遵守哪些规定吗？）
+I think I made a mistake when translating my ideas into English. Let me try again: the production delay is caused by a shortage of raw materials. Is that clearer?
+（我觉得把我的想法翻译成英文时出错了。我再试一次：生产延迟是因为原材料短缺。这样更清楚了吗？）
+When scheduling the task milestones, I’m confused about the local holidays in your region. Can you list the key dates we need to avoid?
+（安排任务里程碑的时候，我对您所在地区的法定节假日很困惑。您能列出我们需要避开的重要日期吗？）
+I’m not sure about the quality requirements for the deliverables. Can you share a sample of previous work for reference?
+（我不确定交付成果的质量要求。您能分享一个之前的工作样本作为参考吗？）
+The way we report progress is different in my team. Can we agree on a unified progress report template to avoid confusion?
+（我所在的团队汇报进度的方式不一样。咱们能商定一个统一的进度报告模板，避免混乱吗？）
+I have trouble understanding the feedback you gave on the draft. Can you point out the specific parts that need revision?
+（我很难理解您对草案给出的反馈。您能指出需要修改的具体部分吗？）
+When discussing the team meeting frequency, I’m not sure if weekly or biweekly meetings work better for you. What’s your preference?
+（讨论团队会议频率时，我不确定周会还是双周会更适合您。您更倾向于哪种？）
+I’m not familiar with the decision-making process in your department. Can you explain who needs to approve the project plan?
+（我对您部门的决策流程不熟悉。您能解释一下项目计划需要谁审批吗？）
+I think there’s a language gap when talking about cultural references. Can we avoid using too many local idioms to make communication smoother?
+（谈论和文化相关的内容时，我觉得有语言隔阂。咱们能避免用太多当地习语，让沟通更顺畅吗？）
+I’m not familiar with the “stand-up meeting” format you mentioned—can you explain how it’s different from our regular team meetings?
+（我对您提到的 “站会” 形式不熟悉，能解释一下它和我们常规的团队会议有什么不一样吗？）
+The cultural context of the client’s feedback is unclear to me. Can you share some background on their business culture to help me understand better?
+（我不清楚客户反馈的文化背景。您能分享一些他们的商业文化背景，帮我更好地理解吗？）
+I have trouble translating the technical specifications into English accurately. Can you help me check the key terms to avoid misunderstandings?
+（我很难把技术规格准确地翻译成英文。您能帮我检查一下关键术语，避免误解吗？）
+When you talked about “meeting the KPI targets”, I’m not sure if it refers to monthly or quarterly goals. Can you confirm the time frame?
+（您提到 “完成 KPI 目标” 时，我不确定是指月度目标还是季度目标。能确认一下时间范围吗？）
+The time zone difference makes real-time discussions hard. Can we agree to share updates via a shared document every other day?
+（时区差异让实时讨论很困难。咱们能约定每隔一天通过共享文档分享更新吗？）
+I’m not familiar with the video editing software you use. Is there a beginner-friendly guide I can refer to to catch up quickly?
+（我对您使用的视频编辑软件不熟悉。有适合初学者的指南能让我快速上手吗？）
+I think there’s a misunderstanding about the project deliverables. Let me list what I think we need to submit—can you correct me if I’m wrong?
+（我觉得关于项目交付成果有误解。我列出我认为需要提交的内容，要是我错了，您能纠正我吗？）
+When discussing the marketing campaign, some of the local references you mentioned are unfamiliar to me. Can you explain their meaning in a global context?
+（讨论营销活动时，您提到的一些当地典故我不熟悉。能在全球语境下解释一下它们的含义吗？）
+I have trouble keeping up with the speed of the discussion. Can we slow down a bit when talking about complex topics?
+（我很难跟上讨论的速度。谈论复杂话题时，咱们能慢一点吗？）
+I’m not sure about the approval process for the expense report. Can you outline the steps I need to follow to get it approved?
+（我不确定费用报销单的审批流程。能列出我需要遵循的审批步骤吗？）
+I’m not familiar with the “feedback culture” in your team—do you prefer direct feedback or more indirect suggestions?
+（我对您团队的 “反馈文化” 不熟悉，你们更喜欢直接反馈，还是更委婉的建议？）
+When you talked about “meeting the deadline”, I’m not sure if it means submitting the draft or the final version. Can you clarify?
+（您提到 “按时完成” 时，我不确定是指提交草案还是最终版本。能明确一下吗？）
+The technical terms in the project document are hard for me to translate accurately. Can you provide a glossary of key terms to help me?
+（项目文档里的专业术语我很难准确翻译。能提供一份关键术语表帮我吗？）
+The time zone difference means I might not reply to your messages right away—can we agree on the best time window for real-time communication?
+（时区差异意味着我可能没法马上回复您的消息，咱们能约定一个实时沟通的最佳时间段吗？）
+I have trouble understanding the humor in your comments—can you explain it a bit, since it might be related to cultural differences?
+（我很难理解您评论里的幽默，能解释一下吗？这可能和文化差异有关。）
+I’m not familiar with the project management methodology you mentioned—can you recommend a short article to help me learn the basics?
+（我对您提到的项目管理方法不熟悉，能推荐一篇短文帮我学习基础知识吗？）
+When discussing the client’s needs, I’m not sure if “flexible delivery” means adjusting the date or the quantity. Can you confirm with the client?
+（讨论客户需求时，我不确定 “灵活交付” 是指调整日期还是数量。能和客户确认一下吗？）
+The way you format the report is different from what I’m used to—can you share a template so our reports are consistent?
+（您的报告格式和我习惯的不一样，能分享一个模板，让我们的报告保持一致吗？）
+I have trouble keeping up with the abbreviations you use in messages, like “KPI” and “ROI”. Can you list the common ones with explanations?
+（我很难跟上您在消息里用的缩写，比如 “KPI” 和 “ROI”。能列出常用的缩写并附带解释吗？）
+When you talked about “team autonomy”, I don’t know how much decision-making power each team member has. Can you give an example?
+（您提到 “团队自主权” 时，我不清楚每个团队成员有多大的决策权。能举个例子吗？）
+When you talked about “streamlining the process”, I’m not sure what specific steps we need to take. Can you give a simple example?
+（您提到 “简化流程” 时，我不确定我们需要采取哪些具体步骤。您能举个简单例子吗？）
+The time zone difference makes it hard to have real-time calls. Can we agree to send daily updates via email instead?
+（时区差异让实时通话很困难。咱们能约定改用邮件发送每日更新吗？）
+I’m not familiar with the project management tool you use. Is there a short video tutorial I can watch to learn the basics?
+（我对您使用的项目管理工具不熟悉。有简短的视频教程能让我学习基础知识吗？）
+I think I misheard the deadline for the task. Did you say it’s the 20th or the 30th of this month?
+（我觉得我听错了任务截止日期。您说是这个月 20 号还是 30 号来着？）
+When discussing the team’s roles, I’m confused about who is responsible for the final review. Can we clarify that again?
+（讨论团队角色时，我对谁负责最终审核感到困惑。咱们能再明确一下吗？）
+When you talked about “improving work efficiency”, I’m not sure what specific methods we should use. Can you give a practical example?
+（您提到 “提高工作效率” 时，我不确定我们应该使用哪些具体方法。您能举个实际例子吗？）
+The time zone difference makes it hard to schedule meetings at a convenient time for both sides. Can we try alternating meeting times each week?
+（时区差异让我们很难找到双方都方便的会议时间。咱们能尝试每周交替调整会议时间吗？）
+I’m not familiar with the file-sharing tool you recommended. Is there a step-by-step guide I can follow to use it?
+（我对您推荐的文件共享工具不熟悉。有分步指南能让我照着使用吗？）
+I think I misheard the requirements for the project deliverables. Did you say we need to submit a report and a presentation, or just a report?
+（我觉得我听错了项目交付成果的要求。您说是需要提交一份报告和一个演示文稿，还是只需要提交报告？）
+When discussing the project timeline, I’m confused about why we need to shorten the first phase. Can you explain the reason again?
+（讨论项目时间线时，我对为什么要缩短第一阶段感到困惑。您能再解释一下原因吗？）
+The accent makes it a bit hard for me to understand some words. Can you repeat the part about the new policy once more?
+（口音让我有点难理解某些单词。您能再重复一下关于新政策的部分吗？）
+I’m not sure about the communication frequency your team prefers—do you want daily updates or weekly summaries?
+（我不确定您团队偏好的沟通频率 —— 你们想要每日更新还是每周总结？）
+I think there’s a misunderstanding about the client’s needs. Let’s confirm together: they want the product delivered by the end of this month, right?
+（我觉得关于客户需求有误解。咱们一起确认一下：他们希望产品在本月底前交付，对吗？）
+When you talked about “following the industry standards”, I don’t know which specific standards we need to comply with. Can you list them briefly?
+（您提到 “遵循行业标准” 时，我不知道我们需要遵守哪些具体标准。您能简要列出来吗？）
+I have trouble translating the technical details of the product into English. Can you help me check if the key descriptions are accurate?
+（我很难把产品的技术细节翻译成英文。您能帮我检查一下关键描述是否准确吗？）
+四、突发状况急救
+（一）设备故障
+My laptop suddenly crashed, and I can’t access the project files. Can you share the backup files with me temporarily?
+（我的笔记本电脑突然死机了，没法访问项目文件。您能暂时把备份文件分享给我吗？）
+The projector in Conference Room 2 isn’t working, and we have a client meeting in 10 minutes. Can someone help check it or arrange another room?
+（2 号会议室的投影仪坏了，我们 10 分钟后有客户会议。有人能帮忙检查一下，或者安排另一个会议室吗？）
+My internet connection is unstable, and I can’t join the online meeting on time. Can you share the meeting recording with me later?
+（我的网络连接不稳定，没法按时参加线上会议。您之后能把会议录屏分享给我吗？）
+The office printer is jammed, and I need to print the contract for the client to sign. Can you tell me where the spare printer is?
+（办公室的打印机卡纸了，我需要打印合同让客户签字。您能告诉我备用打印机在哪里吗？）
+My microphone isn’t working during the video call. Let me switch to a headset and rejoin in 2 minutes—can you wait for me briefly?
+（视频通话时我的麦克风坏了。我换个耳机，2 分钟后重新加入 —— 您能稍等我一下吗？）
+The external hard drive with all the project data isn’t recognized by my computer. Can the IT team come to fix it as soon as possible?
+（存有所有项目数据的移动硬盘没法被我的计算机识别。IT 团队能尽快过来帮忙修一下吗？）
+The video conferencing software keeps freezing on my end. Can you send me the meeting agenda first so I can follow up on the key points later?
+（我这边的视频会议软件一直卡顿。您能先把会议议程发给我，好让我之后跟进要点吗？）
+My phone has no signal, and I can’t receive the client’s call. Can you take the call for me and pass the message to me?
+（我的手机没信号，没法接客户的电话。您能帮我接一下，然后把消息转告我吗？）
+The scanner isn’t working, and I need to scan the signed document to send to the client. Is there a way to use a mobile scanning app as a temporary solution?
+（扫描仪坏了，我需要扫描已签署的文件发给客户。有没有办法用手机扫描应用作为临时解决方案？）
+My computer screen went black, and I suspect there’s a hardware issue. Can I borrow a spare laptop to finish the urgent report?
+（我的电脑屏幕变黑了，我怀疑是硬件问题。我能借一台备用笔记本电脑来完成这份紧急报告吗？）
+My company laptop won’t connect to the office Wi-Fi, and I’ve tried restarting it twice. Can the IT team send someone to check the network settings for me?
+（我的公司笔记本电脑连不上办公室的 Wi-Fi，我已经重启两次了。IT 团队能派人来帮我检查一下网络设置吗？）
+The video camera on my computer isn’t working, and I have an important client video call in 15 minutes. Can I borrow a portable camera from the office supply room?
+（我电脑的摄像头坏了，15 分钟后有重要的客户视频会议。我能从办公用品室借一个便携式摄像头吗？）
+The conference room’s audio system is making a loud noise, and we can’t hear the speaker in the online meeting. Can someone switch to a backup audio device quickly?
+（会议室的音响系统有很大噪音，我们听不到线上会议发言人的声音。能尽快切换到备用音响设备吗？）
+My external monitor stopped working suddenly, and I need it to review the design drafts. Can I use the spare monitor from the empty office next door?
+（我的外接显示器突然坏了，我需要用它查看设计稿。我能使用隔壁空办公室的备用显示器吗？）
+The office printer ran out of ink, and I need to print the meeting agenda for the participants. Can someone bring a new ink cartridge from the storage room?
+（办公室的打印机没墨了，我需要打印会议议程给参会者。能有人从储藏室拿一个新墨盒吗？）
+My wireless mouse stopped working, and I need to finish editing the document quickly. Can I borrow a wired mouse from the nearby desk?
+（我的无线鼠标坏了，需要快速完成文档编辑。我能从旁边的桌子借一个有线鼠标吗？）
+The conference room’s projector screen is broken, and we have a presentation in 20 minutes. Can we move the meeting to Conference Room 5, which has a working screen?
+（会议室的投影幕布坏了，我们 20 分钟后有演示。咱们能把会议转移到 5 号会议室吗？那里的幕布是好的。）
+My laptop’s battery is draining too fast, and there’s no power outlet nearby. Can someone bring a portable charger to me?
+（我笔记本电脑的电池耗电太快，附近又没有电源插座。有人能给我拿一个便携充电器吗？）
+The video conferencing app on my computer keeps crashing. Can I join the meeting via my phone instead, and will that affect the discussion?
+（我电脑上的视频会议应用总崩溃。我能用手机加入会议吗？这会影响讨论吗？）
+The office’s shared drive isn’t accessible right now, and I need to retrieve the project files. Can the IT team fix the access issue as soon as possible?
+（办公室的共享驱动器现在没法访问，我需要调取项目文件。IT 团队能尽快修复访问问题吗？）
+My laptop’s charger stopped working, and the battery is almost dead. Can I borrow a spare charger from the office?
+（我笔记本电脑的充电器坏了，电池快没电了。我能从办公室借一个备用充电器吗？）
+The conference room’s whiteboard marker ran out of ink, and we have a brainstorming session in 5 minutes. Can someone get a new one from the supply cabinet?
+（会议室的白板笔没墨了，我们 5 分钟后要开头脑风暴会议。有人能从储物柜拿一支新的吗？）
+My phone’s charging port is broken, and I can’t charge it. Can I use the office’s wireless charger temporarily?
+（我手机的充电口坏了，没法充电。我能暂时用一下办公室的无线充电器吗？）
+The video conferencing app can’t detect my camera. I’ve tried restarting it, but it still doesn’t work. Can the IT team help me fix it?
+（视频会议应用检测不到我的摄像头。我已经重启过了，但还是不行。IT 团队能帮我修一下吗？）
+The office’s network printer can’t connect to my computer. Can someone show me how to set up the connection again?
+（办公室的网络打印机连不上我的计算机。有人能教我怎么重新设置连接吗？）
+My laptop’s screen is flickering, and it’s hard to see the content. Can I borrow a spare monitor to continue working?
+（我笔记本电脑的屏幕在闪烁，很难看清内容。我能借一个备用显示器继续工作吗？）
+The office’s fax machine isn’t working, and I need to send a fax to the client immediately. Is there another fax machine I can use nearby?
+（办公室的传真机坏了，我需要立即给客户发一份传真。附近有其他传真机可以使用吗？）
+My wireless keyboard stopped responding, and I need to finish typing the report quickly. Can I borrow a wired keyboard from a colleague?
+（我的无线键盘没反应了，需要快速打完这份报告。我能从同事那里借一个有线键盘吗？）
+The video conferencing software keeps disconnecting me from the meeting. Can I join via the phone call instead to avoid further interruptions?
+（视频会议软件总把我从会议中断开。我能用电话会议的方式加入，避免更多中断吗？）
+The office’s shared printer is out of paper, and I need to print the contract for the client. Can someone bring a ream of paper from the storage room?
+（办公室的共享打印机没纸了，我需要打印合同给客户。有人能从储藏室拿一包纸过来吗？）
+My computer’s operating system is updating, and it will take at least 30 minutes. Can I use the spare laptop in the meeting room to handle urgent work?
+（我电脑的操作系统正在更新，至少需要 30 分钟。我能使用会议室的备用笔记本电脑处理紧急工作吗？）
+The microphone in the conference room isn’t working, and we have an online meeting in 5 minutes. Can we use a portable microphone instead?
+（会议室的麦克风坏了，我们 5 分钟后有线上会议。咱们能用便携式麦克风替代吗？）
+My phone’s battery is dead, and I can’t make important calls. Can I borrow a portable charger from the front desk?
+（我手机没电了，没法打重要电话。我能从前台借一个便携充电器吗？）
+The scanner in the office can’t scan color documents, and the client requires a color copy. Is there a way to scan it in black and white and then convert it to color?
+（办公室的扫描仪没法扫描彩色文档，而客户需要彩色副本。有没有办法先扫描成黑白，再转换成彩色？）
+My laptop’s USB port isn’t working, and I need to transfer files from the external drive. Can the IT team help me fix it quickly?
+（我笔记本电脑的 USB 接口坏了，需要从移动硬盘传输文件。IT 团队能快速帮我修好吗？）
+（二）临时请假
+I’m suddenly feeling unwell with a high fever, so I need to take a sick day today. I’ve assigned my urgent tasks to Tom, and he’ll update you on the progress.
+（我突然发高烧不舒服，今天需要请一天病假。我已经把紧急任务交给汤姆了，他会向您汇报进度。）
+There’s an unexpected family emergency, and I have to rush to deal with it. I’ll be absent this afternoon and will catch up on work tomorrow.
+（家里有突发紧急情况，我得赶回去处理。今天下午我会缺勤，明天会补上工作。）
+My child got sick and needs to see a doctor right away, so I need to take half a day off today. I’ve left notes on the ongoing tasks in the shared folder.
+（我的孩子生病了，需要马上看医生，所以今天我需要请半天假。我已经在共享文件夹里留下了当前任务的说明。）
+I was in a minor traffic accident on my way to work, and I need to stay at the police station to handle the formalities. I’ll be late for 2 hours—can you adjust the morning meeting schedule if needed?
+（我上班路上出了点小交通事故，需要留在警察局办手续。我会迟到 2 小时 —— 如果需要，您能调整一下上午的会议安排吗？）
+My apartment has a water leak, and the plumber is coming to fix it this morning. I need to take the morning off and will start working in the afternoon.
+（我的公寓漏水了，水管工今天上午来修理。我需要请上午的假，下午开始工作。）
+I received a sudden notice for a mandatory family matter that requires my presence today. I’ll be absent all day, and I’ve informed my team members to cover my tasks.
+（我突然收到通知，有件必须本人到场的家庭事务。今天我全天缺勤，已经告知团队成员接手我的任务。）
+I woke up with a severe headache and can’t focus on work, so I need to take a sick day. I’ll reply to urgent emails before noon if possible.
+（我早上醒来头痛得厉害，没法专注工作，所以需要请一天病假。如果可能，我会在中午前回复紧急邮件。）
+There’s an unexpected issue with my travel arrangement for the business trip, and I need to go to the airport to sort it out. I’ll be late for work this morning and will notify you once it’s resolved.
+（我的商务出行行程安排出了突发问题，需要去机场处理。今天上午我会迟到，问题解决后会立即通知您。）
+I’ve been exposed to someone with the flu and need to take a day off to self-isolate and monitor my health. I’ll work remotely if I feel well enough.
+（我接触过流感患者，需要请假一天自我隔离并观察身体状况。如果身体感觉良好，我会远程办公。）
+My pet has a sudden illness and needs emergency treatment, and no one else can take it to the vet. I need to take half a day off and will finish the urgent tasks this evening.
+（我的宠物突发疾病需要紧急治疗，而且没人能帮忙送宠物医院。我需要请半天假，今晚我会完成紧急任务。）
+I received a sudden call from the school saying my child has a fever, so I need to take the afternoon off to pick them up. I’ll delegate my urgent tasks to Lisa and update you later.
+（我突然接到学校电话，说孩子发烧了，所以下午需要请假去接他们。我会把紧急任务交给莉萨，之后向您更新进展。）
+My apartment building is having an emergency fire drill this morning, and all residents are required to participate. I’ll be late for work by about an hour and will make up the time this evening.
+（我住的公寓楼今天上午有紧急消防演习，要求所有住户参加。我上班会迟到大约一小时，今晚我会补回这段时间。）
+I’m experiencing sudden tooth pain and need to see the dentist immediately. I’ll be absent this morning and will check my work emails periodically if possible.
+（我突然牙疼，需要马上看牙医。今天上午我会缺勤，若可能会定期查看工作邮件。）
+There’s a problem with the delivery of my work laptop, and I need to go to the courier office to resolve it. I’ll be late for 2 hours and will join the afternoon meeting on time.
+（我的工作笔记本电脑快递出了问题，需要去快递点处理。我会迟到 2 小时，下午的会议会准时参加。）
+I’ve been asked to attend a mandatory family legal meeting this afternoon, and I can’t reschedule it. I’ll finish the pending tasks before leaving and hand over the rest to Mike.
+（我被要求今天下午参加一场必须到场的家庭法律会议，无法重新安排时间。离开前我会完成未完成的任务，剩余部分交给迈克。）
+I received a sudden notice that my visa renewal appointment is this afternoon, and it can’t be rescheduled. I’ll be absent this afternoon and will complete the pending work tomorrow.
+（我突然收到通知，签证续签预约在今天下午，且无法重新安排。今天下午我会缺勤，明天完成未竟工作。）
+My car broke down on the way to work, and I’m waiting for the tow truck. I’ll be late for about 1.5 hours and will inform you once I’m on my way again.
+（我的车在上班路上坏了，正在等拖车。我会迟到大约 1.5 小时，再次出发后会通知您。）
+I’m feeling dizzy and nauseous this morning, so I need to take a sick day to rest. I’ve shared all urgent task details with my colleague Alex.
+（今天早上我感觉头晕恶心，需要请一天病假休息。已将所有紧急任务细节分享给同事亚历克斯。）
+There’s a gas leak in my neighborhood, and we’re required to evacuate temporarily. I’ll be absent this morning and will check in with work once I’m in a safe place.
+（我住的小区发生煤气泄漏，要求我们临时疏散。今天上午我会缺勤，到安全地方后会和工作对接。）
+My sister is in the hospital and needs someone to accompany her for a check-up this afternoon. I need to take the afternoon off and will hand over my work to Emma.
+（我妹妹住院了，今天下午需要有人陪她检查。我需要请下午的假，会把工作交给艾玛。）
+My spouse is stuck in traffic and can’t pick up our child from school, so I need to take an hour off this afternoon to do it. I’ll finish the remaining work this evening.
+（我配偶堵车了，没法去学校接孩子，所以今天下午我需要请假一小时去接。晚上我会完成剩余工作。）
+I received a sudden notice that my visa application requires additional documents, and I need to go to the embassy this morning. I’ll be absent this morning and will work remotely this afternoon.
+（我突然收到通知，签证申请需要补充材料，今天上午我需要去大使馆。今天上午我会缺勤，下午会远程办公。）
+I’m experiencing sudden dizziness and can’t focus on work. I need to take a sick day to rest and will reply to urgent emails if possible.
+（我突然头晕，无法专注工作。需要请一天病假休息，若可能会回复紧急邮件。）
+My apartment’s elevator is broken, and I need to wait for the repairman to fix it before I can leave. I’ll be late for about an hour and will inform you once I’m on my way.
+（我公寓的电梯坏了，需要等维修工修好才能出门。我会迟到大约一小时，出发后会立即通知您。）
+My child has a school performance this afternoon, and I promised to attend. I need to take the afternoon off and will hand over my urgent tasks to Tom.
+（我孩子今天下午有学校演出，我答应会去参加。需要请下午的假，会把紧急任务交给汤姆。）
+There’s a water leak in my neighbor’s apartment, and it’s affecting my place. I need to stay home to coordinate with the property management. I’ll work remotely if the issue is resolved soon.
+（邻居家漏水，影响到了我家。我需要在家和物业协调。如果问题很快解决，我会远程办公。）
+I’m having severe eye strain from staring at the computer screen for too long, and the doctor advised me to rest. I need to take half a day off and will finish the urgent work tomorrow.
+（长时间看电脑屏幕让我眼睛严重疲劳，医生建议我休息。需要请半天假，明天完成紧急工作。）
+I received a sudden call from the bank about an issue with my account, and I need to go there to resolve it this morning. I’ll be late for 2 hours and will catch up on the work afterward.
+（我突然接到银行电话，说账户有问题，今天上午需要去处理。会迟到 2 小时，之后会补上工作。）
+My pet needs to undergo a follow-up check-up this afternoon, and no one else can take it to the vet. I need to take the afternoon off and will update you on the work progress tomorrow.
+（我的宠物今天下午需要复查，没人能帮忙送宠物医院。需要请下午的假，明天向您更新工作进展。）
+There’s an emergency maintenance in my office building this morning, and we can’t enter until it’s done. I’ll be late for work and will inform you of the exact arrival time once I know.
+（我办公楼今天上午有紧急维修，维修完成前无法进入。上班会迟到，知道确切到达时间后会立即通知您。）
+（三）任务出问题
+I encountered an unexpected obstacle in the task—the data source we relied on is no longer available. I’m currently looking for alternative data, but it might delay the progress by 1 day.
+（我在任务中遇到了突发障碍 —— 我们依赖的数据源无法使用了。我正在寻找替代数据，但可能会导致进度延迟 1 天。）
+The supplier informed me that the materials we ordered will be delayed by a week, which will affect the production task. I’m negotiating with them to expedite the delivery and will update you promptly.
+（供应商告知我，我们订购的材料将延迟一周交付，这会影响生产任务。我正在和他们协商加急发货，会及时向您更新进展。）
+I made a mistake in the calculation of the project budget, which led to a discrepancy in the total amount. I’ve rechecked the data and will submit the corrected budget report within an hour.
+（我在项目预算计算中出现失误，导致总金额有偏差。我已重新核对数据，会在一小时内提交更正后的预算报告。）
+The client suddenly changed their requirements for the design, which means we need to redo most of the work. I’ve discussed it with the team and estimate it will take 3 more days to complete.
+（客户突然变更了设计需求，这意味着我们需要重新完成大部分工作。我已和团队讨论过，预计还需要 3 天才能完成。）
+The software we use for data analysis crashed, and some of the unsaved analysis results were lost. I’m trying to recover the data with the IT team and will restart the analysis if recovery fails.
+（我们用于数据分析的软件崩溃了，部分未保存的分析结果丢失。我正在和 IT 团队尝试恢复数据，若恢复失败，会重新开始分析。）
+I misread the deadline for the task and didn’t start preparing in advance, so I might not finish it on time. I’m working overtime tonight to catch up and will let you know if there’s still a delay.
+（我看错了任务截止日期，没有提前开始准备，所以可能无法按时完成。我今晚正在加班赶进度，若仍有延迟会及时告知您。）
+One of the team members responsible for the task is on sudden sick leave, and their work hasn’t been handed over. I’m reassigning the task to another colleague and will adjust the timeline accordingly.
+（负责该任务的一名团队成员突发病假，且工作未交接。我正在将任务重新分配给另一位同事，并会相应调整时间安排。）
+The market research data we collected is inaccurate, which affects the reliability of the project proposal. I’ve arranged for the team to redo the research and will submit updated data by tomorrow afternoon.
+（我们收集的市场调研数据存在误差，影响了项目提案的可信度。我已安排团队重新调研，会在明天下午前提交更新后的数据。）
+I forgot to coordinate with the marketing team to confirm the promotion time, which led to a mismatch between the product launch and the promotion plan. I’m communicating with them now to adjust the schedule.
+（我忘记和市场团队协调确认推广时间，导致产品上线与推广计划不同步。我现在正在和他们沟通调整时间安排。）
+The test results of the new product didn’t meet the quality standards, so we need to modify the production process. I’ve organized a meeting with the R&amp;D team to discuss improvement measures and will share the plan later.
+（新产品的测试结果未达到质量标准，我们需要修改生产流程。我已组织研发团队开会讨论改进措施，之后会分享具体方案。）
+The freelance designer we hired hasn’t submitted the draft on time, and they’re not responding to messages. I’m contacting a backup designer and will update you on the progress in 2 hours.
+（我们聘请的自由设计师没按时提交稿件，还不回消息。我正在联系备用设计师，2 小时内会向您更新进展。）
+I found a mistake in the client’s contact information, and now I can’t reach them to confirm the meeting time. I’m checking the old files to find the correct number and will call them as soon as possible.
+（我发现客户的联系方式有误，现在无法联系他们确认会议时间。我正在查阅旧文件找正确号码，会尽快打电话联系。）
+The project software we use has a system update, and it’s taking longer than expected. This might delay the task by half a day, but I’ll work overtime to make up for it.
+（我们使用的项目软件正在系统更新，耗时比预期长。这可能会导致任务延迟半天，但我会加班补回来。）
+I forgot to include the appendix with the supporting data in the report submitted to the client. I’m sending a follow-up email with the appendix and apologizing for the oversight.
+（我向客户提交的报告中，忘记附上包含支持数据的附录。我正在发送后续邮件附上附录，并为这次疏忽道歉。）
+The venue we booked for the client workshop canceled suddenly due to maintenance. I’m contacting three alternative venues and will present the options to you within 30 minutes.
+（我们为客户研讨会预订的场地因维修突然取消。我正在联系三个备用场地，30 分钟内会向您提供选择方案。）
+The data analysis tool we use encountered a system error, and all the progress we made this morning was lost. I’m contacting the tool’s technical support and will restart the analysis once the issue is fixed.
+（我们使用的数据分析工具出现系统错误，今天上午的所有进度都丢失了。我正在联系该工具的技术支持，问题解决后会重新开始分析。）
+I miscommunicated the client’s requirements to the design team, leading to a design that doesn’t meet expectations. I’m correcting the requirements and asking the team to revise the design within 2 days.
+（我向设计团队传达客户需求时出现偏差，导致设计不符合预期。我正在更正需求，并要求团队在 2 天内修改设计。）
+The packaging supplier informed us that they can’t deliver the materials on time due to a production accident. I’m searching for alternative suppliers and will present 2 options to you by the end of the day.
+（包装供应商告知，因生产事故无法按时交付材料。我正在寻找替代供应商，今天结束前会向您提供 2 个选择方案。）
+I forgot to remind the team to prepare the meeting materials for the client, and the meeting is in 1 hour. I’m helping the team rush to print and organize the materials to avoid delays.
+（我忘了提醒团队为客户会议准备材料，而会议 1 小时后就要开始。我正在帮团队加急打印整理材料，避免延误。）
+The client’s feedback on the proposal is more complex than expected, requiring major revisions. I’ve extended the revision timeline by 3 days and informed the client of the new deadline.
+（客户对提案的反馈比预期复杂，需要大幅修改。我已将修改时间延长 3 天，并告知客户新的截止日期。）
+The data we received from the client is incomplete, which affects our analysis progress. I’m following up with the client to get the missing parts and will update you once I receive them.
+（我们从客户那里收到的数据不完整，影响了分析进度。我正在跟进客户获取缺失部分，收到后会立即向您更新。）
+I made a mistake in the client’s address on the delivery order, which might cause a delay. I’m contacting the logistics company to correct it and will share the new delivery time soon.
+（我在送货单上写错了客户地址，可能会导致延迟。我正在联系物流公司更正，很快会分享新的送货时间。）
+The software update caused some of our project files to become unopenable. The IT team is working on recovering them, and I’ll let you know the result as soon as possible.
+（软件更新导致我们的一些项目文件无法打开。IT 团队正在努力恢复，一有结果我就告知您。）
+The team member responsible for the presentation suddenly fell ill, and no one else is familiar with the content. I’m rearranging the meeting agenda to give us time to prepare a replacement presenter.
+（负责演示的团队成员突然生病，其他人都不熟悉演示内容。我正在重新安排会议议程，以便我们有时间安排替代的演示人员。）
+The client informed us that they need to advance the project deadline by 5 days. I’m discussing with the team to adjust the work plan and will share the new timeline this afternoon.
+（客户告知我们需要将项目截止日期提前 5 天。我正在和团队讨论调整工作计划，今天下午会分享新的时间线。）
+The supplier informed us that the materials we ordered are out of stock, and they can’t deliver them on time. I’m searching for other suppliers and will present 3 options to you by the end of today.
+（供应商告知我们订购的材料缺货，无法按时交付。我正在寻找其他供应商，今天结束前会向您提供 3 个选择方案。）
+I made a mistake in the calculation of the project’s expected profit, leading to an incorrect forecast. I’ve rechecked the data and will submit the corrected profit report within 2 hours.
+（我在计算项目预期利润时出了错，导致预测结果不准确。已重新核对数据，会在 2 小时内提交更正后的利润报告。）
+The client suddenly requested additional features for the product, which means we need to extend the development time. I’ve discussed it with the R&amp;D team and estimate it will take 5 more days.
+（客户突然要求为产品增加额外功能，这意味着我们需要延长开发时间。已和研发团队讨论，预计还需要 5 天。）
+The data analysis report was accidentally deleted from my computer, and I can’t recover it. I’m restarting the analysis with the help of a colleague and will finish it by tomorrow afternoon.
+（数据分析报告不小心从我的电脑里删除了，无法恢复。正在同事的帮助下重新分析，明天下午前会完成。）
+I misread the client’s requirements for the design style, leading to a design that doesn’t meet their expectations. I’m correcting the requirements and asking the design team to revise it within 3 days.
+（我看错了客户对设计风格的要求，导致设计不符合他们的预期。正在更正需求，并要求设计团队在 3 天内修改。）
+The freelance writer we hired hasn’t submitted the article draft on time, and they’re not answering calls. I’m contacting another writer and will update you on the progress in 3 hours.
+（我们聘请的自由撰稿人没按时提交文章草稿，还不接电话。正在联系另一位撰稿人，3 小时内会向您更新进展。）
+The project’s software license expired unexpectedly, and we can’t use the software to continue working. I’m contacting the software provider to renew the license and will let you know when it’s activated.
+（项目的软件许可证意外到期，我们无法使用该软件继续工作。正在联系软件提供商续费，激活后会立即告知您。）
+I forgot to coordinate with the logistics team to arrange the delivery time, leading to a delay in product shipment. I’m communicating with them now to confirm a new delivery date.
+（我忘记和物流团队协调安排交货时间，导致产品发货延迟。现在正在和他们沟通，确认新的交货日期。）
+五、应急工具包：3 个 “万能缓冲句”
+（一）缓冲句 1：争取思考 / 准备时间
+Let me take a moment to organize my thoughts before I respond.
+（让我花一点时间整理思路，然后再回复您。）
+I need to check some relevant information first to give you an accurate answer. Could you wait for a few minutes?
+（我需要先查阅一些相关信息，才能给您准确的答复。您能等几分钟吗？）
+This is an important question, and I want to make sure my response is comprehensive. Let me collect my thoughts briefly.
+（这是一个重要的问题，我希望我的回复能全面一些。让我简要整理一下思路。）
+I need to confirm the details with my colleague first, so could I get back to you in 15 minutes?
+（我需要先和同事确认细节，所以能在 15 分钟后回复您吗？）
+Let me review the related documents quickly to avoid giving incorrect information. I’ll reply to you soon.
+（让我快速查阅相关文件，避免提供错误信息。我会尽快回复您。）
+I want to make sure I understand the question correctly before answering. Could you give me a second to clarify?
+（在回答前，我想确保自己正确理解了问题。您能给我一秒钟确认一下吗？）
+This involves some complex data, and I need to verify it first. I’ll let you know the result as soon as possible.
+（这涉及到一些复杂数据，我需要先核实。会尽快告知您结果。）
+Let me think through all the possible aspects to provide a thorough response. Give me just a minute.
+（让我考虑到所有可能的方面，以便给出全面的回复。给我一分钟就好。）
+I need to recall the previous discussion about this issue to ensure consistency. Could you hold on for a short while?
+（我需要回忆一下之前关于这个问题的讨论，确保前后一致。您能稍等片刻吗？）
+I want to avoid missing any key points in my answer, so let me take a moment to list them out mentally.
+（我想避免在回答中遗漏任何要点，所以让我花点时间在脑海中梳理一下。）
+I need to pull up the project timeline document to confirm the key milestones—could you give me 2 minutes to access it?
+（我需要调出项目时间线文档确认关键里程碑，能给我 2 分钟打开文档吗？）
+This question involves the details of the previous project, so I need to recall the specific process first. Let me think for a moment.
+（这个问题涉及上一个项目的细节，所以我需要先回忆具体流程。让我思考一下。）
+I want to ensure the answer aligns with the company’s latest guidelines, so I need to check the internal memo quickly. I’ll be right back.
+（我希望答案符合公司最新准则，所以需要快速查阅内部备忘录。马上就好。）
+I need to confirm with the production team about the delivery time before replying—could I get back to you in 10 minutes?
+（回复前我需要和生产团队确认交付时间，能在 10 分钟后回复您吗？）
+Let me organize the key points I want to share to avoid rambling. Give me just 30 seconds.
+（为了避免说话杂乱，我先整理一下想分享的要点。给我 30 秒就好。）
+I need to check the project’s previous progress report to ensure my answer is consistent with past records—could you give me 3 minutes?
+（我需要查阅项目之前的进度报告，确保回答与过往记录一致，能给我 3 分钟吗？）
+This question involves the client’s special requirements, so I need to refer to the client contract first. Let me access it quickly.
+（这个问题涉及客户的特殊要求，所以需要先查阅客户合同。我快速调取一下。）
+I want to confirm the latest update from the logistics team before replying—could I get back to you in 15 minutes?
+（回复前我想确认物流团队的最新进展，能在 15 分钟后回复您吗？）
+I need to calculate the approximate cost for this plan to support my answer—let me do a quick calculation now.
+（我需要计算这个方案的大致成本来支撑我的回答，现在快速算一下。）
+This involves the team’s workload arrangement, so I need to check the team’s task schedule first. I’ll be right with you.
+（这涉及团队的工作量安排，所以需要先查看团队的任务表。马上就好。）
+I need to check the project’s previous meeting minutes to confirm the discussion points. Could you give me 3 minutes to find the document?
+（我需要查阅项目之前的会议纪要确认讨论要点。您能给我 3 分钟找一下文档吗？）
+This question involves the client’s long-term plans, which I’m not fully aware of. I need to consult the account manager first and will get back to you in 20 minutes.
+（这个问题涉及客户的长期计划，我了解得不够全面。我需要先咨询客户经理，20 分钟后回复您。）
+Let me confirm the team’s current workload to see if we can take on this new task. Give me just a minute to check the task list.
+（让我确认一下团队当前的工作量，看看是否能承接这项新任务。给我一分钟查看任务表就好。）
+I need to calculate the approximate time required for this task to support my answer. Let me do a quick estimate now.
+（我需要计算这项任务所需的大致时间来支撑我的回答。现在快速估算一下。）
+This involves the company’s expense policy, which I need to review first. I’ll be right back with the details.
+（这涉及公司的费用政策，我需要先查阅一下。马上就带细节回来。）
+（二）缓冲句 2：缓解紧张 / 避免冷场
+I’m still getting familiar with this topic, so my response might not be perfect, but I’ll share what I know so far.
+（我还在熟悉这个话题，所以我的回复可能不够完善，但我会分享目前所了解的内容。）
+Let me start with a basic overview first, and then we can dive into the details if you’d like.
+（让我先从基础概述开始，如果您愿意，之后我们可以深入探讨细节。）
+This is a bit of a new area for me, but I’ve done some quick research beforehand, so let me share my findings.
+（这对我来说算是一个新领域，但我之前做了一些快速调研，让我分享一下我的发现。）
+Maybe I can approach this from another angle to make it easier to understand—let me try that.
+（或许我可以从另一个角度来阐述，这样更容易理解 —— 让我试试。）
+I think many people might have similar questions about this, so let me explain it step by step.
+（我觉得很多人可能对这个问题有类似的疑问，所以让我一步步解释。）
+Let me share a simple example first to illustrate the core idea, and then we can expand on it.
+（让我先分享一个简单的例子来说明核心思路，之后我们再展开讨论。）
+I might need to pause occasionally to make sure I’m on the right track—please feel free to remind me if I go off topic.
+（我可能需要偶尔停顿一下，确保自己没有偏离方向 —— 如果我跑题了，欢迎提醒我。）
+Let’s take this step by step; there’s no rush, so we can clarify any doubts as we go.
+（我们一步步来，不用着急，过程中有任何疑问都可以随时澄清。）
+I’ll try to explain this in a more conversational way to make it less formal and more relaxed.
+（我会尝试用更口语化的方式解释，让氛围不那么正式，更轻松一些。）
+If you have any follow-up questions while I’m speaking, don’t hesitate to interrupt—I’m happy to address them.
+（在我说话的过程中，如果您有任何后续问题，随时可以打断我 —— 我很乐意解答。）
+I’ll share my initial thoughts first, and then we can build on them together—feel free to add your ideas at any time.
+（我先分享我的初步想法，之后我们可以一起完善，随时欢迎大家补充观点。）
+This topic is a bit complex, so let’s start with the most basic concept to lay the foundation.
+（这个话题有点复杂，我们先从最基础的概念入手，打好基础。）
+I’m still learning about this aspect, but I can share the resources I’ve found so far—maybe they’ll help us understand better.
+（我还在学习这个方面，但可以分享目前找到的资料，或许能帮我们更好地理解。）
+Let’s take a quick look at the sample document on the screen first; it might make the explanation more intuitive.
+（我们先快速看一下屏幕上的示例文档，这或许能让解释更直观。）
+I might not have all the answers right now, but let’s discuss the problem together—team input will help us find a solution faster.
+（我现在可能没有所有答案，但我们一起讨论这个问题，团队的意见能帮我们更快找到解决方案。）
+Let’s start by discussing the most urgent part of this issue first, and then we can address the less pressing details later.
+（我们先讨论这个问题最紧急的部分，之后再处理不那么紧迫的细节。）
+I’ll share a short case study related to this topic—it might help us understand the practical application better.
+（我分享一个和这个话题相关的简短案例研究，或许能帮我们更好地理解实际应用。）
+If you’re not clear about any part of my explanation, please stop me at any time—I’m happy to repeat or rephrase.
+（如果我的解释中有任何部分不清楚，随时打断我 —— 我很乐意重复或重新组织语言。）
+Let’s brainstorm some possible solutions together, even if they’re not perfect. We can refine them later.
+（我们一起头脑风暴一些可能的解决方案，即使不够完善也没关系，之后可以优化。）
+I’ll try to use more visual examples, like simple diagrams, to make the concept easier to grasp.
+（我会尝试用更多可视化例子，比如简单图表，让这个概念更容易理解。）
+I know this topic can feel overwhelming at first—let’s take it slow and focus on one part at a time.
+（我知道这个话题一开始可能会让人觉得难，但咱们慢慢来，一次专注一个部分。）
+To make sure everyone follows, I’ll summarize what we’ve talked about so far before moving to the next point.
+（为了确保大家都跟上，在进入下一点之前，我先总结一下我们到目前为止讨论的内容。）
+I’m not an expert in this field, but I’ve worked on similar tasks before—let me share what I learned from that experience.
+（我不是这个领域的专家，但之前做过类似任务 —— 让我分享一下从那次经历中学到的东西。）
+If I use any terms that don’t make sense, please let me know immediately—I’ll explain them right away.
+（如果我用了任何让人不理解的术语，请马上告诉我 —— 我会立刻解释。）
+Let’s start with a quick question: has anyone here encountered a similar situation before? It might help us share more ideas.
+（咱们先提个小问题：在座有人遇到过类似情况吗？这或许能帮我们分享更多想法。）
+I’ll keep my explanation short first, and then we can spend more time on the parts you’re interested in.
+（我先把解释弄简短些，之后我们可以在你感兴趣的部分多花点时间。）
+I know I might be a bit nervous right now, so please forgive me if I stumble over my words—I’ll try to speak clearly.
+（我知道我现在可能有点紧张，如果我说错了请原谅我 —— 我会尽量说清楚。）
+To make this more engaging, let’s take turns sharing our thoughts on this part. Does anyone want to go first?
+（为了让互动性更强，咱们轮流分享对这部分的想法。有人想先来说说吗？）
+I’ll use a real-life example from our company to explain this—since it’s familiar, it might be easier to understand.
+（我会用一个咱们公司的真实例子来解释这个 —— 因为大家熟悉，可能会更容易理解。）
+If we run out of time for this part, I can send a follow-up note with more details to everyone later.
+（如果这部分时间不够，之后我可以给大家发后续说明，补充更多细节。）
+My parent is feeling unwell and needs someone to accompany them to the hospital this morning. I need to take the morning off and will make up the work this afternoon.
+（我父母身体不舒服，今天上午需要有人陪他们去医院。我需要请上午的假，下午会补上工作。）
+I received a sudden notice that my house inspection is this afternoon, and I can’t reschedule it. I’ll be absent this afternoon and will finish the urgent tasks tomorrow.
+（我突然收到通知，房屋检查在今天下午，而且无法重新安排。今天下午我会缺勤，明天完成紧急任务。）
+I’m experiencing sudden stomach pain and need to go home to rest. I’ve handed over my urgent tasks to Peter, and he’ll update you.
+（我突然胃疼，需要回家休息。我已经把紧急任务交给彼得了，他会向您汇报进展。）
+My child’s school has an emergency parent meeting this morning, and I must attend. I’ll be late for 1.5 hours and will join the team meeting on time.
+（我孩子的学校今天上午有紧急家长会，我必须参加。我会迟到 1.5 小时，团队会议会准时参加。）
+There’s a problem with the gas supply in my neighborhood, and I need to stay home to deal with it. I’ll work remotely if the issue is resolved soon.
+（我住的小区燃气供应出了问题，我需要在家处理。如果问题很快解决，我会远程办公。）
+I’ll start by sharing a small part of my experience related to this topic, and then we can discuss it further.
+（我先分享一点自己和这个话题相关的经历，之后咱们可以进一步讨论。）
+To make this clearer, let’s break the problem into small parts and talk about each one step by step.
+（为了让内容更清晰，咱们把问题拆成小部分，一步步讨论每一部分。）
+I know some of you might have different ideas—feel free to share them anytime, and we can discuss together.
+（我知道你们中有些人可能有不同想法 —— 随时分享，咱们一起讨论。）
+Let’s take a quick break from the complex part and talk about a simple example first. It might help us get back on track.
+（咱们先从复杂部分暂停一下，聊一个简单例子。这或许能帮我们回到正题。）
+I’ll keep my sharing short and to the point, so we have more time for your questions later.
+（我会把分享弄得简洁明了，这样之后就有更多时间解答大家的问题。）
+（三）缓冲句 3：应对不确定 / 需后续跟进
+I’m not 100% certain about this right now, but I can look into it further and send you a detailed update by the end of the day.
+（目前我不能 100% 确定这件事，但我可以进一步调查，在今天结束前给您发送详细的更新。）
+This requires confirmation from the higher management, so I’ll coordinate with them and let you know the outcome tomorrow.
+（这需要上级管理层的确认，所以我会和他们协调，明天告知您结果。）
+I don’t have the latest data on this at the moment, but I can get it from the data team and share it with you within an hour.
+（目前我没有关于此事的最新数据，但我可以从数据团队获取，在一小时内分享给您。）
+The situation is still evolving, so I’ll keep an eye on it and provide timely updates whenever there’s new information.
+（情况仍在变化中，所以我会持续关注，一旦有新信息，就及时向您更新。）
+I need to consult with the expert in this field to ensure the accuracy of the answer. I’ll reach out to them now and get back to you.
+（我需要咨询该领域的专家，确保答案的准确性。我现在就联系他们，之后回复您。）
+This involves multiple departments, so I’ll organize a short coordination meeting to discuss it and share the resolution with you later.
+（这涉及多个部门，所以我会组织一次简短的协调会议来讨论，之后将解决方案分享给您。）
+I’m not sure about the specific policy regarding this issue, but I can check the company handbook and confirm it for you this afternoon.
+（我不确定关于这个问题的具体政策，但我可以查阅公司手册，在今天下午为您确认。）
+The final decision hasn’t been made yet, but I’ll follow up with the decision-makers and inform you as soon as it’s finalized.
+（最终决定尚未做出，但我会跟进决策者，一旦确定，立即通知您。）
+I don’t have all the details right now, but I can collect the necessary information from relevant colleagues and compile a report for you tomorrow morning.
+（目前我没有掌握所有细节，但我可以从相关同事那里收集必要的信息，在明天上午为您整理一份报告。）
+This is a bit outside my area of expertise, but I can connect you with a colleague who specializes in this, or I can learn more about it and explain it to you later.
+（这有点超出我的专业领域，但我可以为您联系一位该领域的专业同事，或者我也可以深入了解后，之后再向您解释。）
+I’m not sure about the availability of the conference room for next week, but I can check with the admin team and let you know by the end of today.
+（我不确定下周会议室是否可用，但可以和行政团队确认，今天结束前告知您。）
+This requires input from the legal department to ensure compliance, so I’ll schedule a short call with them and share the feedback tomorrow.
+（这需要法律部门的意见确保合规，所以我会和他们安排简短通话，明天分享反馈。）
+I don’t have the exact figures for the quarterly sales yet, but I can get them from the sales manager and send you a summary this afternoon.
+（我还没有季度销售的准确数据，但可以从销售经理那里获取，今天下午给您发汇总。）
+The client hasn’t confirmed their decision yet, but I’ll follow up with them twice a day until we get a response.
+（客户尚未确认决定，但我会每天跟进两次，直到收到回复。）
+This is outside my area of responsibility, but I can connect you with the person in charge of this module—they’ll be able to give a detailed answer.
+（这超出了我的职责范围，但我可以为您联系负责这个模块的人，他们能给出详细答案。）
+I’m not sure about the lead time for the new materials, but I can contact the supplier and let you know the exact delivery date by tomorrow.
+（我不确定新材料的交货周期，但可以联系供应商，明天告知您准确的交货日期。）
+This requires a discussion with the sales team to align our goals, so I’ll schedule a meeting with them and share the outcome by the end of the week.
+（这需要和销售团队讨论以统一目标，所以我会安排和他们开会，本周末前分享结果。）
+I don’t have the details of the client’s new requirements yet, but I’ll have a call with them this afternoon and send you a summary afterward.
+（我还没有客户新需求的细节，但今天下午会和他们通话，之后给您发汇总。）
+The team’s capacity for this new task is unclear, but I’ll check each member’s workload and confirm if we can take it on by tomorrow noon.
+（团队承担这项新任务的能力尚不明确，但我会查看每位成员的工作量，明天中午前确认是否能承接。）
+This is related to the company’s new procurement policy, which I’m not familiar with yet. I’ll consult the procurement department and get back to you within 2 hours.
+（这和公司新的采购政策相关，我还不熟悉。会咨询采购部门，2 小时内回复您。）
+I’m not sure if the client will agree to the revised plan, but I’ll send it to them today and follow up with their feedback tomorrow.
+（我不确定客户是否会同意修订后的方案，但我今天会发给他们，明天跟进他们的反馈。）
+This involves checking the inventory status, which I don’t have access to right now. I’ll ask the warehouse team for an update and let you know in 30 minutes.
+（这需要查看库存状况，我现在没法获取。我会让仓库团队提供更新，30 分钟内告知您。）
+I don’t know if the software update will affect our ongoing tasks, but I’ll check with the IT team and share their assessment this morning.
+（我不知道软件更新是否会影响我们正在进行的任务，但我会和 IT 团队确认，今天上午分享他们的评估结果。）
+The budget approval might take longer than expected, but I’ll follow up with the finance team every day and keep you informed of the progress.
+（预算审批可能会比预期久，但我会每天跟进财务团队，向您同步进展。）
+I’m not certain about the training schedule for next month, but I’ll check with the HR department and send you a copy of the plan by the end of today.
+（我不确定下个月的培训安排，但会和人力资源部确认，今天结束前给您发一份计划副本。）
+This requires confirming the client’s availability for the meeting, which I can’t do right now. I’ll call them this afternoon and let you know the possible time slots.
+（这需要确认客户的会议时间是否方便，我现在没法做。今天下午我会打电话给他们，告知您可能的时间段。）
+I don’t have the contact info for the external consultant yet, but I’ll ask the project manager for it and share it with you as soon as I get it.
+（我还没有外部顾问的联系方式，但会向项目经理要，拿到后马上分享给您。）
+The quality inspection results aren’t ready yet, but I’ll check with the quality control team and let you know when they’ll be available.
+（质量检测结果还没出来，但我会和质检团队确认，告知您结果何时能出来。）
+I’m not sure if we have enough resources for this task, but I’ll assess the team’s current workload and give you a clear answer by tomorrow morning.
+（我不确定我们是否有足够资源完成这项任务，但会评估团队当前工作量，明天上午给您明确答复。）
+This involves understanding the new tax regulations, which I’m still learning. I’ll consult the finance expert and explain the key points to you by the end of the week.
+（这需要理解新的税收法规，我还在学习。会咨询财务专家，本周末前向您解释关键点。）
+I’m not aware of the latest changes to the project scope, but I’ll review the updated document and highlight the key adjustments for you by this afternoon.
+（我不清楚项目范围的最新变更，但会查阅更新后的文档，今天下午为您标注出关键调整内容。）
+This requires confirming if the spare equipment is in stock, which I can’t do right now. I’ll contact the admin team to check and get back to you within an hour.
+（这需要确认备用设备是否有库存，我现在无法核实。会联系行政团队查询，一小时内回复您。）
+I don’t know if the client’s feedback has been shared with the design team yet, but I’ll check with the coordinator and ensure everyone gets the info by the end of the day.
+（我不知道客户的反馈是否已同步给设计团队，但会和协调员确认，确保今天结束前所有人都能收到信息。）
+The timeline for the new project phase is unclear to me, but I’ll discuss it with the project lead and send you a revised schedule tomorrow morning.
+（我不清楚新项目阶段的时间安排，但会和项目负责人沟通，明天上午给您发修订后的时间表。）
+I’m not sure if the travel expenses are covered by the company’s policy, but I’ll check the travel guidelines and clarify the reimbursement rules for you this morning.
+（我不确定差旅费是否在公司政策覆盖范围内，但会查阅差旅指南，今天上午为您明确报销规则。）
+This involves verifying the accuracy of the client’s contact details, which I’ll do by cross-checking with the old records. I’ll confirm the correct info with you in 20 minutes.
+（这需要核实客户联系方式的准确性，我会通过核对旧记录来确认。20 分钟内告知您正确信息。）
+I don’t have the details of the team’s performance metrics for last month, but I’ll request the report from the HR department and share it with you by tomorrow noon.
+（我没有上个月团队绩效指标的详细数据，但会向人力资源部申请报告，明天中午前分享给您。）
+I’m not certain if the external partner can attend the meeting next week, but I’ll send them a calendar invite and follow up with their response in 2 days.
+（我不确定外部合作伙伴能否参加下周的会议，但会给他们发送日程邀请，2 天后跟进他们的回复。）
+This requires checking if the software license is still valid, which I’ll do by contacting the IT support team. I’ll let you know the result as soon as I get it.
+（这需要确认软件许可证是否仍有效，我会联系 IT 支持团队查询。一有结果就立即告知您。）
+I don’t know if the meeting minutes from last week have been finalized, but I’ll check with the note-taker and send you a copy if they’re ready.
+（我不知道上周的会议纪要是否已定稿，但会和记录人确认，若已完成就给您发一份副本。）
+I’m not aware of the reason for the delay in the material delivery, but I’ll follow up with the supplier to find out and update you by the end of the day.
+（我不清楚材料交付延迟的原因，但会跟进供应商了解情况，今天结束前向您更新。）
+This involves confirming the number of participants for the training session, which I’ll do by checking the sign-up sheet. I’ll let you know the final count in 30 minutes.
+（这需要确认培训课程的参与人数，我会查看报名表统计。30 分钟内告知您最终人数。）
+I don’t have the latest update on the client’s contract negotiation, but I’ll call our legal representative and share the key points with you this afternoon.
+（我没有客户合同谈判的最新进展，但会打电话给我们的法律代表，今天下午向您分享关键点。）
+I’m not sure if the office will be closed for the upcoming holiday, but I’ll check the company’s holiday calendar and confirm the schedule for you tomorrow.
+（我不确定即将到来的节假日办公室是否放假，但会查阅公司假日日历，明天为您确认安排。）
+This requires checking if the project budget has any remaining funds, which I’ll do by reviewing the financial report. I’ll let you know the available amount in an hour.
+（这需要确认项目预算是否有剩余资金，我会通过查阅财务报告核实。一小时内告知您可用金额。）
+I don’t know if the new employee has completed the onboarding process yet, but I’ll check with the HR team and let you know their status by the end of the morning.
+（我不知道新员工是否已完成入职流程，但会和人力资源团队确认，上午结束前告知您他们的情况。）
+I’m not certain if the marketing campaign materials are ready for review, but I’ll check with the creative team and send you the drafts if they’re finalized.
+（我不确定营销活动材料是否已准备好待审核，但会和创意团队确认，若已定稿就给您发草稿。）
+This involves understanding the requirements for the new software implementation, which I’ll learn by attending the briefing tomorrow. I’ll summarize the key points for you afterward.
+（这需要理解新软件实施的要求，我会通过参加明天的简报会学习。之后会为您总结关键点。）
+I don’t have the contact info for the venue coordinator, but I’ll ask the event planner for it and share it with you as soon as possible.
+（我没有场地协调员的联系方式，但会向活动策划人索要，尽快分享给您。）
+I’m not aware of the changes to the client’s delivery expectations, but I’ll have a call with them to clarify and update the team on the new requirements by tomorrow.
+（我不清楚客户对交付期望的变更，但会和他们通话确认，明天向团队更新新需求。）
+I’m not sure if the supplier can meet the new delivery date, but I’ll negotiate with them and let you know the result by the end of the day.
+（我不确定供应商能否满足新的交货日期，但会和他们协商，今天结束前告知您结果。）
+This requires checking if the training materials meet the client’s standards, which I’ll do by comparing them to the client’s requirements. I’ll confirm with you in an hour.
+（这需要确认培训材料是否符合客户标准，我会通过比对客户要求来核实。一小时内和您确认。）
+I don’t have the latest sales data for the new product, but I’ll request it from the sales team and share a summary with you tomorrow morning.
+（我没有新产品的最新销售数据，但会向销售团队索要，明天上午给您发汇总。）
+I’m not aware of the reason for the client’s delayed response, but I’ll send a follow-up email and call them if I don’t get a reply by this afternoon.
+（我不清楚客户回复延迟的原因，但会发送跟进邮件，如果下午还没回复就给他们打电话。）
+This involves confirming the availability of the external trainer for next month’s training. I’ll contact their assistant and let you know the possible dates in 2 days.
+（这需要确认外部培训师下个月是否有空参与培训。我会联系他们的助手，2 天后告知您可能的日期。）</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="91职场英语，无非就这500句应急";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>背完这450句跟老外交流不慌了</title>
+<style>
+:root{--bg:#0e1016;--panel:#161923;--card:#1a1e2b;--ink:#e8eaf2;--sub:#8f96ab;
+--brand:#8b9cf9;--line:#262b3b;--hover:#202636;
+--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+background:var(--bg);color:var(--ink)}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+/* ---- 头部 ---- */
+header{padding:48px 16px 40px;text-align:center;position:relative;
+background:radial-gradient(ellipse 80% 100% at 50% -20%,#1c2240 0%,var(--bg) 70%)}
+header .logo{font-size:36px;margin-bottom:10px;display:block}
+header h1{margin:0 0 10px;font-size:27px;font-weight:800;letter-spacing:2px;
+background:linear-gradient(120deg,#c9d4ff,#8b9cf9);-webkit-background-clip:text;
+background-clip:text;color:transparent}
+header .subtitle{margin:0 0 22px;font-size:13.5px;color:var(--sub)}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+.chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px}
+.search{width:100%;max-width:580px;margin:0 auto;display:block;padding:14px 22px 14px 46px;
+font-size:15px;border:1px solid var(--line);border-radius:12px;outline:none;
+color:var(--ink);background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%236b7390' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;
+transition:border-color .15s ease,box-shadow .15s ease}
+.search:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.search::placeholder{color:#5d6479}
+.stats{color:var(--sub);font-size:12.5px;margin:16px 0 0}
+.stats #count{color:var(--brand);font-weight:600}
+/* ---- 分区 ---- */
+.sec-title{margin:36px 0 14px;font-size:15px;font-weight:700;color:var(--ink);
+display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:8px;height:8px;border-radius:50%;flex:none;
+box-shadow:0 0 8px currentColor}
+.sec-title .c1{background:#8b9cf9;color:#8b9cf9}
+.sec-title .c2{background:#e8b667;color:#e8b667}
+.sec-title .c3{background:#e08ba6;color:#e08ba6}
+.sec-title .count{font-weight:400;font-size:12px;color:var(--sub)}
+.sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+/* ---- 卡片 ---- */
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:15px 17px;display:flex;flex-direction:column;gap:9px;
+transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.item:hover{background:var(--hover);border-color:#39415e;transform:translateY(-2px)}
+.item .t{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--ink);
+cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.item .t .emo{font-size:17px;line-height:1.4;flex:none;filter:saturate(.85)}
+.item .t:hover{color:#c9d4ff}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.doc{background:rgba(52,211,153,.12);color:#4ecfa0}
+.badge.pdf{background:rgba(248,113,113,.12);color:#f08c8c}
+.charspill{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px}
+.vtoggle{font-size:12px;color:var(--brand);cursor:pointer;user-select:none;font-weight:600}
+.vtoggle:hover{text-decoration:underline}
+.variants{display:none;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:9px}
+.variants.open{display:flex}
+.variants a{font-size:12.5px;color:var(--sub)}
+.variants a::before{content:"↳ ";color:#4b5580}
+.variants a:hover{color:var(--brand)}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+footer{text-align:center;color:#5d6479;font-size:12px;padding:34px 0 44px}
+/* ---- 阅读页 ---- */
+.art-header{background:var(--panel);border-bottom:1px solid var(--line);
+padding:28px 16px 24px}
+.art-header .back{font-size:13px;color:var(--sub);font-weight:600}
+.art-header .back:hover{color:var(--brand)}
+.art-header .back::before{content:"← "}
+.art-header h1{margin:14px 0 10px;font-size:21px;line-height:1.5;font-weight:800;color:#dfe4f5}
+.art-header .src{font-size:12px;color:#5d6479;word-break:break-all}
+.art-header .meta{color:var(--sub);margin-top:10px}
+.art-header .meta a{color:var(--brand);font-weight:600}
+.art-header .meta .note{color:#e8b667}
+.content{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:30px 36px;margin-top:20px;font-size:15.5px;
+line-height:2.1;white-space:pre-wrap;word-break:break-word;color:#d5dae8}
+@media (max-width:600px){.content{padding:20px 16px;border-radius:14px}
+.list{grid-template-columns:1fr}header{padding:38px 16px 32px}header h1{font-size:23px}}
+/* ---- 默写练习 ---- */
+.dict-link{background:rgba(139,156,249,.12);color:#a5b1fb;font-size:11px;
+padding:3px 10px;border-radius:999px;font-weight:600}
+.dict-link:hover{background:rgba(139,156,249,.25)}
+.dict-wrap{background:var(--card);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:34px 36px;margin-top:20px}
+.dict-center{text-align:center}
+.dict-progress{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.dict-progress .bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.dict-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b9cf9,#4ecfa0);
+border-radius:3px;transition:width .25s ease}
+.dict-progress .num{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.dict-zh{font-size:21px;font-weight:700;color:#dfe4f5;line-height:1.7;margin:8px 0 26px}
+.dict-input{width:100%;padding:14px 16px;font-size:16px;color:var(--ink);
+background:var(--panel);border:1.5px solid var(--line);border-radius:12px;outline:none;
+transition:border-color .15s ease,box-shadow .15s ease;font-family:inherit}
+.dict-input:focus{border-color:#4b5580;box-shadow:0 0 0 3px rgba(139,156,249,.15)}
+.dict-input.ok{border-color:#34d399}
+.dict-input.bad{border-color:#f08c8c}
+.dict-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;
+cursor:pointer;font-family:inherit;transition:opacity .15s ease}
+.btn:hover{opacity:.85}
+.btn-main{background:linear-gradient(120deg,#8b9cf9,#6d7ff0);color:#fff}
+.btn-ghost{background:var(--panel);color:var(--sub);border:1px solid var(--line)}
+.dict-fb{margin-top:18px;font-size:15px;line-height:1.9;display:none;
+padding:14px 18px;border-radius:12px}
+.dict-fb.show{display:block}
+.dict-fb.good{background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.25)}
+.dict-fb.near{background:rgba(232,182,103,.10);border:1px solid rgba(232,182,103,.3)}
+.dict-fb.wrong{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.25)}
+.dict-fb .ans{display:block;color:#dfe4f5;font-weight:600;margin-top:4px}
+.dict-big{font-size:17px;font-weight:700;color:#dfe4f5;margin:14px 0 22px;line-height:1.8}
+.dict-stats{display:flex;gap:14px;justify-content:center;margin:22px 0 28px;flex-wrap:wrap}
+.dict-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:14px 26px;min-width:110px}
+.dict-stat b{display:block;font-size:24px;font-weight:800}
+.dict-stat span{font-size:12px;color:var(--sub)}
+.dict-stat.g b{color:#4ecfa0}.dict-stat.n b{color:#e8b667}.dict-stat.w b{color:#f08c8c}
+.dict-wronglist{margin-top:26px;text-align:left}
+.dict-wronglist h3{font-size:14px;color:var(--sub);font-weight:600;margin:0 0 10px}
+.dict-wronglist .wp{padding:10px 14px;border:1px solid var(--line);border-radius:10px;
+margin-bottom:8px;font-size:13.5px;line-height:1.8}
+.dict-wronglist .wp b{color:#f08c8c}
+.dict-wronglist .wp span{display:block;color:var(--sub)}
+.dict-wronglist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600}
+.dict-opt{display:flex;gap:10px;justify-content:center;margin:24px 0 8px;flex-wrap:wrap}
+.dict-opt label{display:flex;align-items:center;gap:7px;background:var(--panel);
+border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;
+cursor:pointer;color:var(--sub)}
+.dict-opt input{accent-color:#8b9cf9}
+.dict-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+.dict-chips .chip{cursor:pointer}
+.dict-chips .chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+/* ---- 学习进度 & 归档 ---- */
+.pctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.st{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:var(--panel);color:#5d6479;
+transition:all .12s ease}
+.st:hover{opacity:.8}
+.st-learning{background:rgba(139,156,249,.16);border-color:rgba(139,156,249,.4);color:#a5b1fb}
+.st-done{background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.35);color:#4ecfa0}
+.arch-btn{font-size:11px;font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;
+user-select:none;border:1px solid var(--line);background:transparent;color:#5d6479}
+.arch-btn:hover{color:var(--sub)}
+.arch-btn.on{background:rgba(232,182,103,.13);border-color:rgba(232,182,103,.4);color:#e8b667}
+.item.archived{opacity:.5}
+.item.archived:hover{opacity:.8}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 0}
+.filter-chip{background:var(--panel);border:1px solid var(--line);color:#aab2cc;
+font-size:12px;padding:5px 14px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.filter-chip:hover{border-color:#39415e}
+.filter-chip.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.pbar-outer{max-width:580px;margin:20px auto 0;height:8px;border-radius:4px;
+background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.pbar-outer i{display:block;height:100%;width:0;border-radius:4px;
+background:linear-gradient(90deg,#8b9cf9,#4ecfa0);transition:width .3s ease}
+.psum{margin:10px 0 0;font-size:12.5px;color:var(--sub)}
+.psum b{color:#c9d4ff;font-weight:600}
+footer .io{margin-top:8px}
+footer .io a,footer .io label{cursor:pointer;color:#5d6479}
+footer .io a:hover,footer .io label:hover{color:var(--brand)}
+footer .io input{display:none}
+.art-pctrl{margin-top:12px}
+.dict-hist{color:#8f96ab;font-size:13px;margin-top:14px}
+.dict-hist b{color:#a5b1fb}
+/* ---- 复习中心 & 收藏 ---- */
+.btn-fav.on{color:#e8b667;border-color:rgba(232,182,103,.45)}
+.rtabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.rtab{background:var(--panel);border:1px solid var(--line);color:#aab2cc;font-size:13px;
+padding:8px 18px;border-radius:999px;cursor:pointer;user-select:none;
+transition:all .12s ease}
+.rtab:hover{border-color:#39415e}
+.rtab.on{background:rgba(139,156,249,.18);border-color:#4b5580;color:#c9d4ff}
+.rsec{display:none}
+.rsec.on{display:block}
+.rlist{border-top:1px dashed var(--line);padding-top:14px;margin-top:16px}
+.rlist .wp{padding:12px 16px;border:1px solid var(--line);border-radius:12px;
+margin-bottom:9px;font-size:13.5px;line-height:1.8;background:var(--panel)}
+.rlist .wp span{display:block;color:var(--sub)}
+.rlist .wp i{display:block;font-style:normal;color:#dfe4f5;font-weight:600;margin-top:2px}
+.wp-meta{font-size:11.5px;color:#5d6479;margin-top:7px;display:flex;gap:14px;
+align-items:center;flex-wrap:wrap}
+.wp-meta b{cursor:pointer;color:#8f96ab;font-weight:600}
+.wp-meta b:hover{color:#f08c8c}
+.wp-meta .due{color:#e8b667}
+.wp-meta .src{opacity:.8;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
+.chip.rlink{cursor:pointer;transition:all .12s ease}
+.chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+@media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="art-header container" style="text-align:left">
+  <a class="back" href="../index.html">返回目录</a>
+  <h1><span style="margin-right:8px">💬</span>背完这450句跟老外交流不慌了</h1>
+  <div class="meta">
+    <span class="badge doc">Word</span>
+    <span class="charspill">26,053 字符</span>
+    <span>来源：背完这450句跟老外交流不慌了.docx</span>
+    
+    <a href="file:///D%3A%5C%E4%B8%AA%E4%BA%BA%5C%E7%9F%A5%E8%AF%86%5Cbdac39ce1387ef61790db39ca900d82d_8670361512722589224_m%5C%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%A4%BC%E5%8C%85%5C%E8%83%8C%E5%AE%8C%E8%BF%99450%E5%8F%A5%E8%B7%9F%E8%80%81%E5%A4%96%E4%BA%A4%E6%B5%81%E4%B8%8D%E6%85%8C%E4%BA%86.docx" title="在本机打开原文件">打开原文件</a>
+    <a href="../pages/dict_p260.html">✍️ 默写练习</a>
+  </div>
+  <div class="pctrl art-pctrl">
+    <span class="st" id="stBtn" onclick="cyclePageStatus()" title="点击切换：未学 → 学习中 → 已掌握">未学</span>
+    <span class="arch-btn" id="archBtn" onclick="togglePageArchive()" title="归档后首页主列表隐藏">归档</span>
+  </div>
+</div>
+<div class="container">
+  <div class="content" style="">背完这450句
+跟老外交流不慌啦!
+一、问候与介绍
+How are you doing today? 今儿过得咋样？
+I&#x27;m so glad to meet you. 可高兴见到你啦。
+I&#x27;m sorry, I didn&#x27;t catch your name. 不好意思，我没听清你叫啥名儿。
+二、问路与出行
+Could you tell me where the restroom is? 你能告诉我卫生间在哪不？
+What&#x27;s the best way to get to the airport? 去机场咋走最方便？
+How do I get to the main square? 咋去主广场啊？
+What&#x27;s the nearest subway station? 最近的地铁站在哪块儿？
+How do I get to the train station? 咋去火车站呢？
+How do I get to the library? 咋去图书馆呀？
+I&#x27;m looking for a pharmacy. Do you know where there is one? 我在找药店，你知道哪儿有不？
+Could you tell me the way to the post office? 你能给我指下去邮局的路不？
+How do I get to the botanical garden? 我咋去植物园啊？
+How do I get to the local university? 咋去当地的大学呀？
+Is there a supermarket nearby? 这附近有超市不？
+Do you have a map of the city? 你有这城市的地图不？
+三、餐饮相关
+Can I have the check, please? 能给我结下账不？
+Can I have a cup of coffee, please? 给我来杯咖啡呗。
+I&#x27;d like a table for two, please. 我想要张两人桌，谢谢哈。
+Can I get this to - go? 这能打包不？
+Do you have any dietary restrictions? 你吃东西有啥忌口不？
+I&#x27;d love to try the local food. 我可想尝尝当地的吃的啦。
+Could you recommend a local dish to try? 你能给我推荐个当地菜尝尝不？
+I’ll have the same thing as them. 我跟他们点一样的。
+四、住宿相关
+I&#x27;d like to book a room for two nights. 我想订个房间，住两晚。
+Is there Wi - Fi available here? 这儿有wifi不？
+Let me know if you need anything. 要是你有啥需要，就跟我说哈。
+Can I have extra towels, please? 能多给我几条毛巾不？
+Do you offer laundry services here? 这儿提供洗衣服务不？
+What&#x27;s the check - out time here? 这儿啥时候退房呀？
+五、购物相关
+I&#x27;d like to exchange some currency. 我想换点钱。
+Do you accept credit cards here? 这儿能刷信用卡不？
+Can I pay with cash, or do you prefer card? 我能用现金付不，还是你更乐意我刷卡？
+Can I pay in USD here? 这儿能用美元付款不？
+How much is this souvenir? 这纪念品多少钱呀？
+I&#x27;m looking for a pet store. Is there one around here? 我在找宠物店，这附近有不？
+I&#x27;d like to buy some postcards. Where can I find them? 我想买些明信片，在哪能买到呢？
+Where can I buy a SIM card for my phone? 在哪能买到手机的 SIM 卡呀？
+Where can I buy a fishing rod? 在哪能买到鱼竿呢？
+I&#x27;m looking for a place to buy a musical instrument. 我在找个地儿买乐器。
+Where can I buy a camping tent? 在哪能买到露营帐篷呀？
+I&#x27;m looking for a place to buy handicrafts. 我在找个地儿买手工艺品。
+Where can I buy fresh fruits? 在哪能买到新鲜水果呀？
+Can you recommend a good place to buy souvenirs? 你能给我推荐个买纪念品的好地方不？
+Can you recommend a good place to buy local tea? 你能推荐个买当地茶叶的好地方不？
+Can you recommend a good place to buy local honey? 你能推荐个买当地蜂蜜的好地方不？
+Can you recommend a good place to buy local handicraft jewelry? 你能推荐个买当地手工珠宝的好地方不？
+Can you recommend a good place to buy local scarves? 你能推荐个买当地围巾的好地方不？
+Can you recommend a good place to buy local jams? 你能推荐个买当地果酱的好地方不？
+Can you recommend a good place to buy local candles? 你能推荐个买当地蜡烛的好地方不？
+Can you recommend a good place to buy local incense? 你能推荐个买当地香薰的好地方不？
+Can you recommend a good place to buy local sea - salt? 你能推荐个买当地海盐的好地方不？
+Can you recommend a good place to buy local silk scarves? 你能推荐个买当地丝绸围巾的好地方不？
+Can you recommend a good place to buy local handmade soaps? 你能推荐个买当地手工肥皂的好地方不？
+Can you recommend a good place to buy local lavender products? 你能推荐个买当地薰衣草制品的好地方不？
+Can you recommend a good place to buy local hand - painted fans? 你能推荐个买当地手绘扇子的好地方不？
+Can you recommend a good place to buy local linen tablecloths? 你能推荐个买当地亚麻桌布的好地方不？
+Can you recommend a good place to buy local silk - embroidered handkerchiefs? 你能推荐个买当地丝绸刺绣手帕的好地方不？
+Can you recommend a good place to buy local hand - painted pottery plates? 你能推荐个买当地手绘陶盘的好地方不？
+Can you recommend a good place to buy local honey - scented candles? 你能推荐个买当地蜂蜜香味蜡烛的好地方不？
+Can you recommend a good place to buy local lavender - scented sachets? 你能推荐个买当地薰衣草香味香囊的好地方不？
+Can you recommend a good place to buy local honey - based beauty products? 你能推荐个买当地蜂蜜美容产品的好地方不？
+Can you recommend a good place to buy local honey - and - spice - flavored nuts? 你能推荐个买当地蜂蜜香料味坚果的好地方不？
+六、旅游与景点
+What are the main attractions in this area? 这一片儿主要有啥景点啊？
+Could you please take a picture for me? 能帮我拍张照不？
+Do I need a ticket to enter this place? 进这地儿得买票不？
+Can I take photos here? 这儿能拍照不？
+What time does the museum open? 博物馆几点开门呀？
+Do you know if there are any free museums in the city? 你知道这城市里有免费的博物馆不？
+What&#x27;s the best time to visit this city? 啥时候来这城市玩最好呀？
+Is there a park nearby where I can take a walk? 附近有能散步的公园不？
+Can you recommend a good place to watch a movie? 你能给我推荐个看电影的好地方不？
+Are there any events happening this week? 这周有啥活动不？
+Do you know if there are any art exhibitions in town? 你知道镇上有艺术展览不？
+Do you know if there are any local festivals? 你知道有啥当地的节日不？
+Do you know if there are any local markets open today? 你知道今天有当地市场开门不？
+Do you know if there are any local fairs coming up? 你知道最近有当地集市不？
+Do you know if there are any local puppet shows? 你知道有当地的木偶戏表演不？
+Do you know if there are any local magic shows? 你知道有当地的魔术表演不？
+Do you know if there are any local acrobatic shows? 你知道有当地的杂技表演不？
+Do you know if there are any local folk music concerts? 你知道有当地的民间音乐会不？
+Do you know if there are any local storytelling events? 你知道有当地的讲故事活动不？
+Do you know if there are any local film screenings? 你知道当地的电影放映活动不？
+Do you know if there are any local puppet - theater festivals? 你知道有当地的木偶戏剧节不？
+Do you know if there are any local storytelling festivals? 你知道有当地的讲故事节不？
+Do you know if there are any local folk - dance festivals? 你知道有当地的民间舞蹈节不？
+Do you know if there are any local magic - show workshops for beginners? 你知道有给初学者办的当地魔术表演工作坊不？
+Do you know if there are any local puppet - making workshops for kids? 你知道有当地给小孩办的木偶制作工作坊不？
+Do you know if there are any local storytelling workshops for adults? 你知道有当地给成年人办的讲故事工作坊不？
+Do you know if there are any local storytelling workshops for teenagers? 你知道有给青少年办的当地故事创作工作坊不？
+Do you know if there are any local puppet - making contests for families? 你知道有面向家庭的当地木偶制作比赛不？
+Do you know if there are any local magic - show competitions for amateurs? 你知道有面向业余爱好者的当地魔术表演比赛不？
+Do you know if there are any local juggling and acrobatics shows? 你知道有当地的杂耍与杂技表演不？
+Do you know if there are any local puppet - theater and storytelling festivals? 你知道有当地的木偶剧院与讲故事节不？
+七、日常交流与求助
+Excuse me, can you help me with this? 劳驾，能帮我个忙不？
+I&#x27;m not sure I understand what you mean. 我不太明白你啥意思。
+Could you please repeat that more slowly? 你能慢点再说一遍不？
+Could you explain this to me? 你能给我解释下这是啥意思不？
+I&#x27;m sorry, I don&#x27;t understand your accent. 不好意思，我听不懂你口音。
+Thank you for your help, I really appreciate it. 谢谢你帮忙哈，我可感激了。
+Could you please write that down for me? 你能帮我写下来不？
+Could you help me carry this heavy box? 能帮我搬下这个重箱子不？
+Can I borrow your umbrella? It seems to be raining. 好像要下雨了，能借我把伞不？
+Could you help me find a taxi? 能帮我找辆出租车不？
+Can you give me a receipt for this? 能给我开个这个的收据不？
+Is it safe to walk around here at night? 晚上在这附近溜达安全不？
+What&#x27;s the emergency number here? 这儿紧急联系电话是多少啊？
+Could you help me find a tailor to fix my clothes? 能帮我找个裁缝修下衣服不？
+Could you help me translate this sentence into English? 能帮我把这句话翻译成英文不？
+I&#x27;m thinking of joining a local club. Do you know any good ones? 我在想加入个当地俱乐部，你知道有啥不错的不？
+I&#x27;m interested in learning more about your culture. 我对了解你们的文化挺感兴趣的。
+What time do you usually have dinner? 你平常啥时候吃晚饭呀？
+What kind of sports do people usually play here? 这的人平常都玩啥运动啊？
+What&#x27;s the local currency exchange rate? 当地货币汇率是多少呀？
+What&#x27;s the local saying about the first snowfall? 当地关于初雪有啥说法呀？
+What&#x27;s the local superstition about a black cat? 当地关于黑猫有啥迷信说法不？
+What&#x27;s the local belief about a full moon? 当地关于满月有啥说法不？
+What&#x27;s the local tradition for celebrating a new baby? 当地庆祝新生儿有啥习俗呀？
+What&#x27;s the local custom for celebrating a promotion? 当地庆祝升职有啥习俗呀？
+What&#x27;s the local custom for celebrating a wedding anniversary? 当地庆祝结婚纪念日有啥传统呀？
+What&#x27;s the local custom for celebrating a house - warming? 当地庆祝乔迁之喜有啥传统呀？
+What&#x27;s the local custom for celebrating a graduation? 当地庆祝毕业有啥习俗呀？
+What&#x27;s the local custom for celebrating a successful exam result? 当地庆祝考试成绩好有啥习俗呀？
+What&#x27;s the local custom for celebrating a new business opening? 当地庆祝新企业开业有啥传统呀？
+What&#x27;s the local custom for celebrating a baby&#x27;s first birthday? 当地庆祝宝宝周岁有啥习俗呀？
+What&#x27;s the local way of greeting elders? 当地跟长辈打招呼咋打呀？
+What&#x27;s the local custom for welcoming guests? 当地迎接客人有啥习俗呀？
+What&#x27;s the local tradition for celebrating harvest? 当地庆祝丰收有啥传统呀？
+八、休闲娱乐与兴趣爱好
+Do you have any plans for the weekend? 你周末有啥打算不？
+What&#x27;s your favorite type of music? 你最喜欢啥类型的音乐呀？
+Can you recommend a good book for me? 能给我推荐本好书不？
+Can you recommend a good bar around here? 能给我推荐附近一家不错的酒吧不？
+I&#x27;d like to find a place to practice yoga. Do you know any? 我想找个地儿练瑜伽，你知道哪有不？
+How long does the concert last? 这音乐会能持续多久呀？
+I&#x27;m interested in joining a local book club. Do you know how? 我想加入当地读书俱乐部，你知道咋加入不？
+I&#x27;d like to take a cooking class. Do you know where I can find one? 我想上烹饪课，你知道在哪能上不？
+I&#x27;d like to take a painting class. Where can I find one? 我想上绘画课，在哪能找到呢？
+I&#x27;d like to take a photography class. Where can I find one? 我想上摄影课，在哪能找到呢？
+I&#x27;d like to take a pottery - making class. Where can I find one? 我想上陶艺制作课，在哪能找到呢？
+I&#x27;d like to take a wood - carving class. Where can I find one? 我想上木雕课，在哪能找到呢？
+I&#x27;d like to take a knitting class. Where can I find one? 我想上编织课，在哪能找到呢？
+I&#x27;d like to take a bead - working class. Where can I find one? 我想上串珠课，在哪能找到呢？
+I&#x27;d like to take a soap - making class. Where can I find one? 我想上肥皂制作课，在哪能找到呢？
+I&#x27;d like to take a paper - cutting class. Where can I find one? 我想上剪纸课，在哪能找到呢？
+I&#x27;d like to take a calligraphy - painting class. Where can I find one? 我想上书画课，在哪能找到呢？
+I&#x27;d like to take a macrame - making class. Where can I find one? 我想上绳结编织课，在哪能找到呢？
+I&#x27;d like to take a felt - making class. Where can I find one? 我想上毛毡制作课，在哪能找到呢？
+I&#x27;d like to take a metal - smithing class. Where can I find one? 我想上金属锻造课，在哪能找到呢？
+I&#x27;d like to take a glass - blowing class. Where can I find one? 我想上吹玻璃课，在哪能找到呢？
+I&#x27;d like to take a leather - working class. Where can I find one? 我想上皮革制作课，在哪能找到呢？
+I&#x27;d like to take a wood - inlaying class. Where can I find one? 我想上木工镶嵌课，在哪能找到呢？
+I&#x27;d like to take a glass - painting class. Where can I find one? 我想上玻璃绘画课，在哪能找到呢？
+I&#x27;d like to take a leather - stamping class. Where can I find one? 我想上皮革压花课，在哪能找到呢？
+I&#x27;d like to take a paper - mache class. Where can I find one? 我想上纸塑课，在哪能找到呢？
+I&#x27;d like to take a bead - weaving class. Where can I find one? 我想上珠子编织课，在哪能找到呢？
+I&#x27;d like to take a wood - engraving class. Where can I find one? 我想上木刻课，在哪能找到呢？
+I&#x27;d like to take a metal - casting class. Where can I find one? 我想上金属铸造课，在哪能找到呢？
+I&#x27;d like to take a metal - forging jewelry - making class. Where can I find one? 我想上金属锻造珠宝制作课，在哪能找到呢？
+I&#x27;d like to take a glass - bead making class. Where can I find one? 我想上玻璃珠制作课，在哪能找到呢？
+I&#x27;d like to take a leather - braiding class. Where can I find one? 我想上皮革编织课，在哪能找到呢？
+I&#x27;d like to take a paper - quilling class. Where can I find one? 我想上纸艺卷纸课，在哪能找到呢？
+Is there a place where I can play badminton? 有能打羽毛球的地儿不？
+Is there a place where I can play basketball? 有能打篮球的地儿不？
+Is there a place where I can play table tennis? 有能打乒乓球的地儿不
+Is there a place where I can play billiards? 有能打台球的地儿不？
+Is there a place where I can play croquet? 有能玩槌球的地儿不？
+Is there a place where I can play pétanque? 有能玩法式滚球的地儿不？
+Is there a place where I can play nine - pins? 有能玩九柱戏的地儿不？
+Is there a place where I can play horseshoes? 有能玩马蹄铁游戏的地儿不？
+Is there a place where I can play frisbee? 有能玩飞盘的地儿不？
+Is there a place where I can play bocce ball? 有能玩地掷球的地儿不？
+Is there a place where I can play chess? 有能下棋的地儿不？
+Is there a place where I can play calligraphy? 有能练书法的地儿不？
+Is there a place where I can play billiards doubles? 有能打台球双打的地儿不？
+Is there a place where I can play badminton doubles? 有能打羽毛球双打的地儿不？
+Is there a place where I can play table tennis doubles? 有能打乒乓球双打的地儿不？
+Is there a place where I can play croquet doubles? 有能玩槌球双打的地儿不？
+Is there a place where I can play pétanque doubles? 有能玩法式滚球双打的地儿不？
+Is there a place where I can play nine - pins doubles? 有能玩九柱戏双打的地儿不？
+Is there a place where I can play table tennis mixed doubles? 有能打乒乓球混合双打的地儿不？
+Is there a place where I can play croquet mixed doubles? 有能玩槌球混合双打的地儿不？
+Is there a place where I can have my guitar tuned? 有能给吉他调音的地儿不？
+Is there a place where I can have my saxophone serviced? 有能保养萨克斯风的地儿不？
+Is there a place where I can have my violin repaired? 有能修小提琴的地儿不？
+Is there a place where I can have my clarinet serviced? 有能保养单簧管的地儿不？
+Is there a place where I can have my flute repaired? 有能修长笛的地儿不？
+Is there a place where I can have my piccolo tuned? 有能给短笛调音的地儿不？
+Is there a place where I can have my oboe serviced? 有能保养双簧管的地儿不？
+Is there a place where I can have my marimba repaired? 有能修马林巴琴的地儿不？
+Is there a place where I can have my dulcimer repaired? 有能修扬琴的地儿不？
+Is there a place where I can have my ukulele repaired? 有能修尤克里里的地儿不？
+Is there a place where I can have my harmonica tuned? 有能给口琴调音的地儿不？
+Is there a place where I can have my tambourine repaired? 有能修手鼓的地儿不？
+Is there a place where I can have my clarinet reed replaced? 有能换单簧管簧片的地儿不？
+Is there a place where I can have my violin bow re - haired? 有能给小提琴弓换毛的地儿不？
+Is there a place where I can have my flute head - joint repaired? 有能修长笛笛头的地儿不？
+Is there a place where I can have my clarinet body polished? 有能给单簧管管身抛光的地儿不？
+Is there a place where I can have my ukulele bridge fixed? 有能修尤克里里琴桥的地儿不？
+Is there a place where I can have my violin fingerboard replaced? 有能换小提琴指板的地儿不？
+Is there a place where I can have my piccolo bell - joint repaired? 有能修短笛喇叭口接头的地儿不？
+Is there a place where I can have my dulcimer sound - box repaired? 有能修扬琴音箱的地儿不？
+Is there a place where I can have my ukulele fretboard polished? 有能给尤克里里指板抛光的地儿不？
+Is there a place where I can have my flute tuning slide repaired? 有能修长笛调音管的地儿不？
+Is there a place where I can have my violin tailpiece adjusted? 有能调整小提琴弦尾板的地儿不？
+Is there a place where I can play paintball? 有能玩彩弹射击的地儿不？
+Is there a place where I can play laser tag? 有能玩激光枪战的地儿不？
+Is there a place where I can go ice - skating? 有能滑冰的地儿不？
+Is there a place where I can go roller - skating? 有能滑旱冰的地儿不？
+Is there a place where I can go skiing? 有能滑雪的地儿不？
+Is there a place where I can go surfing? 有能冲浪的地儿不？
+Is there a place where I can play golf? 有能打高尔夫的地儿不？
+Is there a place where I can play mini - golf? 有能玩迷你高尔夫的地儿不？
+Is there a place where I can go rock - climbing? 有能攀岩的地儿不？
+Is there a place where I can go bouldering? 有能抱石（攀岩的一种）的地儿不？
+Is there a place where I can go hiking? 有能徒步旅行的地儿不？
+Can you recommend a good hiking trail nearby? 能给我推荐附近一条不错的徒步路线不？
+Is there a place where I can go camping? 有能露营的地儿不？
+Is there a place where I can go fishing? 有能钓鱼的地儿不？
+How do I sign up for a local sports team? 我咋报名参加当地的运动队啊？
+How do I register for a local art competition? 我咋报名参加当地的艺术比赛啊？
+How do I sign up for a local flower - arranging competition? 我咋报名参加当地的插花比赛啊？
+How do I register for a local sand - sculpture competition? 我咋报名参加当地的沙雕比赛啊？
+How do I register for a local glass - art competition? 我咋报名参加当地的玻璃艺术比赛啊？
+How do I register for a local wood - carving art exhibition? 我咋报名参加当地的木雕艺术展览啊？
+How do I sign up for a local photography contest? 我咋报名参加当地的摄影比赛啊？
+How do I register for a local paper - cutting art fair? 我咋报名参加当地的剪纸艺术展啊？
+How do I sign up for a local bead - art exhibition? 我咋报名参加当地的珠子艺术展览啊？
+How do I register for a local wood - inlay art fair? 我咋报名参加当地的木工镶嵌艺术展啊？
+How do I sign up for a local glass - blowing art competition? 我咋报名参加当地的吹玻璃艺术比赛啊？
+How do I sign up for a local calligraphy - competition training group? 我咋报名参加当地书法比赛训练小组啊？
+How do I register for a local photography - themed party? 我咋报名参加当地以摄影为主题的派对啊？
+How do I register for a local paper - cutting and calligraphy exhibition? 我咋报名参加当地的剪纸与书法展览啊？
+How do I sign up for a local glass - art and bead - art exhibition? 我咋报名参加当地的玻璃艺术与珠子艺术展览啊？
+I&#x27;m interested in joining a local gardening club. Do you know how? 我想加入当地园艺俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local bird - watching club. Do you know how? 我想加入当地观鸟俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local kite - flying club. Do you know how? 我想加入当地放风筝俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local archery club. Do you know how? 我想加入当地射箭俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local calligraphy - enthusiasts club. Do you know how? 我想加入当地书法爱好者俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local bonsai - growing club. Do you know how? 我想加入当地盆景种植俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local bonsai - styling club. Do you know how? 我想加入当地盆景造型俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local bonsai - appreciation and study club. Do you know how? 我想加入当地盆景欣赏与研究俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local gardening - volunteer group. Do you know how? 我想加入当地园艺志愿者小组，你知道咋加入不？
+I&#x27;m interested in joining a local storytelling club. Do you know how? 我想加入当地讲故事俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local dance troupe. Do you know how? 我想加入当地舞蹈团，你知道咋加入不？
+I&#x27;m interested in joining a local drama club. Do you know how? 我想加入当地戏剧俱乐部，你知道咋加入不？
+I&#x27;m interested in joining a local puppet - making club. Do you know how? 我想加入当地木偶制作俱乐部，你知道咋加入不？
+Is there a community center where I can attend some activities? 有能参加活动的社区中心不？
+Is there a place where I can have my car washed? 有能洗车的地儿不？
+Is there a place where I can park my bicycle safely? 有能安全停放自行车的地儿不？
+Is there a place where I can get my computer repaired? 有能修电脑的地儿不？
+Is there a place where I can get my watch repaired? 有能修手表的地儿不？
+Is there a place where I can get my glasses fixed? 有能修眼镜的地儿不？
+Is there a place where I can get my camera repaired? 有能修相机的地儿不？
+Is there a place where I can buy a yo - yo? 在哪能买到悠悠球啊？
+Is there a place where I can buy a kite? 在哪能买到风筝啊？
+Is there a place where I can buy a model airplane? 在哪能买到模型飞机啊？
+Is there a place where I can buy a puppet? 在哪能买到木偶啊？
+Is there a place where I can buy a wind chime? 在哪能买到风铃啊？
+Is there a place where I can buy a Chinese knot? 在哪能买到中国结啊？
+Is there a place where I can buy a yo - yo string? 在哪能买到悠悠球绳啊？
+Is there a place where I can buy a kite - tail? 在哪能买到风筝尾巴啊？
+Is there a place where I can buy a kite - handle? 在哪能买到风筝把手啊？
+Is there a place where I can buy a kite - spool? 在哪能买到风筝线轴啊？
+Is there a place where I can buy a diabolo? 在哪能买到空竹啊？
+Is there a place where I can buy a diabolo string? 在哪能买到空竹线啊？
+Is there a place where I can buy a diabolo stand? 在哪能买到空竹支架啊？
+Is there a place where I can buy a diabolo bag? 在哪能买到空竹包啊？
+Is there a place where I can buy a diabolo string - wax? 在哪能买到空竹线蜡啊？
+Is there a place where I can buy a diabolo counter - weight? 在哪能买到空竹配重块啊？
+Is there a place where I can buy a yo - yo case? 在哪能买到悠悠球盒啊？
+Is there a place where I can buy a yo - yo bearing? 在哪能买到悠悠球轴承啊？
+Is there a place where I can buy a yo - yo response pad? 在哪能买到悠悠球响应垫啊？
+Is there a place where I can buy a kite - sail? 在哪能买到风筝帆啊？
+Is there a place where I can buy a kite - bridle? 在哪能买到风筝缰绳啊？
+Is there a place where I can buy a kite - spreader? 在哪能买到风筝撑杆啊？
+Is there a place where I can buy a diabolo string - cleaner? 在哪能买到空竹线清洁器啊？
+Is there a place where I can buy a diabolo string - storage case? 在哪能买到空竹线收纳盒啊？
+Is there a place where I can buy a yo - yo string - winder?在哪能买到悠悠球绕线器啊？
+Is there a place where I can buy a kite - tail extender?在哪能买到风筝尾巴延长器啊？
+九、学习相关
+What&#x27;s the best way to learn about the local history? 咋了解当地历史最好啊？
+I&#x27;m interested in learning traditional local dance. Where can I start? 我想学当地传统舞蹈，从哪开始好呢？
+How do I register for a local course? 我咋报名当地的课程啊？
+Can you recommend a good place to learn a new language? 能给我推荐个学新语言的好地方不？
+How do I sign up for a local language exchange program? 我咋报名参加当地的语言交流项目啊？
+十、时间与天气
+What time does the meeting start? 会议几点开始啊？
+What time do you usually have dinner? 你平常几点吃晚饭啊？
+What time do the shops usually close? 商店一般几点关门啊？
+What time does the museum open? 博物馆几点开门呀？
+How long does it take to get there? 到那儿得多长时间啊？
+How long have you been living here? 你在这儿住多久啦？
+How long does it take to walk to the beach? 走到海滩要多久啊？
+How long does it take to drive to the nearest mountain? 开车到最近的山要多久啊？
+How long does it take to cycle to the nearby lake? 骑车到附近的湖要多久啊？
+How long does it take to get to the amusement park by subway? 坐地铁到游乐园要多久啊？
+How long does it take to get to the nature reserve by bus? 坐公交到自然保护区要多久啊？
+How long does it take to walk to the local park from here? 从这儿走到当地公园要多久啊？
+How long does it take to drive to the nearby vineyard? 开车到附近葡萄园要多久啊？
+How long does it take to get to the local amusement arcade by bike? 骑自行车到当地游乐场要多久啊？
+How long does it take to get to the local water park by shuttle bus? 坐班车到当地水上公园要多久啊？
+How long does it take to get to the local forest park by motorcycle? 骑摩托车到当地森林公园要多久啊？
+How long does it take to get to the local beach volleyball court by car? 开车到当地沙滩排球场要多久啊？
+How long does it take to get to the local ice - skating rink by subway? 坐地铁到当地溜冰场要多久啊？
+How long does it take to get to the local go - kart track by bus? 坐公交到当地卡丁车赛道要多久啊？
+How long does it take to get to the local hot - air balloon launch site by bike? 骑自行车到当地热气球发射点要多久啊？
+How long does it take to get to the local paintball field by car? 开车到当地彩弹射击场要多久啊？
+How long does it take to get to the local billiards hall by subway? 坐地铁到当地台球厅要多久啊？
+How long does it take to get to the local golf course by shuttle bus? 坐班车到当地高尔夫球场要多久啊？
+How long does it take to get to the local ice - hockey rink by subway? 坐地铁到当地冰球场要多久啊？
+How long does it take to get to the local paint - balling arena by car? 开车到当地彩弹射击竞技场要多久啊？
+How long does it take to get to the local go - karting circuit by bus? 坐公交到当地卡丁车赛道要多久啊？
+How long does it take to get to the local hot - air balloon festival site by bike? 骑自行车到当地热气球节举办场地要多久啊？
+How long does it take to get to the local laser tag arena by car? 开车到当地激光枪战场地要多久啊？
+How long does it take to get to the local mini - golf course by subway? 坐地铁到当地迷你高尔夫球场要多久啊？
+How long does it take to get to the local roller - skating rink by shuttle bus? 坐班车到当地旱冰场要多久啊？
+How long does it take to get to the local bowling alley for kids by car? 开车到当地儿童保龄球馆要多久啊？
+How long does it take to get to the local ice - skating rink for beginners by subway? 坐地铁到当地初学者溜冰场要多久啊？
+How long does it take to get to the local paint - balling park for groups by shuttle? 坐班车到当地团体彩弹射击公园要多久啊？
+How long does the local theater performance usually last? 当地剧院演出一般持续多久啊？
+How long does the concert last?音乐会一般持续多久啊？
+What&#x27;s the weather like today? 今天天气咋样？
+What&#x27;s the weather forecast for tomorrow? 明天天气预报咋说的？
+十一、安全与应急
+Is it safe to walk around here at night? 晚上在这附近走动安不安全啊？
+What&#x27;s the emergency number here? 这儿的紧急电话是多少？
+十二、其他
+Do you have any suggestions for a day - trip around here? 周边一日游你有啥建议？
+Do you know if there are any volunteer opportunities in the area? 你知道这一片儿有志愿者的活儿不？
+What&#x27;s the population of this town? 这镇子有多少人啊？
+What&#x27;s the local favorite dessert? 当地人最爱吃啥甜点啊？
+What&#x27;s the local specialty drink? 当地特色饮品是啥呀？
+What&#x27;s the local traditional clothing like? 当地传统服装长啥样啊？
+What&#x27;s the local superstition about a four - leaf clover? 当地对四叶草有啥迷信说法不？
+What&#x27;s the local belief about a shooting star? 当地对流星有啥说法呀？
+What&#x27;s the local belief about a shooting star in the east? 当地对出现在东边的流星有啥说法？
+What&#x27;s the local belief about a shooting star in the west? 当地对出现在西边的流星有啥说法？
+What&#x27;s the local superstition about a blackbird? 当地对黑鸟有啥迷信说法不？
+What&#x27;s the local superstition about a crow? 当地对乌鸦有啥迷信说法不？
+What&#x27;s the local superstition about a magpie? 当地对喜鹊有啥迷信说法不？
+What&#x27;s the local superstition about a blue jay? 当地对冠蓝鸦有啥迷信说法不？
+What&#x27;s the local saying about the first snowfall? 当地关于初雪有啥说法呀？
+What&#x27;s the local custom for celebrating a new home purchase? 当地庆祝买新房有啥习俗呀？
+What&#x27;s the local custom for celebrating a wedding anniversary renewal? 当地庆祝结婚周年重续有啥习俗呀？
+Can I use your phone to make a local call? 我能用你的电话打个本地电话不？
+Where can I find a public restroom? 哪有公共厕所啊？
+Can I get a guide to explain the history here? 我能找个导游给讲讲这儿的历史不？
+Do you have any brochures about local attractions? 你有介绍当地景点的小册子不？
+Are there any vegetarian options here? 这儿有素食的东西不？
+How do I connect to the Wi - Fi here? 我咋连这儿的 Wi - Fi 啊？
+Do you have any dietary restrictions? 你吃东西有啥忌口不？
+Let me know if you need anything. 你要是有啥需要就跟我说哈。
+I&#x27;m not sure I understand what you mean. 我不太明白你啥意思。
+Could you please repeat that more slowly? 你能慢点再说一遍不？
+Could you explain this to me? 你能给我解释下这是啥意思不？
+I&#x27;m sorry, I don&#x27;t understand your accent. 不好意思，我听不懂你口音。
+Thank you for your help, I really appreciate it. 谢谢你帮忙哈，我可感激了。
+Could you please write that down for me? 你能帮我写下来不？
+Can you tell me more about this item? 你能多给我讲讲这东西不？
+I&#x27;m interested in joining a local knitting club. Do you know how? 我想加入当地编织俱乐部，你知道咋加入不？
+Is there a place where I can play mahjong? 有能打麻将的地儿不？
+How do I register for a local mahjong tournament? 我咋报名参加当地的麻将锦标赛啊？
+Can you recommend a good place to buy local chess sets? 你能给我推荐个买当地象棋套装的好地方不？
+I&#x27;d like to take a traditional dance - learning class. Where can I find one? 我想上传统舞蹈课，在哪能找到啊？
+Is there a place where I can learn traditional handicrafts? 有能学传统手工艺品制作的地儿不？
+How do I sign up for a local traditional handicraft - making workshop? 我咋报名参加当地传统手工艺品制作的工作坊啊？
+Can you recommend a good place to buy local musical scores? 你能给我推荐个买当地乐谱的好地方不？
+I&#x27;m interested in joining a local musical ensemble. Do you know how? 我想加入当地音乐合奏团，你知道咋加入不？
+Is there a place where I can practice public speaking? 有能练习公众演讲的地儿不？
+How do I register for a local public - speaking training course? 我咋报名参加当地公众演讲培训课程啊？
+Can you recommend a good place to buy local art supplies? 你能给我推荐个买当地艺术用品的好地方不？
+I&#x27;d like to take a graphic - design class. Where can I find one? 我想上平面设计课，在哪能找到啊？
+Is there a place where I can do volunteer work? 有能做志愿工作的地儿不？
+How do I find out about local volunteer projects? 我咋了解当地的志愿项目啊？
+Can you recommend a good place to buy local fishing bait? 你能给我推荐个买当地鱼饵的好地方不？
+I&#x27;m interested in joining a local fishing club. Do you know how? 我想加入当地钓鱼俱乐部，你知道咋加入不？
+Is there a place where I can play darts? 有能玩飞镖的地儿不？
+How do I sign up for a local darts competition?我咋报名参加当地飞镖比赛啊？
+Can you recommend a good place to buy local dart sets? 你能给我推荐个买当地飞镖套装的好地方不？
+I&#x27;d like to take a self - defense class. Where can I find one? 我想上自卫课，在哪能找到啊？
+Is there a place where I can learn first - aid skills? 有能学急救技能的地儿不？
+How do I register for a local first - aid training program? 我咋报名参加当地急救培训项目啊？
+Can you recommend a good place to buy local camping gear? 你能给我推荐个买当地露营装备的好地方不？
+I&#x27;m interested in joining a local astronomy club. Do you know how? 我想加入当地天文俱乐部，你知道咋加入不？
+Is there a place where I can observe the stars better? 有能更好观测星星的地儿不？
+How do I register for a local astronomy - related lecture? 我咋报名参加当地跟天文有关的讲座啊？
+Can you recommend a good place to buy local telescopes? 你能给我推荐个买当地望远镜的好地方不？
+I&#x27;d like to take a yoga - meditation class. Where can I find one? 我想上瑜伽冥想课，在哪能找到啊？
+Is there a place where I can practice Tai Chi? 有能练太极的地儿不？
+How do I find a local Tai Chi instructor? 我咋找个当地的太极教练啊？
+Can you recommend a good place to buy local Tai Chi equipment? 你能给我推荐个买当地太极器材的好地方不？
+I&#x27;m interested in joining a local wine - tasting club. Do you know how? 我想加入当地品酒俱乐部，你知道咋加入不？
+Is there a place where I can learn about wine - making? 有能学酿酒的地儿不？
+How do I register for a local wine - making workshop? 我咋报名参加当地酿酒工作坊啊？
+Can you recommend a good place to buy local wines? 你能给我推荐个买当地葡萄酒的好地方不？
+I&#x27;d like to take a cooking - demonstration class. Where can I find one? 我想上烹饪示范课，在哪能找到啊？
+Is there a place where I can learn about local food - preservation methods? 有能学当地食物保存方法的地儿不？
+How do I register for a local food - preservation training? 我咋报名参加当地食物保存培训啊？
+Can you recommend a good place to buy local cookbooks? 你能给我推荐个买当地食谱的好地方不？
+I&#x27;m interested in joining a local home - gardening club. Do you know how? 我想加入当地家庭园艺俱乐部，你知道咋加入不？
+Is there a place where I can buy local flower seeds? 有能买到当地花种的地儿不？
+How do I find out about local gardening shows? 我咋了解当地的园艺展览啊？
+Can you recommend a good place to buy local gardening tools? 你能给我推荐个买当地园艺工具的好地方不？
+I&#x27;d like to take a home - decoration class. Where can I find one? 我想上家居装饰课，在哪能找到啊？
+Is there a place where I can learn about interior - design principles? 有能学室内设计原理的地儿不？
+How do I register for a local interior - design seminar? 我咋报名参加当地室内设计研讨会啊？
+Can you recommend a good place to buy local home - decor items? 你能给我推荐个买当地家居装饰品的好地方不？
+I&#x27;m interested in joining a local pet - owners club. Do you know how? 我想加入当地宠物主人俱乐部，你知道咋加入不？
+Is there a place where I can buy local pet - specific products? 有能买到当地宠物专用产品的地儿不？
+How do I find a local pet - training service? 我咋找当地的宠物训练服务啊？
+Can you recommend a good place to buy local pet food? 你能给我推荐个买当地宠物食品的好地方不？
+I&#x27;d like to take a pet - grooming class. Where can I find one? 我想上宠物美容课，在哪能找到啊？
+Is there a place where I can learn about pet - health care? 有能学宠物健康护理的地儿不？
+How do I register for a local pet - health seminar? 我咋报名参加当地宠物健康研讨会啊？
+Can you recommend a good place to buy local pet - related books? 你能给我推荐个买当地宠物相关书籍的好地方不？
+I&#x27;m interested in joining a local stamp - collecting club. Do you know how? 我想加入当地集邮俱乐部，你知道咋加入不？
+Is there a place where I can buy local stamps? 有能买到当地邮票的地儿不？
+How do I find out about local stamp - collecting exhibitions? 我咋了解当地的集邮展览啊？
+Can you recommend a good place to buy local stamp - collecting supplies? 你能给我推荐个买当地集邮用品的好地方不？
+I&#x27;d like to take a numismatic - study class. Where can I find one? 我想上钱币学研究课，在哪能找到啊？
+Is there a place where I can learn about coin - grading? 有能学硬币评级的地儿不？
+How do I register for a local numismatic seminar? 我咋报名参加当地钱币学研讨会啊？
+Can you recommend a good place to buy local coins? 你能给我推荐个买当地硬币的好地方不？
+I&#x27;m interested in joining a local coin - collecting club. Do you know how? 我想加入当地硬币收藏俱乐部，你知道咋加入不？
+Is there a place where I can play shuffleboard? 有能玩沙狐球的地儿不？
+How do I sign up for a local shuffleboard competition? 我咋报名参加当地沙狐球比赛啊？
+Can you recommend a good place to buy local shuffleboard equipment? 你能给我推荐个买当地沙狐球设备的好地方不？
+I&#x27;d like to take a calligraphy - brush - making class. Where can I find one? 我想上毛笔制作课，在哪能找到啊？
+Is there a place where I can learn about Chinese calligraphy techniques? 有能学中国书法技巧的地儿不？
+How do I register for a local Chinese - calligraphy workshop? 我咋报名参加当地中国书法工作坊啊？
+Can you recommend a good place to buy local calligraphy brushes? 你能给我推荐个买当地毛笔的好地方不？
+I&#x27;m interested in joining a local Chinese - calligraphy club. Do you know how? 我想加入当地中国书法俱乐部，你知道咋加入不？
+Is there a place where I can play Chinese chess? 有能下中国象棋的地儿不？
+How do I sign up for a local Chinese - chess tournament? 我咋报名参加当地中国象棋锦标赛啊？
+Can you recommend a good place to buy local Chinese - chess sets? 你能给我推荐个买当地中国象棋套装的好地方不？
+I&#x27;d like to take a Chinese - painting class. Where can I find one? 我想上中国画课，在哪能找到啊？
+Is there a place where I can learn about Chinese - painting materials? 有能学中国画材料的地儿不？
+How do I register for a local Chinese - painting seminar? 我咋报名参加当地中国画研讨会啊？
+Can you recommend a good place to buy local Chinese - painting supplies? 你能给我推荐个买当地中国画用品的好地方不？
+I&#x27;m interested in joining a local Chinese - painting club. Do you know how? 我想加入当地中国画俱乐部，你知道咋加入不？
+Is there a place where I can learn about traditional Chinese medicine? 有能学传统中医的地儿不？
+How do I register for a local traditional - Chinese - medicine lecture? 我咋报名参加当地传统中医讲座啊？
+Can you recommend a good place to buy local traditional - Chinese - medicine herbs? 你能给我推荐个买当地传统中草药的好地方不？
+I&#x27;d like to take a traditional - Chinese - medicine - massage class. Where can I find one? 我想上传统中医按摩课，在哪能找到啊？
+Is there a place where I can learn about Feng Shui? 有能学风水的地儿不？
+How do I register for a local Feng Shui seminar? 我咋报名参加当地风水研讨会啊？
+Can you recommend a good place to buy local Feng Shui - related items? 你能给我推荐个买当地风水相关物品的好地方不？
+I&#x27;m interested in joining a local Feng Shui club. Do you know how? 我想加入当地风水俱乐部，你知道咋加入不？
+Is there a place where I can play Chinese checkers? 有能玩中国跳棋的地儿不？
+How do I sign up for a local Chinese - checkers tournament? 我咋报名参加当地中国跳棋锦标赛啊？
+Can you recommend a good place to buy local Chinese - checkers sets? 你能给我推荐个买当地中国跳棋套装的好地方不？
+I&#x27;d like to take a Chinese - knot - making class. Where can I find one? 我想上中国结制作课，在哪能找到啊？
+Is there a place where I can learn about Chinese - knotting techniques? 有能学中国结编织技巧的地儿不？
+How do I register for a local Chinese - knot - making workshop? 我咋报名参加当地中国结制作工作坊啊？</div>
+</div>
+<footer>课程大礼包 · 网页版</footer>
+<script>window.__KEY__="背完这450句跟老外交流不慌了";
+var KEY=window.__KEY__;
+var TITLE=window.__TITLE__||'';
+var PROG_KEY='cp_progress_v1',FAV_KEY='cp_fav_v1',WRONG_KEY='cp_wrong_v1';
+var BOX_DAYS=[1,2,4,7,15,30];  /* 间隔复习天数阶梯 */
+function loadState(){try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return{}}}
+function saveState(s){try{localStorage.setItem(PROG_KEY,JSON.stringify(s))}catch(e){}}
+function loadArr(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(e){return[]}}
+function saveArr(k,a){try{localStorage.setItem(k,JSON.stringify(a))}catch(e){}}
+function getRec(){return loadState()[KEY]||{}}
+function putRec(r){var s=loadState();s[KEY]=r;saveState(s)}
+function arrIdx(a,en){for(var i=0;i<a.length;i++){if(a[i].en===en)return i}return -1}
+function isFav(en){return arrIdx(loadArr(FAV_KEY),en)>=0}
+function toggleFav(en,zh){
+  var a=loadArr(FAV_KEY);var i=arrIdx(a,en);
+  if(i>=0){a.splice(i,1);saveArr(FAV_KEY,a);return false}
+  a.push({en:en,zh:zh,key:KEY,title:TITLE,t:Date.now()});saveArr(FAV_KEY,a);return true}
+function recordWrong(en,zh){
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i>=0){a[i].n=(a[i].n||1)+1;a[i].box=0;a[i].due=Date.now()+864e5;a[i].zh=zh}
+  else{a.push({en:en,zh:zh,key:KEY,title:TITLE,n:1,box:0,due:Date.now()+864e5})}
+  saveArr(WRONG_KEY,a)}
+function advanceGood(en){
+  /* 复习答对：间隔升档；升到顶则从错题集毕业 */
+  var a=loadArr(WRONG_KEY);var i=arrIdx(a,en);
+  if(i<0)return false;
+  a[i].box=(a[i].box||0)+1;
+  if(a[i].box>=BOX_DAYS.length){a.splice(i,1);saveArr(WRONG_KEY,a);return true}
+  a[i].due=Date.now()+BOX_DAYS[a[i].box]*864e5;saveArr(WRONG_KEY,a);return false}
+var STS={none:['未学','st'],learning:['学习中','st st-learning'],done:['已掌握','st st-done']};
+var ORDER=['none','learning','done'];
+function cyclePageStatus(){
+  var r=getRec();r.status=ORDER[(ORDER.indexOf(r.status||'none')+1)%3];putRec(r);applyPageSt()}
+function togglePageArchive(){
+  var r=getRec();r.archived=!r.archived;putRec(r);applyPageSt()}
+function applyPageSt(){
+  var r=getRec(),st=r.status||'none';
+  var el=document.getElementById('stBtn');
+  if(el){el.textContent=STS[st][0];el.className=STS[st][1];}
+  var ab=document.getElementById('archBtn');
+  if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
+    ab.classList.toggle('on',!!r.archived);}}
+applyPageSt();
+</script>
+</body>
+</html>
