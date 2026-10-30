@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,508 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">外贸英语
-30天500个词,足够了
-一、外贸核心词汇
-交易主体
-供应商：Supplier
-客户：Customer
-买家：Buyer
-卖家：Seller
-产品相关
-产品：Product
-规格：Specification
-型号：Model
-品质：Quality
-数量：Quantity
-价格条款
-价格：Price
-报价：Quotation
-报价单：Quotation sheet
-询价：Inquiry
-单价：Unit price
-总价：Total price
-折扣：Discount
-订单与交付
-订货：Order
-付款方式：Payment terms
-交货期：Delivery time
-发货：Shipment
-装运：Shipment
-装船：Loading
-卸货：Unloading
-运输：Transportation
-港口：Port
-起运港：Port of departure
-目的港：Port of destination
-货运方式：shipping method
-空运：Air transport
-海运：Sea transport
-快递：Express
-集装箱：Container
-运费：Freight
-文件与证书
-发票：Invoice
-装箱单：Packing list
-原产地证：Certificate of origin
-合同：Contract
-条款：Terms
-交货条款：Delivery terms
-贸易术语：Incoterms
-合格证书：Certificate of conformity
-认证：Certification
-支付与金融
-付汇：Payment
-信用证：Letter of credit (L/C)
-电汇：Telegraphic transfer (T/T)
-即期：At sight
-远期：Forward
-预付：Advance payment
-余额：Balance
-保费：Insurance premium
-海关与检验
-清关：Customs clearance
-关税：Tariff
-税率：Tax rate
-许可证：License
-检验：Inspection
-检验报告：Inspection report
-贸易纠纷
-索赔：Claim
-赔偿：Compensation
-违约：Breach of contract
-违约金：Penalty
-争议：Dispute
-仲裁：Arbitration
-调解：Mediation
-损失：Loss
-赔款：Indemnity
-市场与营销
-市场：Market
-竞争：Competition
-战略：Strategy
-销售：Sales
-推广：Promotion
-广告：Advertisement
-市场份额：Market share
-分销：Distribution
-代理：Agency
-代理商：Agent
-经销商：Distributor
-零售：Retail
-批发：Wholesale
-供应链管理
-库存：Inventory
-仓库：Warehouse
-库存管理：Inventory management
-库存控制：Stock control
-补货：Replenishment
-供应链：supply chain
-物流：Logistics
-运输成本：Transportation cost
-客户服务
-客户服务：Customer service
-客户满意度：Customer satisfaction
-投诉：Complaint
-反馈：Feedback
-回访：Follow-up
-售后服务：After-sales service
-退货：Return
-二、经济相关词汇
-经济状况描述
-货币化：monetization
-赤字：deficit
-经济不景气：recession
-经济好转：turnabout
-复苏：recovery
-萧条的：sluggish
-繁荣：boom
-经济因素与现象
-成本推进型：cost push
-货币供应：money supply
-生产率：productivity
-劳动力：labor force
-实际工资：real wages
-成本推进式通货膨胀：cost-push inflation
-需求拉动式通货膨胀：demand-pull inflation
-双位数通货膨胀：double- digit inflation
-极度通货膨胀：hyperinflation
-长期通货膨胀：chronic inflation
-经济目标与措施
-治理通货膨胀：to fight inflation
-最终目标：ultimate goal
-担保：ensure
-贴现：discount
-认购：subscribe to
-金融工具与系统
-支票帐户：checking account
-货币控制工具：instruments of monetry 
-control
-借据：IOUs（I owe you）
-本票：promissory notes
-货币总监：controller of the currency
-拖收系统：collection system
-支票清算或结算：check clearing
-资金划拨：transfer of funds
-可以相信的证明：credentials
-三、金融相关词汇
-金融体系与联盟
-货币联盟：Monetary Union
-欧洲货币：Eurocurrency
-国际货币基金：the IMF
-七国集团：the G-7
-同业拆借市场：interbank market
-金融交易与市场
-再购协议：repo
-精明的讨价还价交易：horse-trading
-牛市：bull market
-非凡的牛市：a raging bull
-规模经济：scale economcies
-买方出价与卖方要价之间的差价：bid-ask 
-spreads
-期货（贡） ：futures
-经济商行：brokerage firm
-回报率：rate of return
-贡（疑为 “证券” 误写） ：equities
-违约：default
-现金外流：cash drains
-经济人佣金：brokerage fee
-营业额：turnover
-资本市场：capital market
-经常帐户：current account
-套利者：arbitrager
-远期汇率：forward exchange rate
-即期汇率：spot rate
-实际利率：real interest rates
-货币政策工具：tools of monetary policy
-银行倒闭：bank failures
-跨国公司：MNC （ Multi-National 
-Corporation）
-商业银行：commercial bank
-商业票据：comercial paper
-利润：profit
-监督：to monitor
-佣金（经济人） ：commission brokers
-套期保值：hedge
-有价证券平衡理论：portfolio balance 
-theory
-外汇储备：foreign exchange reserves
-固定汇率：fixed exchange rate
-浮动汇率：floating/flexible exchange 
-rate
-货币选择权（期货） ：currency option
-套利：arbitrage
-合约价：exercise price
-远期升水：forward premium
-多头买升：buying long
-空头卖跌：selling short
-按市价订购（证券） ：market order
-证券经纪人：stockbroker
-可兑换性：convertibility
-软通货：soft currency
-限制：restriction
-交易：transaction
-充分需求：adequate demand
-短期外债：short term external debt
-汇率机制：exchange rate regime
-直接标价：direct quotes
-资本流动性：mobility of capital
-本国货币：domestic currency
-外汇交易市场：foreign exchange market
-国际储备：international reserve
-利率：interest rate
-资产：assets
-国际收支：balance of payments
-贸易差额：balance of trade
-债券：bond
-资本：captial
-资本支出：captial expenditures
-商品：commodities
-商品交易所：commodity exchange
-期货合同：commodity futures contract
-普通证券（疑为 “普通股”）：common stock
-联合大企业：conglomerate
-货币贬值：currency devaluation
-通货紧缩：deflation
-折旧：depreciation
-贴现率：discount rate
-归个人支配的收入：disposable personal 
-income
-从业人员：employed person
-汇率：exchange rate
-财政年度：fiscal year
-企业：free enterprise
-国生产总值（疑为 “国民生产总值”）：gross 
-national product
-库存：inventory
-劳动力人数：labor force
-债务：liabilities
-市场经济：market economy
-合并：merger
-货币收入：money income
-个人收入：personal income
-优先证券（疑为 “优先股”）：preferred 
-stock
-价格收益比率：price-earning ratio
-优惠贷款利率：prime rate
-回报：return on investment
-使货币升值：revaluation
-薪水：salary
-季节性调整：seasonal adjustment
-关税：tariff
-失业人员：unemployed person
-效用：utility
-价值：value
-工资：wages
-工资价格螺旋上升：wage-price spiral
-收益：yield
-四、其他专业相关
-补偿贸易
-补偿贸易：compensatory 
-trade,compensated deal
-银行
-储蓄银行：savings banks
-欧洲联盟
-欧洲联盟：the European Union
-金融术语补充
-单一的实体：a single entity
-抵押贷款：mortgage lending
-业主产权：owner&#x27;s equity
-普通股：common stock
-无形资产：intangible assets
-收益表：income statement
-营业开支：operating expenses
-行政开支：administrative expenses
-现金收支一览表：statement of cash flow
-贸易中的存货：inventory
-收益：proceeds
-投资银行：investment bank
-机构投资者：institutional investor
-垄断兼并委员会：MMC
-招标发行：issue by tender
-定向发行：introduction
-代销：offer for sale
-直销：placing
-公开发行：public issue
-信贷额度：credit line
-国际债券：international bonds
-利差：interest margin
-以所借的钱作抵押所获之贷款：leveraged loan
-权利股发行：rights issues
-净收入比例结合：net income gearing
-外贸常见英文缩略词
-T/T（telegraphic transfer） ：电汇
-D/P（document against payment） ：付款交单
-D/A （document against acceptance） ：承兑
-交单
-C.O （certificate of origin） ：一般原产地
-证
-G.S.P.（generalized system of 
-preferences） ：普惠制
-CTN/CTNS（carton/cartons） ：纸箱
-PCE/PCS（piece/pieces） ：只、个、支等
-DL/DLS（dollar/dollars） ：美元
-DOZ/DZ（dozen） ：一打
-PKG（package） ：一包，一捆，一扎，一件等
-WT（weight） ：重量
-G.W.（gross weight） ：毛重
-N.W.（net weight） ：净重
-C/D （customs declaration） ：报关单
-EA（each） ：每个，各
-W （with） ：具有
-w/o（without） ：没有
-FAC（facsimile） ：传真
-IMP（import） ：进口
-EXP（export） ：出口
-MAX （maximum） ：最大的、最大限度的
-MIN （minimum） ：最小的，最低限度
-M 或 MED （medium） ：中等，中级的
-M/V（merchant vessel） ：商船
-S.S（steamship） ：船运
-MT 或 M/T（metric ton） ：公吨
-DOC （document） ：文件、单据
-INT（international） ：国际的
-P/L （packing list） ：装箱单、明细表
-INV （invoice） ：发票
-PCT （percent） ：百分比
-REF （reference） ：参考、查价
-EMS （express mail special） ：特快传递
-STL.（style） ：式样、款式、类型
-T 或 LTX 或 TX（telex） ：电传
-RMB（renminbi） ：人民币
-S/M （shipping marks） ：装船标记
-PR 或 PRC（price） ：价格
-PUR （purchase） ：购买、购货
-S/C（sales contract） ：销售确认书
-L/C （letter of credit） ：信用证
-B/L （bill of lading） ：提单
-FOB （free on board） ：离岸价
-财务术语补充
-CR=credit：贷方，债主
-DR=debt：借贷方
-Exp=Expense：花费，费用
-O/H=overhead：常用开支
-TC=total cost：总费用
-FC=fixed cost：常设费用
-VC=variable cost：变动费用
-P=profit：净利润
-S=sales：销售总额
-Rev=revenue：收入
-MC=marginal cost：边际成本
-GM=gross margin：毛利
-MR=marginal revenue：边际收益
-A/R=acount receivable：应收账款
-A/P=account payable：应付账款
-PMT=payment：支付款
-N/I=net income：净收入
-AMT=amount：数额
-DCT=discount：折扣
-职业与就业
-accountant：n. 会计
-air hostess：女乘务员，空姐
-applicant：n. 申请人
-appoint：v. 任命
-appointment：n. 任命
-assistant：n. 助理
-attendant：n. 服务员
-auditor：n. 查帐员
-banker：n. 银行家
-barber：n. 为男士理发的理发师
-book keeper：n. 记帐员
-broker：n. 经纪人
-businessman：n. 商人
-buyer：n. 采购员
-capable：a. 有能力的
-career：n. 职业
-certificate：n. 证书
-chemist：n. 药剂师
-clerk：n. 办事员
-current（present）post：现在的工作
-dentist：n. 牙医
-designer：n. 设计家
-detective：n. 侦探
-diploma：n. 文凭，学位
-director：n. … 长（主任）
-dismiss：v. 解雇
-drawer：n. 出票人，开票人，抽屉
-employee：n. 雇员
-employer：n. 雇主
-engineer：n. 工程师
-executive：n. 行政官
-experienced staff：有经验的雇员
-freelance：n. 职业者（作家、演员等）
-full - time job：专职工作
-graduate：n. 毕业生
-hairdresser：n. 理发师
-interview：n. &amp; v. 面试
-job agency：职业介绍所
-judge：n. 法官
-laborer：n. 劳工
-landlady：n. 女房东
-lawyer：n. 律师
-manager：n. 经理
-managing director：n. 总经理
-manufacturer：n. 制造商
-newsagent：n. 报刊销售人
-newspaper reporter：记者
-office worker：办公室工作人员
-officer：n. 官员
-operator：n. 接线员
-out of work：失业
-packer：n. 包装工
-part - time job：非专职工作
-permanent job：固定职业
-photographer：n. 照相师
-pilot：n. 飞行员
-politician：n. 政治家
-postman：n. 邮递员
-president：n. 总裁，董事长
-previous job：以前的工作
-price controller：物价员
-prime minister：总理
-principal：n. 校长
-producer：n. 制造者
-professor：n. 教授
-purchaser：n. 采购员
-qualification：n. 资格
-quality controller：质量管理员
-receptionist：n. 接待员
-recommend：v. 推荐
-redundancy：n. 过剩，多余，累赘
-redundant：a. 过剩的，多余的，累赘的
-resign：v. 辞职
-resume：n. 简历
-retailer：n. 零售商
-retire：v. 退休
-sack：v. &amp; n. 解雇
-sales rep（representative） ：销售代表
-salesman：n. 销售员
-scientist：n. 科学家
-secretary：n. 秘书
-shop assistant：售货员
-shopkeeper：n. 店主
-skilled workers：技术工人
-specialist：n. 专家
-specialize in：v. 专长
-staff recruitment：雇员招聘
-supervisor：n. 主管人
-temporary job：临时职业
-to apply for：申请
-to take on：雇佣
-typist：n. 打字员
-unemployment：n. 失业
-vacancy：n. 空缺（职位）
-wholesaler：n. 批发商
-workforce：n. 劳动力
-行业名称
-banking：n. 银行业
-construction：n. 建筑业
-correspondence：n. 通信
-education：n. 教育
-electronics：n. 电子学
-entertainments：n. 娱乐
-finance：n. 财经，金融
-health：n. 保健
-import/export：n. &amp; v. 进 / 出口
-manufacture：n. 制造业
-press：n. 报刊，新闻界
-printing：n. 印刷业
-producing：n. 生产业
-programming：n. 编程
-publishing：n. 出版
-science：n. 科学
-telecommunications：n. 通讯
-trade union：n. 工会
-transporting：n. 运输
-公司部门
-accounts：n. 会计部
-administration：n. 行政管理部
-advertising：n. 广告部
-assembly line：装配线
-assembly plant：装配工厂
-canteen：n. 餐厅，小卖部
-clinic：n. 门诊所
-customer account：帐务部
-distribution：n. 分销部
-financial services：财务服务部
-forwarding company：运输公司
-group：n. 集团
-head office：总部
-headquarters：n. 总部
-human resources：人力资源部
-maintenance：n. 维修部
-management：n. 管理部
-marketing：n. 营销部
-packaging：n. 包装部
-personnel：n. 人事部
-production：n. 生产部
-public relations：公关部
-purchasing：n. 采购部
-quality control：质量管理部
-research and development：调研部
-sales：n. 销售部
-training：n. 培训部
-wages and salaries：工资部</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外贸英语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>30天500个词,足够了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、外贸核心词汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交易主体</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>供应商：Supplier</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户：Customer</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>买家：Buyer</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>卖家：Seller</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品：Product</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>规格：Specification</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>型号：Model</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>品质：Quality</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>数量：Quantity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格：Price</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>报价：Quotation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>报价单：Quotation sheet</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>询价：Inquiry</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>单价：Unit price</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>总价：Total price</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>折扣：Discount</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单与交付</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订货：Order</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>付款方式：Payment terms</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交货期：Delivery time</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>发货：Shipment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>装运：Shipment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>装船：Loading</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>卸货：Unloading</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运输：Transportation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>港口：Port</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>起运港：Port of departure</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>目的港：Port of destination</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货运方式：shipping method</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>空运：Air transport</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>海运：Sea transport</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>快递：Express</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>集装箱：Container</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运费：Freight</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>文件与证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>发票：Invoice</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>装箱单：Packing list</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>原产地证：Certificate of origin</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同：Contract</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>条款：Terms</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交货条款：Delivery terms</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贸易术语：Incoterms</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合格证书：Certificate of conformity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>认证：Certification</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支付与金融</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>付汇：Payment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信用证：Letter of credit (L/C)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>电汇：Telegraphic transfer (T/T)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>即期：At sight</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>远期：Forward</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>预付：Advance payment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>余额：Balance</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>保费：Insurance premium</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>海关与检验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>清关：Customs clearance</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>关税：Tariff</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>税率：Tax rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>许可证：License</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>检验：Inspection</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>检验报告：Inspection report</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贸易纠纷</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>索赔：Claim</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>赔偿：Compensation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>违约：Breach of contract</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>违约金：Penalty</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>争议：Dispute</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>仲裁：Arbitration</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>调解：Mediation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>损失：Loss</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>赔款：Indemnity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场与营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场：Market</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>竞争：Competition</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>战略：Strategy</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>销售：Sales</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>推广：Promotion</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>广告：Advertisement</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场份额：Market share</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>分销：Distribution</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>代理：Agency</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>代理商：Agent</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经销商：Distributor</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>零售：Retail</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>批发：Wholesale</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>供应链管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>库存：Inventory</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>仓库：Warehouse</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>库存管理：Inventory management</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>库存控制：Stock control</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>补货：Replenishment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>供应链：supply chain</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>物流：Logistics</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运输成本：Transportation cost</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户服务：Customer service</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户满意度：Customer satisfaction</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>投诉：Complaint</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>反馈：Feedback</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>回访：Follow-up</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>售后服务：After-sales service</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>退货：Return</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、经济相关词汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济状况描述</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币化：monetization</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>赤字：deficit</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济不景气：recession</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济好转：turnabout</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>复苏：recovery</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>萧条的：sluggish</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>繁荣：boom</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济因素与现象</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>成本推进型：cost push</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币供应：money supply</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产率：productivity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>劳动力：labor force</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>实际工资：real wages</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>成本推进式通货膨胀：cost-push inflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>需求拉动式通货膨胀：demand-pull inflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>双位数通货膨胀：double- digit inflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>极度通货膨胀：hyperinflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>长期通货膨胀：chronic inflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济目标与措施</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>治理通货膨胀：to fight inflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>最终目标：ultimate goal</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>担保：ensure</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贴现：discount</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>认购：subscribe to</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>金融工具与系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支票帐户：checking account</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币控制工具：instruments of monetry </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>control</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>借据：IOUs（I owe you）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本票：promissory notes</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币总监：controller of the currency</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>拖收系统：collection system</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支票清算或结算：check clearing</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资金划拨：transfer of funds</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可以相信的证明：credentials</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、金融相关词汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>金融体系与联盟</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币联盟：Monetary Union</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>欧洲货币：Eurocurrency</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>国际货币基金：the IMF</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七国集团：the G-7</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>同业拆借市场：interbank market</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>金融交易与市场</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>再购协议：repo</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>精明的讨价还价交易：horse-trading</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>牛市：bull market</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>非凡的牛市：a raging bull</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>规模经济：scale economcies</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>买方出价与卖方要价之间的差价：bid-ask </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>spreads</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>期货（贡） ：futures</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济商行：brokerage firm</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>回报率：rate of return</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贡（疑为 “证券” 误写） ：equities</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>违约：default</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>现金外流：cash drains</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经济人佣金：brokerage fee</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>营业额：turnover</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资本市场：capital market</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>经常帐户：current account</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>套利者：arbitrager</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>远期汇率：forward exchange rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>即期汇率：spot rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>实际利率：real interest rates</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币政策工具：tools of monetary policy</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>银行倒闭：bank failures</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>跨国公司：MNC （ Multi-National </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Corporation）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>商业银行：commercial bank</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>商业票据：comercial paper</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>利润：profit</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>监督：to monitor</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>佣金（经济人） ：commission brokers</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>套期保值：hedge</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有价证券平衡理论：portfolio balance </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>theory</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外汇储备：foreign exchange reserves</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>固定汇率：fixed exchange rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>浮动汇率：floating/flexible exchange </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币选择权（期货） ：currency option</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>套利：arbitrage</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合约价：exercise price</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>远期升水：forward premium</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>多头买升：buying long</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>空头卖跌：selling short</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>按市价订购（证券） ：market order</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>证券经纪人：stockbroker</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可兑换性：convertibility</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>软通货：soft currency</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>限制：restriction</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交易：transaction</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>充分需求：adequate demand</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>短期外债：short term external debt</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>汇率机制：exchange rate regime</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>直接标价：direct quotes</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资本流动性：mobility of capital</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本国货币：domestic currency</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外汇交易市场：foreign exchange market</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>国际储备：international reserve</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>利率：interest rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资产：assets</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>国际收支：balance of payments</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贸易差额：balance of trade</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>债券：bond</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资本：captial</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>资本支出：captial expenditures</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>商品：commodities</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>商品交易所：commodity exchange</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>期货合同：commodity futures contract</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>普通证券（疑为 “普通股”）：common stock</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>联合大企业：conglomerate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币贬值：currency devaluation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>通货紧缩：deflation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>折旧：depreciation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贴现率：discount rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>归个人支配的收入：disposable personal </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>income</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>从业人员：employed person</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>汇率：exchange rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>财政年度：fiscal year</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>企业：free enterprise</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>国生产总值（疑为 “国民生产总值”）：gross </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>national product</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>库存：inventory</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>劳动力人数：labor force</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>债务：liabilities</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场经济：market economy</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合并：merger</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货币收入：money income</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>个人收入：personal income</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>优先证券（疑为 “优先股”）：preferred </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>stock</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格收益比率：price-earning ratio</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>优惠贷款利率：prime rate</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>回报：return on investment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>使货币升值：revaluation</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>薪水：salary</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>季节性调整：seasonal adjustment</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>关税：tariff</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>失业人员：unemployed person</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>效用：utility</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价值：value</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>工资：wages</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>工资价格螺旋上升：wage-price spiral</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收益：yield</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、其他专业相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>补偿贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>补偿贸易：compensatory </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>trade,compensated deal</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>银行</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>储蓄银行：savings banks</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>欧洲联盟</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>欧洲联盟：the European Union</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>金融术语补充</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>单一的实体：a single entity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>抵押贷款：mortgage lending</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>业主产权：owner&#x27;s equity</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>普通股：common stock</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>无形资产：intangible assets</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收益表：income statement</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>营业开支：operating expenses</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行政开支：administrative expenses</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>现金收支一览表：statement of cash flow</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>贸易中的存货：inventory</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收益：proceeds</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>投资银行：investment bank</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>机构投资者：institutional investor</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>垄断兼并委员会：MMC</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>招标发行：issue by tender</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定向发行：introduction</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>代销：offer for sale</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>直销：placing</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>公开发行：public issue</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信贷额度：credit line</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>国际债券：international bonds</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>利差：interest margin</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>以所借的钱作抵押所获之贷款：leveraged loan</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>权利股发行：rights issues</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>净收入比例结合：net income gearing</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外贸常见英文缩略词</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T/T（telegraphic transfer） ：电汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>D/P（document against payment） ：付款交单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>D/A （document against acceptance） ：承兑</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C.O （certificate of origin） ：一般原产地</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>G.S.P.（generalized system of </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>preferences） ：普惠制</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTN/CTNS（carton/cartons） ：纸箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PCE/PCS（piece/pieces） ：只、个、支等</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DL/DLS（dollar/dollars） ：美元</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOZ/DZ（dozen） ：一打</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PKG（package） ：一包，一捆，一扎，一件等</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WT（weight） ：重量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>G.W.（gross weight） ：毛重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>N.W.（net weight） ：净重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C/D （customs declaration） ：报关单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EA（each） ：每个，各</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W （with） ：具有</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>w/o（without） ：没有</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FAC（facsimile） ：传真</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IMP（import） ：进口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EXP（export） ：出口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MAX （maximum） ：最大的、最大限度的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MIN （minimum） ：最小的，最低限度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>M 或 MED （medium） ：中等，中级的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>M/V（merchant vessel） ：商船</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>S.S（steamship） ：船运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MT 或 M/T（metric ton） ：公吨</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOC （document） ：文件、单据</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INT（international） ：国际的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P/L （packing list） ：装箱单、明细表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INV （invoice） ：发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PCT （percent） ：百分比</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>REF （reference） ：参考、查价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EMS （express mail special） ：特快传递</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>STL.（style） ：式样、款式、类型</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T 或 LTX 或 TX（telex） ：电传</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RMB（renminbi） ：人民币</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>S/M （shipping marks） ：装船标记</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PR 或 PRC（price） ：价格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PUR （purchase） ：购买、购货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>S/C（sales contract） ：销售确认书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C （letter of credit） ：信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B/L （bill of lading） ：提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FOB （free on board） ：离岸价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>财务术语补充</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CR=credit：贷方，债主</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DR=debt：借贷方</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exp=Expense：花费，费用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>O/H=overhead：常用开支</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TC=total cost：总费用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FC=fixed cost：常设费用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VC=variable cost：变动费用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P=profit：净利润</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>S=sales：销售总额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rev=revenue：收入</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MC=marginal cost：边际成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GM=gross margin：毛利</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MR=marginal revenue：边际收益</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A/R=acount receivable：应收账款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A/P=account payable：应付账款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PMT=payment：支付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>N/I=net income：净收入</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AMT=amount：数额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DCT=discount：折扣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>职业与就业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>accountant：n. 会计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>air hostess：女乘务员，空姐</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>applicant：n. 申请人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>appoint：v. 任命</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>appointment：n. 任命</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>assistant：n. 助理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>attendant：n. 服务员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>auditor：n. 查帐员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>banker：n. 银行家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>barber：n. 为男士理发的理发师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>book keeper：n. 记帐员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>broker：n. 经纪人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>businessman：n. 商人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>buyer：n. 采购员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>capable：a. 有能力的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>career：n. 职业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>certificate：n. 证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>chemist：n. 药剂师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>clerk：n. 办事员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>current（present）post：现在的工作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>dentist：n. 牙医</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>designer：n. 设计家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>detective：n. 侦探</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>diploma：n. 文凭，学位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>director：n. … 长（主任）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>dismiss：v. 解雇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>drawer：n. 出票人，开票人，抽屉</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>employee：n. 雇员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>employer：n. 雇主</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>engineer：n. 工程师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>executive：n. 行政官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>experienced staff：有经验的雇员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>freelance：n. 职业者（作家、演员等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>full - time job：专职工作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>graduate：n. 毕业生</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>hairdresser：n. 理发师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>interview：n. &amp; v. 面试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>job agency：职业介绍所</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>judge：n. 法官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>laborer：n. 劳工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>landlady：n. 女房东</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>lawyer：n. 律师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>manager：n. 经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>managing director：n. 总经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>manufacturer：n. 制造商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>newsagent：n. 报刊销售人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>newspaper reporter：记者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>office worker：办公室工作人员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>officer：n. 官员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>operator：n. 接线员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>out of work：失业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>packer：n. 包装工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>part - time job：非专职工作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>permanent job：固定职业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>photographer：n. 照相师</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>pilot：n. 飞行员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>politician：n. 政治家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>postman：n. 邮递员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>president：n. 总裁，董事长</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>previous job：以前的工作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>price controller：物价员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>prime minister：总理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>principal：n. 校长</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>producer：n. 制造者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>professor：n. 教授</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>purchaser：n. 采购员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>qualification：n. 资格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>quality controller：质量管理员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>receptionist：n. 接待员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>recommend：v. 推荐</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>redundancy：n. 过剩，多余，累赘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>redundant：a. 过剩的，多余的，累赘的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>resign：v. 辞职</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>resume：n. 简历</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>retailer：n. 零售商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>retire：v. 退休</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>sack：v. &amp; n. 解雇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>sales rep（representative） ：销售代表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>salesman：n. 销售员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>scientist：n. 科学家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>secretary：n. 秘书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>shop assistant：售货员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>shopkeeper：n. 店主</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>skilled workers：技术工人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>specialist：n. 专家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>specialize in：v. 专长</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>staff recruitment：雇员招聘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>supervisor：n. 主管人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>temporary job：临时职业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>to apply for：申请</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>to take on：雇佣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>typist：n. 打字员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>unemployment：n. 失业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>vacancy：n. 空缺（职位）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>wholesaler：n. 批发商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>workforce：n. 劳动力</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行业名称</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>banking：n. 银行业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>construction：n. 建筑业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>correspondence：n. 通信</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>education：n. 教育</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>electronics：n. 电子学</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>entertainments：n. 娱乐</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>finance：n. 财经，金融</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>health：n. 保健</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>import/export：n. &amp; v. 进 / 出口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>manufacture：n. 制造业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>press：n. 报刊，新闻界</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>printing：n. 印刷业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>producing：n. 生产业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>programming：n. 编程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>publishing：n. 出版</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>science：n. 科学</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>telecommunications：n. 通讯</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>trade union：n. 工会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>transporting：n. 运输</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>公司部门</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>accounts：n. 会计部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>administration：n. 行政管理部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>advertising：n. 广告部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>assembly line：装配线</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>assembly plant：装配工厂</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>canteen：n. 餐厅，小卖部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>clinic：n. 门诊所</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>customer account：帐务部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>distribution：n. 分销部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>financial services：财务服务部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>forwarding company：运输公司</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>group：n. 集团</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>head office：总部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>headquarters：n. 总部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>human resources：人力资源部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>maintenance：n. 维修部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>management：n. 管理部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>marketing：n. 营销部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>packaging：n. 包装部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>personnel：n. 人事部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>production：n. 生产部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>public relations：公关部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>purchasing：n. 采购部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>quality control：质量管理部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>research and development：调研部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>sales：n. 销售部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>training：n. 培训部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>wages and salaries：工资部</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="外贸词汇500";
@@ -763,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

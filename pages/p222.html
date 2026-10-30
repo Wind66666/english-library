@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,881 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">外贸人英语
-无非就这399句，稳了
-VOCABULARY FOREIGN TRADERS MUST MASTER
-一、初次见面与开场
-Nice to meet you. I&#x27;m glad to have the opportunity to discuss business with you.
-很高兴见到你。我很高兴有机会和你讨论业务。
-It&#x27;s a pleasure to meet you. We&#x27;ve been looking forward to this meeting.
-很荣幸见到你。我们一直期待着这次会面。
-Thank you for coming all the way. I hope your journey was comfortable.
-感谢你远道而来。希望你旅途愉快。
-I&#x27;m [Your Name] from [Your Company]. This is my colleague [Colleague&#x27;s Name].
-我是 [你公司名称] 的 [你的名字]。这是我的同事 [同事名字]。
-Let me introduce you to our team. This is [Team Member&#x27;s Name], who is in charge of [Responsibility].
-让我给你介绍一下我们的团队。这是 [团队成员名字]，负责 [具体职责]。
-Shall we get started? First, I&#x27;d like to briefly introduce our company.
-我们可以开始了吗？首先，我想简要介绍一下我们公司。
-I&#x27;d like to open this negotiation by expressing our sincere interest in cooperating with you.
-我想在这次谈判开始时表达我们与贵方合作的诚挚意愿。
-We&#x27;re very excited about the potential business opportunities between our two companies.
-我们对两家公司之间潜在的商业机会感到非常兴奋。
-Before we dive into the details, is there anything you&#x27;d like to clarify or discuss upfront?
-在深入讨论细节之前，有没有什么你想先澄清或讨论的？
-I believe this meeting will be a great chance for us to better understand each other&#x27;s needs and expectations.
-我相信这次会议将是我们更好地了解彼此需求和期望的绝佳机会。
-二、产品介绍与询问
-We are very interested in your products. Can you provide more details?
-我们对你们的产品很感兴趣。你能提供更多细节吗？
-Could you tell us about the features and benefits of your latest product line?
-你能给我们讲讲你们最新产品线的特点和优势吗？
-How does your product compare to similar ones in the market?
-你们的产品与市场上类似产品相比有何优势？
-We need samples to test the quality. Can you send them to us as soon as possible?
-我们需要样品来测试质量。你能尽快寄给我们吗？
-What are the key specifications of this product? For example, size, weight, and material.
-这个产品的主要规格是什么？比如尺寸、重量和材质。
-Does your product come with any warranties or after - sales services?
-你们的产品有保修或售后服务吗？
-Are there different models or versions of this product available?
-这个产品有不同的型号或版本吗？
-Can you explain how your product is environmentally friendly?
-你能解释一下你们的产品如何环保吗？
-We&#x27;re interested in the customization options. What can you offer in terms of customizing the product?
-我们对定制选项感兴趣。在产品定制方面你们能提供什么？
-How often do you update your product features?
-你们多久更新一次产品功能？
-三、价格谈判
-What&#x27;s your best price for this item?
-这个产品你的最优价格是多少？
-Your price is a bit high compared to other suppliers. Can you offer a better price?
-与其他供应商相比，你的价格有点高。你能提供更优惠的价格吗？
-Could you give us a discount? Maybe based on the order quantity?
-你能给我们一个折扣吗？或许根据订单数量？
-Our budget is limited. Can you adjust the price to fit our budget?
-我们的预算有限。你能调整价格以符合我们的预算吗？
-Is there any room for price reduction?
-价格还有下降的空间吗？
-If we place a large order, what kind of price break can we expect?
-如果我们下大订单，能得到什么样的价格优惠？
-Can you match the price offered by your competitor?
-你能和你的竞争对手给出的价格持平吗？
-We understand that quality comes at a price, but we hope you can offer a more competitive price without sacrificing quality.
-我们知道质量是有代价的，但我们希望你能在不牺牲质量的前提下提供更具竞争力的价格。
-What&#x27;s the lowest price you can go?
-你能给出的最低价格是多少？
-The price you quoted is not in line with the current market trend. Can you review it?
-你报的价格与当前市场趋势不符。你能重新评估一下吗？
-四、订单与数量
-We&#x27;re considering placing an order. What&#x27;s the minimum order quantity?
-我们正在考虑下订单。最小起订量是多少？
-If we increase the order quantity, can you offer better terms?
-如果我们增加订单数量，你能提供更好的条件吗？
-How soon can you fulfill a large order?
-你们多久能完成一笔大订单？
-Are there any restrictions on the order quantity? For example, maximum or minimum.
-订单数量有什么限制吗？比如最大或最小订单量。
-We&#x27;d like to place a trial order first. What&#x27;s your policy on trial orders?
-我们想先下一笔试订单。你们对试订单有什么政策？
-Can you handle an order of [Specific Quantity] within [Desired Timeframe]?
-你们能在 [期望时间内] 完成 [具体数量] 的订单吗？
-If we place a repeat order, can we get some preferential treatment?
-如果我们下重复订单，能得到一些优惠待遇吗？
-What&#x27;s the lead time for an order of [Quantity]?
-[数量] 的订单交货期是多久？
-We may need to adjust the order quantity later. Is that possible?
-我们以后可能需要调整订单数量。这可以吗？
-How do you ensure the quality consistency when fulfilling large orders?
-在完成大订单时，你们如何确保质量的一致性？
-五、交货与运输
-How long will it take for production?
-生产需要多长时间？
-Can you meet our delivery deadline? We need the goods by [Date].
-你能满足我们的交货期限吗？我们需要在 [日期] 前收到货物。
-What are your delivery terms? For example, FOB, CIF.
-你们的交货条款是什么？比如离岸价、到岸价。
-Which shipping company do you usually work with?
-你们通常和哪家航运公司合作？
-How will the goods be shipped? By sea, air, or land?
-货物将如何运输？海运、空运还是陆运？
-Can you provide a shipping schedule?
-你能提供运输时间表吗？
-What if there is a delay in delivery? How will you compensate us?
-如果交货延迟怎么办？你们将如何补偿我们？
-Are there any additional charges for shipping to our destination?
-运往我们目的地有额外费用吗？
-Do you arrange for door - to - door delivery?
-你们安排门到门送货吗？
-How do you handle the packaging to ensure the goods are well - protected during transportation?
-你们如何处理包装以确保货物在运输过程中得到良好保护？
-六、付款方式
-What are your payment terms?
-你们的付款条件是什么？
-We prefer payment by letter of credit. Is that acceptable to you?
-我们更喜欢用信用证付款。你们能接受吗？
-Is there any possibility of extending the payment period? We usually need [Number] days.
-有没有可能延长付款期限？我们通常需要 [天数] 天。
-Can we pay in installments?
-我们可以分期付款吗？
-What&#x27;s your policy on prepayment? How much is required?
-你们的预付款政策是什么？需要预付多少？
-Do you accept other payment methods, such as PayPal or wire transfer?
-你们接受其他付款方式吗，比如贝宝或电汇？
-If we pay in advance, can we get a discount?
-如果我们提前付款，能得到折扣吗？
-How soon do you expect to receive payment after delivery?
-交货后你们期望多久收到付款？
-Are there any handling fees associated with the payment method?
-付款方式有手续费吗？
-We need to clarify the payment terms before finalizing the contract.
-在敲定合同前，我们需要明确付款条款。
-七、质量与检验
-The quality of your products is very important to us. How do you ensure high - quality products?
-你们产品的质量对我们来说非常重要。你们如何确保产品质量？
-What kind of quality control system do you have in place?
-你们有什么样的质量控制系统？
-Are your products compliant with international quality standards, such as ISO?
-你们的产品符合国际质量标准吗，比如 ISO 标准？
-We&#x27;ll conduct our own inspection before accepting the goods. Is that okay?
-在接受货物前我们会进行自己的检验。可以吗？
-What if our inspection reveals quality issues? How will you handle it?
-如果我们的检验发现质量问题，你们将如何处理？
-Can you provide quality certificates for your products?
-你能提供产品的质量证书吗？
-How do you handle product recalls in case of quality problems?
-如果出现质量问题，你们如何处理产品召回？
-What&#x27;s your process for handling customer complaints regarding product quality?
-你们处理客户关于产品质量投诉的流程是怎样的？
-We want to visit your factory to see the production process and quality control measures. Is that possible?
-我们想参观你们的工厂，看看生产过程和质量控制措施。可以吗？
-Do you offer any quality guarantees or compensations for sub - standard products?
-对于不合格产品，你们提供质量保证或补偿吗？
-八、合同条款
-We need to discuss the terms of the contract in detail.
-我们需要详细讨论合同条款。
-Before signing the contract, we&#x27;d like to review some key clauses, such as the liability clause.
-在签署合同前，我们想审查一些关键条款，比如责任条款。
-What are the termination conditions of the contract?
-合同的终止条件是什么？
-Can you explain the force majeure clause in the contract?
-你能解释一下合同中的不可抗力条款吗？
-We want to add a confidentiality clause to the contract. Is that acceptable?
-我们想在合同中添加保密条款。可以接受吗？
-How will disputes be resolved according to the contract? Through arbitration or litigation?
-根据合同，纠纷将如何解决？通过仲裁还是诉讼？
-Are there any hidden costs or obligations in the contract that we should be aware of?
-合同中有我们应该注意的隐性成本或义务吗？
-We&#x27;d like to make some minor changes to the contract. Is that feasible?
-我们想对合同做一些小改动。可行吗？
-Once the contract is signed, both parties are legally bound. Let&#x27;s make sure all terms are clear.
-合同一旦签署，双方都受法律约束。让我们确保所有条款都清晰明了。
-Can you provide a sample contract for us to review first?
-你能先给我们提供一份合同样本供我们审查吗？
-九、合作意向与展望
-We&#x27;re really interested in establishing long - term cooperation with your company.
-我们非常有兴趣与贵公司建立长期合作关系。
-This cooperation could be the beginning of a mutually beneficial partnership.
-这次合作可能是互利伙伴关系的开始。
-What are your expectations for this cooperation?
-你们对这次合作有什么期望？
-We hope to expand our business with you in the future. What are your plans for product development and market expansion?
-我们希望未来与你们拓展业务。你们在产品开发和市场拓展方面有什么计划？
-If this cooperation is successful, we may consider increasing our investment or cooperation scope.
-如果这次合作成功，我们可能会考虑增加投资或扩大合作范围。
-We believe that our combined resources and expertise can bring great opportunities. What do you think?
-我们相信我们整合的资源和专业知识能带来巨大机会。你怎么看？
-How do you see this cooperation contributing to our respective business growth?
-你认为这次合作将如何促进我们各自的业务增长？
-We&#x27;re looking forward to a smooth cooperation process and achieving our common goals.
-我们期待合作过程顺利，实现我们的共同目标。
-To ensure a successful cooperation, what kind of communication and coordination mechanisms do you suggest?
-为确保合作成功，你建议建立什么样的沟通和协调机制？
-Let&#x27;s work together to make this cooperation a win - win situation for both sides.
-让我们共同努力，使这次合作成为双方共赢的局面。
-十、沟通与协商
-I will send you an email with the details later. Please check your inbox.
-我稍后会给你发一封带有详细信息的电子邮件。请查收你的收件箱。
-Please confirm the receipt of this email.
-请确认收到这封电子邮件。
-If you have any questions, feel free to contact me at any time.
-如果你有任何问题，请随时联系我。
-I look forward to hearing from you soon.
-我期待着尽快收到你的回复。
-Thank you for your prompt reply. It&#x27;s very helpful.
-感谢你的及时回复。这非常有帮助。
-We&#x27;re experiencing some technical difficulties. Please bear with us while we resolve them.
-我们正在遇到一些技术困难。在我们解决问题期间，请耐心等待。
-The shipment has been delayed due to bad weather. We&#x27;ll keep you updated on the new delivery time.
-由于天气不好，货物运输被延迟了。我们会随时告知你新的交货时间。
-I apologize for the inconvenience caused. We&#x27;ll do our best to fix the problem.
-对于造成的不便，我深表歉意。我们将尽最大努力解决问题。
-We need to have a further discussion on this issue. When would be a convenient time for you?
-我们需要进一步讨论这个问题。你什么时候方便？
-Let&#x27;s try to find a solution that works for both sides. What&#x27;s your opinion on this?
-让我们试着找到一个对双方都有效的解决方案。你对此有什么看法？
-十一、让步与妥协
-In order to move forward with this deal, we&#x27;re willing to make some concessions.
-为了推进这笔交易，我们愿意做出一些让步。
-We can meet you halfway on the price issue if you can increase the order quantity.
-如果你能增加订单数量，我们可以在价格问题上各让一步。
-We understand your concerns. How about we adjust the payment terms as a compromise?
-我们理解你的担忧。作为妥协，我们调整一下付款条件怎么样？
-If you agree to our proposed delivery schedule, we can offer a small discount.
-如果你同意我们提议的交货时间表，我们可以提供一个小折扣。
-We&#x27;re willing to waive the inspection fee this time as a gesture of our good faith.
-这次我们愿意免去检验费，以示我们的诚意。
-To show our flexibility, we can consider a longer payment period, but we need some guarantees.
-为了显示我们的灵活性，我们可以考虑延长付款期限，但我们需要一些保证。
-We can&#x27;t meet all your demands, but we can make some adjustments to reach a mutually acceptable agreement.
-我们无法满足你所有的要求，但我们可以做出一些调整以达成双方都能接受的协议。
-If you&#x27;re willing to make a concession on the packaging requirements, we can offer a better price.
-如果你愿意在包装要求上做出让步，我们可以提供更优惠的价格。
-Let&#x27;s find a middle ground. What if we split the difference on the price?
-让我们找到一个中间立场。如果我们在价格上平分差价怎么样？
-We&#x27;re open to negotiation. What kind of compromise do you have in mind?
-我们乐于协商。你心里有什么样的妥协方案？
-十二、拒绝与回应
-I&#x27;m sorry, but we can&#x27;t accept your proposed price. It&#x27;s too low for us to make a profit.
-很抱歉，我们不能接受你提议的价格。对我们来说这个价格太低了，无法盈利。
-We appreciate your offer, but it doesn&#x27;t meet our expectations in terms of quality.
-我们感谢你的报价，但在质量方面不符合我们的期望。
-We can&#x27;t agree to your request for a 60 - day payment period. Our standard terms are 30 days.
-我们不能同意你提出的 60 天付款期限的要求。我们的标准条款是 30 天。
-Unfortunately, we&#x27;re not in a position to provide free samples at this stage.
-很遗憾，在现阶段我们无法提供免费样品。
-We have to decline your offer of changing the production process. It will increase our costs significantly.
-我们不得不拒绝你改变生产流程的提议。这将大幅增加我们的成本。
-I understand your point, but our current capacity doesn&#x27;t allow us to fulfill such a large order in a short time.
-我理解你的观点，但我们目前的产能不允许我们在短时间内完成这么大的订单。
-We can&#x27;t meet your demand for a 15We can&#x27;t meet your demand for a 15% discount. The maximum discount we can offer is 8% considering our costs and profit margin.
-我们无法满足你 15% 的折扣要求。考虑到成本和利润率，我们能提供的最大折扣是 8%。
-I&#x27;m afraid we can&#x27;t change the production materials as you requested. The current materials are carefully selected to ensure product quality and stability.
-恐怕我们不能按你要求更改生产材料。目前的材料是经过精心挑选以确保产品质量和稳定性的。
-We regret to say that we can&#x27;t provide exclusive distribution rights at this stage. Our market strategy requires a more comprehensive evaluation.
-很遗憾，现阶段我们无法提供独家经销权。我们的市场策略需要更全面的评估。
-Your proposed delivery location is too remote. It will incur extremely high transportation costs, so we can&#x27;t guarantee the delivery there.
-你提议的交货地点太偏远了。这将产生极高的运输成本，所以我们无法保证在那里交货。
-We are unable to accept your request for free installation services. Installation is a specialized service, and we have to charge a reasonable fee for it.
-我们无法接受你免费安装服务的要求。安装是一项专业服务，我们必须为此收取合理费用。
-I&#x27;m sorry, but we can&#x27;t extend the warranty period to 3 years. Our standard warranty is 1 year, which is in line with industry norms.
-很抱歉，我们不能将保修期延长到 3 年。我们的标准保修期是 1 年，这符合行业规范。
-We can&#x27;t agree to your suggestion of sharing our production technology. Our technology is our core competitiveness and is protected by strict confidentiality agreements.
-我们不能同意你分享我们生产技术的建议。我们的技术是我们的核心竞争力，受到严格保密协议的保护。
-Unfortunately, we are not in a position to provide financial support for your marketing activities. Our resources are mainly focused on product development and production.
-很遗憾，我们无法为你的营销活动提供资金支持。我们的资源主要集中在产品开发和生产上。
-We have to decline your offer to jointly develop a new product at this time. We are currently fully engaged in existing projects and lack the capacity for new initiatives.
-我们不得不拒绝你此时共同开发新产品的提议。我们目前全力投入现有项目，没有能力开展新的行动。
-I understand your need for a shorter lead time, but due to our current production schedule and order backlog, we can&#x27;t meet your expectation.
-我理解你对更短交货期的需求，但由于我们目前的生产计划和订单积压，无法满足你的期望。
-十三、确认与承诺
-We confirm that we can meet your order quantity of [Quantity] within the specified time.
-我们确认能在规定时间内满足你 [数量] 的订单量。
-Please rest assured that we will guarantee the quality of the products according to the agreed standards.
-请放心，我们将按照商定的标准保证产品质量。
-We promise to ship the goods as soon as they are ready and keep you updated on the shipping progress.
-我们承诺货物一准备好就发货，并随时向你通报运输进度。
-I confirm that the price we quoted is valid for [Number] days.
-我确认我们报的价格在 [天数] 内有效。
-We are committed to providing excellent after - sales service. If you encounter any problems, we will respond within [Number] hours.
-我们致力于提供优质的售后服务。如果你遇到任何问题，我们将在 [小时数] 内回复。
-We confirm that the payment terms are [Payment Terms Details], and we will abide by them.
-我们确认付款条款是 [付款条款详情]，我们将遵守这些条款。
-Please note that we will arrange for a pre - shipment inspection to ensure the goods meet your requirements.
-请注意，我们将安排装运前检验，以确保货物符合你的要求。
-We guarantee that all the information provided in the contract is accurate and reliable.
-我们保证合同中提供的所有信息准确可靠。
-I confirm that we have received your order and are processing it immediately.
-我确认已收到你的订单，正在立即处理。
-We promise to cooperate closely with you throughout the entire cooperation process to achieve our common goals.
-我们承诺在整个合作过程中与你密切合作，以实现我们的共同目标。
-十四、市场与竞争
-What&#x27;s the market trend like in your region for this type of product?
-这种产品在你们地区的市场趋势如何？
-Are there any emerging competitors in your market? How do they impact your business?
-你们市场上有新兴竞争对手吗？他们如何影响你们的业务？
-How do you plan to expand your market share in the international market?
-你们计划如何在国际市场上扩大市场份额？
-What are the key factors that influence the demand for this product in the global market?
-在全球市场上，影响这种产品需求的关键因素是什么？
-Can you analyze the market potential of our product in your area?
-你能分析一下我们产品在你们地区的市场潜力吗？
-How do you keep up with the changing market demands and customer preferences?
-你们如何跟上不断变化的市场需求和客户偏好？
-Are there any trade barriers or regulations that we need to be aware of in your market?
-在你们市场上有我们需要注意的贸易壁垒或法规吗？
-What marketing strategies do you usually adopt to promote your products?
-你们通常采用什么营销策略来推广你们的产品？
-How do you differentiate your products from those of your competitors?
-你们如何使你们的产品与竞争对手的产品区分开来？
-In your opinion, what are the biggest challenges and opportunities in the current international market for our industry?
-在你看来，当前国际市场对我们行业来说最大的挑战和机遇是什么？
-十五、包装与标签
-How do you usually package your products? We need to ensure they are suitable for long - distance transportation.
-你们通常如何包装产品？我们需要确保包装适合长途运输。
-Can you customize the packaging according to our design requirements?
-你们能根据我们的设计要求定制包装吗？
-What kind of materials do you use for product packaging? Are they environmentally friendly?
-你们用什么材料进行产品包装？它们环保吗？
-We require specific labels on the products. Can you meet this requirement?
-我们要求产品上有特定标签。你们能满足这个要求吗？
-Please explain the information that should be included on the product labels according to international standards.
-请说明根据国际标准，产品标签上应包含哪些信息。
-How do you ensure the durability of the packaging during transportation and storage?
-你们如何确保包装在运输和储存过程中的耐用性？
-Can you provide samples of the packaging and labels for our reference?
-你能提供包装和标签的样品供我们参考吗？
-We want to add our company logo to the packaging. Is that possible?
-我们想在包装上添加我们公司的标志。可以吗？
-What are the costs associated with customizing the packaging and labels?
-定制包装和标签的相关成本是多少？
-Do you have any experience in packaging products for different target markets? For example, different cultures may have different preferences.
-你们有为不同目标市场包装产品的经验吗？例如，不同文化可能有不同偏好。
-十六、知识产权与认证
-Do your products have any intellectual property rights issues? We need to ensure that we are not involved in any legal disputes.
-你们的产品有知识产权问题吗？我们需要确保不卷入任何法律纠纷。
-Can you provide relevant intellectual property certificates, such as patents or trademarks?
-你能提供相关的知识产权证书，如专利或商标吗？
-What measures do you take to protect your intellectual property and prevent counterfeiting?
-你们采取什么措施保护知识产权和防止假冒？
-Are your products compliant with international safety and quality certifications, such as CE or UL?
-你们的产品符合国际安全和质量认证吗，比如 CE 或 UL 认证？
-How long does it take to obtain these certifications for new products?
-新产品获得这些认证需要多长时间？
-Can you provide documentation to prove that your products meet the required certifications?
-你能提供文件证明你们的产品符合所需认证吗？
-If there are any changes in product design or production process, how will you ensure continued compliance with certifications?
-如果产品设计或生产过程有任何变化，你们将如何确保持续符合认证要求？
-Do you have experience in dealing with intellectual property disputes in international trade?
-你们有处理国际贸易中知识产权纠纷的经验吗？
-We plan to register the product in our local market. Can you assist us with the necessary procedures regarding intellectual property?
-我们计划在当地市场注册产品。你能在知识产权方面协助我们办理必要手续吗？
-Are there any specific intellectual property requirements or considerations in your country that we should be aware of?
-在你们国家有我们应该注意的特定知识产权要求或注意事项吗？
-十七、售后服务与维修
-What kind of after - sales service do you offer? For example, repair, replacement, or technical support.
-你们提供什么样的售后服务？比如维修、更换或技术支持。
-How long does it usually take to respond to a customer&#x27;s after - sales service request?
-通常需要多长时间回应客户的售后服务请求？
-Do you have a local service center or authorized repair agents in our area?
-你们在我们地区有当地服务中心或授权维修代理吗？
-What&#x27;s the process for customers to request after - sales service? Can you provide a detailed guide?
-客户请求售后服务的流程是什么？你能提供详细指南吗？
-If a product needs to be repaired, how will you arrange for the transportation of the product to the repair center?
-如果产品需要维修，你们将如何安排产品运输到维修中心？
-Are spare parts easily available for product repair? What&#x27;s the lead time for obtaining spare parts?
-产品维修的备件容易获得吗？获得备件的交货期是多长？
-Do you offer training on product maintenance and repair to our technical staff?
-你们为我们的技术人员提供产品维护和维修培训吗？
-How do you ensure the quality of after - sales service and customer satisfaction?
-你们如何确保售后服务质量和客户满意度？
-In case of product recall due to quality issues, what actions will you take to minimize the impact on customers?
-如果因质量问题召回产品，你们将采取什么行动将对客户的影响降至最低？
-Can you provide a warranty extension service for an additional fee?
-你们能提供付费的保修延长服务吗？
-十八、代理与合作模式
-Are you interested in appointing us as your agent in our region?
-你们有兴趣指定我们为你们在我们地区的代理吗？
-What are the requirements and qualifications for becoming your agent?
-成为你们的代理有哪些要求和资质？
-Can you explain the rights and obligations of the agent in the agency agreement?
-你能解释一下代理协议中代理的权利和义务吗？
-How do you plan to support your agents in terms of marketing and sales?
-你们计划在营销和销售方面如何支持你们的代理？
-What&#x27;s the commission structure for agents? How is it calculated?
-代理的佣金结构是怎样的？如何计算？
-Are there any exclusive agency rights available? If so, what are the conditions?
-有独家代理权利吗？如果有，条件是什么？
-We are considering a joint venture with your company. What are your thoughts on this cooperation model?
-我们正在考虑与你们公司建立合资企业。你对这种合作模式有什么看法？
-Can you introduce the advantages and challenges of the joint venture cooperation model?
-你能介绍一下合资企业合作模式的优势和挑战吗？
-In a joint venture, how will the management and decision - making be arranged?
-在合资企业中，管理和决策将如何安排？
-What kind of resources and contributions do you expect each party to make in a joint venture?
-在合资企业中，你们期望各方做出什么样的资源和贡献？
-十九、展会与推广
-Do you plan to participate in any international trade fairs or exhibitions in the near future?
-你们近期有计划参加任何国际贸易展会或展览吗？
-Which trade fairs are most effective for promoting your products in the international market?
-哪些贸易展会对在国际市场推广你们的产品最有效？
-Can you share your experience and tips for participating in trade fairs?
-你能分享一下参加贸易展会的经验和技巧吗？
-How do you usually showcase your products at trade fairs to attract more attention?
-你们通常如何在贸易展会上展示产品以吸引更多关注？
-Do you offer any special promotions or discounts during trade fairs?
-你们在贸易展会期间提供任何特别促销或折扣吗？
-We are organizing a product launch event. Would you like to participate as a partner?
-我们正在组织一个产品发布会。你们想作为合作伙伴参加吗？
-What kind of marketing and promotional activities do you usually conduct before and after a trade fair?
-你们在贸易展会前后通常进行什么样的营销和促销活动？
-Can you help us promote our products in your local market through your marketing channels?
-你们能通过你们的营销渠道在你们当地市场帮助我们推广产品吗？
-How do you measure the effectiveness of your promotional activities at trade fairs?
-你们如何衡量在贸易展会上促销活动的效果？
-We want to cooperate with you on a co - branded promotional campaign. What do you think?
-我们想和你们合作开展联合品牌推广活动。你怎么看？
-二十、风险评估与应对
-What kinds of risks do you think we may encounter in this international trade cooperation?
-你认为在这次国际贸易合作中我们可能遇到哪些风险？
-How do you assess and manage risks such as currency fluctuations, political instability, and trade policy changes?
-你们如何评估和管理货币波动、政治不稳定和贸易政策变化等风险？
-Do you have any strategies in place to mitigate the impact of risks on our business cooperation?
-你们有什么策略来减轻风险对我们业务合作的影响吗？
-In case of unexpected events, such as natural disasters or pandemics, how will we ensure the continuity of our cooperation?
-如果发生意外事件，如自然灾害或流行病，我们将如何确保合作的连续性？
-Have you considered purchasing trade credit insurance to protect against payment defaults?
-你们考虑过购买贸易信用保险以防范付款违约吗？
-How do you monitor and evaluate the creditworthiness of your business partners?
-你们如何监测和评估商业伙伴的信用状况？
-Are there any contingency plans in case of supply chain disruptions?
-如果发生供应链中断，有应急计划吗？
-We are concerned about the potential risks of intellectual property infringement. How do you plan to address this issue?
-我们担心知识产权侵权的潜在风险。你们计划如何解决这个问题？
-Can you provide a risk assessment report for this cooperation project?
-你能提供这个合作项目的风险评估报告吗？
-How do you communicate and collaborate with your business partners in times of risk and crisis?
-在风险和危机时期，你们如何与商业伙伴沟通和协作？
-二十一、文化差异与沟通
-When doing business with us, are there any cultural differences in communication that we should be aware of?
-与我们做生意时，在沟通方面有我们应该注意的文化差异吗？
-How do cultural differences impact business negotiations and decision - making processes?
-文化差异如何影响商务谈判和决策过程？
-Can you share some tips on how to effectively communicate with people from different cultural backgrounds in business?
-你能分享一些在商务中与不同文化背景的人有效沟通的技巧吗？
-We want to ensure that our marketing and promotional materials are culturally appropriate in your market. Can you give us some advice?
-我们想确保我们的营销和促销材料在你们市场上符合文化习惯。你能给我们一些建议吗？
-In your culture, what are the appropriate ways to show respect and build trust in business relationships?
-在你们文化中，在商业关系中表达尊重和建立信任的合适方式是什么？
-How do you handle misunderstandings that may arise due to cultural differences in business communication?
-在商务沟通中，你们如何处理可能因文化差异产生的误解？
-Are there any cultural taboos that we should avoid when dealing with your company?
-与你们公司打交道时，有我们应该避免的文化禁忌吗？
-We plan to send a business delegation to your country. Can you introduce some cultural norms and etiquettes that we need to follow?
-我们计划派一个商务代表团去你们国家。你能介绍一些我们需要遵循的文化规范和礼仪吗？
-How do cultural differences affect the perception of time and punctuality in business?
-文化差异如何影响商业中对时间和守时的认知？
-一、初次见面与开场
-Nice to meet you. I&#x27;m glad to have the opportunity to discuss business with you.
-很高兴见到你。我很高兴有机会和你讨论业务。
-It&#x27;s a pleasure to meet you. We&#x27;ve been looking forward to this meeting.
-很荣幸见到你。我们一直期待着这次会面。
-Thank you for coming all the way. I hope your journey was comfortable.
-感谢你远道而来。希望你旅途愉快。
-I&#x27;m [Your Name] from [Your Company]. This is my colleague [Colleague&#x27;s Name].
-我是 [你公司名称] 的 [你的名字]。这是我的同事 [同事名字]。
-Let me introduce you to our team. This is [Team Member&#x27;s Name], who is in charge of [Responsibility].
-让我给你介绍一下我们的团队。这是 [团队成员名字]，负责 [具体职责]。
-Shall we get started? First, I&#x27;d like to briefly introduce our company.
-我们可以开始了吗？首先，我想简要介绍一下我们公司。
-I&#x27;d like to open this negotiation by expressing our sincere interest in cooperating with you.
-我想在这次谈判开始时表达我们与贵方合作的诚挚意愿。
-We&#x27;re very excited about the potential business opportunities between our two companies.
-我们对两家公司之间潜在的商业机会感到非常兴奋。
-Before we dive into the details, is there anything you&#x27;d like to clarify or discuss upfront?
-在深入讨论细节之前，有没有什么你想先澄清或讨论的？
-I believe this meeting will be a great chance for us to better understand each other&#x27;s needs and expectations.
-我相信这次会议将是我们更好地了解彼此需求和期望的绝佳机会。
-二、产品介绍与询问
-We are very interested in your products. Can you provide more details?
-我们对你们的产品很感兴趣。你能提供更多细节吗？
-Could you tell us about the features and benefits of your latest product line?
-你能给我们讲讲你们最新产品线的特点和优势吗？
-How does your product compare to similar ones in the market?
-你们的产品与市场上类似产品相比有何优势？
-We need samples to test the quality. Can you send them to us as soon as possible?
-我们需要样品来测试质量。你能尽快寄给我们吗？
-What are the key specifications of this product? For example, size, weight, and material.
-这个产品的主要规格是什么？比如尺寸、重量和材质。
-Does your product come with any warranties or after - sales services?
-你们的产品有保修或售后服务吗？
-Are there different models or versions of this product available?
-这个产品有不同的型号或版本吗？
-Can you explain how your product is environmentally friendly?
-你能解释一下你们的产品如何环保吗？
-We&#x27;re interested in the customization options. What can you offer in terms of customizing the product?
-我们对定制选项感兴趣。在产品定制方面你们能提供什么？
-How often do you update your product features?
-你们多久更新一次产品功能？
-三、价格谈判
-What&#x27;s your best price for this item?
-这个产品你的最优价格是多少？
-Your price is a bit high compared to other suppliers. Can you offer a better price?
-与其他供应商相比，你的价格有点高。你能提供更优惠的价格吗？
-Could you give us a discount? Maybe based on the order quantity?
-你能给我们一个折扣吗？或许根据订单数量？
-Our budget is limited. Can you adjust the price to fit our budget?
-我们的预算有限。你能调整价格以符合我们的预算吗？
-Is there any room for price reduction?
-价格还有下降的空间吗？
-If we place a large order, what kind of price break can we expect?
-如果我们下大订单，能得到什么样的价格优惠？
-Can you match the price offered by your competitor?
-你能和你的竞争对手给出的价格持平吗？
-We understand that quality comes at a price, but we hope you can offer a more competitive price without sacrificing quality.
-我们知道质量是有代价的，但我们希望你能在不牺牲质量的前提下提供更具竞争力的价格。
-What&#x27;s the lowest price you can go?
-你能给出的最低价格是多少？
-The price you quoted is not in line with the current market trend. Can you review it?
-你报的价格与当前市场趋势不符。你能重新评估一下吗？
-四、订单与数量
-We&#x27;re considering placing an order. What&#x27;s the minimum order quantity?
-我们正在考虑下订单。最小起订量是多少？
-If we increase the order quantity, can you offer better terms?
-如果我们增加订单数量，你能提供更好的条件吗？
-How soon can you fulfill a large order?
-你们多久能完成一笔大订单？
-Are there any restrictions on the order quantity? For example, maximum or minimum.
-订单数量有什么限制吗？比如最大或最小订单量。
-We&#x27;d like to place a trial order first. What&#x27;s your policy on trial orders?
-我们想先下一笔试订单。你们对试订单有什么政策？
-Can you handle an order of [Specific Quantity] within [Desired Timeframe]?
-你们能在 [期望时间内] 完成 [具体数量] 的订单吗？
-If we place a repeat order, can we get some preferential treatment?
-如果我们下重复订单，能得到一些优惠待遇吗？
-What&#x27;s the lead time for an order of [Quantity]?
-[数量] 的订单交货期是多久？
-We may need to adjust the order quantity later. Is that possible?
-我们以后可能需要调整订单数量。这可以吗？
-How do you ensure the quality consistency when fulfilling large orders?
-在完成大订单时，你们如何确保质量的一致性？
-五、交货与运输
-How long will it take for production?
-生产需要多长时间？
-Can you meet our delivery deadline? We need the goods by [Date].
-你能满足我们的交货期限吗？我们需要在 [日期] 前收到货物。
-What are your delivery terms? For example, FOB, CIF.
-你们的交货条款是什么？比如离岸价、到岸价。
-Which shipping company do you usually work with?
-你们通常和哪家航运公司合作？
-How will the goods be shipped? By sea, air, or land?
-货物将如何运输？海运、空运还是陆运？
-Can you provide a shipping schedule?
-你能提供运输时间表吗？
-What if there is a delay in delivery? How will you compensate us?
-如果交货延迟怎么办？你们将如何补偿我们？
-Are there any additional charges for shipping to our destination?
-运往我们目的地有额外费用吗？
-Do you arrange for door - to - door delivery?
-你们安排门到门送货吗？
-How do you handle the packaging to ensure the goods are well - protected during transportation?
-你们如何处理包装以确保货物在运输过程中得到良好保护？
-六、付款方式
-What are your payment terms?
-你们的付款条件是什么？
-We prefer payment by letter of credit. Is that acceptable to you?
-我们更喜欢用信用证付款。你们能接受吗？
-Is there any possibility of extending the payment period? We usually need [Number] days.
-有没有可能延长付款期限？我们通常需要 [天数] 天。
-Can we pay in installments?
-我们可以分期付款吗？
-What&#x27;s your policy on prepayment? How much is required?
-你们的预付款政策是什么？需要预付多少？
-Do you accept other payment methods, such as PayPal or wire transfer?
-你们接受其他付款方式吗，比如贝宝或电汇？
-If we pay in advance, can we get a discount?
-如果我们提前付款，能得到折扣吗？
-How soon do you expect to receive payment after delivery?
-交货后你们期望多久收到付款？
-Are there any handling fees associated with the payment method?
-付款方式有手续费吗？
-We need to clarify the payment terms before finalizing the contract.
-在敲定合同前，我们需要明确付款条款。
-七、质量与检验
-The quality of your products is very important to us. How do you ensure high - quality products?
-你们产品的质量对我们来说非常重要。你们如何确保产品质量？
-What kind of quality control system do you have in place?
-你们有什么样的质量控制系统？
-Are your products compliant with international quality standards, such as ISO?
-你们的产品符合国际质量标准吗，比如 ISO 标准？
-We&#x27;ll conduct our own inspection before accepting the goods. Is that okay?
-在接受货物前我们会进行自己的检验。可以吗？
-What if our inspection reveals quality issues? How will you handle it?
-如果我们的检验发现质量问题，你们将如何处理？
-Can you provide quality certificates for your products?
-你能提供产品的质量证书吗？
-How do you handle product recalls in case of quality problems?
-如果出现质量问题，你们如何处理产品召回？
-What&#x27;s your process for handling customer complaints regarding product quality?
-你们处理客户关于产品质量投诉的流程是怎样的？
-We want to visit your factory to see the production process and quality control measures. Is that possible?
-我们想参观你们的工厂，看看生产过程和质量控制措施。可以吗？
-Do you offer any quality guarantees or compensations for sub - standard products?
-对于不合格产品，你们提供质量保证或补偿吗？
-八、合同条款
-We need to discuss the terms of the contract in detail.
-我们需要详细讨论合同条款。
-Before signing the contract, we&#x27;d like to review some key clauses, such as the liability clause.
-在签署合同前，我们想审查一些关键条款，比如责任条款。
-What are the termination conditions of the contract?
-合同的终止条件是什么？
-Can you explain the force majeure clause in the contract?
-你能解释一下合同中的不可抗力条款吗？
-We want to add a confidentiality clause to the contract. Is that acceptable?
-我们想在合同中添加保密条款。可以接受吗？
-How will disputes be resolved according to the contract? Through arbitration or litigation?
-根据合同，纠纷将如何解决？通过仲裁还是诉讼？
-Are there any hidden costs or obligations in the contract that we should be aware of?
-合同中有我们应该注意的隐性成本或义务吗？
-We&#x27;d like to make some minor changes to the contract. Is that feasible?
-我们想对合同做一些小改动。可行吗？
-Once the contract is signed, both parties are legally bound. Let&#x27;s make sure all terms are clear.
-合同一旦签署，双方都受法律约束。让我们确保所有条款都清晰明了。
-Can you provide a sample contract for us to review first?
-你能先给我们提供一份合同样本供我们审查吗？
-九、合作意向与展望
-We&#x27;re really interested in establishing long - term cooperation with your company.
-我们非常有兴趣与贵公司建立长期合作关系。
-This cooperation could be the beginning of a mutually beneficial partnership.
-这次合作可能是互利伙伴关系的开始。
-What are your expectations for this cooperation?
-你们对这次合作有什么期望？
-We hope to expand our business with you in the future. What are your plans for product development and market expansion?
-我们希望未来与你们拓展业务。你们在产品开发和市场拓展方面有什么计划？
-If this cooperation is successful, we may consider increasing our investment or cooperation scope.
-如果这次合作成功，我们可能会考虑增加投资或扩大合作范围。
-We believe that our combined resources and expertise can bring great opportunities. What do you think?
-我们相信我们整合的资源和专业知识能带来巨大机会。你怎么看？
-How do you see this cooperation contributing to our respective business growth?
-你认为这次合作将如何促进我们各自的业务增长？
-We&#x27;re looking forward to a smooth cooperation process and achieving our common goals.
-我们期待合作过程顺利，实现我们的共同目标。
-To ensure a successful cooperation, what kind of communication and coordination mechanisms do you suggest?
-为确保合作成功，你建议建立什么样的沟通和协调机制？
-Let&#x27;s work together to make this cooperation a win - win situation for both sides.
-让我们共同努力，使这次合作成为双方共赢的局面。
-十、沟通与协商
-I will send you an email with the details later. Please check your inbox.
-我稍后会给你发一封带有详细信息的电子邮件。请查收你的收件箱。
-Please confirm the receipt of this email.
-请确认收到这封电子邮件。
-If you have any questions, feel free to contact me at any time.
-如果你有任何问题，请随时联系我。
-I look forward to hearing from you soon.
-我期待着尽快收到你的回复。
-Thank you for your prompt reply. It&#x27;s very helpful.
-感谢你的及时回复。这非常有帮助。
-We&#x27;re experiencing some technical difficulties. Please bear with us while we resolve them.
-我们正在遇到一些技术困难。在我们解决问题期间，请耐心等待。
-The shipment has been delayed due to bad weather. We&#x27;ll keep you updated on the new delivery time.
-由于天气不好，货物运输被延迟了。我们会随时告知你新的交货时间。
-I apologize for the inconvenience caused. We&#x27;ll do our best to fix the problem.
-对于造成的不便，我深表歉意。我们将尽最大努力解决问题。
-We need to have a further discussion on this issue. When would be a convenient time for you?
-我们需要进一步讨论这个问题。你什么时候方便？
-Let&#x27;s try to find a solution that works for both sides. What&#x27;s your opinion on this?
-让我们试着找到一个对双方都有效的解决方案。你对此有什么看法？
-十一、让步与妥协
-In order to move forward with this deal, we&#x27;re willing to make some concessions.
-为了推进这笔交易，我们愿意做出一些让步。
-We can meet you halfway on the price issue if you can increase the order quantity.
-如果你能增加订单数量，我们可以在价格问题上各让一步。
-We understand your concerns. How about we adjust the payment terms as a compromise?
-我们理解你的担忧。作为妥协，我们调整一下付款条件怎么样？
-If you agree to our proposed delivery schedule, we can offer a small discount.
-如果你同意我们提议的交货时间表，我们可以提供一个小折扣。
-We&#x27;re willing to waive the inspection fee this time as a gesture of our good faith.
-这次我们愿意免去检验费，以示我们的诚意。
-To show our flexibility, we can consider a longer payment period, but we need some guarantees.
-为了显示我们的灵活性，我们可以考虑延长付款期限，但我们需要一些保证。
-We can&#x27;t meet all your demands, but we can make some adjustments to reach a mutually acceptable agreement.
-我们无法满足你所有的要求，但我们可以做出一些调整以达成双方都能接受的协议。
-If you&#x27;re willing to make a concession on the packaging requirements, we can offer a better price.
-如果你愿意在包装要求上做出让步，我们可以提供更优惠的价格。
-Let&#x27;s find a middle ground. What if we split the difference on the price?
-让我们找到一个中间立场。如果我们在价格上平分差价怎么样？
-We&#x27;re open to negotiation. What kind of compromise do you have in mind?
-我们乐于协商。你心里有什么样的妥协方案？
-十二、拒绝与回应
-I&#x27;m sorry, but we can&#x27;t accept your proposed price. It&#x27;s too low for us to make a profit.
-很抱歉，我们不能接受你提议的价格。对我们来说这个价格太低了，无法盈利。
-We appreciate your offer, but it doesn&#x27;t meet our expectations in terms of quality.
-我们感谢你的报价，但在质量方面不符合我们的期望。
-We can&#x27;t agree to your request for a 60 - day payment period. Our standard terms are 30 days.
-我们不能同意你提出的 60 天付款期限的要求。我们的标准条款是 30 天。
-Unfortunately, we&#x27;re not in a position to provide free samples at this stage.
-很遗憾，在现阶段我们无法提供免费样品。
-We have to decline your offer of changing the production process. It will increase our costs significantly.
-我们不得不拒绝你改变生产流程的提议。这将大幅增加我们的成本。
-I understand your point, but our current capacity doesn&#x27;t allow us to fulfill such a large order in a short time.
-我理解你的观点，但我们目前的产能不允许我们在短时间内完成这么大的订单。
-We can&#x27;t meet your demand for a 15% discount. The maximum discount we can offer is 5%.
-In our market research, we&#x27;ve found that products with more sustainable features are in high demand. Can you incorporate such elements into your product line?
-在我们的市场调研中发现，具有更多可持续特性的产品需求很大。你们能将这些元素融入到产品线中吗？
-Our customers are increasingly concerned about the carbon footprint of the products. How do you plan to address this in your production process?
-我们的客户越来越关注产品的碳足迹。你们在生产过程中打算如何解决这个问题？
-The market trend indicates a growing preference for smart - connected products. Do you have any plans to develop such products in the near future?
-市场趋势显示，对智能互联产品的偏好日益增长。你们近期有开发这类产品的计划吗？
-We&#x27;ve noticed that products with customizable user interfaces are more popular. Can you offer this option for your products?
-我们注意到，具有可定制用户界面的产品更受欢迎。你们能为产品提供这个选项吗？
-Based on our market analysis, there is a potential for a new product category that combines [Feature A] and [Feature B]. Are you interested in exploring this with us?
-根据我们的市场分析，结合 [特性 A] 和 [特性 B] 的新产品类别有潜力。你们有兴趣和我们一起探索这个吗？
-Our research shows that products with longer battery life are highly sought - after. Can you improve the battery performance of your products?
-我们的研究表明，电池续航时间更长的产品很受欢迎。你们能改善产品的电池性能吗？
-The market is shifting towards products with modular designs. Can you adapt your manufacturing process to offer modular products?
-市场正朝着模块化设计的产品转变。你们能调整生产流程以提供模块化产品吗？
-We&#x27;ve identified a niche market for [Specific Product]. Do you have the capacity to produce a specialized version of your product for this market?
-我们发现了 [特定产品] 的细分市场。你们有能力为这个市场生产产品的专业版本吗？
-In our region, products with local language support are more likely to succeed. Can you provide multilingual interfaces for your products?
-在我们地区，有本地语言支持的产品更有可能成功。你们能为产品提供多语言界面吗？
-Our market study reveals that products with enhanced security features are in great demand. How can you strengthen the security of your products?
-我们的市场研究显示，具有增强安全特性的产品需求很大。你们如何加强产品的安全性？
-Considering the current market competition, we suggest collaborating on a marketing campaign to differentiate our products. What&#x27;s your opinion?
-考虑到当前的市场竞争，我们建议合作开展营销活动以区分我们的产品。你怎么看？
-Instead of the traditional distribution model, how about we explore an online - only distribution strategy?
-除了传统的分销模式，我们探讨一下仅在线分销策略怎么样？
-We propose a revenue - sharing model for the sales of our jointly promoted products. What do you think?
-我们提议对联合推广产品的销售采用收益共享模式。你怎么看？
-Can we consider a cross - promotion with other complementary products in the market to expand our customer base?
-我们能考虑与市场上其他互补产品进行交叉推广以扩大客户群吗？
-How about we jointly invest in research and development to create innovative products that can lead the market?
-我们共同投资研发以创造能引领市场的创新产品怎么样？
-We suggest setting up a joint venture to penetrate new international markets more effectively. Are you interested?
-我们建议成立一家合资企业以更有效地打入新的国际市场。你有兴趣吗？
-What if we collaborate on a product - bundling strategy to increase the average order value?
-如果我们合作采用产品捆绑策略以提高平均订单价值怎么样？
-We&#x27;d like to explore the possibility of a co - branding project that combines our brand&#x27;s strengths with yours.
-我们想探索联合品牌项目的可能性，将我们品牌的优势与你们的相结合。
-Can we consider a franchise - like model where you license your technology to us for local production?
-我们能考虑一种类似特许经营的模式，你们将技术授权给我们进行本地生产吗？
-Instead of a one - time payment for the product, how about a subscription - based model?
-除了产品的一次性付款，基于订阅的模式怎么样？
-We&#x27;ve encountered a sudden change in our government&#x27;s import regulations. How can we work together to adapt to this situation?
-我们遇到了政府进口法规的突然变化。我们如何共同努力适应这种情况？
-There has been a natural disaster in our area that may affect the demand for your products. What contingency plans do you have?
-我们地区发生了自然灾害，可能会影响对你们产品的需求。你们有什么应急计划？
-A new competitor has entered the market with a very similar product. How can we adjust our strategy to maintain our market share?
-一个新的竞争对手带着非常相似的产品进入了市场。我们如何调整策略以保持市场份额？
-Our company is undergoing a restructuring. How can this impact our ongoing cooperation?
-我们公司正在进行重组。这会对我们正在进行的合作产生什么影响？
-There has been a significant fluctuation in the exchange rate. How do you propose we deal with this in our transactions?
-汇率出现了大幅波动。你建议我们在交易中如何应对这个问题？
-Due to a global shortage of raw materials, the production cost of your products may increase. What measures will you take?
-由于全球原材料短缺，你们产品的生产成本可能会增加。你们会采取什么措施？
-We&#x27;ve received feedback from our customers that the installation process of your product is too complicated. Can you simplify it?
-我们从客户那里收到反馈，你们产品的安装过程太复杂了。你们能简化一下吗？
-A new industry standard has been introduced. How will you ensure your products comply with it?
-一项新的行业标准已经出台。你们将如何确保产品符合该标准？
-There is a rumor in the market about the quality of your products. How will you address this to maintain our customers&#x27; trust?
-市场上有关于你们产品质量的谣言。你们将如何解决这个问题以维护我们客户的信任？
-Our main transportation route has been blocked due to a strike. What alternative shipping options do you suggest?
-我们的主要运输路线因罢工被封锁了。你建议有哪些替代运输方案？
-We need to train our staff on the new features of your updated product. Can you provide training materials or resources?
-我们需要对员工进行你们更新产品新功能的培训。你们能提供培训材料或资源吗？
-The warranty period of your product has expired, but our customers are still facing some issues. How can we handle this?
-你们产品的保修期已经过了，但我们的客户仍然面临一些问题。我们该如何处理？
-We want to add some additional functions to the product we ordered. Is it possible to modify the production plan?
-我们想在订购的产品上增加一些额外功能。有可能修改生产计划吗？
-The packaging of your product is not suitable for our local transportation conditions. Can you make adjustments?
-你们产品的包装不适合我们当地的运输条件。你们能做出调整吗？
-We&#x27;ve found that the user manual of your product is not clear enough. Can you revise it?
-我们发现你们产品的用户手册不够清晰。你们能修订一下吗？
-Our sales team needs more marketing support from you, such as product brochures and sample products. Can you provide them?
-我们的销售团队需要你们更多的营销支持，比如产品手册和样品。你们能提供吗？
-The delivery of our last order was delayed, which affected our business. How can you ensure this won&#x27;t happen again?
-我们上一批订单的交付延迟了，影响了我们的业务。你们如何确保这种情况不再发生？
-We want to change the color scheme of the product we ordered. Is it feasible at this stage?
-我们想改变订购产品的配色方案。在这个阶段可行吗？
-The installation of your product requires some special tools. Can you provide these tools or guidance on where to obtain them?
-你们产品的安装需要一些特殊工具。你们能提供这些工具或指导在哪里可以获得吗？
-We&#x27;ve noticed that the product&#x27;s performance degrades over time. Can you investigate and provide a solution?
-我们注意到产品的性能会随着时间下降。你们能调查并提供解决方案吗？
-We&#x27;re interested in exploring the possibility of private - label production for your products. What are your terms?
-我们有兴趣探索为你们产品进行贴牌生产的可能性。你们的条件是什么？
-Can you offer a loyalty program for our long - term orders? For example, cumulative discounts or bonus products.
-你们能为我们的长期订单提供忠诚度计划吗？比如累积折扣或赠品。
-We&#x27;d like to negotiate a preferential price for future repeat orders. How can we structure this?
-我们想为未来的重复订单协商一个优惠价格。我们该如何构建这个方案？
-Instead of a fixed - price contract, can we consider a price - adjustment clause based on market fluctuations?
-除了固定价格合同，我们能考虑一个基于市场波动的价格调整条款吗？
-We want to include a performance - based incentive in the contract. For example, if the product exceeds certain quality standards, we&#x27;ll pay a premium.
-我们想在合同中加入基于绩效的激励措施。例如，如果产品超过某些质量标准，我们将支付溢价。
-Can we negotiate a contract term that allows for early termination under certain conditions?
-我们能协商一个在某些条件下允许提前终止的合同条款吗？
-We&#x27;d like to have a say in the selection of raw materials used in the production of our ordered products. Is this possible?
-我们想在订购产品生产所用原材料的选择上有发言权。这可能吗？
-Can you provide a detailed production schedule for our order, including key milestones?
-你们能为我们的订单提供详细的生产时间表，包括关键节点吗？
-We want to ensure that the intellectual property rights related to any customized features of the product are clearly defined in the contract.
-我们希望确保产品任何定制功能相关的知识产权在合同中得到明确界定。
-Can we negotiate a contract that includes a clause for technology transfer in case of long - term cooperation?
-如果是长期合作，我们能协商一个包含技术转让条款的合同吗？
-We&#x27;ve noticed that your product&#x27;s marketing materials are not in line with our local culture. Can you make adaptations?
-我们注意到你们产品的营销材料不符合我们当地文化。你们能做出调整吗？
-The product demonstration you provided was not comprehensive enough. Can you arrange a more detailed one?
-你们提供的产品演示不够全面。你们能安排一个更详细的吗？
-We need more accurate product data, such as energy consumption and environmental impact figures. Can you supply this?
-我们需要更准确的产品数据，比如能耗和环境影响数据。你们能提供这些吗？
-The product&#x27;s compatibility with our existing systems is a concern. Can you conduct compatibility tests and provide reports?
-产品与我们现有系统的兼容性是个问题。你们能进行兼容性测试并提供报告吗？
-We want to explore the possibility of co - creating a product with you that is tailored to our local market.
-我们想探索与你们共同创造一款针对我们当地市场的产品的可能性。
-Can you offer a special package deal for our first - time large - scale order?
-对于我们首次大规模订单，你们能提供特别的套餐优惠吗？
-We&#x27;d like to negotiate a commission - based payment for our sales team for promoting your products.
-我们想为我们的销售团队推广你们产品协商基于佣金的付款方式。
-Instead of a lump - sum payment, can we split the payment for the product into several installments over a specific period?
-除了一次性付款，我们能在特定时期内将产品付款分成几期支付吗？
-We need a more detailed product maintenance plan from you, including maintenance intervals and costs.
-我们需要你们提供更详细的产品维护计划，包括维护间隔和成本。
-The product&#x27;s after - sales service response time in our area is too long. How can you improve this?
-产品在我们地区的售后服务响应时间太长了。你们如何改善这个问题？
-We&#x27;ve received complaints from our customers about the product&#x27;s user - friendliness. Can you improve the product design in this aspect?
-我们从客户那里收到了关于产品易用性的投诉。你们能在这方面改进产品设计吗？
-The product&#x27;s price in our market is not competitive compared to similar imported products. How can we work together to adjust the price?
-与类似进口产品相比，你们产品在我们市场的价格没有竞争力。我们如何共同努力调整价格？
-We want to collaborate with you on a market - entry strategy for your new product in our region.
-我们想与你们合作制定你们新产品在我们地区的市场进入策略。
-Can you provide market - specific product training for our local employees?
-你们能为我们当地员工提供针对特定市场的产品培训吗？
-We&#x27;ve noticed that your product&#x27;s packaging is not visually appealing in our market. Can you redesign it?
-我们注意到你们产品的包装在我们市场上视觉吸引力不足。你们能重新设计吗？
-The product&#x27;s warranty terms are not clear enough. Can you clarify and potentially extend them?
-产品的保修条款不够清晰。你们能澄清并有可能延长它们吗？
-We want to negotiate a contract that includes a clause for continuous product improvement based on our feedback.
-我们想协商一个包含根据我们反馈进行持续产品改进条款的合同。
-Can you offer a risk - sharing arrangement in case of product recalls or market failures?
-如果发生产品召回或市场失败，你们能提供风险分担安排吗？
-We need more frequent communication from your side regarding the production progress of our order.
-我们需要你们更频繁地沟通我们订单的生产进度。
-The product&#x27;s weight is an issue for our transportation. Can you reduce the weight without sacrificing quality?
-产品的重量对我们的运输是个问题。你们能在不牺牲质量的前提下减轻重量吗？
-We&#x27;ve identified a potential partnership opportunity with a local distributor in our area. Can you support this cooperation?
-我们在我们地区发现了与当地经销商的潜在合作机会。你们能支持这种合作吗？
-Can you provide a case - study of how your product has successfully solved similar problems for other customers?
-你们能提供一个案例研究，说明你们的产品如何为其他客户成功解决类似问题吗？
-We want to explore the possibility of using your product as a component in our own final product. What are your thoughts?
-我们想探索将你们的产品用作我们最终产品组件的可能性。你们怎么看？
-The product&#x27;s size is not suitable for our storage facilities. Can you offer different size options?
-产品的尺寸不适合我们的存储设施。你们能提供不同尺寸选项吗？
-We&#x27;d like to negotiate a contract that includes a non - compete clause for a certain period.
-我们想协商一个包含一定时期内非竞争条款的合同。
-Can you provide a trial period for your product in our market before a full - scale launch?
-在全面推出之前，你们能在我们市场为产品提供一个试用期吗？
-We need more information about the product&#x27;s manufacturing process, especially in terms of quality control.
-我们需要更多关于产品制造过程的信息，特别是在质量控制方面。
-The product&#x27;s functionality in extreme weather conditions is a concern. Can you conduct relevant tests and provide data?
-产品在极端天气条件下的功能是个问题。你们能进行相关测试并提供数据吗？
-We want to collaborate with you on a social - responsibility project related to the production and use of your product.
-我们想与你们合作开展一个与你们产品生产和使用相关的社会责任项目。
-Can you offer a price - lock option for a certain quantity of products over a specific period?
-你们能在特定时期内为一定数量的产品提供价格锁定选项吗？
-We&#x27;ve received feedback from our customers that the product&#x27;s noise level is too high. Can you reduce it?
-我们从客户那里收到反馈，产品的噪音水平太高了。你们能降低吗？
-The product&#x27;s durability in our harsh - use environment is a question. Can you improve the product&#x27;s materials or design?
-产品在我们恶劣使用环境下的耐用性是个问题。你们能改进产品的材料或设计吗？
-We want to explore the possibility of a revenue - guarantee model for our sales of your products.
-我们想探索为我们销售你们产品的收入保证模式的可能性。
-Can you provide a dedicated customer - support team for our company to handle any product - related issues?
-你们能为我们公司提供一个专门的客户支持团队来处理任何与产品相关的问题吗？
-We&#x27;ve noticed that your product&#x27;s software update process is cumbersome. Can you simplify it?
-我们注意到你们产品的软件更新过程很麻烦。你们能简化一下吗？
-The product&#x27;s appearance design is not in line with our local aesthetic preferences. Can you make changes?
-产品的外观设计不符合我们当地的审美偏好。你们能做出改变吗？
-We want to negotiate a contract that includes a clause for knowledge - sharing in the field of product technology.
-我们想协商一个包含产品技术领域知识共享条款的合同。
-Can you offer a trade - in program for our customers who want to upgrade to your new products?
-你们能为想升级到你们新产品的客户提供以旧换新计划吗？</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外贸人英语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>无非就这399句，稳了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VOCABULARY FOREIGN TRADERS MUST MASTER</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、初次见面与开场</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nice to meet you. I&#x27;m glad to have the opportunity to discuss business with you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很高兴见到你。我很高兴有机会和你讨论业务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s a pleasure to meet you. We&#x27;ve been looking forward to this meeting.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很荣幸见到你。我们一直期待着这次会面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for coming all the way. I hope your journey was comfortable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢你远道而来。希望你旅途愉快。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m [Your Name] from [Your Company]. This is my colleague [Colleague&#x27;s Name].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我是 [你公司名称] 的 [你的名字]。这是我的同事 [同事名字]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me introduce you to our team. This is [Team Member&#x27;s Name], who is in charge of [Responsibility].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我给你介绍一下我们的团队。这是 [团队成员名字]，负责 [具体职责]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shall we get started? First, I&#x27;d like to briefly introduce our company.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以开始了吗？首先，我想简要介绍一下我们公司。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to open this negotiation by expressing our sincere interest in cooperating with you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我想在这次谈判开始时表达我们与贵方合作的诚挚意愿。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re very excited about the potential business opportunities between our two companies.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对两家公司之间潜在的商业机会感到非常兴奋。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Before we dive into the details, is there anything you&#x27;d like to clarify or discuss upfront?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在深入讨论细节之前，有没有什么你想先澄清或讨论的？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I believe this meeting will be a great chance for us to better understand each other&#x27;s needs and expectations.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我相信这次会议将是我们更好地了解彼此需求和期望的绝佳机会。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、产品介绍与询问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are very interested in your products. Can you provide more details?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对你们的产品很感兴趣。你能提供更多细节吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you tell us about the features and benefits of your latest product line?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给我们讲讲你们最新产品线的特点和优势吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How does your product compare to similar ones in the market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品与市场上类似产品相比有何优势？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need samples to test the quality. Can you send them to us as soon as possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要样品来测试质量。你能尽快寄给我们吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the key specifications of this product? For example, size, weight, and material.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品的主要规格是什么？比如尺寸、重量和材质。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Does your product come with any warranties or after - sales services?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品有保修或售后服务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there different models or versions of this product available?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品有不同的型号或版本吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you explain how your product is environmentally friendly?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能解释一下你们的产品如何环保吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re interested in the customization options. What can you offer in terms of customizing the product?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对定制选项感兴趣。在产品定制方面你们能提供什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How often do you update your product features?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们多久更新一次产品功能？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、价格谈判</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your best price for this item?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品你的最优价格是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your price is a bit high compared to other suppliers. Can you offer a better price?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与其他供应商相比，你的价格有点高。你能提供更优惠的价格吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you give us a discount? Maybe based on the order quantity?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给我们一个折扣吗？或许根据订单数量？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our budget is limited. Can you adjust the price to fit our budget?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的预算有限。你能调整价格以符合我们的预算吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there any room for price reduction?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格还有下降的空间吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we place a large order, what kind of price break can we expect?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们下大订单，能得到什么样的价格优惠？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you match the price offered by your competitor?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能和你的竞争对手给出的价格持平吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We understand that quality comes at a price, but we hope you can offer a more competitive price without sacrificing quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们知道质量是有代价的，但我们希望你能在不牺牲质量的前提下提供更具竞争力的价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lowest price you can go?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给出的最低价格是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price you quoted is not in line with the current market trend. Can you review it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你报的价格与当前市场趋势不符。你能重新评估一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、订单与数量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re considering placing an order. What&#x27;s the minimum order quantity?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在考虑下订单。最小起订量是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we increase the order quantity, can you offer better terms?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们增加订单数量，你能提供更好的条件吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How soon can you fulfill a large order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们多久能完成一笔大订单？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any restrictions on the order quantity? For example, maximum or minimum.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单数量有什么限制吗？比如最大或最小订单量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to place a trial order first. What&#x27;s your policy on trial orders?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想先下一笔试订单。你们对试订单有什么政策？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you handle an order of [Specific Quantity] within [Desired Timeframe]?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能在 [期望时间内] 完成 [具体数量] 的订单吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we place a repeat order, can we get some preferential treatment?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们下重复订单，能得到一些优惠待遇吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lead time for an order of [Quantity]?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[数量] 的订单交货期是多久？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We may need to adjust the order quantity later. Is that possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们以后可能需要调整订单数量。这可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you ensure the quality consistency when fulfilling large orders?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在完成大订单时，你们如何确保质量的一致性？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、交货与运输</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long will it take for production?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产需要多长时间？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you meet our delivery deadline? We need the goods by [Date].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能满足我们的交货期限吗？我们需要在 [日期] 前收到货物。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your delivery terms? For example, FOB, CIF.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的交货条款是什么？比如离岸价、到岸价。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Which shipping company do you usually work with?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们通常和哪家航运公司合作？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How will the goods be shipped? By sea, air, or land?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货物将如何运输？海运、空运还是陆运？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a shipping schedule?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供运输时间表吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What if there is a delay in delivery? How will you compensate us?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果交货延迟怎么办？你们将如何补偿我们？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any additional charges for shipping to our destination?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运往我们目的地有额外费用吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you arrange for door - to - door delivery?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们安排门到门送货吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you handle the packaging to ensure the goods are well - protected during transportation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何处理包装以确保货物在运输过程中得到良好保护？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、付款方式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your payment terms?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的付款条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We prefer payment by letter of credit. Is that acceptable to you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们更喜欢用信用证付款。你们能接受吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there any possibility of extending the payment period? We usually need [Number] days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有没有可能延长付款期限？我们通常需要 [天数] 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we pay in installments?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以分期付款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your policy on prepayment? How much is required?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的预付款政策是什么？需要预付多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you accept other payment methods, such as PayPal or wire transfer?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们接受其他付款方式吗，比如贝宝或电汇？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we pay in advance, can we get a discount?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们提前付款，能得到折扣吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How soon do you expect to receive payment after delivery?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交货后你们期望多久收到付款？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any handling fees associated with the payment method?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>付款方式有手续费吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to clarify the payment terms before finalizing the contract.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在敲定合同前，我们需要明确付款条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、质量与检验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quality of your products is very important to us. How do you ensure high - quality products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们产品的质量对我们来说非常重要。你们如何确保产品质量？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of quality control system do you have in place?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有什么样的质量控制系统？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are your products compliant with international quality standards, such as ISO?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品符合国际质量标准吗，比如 ISO 标准？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll conduct our own inspection before accepting the goods. Is that okay?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在接受货物前我们会进行自己的检验。可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What if our inspection reveals quality issues? How will you handle it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们的检验发现质量问题，你们将如何处理？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide quality certificates for your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供产品的质量证书吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you handle product recalls in case of quality problems?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果出现质量问题，你们如何处理产品召回？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your process for handling customer complaints regarding product quality?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们处理客户关于产品质量投诉的流程是怎样的？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to visit your factory to see the production process and quality control measures. Is that possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想参观你们的工厂，看看生产过程和质量控制措施。可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you offer any quality guarantees or compensations for sub - standard products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于不合格产品，你们提供质量保证或补偿吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、合同条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to discuss the terms of the contract in detail.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要详细讨论合同条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Before signing the contract, we&#x27;d like to review some key clauses, such as the liability clause.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在签署合同前，我们想审查一些关键条款，比如责任条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the termination conditions of the contract?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同的终止条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you explain the force majeure clause in the contract?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能解释一下合同中的不可抗力条款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to add a confidentiality clause to the contract. Is that acceptable?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在合同中添加保密条款。可以接受吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How will disputes be resolved according to the contract? Through arbitration or litigation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>根据合同，纠纷将如何解决？通过仲裁还是诉讼？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any hidden costs or obligations in the contract that we should be aware of?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同中有我们应该注意的隐性成本或义务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to make some minor changes to the contract. Is that feasible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想对合同做一些小改动。可行吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Once the contract is signed, both parties are legally bound. Let&#x27;s make sure all terms are clear.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同一旦签署，双方都受法律约束。让我们确保所有条款都清晰明了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a sample contract for us to review first?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能先给我们提供一份合同样本供我们审查吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>九、合作意向与展望</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re really interested in establishing long - term cooperation with your company.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们非常有兴趣与贵公司建立长期合作关系。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This cooperation could be the beginning of a mutually beneficial partnership.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这次合作可能是互利伙伴关系的开始。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your expectations for this cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们对这次合作有什么期望？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We hope to expand our business with you in the future. What are your plans for product development and market expansion?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们希望未来与你们拓展业务。你们在产品开发和市场拓展方面有什么计划？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If this cooperation is successful, we may consider increasing our investment or cooperation scope.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果这次合作成功，我们可能会考虑增加投资或扩大合作范围。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We believe that our combined resources and expertise can bring great opportunities. What do you think?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们相信我们整合的资源和专业知识能带来巨大机会。你怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you see this cooperation contributing to our respective business growth?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你认为这次合作将如何促进我们各自的业务增长？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re looking forward to a smooth cooperation process and achieving our common goals.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们期待合作过程顺利，实现我们的共同目标。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To ensure a successful cooperation, what kind of communication and coordination mechanisms do you suggest?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为确保合作成功，你建议建立什么样的沟通和协调机制？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s work together to make this cooperation a win - win situation for both sides.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们共同努力，使这次合作成为双方共赢的局面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十、沟通与协商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will send you an email with the details later. Please check your inbox.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我稍后会给你发一封带有详细信息的电子邮件。请查收你的收件箱。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the receipt of this email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请确认收到这封电子邮件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you have any questions, feel free to contact me at any time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你有任何问题，请随时联系我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to hearing from you soon.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我期待着尽快收到你的回复。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt reply. It&#x27;s very helpful.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢你的及时回复。这非常有帮助。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re experiencing some technical difficulties. Please bear with us while we resolve them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在遇到一些技术困难。在我们解决问题期间，请耐心等待。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipment has been delayed due to bad weather. We&#x27;ll keep you updated on the new delivery time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>由于天气不好，货物运输被延迟了。我们会随时告知你新的交货时间。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the inconvenience caused. We&#x27;ll do our best to fix the problem.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于造成的不便，我深表歉意。我们将尽最大努力解决问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to have a further discussion on this issue. When would be a convenient time for you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要进一步讨论这个问题。你什么时候方便？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s try to find a solution that works for both sides. What&#x27;s your opinion on this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们试着找到一个对双方都有效的解决方案。你对此有什么看法？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十一、让步与妥协</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In order to move forward with this deal, we&#x27;re willing to make some concessions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为了推进这笔交易，我们愿意做出一些让步。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can meet you halfway on the price issue if you can increase the order quantity.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你能增加订单数量，我们可以在价格问题上各让一步。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We understand your concerns. How about we adjust the payment terms as a compromise?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们理解你的担忧。作为妥协，我们调整一下付款条件怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you agree to our proposed delivery schedule, we can offer a small discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你同意我们提议的交货时间表，我们可以提供一个小折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re willing to waive the inspection fee this time as a gesture of our good faith.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这次我们愿意免去检验费，以示我们的诚意。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To show our flexibility, we can consider a longer payment period, but we need some guarantees.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为了显示我们的灵活性，我们可以考虑延长付款期限，但我们需要一些保证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t meet all your demands, but we can make some adjustments to reach a mutually acceptable agreement.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们无法满足你所有的要求，但我们可以做出一些调整以达成双方都能接受的协议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you&#x27;re willing to make a concession on the packaging requirements, we can offer a better price.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你愿意在包装要求上做出让步，我们可以提供更优惠的价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find a middle ground. What if we split the difference on the price?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们找到一个中间立场。如果我们在价格上平分差价怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re open to negotiation. What kind of compromise do you have in mind?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们乐于协商。你心里有什么样的妥协方案？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十二、拒绝与回应</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m sorry, but we can&#x27;t accept your proposed price. It&#x27;s too low for us to make a profit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很抱歉，我们不能接受你提议的价格。对我们来说这个价格太低了，无法盈利。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We appreciate your offer, but it doesn&#x27;t meet our expectations in terms of quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们感谢你的报价，但在质量方面不符合我们的期望。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t agree to your request for a 60 - day payment period. Our standard terms are 30 days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不能同意你提出的 60 天付款期限的要求。我们的标准条款是 30 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unfortunately, we&#x27;re not in a position to provide free samples at this stage.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很遗憾，在现阶段我们无法提供免费样品。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to decline your offer of changing the production process. It will increase our costs significantly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不得不拒绝你改变生产流程的提议。这将大幅增加我们的成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I understand your point, but our current capacity doesn&#x27;t allow us to fulfill such a large order in a short time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我理解你的观点，但我们目前的产能不允许我们在短时间内完成这么大的订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t meet your demand for a 15We can&#x27;t meet your demand for a 15% discount. The maximum discount we can offer is 8% considering our costs and profit margin.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们无法满足你 15% 的折扣要求。考虑到成本和利润率，我们能提供的最大折扣是 8%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m afraid we can&#x27;t change the production materials as you requested. The current materials are carefully selected to ensure product quality and stability.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>恐怕我们不能按你要求更改生产材料。目前的材料是经过精心挑选以确保产品质量和稳定性的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We regret to say that we can&#x27;t provide exclusive distribution rights at this stage. Our market strategy requires a more comprehensive evaluation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很遗憾，现阶段我们无法提供独家经销权。我们的市场策略需要更全面的评估。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your proposed delivery location is too remote. It will incur extremely high transportation costs, so we can&#x27;t guarantee the delivery there.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你提议的交货地点太偏远了。这将产生极高的运输成本，所以我们无法保证在那里交货。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are unable to accept your request for free installation services. Installation is a specialized service, and we have to charge a reasonable fee for it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们无法接受你免费安装服务的要求。安装是一项专业服务，我们必须为此收取合理费用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m sorry, but we can&#x27;t extend the warranty period to 3 years. Our standard warranty is 1 year, which is in line with industry norms.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很抱歉，我们不能将保修期延长到 3 年。我们的标准保修期是 1 年，这符合行业规范。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t agree to your suggestion of sharing our production technology. Our technology is our core competitiveness and is protected by strict confidentiality agreements.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不能同意你分享我们生产技术的建议。我们的技术是我们的核心竞争力，受到严格保密协议的保护。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unfortunately, we are not in a position to provide financial support for your marketing activities. Our resources are mainly focused on product development and production.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很遗憾，我们无法为你的营销活动提供资金支持。我们的资源主要集中在产品开发和生产上。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to decline your offer to jointly develop a new product at this time. We are currently fully engaged in existing projects and lack the capacity for new initiatives.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不得不拒绝你此时共同开发新产品的提议。我们目前全力投入现有项目，没有能力开展新的行动。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I understand your need for a shorter lead time, but due to our current production schedule and order backlog, we can&#x27;t meet your expectation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我理解你对更短交货期的需求，但由于我们目前的生产计划和订单积压，无法满足你的期望。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十三、确认与承诺</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We confirm that we can meet your order quantity of [Quantity] within the specified time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们确认能在规定时间内满足你 [数量] 的订单量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please rest assured that we will guarantee the quality of the products according to the agreed standards.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请放心，我们将按照商定的标准保证产品质量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We promise to ship the goods as soon as they are ready and keep you updated on the shipping progress.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们承诺货物一准备好就发货，并随时向你通报运输进度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I confirm that the price we quoted is valid for [Number] days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认我们报的价格在 [天数] 内有效。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are committed to providing excellent after - sales service. If you encounter any problems, we will respond within [Number] hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们致力于提供优质的售后服务。如果你遇到任何问题，我们将在 [小时数] 内回复。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We confirm that the payment terms are [Payment Terms Details], and we will abide by them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们确认付款条款是 [付款条款详情]，我们将遵守这些条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please note that we will arrange for a pre - shipment inspection to ensure the goods meet your requirements.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请注意，我们将安排装运前检验，以确保货物符合你的要求。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We guarantee that all the information provided in the contract is accurate and reliable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们保证合同中提供的所有信息准确可靠。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I confirm that we have received your order and are processing it immediately.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认已收到你的订单，正在立即处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We promise to cooperate closely with you throughout the entire cooperation process to achieve our common goals.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们承诺在整个合作过程中与你密切合作，以实现我们的共同目标。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十四、市场与竞争</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the market trend like in your region for this type of product?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这种产品在你们地区的市场趋势如何？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any emerging competitors in your market? How do they impact your business?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们市场上有新兴竞争对手吗？他们如何影响你们的业务？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you plan to expand your market share in the international market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们计划如何在国际市场上扩大市场份额？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the key factors that influence the demand for this product in the global market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在全球市场上，影响这种产品需求的关键因素是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you analyze the market potential of our product in your area?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能分析一下我们产品在你们地区的市场潜力吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you keep up with the changing market demands and customer preferences?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何跟上不断变化的市场需求和客户偏好？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any trade barriers or regulations that we need to be aware of in your market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在你们市场上有我们需要注意的贸易壁垒或法规吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What marketing strategies do you usually adopt to promote your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们通常采用什么营销策略来推广你们的产品？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you differentiate your products from those of your competitors?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何使你们的产品与竞争对手的产品区分开来？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In your opinion, what are the biggest challenges and opportunities in the current international market for our industry?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在你看来，当前国际市场对我们行业来说最大的挑战和机遇是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十五、包装与标签</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you usually package your products? We need to ensure they are suitable for long - distance transportation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们通常如何包装产品？我们需要确保包装适合长途运输。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you customize the packaging according to our design requirements?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能根据我们的设计要求定制包装吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of materials do you use for product packaging? Are they environmentally friendly?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们用什么材料进行产品包装？它们环保吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We require specific labels on the products. Can you meet this requirement?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们要求产品上有特定标签。你们能满足这个要求吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please explain the information that should be included on the product labels according to international standards.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请说明根据国际标准，产品标签上应包含哪些信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you ensure the durability of the packaging during transportation and storage?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何确保包装在运输和储存过程中的耐用性？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide samples of the packaging and labels for our reference?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供包装和标签的样品供我们参考吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to add our company logo to the packaging. Is that possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在包装上添加我们公司的标志。可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the costs associated with customizing the packaging and labels?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定制包装和标签的相关成本是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any experience in packaging products for different target markets? For example, different cultures may have different preferences.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有为不同目标市场包装产品的经验吗？例如，不同文化可能有不同偏好。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十六、知识产权与认证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do your products have any intellectual property rights issues? We need to ensure that we are not involved in any legal disputes.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品有知识产权问题吗？我们需要确保不卷入任何法律纠纷。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide relevant intellectual property certificates, such as patents or trademarks?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供相关的知识产权证书，如专利或商标吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What measures do you take to protect your intellectual property and prevent counterfeiting?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们采取什么措施保护知识产权和防止假冒？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are your products compliant with international safety and quality certifications, such as CE or UL?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品符合国际安全和质量认证吗，比如 CE 或 UL 认证？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long does it take to obtain these certifications for new products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>新产品获得这些认证需要多长时间？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide documentation to prove that your products meet the required certifications?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供文件证明你们的产品符合所需认证吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If there are any changes in product design or production process, how will you ensure continued compliance with certifications?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果产品设计或生产过程有任何变化，你们将如何确保持续符合认证要求？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have experience in dealing with intellectual property disputes in international trade?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有处理国际贸易中知识产权纠纷的经验吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We plan to register the product in our local market. Can you assist us with the necessary procedures regarding intellectual property?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们计划在当地市场注册产品。你能在知识产权方面协助我们办理必要手续吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any specific intellectual property requirements or considerations in your country that we should be aware of?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在你们国家有我们应该注意的特定知识产权要求或注意事项吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十七、售后服务与维修</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of after - sales service do you offer? For example, repair, replacement, or technical support.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们提供什么样的售后服务？比如维修、更换或技术支持。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long does it usually take to respond to a customer&#x27;s after - sales service request?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>通常需要多长时间回应客户的售后服务请求？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have a local service center or authorized repair agents in our area?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们在我们地区有当地服务中心或授权维修代理吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the process for customers to request after - sales service? Can you provide a detailed guide?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户请求售后服务的流程是什么？你能提供详细指南吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If a product needs to be repaired, how will you arrange for the transportation of the product to the repair center?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果产品需要维修，你们将如何安排产品运输到维修中心？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are spare parts easily available for product repair? What&#x27;s the lead time for obtaining spare parts?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品维修的备件容易获得吗？获得备件的交货期是多长？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you offer training on product maintenance and repair to our technical staff?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们为我们的技术人员提供产品维护和维修培训吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you ensure the quality of after - sales service and customer satisfaction?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何确保售后服务质量和客户满意度？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In case of product recall due to quality issues, what actions will you take to minimize the impact on customers?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果因质量问题召回产品，你们将采取什么行动将对客户的影响降至最低？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a warranty extension service for an additional fee?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能提供付费的保修延长服务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十八、代理与合作模式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you interested in appointing us as your agent in our region?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有兴趣指定我们为你们在我们地区的代理吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the requirements and qualifications for becoming your agent?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>成为你们的代理有哪些要求和资质？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you explain the rights and obligations of the agent in the agency agreement?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能解释一下代理协议中代理的权利和义务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you plan to support your agents in terms of marketing and sales?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们计划在营销和销售方面如何支持你们的代理？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the commission structure for agents? How is it calculated?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>代理的佣金结构是怎样的？如何计算？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any exclusive agency rights available? If so, what are the conditions?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有独家代理权利吗？如果有，条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are considering a joint venture with your company. What are your thoughts on this cooperation model?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在考虑与你们公司建立合资企业。你对这种合作模式有什么看法？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you introduce the advantages and challenges of the joint venture cooperation model?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能介绍一下合资企业合作模式的优势和挑战吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In a joint venture, how will the management and decision - making be arranged?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在合资企业中，管理和决策将如何安排？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of resources and contributions do you expect each party to make in a joint venture?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在合资企业中，你们期望各方做出什么样的资源和贡献？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十九、展会与推广</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you plan to participate in any international trade fairs or exhibitions in the near future?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们近期有计划参加任何国际贸易展会或展览吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Which trade fairs are most effective for promoting your products in the international market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>哪些贸易展会对在国际市场推广你们的产品最有效？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you share your experience and tips for participating in trade fairs?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能分享一下参加贸易展会的经验和技巧吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you usually showcase your products at trade fairs to attract more attention?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们通常如何在贸易展会上展示产品以吸引更多关注？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you offer any special promotions or discounts during trade fairs?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们在贸易展会期间提供任何特别促销或折扣吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are organizing a product launch event. Would you like to participate as a partner?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在组织一个产品发布会。你们想作为合作伙伴参加吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of marketing and promotional activities do you usually conduct before and after a trade fair?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们在贸易展会前后通常进行什么样的营销和促销活动？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help us promote our products in your local market through your marketing channels?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能通过你们的营销渠道在你们当地市场帮助我们推广产品吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you measure the effectiveness of your promotional activities at trade fairs?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何衡量在贸易展会上促销活动的效果？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to cooperate with you on a co - branded promotional campaign. What do you think?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想和你们合作开展联合品牌推广活动。你怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十、风险评估与应对</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kinds of risks do you think we may encounter in this international trade cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你认为在这次国际贸易合作中我们可能遇到哪些风险？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you assess and manage risks such as currency fluctuations, political instability, and trade policy changes?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何评估和管理货币波动、政治不稳定和贸易政策变化等风险？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any strategies in place to mitigate the impact of risks on our business cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有什么策略来减轻风险对我们业务合作的影响吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In case of unexpected events, such as natural disasters or pandemics, how will we ensure the continuity of our cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果发生意外事件，如自然灾害或流行病，我们将如何确保合作的连续性？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you considered purchasing trade credit insurance to protect against payment defaults?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们考虑过购买贸易信用保险以防范付款违约吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you monitor and evaluate the creditworthiness of your business partners?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何监测和评估商业伙伴的信用状况？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any contingency plans in case of supply chain disruptions?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果发生供应链中断，有应急计划吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are concerned about the potential risks of intellectual property infringement. How do you plan to address this issue?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们担心知识产权侵权的潜在风险。你们计划如何解决这个问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a risk assessment report for this cooperation project?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供这个合作项目的风险评估报告吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you communicate and collaborate with your business partners in times of risk and crisis?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在风险和危机时期，你们如何与商业伙伴沟通和协作？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十一、文化差异与沟通</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When doing business with us, are there any cultural differences in communication that we should be aware of?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与我们做生意时，在沟通方面有我们应该注意的文化差异吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do cultural differences impact business negotiations and decision - making processes?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>文化差异如何影响商务谈判和决策过程？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you share some tips on how to effectively communicate with people from different cultural backgrounds in business?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能分享一些在商务中与不同文化背景的人有效沟通的技巧吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to ensure that our marketing and promotional materials are culturally appropriate in your market. Can you give us some advice?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想确保我们的营销和促销材料在你们市场上符合文化习惯。你能给我们一些建议吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In your culture, what are the appropriate ways to show respect and build trust in business relationships?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在你们文化中，在商业关系中表达尊重和建立信任的合适方式是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you handle misunderstandings that may arise due to cultural differences in business communication?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在商务沟通中，你们如何处理可能因文化差异产生的误解？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any cultural taboos that we should avoid when dealing with your company?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与你们公司打交道时，有我们应该避免的文化禁忌吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We plan to send a business delegation to your country. Can you introduce some cultural norms and etiquettes that we need to follow?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们计划派一个商务代表团去你们国家。你能介绍一些我们需要遵循的文化规范和礼仪吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do cultural differences affect the perception of time and punctuality in business?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>文化差异如何影响商业中对时间和守时的认知？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、初次见面与开场</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nice to meet you. I&#x27;m glad to have the opportunity to discuss business with you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很高兴见到你。我很高兴有机会和你讨论业务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s a pleasure to meet you. We&#x27;ve been looking forward to this meeting.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很荣幸见到你。我们一直期待着这次会面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for coming all the way. I hope your journey was comfortable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢你远道而来。希望你旅途愉快。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m [Your Name] from [Your Company]. This is my colleague [Colleague&#x27;s Name].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我是 [你公司名称] 的 [你的名字]。这是我的同事 [同事名字]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me introduce you to our team. This is [Team Member&#x27;s Name], who is in charge of [Responsibility].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我给你介绍一下我们的团队。这是 [团队成员名字]，负责 [具体职责]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shall we get started? First, I&#x27;d like to briefly introduce our company.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以开始了吗？首先，我想简要介绍一下我们公司。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to open this negotiation by expressing our sincere interest in cooperating with you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我想在这次谈判开始时表达我们与贵方合作的诚挚意愿。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re very excited about the potential business opportunities between our two companies.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对两家公司之间潜在的商业机会感到非常兴奋。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Before we dive into the details, is there anything you&#x27;d like to clarify or discuss upfront?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在深入讨论细节之前，有没有什么你想先澄清或讨论的？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I believe this meeting will be a great chance for us to better understand each other&#x27;s needs and expectations.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我相信这次会议将是我们更好地了解彼此需求和期望的绝佳机会。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、产品介绍与询问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are very interested in your products. Can you provide more details?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对你们的产品很感兴趣。你能提供更多细节吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you tell us about the features and benefits of your latest product line?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给我们讲讲你们最新产品线的特点和优势吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How does your product compare to similar ones in the market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品与市场上类似产品相比有何优势？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need samples to test the quality. Can you send them to us as soon as possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要样品来测试质量。你能尽快寄给我们吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the key specifications of this product? For example, size, weight, and material.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品的主要规格是什么？比如尺寸、重量和材质。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Does your product come with any warranties or after - sales services?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品有保修或售后服务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there different models or versions of this product available?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品有不同的型号或版本吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you explain how your product is environmentally friendly?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能解释一下你们的产品如何环保吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re interested in the customization options. What can you offer in terms of customizing the product?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对定制选项感兴趣。在产品定制方面你们能提供什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How often do you update your product features?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们多久更新一次产品功能？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、价格谈判</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your best price for this item?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个产品你的最优价格是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your price is a bit high compared to other suppliers. Can you offer a better price?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与其他供应商相比，你的价格有点高。你能提供更优惠的价格吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you give us a discount? Maybe based on the order quantity?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给我们一个折扣吗？或许根据订单数量？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our budget is limited. Can you adjust the price to fit our budget?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的预算有限。你能调整价格以符合我们的预算吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there any room for price reduction?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格还有下降的空间吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we place a large order, what kind of price break can we expect?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们下大订单，能得到什么样的价格优惠？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you match the price offered by your competitor?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能和你的竞争对手给出的价格持平吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We understand that quality comes at a price, but we hope you can offer a more competitive price without sacrificing quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们知道质量是有代价的，但我们希望你能在不牺牲质量的前提下提供更具竞争力的价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lowest price you can go?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能给出的最低价格是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price you quoted is not in line with the current market trend. Can you review it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你报的价格与当前市场趋势不符。你能重新评估一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、订单与数量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re considering placing an order. What&#x27;s the minimum order quantity?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在考虑下订单。最小起订量是多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we increase the order quantity, can you offer better terms?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们增加订单数量，你能提供更好的条件吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How soon can you fulfill a large order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们多久能完成一笔大订单？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any restrictions on the order quantity? For example, maximum or minimum.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单数量有什么限制吗？比如最大或最小订单量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to place a trial order first. What&#x27;s your policy on trial orders?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想先下一笔试订单。你们对试订单有什么政策？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you handle an order of [Specific Quantity] within [Desired Timeframe]?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能在 [期望时间内] 完成 [具体数量] 的订单吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we place a repeat order, can we get some preferential treatment?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们下重复订单，能得到一些优惠待遇吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lead time for an order of [Quantity]?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[数量] 的订单交货期是多久？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We may need to adjust the order quantity later. Is that possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们以后可能需要调整订单数量。这可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you ensure the quality consistency when fulfilling large orders?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在完成大订单时，你们如何确保质量的一致性？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、交货与运输</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long will it take for production?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产需要多长时间？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you meet our delivery deadline? We need the goods by [Date].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能满足我们的交货期限吗？我们需要在 [日期] 前收到货物。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your delivery terms? For example, FOB, CIF.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的交货条款是什么？比如离岸价、到岸价。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Which shipping company do you usually work with?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们通常和哪家航运公司合作？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How will the goods be shipped? By sea, air, or land?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>货物将如何运输？海运、空运还是陆运？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a shipping schedule?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供运输时间表吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What if there is a delay in delivery? How will you compensate us?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果交货延迟怎么办？你们将如何补偿我们？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any additional charges for shipping to our destination?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运往我们目的地有额外费用吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you arrange for door - to - door delivery?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们安排门到门送货吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you handle the packaging to ensure the goods are well - protected during transportation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们如何处理包装以确保货物在运输过程中得到良好保护？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、付款方式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your payment terms?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的付款条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We prefer payment by letter of credit. Is that acceptable to you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们更喜欢用信用证付款。你们能接受吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there any possibility of extending the payment period? We usually need [Number] days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有没有可能延长付款期限？我们通常需要 [天数] 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we pay in installments?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以分期付款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your policy on prepayment? How much is required?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的预付款政策是什么？需要预付多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you accept other payment methods, such as PayPal or wire transfer?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们接受其他付款方式吗，比如贝宝或电汇？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If we pay in advance, can we get a discount?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们提前付款，能得到折扣吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How soon do you expect to receive payment after delivery?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交货后你们期望多久收到付款？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any handling fees associated with the payment method?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>付款方式有手续费吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to clarify the payment terms before finalizing the contract.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在敲定合同前，我们需要明确付款条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、质量与检验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quality of your products is very important to us. How do you ensure high - quality products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们产品的质量对我们来说非常重要。你们如何确保产品质量？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of quality control system do you have in place?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们有什么样的质量控制系统？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are your products compliant with international quality standards, such as ISO?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们的产品符合国际质量标准吗，比如 ISO 标准？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll conduct our own inspection before accepting the goods. Is that okay?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在接受货物前我们会进行自己的检验。可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What if our inspection reveals quality issues? How will you handle it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们的检验发现质量问题，你们将如何处理？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide quality certificates for your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能提供产品的质量证书吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you handle product recalls in case of quality problems?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果出现质量问题，你们如何处理产品召回？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your process for handling customer complaints regarding product quality?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们处理客户关于产品质量投诉的流程是怎样的？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to visit your factory to see the production process and quality control measures. Is that possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想参观你们的工厂，看看生产过程和质量控制措施。可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you offer any quality guarantees or compensations for sub - standard products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于不合格产品，你们提供质量保证或补偿吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、合同条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to discuss the terms of the contract in detail.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要详细讨论合同条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Before signing the contract, we&#x27;d like to review some key clauses, such as the liability clause.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在签署合同前，我们想审查一些关键条款，比如责任条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are the termination conditions of the contract?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同的终止条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you explain the force majeure clause in the contract?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能解释一下合同中的不可抗力条款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to add a confidentiality clause to the contract. Is that acceptable?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在合同中添加保密条款。可以接受吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How will disputes be resolved according to the contract? Through arbitration or litigation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>根据合同，纠纷将如何解决？通过仲裁还是诉讼？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any hidden costs or obligations in the contract that we should be aware of?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同中有我们应该注意的隐性成本或义务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to make some minor changes to the contract. Is that feasible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想对合同做一些小改动。可行吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Once the contract is signed, both parties are legally bound. Let&#x27;s make sure all terms are clear.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合同一旦签署，双方都受法律约束。让我们确保所有条款都清晰明了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a sample contract for us to review first?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能先给我们提供一份合同样本供我们审查吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>九、合作意向与展望</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re really interested in establishing long - term cooperation with your company.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们非常有兴趣与贵公司建立长期合作关系。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This cooperation could be the beginning of a mutually beneficial partnership.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这次合作可能是互利伙伴关系的开始。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your expectations for this cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们对这次合作有什么期望？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We hope to expand our business with you in the future. What are your plans for product development and market expansion?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们希望未来与你们拓展业务。你们在产品开发和市场拓展方面有什么计划？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If this cooperation is successful, we may consider increasing our investment or cooperation scope.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果这次合作成功，我们可能会考虑增加投资或扩大合作范围。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We believe that our combined resources and expertise can bring great opportunities. What do you think?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们相信我们整合的资源和专业知识能带来巨大机会。你怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you see this cooperation contributing to our respective business growth?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你认为这次合作将如何促进我们各自的业务增长？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re looking forward to a smooth cooperation process and achieving our common goals.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们期待合作过程顺利，实现我们的共同目标。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To ensure a successful cooperation, what kind of communication and coordination mechanisms do you suggest?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为确保合作成功，你建议建立什么样的沟通和协调机制？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s work together to make this cooperation a win - win situation for both sides.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们共同努力，使这次合作成为双方共赢的局面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十、沟通与协商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will send you an email with the details later. Please check your inbox.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我稍后会给你发一封带有详细信息的电子邮件。请查收你的收件箱。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the receipt of this email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请确认收到这封电子邮件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you have any questions, feel free to contact me at any time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你有任何问题，请随时联系我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to hearing from you soon.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我期待着尽快收到你的回复。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt reply. It&#x27;s very helpful.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢你的及时回复。这非常有帮助。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re experiencing some technical difficulties. Please bear with us while we resolve them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在遇到一些技术困难。在我们解决问题期间，请耐心等待。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipment has been delayed due to bad weather. We&#x27;ll keep you updated on the new delivery time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>由于天气不好，货物运输被延迟了。我们会随时告知你新的交货时间。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the inconvenience caused. We&#x27;ll do our best to fix the problem.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于造成的不便，我深表歉意。我们将尽最大努力解决问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to have a further discussion on this issue. When would be a convenient time for you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要进一步讨论这个问题。你什么时候方便？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s try to find a solution that works for both sides. What&#x27;s your opinion on this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们试着找到一个对双方都有效的解决方案。你对此有什么看法？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十一、让步与妥协</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In order to move forward with this deal, we&#x27;re willing to make some concessions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为了推进这笔交易，我们愿意做出一些让步。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can meet you halfway on the price issue if you can increase the order quantity.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你能增加订单数量，我们可以在价格问题上各让一步。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We understand your concerns. How about we adjust the payment terms as a compromise?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们理解你的担忧。作为妥协，我们调整一下付款条件怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you agree to our proposed delivery schedule, we can offer a small discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你同意我们提议的交货时间表，我们可以提供一个小折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re willing to waive the inspection fee this time as a gesture of our good faith.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这次我们愿意免去检验费，以示我们的诚意。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To show our flexibility, we can consider a longer payment period, but we need some guarantees.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为了显示我们的灵活性，我们可以考虑延长付款期限，但我们需要一些保证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t meet all your demands, but we can make some adjustments to reach a mutually acceptable agreement.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们无法满足你所有的要求，但我们可以做出一些调整以达成双方都能接受的协议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you&#x27;re willing to make a concession on the packaging requirements, we can offer a better price.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果你愿意在包装要求上做出让步，我们可以提供更优惠的价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find a middle ground. What if we split the difference on the price?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我们找到一个中间立场。如果我们在价格上平分差价怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re open to negotiation. What kind of compromise do you have in mind?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们乐于协商。你心里有什么样的妥协方案？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十二、拒绝与回应</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m sorry, but we can&#x27;t accept your proposed price. It&#x27;s too low for us to make a profit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很抱歉，我们不能接受你提议的价格。对我们来说这个价格太低了，无法盈利。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We appreciate your offer, but it doesn&#x27;t meet our expectations in terms of quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们感谢你的报价，但在质量方面不符合我们的期望。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t agree to your request for a 60 - day payment period. Our standard terms are 30 days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不能同意你提出的 60 天付款期限的要求。我们的标准条款是 30 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unfortunately, we&#x27;re not in a position to provide free samples at this stage.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很遗憾，在现阶段我们无法提供免费样品。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to decline your offer of changing the production process. It will increase our costs significantly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不得不拒绝你改变生产流程的提议。这将大幅增加我们的成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I understand your point, but our current capacity doesn&#x27;t allow us to fulfill such a large order in a short time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我理解你的观点，但我们目前的产能不允许我们在短时间内完成这么大的订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t meet your demand for a 15% discount. The maximum discount we can offer is 5%.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In our market research, we&#x27;ve found that products with more sustainable features are in high demand. Can you incorporate such elements into your product line?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在我们的市场调研中发现，具有更多可持续特性的产品需求很大。你们能将这些元素融入到产品线中吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our customers are increasingly concerned about the carbon footprint of the products. How do you plan to address this in your production process?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的客户越来越关注产品的碳足迹。你们在生产过程中打算如何解决这个问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The market trend indicates a growing preference for smart - connected products. Do you have any plans to develop such products in the near future?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场趋势显示，对智能互联产品的偏好日益增长。你们近期有开发这类产品的计划吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noticed that products with customizable user interfaces are more popular. Can you offer this option for your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们注意到，具有可定制用户界面的产品更受欢迎。你们能为产品提供这个选项吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Based on our market analysis, there is a potential for a new product category that combines [Feature A] and [Feature B]. Are you interested in exploring this with us?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>根据我们的市场分析，结合 [特性 A] 和 [特性 B] 的新产品类别有潜力。你们有兴趣和我们一起探索这个吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our research shows that products with longer battery life are highly sought - after. Can you improve the battery performance of your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的研究表明，电池续航时间更长的产品很受欢迎。你们能改善产品的电池性能吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The market is shifting towards products with modular designs. Can you adapt your manufacturing process to offer modular products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场正朝着模块化设计的产品转变。你们能调整生产流程以提供模块化产品吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve identified a niche market for [Specific Product]. Do you have the capacity to produce a specialized version of your product for this market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们发现了 [特定产品] 的细分市场。你们有能力为这个市场生产产品的专业版本吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In our region, products with local language support are more likely to succeed. Can you provide multilingual interfaces for your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在我们地区，有本地语言支持的产品更有可能成功。你们能为产品提供多语言界面吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our market study reveals that products with enhanced security features are in great demand. How can you strengthen the security of your products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的市场研究显示，具有增强安全特性的产品需求很大。你们如何加强产品的安全性？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Considering the current market competition, we suggest collaborating on a marketing campaign to differentiate our products. What&#x27;s your opinion?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>考虑到当前的市场竞争，我们建议合作开展营销活动以区分我们的产品。你怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Instead of the traditional distribution model, how about we explore an online - only distribution strategy?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>除了传统的分销模式，我们探讨一下仅在线分销策略怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We propose a revenue - sharing model for the sales of our jointly promoted products. What do you think?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们提议对联合推广产品的销售采用收益共享模式。你怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we consider a cross - promotion with other complementary products in the market to expand our customer base?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们能考虑与市场上其他互补产品进行交叉推广以扩大客户群吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How about we jointly invest in research and development to create innovative products that can lead the market?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们共同投资研发以创造能引领市场的创新产品怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We suggest setting up a joint venture to penetrate new international markets more effectively. Are you interested?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们建议成立一家合资企业以更有效地打入新的国际市场。你有兴趣吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What if we collaborate on a product - bundling strategy to increase the average order value?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果我们合作采用产品捆绑策略以提高平均订单价值怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to explore the possibility of a co - branding project that combines our brand&#x27;s strengths with yours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想探索联合品牌项目的可能性，将我们品牌的优势与你们的相结合。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we consider a franchise - like model where you license your technology to us for local production?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们能考虑一种类似特许经营的模式，你们将技术授权给我们进行本地生产吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Instead of a one - time payment for the product, how about a subscription - based model?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>除了产品的一次性付款，基于订阅的模式怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve encountered a sudden change in our government&#x27;s import regulations. How can we work together to adapt to this situation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们遇到了政府进口法规的突然变化。我们如何共同努力适应这种情况？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There has been a natural disaster in our area that may affect the demand for your products. What contingency plans do you have?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们地区发生了自然灾害，可能会影响对你们产品的需求。你们有什么应急计划？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A new competitor has entered the market with a very similar product. How can we adjust our strategy to maintain our market share?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一个新的竞争对手带着非常相似的产品进入了市场。我们如何调整策略以保持市场份额？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our company is undergoing a restructuring. How can this impact our ongoing cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们公司正在进行重组。这会对我们正在进行的合作产生什么影响？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There has been a significant fluctuation in the exchange rate. How do you propose we deal with this in our transactions?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>汇率出现了大幅波动。你建议我们在交易中如何应对这个问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Due to a global shortage of raw materials, the production cost of your products may increase. What measures will you take?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>由于全球原材料短缺，你们产品的生产成本可能会增加。你们会采取什么措施？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve received feedback from our customers that the installation process of your product is too complicated. Can you simplify it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们从客户那里收到反馈，你们产品的安装过程太复杂了。你们能简化一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A new industry standard has been introduced. How will you ensure your products comply with it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一项新的行业标准已经出台。你们将如何确保产品符合该标准？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There is a rumor in the market about the quality of your products. How will you address this to maintain our customers&#x27; trust?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>市场上有关于你们产品质量的谣言。你们将如何解决这个问题以维护我们客户的信任？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our main transportation route has been blocked due to a strike. What alternative shipping options do you suggest?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的主要运输路线因罢工被封锁了。你建议有哪些替代运输方案？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to train our staff on the new features of your updated product. Can you provide training materials or resources?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要对员工进行你们更新产品新功能的培训。你们能提供培训材料或资源吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The warranty period of your product has expired, but our customers are still facing some issues. How can we handle this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们产品的保修期已经过了，但我们的客户仍然面临一些问题。我们该如何处理？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to add some additional functions to the product we ordered. Is it possible to modify the production plan?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在订购的产品上增加一些额外功能。有可能修改生产计划吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The packaging of your product is not suitable for our local transportation conditions. Can you make adjustments?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们产品的包装不适合我们当地的运输条件。你们能做出调整吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve found that the user manual of your product is not clear enough. Can you revise it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们发现你们产品的用户手册不够清晰。你们能修订一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our sales team needs more marketing support from you, such as product brochures and sample products. Can you provide them?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的销售团队需要你们更多的营销支持，比如产品手册和样品。你们能提供吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The delivery of our last order was delayed, which affected our business. How can you ensure this won&#x27;t happen again?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们上一批订单的交付延迟了，影响了我们的业务。你们如何确保这种情况不再发生？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to change the color scheme of the product we ordered. Is it feasible at this stage?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想改变订购产品的配色方案。在这个阶段可行吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The installation of your product requires some special tools. Can you provide these tools or guidance on where to obtain them?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们产品的安装需要一些特殊工具。你们能提供这些工具或指导在哪里可以获得吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noticed that the product&#x27;s performance degrades over time. Can you investigate and provide a solution?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们注意到产品的性能会随着时间下降。你们能调查并提供解决方案吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re interested in exploring the possibility of private - label production for your products. What are your terms?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们有兴趣探索为你们产品进行贴牌生产的可能性。你们的条件是什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you offer a loyalty program for our long - term orders? For example, cumulative discounts or bonus products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能为我们的长期订单提供忠诚度计划吗？比如累积折扣或赠品。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to negotiate a preferential price for future repeat orders. How can we structure this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想为未来的重复订单协商一个优惠价格。我们该如何构建这个方案？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Instead of a fixed - price contract, can we consider a price - adjustment clause based on market fluctuations?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>除了固定价格合同，我们能考虑一个基于市场波动的价格调整条款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to include a performance - based incentive in the contract. For example, if the product exceeds certain quality standards, we&#x27;ll pay a premium.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在合同中加入基于绩效的激励措施。例如，如果产品超过某些质量标准，我们将支付溢价。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we negotiate a contract term that allows for early termination under certain conditions?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们能协商一个在某些条件下允许提前终止的合同条款吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to have a say in the selection of raw materials used in the production of our ordered products. Is this possible?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想在订购产品生产所用原材料的选择上有发言权。这可能吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a detailed production schedule for our order, including key milestones?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能为我们的订单提供详细的生产时间表，包括关键节点吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to ensure that the intellectual property rights related to any customized features of the product are clearly defined in the contract.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们希望确保产品任何定制功能相关的知识产权在合同中得到明确界定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we negotiate a contract that includes a clause for technology transfer in case of long - term cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果是长期合作，我们能协商一个包含技术转让条款的合同吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noticed that your product&#x27;s marketing materials are not in line with our local culture. Can you make adaptations?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们注意到你们产品的营销材料不符合我们当地文化。你们能做出调整吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product demonstration you provided was not comprehensive enough. Can you arrange a more detailed one?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们提供的产品演示不够全面。你们能安排一个更详细的吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need more accurate product data, such as energy consumption and environmental impact figures. Can you supply this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要更准确的产品数据，比如能耗和环境影响数据。你们能提供这些吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s compatibility with our existing systems is a concern. Can you conduct compatibility tests and provide reports?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品与我们现有系统的兼容性是个问题。你们能进行兼容性测试并提供报告吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to explore the possibility of co - creating a product with you that is tailored to our local market.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想探索与你们共同创造一款针对我们当地市场的产品的可能性。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you offer a special package deal for our first - time large - scale order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于我们首次大规模订单，你们能提供特别的套餐优惠吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to negotiate a commission - based payment for our sales team for promoting your products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想为我们的销售团队推广你们产品协商基于佣金的付款方式。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Instead of a lump - sum payment, can we split the payment for the product into several installments over a specific period?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>除了一次性付款，我们能在特定时期内将产品付款分成几期支付吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need a more detailed product maintenance plan from you, including maintenance intervals and costs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要你们提供更详细的产品维护计划，包括维护间隔和成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s after - sales service response time in our area is too long. How can you improve this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品在我们地区的售后服务响应时间太长了。你们如何改善这个问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve received complaints from our customers about the product&#x27;s user - friendliness. Can you improve the product design in this aspect?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们从客户那里收到了关于产品易用性的投诉。你们能在这方面改进产品设计吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s price in our market is not competitive compared to similar imported products. How can we work together to adjust the price?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与类似进口产品相比，你们产品在我们市场的价格没有竞争力。我们如何共同努力调整价格？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to collaborate with you on a market - entry strategy for your new product in our region.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想与你们合作制定你们新产品在我们地区的市场进入策略。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide market - specific product training for our local employees?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能为我们当地员工提供针对特定市场的产品培训吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noticed that your product&#x27;s packaging is not visually appealing in our market. Can you redesign it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们注意到你们产品的包装在我们市场上视觉吸引力不足。你们能重新设计吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s warranty terms are not clear enough. Can you clarify and potentially extend them?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品的保修条款不够清晰。你们能澄清并有可能延长它们吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to negotiate a contract that includes a clause for continuous product improvement based on our feedback.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想协商一个包含根据我们反馈进行持续产品改进条款的合同。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you offer a risk - sharing arrangement in case of product recalls or market failures?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果发生产品召回或市场失败，你们能提供风险分担安排吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need more frequent communication from your side regarding the production progress of our order.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要你们更频繁地沟通我们订单的生产进度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s weight is an issue for our transportation. Can you reduce the weight without sacrificing quality?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品的重量对我们的运输是个问题。你们能在不牺牲质量的前提下减轻重量吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve identified a potential partnership opportunity with a local distributor in our area. Can you support this cooperation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们在我们地区发现了与当地经销商的潜在合作机会。你们能支持这种合作吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a case - study of how your product has successfully solved similar problems for other customers?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能提供一个案例研究，说明你们的产品如何为其他客户成功解决类似问题吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to explore the possibility of using your product as a component in our own final product. What are your thoughts?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想探索将你们的产品用作我们最终产品组件的可能性。你们怎么看？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s size is not suitable for our storage facilities. Can you offer different size options?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品的尺寸不适合我们的存储设施。你们能提供不同尺寸选项吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;d like to negotiate a contract that includes a non - compete clause for a certain period.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想协商一个包含一定时期内非竞争条款的合同。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a trial period for your product in our market before a full - scale launch?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在全面推出之前，你们能在我们市场为产品提供一个试用期吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need more information about the product&#x27;s manufacturing process, especially in terms of quality control.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们需要更多关于产品制造过程的信息，特别是在质量控制方面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s functionality in extreme weather conditions is a concern. Can you conduct relevant tests and provide data?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品在极端天气条件下的功能是个问题。你们能进行相关测试并提供数据吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to collaborate with you on a social - responsibility project related to the production and use of your product.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想与你们合作开展一个与你们产品生产和使用相关的社会责任项目。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you offer a price - lock option for a certain quantity of products over a specific period?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能在特定时期内为一定数量的产品提供价格锁定选项吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve received feedback from our customers that the product&#x27;s noise level is too high. Can you reduce it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们从客户那里收到反馈，产品的噪音水平太高了。你们能降低吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s durability in our harsh - use environment is a question. Can you improve the product&#x27;s materials or design?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品在我们恶劣使用环境下的耐用性是个问题。你们能改进产品的材料或设计吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to explore the possibility of a revenue - guarantee model for our sales of your products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想探索为我们销售你们产品的收入保证模式的可能性。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a dedicated customer - support team for our company to handle any product - related issues?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能为我们公司提供一个专门的客户支持团队来处理任何与产品相关的问题吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noticed that your product&#x27;s software update process is cumbersome. Can you simplify it?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们注意到你们产品的软件更新过程很麻烦。你们能简化一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s appearance design is not in line with our local aesthetic preferences. Can you make changes?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品的外观设计不符合我们当地的审美偏好。你们能做出改变吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We want to negotiate a contract that includes a clause for knowledge - sharing in the field of product technology.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想协商一个包含产品技术领域知识共享条款的合同。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you offer a trade - in program for our customers who want to upgrade to your new products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你们能为想升级到你们新产品的客户提供以旧换新计划吗？</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="外贸全英交流399句蓝";
@@ -1136,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

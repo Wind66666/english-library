@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,323 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">机场值机这300句足够了
-值机相关
-询问值机柜台位置
-Excuse me, where is the check-in counter for [airline name]?（打扰一下，[航空公司名称] 的值机柜台在哪里？）
-办理值机手续常用语句
-I&#x27;d like to check in for my flight.（我想办这班飞机的登机手续。）
-Here&#x27;s my passport and ticket.（这是我的护照和机票。）
-I have an e-ticket.（我有电子机票。）
-I&#x27;ve already checked in online.（我已经在网上办过登机了。）
-I just checked in online.（我刚刚在线办理了登机手续。）
-I checked in at the kiosk.（我在自助机办的登机。）
-I&#x27;ve completed the check-in process.（我已经办完登机手续了。）
-Can you confirm my flight details?（你能确认一下我的航班信息吗？）
-Is this the right check-in counter for my flight?（这是我航班的正确值机柜台吗？）
-What&#x27;s the latest I can check in for my flight?（我最晚能什么时候办理登机手续？）
-Can I check in early for my evening flight?（我晚上的航班能提前值机吗？）
-The check-in kiosk isn&#x27;t reading my passport, what now?（自助值机机读不了我的护照，怎么办？）
-登机牌相关
-Can you help me print my boarding pass?（你能帮我打印登机牌吗？）
-Could you print my boarding pass?（你能打印我的登机牌吗？）
-I forgot to print my boarding pass.（我忘了打印登机牌。）
-I lost my boarding pass.（我弄丢登机牌了。）
-I&#x27;ve lost my boarding pass.（我的登机牌丢了。）
-Can I get a copy of my boarding pass?（能给我一份登机牌复印件吗？）
-Do I need to go to a different counter to collect my boarding pass?（我需要去其他柜台领取登机牌吗？）
-行李相关
-托运行李与随身行李
-This is my carry-on bag.（这是我的随身行李。）
-I need to drop off this suitcase.（我需要托这个行李箱。）
-I have two bags to check in.（我有两个包要托运。）
-I have one carry-on and two checked bags.（我有一个随身行李和两个托运行李。）
-I need to check in my bag.（我需要托运行李。）
-I&#x27;d like to pre-check my luggage.（我想提前托运行李。）
-Where do I drop off my luggage?（我的行李该放哪儿？）
-I don&#x27;t have checked baggage, just carry-on.（我没有托运行李，只有随身带的。）
-I only have a small backpack with me.（我只带了一个小背包。）
-I&#x27;m bringing a carry-on and a purse.（我带了随身包和手提包。）
-Could you help me with my carry-on bag?（你能帮我拿一下随身行李吗？）
-My carry-on is too heavy, can I check it instead?（我的随身行李太重了，能改成托运吗？）
-Can I check my carry-on for free if it&#x27;s too big?（随身行李太大的话，能免费托运吗？）
-行李超重与超大
-My bag is under the weight limit.（我的行李没超重。）
-Is my luggage overweight?（我的行李超重了吗？）
-My luggage seems a bit heavy.（我的行李似乎有点重。）
-My luggage is a bit oversized.（我的行李有点超大。）
-Could you help me with this oversized bag?（你能帮我处理这件超大行李吗？）
-I need to add extra weight to my luggage.（我需要为行李增加重量。）
-What&#x27;s the baggage allowance for this flight?（这班航班的行李限额是多少？）
-行李费用相关
-I don&#x27;t want to pay for extra baggage.（我不想交额外行李费。）
-How much is the excess baggage fee?（超重行李费是多少？）
-How much is the baggage fee for an extra suitcase?（多托运一件行李要多少钱？）
-I already paid for extra baggage online.（我已经在网上付过额外行李费了。）
-Can I pay for extra baggage weight here?（我可以在这里为超重行李付费吗？）
-Can I get a refund for my baggage fee?（我可以退还行李费吗？）
-Can I get a receipt for my excess baggage fee?（超重行李费能给张收据吗？）
-Do seniors get any discounts on baggage fees?（老年人托运行李有优惠吗？）
-行李标签与包装
-My luggage tag is missing.（我的行李标签丢了。）
-My baggage tag says it&#x27;s going to the wrong destination.（我的行李标签写的是错误的目的地。）
-Could you print my luggage receipt?（你能打印我的行李收据吗？）
-This suitcase has a broken zipper.（这个箱子拉链坏了。）
-I forgot to lock my suitcase, can I get a lock here?（我忘了锁行李箱，这儿能买到锁吗？）
-Where can I get my luggage wrapped?（在哪儿能给行李打包？）
-Can you give me some packing tape for my suitcase?（能给我点打包胶带粘行李箱吗？）
-My luggage strap broke, can I get a new one here?（我的行李带断了，这儿能买到新的吗？）
-行李丢失、损坏与寄存
-I can&#x27;t find my luggage.（我找不到我的行李了。）
-My luggage seems to be damaged.（我的行李好像损坏了。）
-I need to file a claim for my lost/damaged luggage.（我需要为我丢失 / 损坏的行李提出索赔。）
-I hope my bags don&#x27;t get lost.（希望我的行李别丢了。）
-The airline lost my luggage, when will it be delivered?（航空公司把我行李弄丢了，什么时候能送来？）
-Can you help me track my lost luggage online?（能帮我在线查一下丢失的行李吗？）
-My luggage has a GPS tracker, can you help locate it?（我行李有 GPS 追踪器，能帮忙定位吗？）
-Can I store my luggage here for a few hours?（我能把行李在这儿存几个小时吗？）
-Is there a place to 寄存 my luggage overnight?（有地方能寄存行李过夜吗？）
-安检相关
-配合安检的表达
-Do I need to take off my shoes/belt/jacket?（我需要脱掉鞋子 / 腰带 / 夹克吗？）
-I have a laptop in my bag.（我的包里有一台笔记本电脑。）
-I&#x27;m bringing a laptop on board.（我带了笔记本电脑上飞机。）
-I packed my liquids in a clear bag.（我的液体装在透明袋里了。）
-I didn&#x27;t pack any liquids.（我没带液体。）
-物品携带询问
-Can I bring this [item name] through security?（我可以带着这个 [物品名称] 通过安检吗？）
-Can I carry this water bottle on the plane?（这个水瓶能带上飞机吗？）
-Can I bring this souvenir on board?（这个纪念品能带上飞机吗？）
-Can I bring a pet on board?（我可以带宠物上飞机吗？）
-Can I carry liquids in my carry-on?（我可以在随身行李中携带液体吗？）
-Can I bring a stroller on board?（婴儿推车能带上飞机吗？）
-Can I bring a reusable coffee cup on board?（保温杯能带上飞机吗？）
-Can I bring a small cooler bag on board?（小保温袋能带上飞机吗？）
-Can I bring a guitar as carry-on?（吉他能当随身行李带吗？）
-Can I bring a hair straightener in my carry-on?（直发器能放随身行李里带吗？）
-Can I bring a portable charger in my checked luggage?（充电宝能放托运行李里吗？）
-Is there a limit to how many books I can bring on board?（能带多少本书上飞机有限制吗？）
-安检流程相关
-The security line was pretty long.（安检排了很长的队。）
-How long is the wait at security?（安检需要等多长时间？）
-My connecting flight is in 40 minutes, can I get priority security?（我转机航班还有 40 分钟，能优先过安检吗？）
-The announcement said my flight is boarding, but I&#x27;m still in security.（广播说我的航班开始登机了，可我还在安检这儿呢。）
-候机相关
-航班信息查询
-My flight is supposed to leave on time.（我的航班应该准时起飞。）
-Can you tell me if my flight is on time?（你能告诉我我的航班是否准时吗？）
-Excuse me, is there any delay for flight [flight number]?（打扰一下，[航班号] 航班有延误吗？）
-Are there any delays with this flight?（这班航班有延误吗？）
-When will the boarding start for flight [flight number]?（[航班号] 航班什么时候开始登机？）
-What time will the flight board?（航班什么时候开始登机？）
-How much time do I have before boarding?（我距离登机还有多少时间？）
-How much time do I have before I need to board the plane?（我距离登机还剩多久？）
-Is the flight fully booked?（这班航班已经满座了吗？）
-Is there a direct flight to Paris?（有直飞巴黎的航班吗？）
-Can you tell me when the next flight to London departs?（能告诉我下一班飞伦敦的航班什么时候起飞吗？）
-The flight information screen isn&#x27;t updating.（航班信息屏没更新呢。）
-How do I sign up for flight status alerts?（怎么订阅航班动态提醒啊？）
-登机口相关
-I&#x27;ll wait at the gate.（我会在登机口等。）
-My flight&#x27;s gate number is 12.（我的登机口是 12 号。）
-Where is the boarding gate for flight [flight number]?（[航班号] 航班的登机口在哪里？）
-How can I get to the boarding gate [gate number]?（我怎么去 [登机口号] 登机口？）
-Is this the right gate for my flight to New York?（这是我飞往纽约的正确登机口吗？）
-Is this my gate?（这是我的登机口吗？）
-I need help finding my gate.（我找不到登机口，需要帮忙。）
-The gate was changed, how do I get there quickly?（登机口换了，我怎么快点过去？）
-The boarding gate staff aren&#x27;t here yet, when will they arrive?（登机口的工作人员还没来，他们什么时候到啊？）
-候机设施与服务
-I&#x27;m not sure where the lounge is.（我不知道休息室在哪儿。）
-Is there a lounge I can use while waiting?（等的时候有我能用上的休息室吗？）
-Are there any lounges for economy class passengers?（经济舱乘客可以使用休息室吗？）
-Is there a VIP lounge for first-class passengers?（有头等舱乘客专用的贵宾休息室吗？）
-Is there a time limit for using the airport lounge?（用机场休息室有时间限制吗？）
-How do I get to the departure lounge?（我怎么去候机室？）
-Is there a place to charge my phone?（有地方给我的手机充电吗？）
-I need to charge my laptop, where&#x27;s the power socket?（我得给笔记本充电，电源插座在哪儿？）
-My phone died, where can I borrow a charger?（我手机没电了，在哪儿能借到充电器？）
-Can I borrow a power bank here?（这儿能借个充电宝吗？）
-Where can I find the airport map?（我在哪里能找到机场地图？）
-Can you direct me to the nearest restroom?（你能告诉我最近的洗手间在哪吗？）
-Where is the nearest coffee shop?（最近的咖啡店在哪儿？）
-Where is the nearest restaurant?（最近的餐厅在哪儿？）
-Is there a pharmacy in the airport?（机场里有药店吗？）
-Is there a pharmacy that&#x27;s open 24 hours?（有 24 小时营业的药店吗？）
-Is there a place to buy souvenirs in the airport?（机场里有卖纪念品的地方吗？）
-I need to buy a new suitcase, is there a store nearby?（我得买个新行李箱，附近有商店吗？）
-Is there a 24-hour convenience store in the airport?（机场有 24 小时便利店吗？）
-Where can I buy a last-minute travel adapter?（在哪儿能买到应急的转换插头？）
-Is there a place to buy a SIM card at the airport?（机场有卖手机卡的地方吗？）
-Where is the nearest ATM?（最近的 ATM 在哪儿？）
-Where is the nearest currency exchange desk?（最近的货币兑换处在哪儿？）
-Can I exchange currency at the airport?（机场能换钱吗？）
-Is there a baby care room nearby?（附近有婴儿护理室吗？）
-Is there a prayer room in the terminal?（航站楼里有祈祷室吗？）
-Do you have a cart for heavy luggage?（有运重行李的推车吗？）
-Where can I find a luggage cart?（哪儿能找到行李推车？）
-Is there a shuttle service to the airport hotel?（有去机场酒店的班车吗？）
-Is there a shuttle between terminals?（航站楼之间有班车吗？）
-Is there a shuttle to the city center from here?（从这儿有去市中心的班车吗？）
-The airport shuttle is full, when&#x27;s the next one?（机场班车满了，下一班什么时候来？）
-Is there a bike-sharing service near the airport exit?（机场出口附近有共享单车吗？）
-Where can I find a bus stop outside the airport?（机场外的公交站在哪儿？）
-Is there free water available in the terminal?（航站楼里有免费水吗？）
-Is there a water fountain near gate 5?（5 号登机口附近有饮水机吗？）
-登机相关
-登机流程
-Boarding starts in 30 minutes.（30 分钟后开始登机。）
-Here&#x27;s my boarding pass.（这是我的登机牌。）
-Can you scan my boarding pass, please?（请你扫描一下我的登机牌好吗？）
-Do I need to show my passport at the gate?（我需要在登机口出示护照吗？）
-Do I need to show my boarding pass again at the gate?（我需要在登机口再次出示登机牌吗？）
-Do I need to go through security before boarding?（我需要在登机前通过安检吗？）
-How do I know if my flight is boarding now?（怎么知道我的航班现在开始登机了？）
-The boarding announcement was hard to hear.（登机广播听得不太清楚。）
-座位指引与物品放置
-Can you show me where my seat is?（你能告诉我我的座位在哪里吗？）
-The overhead bins look full.（头顶的行李架看起来满了。）
-The overhead bin is stuck, can you help open it?（头顶的行李架卡住了，能帮忙打开吗？）
-Can I store my laptop in the overhead bin?（笔记本电脑能放头顶行李架吗？）
-座位相关
-座位类型需求
-I&#x27;d like a window seat, if possible.（如果可以的话，我想要个靠窗的座位。）
-Can I have a window/aisle seat, please?（我可以要一个靠窗 / 靠过道的座位吗？）
-I want to change my seat to an aisle seat.（我想换成靠过道的座位。）
-Could I get an aisle seat, please?（能给我一个过道座位吗？）
-Is there a seat available in the front of the plane?（飞机前面有座位吗？）
-Could I get a seat closer to the front?（我能坐个离前面近点的座位吗？）
-I hope I get an exit row seat.（希望能拿到紧急出口那排的座位。）
-Could I have a seat near the emergency exit?（能给我安排一个靠近紧急出口的座位吗？）
-Could I get a seat with more legroom?（能给我一个有更多腿部空间的座位吗？）
-Could you give me a seat with a power outlet?（能给我一个有电源插座的座位吗？）
-换座位相关
-I need to change my seat.（我需要换个座位。）
-Can I get a window seat instead of this aisle seat?（我可以换个靠窗的座位吗？）
-Can I change my seat to sit with my friend?（能换个座位和我朋友坐一起吗？）
-My seat isn&#x27;t what I requested.（我的座位不是我订的那个。）
-My seat is broken, can I switch to another one?（我的座位坏了，能换一个吗？）
-My seatmate is noisy, can I switch seats?（我邻座太吵了，能换个座位吗？）
-特殊人群座位需求
-I&#x27;d like to confirm my seat assignment.（我想确认一下我的座位。）
-Can I request a window seat for my child?（能给我孩子要个靠窗的座位吗？）
-航班类型与行程相关
-航班类型
-I booked a direct flight.（我订的是直飞航班。）
-I&#x27;m flying with a connecting flight.（我坐的是转机航班。）
-I&#x27;m connecting through Chicago.（我要在芝加哥转机。）
-I have a layover in Tokyo.（我在东京转机。）
-My flight was rerouted, where do I check in now?（我的航班改路线了，现在该在哪儿值机？）
-I usually avoid red-eye flights.（我通常不坐夜航。）
-转机相关
-My connecting flight leaves in two hours.（转机航班两小时后起飞。）
-I have a connecting flight, do I need to collect my luggage?（我有转机，需要取回行李吗？）
-Do I need to recheck my luggage for the connecting flight?（转机的话需要重新托运行李吗？）
-My connecting flight was delayed, will I miss the next one?（我的转机航班晚点了，会错过下一班吗？）
-My connecting flight is in 1 hour, will I make it?（我转机还有 1 小时，能赶上吗？）
-My connecting flight was canceled, can you book me a hotel?（我的转机航班取消了，能帮我订个酒店吗？）
-出行目的与人员相关
-出行目的
-I&#x27;m traveling for business.（我这次是出差。）
-I&#x27;m here for vacation.（我来度假。）
-I&#x27;m going to visit friends.（我要去看朋友。）
-同行人员
-I&#x27;m traveling alone this time.（这次我一个人出行。）
-I&#x27;m flying with my family.（我和家人一起飞。）
-I&#x27;m traveling with a child.（我和孩子一起出行。）
-I&#x27;m traveling with a baby, can I get priority boarding?（我带着宝宝旅行，可以优先登机吗？）
-特殊携带物品
-I brought snacks for the flight.（我带了零食上飞机。）
-I packed my medication in my carry-on.（我把药放随身包里了。）
-I&#x27;m carrying a laptop and a camera.（我带了笔记本和相机。）
-I always bring my neck pillow.（我总带着颈枕。）
-I&#x27;m traveling with a pet.（我带了宠物一起旅行。）
-特殊需求与服务
-个人协助需求
-I need help with my heavy luggage.（我的行李很重，需要帮忙。）
-Could you help me with my luggage at the gate?（能在登机口帮我拿行李吗？）
-I need a wheelchair.（我需要轮椅。）
-Can you call a wheelchair for me?（能帮我叫个轮椅吗？）
-I have a medical condition, can I get special assistance?（我有健康问题，能获得特殊协助吗？）
-I&#x27;m nervous about flying.（我有点怕坐飞机。）
-I&#x27;m in a hurry, can you speed up the process?（我很着急，能加快处理速度吗？）
-餐食与机上服务
-Can I request a special meal?（我可以申请一份特殊餐食吗？）
-I need to pick up a special meal.（我需要取特殊餐食。）
-Is there a kids&#x27; meal available on the flight?（飞机上有儿童餐吗？）
-Do they offer vegetarian meals on all flights?（所有航班都有素食餐吗？）
-Can I get a blanket on the plane?（飞机上能给我条毯子吗？）
-Do you have to pay for a blanket on budget airlines?（廉航上要毯子需要花钱吗？）
-Do they provide headphones on the flight?（飞机上会提供耳机吗？）
-Do you have earplugs for the flight?（飞机上有耳塞吗？）
-The flight attendant didn&#x27;t collect my trash, can I get a bag?（空乘没收我的垃圾，能给个垃圾袋吗？）
-My in-flight meal is cold, can I get a new one?（我的机上餐是凉的，能换一份吗？）
-Do I need to pay for in-flight movies?（看机上电影需要花钱吗？）
-The in-flight entertainment isn&#x27;t working, can you fix it?（机上娱乐系统坏了，能修吗？）
-Can I pre-order in-flight Wi-Fi?（能提前预订机上 Wi-Fi 吗？）
-其他特殊服务
-I want to upgrade to business class.（我想升级到商务舱。）
-Is it possible to get an upgrade to business class?（是否有可能升级到商务舱？）
-I&#x27;m a frequent flyer, do I get any perks?（我是常旅客，能享受什么特别待遇吗？）
-Are there any special discounts for students?（有学生票折扣吗？）
-My child needs a booster seat, does the airline provide one?（我孩子需要增高坐垫，航空公司会提供吗？）
-问题处理
-航班问题（延误、取消等）
-My flight was delayed yesterday.（我昨天的航班晚点了。）
-My flight is delayed by 3 hours, can I rebook a later one?（航班延误 3 小时，我能改签到更晚的吗？）
-Can I get a meal voucher since the flight is delayed?（航班延误了，能给份餐券吗？）
-My flight was canceled, what should I do?（我的航班取消了，该怎么办啊？）
-I missed my flight.（我错过了航班。）
-Can you rebook me on the next available flight?（你能帮我改签至下一个有座位的航班吗？）
-Can I switch to an earlier flight?（我能换到一个更早的航班吗？）
-I need to change my flight to tomorrow.（我需要把航班改到明天。）
-I need to reschedule my flight due to illness.（因为生病，我需要改期航班。）
-My flight is overbooked, can I get compensated?（航班超售了，能有补偿吗？）
-票务与证件问题
-Is there a problem with my ticket?（我的机票有问题吗？）
-I have an issue with my reservation.（我的预订有问题。）
-Can I get a refund if I cancel my flight now?（现在取消航班能退款吗？）
-Where do I go to cancel my flight ticket?（在哪儿能退机票啊？）
-My passport is expiring soon, is that an issue?（我的护照快到期了，这会有问题吗？）
-Do I need to show my visa at the check-in counter?（值机时需要出示签证吗？）
-其他问题
-I think I&#x27;ve left something behind at the check-in desk.（我觉得我在值机柜台落下了东西。）
-I need to report a lost item.（我需要报失一件物品。）
-Where is the lost and found office?（失物招领处在哪儿？）
-The overhead light isn&#x27;t working, can someone fix it?（头顶的灯坏了，有人能修吗？）
-The seatbelt is stuck, can you help unbuckle it?（安全带卡住了，能帮忙解开吗？）
-Do I need to go through immigration now?（我现在需要过入境检查吗？）
-How long does it take to get through immigration?（过入境检查要多久？）
-I need to fill out a customs form.（我得填海关申报单。）
-Do I have to declare this gift at customs?（这个礼物过海关需要申报吗？）
-The airport Wi-Fi isn&#x27;t working, can you help?（机场 Wi-Fi 用不了，能帮忙看看吗？）
-Is there a free Wi-Fi service here?（这里有免费的 Wi-Fi 吗？）
-I need to print a document, is there a printer here?（我得打印份文件，这儿有打印机吗？）
-Where is the first aid station?（急救站在哪儿？）
-Where do I go to pick up a rental car?（在哪儿取租车啊？）
-Is there a limit on duty-free alcohol purchases?（免税酒购买有限制吗？）
-Where do I pick up my pre-ordered duty-free items?（我预订的免税品在哪儿取？）
-Where is the duty-free shop?（免税店在哪儿？）
-Is there a place to rest if I miss my flight?（错过航班的话，有地方休息吗？）
-This is my first time flying here.（这是我第一次从这里飞。）
-I usually fly this route.（我经常飞这条线路。）
-I arrived two hours early.（我提前两个小时到了。）
-I&#x27;m traveling light today.（今天我带的东西不多。）
-I hope this flight is smooth.（希望这次飞行顺利。）
-My flight number is AA123.（我的航班号是 AA123。）
-I&#x27;m flying to New York today.（我今天飞纽约。）
-补充说明与细节
-行李托运确认
-How do I know if my luggage is checked in properly?（怎么确认我的行李已经正确托运？）
-机场基础信息
-How late is the airport open?（机场开到多晚？）
-Is there a smoking area in the terminal?（航站楼里有吸烟区吗？）
-特殊物品携带补充
-Can I bring a folding chair to the gate?（能把折叠椅带到登机口吗？）
-安检细节补充
-My luggage is locked, do I need to unlock it for inspection?（我的行李锁着，过安检需要打开吗？）
-航班提醒设置
-I need to update my contact info for flight alerts, how?（我想更新航班提醒的联系方式，怎么弄？）</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>机场值机这300句足够了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>值机相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>询问值机柜台位置</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Excuse me, where is the check-in counter for [airline name]?（打扰一下，[航空公司名称] 的值机柜台在哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>办理值机手续常用语句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to check in for my flight.（我想办这班飞机的登机手续。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s my passport and ticket.（这是我的护照和机票。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have an e-ticket.（我有电子机票。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve already checked in online.（我已经在网上办过登机了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I just checked in online.（我刚刚在线办理了登机手续。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I checked in at the kiosk.（我在自助机办的登机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve completed the check-in process.（我已经办完登机手续了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm my flight details?（你能确认一下我的航班信息吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this the right check-in counter for my flight?（这是我航班的正确值机柜台吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the latest I can check in for my flight?（我最晚能什么时候办理登机手续？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I check in early for my evening flight?（我晚上的航班能提前值机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The check-in kiosk isn&#x27;t reading my passport, what now?（自助值机机读不了我的护照，怎么办？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>登机牌相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help me print my boarding pass?（你能帮我打印登机牌吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you print my boarding pass?（你能打印我的登机牌吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I forgot to print my boarding pass.（我忘了打印登机牌。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I lost my boarding pass.（我弄丢登机牌了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve lost my boarding pass.（我的登机牌丢了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a copy of my boarding pass?（能给我一份登机牌复印件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to go to a different counter to collect my boarding pass?（我需要去其他柜台领取登机牌吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>托运行李与随身行李</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is my carry-on bag.（这是我的随身行李。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to drop off this suitcase.（我需要托这个行李箱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have two bags to check in.（我有两个包要托运。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have one carry-on and two checked bags.（我有一个随身行李和两个托运行李。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to check in my bag.（我需要托运行李。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to pre-check my luggage.（我想提前托运行李。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do I drop off my luggage?（我的行李该放哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don&#x27;t have checked baggage, just carry-on.（我没有托运行李，只有随身带的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I only have a small backpack with me.（我只带了一个小背包。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m bringing a carry-on and a purse.（我带了随身包和手提包。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you help me with my carry-on bag?（你能帮我拿一下随身行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My carry-on is too heavy, can I check it instead?（我的随身行李太重了，能改成托运吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I check my carry-on for free if it&#x27;s too big?（随身行李太大的话，能免费托运吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李超重与超大</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My bag is under the weight limit.（我的行李没超重。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is my luggage overweight?（我的行李超重了吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage seems a bit heavy.（我的行李似乎有点重。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage is a bit oversized.（我的行李有点超大。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you help me with this oversized bag?（你能帮我处理这件超大行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to add extra weight to my luggage.（我需要为行李增加重量。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the baggage allowance for this flight?（这班航班的行李限额是多少？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李费用相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don&#x27;t want to pay for extra baggage.（我不想交额外行李费。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is the excess baggage fee?（超重行李费是多少？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is the baggage fee for an extra suitcase?（多托运一件行李要多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I already paid for extra baggage online.（我已经在网上付过额外行李费了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I pay for extra baggage weight here?（我可以在这里为超重行李付费吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a refund for my baggage fee?（我可以退还行李费吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a receipt for my excess baggage fee?（超重行李费能给张收据吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do seniors get any discounts on baggage fees?（老年人托运行李有优惠吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李标签与包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage tag is missing.（我的行李标签丢了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My baggage tag says it&#x27;s going to the wrong destination.（我的行李标签写的是错误的目的地。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you print my luggage receipt?（你能打印我的行李收据吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This suitcase has a broken zipper.（这个箱子拉链坏了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I forgot to lock my suitcase, can I get a lock here?（我忘了锁行李箱，这儿能买到锁吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I get my luggage wrapped?（在哪儿能给行李打包？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you give me some packing tape for my suitcase?（能给我点打包胶带粘行李箱吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage strap broke, can I get a new one here?（我的行李带断了，这儿能买到新的吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李丢失、损坏与寄存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can&#x27;t find my luggage.（我找不到我的行李了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage seems to be damaged.（我的行李好像损坏了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to file a claim for my lost/damaged luggage.（我需要为我丢失 / 损坏的行李提出索赔。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope my bags don&#x27;t get lost.（希望我的行李别丢了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The airline lost my luggage, when will it be delivered?（航空公司把我行李弄丢了，什么时候能送来？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help me track my lost luggage online?（能帮我在线查一下丢失的行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage has a GPS tracker, can you help locate it?（我行李有 GPS 追踪器，能帮忙定位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I store my luggage here for a few hours?（我能把行李在这儿存几个小时吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a place to 寄存 my luggage overnight?（有地方能寄存行李过夜吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>安检相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>配合安检的表达</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to take off my shoes/belt/jacket?（我需要脱掉鞋子 / 腰带 / 夹克吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a laptop in my bag.（我的包里有一台笔记本电脑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m bringing a laptop on board.（我带了笔记本电脑上飞机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I packed my liquids in a clear bag.（我的液体装在透明袋里了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I didn&#x27;t pack any liquids.（我没带液体。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>物品携带询问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring this [item name] through security?（我可以带着这个 [物品名称] 通过安检吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I carry this water bottle on the plane?（这个水瓶能带上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring this souvenir on board?（这个纪念品能带上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a pet on board?（我可以带宠物上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I carry liquids in my carry-on?（我可以在随身行李中携带液体吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a stroller on board?（婴儿推车能带上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a reusable coffee cup on board?（保温杯能带上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a small cooler bag on board?（小保温袋能带上飞机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a guitar as carry-on?（吉他能当随身行李带吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a hair straightener in my carry-on?（直发器能放随身行李里带吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a portable charger in my checked luggage?（充电宝能放托运行李里吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a limit to how many books I can bring on board?（能带多少本书上飞机有限制吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>安检流程相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The security line was pretty long.（安检排了很长的队。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long is the wait at security?（安检需要等多长时间？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My connecting flight is in 40 minutes, can I get priority security?（我转机航班还有 40 分钟，能优先过安检吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The announcement said my flight is boarding, but I&#x27;m still in security.（广播说我的航班开始登机了，可我还在安检这儿呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>候机相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>航班信息查询</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight is supposed to leave on time.（我的航班应该准时起飞。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you tell me if my flight is on time?（你能告诉我我的航班是否准时吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Excuse me, is there any delay for flight [flight number]?（打扰一下，[航班号] 航班有延误吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any delays with this flight?（这班航班有延误吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When will the boarding start for flight [flight number]?（[航班号] 航班什么时候开始登机？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time will the flight board?（航班什么时候开始登机？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much time do I have before boarding?（我距离登机还有多少时间？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much time do I have before I need to board the plane?（我距离登机还剩多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is the flight fully booked?（这班航班已经满座了吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a direct flight to Paris?（有直飞巴黎的航班吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you tell me when the next flight to London departs?（能告诉我下一班飞伦敦的航班什么时候起飞吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The flight information screen isn&#x27;t updating.（航班信息屏没更新呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do I sign up for flight status alerts?（怎么订阅航班动态提醒啊？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>登机口相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll wait at the gate.（我会在登机口等。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight&#x27;s gate number is 12.（我的登机口是 12 号。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the boarding gate for flight [flight number]?（[航班号] 航班的登机口在哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How can I get to the boarding gate [gate number]?（我怎么去 [登机口号] 登机口？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this the right gate for my flight to New York?（这是我飞往纽约的正确登机口吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this my gate?（这是我的登机口吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need help finding my gate.（我找不到登机口，需要帮忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The gate was changed, how do I get there quickly?（登机口换了，我怎么快点过去？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The boarding gate staff aren&#x27;t here yet, when will they arrive?（登机口的工作人员还没来，他们什么时候到啊？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>候机设施与服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m not sure where the lounge is.（我不知道休息室在哪儿。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a lounge I can use while waiting?（等的时候有我能用上的休息室吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any lounges for economy class passengers?（经济舱乘客可以使用休息室吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a VIP lounge for first-class passengers?（有头等舱乘客专用的贵宾休息室吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a time limit for using the airport lounge?（用机场休息室有时间限制吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do I get to the departure lounge?（我怎么去候机室？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a place to charge my phone?（有地方给我的手机充电吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to charge my laptop, where&#x27;s the power socket?（我得给笔记本充电，电源插座在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My phone died, where can I borrow a charger?（我手机没电了，在哪儿能借到充电器？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I borrow a power bank here?（这儿能借个充电宝吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I find the airport map?（我在哪里能找到机场地图？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you direct me to the nearest restroom?（你能告诉我最近的洗手间在哪吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the nearest coffee shop?（最近的咖啡店在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the nearest restaurant?（最近的餐厅在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a pharmacy in the airport?（机场里有药店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a pharmacy that&#x27;s open 24 hours?（有 24 小时营业的药店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a place to buy souvenirs in the airport?（机场里有卖纪念品的地方吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to buy a new suitcase, is there a store nearby?（我得买个新行李箱，附近有商店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a 24-hour convenience store in the airport?（机场有 24 小时便利店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I buy a last-minute travel adapter?（在哪儿能买到应急的转换插头？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a place to buy a SIM card at the airport?（机场有卖手机卡的地方吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the nearest ATM?（最近的 ATM 在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the nearest currency exchange desk?（最近的货币兑换处在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I exchange currency at the airport?（机场能换钱吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a baby care room nearby?（附近有婴儿护理室吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a prayer room in the terminal?（航站楼里有祈祷室吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have a cart for heavy luggage?（有运重行李的推车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I find a luggage cart?（哪儿能找到行李推车？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a shuttle service to the airport hotel?（有去机场酒店的班车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a shuttle between terminals?（航站楼之间有班车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a shuttle to the city center from here?（从这儿有去市中心的班车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The airport shuttle is full, when&#x27;s the next one?（机场班车满了，下一班什么时候来？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a bike-sharing service near the airport exit?（机场出口附近有共享单车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I find a bus stop outside the airport?（机场外的公交站在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there free water available in the terminal?（航站楼里有免费水吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a water fountain near gate 5?（5 号登机口附近有饮水机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>登机相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>登机流程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Boarding starts in 30 minutes.（30 分钟后开始登机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s my boarding pass.（这是我的登机牌。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you scan my boarding pass, please?（请你扫描一下我的登机牌好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to show my passport at the gate?（我需要在登机口出示护照吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to show my boarding pass again at the gate?（我需要在登机口再次出示登机牌吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to go through security before boarding?（我需要在登机前通过安检吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do I know if my flight is boarding now?（怎么知道我的航班现在开始登机了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The boarding announcement was hard to hear.（登机广播听得不太清楚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>座位指引与物品放置</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you show me where my seat is?（你能告诉我我的座位在哪里吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The overhead bins look full.（头顶的行李架看起来满了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The overhead bin is stuck, can you help open it?（头顶的行李架卡住了，能帮忙打开吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I store my laptop in the overhead bin?（笔记本电脑能放头顶行李架吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>座位相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>座位类型需求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like a window seat, if possible.（如果可以的话，我想要个靠窗的座位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I have a window/aisle seat, please?（我可以要一个靠窗 / 靠过道的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I want to change my seat to an aisle seat.（我想换成靠过道的座位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could I get an aisle seat, please?（能给我一个过道座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a seat available in the front of the plane?（飞机前面有座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could I get a seat closer to the front?（我能坐个离前面近点的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope I get an exit row seat.（希望能拿到紧急出口那排的座位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could I have a seat near the emergency exit?（能给我安排一个靠近紧急出口的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could I get a seat with more legroom?（能给我一个有更多腿部空间的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you give me a seat with a power outlet?（能给我一个有电源插座的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>换座位相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to change my seat.（我需要换个座位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a window seat instead of this aisle seat?（我可以换个靠窗的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I change my seat to sit with my friend?（能换个座位和我朋友坐一起吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My seat isn&#x27;t what I requested.（我的座位不是我订的那个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My seat is broken, can I switch to another one?（我的座位坏了，能换一个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My seatmate is noisy, can I switch seats?（我邻座太吵了，能换个座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>特殊人群座位需求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to confirm my seat assignment.（我想确认一下我的座位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I request a window seat for my child?（能给我孩子要个靠窗的座位吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>航班类型与行程相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>航班类型</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I booked a direct flight.（我订的是直飞航班。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m flying with a connecting flight.（我坐的是转机航班。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m connecting through Chicago.（我要在芝加哥转机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a layover in Tokyo.（我在东京转机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight was rerouted, where do I check in now?（我的航班改路线了，现在该在哪儿值机？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I usually avoid red-eye flights.（我通常不坐夜航。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>转机相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My connecting flight leaves in two hours.（转机航班两小时后起飞。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a connecting flight, do I need to collect my luggage?（我有转机，需要取回行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to recheck my luggage for the connecting flight?（转机的话需要重新托运行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My connecting flight was delayed, will I miss the next one?（我的转机航班晚点了，会错过下一班吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My connecting flight is in 1 hour, will I make it?（我转机还有 1 小时，能赶上吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My connecting flight was canceled, can you book me a hotel?（我的转机航班取消了，能帮我订个酒店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>出行目的与人员相关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>出行目的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling for business.（我这次是出差。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m here for vacation.（我来度假。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to visit friends.（我要去看朋友。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>同行人员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling alone this time.（这次我一个人出行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m flying with my family.（我和家人一起飞。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling with a child.（我和孩子一起出行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling with a baby, can I get priority boarding?（我带着宝宝旅行，可以优先登机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>特殊携带物品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I brought snacks for the flight.（我带了零食上飞机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I packed my medication in my carry-on.（我把药放随身包里了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m carrying a laptop and a camera.（我带了笔记本和相机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I always bring my neck pillow.（我总带着颈枕。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling with a pet.（我带了宠物一起旅行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>特殊需求与服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>个人协助需求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need help with my heavy luggage.（我的行李很重，需要帮忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you help me with my luggage at the gate?（能在登机口帮我拿行李吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need a wheelchair.（我需要轮椅。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you call a wheelchair for me?（能帮我叫个轮椅吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a medical condition, can I get special assistance?（我有健康问题，能获得特殊协助吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m nervous about flying.（我有点怕坐飞机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m in a hurry, can you speed up the process?（我很着急，能加快处理速度吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>餐食与机上服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I request a special meal?（我可以申请一份特殊餐食吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to pick up a special meal.（我需要取特殊餐食。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a kids&#x27; meal available on the flight?（飞机上有儿童餐吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do they offer vegetarian meals on all flights?（所有航班都有素食餐吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a blanket on the plane?（飞机上能给我条毯子吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have to pay for a blanket on budget airlines?（廉航上要毯子需要花钱吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do they provide headphones on the flight?（飞机上会提供耳机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have earplugs for the flight?（飞机上有耳塞吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The flight attendant didn&#x27;t collect my trash, can I get a bag?（空乘没收我的垃圾，能给个垃圾袋吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My in-flight meal is cold, can I get a new one?（我的机上餐是凉的，能换一份吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to pay for in-flight movies?（看机上电影需要花钱吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The in-flight entertainment isn&#x27;t working, can you fix it?（机上娱乐系统坏了，能修吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I pre-order in-flight Wi-Fi?（能提前预订机上 Wi-Fi 吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>其他特殊服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I want to upgrade to business class.（我想升级到商务舱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is it possible to get an upgrade to business class?（是否有可能升级到商务舱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m a frequent flyer, do I get any perks?（我是常旅客，能享受什么特别待遇吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are there any special discounts for students?（有学生票折扣吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My child needs a booster seat, does the airline provide one?（我孩子需要增高坐垫，航空公司会提供吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>问题处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>航班问题（延误、取消等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight was delayed yesterday.（我昨天的航班晚点了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight is delayed by 3 hours, can I rebook a later one?（航班延误 3 小时，我能改签到更晚的吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a meal voucher since the flight is delayed?（航班延误了，能给份餐券吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight was canceled, what should I do?（我的航班取消了，该怎么办啊？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I missed my flight.（我错过了航班。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you rebook me on the next available flight?（你能帮我改签至下一个有座位的航班吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I switch to an earlier flight?（我能换到一个更早的航班吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to change my flight to tomorrow.（我需要把航班改到明天。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to reschedule my flight due to illness.（因为生病，我需要改期航班。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight is overbooked, can I get compensated?（航班超售了，能有补偿吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>票务与证件问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a problem with my ticket?（我的机票有问题吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have an issue with my reservation.（我的预订有问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I get a refund if I cancel my flight now?（现在取消航班能退款吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do I go to cancel my flight ticket?（在哪儿能退机票啊？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My passport is expiring soon, is that an issue?（我的护照快到期了，这会有问题吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to show my visa at the check-in counter?（值机时需要出示签证吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>其他问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I think I&#x27;ve left something behind at the check-in desk.（我觉得我在值机柜台落下了东西。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to report a lost item.（我需要报失一件物品。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the lost and found office?（失物招领处在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The overhead light isn&#x27;t working, can someone fix it?（头顶的灯坏了，有人能修吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The seatbelt is stuck, can you help unbuckle it?（安全带卡住了，能帮忙解开吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to go through immigration now?（我现在需要过入境检查吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long does it take to get through immigration?（过入境检查要多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to fill out a customs form.（我得填海关申报单。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I have to declare this gift at customs?（这个礼物过海关需要申报吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The airport Wi-Fi isn&#x27;t working, can you help?（机场 Wi-Fi 用不了，能帮忙看看吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a free Wi-Fi service here?（这里有免费的 Wi-Fi 吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to print a document, is there a printer here?（我得打印份文件，这儿有打印机吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the first aid station?（急救站在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do I go to pick up a rental car?（在哪儿取租车啊？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a limit on duty-free alcohol purchases?（免税酒购买有限制吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do I pick up my pre-ordered duty-free items?（我预订的免税品在哪儿取？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the duty-free shop?（免税店在哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a place to rest if I miss my flight?（错过航班的话，有地方休息吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is my first time flying here.（这是我第一次从这里飞。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I usually fly this route.（我经常飞这条线路。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I arrived two hours early.（我提前两个小时到了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m traveling light today.（今天我带的东西不多。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this flight is smooth.（希望这次飞行顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My flight number is AA123.（我的航班号是 AA123。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m flying to New York today.（我今天飞纽约。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>补充说明与细节</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>行李托运确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do I know if my luggage is checked in properly?（怎么确认我的行李已经正确托运？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>机场基础信息</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How late is the airport open?（机场开到多晚？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a smoking area in the terminal?（航站楼里有吸烟区吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>特殊物品携带补充</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I bring a folding chair to the gate?（能把折叠椅带到登机口吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>安检细节补充</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My luggage is locked, do I need to unlock it for inspection?（我的行李锁着，过安检需要打开吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>航班提醒设置</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to update my contact info for flight alerts, how?（我想更新航班提醒的联系方式，怎么弄？）</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="机场值机这300句足够了";
@@ -578,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

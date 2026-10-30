@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,764 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">拿下，全英线上会议稳啦！
- 会议流程各阶段 
-开场白
-1. 欢迎和开场介绍
-o 英：Welcome, everyone. Thank you for joining the meeting today to discuss/review [具体
-事项，如 project progress, new marketing strategy 等].
-o 中：各位，欢迎大家。感谢你们今天参加会议，一同讨论 / 回顾 [具体事项，如项目进展、
-新的营销策略等]。
-2. 总结议程
-o 英：The agenda for this meeting is, first [item1 具体内容，如 introduce new product 
-features], then [item 2 具体内容，如 analyze market feedback], lastly [item 3 具体内容，
-如 discuss future plans].
-o 中：本次会议议程如下，首先 [事项 1 具体内容，如介绍新产品特性]，接着 [事项 2 具体
-内容，如分析市场反馈]，最后 [事项 3 具体内容，如讨论未来计划]。
-3. 进入正题
-o 英：Without further ado, let&#x27;s start with [item1 具体内容，如 the presentation of our new 
-product].
-o 中：事不宜迟，我们从 [事项 1 具体内容，如新产品展示] 开始吧。
-会议中
-1. 转场语
-o 英：Let&#x27;s move on to the next part.
-o 中：我们进入下一部分。
-o 英：I&#x27;m gonna pause here for any questions or concerns before continuing to the next 
-item.
-o 中：在继续下一项之前，我在此停顿一下，看看大家是否有任何问题或疑虑。
-o 英：Now we&#x27;ve come to the final item on the agenda.
-o 中：现在我们来到了议程的最后一项。
-2. 切换主题
-o 英：Let&#x27;s move on to our next topic: [New Topic 具体内容， 如 potential market expansion 
-areas].
-o 中：我们进入下一个主题：[新主题具体内容，如潜在市场拓展区域]。
-o 英：Now, let&#x27;s discuss [Next Issue 具体内容，如 how to improve customer satisfaction]
-and see how we can address it.
-o 中：现在，我们来讨论 [下一个问题具体内容，如如何提高客户满意度]，看看如何解决。
-o 英：Next up on the agenda is [New Topic 具体内容，如 budget allocation for the next 
-quarter].
-o 中：议程上的下一项是 [新主题具体内容，如下一季度预算分配]。
-o 英：Shall we proceed to the next topic? it&#x27;s [New Topic 具体内容，如  new business 
-partnerships].
-o 中：我们继续下一个主题好吗？是 [新主题具体内容，如新商业合作关系]。
-o 英：Alright, moving on to [Next Topic 具体内容，如 upcoming promotional activities].
-o 中：好的，接下来是 [下一个主题具体内容，如即将开展的促销活动]。
-3. 打断某人
-o 英：Sorry to interrupt, but may I add something here?
-o 中：抱歉打断一下，我可以在这里补充点内容吗？
-o 英：Excuse me, could I jump in for a moment?
-o 中：打扰一下，我能插句话吗？
-o 英：I apologize for the interruption, but I think it&#x27;s important to mention [Point 具体要点，
-如 a new competitor in the market].
-o 中：很抱歉打断，但是我认为提及 [要点具体内容，如市场中的新竞争对手] 很重要。
-o 英：Can I quickly add something here?
-o 中：我能快速补充一点吗？
-o 英：Pardon the interruption, but I think this is relevant.
-o 中：抱歉打断，不过我觉得这个与此相关。
-4. 让某人再说一遍
-o 英：Could you please repeat that? I want to make sure I got it right.
-o 中：您能重复一下吗？我想确认我理解正确。
-o 英：I didn&#x27;t catch that, could you say it again, please?
-o 中：我没听清，您能再说一遍吗？
-o 英：Would you mind repeating that for me?
-o 中：您介意再重复一遍给我听吗？
-o 英：Sorry, I missed that. Could you repeat it, please?
-o 中：抱歉，我没听到。您能重复一下吗？
-o 英：Can you please go over that one more time?
-o 中：您能再讲一遍吗？
-5. 表达观点
-o 英：Personally, I believe [Your Viewpoint 具体观点，如 adopting a new technology will 
-boost our productivity] could be effective.
-o 中：就我个人而言，我认为 [你的观点具体内容，如采用新技术将提高我们的生产力] 可能
-会很有效。
-o 英：I would suggest considering [Your Opinion 具体意见，如 launching a pilot project 
-first] as an option.
-o 中：我建议考虑 [你的意见具体内容，如先开展一个试点项目] 作为一个选择。
-o 英：In my view, [Your Viewpoint 具体观点，如 we should focus on enhancing our brand 
-image] could address this issue well.
-o 中：在我看来，[你的观点具体内容，如我们应该专注于提升品牌形象] 能很好地解决这个问
-题。
-o 英：From my perspective, we might want to look into [Your Opinion 具体意见，如  
-exploring new distribution channels].
-o 中：以我的视角来看，我们或许要研究一下 [你的意见具体内容，如探索新的分销渠道]。
-o 英：I think [Your Viewpoint 具体观点， 如 our marketing campaign should target a younger 
-audience] might work better for us.
-o 中：我认为 [你的观点具体内容，如我们的营销活动应针对更年轻的受众] 对我们来说可能
-效果更好。
-6. 表达赞同
-o 英：I completely agree with [Person&#x27;s Name].
-o 中：我完全同意 [某人名字] 的观点。
-o 英：I second that opinion. It makes a lot of sense.
-o 中：我附议这个观点。很有道理。
-o 英：That sounds like a good approach to me.
-o 中：在我看来这是个好方法。
-o 英：I&#x27;m on the same page as [Person&#x27;s Name].
-o 中：我和 [某人名字] 看法一致。
-o 英：Absolutely, I think that&#x27;s a great idea.
-o 中：绝对的，我觉得这是个很棒的主意。
-7. 表达反对
-o 英：I understand your point, but I see it differently.
-o 中：我理解你的观点，但我有不同看法。
-o 英：I appreciate your input, but I have some reservations.
-o 中：感谢你的意见，但我有些保留意见。
-o 英：I respect your opinion, but I think we should reconsider.
-o 中：我尊重你的观点，但我认为我们应该重新考虑。
-结尾
-1. 总结与提问
-o 英：That&#x27;s all for today&#x27;s meeting. Does anyone have any questions or concerns before 
-we close the call? / Before we end, let me just summarize the three main points.
-o 中：今天的会议就到这里。在结束通话前，大家有任何问题或疑虑吗？/ 在结束之前，我来
-总结一下三个要点。
-2. 时间原因结束
-o 英：It looks like we&#x27;ve run out of time, so I guess we&#x27;ll finish here. For the uncovered topics, 
-I will schedule another meeting /follow up with [XXX 具体人员] offline to discuss them.
-o 中：看起来时间不够了，所以我想我们就到此为止。对于未讨论的话题，我会安排另一次会
-议 / 线下与 [具体人员] 跟进讨论。
-3. 议程完成结束
-o 英：I think we&#x27;ve covered everything on the agenda, and I will give [X 具体分钟数] minutes 
-back to everyone.
-o 中：我想我们已经涵盖了议程上的所有内容，我会给大家 [具体分钟数] 的自由时间。
-4. 致谢
-o 英：Again, I want to thank you all for taking time out of your busy schedules to be here 
-today.
-o 中：再次感谢大家从百忙之中抽出时间参加今天的会议。
- 特殊情况 
-小插曲
-1. 中途离开
-o 英：I need to drop off the call now.
-o 中：我现在需要退出会议了。
-2. 网断了
-o 英：My call was cut off.
-o 中：我的通话中断了。
-没听懂时
-1. 请对方重述
-o 英：Excuse me, your voice was breaking up and I don&#x27;t think I heard you clearly. Could 
-you please repeat that?
-o 中：打扰一下，您的声音断断续续，我没听清。您能重复一下吗？
-2. 请对方进一步解释
-o 英：I&#x27;m sorry, I don&#x27;t quite follow this / I&#x27;m not sure I understand what you mean by [XXX 
-具体内容]. Could you please elaborate on this point?
-o 中：抱歉，我不太明白这个 / 我不确定我理解您说的 [具体内容] 是什么意思。您能详细阐
-述一下这一点吗？
-网络问题
-1. 声音断续
-o 英：Sorry, you&#x27;re breaking up. Could you repeat that?
-o 中：抱歉，您的声音断断续续。您能重复一下吗？
-2. 信号不好听不到
-o 英：Sorry, your line is breaking. We lost you.
-o 中：抱歉，您的信号不好，我们听不到您说话了。
-3. 没开声音
-o 英：Sorry, I was on mute. What did you say?
-o 中：抱歉，我刚才静音了。您说什么？
-4. 对方卡住
-o 英：You&#x27;re frozen.
-o 中：您卡住了。
- 各环节沟通 
-开会前
-1. 确认声音
-o 英：Can everyone hear me okay?
-o 中：大家都能听清我说话吗？
-2. 确认人员
-o 英：Do we have [名字 / 团队名] on the call? [XX 具体团队或人员] 都到了吗？
-o 中：[名字 / 团队名] 在通话中吗？[XX 具体团队或人员] 都到了吗？
-3. 询问是否等人
-o 英：Who else do we have on the call? （没有我们就开始吧）
-o 中：还有谁没进会议？（没有我们就开始吧）
-共享屏幕
-1. 告知共享
-o 英：I&#x27;m going to share my screen now.
-o 中：我现在要共享屏幕了。
-2. 请求共享
-o 英：Let me share my screen with you.
-o 中：让我和你们共享我的屏幕。
-3. 发送文稿
-o 英：Let me send you the presentation slides.
-o 中：让我给你们发送演示文稿幻灯片。
-会议开始时
-1. 开场 + 自我介绍
-o 英：Hi everyone, thank you all for coming. I&#x27;m [Your Name] from the [Your Department].
-o 中：大家好，感谢各位的到来。我是 [你的名字]，来自 [你的部门]。
-o 英：Good morning everyone, I&#x27;m [Your Name]. It&#x27;s great to meet you all.
-o 中：大家早上好，我是 [你的名字]。很高兴见到大家。
-o 英：Hello team, I&#x27;m [Your Name]. I&#x27;m excited to be here and look forward to our discussion 
-on [Meeting Topic 具体主题，如 new product launch plan].
-o 中：团队的伙伴们，大家好，我是 [你的名字]。很高兴来到这里，期待我们关于 [会议主题
-具体内容，如新产品发布计划] 的讨论。
-o 英：Hi all, I&#x27;m [Your Name], new in the [Department]. Glad to have this opportunity to 
-meet you.
-o 中：大家好，我是 [你的名字]，刚加入 [部门]。很高兴有这个机会认识大家。
-o 英：Good afternoon everyone, thank you for being here. My name is [Your Name] and 
-I&#x27;m part of the [Your Department].
-o 中：大家下午好，感谢你们的参与。我是 [你的名字]，来自 [你的部门]。
-2. 介绍他人
-o 英：I&#x27;d like to introduce [Person&#x27;s Name] from the [Department]. They have some great 
-insights to share.
-o 中：我想介绍一下来自 [部门] 的 [某人名字]。他们有一些很棒的见解要分享。
-o 英：Please welcome [Person&#x27;s Name], our expert in [Topic 具体话题， 如 digital marketing].
-o 中：请欢迎 [某人名字]，我们 [具体话题，如数字营销] 方面的专家。
-o 英：Let me introduce [Person&#x27;s Name], who will be leading the next discussion.
-o 中：让我介绍一下 [某人名字]，他 / 她将主持接下来的讨论。
-o 英：Here&#x27;s [Person&#x27;s Name] from the [Department] to share their thoughts.
-o 中：这是来自 [部门] 的 [某人名字]，来分享他们的想法。
-o 英：[Person&#x27;s Name] will now present on [Topic 具体主题，如 market analysis]. Please 
-give them your full attention.
-o 中：[某人名字] 现在将介绍 [具体主题，如市场分析]。请大家认真聆听。
-3. 介绍会议目的 + 议程
-o 英：Today, we&#x27;re here to discuss [Meeting Purpose 具体目的，如 how to increase sales 
-in the next quarter]. Our agenda includes [item 1 具体内容，如 review current sales 
-strategies], [Item 2 具体内容，如 explore new market segments], and [item 3 具体内容，
-如 plan promotional activities].
-o 中：今天，我们在这里讨论 [会议目的具体内容，如下一季度如何提高销售额]。我们的议程
-包括 [事项 1 具体内容， 如回顾当前销售策略]，[事项 2 具体内容， 如探索新的细分市场]，
-以及 [事项 3 具体内容，如策划促销活动]。
-o 英：Our goal for today is to [Goal 具体目标， 如 finalize the project plan]. We’ll be covering 
-[item A 具体内容，如 project timeline], [item B 具体内容，如 resource allocation], and 
-[item C 具体内容，如 risk assessment].
-o 中： 我们今天的目标是 [目标具体内容， 如确定项目计划]。 我们将讨论 [事项 A 具体内容，
-如项目时间安排]，[事项 B 具体内容， 如资源分配]，以 及 [事项 C 具体内容， 如风险评估]。
-o 英：We have an important meeting today on [Meeting Topic 具体主题，如 company - 
-wide restructuring]. The agenda is as follows: [Item 1 具体内容，如 reasons for 
-restructuring], [item 2 具体内容，如 proposed changes], [item 3 具体内容，如 expected 
-impact].
-o 中： 今天我们有一个重要会议， 讨论 [会议主题具体内容， 如全公司范围的重组]。 议程如下：
-[事项 1 具体内容，如重组原因]，[事项 2 具体内容，如提议的变革]，[事项 3 具体内容，
-如预期影响]。
-o 英：The purpose of today&#x27;s meeting is to discuss [Meeting Purpose 具体目的，如  
-improving internal communication]. We’ll go through [Item A 具体内容，如  current 
-communication channels], [item B 具体内容，如 problems and challenges], and [item C 
-具体内容，如 proposed solutions].
-o 中： 今天会议的目的是讨论 [会议目的具体内容， 如改善内部沟通]。 我们将探讨 [事项 A 具
-体内容，如当前沟通渠道]，[事项 B 具体内容，如问题与挑战]，以及 [事项 C 具体内容，
-如提议的解决方案]。
-o 英：Our main focus today is [Meeting Topic 具体主题，如 new product development]. 
-The agenda includes the following points: [Item 1 具体内容，如 product concept], [item 
-2 具体内容，如 design requirements], [item 3 具体内容，如 development timeline].
-o 中： 我们今天的主要关注点是 [会议主题具体内容， 如新产品开发]。 议程包括以下几点：[事
-项 1 具体内容，如产品概念]，[事项 2 具体内容，如设计要求]，[事项 3 具体内容，如开
-发时间线]。
- 全英主持线上会议常用表达 
-学会前 small talk 阶段
-1. 英：Morning [xxx 具体人名], how are you doing today? all good thanks.
-o 中：早上好 [具体人名]，你今天好吗？谢谢，一切都好。
-2. 英：Did everyone have a good weekend?
-o 中：大家周末过得好吗？
-会议开始阶段
-1. 人没到齐时的礼貌开场（续）
-o 英：I see we have a lot of people on the call already. Let&#x27;s just give it a minute for anybody 
-who’s joining late.
-o 中：我看到已经有很多人接入会议了。我们稍微等一分钟，等等迟到的同事。
-2. 人齐了
-o 英：All right since everyone is here, let&#x27;s get started.
-o 中：好啦，既然大家都到齐了，我们开始吧。
-o 英：Looks like we have everybody here, so let’s kick it off.
-o 中：看起来所有人都到了，那我们开始吧。
-3. 自我介绍
-o 英：Let’s do a quick round of introduction. I will start with myself. I&#x27;m [xxx], based in [xxx]. 
-I&#x27;ve been involved in [xxx project] since [具体时间].
-o 中： 我们快速地轮流做下自我介绍吧。 我先来， 我是 [姓名]，在 [地点] 工作， 从 [具体时间] 
-开始参与 [项目名称]。
-4. 会议流程介绍
-o 英：Before we begin, I’d like you all to take a look at the agenda with me.
-o 中：在开始之前，我希望大家和我一起看一下议程。
-o 英：Today&#x27;s meeting is about [具体内容，如 discussing the progress of the marketing 
-campaign]. We will talk about [具体事项 1，如 the effectiveness of the recent promotions], 
-[具体事项 2，如 customer feedback received], and [ 具体事项 3，如 future marketing 
-plans].
-o 中：今天的会议主要是关于 [具体内容， 如讨论营销活动的进展]。 我们将讨论 [具体事项 1，
-如近期促销活动的效果]、[具体事项 2， 如收到的客户反馈] 以及 [具体事项 3， 如未来的营
-销计划]。
-o 英：The purpose of today&#x27;s meeting is [目的，如 to make a decision on the new product 
-packaging].
-o 中：今天会议的目的是 [目的，如就新产品包装做出决策]。
-5. 转话题 / 切换下一个环节时的承上启下句
-o 英：The first item on the agenda is [xxx，具体事项，如 market research findings].
-o 中：议程上的第一项是 [具体事项，如市场调研结果]。
-o 英：In terms of [xxx，具体方面，如 product features], we need to discuss how to improve 
-them.
-o 中：说到 [具体方面，如产品特性]，我们需要讨论如何改进它们。
-o 英：If nobody has anything else to add, let&#x27;s move on to the next part [xxx ，具体内容，
-如 competitor analysis].
-o 中：如果没人有其他补充，我们进入下一部分 [具体内容，如竞争对手分析]。
-会上互动环节
-1. 表达感谢
-o 英：Thank you for joining us /thank you for your time. (谢谢接我话茬)
-o 中：感谢您的参与 / 感谢您抽出时间。(谢谢接我话茬)
-2. 表达认同
-o 英：I think we&#x27;re on the same page.
-o 中：我想我们意见一致。
-o 英：Sounds great!
-o 中：听起来很棒！
-o 英：That’s a good point. I&#x27;m glad you brought it up.
-o 中：这是个好观点。很高兴你提出来了。
-o 英：I see exactly what you mean.
-o 中：我完全明白你的意思。
-o 英：Couldn&#x27;t agree anymore.
-o 中：完全同意。
-o 英：That&#x27;s just how I see it.
-o 中：我就是这么看的。
-3. 友情提示提问
-o 英：Feel free to ask me if you have any questions.
-o 中：如果你们有任何问题，请随时问我。
-4. 不得不打断对方时的礼貌用语
-o 英：Sorry to interrupt, but just a quick question.
-o 中：抱歉打断一下，就一个小问题。
-o 英：Excuse me, can I just interrupt real quick?
-o 中：打扰一下，我能快速打断一下吗？
-5. 面对对方网络不佳的情况
-o 英：Hey [xx，具体人名], I think you were breaking up a little bit, do you mind saying that 
-again?
-o 中：嘿，[具体人名]，我觉得你刚才声音有点断断续续，你介意再说一遍吗？
-6. 不小心与别人同时开麦
-o 英：Sorry, please go ahead. go on /after you /you go first.
-o 中：抱歉，请继续。你先说 / 你请 / 你先来。
-7. 需切换发言人时
-o 英：I&#x27;d like to hand over to [xxx，具体人名], who is going to lead the next point.
-o 中：我想把发言机会交给 [具体人名]，他 / 她将引出下一个要点。
-8. 一些增强互动感的小语气词
-o 英：Outstanding!
-o 中：出色！
-o 英：Wonderful!
-o 中：精彩！
-o 英：Absolutely!
-o 中：绝对！
-o 英：Definitely!
-o 中：肯定！
-o 英：That’s great!
-o 中：那太棒了！
-o 英：Excellent!
-o 中：优秀！
-o 英：Sure!
-o 中：当然！
-9. 共享屏幕操作的同时
-o 英：Hold on one second /just give me a minute. I&#x27;m going to share my screen.
-o 中：稍等一秒 / 稍等我一下。我要共享我的屏幕了。
-o 英：Can everyone see my screen ok?
-o 中：大家都能清楚看到我的屏幕吗？
-尴尬救场指南
-1. 没听懂
-o 英：Could you say it again please?
-o 中：请您再说一遍好吗？
-o 英：Could you please have some more details?
-o 中：您能说得再详细一些吗？
-o 英：Would you mind going over that again pls?
-o 中：您介意再讲一遍吗？
-2. 对方卡住了
-o 英：Sorry I think you&#x27;ve frozen.
-o 中：抱歉，我想你卡住了。
-o 英：You just got cut off, Would you mind repeating that again?
-o 中：你刚刚掉线了，你介意再重复一遍吗？
-o 英：oh I guess we lost [xxx，具体人名], let&#x27;s move on.
-o 中：哦，我想我们和 [具体人名] 断开连接了，我们继续吧。
-3. 自己卡住了
-o 英：Sorry I was having connection issues. How about now? Can you hear me okay?
-o 中：抱歉，我刚刚网络连接有问题。现在怎么样？你们能听清我说话吗？
-4. 应对没有人搭话的 awkward silence
-o 英：feel free to unmute your mic and tell us what you think.
-o 中：请随意打开麦克风，告诉我们你的想法。
-5. 被问住了别担心
-o 英：Great questions! I need to discuss this with my teammates and I will get back to you 
-later.
-o 中：好问题！我需要和我的团队成员讨论一下，稍后回复你。
-会议圆满结束
-1. 释放结束信号
-o 英：I guess that will be all for today.
-o 中：我想今天的会议就到此为止。
-o 英：All right, I think we got everything we wanted to cover today.
-o 中：好啦，我觉得我们已经讨论完了今天想讨论的所有内容。
-2. 确认大家是否有问题
-o 英：Well before we wrap up the meeting today, are there any questions or concerns?
-o 中：在我们结束今天的会议之前，大家有任何问题或疑虑吗？
-3. 画大饼环节不可少
-o 英：So in closing, I just have a lot of remarks... and so many thanks to [xxx and xxx，具体
-人名]. We are well underway on [xxx， 具体成果， 如 the new product development]. We&#x27;ve 
-achieved [列举成果，如 the completion of the initial design and the start of the prototype 
-building].
-o 中：所以最后，我有很多话想说…… 非常感谢 [具体人名]。我们在 [具体成果，如新产品开
-发] 方面进展顺利。我们已经取得了 [列举成果，如完成了初步设计并开始制作原型]。
-4. 礼貌用语
-o 英：Thank you everyone for your valuable and insightful input today.
-o 中：感谢大家今天提出的宝贵且有见地的意见。
-o 英：Thank you so much for joining us today / Have a good day.
-o 中：非常感谢大家今天的参与 / 祝大家有美好的一天。
- 准备相关 
-会议准备要点
-1. Set and share the agenda 准备会议议程
-o 英：Please find the agenda for Tuesday&#x27;s 10 o&#x27;clock meeting attached. In sharing it now, 
-I expect everyone to come to the meeting prepared and I anticipate a more successful 
-outcome.
-o 中：请查收附件中周二上午 10 点会议的议程。现在分享给大家，希望每个人都能做好参会
-准备，我期待会议能取得更圆满的成果。
-2. Prepare your key points 准备会议要点
-o 英：What updates do I need to provide?
-o 中：我需要提供哪些最新情况？
-o 英：What are the key details?
-o 中：关键细节有哪些？
-o 英：What ideas or questions do I want to bring up?
-o 中：我想提出哪些想法或问题？
-o 英：What issues do I want to discuss and resolve?
-o 中：我希望讨论并解决哪些问题？
-o 英：Why are these important?
-o 中：为什么这些很重要？
-o 英：What challenges am I facing or what do I need a decision on?
-o 中：我面临哪些挑战，或者我需要在哪方面做出决策？
-o 英：Who do I need to thank or acknowledge?
-o 中：我需要感谢或认可谁？
-3. Determine and communicate the purpose 确定并沟通会议目的
-o 英：What&#x27;s the specific outcome you want from the meeting. You need to clarify this and 
-that will ensure the primary goal is achieved.
-o 中：你期望从会议中得到什么具体成果。你需要明确这一点，以确保主要目标得以实现。
-4. open the meeting and initial updates. 会议开场
-o 开场问候
-o 英：starting with a greeting: good morning /afternoon
-o 中：以问候开场：早上好 / 下午好
-o 宣布开始
-o 英：now that everyone is here. Let&#x27;s get started. I&#x27;d like to get started and welcome 
-all of you to the meeting today.
-o 中：既然大家都到齐了。我们开始吧。我想开始并欢迎大家参加今天的会议。
-o 自我介绍（如有需要）
-o 英：*(if needed) introduction: before we dive into the agenda, let&#x27;s go around room 
-and introduce ourselves quickly. Please share your name and your position. / I 
-know most of you here but I do see a few unfamiliar faces so let&#x27;s do a quick round 
-of introductions.
-o 中：*（如有需要）自我介绍：在深入讨论议程之前，我们快速地轮流自我介绍一下
-吧。 请说出你的名字和职位。/ 我认识这里的大多数人， 但我确实看到了一些新面孔，
-所以我们快速地做一轮自我介绍。
-o 沟通会议目标
-o 英：purpose: as a quick reminder, our goal for this meeting today is… /by the end 
-of this meeting today, we should have a decision on… we have a few items on the 
-agenda to discuss today. The first is… the second is. The third is..
-o 中： 会议目标： 快速提醒一下， 我们今天会议的目标是……/ 在今天会议结束时， 我们
-应该就…… 做出决定。我们今天有几个议程项目要讨论。第一个是…… 第二个是…… 
-第三个是……
-5. Model active listening skills 积极倾听
-o 英：Most important thing is eye contact.
-o 中：最重要的是眼神交流（线上会议可理解为专注倾听） 。
-small talk 
-寒暄问候
-1. 英：Hi there! I don’t think we’ve met before - I’m [Your Name]. It’s great to finally connect!
-o 中：嗨！我觉得我们之前没见过面，我是 [你的名字]。终于能联系上，真是太棒了！
-2. 英：Hello! I’ve heard a lot about you, but we haven’t had the chance to meet yet. I’m [Your Name]. 
-How’s everything going?
-o 中：你好！久闻大名，但一直没机会见面。我是 [你的名字]。一切都还好吗？
-3. 英：Hey! It’s nice to meet you. I’m [Your Name], and I’ve been looking forward to working with 
-you.
-o 中：嘿！很高兴认识你。我是 [你的名字]，一直期待着能和你一起工作。
-4. 英：Hi! I’m [Your Name]. I believe this is our first time meeting, right?
-o 中：嗨！我是 [你的名字]。我想这是我们第一次见面，对吧？
-5. 英：Hello! I’m [Your Name]. It’s great to finally put a face to the name.
-o 中：你好！我是 [你的名字]。终于能对上号了，真好。
-6. 英：Where are you joining the meeting from today?
-o 中：你今天是从哪里接入会议的呀？
-7. 英：Is this your first time working with our team? How has it been so far?
-o 中：这是你第一次和我们团队合作吗？到目前为止感觉怎么样？
-8. 英：How long have you been with [Company Name]? I’ve heard great things about the work you 
-do.
-o 中：你在 [公司名称] 工作多久了？我听说你工作干得很出色。
-工作学习
-1. 英：Are you working on any new skills or training?
-o 中：你最近在学习新技能或者参加培训吗？
-2. 英：Did you learn anything new lately that really interested you?
-o 中：你最近有没有学到什么让你特别感兴趣的新东西？
-3. 英：Any interesting books or articles you’ve read recently?
-o 中：你最近有没有读过什么有趣的书籍或文章？
-4. 英：How are you staying productive these days?
-o 中：你最近是怎么保持高效工作的呢？
-5. 英：Have you been attending any online webinars or courses?
-o 中：你最近有没有参加什么在线研讨会或课程？
-当地情况
-1. 英：I heard there’s a new restaurant that just opened near your office. Have you checked it out?
-o 中：我听说你办公室附近新开了一家餐厅。你去试过了吗？
-2. 英：I saw online that your city just had a big event. Did you go?
-o 中：我在网上看到你所在的城市刚举办了一场大型活动。你去参加了吗？
-3. 英：How’s traffic in your area these days?
-o 中：你们那儿最近交通状况怎么样？
-4. 英：Any good events or things happening in your city?
-o 中：你所在的城市最近有没有什么好玩的活动或者新鲜事儿？
-5. 英：What’s the food scene like in your area?
-o 中：你们那儿的美食氛围怎么样？
-天气
-1. 英：How&#x27;s the weather over there?
-o 中：你那边天气怎么样？
-2. 英：It’s been really hot/cold here. How about where you are?
-o 中：我这边天气特别热 / 冷。你那边呢？
-3. 英：Looks like it&#x27;s going to rain soon here. Any chance of that on your end?
-o 中：我这边看起来马上要下雨了。你那边呢，会下雨吗？
-4. 英：Is it still really hot/cold where you are?
-o 中：你那边还是特别热 / 冷吗？
-5. 英：We had a huge storm last night. How about you?
-o 中：我们昨晚遭遇了一场大暴雨。你们那边呢？
-周末假期
-1. 英：Did you do anything fun over the weekend?
-o 中：你周末有没有做什么有趣的事？
-2. 英：Any exciting plans for the weekend?
-o 中：周末有什么令人兴奋的计划吗？
-3. 英：How was your weekend? Did you get to relax?
-o 中：你周末过得怎么样？有没有好好放松一下？
-4. 英：Have you got any plans for the upcoming holiday?
-o 中：即将到来的假期你有什么计划吗？
-5. 英：Did you go anywhere special for your last vacation?
-o 中：你上次假期有没有去什么特别的地方？
- 线上英文会议常用表达 
-会议开场
-1. 英：Welcome everyone, today&#x27;s meeting is about [ 具体会议主题，如 exploring new business 
-opportunities in Asia].
-o 中：欢迎各位，今天的会议主题是 [具体会议主题，如探索亚洲地区新的商业机会]。
-2. 英：Welcome, everyone. This is our agenda.../ The purpose of today&#x27;s meeting is to [ 具体目的，
-如 finalize the budget for the next fiscal year].
-o 中：大家好。这是我们今天的议程……/ 今天会议的目的是 [具体目的，如下一财年预算的最
-终确定]。
-3. 英：Today&#x27;s meeting is going to last no more than two hours.
-o 中：今天的会议将不会超过两小时。
-4. 英：Thanks everyone for attending this meeting. It&#x27;s really good to talk to you. / It&#x27;s really good 
-to see you.
-o 中：感谢大家参加本次会议。很高兴与你们交流。/ 很高兴见到你们。
-5. 英：Welcome to today&#x27;s meeting. There are the issues that we want to talk about [具体问题，如 
-production delays and quality control].
-o 中：欢迎参加今天的会议。我们要讨论的问题有 [具体问题，如生产延误与质量控制]。
-6. 英：Let&#x27;s kick off the meeting with... (a brief rundown of the last meeting)
-o 中：让我们以…… 开始会议（简要回顾上次会议内容）
-分享屏幕
-1. 英：Please let me know when you can see my screen.
-o 中：当你能看到我的屏幕时，请告诉我。
-2. 英：Can I share my screen with you?
-o 中：我可以分享我的屏幕吗？
-3. 英：I&#x27;m going to share my screen with you now.
-o 中：现在我要与你们分享我的屏幕。
-4. 英：Can you see my screen? / Can you see my screen clearly now?
-o 中：你能看到我的屏幕吗？/ 现在你能清楚地看到我的屏幕吗？
-会议打断 / 提问
-1. 英：Sorry, just had a quick question....
-o 中：抱歉，有个小问题……
-2. 英：Sorry, just to clarify.....
-o 中：抱歉，确认一下……
-3. 英：Sorry to interrupt you, I was wondering....
-o 中：抱歉打断你，我想知道……
-4. 英：Could you mind if I jumped in there, please?
-o 中：请问你介意我插句话吗？
-5. 英：Can I stop you there quickly /for just one minute?
-o 中：我能快速打断你一下 / 耽误你一分钟吗？
-让某人重复
-1. 英：Can you repeat that please? I&#x27;m afraid I didn&#x27;t quite understand that.
-o 中：你能重复一下吗？恐怕我不太明白。
-2. 英：Could you say it one more time, please?
-o 中：你能再说一遍吗？
-3. 英：I missed that. Could you say it again, please?
-o 中：我没听到。请你再说一遍好吗？
-4. 英：Can you repeat what you just said?
-o 中：你能重复一下你刚才说的话吗？
-5. 英：I&#x27;m sorry, would you mind repeating that again?
-o 中：对不起，你介意再说一遍吗？
-听不清 / 连接中断
-1. 英：I&#x27;m having problems hearing you.
-o 中：我听不清你说话。
-2. 英：Your screen is blank.
-o 中：你的屏幕是空白的。
-3. 英：Your image and sound are out of sync.
-o 中：你的图像和声音不同步。
-4. 英：You&#x27;re breaking up a little bit.
-o 中：你的声音有点断断续续的。
-5. 英：My connection has broken.
-o 中：我的网络连接断了。
-征求建议
-1. 英：How do you feel about...?
-o 中：你觉得…… 怎么样？
-2. 英：Are you positive that...?
-o 中：你确定…… 吗？
-3. 英：What do you think about...
-o 中：你认为…… 怎么样？
-4. 英：What are your views on...?
-o 中：你对…… 有什么看法？
-会议总结
-1. 英：In summary, we&#x27;re going to [总结接下来的行动， 如 launch the new product in Q2 and conduct 
-a market survey].
-o 中：总结一下，我们将 [总结接下来的行动，如在第二季度推出新产品并进行市场调研]。
-2. 英：I think this is a good place to stop / end. We can pick up again next day.
-o 中：我认为这是一个适合停止 / 结束的节点。我们可以明天再继续。
-3. 英：We&#x27;ve covered most of the key points that we wanted to cover. Thank you very much.
-o 中：我们已经涵盖了大部分我们想要讨论的关键点。非常感谢。
-4. 英：We can pick up this again tomorrow.
-o 中：我们可以明天再继续这个话题。
- 会议的结构及对应话术 
-I - Introductions
-1. Opening the Meeting 宣布会议开始
-o 英：Good morning/afternoon, everyone. If we are all here, let&#x27;s get started / start the 
-meeting / start.
-o 中：大家早上好 / 下午好。如果人都到齐了，我们就开始吧。
-2. Welcoming and Introducing Participants 欢迎和介绍出席人员
-o 英：Please join me in welcoming (name of participant)
-o 中：请和我一起欢迎（参会者姓名）
-o 英：We&#x27;re pleased to welcome (name of participant)
-o 中：我们很高兴欢迎（参会者姓名）
-o 英：I&#x27;d like to extend a warm welcome to (name of participant)
-o 中：我向（参会者姓名）致以热烈的欢迎
-o 英：It&#x27;s a pleasure to welcome (name of participant)
-o 中：很高兴欢迎（参会者姓名）
-o 英：I&#x27;d like to introduce (name of participant)
-o 中：我想介绍一下（参会者姓名）
-3. Stating the Principal Objectives of a Meeting 阐明会议主要议题
-o 英：We&#x27;re here today to [主要目的，如 discuss the implementation of a new project 
-management system].
-o 中：我们今天在这里是为了 [主要目的，如讨论新项目管理系统的实施]。
-o 英：I&#x27;d like to make sure that we [确保达成的事项， 如 reach a consensus on the marketing 
-strategy].
-o 中：我想确保我们 [确保达成的事项，如就营销策略达成共识]。
-o 英：Our main aim today is to [主要目标，如 analyze the financial performance of the last 
-quarter].
-o 中：我们今天的主要目标是 [主要目标，如分析上一季度的财务表现]。
-o 英：I&#x27;ve called this meeting in order to [ 召开会议目的，如  address the issues of low 
-employee productivity].
-o 中：我召开这次会议是为了 [召开会议目的，如解决员工生产力低下的问题]。
-4. Giving Apologies for Someone Who is Absent 对缺席者表示遗憾
-o 英：I&#x27;m afraid.., (name of participant) can&#x27;t be with us today. She is in...
-o 中：恐怕……， （参会者姓名）今天不能和我们一起参会。她在……
-o 英：Unfortunately, (name of participant)... will not be with us today because he...
-o 中：很遗憾， （参会者姓名）今天不能出席，因为他……
-o 英：I have received apologies for absence from (name of participant), who is in (place).
-o 中：我已收到（参会者姓名）因缺席而表达的歉意，他在（某地） 。
-II - Reviewing Past Business
-1. Reading the Minutes (notes) of the Last Meeting 宣读上次会议记要
-o 英：To begin with I&#x27;d like to quickly go through the minutes of our last meeting.
-o 中：首先，我想快速浏览一下我们上次会议的记录。
-o 英：First, let&#x27;s go over the report from the last meeting, which was held on (date)
-o 中：首先，让我们回顾一下上次（日期）会议的报告。
-o 英：Here are the minutes from our last meeting, which was on (date)
-o 中：这是我们上次在（日期）开会的记录。
-2. Dealing with Recent Developments 询问近期动态
-o 英：Jack, can you tell us how the XYZ project is progressing?
-o 中：杰克，你能告诉我们 XYZ 项目进展得如何了吗？
-o 英：Jack, how is the XYZ project coming along?
-o 中：杰克，XYZ 项目进展得怎么样？
-o 英：John, have you completed the report on the new accounting package?
-o 中：约翰，关于新会计软件的报告你完成了吗？
-o 英：Has everyone received a copy of the Tate Foundation report on current marketing 
-trends?
-o 中：每个人都收到泰特基金会关于当前市场趋势的报告副本了吗？
-III - Beginning the Meeting
-1. Introducing the Agenda 介绍议程
-o 英：Have you all received a copy of the agenda?
-o 中：你们都收到议程的副本了吗？
-o 英：There are X items on the agenda. First,... second,... third,... lastly,...
-o 中：议程上有 X 项内容。首先…… 其次…… 第三…… 最后……
-o 英：Shall we take the points in this order?
-o 中：我们按这个顺序讨论要点好吗？
-o 英：If you don&#x27;t mind, I&#x27;d like to go in order today.
-o 中：如果你们不介意，我今天想按顺序进行。
-o 英：skip item 1 and move on to item 3
-o 中：跳过第 1 项，直接进入第 3 项
-o 英：I suggest we take item 2 last.
-o 中：我建议最后讨论第 2 项。
-2. Allocating Roles (secretary, participants) 分配秘书和出席者的会议角色
-o 英：(name of participant) has agreed to take the minutes.
-o 中：（参会者姓名）已同意做会议记录。
-o 英：(name of participant), would you mind taking the minutes?
-o 中：（参会者姓名） ，你介意做会议记录吗？
-o 英：(name of participant) has kindly agreed to give us a report on...
-o 中：（参会者姓名）已欣然同意给我们做关于…… 的报告。
-o 英：(name of participant) will lead point 1, (name of participant) point 2, and (name of 
-participant) point 3.
-o 中： （参会者姓名） 将引出第 1 点， （参会者姓名） 引出第 2 点， （参会者姓名） 引出第 3 点。
-o 英：(name of participant), would you mind taking notes today?
-o 中：（参会者姓名） ，你今天介意做笔记吗？
-3. Agreeing on the Ground Rules for the Meeting (contributions, timing, decision - 
-making, etc.) 就会议程序 (发言，时间，决策) 达成一致
-o 英：We will first hear a short report on each point first, followed by a discussion of...
-o 中：我们将首先听取关于每一点的简短报告，随后就…… 进行讨论。
-o 英：I suggest we go round the table first.
-o 中：我建议我们先依次发言。
-o 英：Let&#x27;s make sure we finish by...
-o 中：我们确保在…… 之前完成。
-o 英：I&#x27;d suggest we...
-o 中：我建议我们……
-o 英：There will be five minutes for each item.
-o 中：每一项有五分钟时间。
-o 英：We&#x27;ll have to keep each item to 15 minutes. Otherwise we&#x27;ll never get through.
-o 中：我们得把每一项的时间控制在 15 分钟内。否则我们无法完成所有议程。
-IV - Discussing Items
-1. Introducing the First Item on the Agenda 介绍第一项议题
-o 英：So, let&#x27;s start with...
-o 中：那么，我们从…… 开始。
-o 英：I&#x27;d suggest we start with...
-o 中：我建议我们从…… 开始。
-o 英：Why don&#x27;t we start with...
-o 中：我们为什么不从…… 开始呢？
-o 英：So, the first item on the agenda is...
-o 中：所以，议程上的第一项是……
-o 英：Pete, would you like to kick off?
-o 中：皮特，你愿意先开始吗？
-o 英：Shall we start with... (name of participant), would you like to introduce this item?
-o 中：我们从…… 开始好吗？（参会者姓名） ，你愿意介绍一下这个项目吗？
-2. Closing an Item 结束一个议题
-o 英：I think that takes care of the first item.
-o 中：我想第一项就讨论到这里了。
-o 英：Shall we leave that item?
-o 中：我们就讨论这一项可以吗？
-o 英：Why don&#x27;t we move on to...
-o 中：我们为什么不接着讨论……
-o 英：If nobody has anything else to add, lets...
-o 中：如果没有人有其他补充，那我们……
-3. Next Item 开始下一个议题
-o 英：Let&#x27;s move onto the next item
-o 中：我们讨论下一项议题吧。
-o 英：Now that we&#x27;ve discussed X, let&#x27;s now...
-o 中：既然我们已经讨论了 X，现在让我们……
-o 英：The next item on today&#x27;s agenda is...
-o 中：今天议程的下一项是……
-o 英：Now we come to the question of...
-o 中：现在我们来讨论…… 的问题。
-4. Giving Control to the Next Participant 请下一位出席者发言
-o 英：I&#x27;d like to hand over to (name of participant), who is going to lead the next point.
-o 中：我想把发言权交给（参会者姓名） ，他 / 她将引出下一个要点。
-o 英：Next, (name of participant) is going to take us through...
-o 中：接下来， （参会者姓名）将带领我们探讨……
-o 英：Now, I&#x27;d like to introduce (name of participant) who is going to...
-o 中：现在，我想介绍（参会者姓名） ，他 / 她将……
-V - Finishing the Meeting
-1. Summarizing 总结
-o 英：Before we close today&#x27;s meeting, let me just summarize the main points.
-o 中：在我们结束今天的会议之前，让我总结一下要点。
-o 英：Let me quickly go over today&#x27;s main points.
-o 中：让我快速回顾一下今天的要点。
-o 英：To sum up,...
-o 中：总之……
-o 英：OK, why don&#x27;t we quickly summarize what we&#x27;ve done today.
-o 中：好的，我们来快速总结一下今天所讨论的内容。
-o 英：In brief,...
-o 中：简而言之……
-o 英：Shall I go over the main points?
-o 中：我来回顾一下要点好吗？
-2. Finishing Up 结束今日议题
-o 英：Right, it looks as though we&#x27;ve covered the main items.
-o 中：好的，看起来我们已经讨论了主要的项目。
-o 英：If there are no other comments, I&#x27;d like to wrap this meeting up.
-o 中：如果没有其他意见，我想结束这次会议。
-o 英：Let&#x27;s bring this to a close for today.
-o 中：今天就到这里吧。
-o 英：Is there Any Other Business?
-o 中：还有其他事项吗？
-3. Suggesting and Agreeing on Time, Date and Place for the Next Meeting 建议和征询下
-一次会议时间，日期和地点
-o 英：Can we set the date for the next meeting, please?
-o 中：请问我们能确定下次会议的日期吗？
-o 英：So, the next meeting will be on... (day), the... (date) of... (month) at...
-o 中：那么，下次会议将在……（星期） ，……（月）……（日）……（具体时间）举行。
-o 英：Let&#x27;s next meet on... (day), the... (date) of... (month) at...
-o 中：我们下次在……（星期） ，……（月）……（日）……（具体时间）见面。
-o 英：What about the following Wednesday? How is that?
-o 中：下周三怎么样？这个时间合适吗？
-4. Thanking Participants for Attending 感谢出席人员
-o 英：I&#x27;d like to thank Marianne and Jeremy for coming over from London.
-o 中：我要感谢玛丽安和杰里米从伦敦赶来参会。
-o 英：Thank you all for attending.
-o 中：感谢大家出席会议。
-o 英：Thanks for your participation.
-o 中：感谢你们的参与。
-5. Closing the Meeting 宣布散会
-o 英：The meeting is finished, we&#x27;ll see each other next...
-o 中：会议结束了，我们下次…… 见。
-o 英：The meeting is closed.
-o 中：会议结束。
-o 英：I declare the meeting closed.
-o 中：我宣布会议结束。</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>拿下，全英线上会议稳啦！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 会议流程各阶段 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>开场白</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 欢迎和开场介绍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Welcome, everyone. Thank you for joining the meeting today to discuss/review [具体</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>事项，如 project progress, new marketing strategy 等].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：各位，欢迎大家。感谢你们今天参加会议，一同讨论 / 回顾 [具体事项，如项目进展、</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>新的营销策略等]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 总结议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The agenda for this meeting is, first [item1 具体内容，如 introduce new product </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>features], then [item 2 具体内容，如 analyze market feedback], lastly [item 3 具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如 discuss future plans].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：本次会议议程如下，首先 [事项 1 具体内容，如介绍新产品特性]，接着 [事项 2 具体</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>内容，如分析市场反馈]，最后 [事项 3 具体内容，如讨论未来计划]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 进入正题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Without further ado, let&#x27;s start with [item1 具体内容，如 the presentation of our new </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>product].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：事不宜迟，我们从 [事项 1 具体内容，如新产品展示] 开始吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议中</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 转场语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s move on to the next part.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们进入下一部分。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;m gonna pause here for any questions or concerns before continuing to the next </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>item.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在继续下一项之前，我在此停顿一下，看看大家是否有任何问题或疑虑。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Now we&#x27;ve come to the final item on the agenda.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：现在我们来到了议程的最后一项。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 切换主题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s move on to our next topic: [New Topic 具体内容， 如 potential market expansion </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>areas].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们进入下一个主题：[新主题具体内容，如潜在市场拓展区域]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Now, let&#x27;s discuss [Next Issue 具体内容，如 how to improve customer satisfaction]</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>and see how we can address it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：现在，我们来讨论 [下一个问题具体内容，如如何提高客户满意度]，看看如何解决。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Next up on the agenda is [New Topic 具体内容，如 budget allocation for the next </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>quarter].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：议程上的下一项是 [新主题具体内容，如下一季度预算分配]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Shall we proceed to the next topic? it&#x27;s [New Topic 具体内容，如  new business </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>partnerships].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们继续下一个主题好吗？是 [新主题具体内容，如新商业合作关系]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Alright, moving on to [Next Topic 具体内容，如 upcoming promotional activities].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好的，接下来是 [下一个主题具体内容，如即将开展的促销活动]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 打断某人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry to interrupt, but may I add something here?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉打断一下，我可以在这里补充点内容吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Excuse me, could I jump in for a moment?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：打扰一下，我能插句话吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I apologize for the interruption, but I think it&#x27;s important to mention [Point 具体要点，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如 a new competitor in the market].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：很抱歉打断，但是我认为提及 [要点具体内容，如市场中的新竞争对手] 很重要。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Can I quickly add something here?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我能快速补充一点吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Pardon the interruption, but I think this is relevant.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉打断，不过我觉得这个与此相关。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 让某人再说一遍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Could you please repeat that? I want to make sure I got it right.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您能重复一下吗？我想确认我理解正确。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I didn&#x27;t catch that, could you say it again, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我没听清，您能再说一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Would you mind repeating that for me?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您介意再重复一遍给我听吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry, I missed that. Could you repeat it, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，我没听到。您能重复一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Can you please go over that one more time?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您能再讲一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 表达观点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Personally, I believe [Your Viewpoint 具体观点，如 adopting a new technology will </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>boost our productivity] could be effective.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：就我个人而言，我认为 [你的观点具体内容，如采用新技术将提高我们的生产力] 可能</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会很有效。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I would suggest considering [Your Opinion 具体意见，如 launching a pilot project </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>first] as an option.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我建议考虑 [你的意见具体内容，如先开展一个试点项目] 作为一个选择。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：In my view, [Your Viewpoint 具体观点，如 we should focus on enhancing our brand </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>image] could address this issue well.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在我看来，[你的观点具体内容，如我们应该专注于提升品牌形象] 能很好地解决这个问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：From my perspective, we might want to look into [Your Opinion 具体意见，如  </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>exploring new distribution channels].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：以我的视角来看，我们或许要研究一下 [你的意见具体内容，如探索新的分销渠道]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I think [Your Viewpoint 具体观点， 如 our marketing campaign should target a younger </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>audience] might work better for us.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我认为 [你的观点具体内容，如我们的营销活动应针对更年轻的受众] 对我们来说可能</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>效果更好。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>6. 表达赞同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I completely agree with [Person&#x27;s Name].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我完全同意 [某人名字] 的观点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I second that opinion. It makes a lot of sense.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我附议这个观点。很有道理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：That sounds like a good approach to me.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在我看来这是个好方法。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;m on the same page as [Person&#x27;s Name].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我和 [某人名字] 看法一致。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Absolutely, I think that&#x27;s a great idea.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：绝对的，我觉得这是个很棒的主意。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>7. 表达反对</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I understand your point, but I see it differently.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我理解你的观点，但我有不同看法。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I appreciate your input, but I have some reservations.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢你的意见，但我有些保留意见。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I respect your opinion, but I think we should reconsider.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我尊重你的观点，但我认为我们应该重新考虑。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>结尾</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 总结与提问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：That&#x27;s all for today&#x27;s meeting. Does anyone have any questions or concerns before </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>we close the call? / Before we end, let me just summarize the three main points.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天的会议就到这里。在结束通话前，大家有任何问题或疑虑吗？/ 在结束之前，我来</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>总结一下三个要点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 时间原因结束</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：It looks like we&#x27;ve run out of time, so I guess we&#x27;ll finish here. For the uncovered topics, </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will schedule another meeting /follow up with [XXX 具体人员] offline to discuss them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：看起来时间不够了，所以我想我们就到此为止。对于未讨论的话题，我会安排另一次会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>议 / 线下与 [具体人员] 跟进讨论。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 议程完成结束</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I think we&#x27;ve covered everything on the agenda, and I will give [X 具体分钟数] minutes </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>back to everyone.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想我们已经涵盖了议程上的所有内容，我会给大家 [具体分钟数] 的自由时间。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 致谢</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Again, I want to thank you all for taking time out of your busy schedules to be here </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：再次感谢大家从百忙之中抽出时间参加今天的会议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 特殊情况 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>小插曲</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 中途离开</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I need to drop off the call now.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我现在需要退出会议了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 网断了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：My call was cut off.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我的通话中断了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>没听懂时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 请对方重述</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Excuse me, your voice was breaking up and I don&#x27;t think I heard you clearly. Could </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>you please repeat that?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：打扰一下，您的声音断断续续，我没听清。您能重复一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 请对方进一步解释</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;m sorry, I don&#x27;t quite follow this / I&#x27;m not sure I understand what you mean by [XXX </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>具体内容]. Could you please elaborate on this point?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，我不太明白这个 / 我不确定我理解您说的 [具体内容] 是什么意思。您能详细阐</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>述一下这一点吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>网络问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 声音断续</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry, you&#x27;re breaking up. Could you repeat that?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，您的声音断断续续。您能重复一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 信号不好听不到</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry, your line is breaking. We lost you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，您的信号不好，我们听不到您说话了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 没开声音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry, I was on mute. What did you say?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，我刚才静音了。您说什么？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 对方卡住</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：You&#x27;re frozen.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您卡住了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 各环节沟通 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>开会前</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 确认声音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Can everyone hear me okay?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家都能听清我说话吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 确认人员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Do we have [名字 / 团队名] on the call? [XX 具体团队或人员] 都到了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：[名字 / 团队名] 在通话中吗？[XX 具体团队或人员] 都到了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 询问是否等人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Who else do we have on the call? （没有我们就开始吧）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：还有谁没进会议？（没有我们就开始吧）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>共享屏幕</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 告知共享</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;m going to share my screen now.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我现在要共享屏幕了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 请求共享</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let me share my screen with you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：让我和你们共享我的屏幕。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 发送文稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let me send you the presentation slides.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：让我给你们发送演示文稿幻灯片。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议开始时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 开场 + 自我介绍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Hi everyone, thank you all for coming. I&#x27;m [Your Name] from the [Your Department].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家好，感谢各位的到来。我是 [你的名字]，来自 [你的部门]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Good morning everyone, I&#x27;m [Your Name]. It&#x27;s great to meet you all.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家早上好，我是 [你的名字]。很高兴见到大家。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Hello team, I&#x27;m [Your Name]. I&#x27;m excited to be here and look forward to our discussion </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>on [Meeting Topic 具体主题，如 new product launch plan].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：团队的伙伴们，大家好，我是 [你的名字]。很高兴来到这里，期待我们关于 [会议主题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>具体内容，如新产品发布计划] 的讨论。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Hi all, I&#x27;m [Your Name], new in the [Department]. Glad to have this opportunity to </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>meet you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家好，我是 [你的名字]，刚加入 [部门]。很高兴有这个机会认识大家。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Good afternoon everyone, thank you for being here. My name is [Your Name] and </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m part of the [Your Department].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家下午好，感谢你们的参与。我是 [你的名字]，来自 [你的部门]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 介绍他人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to introduce [Person&#x27;s Name] from the [Department]. They have some great </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>insights to share.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想介绍一下来自 [部门] 的 [某人名字]。他们有一些很棒的见解要分享。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Please welcome [Person&#x27;s Name], our expert in [Topic 具体话题， 如 digital marketing].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请欢迎 [某人名字]，我们 [具体话题，如数字营销] 方面的专家。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let me introduce [Person&#x27;s Name], who will be leading the next discussion.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：让我介绍一下 [某人名字]，他 / 她将主持接下来的讨论。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Here&#x27;s [Person&#x27;s Name] from the [Department] to share their thoughts.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：这是来自 [部门] 的 [某人名字]，来分享他们的想法。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：[Person&#x27;s Name] will now present on [Topic 具体主题，如 market analysis]. Please </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>give them your full attention.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：[某人名字] 现在将介绍 [具体主题，如市场分析]。请大家认真聆听。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 介绍会议目的 + 议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Today, we&#x27;re here to discuss [Meeting Purpose 具体目的，如 how to increase sales </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>in the next quarter]. Our agenda includes [item 1 具体内容，如 review current sales </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>strategies], [Item 2 具体内容，如 explore new market segments], and [item 3 具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如 plan promotional activities].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天，我们在这里讨论 [会议目的具体内容，如下一季度如何提高销售额]。我们的议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>包括 [事项 1 具体内容， 如回顾当前销售策略]，[事项 2 具体内容， 如探索新的细分市场]，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>以及 [事项 3 具体内容，如策划促销活动]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Our goal for today is to [Goal 具体目标， 如 finalize the project plan]. We’ll be covering </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[item A 具体内容，如 project timeline], [item B 具体内容，如 resource allocation], and </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[item C 具体内容，如 risk assessment].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 我们今天的目标是 [目标具体内容， 如确定项目计划]。 我们将讨论 [事项 A 具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如项目时间安排]，[事项 B 具体内容， 如资源分配]，以 及 [事项 C 具体内容， 如风险评估]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：We have an important meeting today on [Meeting Topic 具体主题，如 company - </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>wide restructuring]. The agenda is as follows: [Item 1 具体内容，如 reasons for </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>restructuring], [item 2 具体内容，如 proposed changes], [item 3 具体内容，如 expected </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>impact].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 今天我们有一个重要会议， 讨论 [会议主题具体内容， 如全公司范围的重组]。 议程如下：</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[事项 1 具体内容，如重组原因]，[事项 2 具体内容，如提议的变革]，[事项 3 具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如预期影响]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The purpose of today&#x27;s meeting is to discuss [Meeting Purpose 具体目的，如  </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>improving internal communication]. We’ll go through [Item A 具体内容，如  current </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>communication channels], [item B 具体内容，如 problems and challenges], and [item C </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>具体内容，如 proposed solutions].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 今天会议的目的是讨论 [会议目的具体内容， 如改善内部沟通]。 我们将探讨 [事项 A 具</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>体内容，如当前沟通渠道]，[事项 B 具体内容，如问题与挑战]，以及 [事项 C 具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如提议的解决方案]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Our main focus today is [Meeting Topic 具体主题，如 new product development]. </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The agenda includes the following points: [Item 1 具体内容，如 product concept], [item </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2 具体内容，如 design requirements], [item 3 具体内容，如 development timeline].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 我们今天的主要关注点是 [会议主题具体内容， 如新产品开发]。 议程包括以下几点：[事</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>项 1 具体内容，如产品概念]，[事项 2 具体内容，如设计要求]，[事项 3 具体内容，如开</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>发时间线]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 全英主持线上会议常用表达 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>学会前 small talk 阶段</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Morning [xxx 具体人名], how are you doing today? all good thanks.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：早上好 [具体人名]，你今天好吗？谢谢，一切都好。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Did everyone have a good weekend?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家周末过得好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议开始阶段</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 人没到齐时的礼貌开场（续）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I see we have a lot of people on the call already. Let&#x27;s just give it a minute for anybody </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>who’s joining late.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我看到已经有很多人接入会议了。我们稍微等一分钟，等等迟到的同事。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 人齐了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：All right since everyone is here, let&#x27;s get started.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好啦，既然大家都到齐了，我们开始吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Looks like we have everybody here, so let’s kick it off.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：看起来所有人都到了，那我们开始吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 自我介绍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let’s do a quick round of introduction. I will start with myself. I&#x27;m [xxx], based in [xxx]. </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve been involved in [xxx project] since [具体时间].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 我们快速地轮流做下自我介绍吧。 我先来， 我是 [姓名]，在 [地点] 工作， 从 [具体时间] </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>开始参与 [项目名称]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 会议流程介绍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Before we begin, I’d like you all to take a look at the agenda with me.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在开始之前，我希望大家和我一起看一下议程。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Today&#x27;s meeting is about [具体内容，如 discussing the progress of the marketing </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>campaign]. We will talk about [具体事项 1，如 the effectiveness of the recent promotions], </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[具体事项 2，如 customer feedback received], and [ 具体事项 3，如 future marketing </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>plans].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天的会议主要是关于 [具体内容， 如讨论营销活动的进展]。 我们将讨论 [具体事项 1，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如近期促销活动的效果]、[具体事项 2， 如收到的客户反馈] 以及 [具体事项 3， 如未来的营</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>销计划]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The purpose of today&#x27;s meeting is [目的，如 to make a decision on the new product </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>packaging].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天会议的目的是 [目的，如就新产品包装做出决策]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 转话题 / 切换下一个环节时的承上启下句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The first item on the agenda is [xxx，具体事项，如 market research findings].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：议程上的第一项是 [具体事项，如市场调研结果]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：In terms of [xxx，具体方面，如 product features], we need to discuss how to improve </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：说到 [具体方面，如产品特性]，我们需要讨论如何改进它们。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：If nobody has anything else to add, let&#x27;s move on to the next part [xxx ，具体内容，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如 competitor analysis].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：如果没人有其他补充，我们进入下一部分 [具体内容，如竞争对手分析]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会上互动环节</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 表达感谢</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Thank you for joining us /thank you for your time. (谢谢接我话茬)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢您的参与 / 感谢您抽出时间。(谢谢接我话茬)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 表达认同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I think we&#x27;re on the same page.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想我们意见一致。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sounds great!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：听起来很棒！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：That’s a good point. I&#x27;m glad you brought it up.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：这是个好观点。很高兴你提出来了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I see exactly what you mean.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我完全明白你的意思。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Couldn&#x27;t agree anymore.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：完全同意。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：That&#x27;s just how I see it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我就是这么看的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 友情提示提问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Feel free to ask me if you have any questions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：如果你们有任何问题，请随时问我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 不得不打断对方时的礼貌用语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry to interrupt, but just a quick question.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉打断一下，就一个小问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Excuse me, can I just interrupt real quick?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：打扰一下，我能快速打断一下吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 面对对方网络不佳的情况</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Hey [xx，具体人名], I think you were breaking up a little bit, do you mind saying that </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>again?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：嘿，[具体人名]，我觉得你刚才声音有点断断续续，你介意再说一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>6. 不小心与别人同时开麦</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry, please go ahead. go on /after you /you go first.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，请继续。你先说 / 你请 / 你先来。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>7. 需切换发言人时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to hand over to [xxx，具体人名], who is going to lead the next point.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想把发言机会交给 [具体人名]，他 / 她将引出下一个要点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>8. 一些增强互动感的小语气词</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Outstanding!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：出色！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Wonderful!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：精彩！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Absolutely!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：绝对！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Definitely!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：肯定！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：That’s great!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：那太棒了！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Excellent!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：优秀！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sure!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：当然！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>9. 共享屏幕操作的同时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Hold on one second /just give me a minute. I&#x27;m going to share my screen.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：稍等一秒 / 稍等我一下。我要共享我的屏幕了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Can everyone see my screen ok?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家都能清楚看到我的屏幕吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>尴尬救场指南</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 没听懂</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Could you say it again please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请您再说一遍好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Could you please have some more details?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您能说得再详细一些吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Would you mind going over that again pls?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：您介意再讲一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 对方卡住了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry I think you&#x27;ve frozen.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，我想你卡住了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：You just got cut off, Would you mind repeating that again?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你刚刚掉线了，你介意再重复一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：oh I guess we lost [xxx，具体人名], let&#x27;s move on.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：哦，我想我们和 [具体人名] 断开连接了，我们继续吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 自己卡住了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Sorry I was having connection issues. How about now? Can you hear me okay?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，我刚刚网络连接有问题。现在怎么样？你们能听清我说话吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 应对没有人搭话的 awkward silence</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：feel free to unmute your mic and tell us what you think.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请随意打开麦克风，告诉我们你的想法。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 被问住了别担心</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Great questions! I need to discuss this with my teammates and I will get back to you </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>later.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好问题！我需要和我的团队成员讨论一下，稍后回复你。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议圆满结束</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 释放结束信号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I guess that will be all for today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想今天的会议就到此为止。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：All right, I think we got everything we wanted to cover today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好啦，我觉得我们已经讨论完了今天想讨论的所有内容。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 确认大家是否有问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Well before we wrap up the meeting today, are there any questions or concerns?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在我们结束今天的会议之前，大家有任何问题或疑虑吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 画大饼环节不可少</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：So in closing, I just have a lot of remarks... and so many thanks to [xxx and xxx，具体</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>人名]. We are well underway on [xxx， 具体成果， 如 the new product development]. We&#x27;ve </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>achieved [列举成果，如 the completion of the initial design and the start of the prototype </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>building].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：所以最后，我有很多话想说…… 非常感谢 [具体人名]。我们在 [具体成果，如新产品开</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>发] 方面进展顺利。我们已经取得了 [列举成果，如完成了初步设计并开始制作原型]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 礼貌用语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Thank you everyone for your valuable and insightful input today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢大家今天提出的宝贵且有见地的意见。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Thank you so much for joining us today / Have a good day.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：非常感谢大家今天的参与 / 祝大家有美好的一天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 准备相关 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议准备要点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Set and share the agenda 准备会议议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Please find the agenda for Tuesday&#x27;s 10 o&#x27;clock meeting attached. In sharing it now, </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I expect everyone to come to the meeting prepared and I anticipate a more successful </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>outcome.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请查收附件中周二上午 10 点会议的议程。现在分享给大家，希望每个人都能做好参会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>准备，我期待会议能取得更圆满的成果。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Prepare your key points 准备会议要点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What updates do I need to provide?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我需要提供哪些最新情况？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What are the key details?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：关键细节有哪些？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What ideas or questions do I want to bring up?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想提出哪些想法或问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What issues do I want to discuss and resolve?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我希望讨论并解决哪些问题？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Why are these important?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：为什么这些很重要？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What challenges am I facing or what do I need a decision on?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我面临哪些挑战，或者我需要在哪方面做出决策？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Who do I need to thank or acknowledge?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我需要感谢或认可谁？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. Determine and communicate the purpose 确定并沟通会议目的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What&#x27;s the specific outcome you want from the meeting. You need to clarify this and </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>that will ensure the primary goal is achieved.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你期望从会议中得到什么具体成果。你需要明确这一点，以确保主要目标得以实现。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. open the meeting and initial updates. 会议开场</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 开场问候</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：starting with a greeting: good morning /afternoon</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：以问候开场：早上好 / 下午好</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 宣布开始</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：now that everyone is here. Let&#x27;s get started. I&#x27;d like to get started and welcome </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>all of you to the meeting today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：既然大家都到齐了。我们开始吧。我想开始并欢迎大家参加今天的会议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 自我介绍（如有需要）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：*(if needed) introduction: before we dive into the agenda, let&#x27;s go around room </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>and introduce ourselves quickly. Please share your name and your position. / I </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>know most of you here but I do see a few unfamiliar faces so let&#x27;s do a quick round </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>of introductions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：*（如有需要）自我介绍：在深入讨论议程之前，我们快速地轮流自我介绍一下</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>吧。 请说出你的名字和职位。/ 我认识这里的大多数人， 但我确实看到了一些新面孔，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>所以我们快速地做一轮自我介绍。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 沟通会议目标</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：purpose: as a quick reminder, our goal for this meeting today is… /by the end </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>of this meeting today, we should have a decision on… we have a few items on the </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>agenda to discuss today. The first is… the second is. The third is..</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： 会议目标： 快速提醒一下， 我们今天会议的目标是……/ 在今天会议结束时， 我们</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>应该就…… 做出决定。我们今天有几个议程项目要讨论。第一个是…… 第二个是…… </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>第三个是……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. Model active listening skills 积极倾听</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Most important thing is eye contact.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：最重要的是眼神交流（线上会议可理解为专注倾听） 。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>small talk </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>寒暄问候</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Hi there! I don’t think we’ve met before - I’m [Your Name]. It’s great to finally connect!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：嗨！我觉得我们之前没见过面，我是 [你的名字]。终于能联系上，真是太棒了！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Hello! I’ve heard a lot about you, but we haven’t had the chance to meet yet. I’m [Your Name]. </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How’s everything going?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你好！久闻大名，但一直没机会见面。我是 [你的名字]。一切都还好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Hey! It’s nice to meet you. I’m [Your Name], and I’ve been looking forward to working with </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：嘿！很高兴认识你。我是 [你的名字]，一直期待着能和你一起工作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Hi! I’m [Your Name]. I believe this is our first time meeting, right?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：嗨！我是 [你的名字]。我想这是我们第一次见面，对吧？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：Hello! I’m [Your Name]. It’s great to finally put a face to the name.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你好！我是 [你的名字]。终于能对上号了，真好。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>6. 英：Where are you joining the meeting from today?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你今天是从哪里接入会议的呀？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>7. 英：Is this your first time working with our team? How has it been so far?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：这是你第一次和我们团队合作吗？到目前为止感觉怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>8. 英：How long have you been with [Company Name]? I’ve heard great things about the work you </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>do.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你在 [公司名称] 工作多久了？我听说你工作干得很出色。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>工作学习</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Are you working on any new skills or training?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你最近在学习新技能或者参加培训吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Did you learn anything new lately that really interested you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你最近有没有学到什么让你特别感兴趣的新东西？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Any interesting books or articles you’ve read recently?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你最近有没有读过什么有趣的书籍或文章？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：How are you staying productive these days?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你最近是怎么保持高效工作的呢？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：Have you been attending any online webinars or courses?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你最近有没有参加什么在线研讨会或课程？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>当地情况</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：I heard there’s a new restaurant that just opened near your office. Have you checked it out?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我听说你办公室附近新开了一家餐厅。你去试过了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：I saw online that your city just had a big event. Did you go?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我在网上看到你所在的城市刚举办了一场大型活动。你去参加了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：How’s traffic in your area these days?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你们那儿最近交通状况怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Any good events or things happening in your city?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你所在的城市最近有没有什么好玩的活动或者新鲜事儿？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：What’s the food scene like in your area?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你们那儿的美食氛围怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>天气</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：How&#x27;s the weather over there?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你那边天气怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：It’s been really hot/cold here. How about where you are?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我这边天气特别热 / 冷。你那边呢？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Looks like it&#x27;s going to rain soon here. Any chance of that on your end?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我这边看起来马上要下雨了。你那边呢，会下雨吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Is it still really hot/cold where you are?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你那边还是特别热 / 冷吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：We had a huge storm last night. How about you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们昨晚遭遇了一场大暴雨。你们那边呢？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>周末假期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Did you do anything fun over the weekend?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你周末有没有做什么有趣的事？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Any exciting plans for the weekend?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：周末有什么令人兴奋的计划吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：How was your weekend? Did you get to relax?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你周末过得怎么样？有没有好好放松一下？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Have you got any plans for the upcoming holiday?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：即将到来的假期你有什么计划吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：Did you go anywhere special for your last vacation?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你上次假期有没有去什么特别的地方？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 线上英文会议常用表达 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议开场</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Welcome everyone, today&#x27;s meeting is about [ 具体会议主题，如 exploring new business </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>opportunities in Asia].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：欢迎各位，今天的会议主题是 [具体会议主题，如探索亚洲地区新的商业机会]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Welcome, everyone. This is our agenda.../ The purpose of today&#x27;s meeting is to [ 具体目的，</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如 finalize the budget for the next fiscal year].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家好。这是我们今天的议程……/ 今天会议的目的是 [具体目的，如下一财年预算的最</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>终确定]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Today&#x27;s meeting is going to last no more than two hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天的会议将不会超过两小时。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Thanks everyone for attending this meeting. It&#x27;s really good to talk to you. / It&#x27;s really good </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>to see you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢大家参加本次会议。很高兴与你们交流。/ 很高兴见到你们。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：Welcome to today&#x27;s meeting. There are the issues that we want to talk about [具体问题，如 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>production delays and quality control].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：欢迎参加今天的会议。我们要讨论的问题有 [具体问题，如生产延误与质量控制]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>6. 英：Let&#x27;s kick off the meeting with... (a brief rundown of the last meeting)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：让我们以…… 开始会议（简要回顾上次会议内容）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>分享屏幕</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Please let me know when you can see my screen.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：当你能看到我的屏幕时，请告诉我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Can I share my screen with you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我可以分享我的屏幕吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：I&#x27;m going to share my screen with you now.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：现在我要与你们分享我的屏幕。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Can you see my screen? / Can you see my screen clearly now?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你能看到我的屏幕吗？/ 现在你能清楚地看到我的屏幕吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议打断 / 提问</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Sorry, just had a quick question....</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，有个小问题……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Sorry, just to clarify.....</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉，确认一下……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Sorry to interrupt you, I was wondering....</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：抱歉打断你，我想知道……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Could you mind if I jumped in there, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请问你介意我插句话吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：Can I stop you there quickly /for just one minute?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我能快速打断你一下 / 耽误你一分钟吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让某人重复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：Can you repeat that please? I&#x27;m afraid I didn&#x27;t quite understand that.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你能重复一下吗？恐怕我不太明白。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Could you say it one more time, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你能再说一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：I missed that. Could you say it again, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我没听到。请你再说一遍好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：Can you repeat what you just said?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你能重复一下你刚才说的话吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：I&#x27;m sorry, would you mind repeating that again?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：对不起，你介意再说一遍吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>听不清 / 连接中断</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：I&#x27;m having problems hearing you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我听不清你说话。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Your screen is blank.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你的屏幕是空白的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：Your image and sound are out of sync.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你的图像和声音不同步。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：You&#x27;re breaking up a little bit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你的声音有点断断续续的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. 英：My connection has broken.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我的网络连接断了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>征求建议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：How do you feel about...?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你觉得…… 怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：Are you positive that...?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你确定…… 吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：What do you think about...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你认为…… 怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：What are your views on...?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你对…… 有什么看法？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>会议总结</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. 英：In summary, we&#x27;re going to [总结接下来的行动， 如 launch the new product in Q2 and conduct </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>a market survey].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：总结一下，我们将 [总结接下来的行动，如在第二季度推出新产品并进行市场调研]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. 英：I think this is a good place to stop / end. We can pick up again next day.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我认为这是一个适合停止 / 结束的节点。我们可以明天再继续。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. 英：We&#x27;ve covered most of the key points that we wanted to cover. Thank you very much.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们已经涵盖了大部分我们想要讨论的关键点。非常感谢。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. 英：We can pick up this again tomorrow.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们可以明天再继续这个话题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> 会议的结构及对应话术 </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I - Introductions</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Opening the Meeting 宣布会议开始</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Good morning/afternoon, everyone. If we are all here, let&#x27;s get started / start the </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>meeting / start.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：大家早上好 / 下午好。如果人都到齐了，我们就开始吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Welcoming and Introducing Participants 欢迎和介绍出席人员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Please join me in welcoming (name of participant)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请和我一起欢迎（参会者姓名）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：We&#x27;re pleased to welcome (name of participant)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们很高兴欢迎（参会者姓名）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to extend a warm welcome to (name of participant)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我向（参会者姓名）致以热烈的欢迎</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：It&#x27;s a pleasure to welcome (name of participant)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：很高兴欢迎（参会者姓名）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to introduce (name of participant)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想介绍一下（参会者姓名）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. Stating the Principal Objectives of a Meeting 阐明会议主要议题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：We&#x27;re here today to [主要目的，如 discuss the implementation of a new project </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>management system].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们今天在这里是为了 [主要目的，如讨论新项目管理系统的实施]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to make sure that we [确保达成的事项， 如 reach a consensus on the marketing </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>strategy].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想确保我们 [确保达成的事项，如就营销策略达成共识]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Our main aim today is to [主要目标，如 analyze the financial performance of the last </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>quarter].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们今天的主要目标是 [主要目标，如分析上一季度的财务表现]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;ve called this meeting in order to [ 召开会议目的，如  address the issues of low </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>employee productivity].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我召开这次会议是为了 [召开会议目的，如解决员工生产力低下的问题]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. Giving Apologies for Someone Who is Absent 对缺席者表示遗憾</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;m afraid.., (name of participant) can&#x27;t be with us today. She is in...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：恐怕……， （参会者姓名）今天不能和我们一起参会。她在……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Unfortunately, (name of participant)... will not be with us today because he...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：很遗憾， （参会者姓名）今天不能出席，因为他……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I have received apologies for absence from (name of participant), who is in (place).</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我已收到（参会者姓名）因缺席而表达的歉意，他在（某地） 。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>II - Reviewing Past Business</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Reading the Minutes (notes) of the Last Meeting 宣读上次会议记要</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：To begin with I&#x27;d like to quickly go through the minutes of our last meeting.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：首先，我想快速浏览一下我们上次会议的记录。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：First, let&#x27;s go over the report from the last meeting, which was held on (date)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：首先，让我们回顾一下上次（日期）会议的报告。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Here are the minutes from our last meeting, which was on (date)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：这是我们上次在（日期）开会的记录。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Dealing with Recent Developments 询问近期动态</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Jack, can you tell us how the XYZ project is progressing?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：杰克，你能告诉我们 XYZ 项目进展得如何了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Jack, how is the XYZ project coming along?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：杰克，XYZ 项目进展得怎么样？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：John, have you completed the report on the new accounting package?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：约翰，关于新会计软件的报告你完成了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Has everyone received a copy of the Tate Foundation report on current marketing </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>trends?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：每个人都收到泰特基金会关于当前市场趋势的报告副本了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>III - Beginning the Meeting</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Introducing the Agenda 介绍议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Have you all received a copy of the agenda?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：你们都收到议程的副本了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：There are X items on the agenda. First,... second,... third,... lastly,...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：议程上有 X 项内容。首先…… 其次…… 第三…… 最后……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Shall we take the points in this order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们按这个顺序讨论要点好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：If you don&#x27;t mind, I&#x27;d like to go in order today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：如果你们不介意，我今天想按顺序进行。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：skip item 1 and move on to item 3</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：跳过第 1 项，直接进入第 3 项</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I suggest we take item 2 last.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我建议最后讨论第 2 项。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Allocating Roles (secretary, participants) 分配秘书和出席者的会议角色</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：(name of participant) has agreed to take the minutes.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：（参会者姓名）已同意做会议记录。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：(name of participant), would you mind taking the minutes?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：（参会者姓名） ，你介意做会议记录吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：(name of participant) has kindly agreed to give us a report on...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：（参会者姓名）已欣然同意给我们做关于…… 的报告。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：(name of participant) will lead point 1, (name of participant) point 2, and (name of </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>participant) point 3.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中： （参会者姓名） 将引出第 1 点， （参会者姓名） 引出第 2 点， （参会者姓名） 引出第 3 点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：(name of participant), would you mind taking notes today?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：（参会者姓名） ，你今天介意做笔记吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. Agreeing on the Ground Rules for the Meeting (contributions, timing, decision - </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>making, etc.) 就会议程序 (发言，时间，决策) 达成一致</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：We will first hear a short report on each point first, followed by a discussion of...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们将首先听取关于每一点的简短报告，随后就…… 进行讨论。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I suggest we go round the table first.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我建议我们先依次发言。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s make sure we finish by...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们确保在…… 之前完成。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d suggest we...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我建议我们……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：There will be five minutes for each item.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：每一项有五分钟时间。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：We&#x27;ll have to keep each item to 15 minutes. Otherwise we&#x27;ll never get through.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们得把每一项的时间控制在 15 分钟内。否则我们无法完成所有议程。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IV - Discussing Items</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Introducing the First Item on the Agenda 介绍第一项议题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：So, let&#x27;s start with...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：那么，我们从…… 开始。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d suggest we start with...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我建议我们从…… 开始。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Why don&#x27;t we start with...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们为什么不从…… 开始呢？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：So, the first item on the agenda is...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：所以，议程上的第一项是……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Pete, would you like to kick off?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：皮特，你愿意先开始吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Shall we start with... (name of participant), would you like to introduce this item?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们从…… 开始好吗？（参会者姓名） ，你愿意介绍一下这个项目吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Closing an Item 结束一个议题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I think that takes care of the first item.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想第一项就讨论到这里了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Shall we leave that item?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们就讨论这一项可以吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Why don&#x27;t we move on to...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们为什么不接着讨论……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：If nobody has anything else to add, lets...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：如果没有人有其他补充，那我们……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. Next Item 开始下一个议题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s move onto the next item</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们讨论下一项议题吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Now that we&#x27;ve discussed X, let&#x27;s now...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：既然我们已经讨论了 X，现在让我们……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The next item on today&#x27;s agenda is...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天议程的下一项是……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Now we come to the question of...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：现在我们来讨论…… 的问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. Giving Control to the Next Participant 请下一位出席者发言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to hand over to (name of participant), who is going to lead the next point.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我想把发言权交给（参会者姓名） ，他 / 她将引出下一个要点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Next, (name of participant) is going to take us through...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：接下来， （参会者姓名）将带领我们探讨……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Now, I&#x27;d like to introduce (name of participant) who is going to...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：现在，我想介绍（参会者姓名） ，他 / 她将……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>V - Finishing the Meeting</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. Summarizing 总结</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Before we close today&#x27;s meeting, let me just summarize the main points.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：在我们结束今天的会议之前，让我总结一下要点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let me quickly go over today&#x27;s main points.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：让我快速回顾一下今天的要点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：To sum up,...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：总之……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：OK, why don&#x27;t we quickly summarize what we&#x27;ve done today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好的，我们来快速总结一下今天所讨论的内容。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：In brief,...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：简而言之……</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Shall I go over the main points?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我来回顾一下要点好吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2. Finishing Up 结束今日议题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Right, it looks as though we&#x27;ve covered the main items.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：好的，看起来我们已经讨论了主要的项目。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：If there are no other comments, I&#x27;d like to wrap this meeting up.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：如果没有其他意见，我想结束这次会议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s bring this to a close for today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：今天就到这里吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Is there Any Other Business?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：还有其他事项吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3. Suggesting and Agreeing on Time, Date and Place for the Next Meeting 建议和征询下</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一次会议时间，日期和地点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Can we set the date for the next meeting, please?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：请问我们能确定下次会议的日期吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：So, the next meeting will be on... (day), the... (date) of... (month) at...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：那么，下次会议将在……（星期） ，……（月）……（日）……（具体时间）举行。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Let&#x27;s next meet on... (day), the... (date) of... (month) at...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我们下次在……（星期） ，……（月）……（日）……（具体时间）见面。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：What about the following Wednesday? How is that?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：下周三怎么样？这个时间合适吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. Thanking Participants for Attending 感谢出席人员</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I&#x27;d like to thank Marianne and Jeremy for coming over from London.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我要感谢玛丽安和杰里米从伦敦赶来参会。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Thank you all for attending.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢大家出席会议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：Thanks for your participation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：感谢你们的参与。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. Closing the Meeting 宣布散会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The meeting is finished, we&#x27;ll see each other next...</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：会议结束了，我们下次…… 见。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：The meeting is closed.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：会议结束。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 英：I declare the meeting closed.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>o 中：我宣布会议结束。</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="全英线上会议500句白";
@@ -1019,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,125 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">Master these 1,200 sentences - conquer any conversation!
-背熟这1200句
-口语交流没问题
-日常问候与寒暄
-1. ➡ Hello! Allow me to introduce myself.（你好！请允许我自我介绍。） ↪ Hi, nice to meet you!（嗨，很高兴认识你！）
-➡ Hey there! How&#x27;s it going?（嘿！最近怎么样？）
-↪ Pretty good, thanks. How about you?（挺好的，谢谢。你呢？）
-1/94
-➡ Hey, stranger! Long time no see!（嘿，好久不见！）
-↪ Yeah, it&#x27;s been ages! How have you been?（是啊，好久了！你最近还好吗？）
-4. ➡ Hi, nice to see you again!（嗨，很高兴再次见到你！） ↪ Nice to see you too!（我也很高兴见到你！）
-5. ➡ Howdy! How&#x27;s everything going?（你好！一切都好吗？） 
-↪ Everything&#x27;s going well. Thanks for asking.（一切都很顺利。谢谢关心。）
-➡ Long time, no chat! How have you been?（好久没聊了！你最近怎样？） 
- ↪ I&#x27;ve been busy with work, but overall good.（一直在忙工作，但总体还 好。）
-7. ➡ Glad to meet you!（很高兴认识你！） 
-↪ Glad to meet you too!（我也很高兴认识你！）
-8. ➡ Pleased to meet you.（很高兴认识你。） 
-↪ Pleased to meet you as well.（我也很高兴认识你。）
-9. ➡ This is my friend, [Name].（这是我的朋友，[名字]。） ↪ Nice to meet you, [Name]!（很高兴认识你，[名字]！）
-10. ➡ What&#x27;s up? How have you been?（最近有什么新鲜事吗？你怎么样？） ↪ Not much, just keeping busy.（没什么特别的，就是一直在忙。）
-11. ➡ Good morning! Did you sleep well?（早上好！睡得好吗？） ↪ Yes, thanks. And you?（挺好的，谢谢。你呢？）
-12. ➡ Evening! How was your day?（晚上好！今天过得怎么样？） ↪ It was okay. A bit tiring.（还行，有点累。）
-2/94
-13. ➡ Fancy meeting you here!（真没想到在这儿碰到你！） ↪ What a coincidence!（太巧了！）
-14. ➡ How&#x27;s life treating you lately?（最近生活怎么样？） ↪ Not bad. Can&#x27;t complain.（还不错，没什么可抱怨的。）
-15. ➡ You look great today!（你今天看起来气色很好！） ↪ Thanks, you too!（谢谢，你也是！）
-16. ➡ Did you have a good weekend?（周末过得好吗？） ↪ Yes, it was relaxing.（挺好的，很放松。）
-17. ➡ What have you been up to?（最近在忙什么？） 
-↪ Just work and some chores.（就是工作和一些杂事。）
-18. ➡ Is this your first time here?（这是你第一次来这儿吗？） ↪ No, I&#x27;ve been here a few times.（不是，我来过几次了。）
-19. ➡ How do you like the weather today?（你觉得今天天气怎么样？） ↪ It&#x27;s perfect for a walk.（很适合散步。）
-➡ I haven&#x27;t seen you around lately.（最近没怎么见到你。） ↪ I&#x27;ve been traveling a lot.（我一直在出差。）
-➡ Hi, are you new here?（嗨，你是新来的吗？）
-↪ Yes, I just moved in last week.（是的，我上周刚搬来。）
-➡ How&#x27;s your family doing?（你家人都好吗？） ↪ They&#x27;re all fine, thanks.（他们都很好，谢谢。）
-➡ What&#x27;s the best part of your day?（你今天最开心的事是什么？） ↪ Having coffee with a friend.（和朋友喝了咖啡。）
-3/94
-➡ Do you have any plans for tonight?（今晚有什么计划吗？） ↪ Not yet. Maybe watch a movie.（还没，可能看场电影。）
-➡ It&#x27;s good to see you back!（很高兴看到你回来！） ↪ Thanks, it&#x27;s good to be back.（谢谢，回来真好。）
-➡ How was your trip?（旅行怎么样？）
-↪ It was amazing. I had a great time.（太棒了，我玩得很开心。）
-27. ➡ What&#x27;s new with you?（你有什么新鲜事吗？） ↪ I started a new hobby.（我培养了一个新爱好。）
-➡ Are you busy right now?（你现在忙吗？） ↪ Not really. What&#x27;s up?（不太忙，怎么了？）
-➡ Did you hear the news?（你听说那个消息了吗？） ↪ No, what happened?（没有，发生什么了？）
-➡ How&#x27;s your project going?（你的项目进展怎么样？） ↪ It&#x27;s going well, thanks.（挺顺利的，谢谢。）
-31. ➡ Morning! Want to grab coffee?（早上好！去喝杯咖啡吗？） ↪ Sure, that sounds good.（好啊，听起来不错。）
-➡ What do you think of this place?（你觉得这个地方怎么样？） ↪ It&#x27;s really nice. I like it.（很不错，我喜欢。）
-33. ➡ Have you eaten yet?（你吃饭了吗？） 
-↪ Not yet. Want to get lunch?（还没，去吃午饭吗？）
-➡ How&#x27;s your weekend looking?（周末打算怎么过？） ↪ I might go hiking.（可能去徒步。）
-4/94
-➡ You seem happy today.（你今天好像很开心。） ↪ Yes, I got some good news.（是啊，我有好消息。）
-➡ Long time no see! You&#x27;ve changed a lot.（好久不见！你变化挺大的。） ↪ Really? I didn&#x27;t notice.（真的吗？我没注意到。）
-37. ➡ Do you know what time it is?（你知道现在几点吗？） ↪ It&#x27;s around 3 o&#x27;clock.（大概 3 点。）
-➡ Is this seat taken?（这个座位有人吗？） ↪ No, you can sit here.（没有，你可以坐。）
-➡ How was your meal?（吃得怎么样？） 
-↪ It was delicious. Thanks.（很美味，谢谢。）
-➡ What&#x27;s your favorite season?（你最喜欢哪个季节？） ↪ I like autumn the most.（我最喜欢秋天。）
-41. ➡ Did you enjoy the party?（派对玩得开心吗？） ↪ Yes, it was a lot of fun.（是的，很有趣。）
-➡ How do you get to work?（你怎么去上班？） ↪ I take the subway.（我坐地铁。）
-➡ What&#x27;s your favorite food here?（你最喜欢这儿的什么菜？） ↪ The pasta is really good.（意大利面很不错。）
-44. ➡ Are you free this weekend?（这周末你有空吗？） ↪ I think so. Why?（应该有，怎么了？）
-➡ How&#x27;s your English coming along?（你的英语进步怎么样？） ↪ Slowly, but I&#x27;m trying.（很慢，但我在努力。）
-5/94
-➡ What&#x27;s the best movie you&#x27;ve seen lately?（你最近看的最好的电影是什么？）
-↪ I saw a great one last week.（我上周看了一部很棒的。）
-47. ➡ Do you like living here?（你喜欢住在这儿吗？） 
-↪ Yes, it&#x27;s a nice neighborhood.（喜欢，这小区不错。）
-➡ How&#x27;s your pet doing?（你的宠物怎么样？）
-↪ He&#x27;s good, thanks. Getting big.（很好，谢谢，长大了不少。）
-➡ Did you finish your homework?（你作业做完了吗？） ↪ Yes, I just finished it.（嗯，刚做完。）
-➡ What&#x27;s your plan for the holiday?（假期有什么计划？） ↪ I&#x27;m going to visit my parents.（我要去看我父母。）
-51. ➡ Hi, can you help me with this?（嗨，你能帮我一下吗？） ↪ Sure, what do you need?（当然，你需要什么？）
-➡ How was your meeting?（会议开得怎么样？） ↪ It was productive.（很有成效。）
-➡ What&#x27;s the weather like tomorrow?（明天天气怎么样？） ↪ It&#x27;s supposed to rain.（应该会下雨。）
-➡ Have you met our new colleague?（你见过我们的新同事吗？） ↪ No, not yet.（还没。）
-➡ How do you like your new job?（你觉得新工作怎么样？） ↪ It&#x27;s challenging but fun.（有挑战性但很有趣。）
-➡ Did you sleep well last night?（昨晚睡得好吗？）
-6/94
-↪ Not really, I had a bad dream.（不太好，做了个噩梦。）
-57. ➡ What&#x27;s your favorite sport?（你最喜欢的运动是什么？） ↪ I like playing basketball.（我喜欢打篮球。）
-➡ Do you want to join us for dinner?（想和我们一起吃晚饭吗？） ↪ I&#x27;d love to, thanks.（好啊，谢谢。）
-59. ➡ How&#x27;s your garden looking?（你的花园怎么样了？） ↪ The flowers are blooming.（花开了。）
-60. ➡ What&#x27;s the time now?（现在几点了？） ↪ It&#x27;s 5:30 in the afternoon.（下午 5 点半。）
-61. ➡ Did you have a good trip?（旅途愉快吗？） ↪ Yes, it was smooth.（嗯，很顺利。）
-➡ How&#x27;s your sister doing?（你妹妹怎么样？） ↪ She&#x27;s good, thanks.（她挺好的，谢谢。）
-➡ What&#x27;s your favorite book?（你最喜欢的书是什么？） ↪ I like &quot;The Great Gatsby&quot;.（我喜欢《了不起的盖茨比》。）
-➡ Are you going to the party tonight?（你今晚去派对吗？） ↪ I&#x27;m not sure yet.（还不确定。）
-65. ➡ How do you get here?（你怎么来这儿的？） ↪ I drove my car.（我开车来的。）
-66. ➡ What&#x27;s your favorite drink?（你最喜欢的饮料是什么？） ↪ I like coffee with milk.（我喜欢加奶的咖啡。）
-7/94
-67. ➡ Did you enjoy the concert?（音乐会好听吗？） ↪ Yes, it was fantastic.（嗯，太棒了。）
-68. ➡ How&#x27;s your boss?（你老板怎么样？） 
-↪ He&#x27;s nice, but strict.（他人不错，但很严格。）
-69. ➡ What&#x27;s your plan for tomorrow?（明天有什么计划？） ↪ I&#x27;m going shopping.（我要去购物。）
-70. ➡ Do you know where the restroom is?（你知道洗手间在哪吗？） ↪ It&#x27;s around the corner.（在拐角处。）
-71. ➡ How&#x27;s your weekend going?（周末过得怎么样？） ↪ It&#x27;s great. Very relaxing.（很棒，很放松。）
-72. ➡ What&#x27;s your favorite color?（你最喜欢的颜色是什么？） ↪ I like blue.（我喜欢蓝色。）
-73. ➡ Did you watch the game last night?（昨晚看比赛了吗？） ↪ Yes, it was exciting.（看了，很精彩。）
-74. ➡ How do you like this restaurant?（你觉得这家餐厅怎么样？） ↪ The food is great.（菜很好吃。）
-75. ➡ Are you busy tomorrow?（你明天忙吗？） ↪ No, I&#x27;m free all day.（不忙，一整天都有空。）
-76. ➡ What&#x27;s your favorite music?（你最喜欢的音乐是什么？） ↪ I like pop music.（我喜欢流行音乐。）
-77. ➡ Did you finish the report?（报告写完了吗？） ↪ Yes, I sent it this morning.（嗯，今天早上发了。）
-8/94
-78. ➡ How&#x27;s the weather outside?（外面天气怎么样？） ↪ It&#x27;s sunny and warm.（阳光明媚，很暖和。）
-79. ➡ Have you been to this park before?（你以前来过这个公园吗？） ↪ Yes, it&#x27;s very beautiful.（来过，很美。）
-➡ What&#x27;s your favorite hobby?（你最喜欢的爱好是什么？） ↪ I like reading books.（我喜欢看书。）
-81. ➡ Do you want to go for a walk?（想去散步吗？） ↪ Sure, that&#x27;s a good idea.（好啊，好主意。）
-82. ➡ How&#x27;s your brother?（你弟弟怎么样？） 
-↪ He&#x27;s doing well in school.（他在学校表现不错。）
-➡ What&#x27;s the best part of your job?（你工作中最棒的部分是什么？） ↪ Working with nice people.（和友好的人一起工作。）
-➡ Are you going on vacation soon?（你很快要去度假吗？） ↪ Yes, next month.（是的，下个月。）
-➡ Did you have a good lunch?（午饭吃得好吗？） ↪ Yes, it was tasty.（嗯，很好吃。）
-86. ➡ What&#x27;s your favorite movie genre?（你最喜欢的电影类型是什么？） ↪ I like action movies.（我喜欢动作片。）
-87. ➡ How do you usually spend your evenings?（你晚上通常做什么？） ↪ I watch TV or read.（看电视或看书。）
-➡ Do you know how to cook?（你会做饭吗？） 
-↪ A little. I can make pasta.（会一点，我会做意大利面。）
-9/94</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Master these 1,200 sentences - conquer any conversation!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>背熟这1200句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>口语交流没问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>日常问候与寒暄</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1. ➡ Hello! Allow me to introduce myself.（你好！请允许我自我介绍。） ↪ Hi, nice to meet you!（嗨，很高兴认识你！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Hey there! How&#x27;s it going?（嘿！最近怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Pretty good, thanks. How about you?（挺好的，谢谢。你呢？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Hey, stranger! Long time no see!（嘿，好久不见！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Yeah, it&#x27;s been ages! How have you been?（是啊，好久了！你最近还好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4. ➡ Hi, nice to see you again!（嗨，很高兴再次见到你！） ↪ Nice to see you too!（我也很高兴见到你！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5. ➡ Howdy! How&#x27;s everything going?（你好！一切都好吗？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Everything&#x27;s going well. Thanks for asking.（一切都很顺利。谢谢关心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Long time, no chat! How have you been?（好久没聊了！你最近怎样？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span> ↪ I&#x27;ve been busy with work, but overall good.（一直在忙工作，但总体还 好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>7. ➡ Glad to meet you!（很高兴认识你！） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Glad to meet you too!（我也很高兴认识你！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>8. ➡ Pleased to meet you.（很高兴认识你。） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Pleased to meet you as well.（我也很高兴认识你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>9. ➡ This is my friend, [Name].（这是我的朋友，[名字]。） ↪ Nice to meet you, [Name]!（很高兴认识你，[名字]！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>10. ➡ What&#x27;s up? How have you been?（最近有什么新鲜事吗？你怎么样？） ↪ Not much, just keeping busy.（没什么特别的，就是一直在忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>11. ➡ Good morning! Did you sleep well?（早上好！睡得好吗？） ↪ Yes, thanks. And you?（挺好的，谢谢。你呢？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>12. ➡ Evening! How was your day?（晚上好！今天过得怎么样？） ↪ It was okay. A bit tiring.（还行，有点累。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>2/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>13. ➡ Fancy meeting you here!（真没想到在这儿碰到你！） ↪ What a coincidence!（太巧了！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>14. ➡ How&#x27;s life treating you lately?（最近生活怎么样？） ↪ Not bad. Can&#x27;t complain.（还不错，没什么可抱怨的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>15. ➡ You look great today!（你今天看起来气色很好！） ↪ Thanks, you too!（谢谢，你也是！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>16. ➡ Did you have a good weekend?（周末过得好吗？） ↪ Yes, it was relaxing.（挺好的，很放松。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>17. ➡ What have you been up to?（最近在忙什么？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Just work and some chores.（就是工作和一些杂事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>18. ➡ Is this your first time here?（这是你第一次来这儿吗？） ↪ No, I&#x27;ve been here a few times.（不是，我来过几次了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>19. ➡ How do you like the weather today?（你觉得今天天气怎么样？） ↪ It&#x27;s perfect for a walk.（很适合散步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ I haven&#x27;t seen you around lately.（最近没怎么见到你。） ↪ I&#x27;ve been traveling a lot.（我一直在出差。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Hi, are you new here?（嗨，你是新来的吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Yes, I just moved in last week.（是的，我上周刚搬来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your family doing?（你家人都好吗？） ↪ They&#x27;re all fine, thanks.（他们都很好，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s the best part of your day?（你今天最开心的事是什么？） ↪ Having coffee with a friend.（和朋友喝了咖啡。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Do you have any plans for tonight?（今晚有什么计划吗？） ↪ Not yet. Maybe watch a movie.（还没，可能看场电影。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ It&#x27;s good to see you back!（很高兴看到你回来！） ↪ Thanks, it&#x27;s good to be back.（谢谢，回来真好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How was your trip?（旅行怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ It was amazing. I had a great time.（太棒了，我玩得很开心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>27. ➡ What&#x27;s new with you?（你有什么新鲜事吗？） ↪ I started a new hobby.（我培养了一个新爱好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Are you busy right now?（你现在忙吗？） ↪ Not really. What&#x27;s up?（不太忙，怎么了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Did you hear the news?（你听说那个消息了吗？） ↪ No, what happened?（没有，发生什么了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your project going?（你的项目进展怎么样？） ↪ It&#x27;s going well, thanks.（挺顺利的，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>31. ➡ Morning! Want to grab coffee?（早上好！去喝杯咖啡吗？） ↪ Sure, that sounds good.（好啊，听起来不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What do you think of this place?（你觉得这个地方怎么样？） ↪ It&#x27;s really nice. I like it.（很不错，我喜欢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>33. ➡ Have you eaten yet?（你吃饭了吗？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Not yet. Want to get lunch?（还没，去吃午饭吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your weekend looking?（周末打算怎么过？） ↪ I might go hiking.（可能去徒步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ You seem happy today.（你今天好像很开心。） ↪ Yes, I got some good news.（是啊，我有好消息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Long time no see! You&#x27;ve changed a lot.（好久不见！你变化挺大的。） ↪ Really? I didn&#x27;t notice.（真的吗？我没注意到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>37. ➡ Do you know what time it is?（你知道现在几点吗？） ↪ It&#x27;s around 3 o&#x27;clock.（大概 3 点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Is this seat taken?（这个座位有人吗？） ↪ No, you can sit here.（没有，你可以坐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How was your meal?（吃得怎么样？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ It was delicious. Thanks.（很美味，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s your favorite season?（你最喜欢哪个季节？） ↪ I like autumn the most.（我最喜欢秋天。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>41. ➡ Did you enjoy the party?（派对玩得开心吗？） ↪ Yes, it was a lot of fun.（是的，很有趣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How do you get to work?（你怎么去上班？） ↪ I take the subway.（我坐地铁。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s your favorite food here?（你最喜欢这儿的什么菜？） ↪ The pasta is really good.（意大利面很不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>44. ➡ Are you free this weekend?（这周末你有空吗？） ↪ I think so. Why?（应该有，怎么了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your English coming along?（你的英语进步怎么样？） ↪ Slowly, but I&#x27;m trying.（很慢，但我在努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>5/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s the best movie you&#x27;ve seen lately?（你最近看的最好的电影是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ I saw a great one last week.（我上周看了一部很棒的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>47. ➡ Do you like living here?（你喜欢住在这儿吗？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Yes, it&#x27;s a nice neighborhood.（喜欢，这小区不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your pet doing?（你的宠物怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ He&#x27;s good, thanks. Getting big.（很好，谢谢，长大了不少。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Did you finish your homework?（你作业做完了吗？） ↪ Yes, I just finished it.（嗯，刚做完。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s your plan for the holiday?（假期有什么计划？） ↪ I&#x27;m going to visit my parents.（我要去看我父母。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>51. ➡ Hi, can you help me with this?（嗨，你能帮我一下吗？） ↪ Sure, what do you need?（当然，你需要什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How was your meeting?（会议开得怎么样？） ↪ It was productive.（很有成效。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s the weather like tomorrow?（明天天气怎么样？） ↪ It&#x27;s supposed to rain.（应该会下雨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Have you met our new colleague?（你见过我们的新同事吗？） ↪ No, not yet.（还没。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How do you like your new job?（你觉得新工作怎么样？） ↪ It&#x27;s challenging but fun.（有挑战性但很有趣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Did you sleep well last night?（昨晚睡得好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>6/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ Not really, I had a bad dream.（不太好，做了个噩梦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>57. ➡ What&#x27;s your favorite sport?（你最喜欢的运动是什么？） ↪ I like playing basketball.（我喜欢打篮球。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Do you want to join us for dinner?（想和我们一起吃晚饭吗？） ↪ I&#x27;d love to, thanks.（好啊，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>59. ➡ How&#x27;s your garden looking?（你的花园怎么样了？） ↪ The flowers are blooming.（花开了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>60. ➡ What&#x27;s the time now?（现在几点了？） ↪ It&#x27;s 5:30 in the afternoon.（下午 5 点半。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>61. ➡ Did you have a good trip?（旅途愉快吗？） ↪ Yes, it was smooth.（嗯，很顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ How&#x27;s your sister doing?（你妹妹怎么样？） ↪ She&#x27;s good, thanks.（她挺好的，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s your favorite book?（你最喜欢的书是什么？） ↪ I like &quot;The Great Gatsby&quot;.（我喜欢《了不起的盖茨比》。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Are you going to the party tonight?（你今晚去派对吗？） ↪ I&#x27;m not sure yet.（还不确定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>65. ➡ How do you get here?（你怎么来这儿的？） ↪ I drove my car.（我开车来的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>66. ➡ What&#x27;s your favorite drink?（你最喜欢的饮料是什么？） ↪ I like coffee with milk.（我喜欢加奶的咖啡。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>7/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>67. ➡ Did you enjoy the concert?（音乐会好听吗？） ↪ Yes, it was fantastic.（嗯，太棒了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>68. ➡ How&#x27;s your boss?（你老板怎么样？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ He&#x27;s nice, but strict.（他人不错，但很严格。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>69. ➡ What&#x27;s your plan for tomorrow?（明天有什么计划？） ↪ I&#x27;m going shopping.（我要去购物。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>70. ➡ Do you know where the restroom is?（你知道洗手间在哪吗？） ↪ It&#x27;s around the corner.（在拐角处。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>71. ➡ How&#x27;s your weekend going?（周末过得怎么样？） ↪ It&#x27;s great. Very relaxing.（很棒，很放松。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>72. ➡ What&#x27;s your favorite color?（你最喜欢的颜色是什么？） ↪ I like blue.（我喜欢蓝色。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>73. ➡ Did you watch the game last night?（昨晚看比赛了吗？） ↪ Yes, it was exciting.（看了，很精彩。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>74. ➡ How do you like this restaurant?（你觉得这家餐厅怎么样？） ↪ The food is great.（菜很好吃。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>75. ➡ Are you busy tomorrow?（你明天忙吗？） ↪ No, I&#x27;m free all day.（不忙，一整天都有空。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>76. ➡ What&#x27;s your favorite music?（你最喜欢的音乐是什么？） ↪ I like pop music.（我喜欢流行音乐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>77. ➡ Did you finish the report?（报告写完了吗？） ↪ Yes, I sent it this morning.（嗯，今天早上发了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>8/94</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>78. ➡ How&#x27;s the weather outside?（外面天气怎么样？） ↪ It&#x27;s sunny and warm.（阳光明媚，很暖和。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>79. ➡ Have you been to this park before?（你以前来过这个公园吗？） ↪ Yes, it&#x27;s very beautiful.（来过，很美。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s your favorite hobby?（你最喜欢的爱好是什么？） ↪ I like reading books.（我喜欢看书。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>81. ➡ Do you want to go for a walk?（想去散步吗？） ↪ Sure, that&#x27;s a good idea.（好啊，好主意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>82. ➡ How&#x27;s your brother?（你弟弟怎么样？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ He&#x27;s doing well in school.（他在学校表现不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ What&#x27;s the best part of your job?（你工作中最棒的部分是什么？） ↪ Working with nice people.（和友好的人一起工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Are you going on vacation soon?（你很快要去度假吗？） ↪ Yes, next month.（是的，下个月。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Did you have a good lunch?（午饭吃得好吗？） ↪ Yes, it was tasty.（嗯，很好吃。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>86. ➡ What&#x27;s your favorite movie genre?（你最喜欢的电影类型是什么？） ↪ I like action movies.（我喜欢动作片。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>87. ➡ How do you usually spend your evenings?（你晚上通常做什么？） ↪ I watch TV or read.（看电视或看书。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>➡ Do you know how to cook?（你会做饭吗？） </span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>↪ A little. I can make pasta.（会一点，我会做意大利面。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>9/94</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="813背完这1200句2个月全英交流";
@@ -380,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

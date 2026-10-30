@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,520 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">Memorize these 500 sentences, and your English emails will be awesome
-英文邮件交流必备500句
-一、邮件开篇（Email Openings）
-Hope you’re doing well.（希望你一切都好。）
-I hope this finds you well.（展信佳。）
-How have you been lately?（最近过得怎么样？）
-Hope your week is going well.（希望你这周一切顺利。）
-It’s good to connect with you.（很高兴与你联系。）
-Hope you had a nice weekend.（希望你周末愉快。）
-I’m writing to check in.（我写信来问候一下。）
-Long time no contact.（好久没联系了。）
-Hope your project is on track.（希望你的项目进展顺利。）
-Just touching base with you.（只是和你联络一下。）
-Hope you’re enjoying the new role.（希望你喜欢新职位。）
-I hope all is going smoothly.（希望一切都顺利进行。）
-It’s great to hear from you.（收到你的来信真好。）
-Hope the team is doing well.（希望团队一切都好。）
-Let me know how you’re doing.（告诉我你近况如何。）
-Hope you’re having a productive week.（希望你这周工作高效。）
-I wanted to say hello.（我想跟你打个招呼。）
-Hope your plans are working out.（希望你的计划顺利实施。）
-Just a quick note to say hi.（简短问候一下。）
-Hope you’re coping with the workload.（希望你能应对工作负荷。）
-It’s been a while since we last spoke.（我们上次聊天已经有段时间了。）
-Hope you’re in good spirits.（希望你心情愉快。）
-I’m reaching out to say hello.（我联系你是想问候一下。）
-Hope the new system works for you.（希望新系统对你有用。）
-Let me know if you need anything.（如果你需要什么，请告诉我。）
-Hope you had a good holiday break.（希望你假期过得愉快。）
-I hope this email meets you well.（希望你收到这封邮件时一切安好。）
-How’s everything going on your side?（你那边一切都好吗？）
-Hope you’re settling in well.（希望你适应得很好。）
-Just checking if you’re available.（只是看看你是否有空。）
-Hope you’re not too busy lately.（希望你最近不太忙。）
-I thought I’d drop you a line.（我想给你写封信。）
-Hope your meeting went well.（希望你的会议顺利。）
-It’s nice to be in touch again.（很高兴再次联系。）
-Hope you’re keeping well these days.（希望你这些天身体还好。）
-I wanted to check how things are.（我想了解一下情况如何。）
-Hope you found the report useful.（希望你觉得这份报告有用。）
-Just following up on our chat.（只是跟进一下我们的聊天内容。）
-Hope you’re having a good day.（希望你今天过得愉快。）
-I’m writing to update you briefly.（我写信简要向你更新一下。）
-Hope the deadline wasn’t too tight.（希望截止日期不会太紧张。）
-Let me know your thoughts when you can.（方便时告诉我你的想法。）
-Hope you’re prepared for the event.（希望你为活动做好了准备。）
-It’s good to see your progress.（很高兴看到你的进展。）
-Hope you can review this soon.（希望你能尽快审阅这个。）
-Just a heads-up about the change.（只是提醒一下这个变化。）
-Hope you agree with the plan.（希望你同意这个计划。）
-I’m writing to confirm details.（我写信确认细节。）
-Hope you received my last email.（希望你收到了我上一封邮件。）
-Let me know if this works for you.（告诉我这个对你是否合适。）
-Hope you have time to discuss this.（希望你有时间讨论这个。）
-I wanted to share an update.（我想分享一个最新情况。）
-Hope you’re okay with the arrangement.（希望你对这个安排没问题。）
-Just letting you know briefly.（只是简单告诉你一下。）
-Hope we can chat soon.（希望我们能很快聊聊。）
-二、说明目的（Stating Purposes）
-I’m writing about the new project.（我写信是关于这个新项目的。）
-This email is to confirm the meeting.（这封邮件是为了确认会议。）
-I’m contacting you re: the deadline.（我联系你是关于截止日期的。）
-I wanted to discuss the budget.（我想讨论一下预算问题。）
-This note is to update you on progress.（这封短信是向你更新进展的。）
-I’m writing to request your approval.（我写信是请求你的批准。）
-I’m reaching out about the contract.（我联系你是关于合同的。）
-This email concerns the team changes.（这封邮件涉及团队变动。）
-I wanted to inform you of the delay.（我想通知你延迟的情况。）
-I’m writing to ask for your feedback.（我写信是想征求你的反馈。）
-This is to remind you of the event.（这是为了提醒你那个活动。）
-I’m contacting you to arrange a call.（我联系你是为了安排一次通话。）
-I wanted to follow up on our discussion.（我想跟进我们的讨论内容。）
-This email is about the client’s request.（这封邮件是关于客户的请求的。）
-I’m writing to clarify the requirements.（我写信是为了澄清要求。）
-I’m reaching out to offer assistance.（我联系你是想提供帮助。）
-This note is to share the agenda.（这封短信是为了分享议程。）
-I wanted to address the recent issue.（我想谈谈最近的问题。）
-I’m writing to confirm your availability.（我写信是为了确认你是否有空。）
-This email is to update the schedule.（这封邮件是为了更新日程表。）
-I’m contacting you regarding the proposal.（我联系你是关于那份提案的。）
-I wanted to discuss the next steps.（我想讨论一下下一步计划。）
-This is to inform you of the decision.（这是为了通知你那个决定。）
-I’m writing to request more details.（我写信是想要求更多细节。）
-I’m reaching out about the invoice.（我联系你是关于发票的。）
-This note is to check on the status.（这封短信是为了查看状态。）
-I wanted to remind you of the task.（我想提醒你那个任务。）
-This email concerns the new policy.（这封邮件涉及新政策。）
-I’m writing to arrange a meeting.（我写信是为了安排一次会议。）
-I’m contacting you to share feedback.（我联系你是为了分享反馈。）
-I wanted to clarify the process.（我想澄清一下流程。）
-This is to update you on the issue.（这是为了向你更新问题情况。）
-I’m writing to ask for clarification.（我写信是为了请求澄清。）
-I’m reaching out about the shipment.（我联系你是关于货物运输的。）
-This note is to confirm details.（这封短信是为了确认细节。）
-I wanted to discuss the timeline.（我想讨论一下时间安排。）
-This email is about the upcoming event.（这封邮件是关于即将到来的活动的。）
-I’m writing to request a meeting.（我写信是为了请求召开一次会议。）
-I’m contacting you regarding the report.（我联系你是关于那份报告的。）
-I wanted to inform you of the change.（我想通知你那个变化。）
-This is to remind you of the deadline.（这是为了提醒你截止日期。）
-I’m writing to offer a solution.（我写信是想提供一个解决方案。）
-I’m reaching out to check progress.（我联系你是为了查看进展。）
-This note is to share the update.（这封短信是为了分享最新情况。）
-I wanted to address the feedback.（我想谈谈反馈的问题。）
-This email concerns the team’s work.（这封邮件涉及团队的工作。）
-I’m writing to confirm the details.（我写信是为了确认细节。）
-I’m contacting you to reschedule.（我联系你是为了重新安排时间。）
-I wanted to discuss the feedback.（我想讨论一下反馈意见。）
-This is to update you on the project.（这是为了向你更新项目情况。）
-I’m writing to request information.（我写信是为了请求信息。）
-I’m reaching out about the meeting.（我联系你是关于那次会议的。）
-This note is to clarify the issue.（这封短信是为了澄清问题。）
-I wanted to inform you of the plan.（我想通知你那个计划。）
-This email is to ask for approval.（这封邮件是为了请求批准。）
-三、回复与感谢（Replies and Thanks）
-Thanks for your email.（感谢你的邮件。）
-I received your message.（我收到了你的消息。）
-Thank you for the update.（感谢你的更新。）
-I appreciate your quick reply.（感谢你的快速回复。）
-Thanks for sharing the details.（感谢你分享的细节。）
-I’m replying to your last email.（我在回复你上一封邮件。）
-Thank you for your feedback.（感谢你的反馈。）
-I’ve read your message carefully.（我仔细阅读了你的消息。）
-Thanks for the invitation.（感谢你的邀请。）
-I appreciate your assistance.（感谢你的帮助。）
-I’m writing back as requested.（我按要求回复你。）
-Thank you for the information.（感谢你提供的信息。）
-Thanks for bringing this up.（感谢你提出这个问题。）
-I appreciate your time.（感谢你的时间。）
-I’m replying to your query.（我在回复你的询问。）
-Thank you for your support.（感谢你的支持。）
-Thanks for the clarification.（感谢你的澄清。）
-I appreciate your prompt response.（感谢你的及时回复。）
-I’ve received the document.（我收到了那份文件。）
-Thank you for your input.（感谢你的意见。）
-Thanks for following up.（感谢你的跟进。）
-I appreciate your understanding.（感谢你的理解。）
-I’m replying to your request.（我在回复你的请求。）
-Thank you for the reminder.（感谢你的提醒。）
-Thanks for the update on this.（感谢关于此事的更新。）
-I appreciate your cooperation.（感谢你的合作。）
-I’ve seen your email.（我看到了你的邮件。）
-Thank you for letting me know.（感谢你告诉我。）
-Thanks for your hard work.（感谢你的辛勤工作。）
-I appreciate your feedback on this.（感谢你对此的反馈。）
-I’m replying to your note.（我在回复你的便条。）
-Thank you for the details.（感谢你提供的细节。）
-Thanks for the heads-up.（感谢你的提醒。）
-I appreciate your help with this.（感谢你在这方面的帮助。）
-I’ve received your request.（我收到了你的请求。）
-Thank you for your time on this.（感谢你在这上面花的时间。）
-Thanks for the information shared.（感谢分享的信息。）
-I appreciate your promptness.（感谢你的及时处理。）
-I’m replying to your message now.（我现在回复你的消息。）
-Thank you for your attention.（感谢你的关注。）
-Thanks for the clarification on this.（感谢对此的澄清。）
-I appreciate your effort.（感谢你的努力。）
-I’ve got your email.（我收到你的邮件了。）
-Thank you for the invitation to this.（感谢邀请我参加这个。）
-Thanks for following up with me.（感谢跟我跟进此事。）
-I appreciate your support on this.（感谢你在这方面的支持。）
-I’m replying as soon as possible.（我尽快回复你。）
-Thank you for letting me know this.（感谢你告诉我这个。）
-Thanks for your input on this.（感谢你对此的意见。）
-I appreciate your time and effort.（感谢你的时间和努力。）
-I’ve received your update.（我收到了你的更新。）
-Thank you for your quick response.（感谢你的快速回复。）
-Thanks for the reminder on this.（感谢对此的提醒。）
-I appreciate your cooperation on this.（感谢你在这方面的合作。）
-I’m replying to your email now.（我现在回复你的邮件。）
-四、道歉与解释（Apologies and Explanations）
-Sorry for the late reply.（抱歉回复晚了。）
-I apologize for the delay.（我为延迟道歉。）
-Sorry for the inconvenience.（抱歉带来不便。）
-I’m sorry for the mistake.（我为这个错误道歉。）
-Apologies for the confusion.（为造成的混乱道歉。）
-Sorry I missed your email.（抱歉我没看到你的邮件。）
-I apologize for the error.（我为这个错误道歉。）
-Sorry for the short notice.（抱歉通知得很仓促。）
-I’m sorry for the oversight.（我为这个疏忽道歉。）
-Apologies for the mix-up.（为弄混了道歉。）
-Sorry for taking so long.（抱歉花了这么长时间。）
-I apologize for the misunderstanding.（我为这个误解道歉。）
-Sorry for the trouble caused.（抱歉造成了麻烦。）
-I’m sorry I couldn’t attend.（抱歉我没能参加。）
-Apologies for the late response.（为延迟回复道歉。）
-Sorry for not replying sooner.（抱歉没能早点回复。）
-I apologize for the inconvenience caused.（我为造成的不便道歉。）
-Sorry for the confusion this caused.（抱歉由此造成的混乱。）
-I’m sorry for the delay in this.（我为这事的延迟道歉。）
-Apologies for the mistake made.（为所犯的错误道歉。）
-Sorry for the last-minute change.（抱歉临时变动。）
-I apologize for missing the meeting.（我为错过会议道歉。）
-Sorry for the oversight on my part.（抱歉是我的疏忽。）
-I’m sorry for the error in the report.（我为报告中的错误道歉。）
-Apologies for the delayed update.（为延迟更新道歉。）
-Sorry for not getting back earlier.（抱歉没能早点回复。）
-I apologize for the confusion caused.（我为造成的混乱道歉。）
-Sorry for the trouble this caused.（抱歉由此带来的麻烦。）
-I’m sorry I forgot to send this.（抱歉我忘了发送这个。）
-Apologies for the short notice on this.（为这事通知仓促道歉。）
-Sorry for taking so long to reply.（抱歉过了这么久才回复。）
-I apologize for the misunderstanding here.（我为这里的误解道歉。）
-Sorry for the mistake in the details.（抱歉细节上的错误。）
-I’m sorry for the inconvenience this brings.（我为这带来的不便道歉。）
-Apologies for missing your message.（为没看到你的消息道歉。）
-Sorry for the late notice about this.（抱歉关于此事通知晚了。）
-I apologize for the oversight in this.（我为这事的疏忽道歉。）
-Sorry for the mix-up in the schedule.（抱歉日程安排弄混了。）
-I’m sorry for the delay in responding.（我为回复延迟道歉。）
-Sorry for the late notice about this.（抱歉关于此事通知晚了。）
-I apologize for the oversight in this.（我为这事的疏忽道歉。）
-Sorry for the mix-up in the schedule.（抱歉日程安排弄混了。）
-I’m sorry for the delay in responding.（我为回复延迟道歉。）
-Apologies for the error in the report.（为报告中的错误道歉。）
-Sorry I couldn’t get back sooner.（抱歉没能早点回复。）
-I apologize for the confusion caused.（我为造成的混乱道歉。）
-Sorry for the mistake in the data.（抱歉数据中的错误。）
-I’m sorry for missing the deadline.（抱歉错过了截止日期。）
-Apologies for the short notice again.（再次为仓促通知道歉。）
-Sorry for the inconvenience this brings.（抱歉由此带来的不便。）
-I apologize for the delay in the project.（我为项目的延迟道歉。）
-Sorry for not informing you earlier.（抱歉没能早点通知你。）
-I’m sorry for the confusion on my part.（抱歉是我造成的混乱。）
-Apologies for the error in the details.（为细节上的错误道歉。）
-Sorry for the trouble with the order.（抱歉订单出现问题。）
-I apologize for the delayed shipment.（我为货物延迟发送道歉。）
-Sorry I forgot to mention this earlier.（抱歉我忘了早点提这个。）
-I’m sorry for the misunderstanding here.（抱歉这里的误解。）
-Apologies for any issues this may cause.（为可能造成的任何问题道歉。）
-五、请求与询问（Requests and Inquiries）
-Could you send the report by Friday?（你能在周五前发送报告吗？）
-Can you confirm the meeting time?（你能确认会议时间吗？）
-Could you please review this draft?（你能审阅一下这个草稿吗？）
-Can you provide an update on the project?（你能提供项目的最新情况吗？）
-Could you clarify the requirements?（你能说明一下要求吗？）
-Can you let me know your thoughts?（你能告诉我你的想法吗？）
-Could you please schedule a call?（你能安排一次通话吗？）
-Can you send the documents again?（你能再发送一次文件吗？）
-Could you approve this by the end of day?（你能在今天结束前批准这个吗？）
-Can you check on the status for me?（你能帮我查一下状态吗？）
-Could you provide more details here?（你能在这里提供更多细节吗？）
-Can you let me know when you’re free?（你能告诉我你什么时候有空吗？）
-Could you please forward the email?（你能转发一下这封邮件吗？）
-Can you confirm receipt of this?（你能确认收到这个吗？）
-Could you review the budget proposal?（你能审阅一下预算提案吗？）
-Can you update the team on this?（你能向团队更新这个情况吗？）
-Could you please attend the meeting?（你能参加这个会议吗？）
-Can you send me the contact details?（你能给我发一下联系方式吗？）
-Could you finalize the agreement?（你能敲定这份协议吗？）
-Can you let me know if this works?（你能告诉我这样可以吗？）
-Could you please reschedule the call?（你能重新安排通话时间吗？）
-Can you provide feedback by tomorrow?（你能在明天前提供反馈吗？）
-Could you check the figures again?（你能再检查一下数据吗？）
-Can you send the agenda in advance?（你能提前发送议程吗？）
-Could you please sign the document?（你能签署这份文件吗？）
-Can you let me know your availability?（你能告诉我你有空的时间吗？）
-Could you review the contract terms?（你能审阅一下合同条款吗？）
-Can you update the schedule for me?（你能帮我更新一下日程吗？）
-Could you please clarify this point?（你能说明一下这一点吗？）
-Can you confirm the delivery date?（你能确认交货日期吗？）
-Could you send the invoice asap?（你能尽快发送发票吗？）
-Can you provide a progress update?（你能提供进展更新吗？）
-Could you please attend the training?（你能参加这次培训吗？）
-Can you let me know your decision?（你能告诉我你的决定吗？）
-Could you review the meeting notes?（你能审阅一下会议纪要吗？）
-Can you send the revised version?（你能发送修订版吗？）
-Could you please approve the expenses?（你能批准这些费用吗？）
-Can you check on the payment status?（你能查一下付款状态吗？）
-Could you provide more information here?（你能在这里提供更多信息吗？）
-Can you let me know when ready?（你能告诉我什么时候准备好吗？）
-Could you please forward the details?（你能转发一下详情吗？）
-Can you confirm the 参会人员名单？（你能确认参会人员名单吗？）
-Could you review the new policy?（你能审阅一下新政策吗？）
-Can you update me on the issue?（你能向我更新问题情况吗？）
-Could you please clarify the process?（你能说明一下流程吗？）
-Can you confirm the budget amount?（你能确认预算金额吗？）
-Could you send the report summary?（你能发送报告摘要吗？）
-Can you provide feedback on this idea?（你能对这个想法提供反馈吗？）
-Could you please reschedule the meeting?（你能重新安排会议时间吗？）
-Can you let me know your thoughts by Friday?（你能在周五前告诉我你的想法吗？）
-Could you review the proposal once more?（你能再审阅一下提案吗？）
-Can you send the contact information?（你能发送联系信息吗？）
-Could you please finalize the plans?（你能敲定这些计划吗？）
-Can you confirm if this is correct?（你能确认这是否正确吗？）
-Could you provide an estimate for this?（你能对此提供一个估算吗？）
-六、告知坏消息（Giving Bad News）
-We can’t meet the original deadline.（我们无法赶上最初的截止日期。）
-The project will be delayed by a week.（项目将延迟一周。）
-The shipment has been canceled.（货物已被取消。）
-We won’t be able to approve this.（我们无法批准这个。）
-The meeting has to be rescheduled.（会议不得不重新安排。）
-We can’t proceed with the plan.（我们无法按计划进行。）
-The budget has been reduced.（预算已被削减。）
-The product is out of stock.（产品已无库存。）
-We have to postpone the event.（我们不得不推迟活动。）
-The team can’t take on this task.（团队无法承担这项任务。）
-The deadline has been moved up.（截止日期已提前。）
-We can’t offer the discount.（我们无法提供折扣。）
-The system upgrade failed.（系统升级失败了。）
-We have to cancel the order.（我们不得不取消订单。）
-The proposal was rejected.（提案被拒绝了。）
-We can’t meet the required standards.（我们无法达到要求的标准。）
-The delivery will be late.（交货将延迟。）
-We have to make some cuts.（我们不得不进行一些削减。）
-The contract won’t be renewed.（合同将不会续签。）
-We can’t accommodate this request.（我们无法满足这个请求。）
-The meeting room is unavailable.（会议室无法使用。）
-We have to change the team lead.（我们不得不更换团队负责人。）
-The price has increased.（价格已经上涨。）
-We can’t finish by the end of week.（我们无法在周末前完成。）
-The event has been canceled.（活动已被取消。）
-We have to revise the plan.（我们不得不修改计划。）
-The software has a major bug.（软件有一个重大漏洞。）
-We can’t proceed without approval.（没有批准我们无法进行。）
-The deadline is non-negotiable.（截止日期无法更改。）
-We have to reduce the scope.（我们不得不缩小范围。）
-The supplier has backed out.（供应商已经退出。）
-We can’t meet the target this quarter.（本季度我们无法达到目标。）
-The project funding was cut.（项目资金被削减了。）
-We have to reschedule the launch.（我们不得不重新安排发布时间。）
-The data was lost due to error.（由于错误数据丢失了。）
-We can’t offer the same terms.（我们无法提供相同的条款。）
-The team is understaffed.（团队人员不足。）
-We have to delay the decision.（我们不得不推迟决定。）
-The equipment has malfunctioned.（设备出现了故障。）
-We can’t extend the deadline.（我们无法延长截止日期。）
-The training session is canceled.（培训课程已取消。）
-We have to increase the budget.（我们不得不增加预算。）
-The client has terminated the contract.（客户已终止合同。）
-We can’t proceed with the merger.（我们无法进行合并。）
-The product launch is delayed.（产品发布已延迟。）
-We have to downsize the team.（我们不得不缩减团队规模。）
-The service will be unavailable tomorrow.（明天服务将无法使用。）
-We can’t meet the production target.（我们无法达到生产目标。）
-The deadline has been brought forward.（截止日期已提前。）
-We have to change the supplier.（我们不得不更换供应商。）
-The meeting has been canceled last minute.（会议在最后一刻被取消了。）
-We can’t approve the overtime.（我们无法批准加班。）
-The project has been put on hold.（项目已被暂停。）
-We have to revise the budget.（我们不得不修改预算。）
-The system will be down for maintenance.（系统将停机维护。）
-七、结尾表达（Closing Remarks）
-Looking forward to your reply.（期待你的回复。）
-Thank you for your time.（感谢你的时间。）
-Please let me know your thoughts.（请告诉我你的想法。）
-Feel free to contact me anytime.（随时联系我。）
-I’ll await your response.（我会等待你的回复。）
-Thanks for your consideration.（感谢你的考虑。）
-Let me know if you need more info.（如果你需要更多信息，请告诉我。）
-Looking forward to working with you.（期待与你合作。）
-Thank you for your assistance.（感谢你的帮助。）
-Please don’t hesitate to reach out.（请随时联系我。）
-I appreciate your prompt reply.（感谢你的及时回复。）
-Let me know if you have questions.（如果你有问题，请告诉我。）
-Looking forward to your feedback.（期待你的反馈。）
-Thank you for your support.（感谢你的支持。）
-I’ll follow up with you soon.（我会很快跟进你。）
-Please advise at your earliest convenience.（请尽快告知。）
-Looking forward to our next meeting.（期待我们下次会议。）
-Thank you for your understanding.（感谢你的理解。）
-Let me know if this works for you.（告诉我这样是否适合你。）
-I appreciate your time and effort.（感谢你的时间和努力。）
-Looking forward to hearing from you.（期待收到你的回复。）
-Thank you for reviewing this.（感谢审阅这个。）
-Let me know if you need clarification.（如果你需要澄清，请告诉我。）
-Best regards for the week ahead.（祝本周一切顺利。）
-I’ll await your approval.（我会等待你的批准。）
-Thank you for your prompt attention.（感谢你的及时关注。）
-Let me know your availability soon.（尽快告诉我你有空的时间。）
-Looking forward to resolving this.（期待解决这个问题。）
-Thank you for your cooperation.（感谢你的合作。）
-Let me know if you disagree.（如果你有不同意见，请告诉我。）
-I appreciate your feedback on this.（感谢你对此的反馈。）
-Looking forward to your confirmation.（期待你的确认。）
-Thank you for your prompt response.（感谢你的及时回复。）
-Let me know if you need further help.（如果你需要进一步帮助，请告诉我。）
-Looking forward to our discussion.（期待我们的讨论。）
-Thank you for your time today.（感谢你今天的时间。）
-Let me know when you’re ready.（当你准备好时请告诉我。）
-Looking forward to your input.（期待你的意见。）
-Thank you for considering this.（感谢考虑这个。）
-Let me know if adjustments are needed.（如果需要调整，请告诉我。）
-I appreciate your quick action.（感谢你的迅速行动。）
-Looking forward to your decision.（期待你的决定。）
-Thank you for your prompt handling.（感谢你的及时处理。）
-Let me know if you have concerns.（如果你有顾虑，请告诉我。）
-Looking forward to moving forward.（期待继续推进。）
-Thank you for your attention to this.（感谢你对此的关注。）
-Let me know your thoughts soon.（尽快告诉我你的想法。）
-Looking forward to your approval.（期待你的批准。）
-Thank you for your hard work.（感谢你的辛勤工作。）
-Let me know if you need anything else.（如果你需要其他东西，请告诉我。）
-I appreciate your prompt feedback.（感谢你的及时反馈。）
-Looking forward to our collaboration.（期待我们的合作。）
-Thank you for your assistance here.（感谢你在这里的帮助。）
-Let me know if this is acceptable.（如果这可以接受，请告诉我。）
-Looking forward to a positive outcome.（期待积极的结果。）
-八、通用短句(Common short sentences )
-I hope this message finds you well.（希望你收到消息时一切安好。）
-Thank you for your prompt reply.（感谢你的及时回复。）
-Please let me know your thoughts.（请告诉我你的想法。）
-I look forward to hearing from you.（期待你的回复。）
-Could you clarify this point?（你能说明这一点吗？）
-Thank you for your assistance.（感谢你的帮助。）
-I apologize for the delay.（抱歉有所延迟。）
-Let me know if this works for you.（告诉我这样是否适合你。）
-I appreciate your time.（感谢你的时间。）
-Please find the attachment below.（请查看下方附件。）
-I’m writing to update you.（我写信是为了向你更新情况。）
-Could you please confirm?（你能确认一下吗？）
-Thank you for your understanding.（感谢你的理解。）
-I’ll follow up with you soon.（我会很快跟进你。）
-Let me know if you need more details.（如果你需要更多细节，请告诉我。）
-I’m happy to discuss this further.（我很乐意进一步讨论这个问题。）
-Please feel free to contact me.（请随时联系我。）
-Thank you for bringing this to my attention.（感谢你提醒我这件事。）
-I hope we can resolve this soon.（希望我们能尽快解决这个问题。）
-Could you send me the details?（你能给我发一下详情吗？）
-I appreciate your feedback.（感谢你的反馈。）
-Let me know your availability.（告诉我你有空的时间。）
-I’m sorry for any inconvenience.（抱歉造成任何不便。）
-Please advise on next steps.（请告知下一步计划。）
-I’ll keep you updated.（我会随时向你更新情况。）
-Thank you for your support.（感谢你的支持。）
-Could we schedule a call?（我们可以安排一次通话吗？）
-I hope you had a good day.（希望你今天过得愉快。）
-Please review the document.（请审阅这份文件。）
-Let me know if you agree.（如果你同意，请告诉我。）
-I’m writing to confirm.（我写信是为了确认。）
-Thank you for your prompt action.（感谢你的迅速行动。）
-Could you provide an update?（你能提供最新情况吗？）
-I look forward to our meeting.（期待我们的会面。）
-Please let me know if you have questions.（如果你有问题，请告诉我。）
-I appreciate your cooperation.（感谢你的合作。）
-Let’s discuss this further.（我们进一步讨论一下这个问题吧。）
-I’m sorry for the confusion.（抱歉造成了混乱。）
-Please approve this at your convenience.（请在你方便时批准这个。）
-I’ll get back to you shortly.（我会很快回复你。）
-Thank you for your time and effort.（感谢你的时间和努力。）
-Could you reschedule the meeting?（你能重新安排会议时间吗？）
-I hope this meets your expectations.（希望这符合你的预期。）
-Please find the report attached.（请查收附件中的报告。）
-Let me know if you need adjustments.（如果你需要调整，请告诉我。）
-I’m writing to follow up.（我写信是为了跟进。）
-Thank you for considering this.（感谢考虑这个问题。）
-Could you clarify the requirements?（你能说明一下要求吗？）
-I look forward to your feedback.（期待你的反馈。）
-Please let me know your decision.（请告诉我你的决定。）
-I appreciate your prompt attention.（感谢你的及时关注。）
-Could you send the information again?（你能再发一次信息吗？）
-I hope we can reach an agreement.（希望我们能达成一致。）
-Please confirm receipt of this email.（请确认收到这封邮件。）
-Let me know if you need help.（如果你需要帮助，请告诉我。）
-I’m writing to inform you.（我写信是为了通知你。）
-Thank you for your prompt response.（感谢你的及时回复。）
-Could we meet to discuss this?（我们可以见面讨论这个问题吗？）
-I hope you’re doing well.（希望你一切都好。）
-Please review and let me know.（请审阅并告诉我。）
-I appreciate your input.（感谢你的意见。）
-Let me know your thoughts by Friday.（请在周五前告诉我你的想法。）
-I’m sorry for the late reply.（抱歉回复晚了。）
-Please approve the request.（请批准这个请求。）
-I’ll check and get back to you.（我会核实后回复你。）
-Thank you for your hard work.（感谢你的辛勤工作。）
-Could you provide more details?（你能提供更多细节吗？）
-I look forward to working with you.（期待与你合作。）
-Please let me know if you disagree.（如果你有不同意见，请告诉我。）
-I’m writing to request information.（我写信是为了请求信息。）
-Thank you for your prompt handling.（感谢你的及时处理。）
-Could you update the team?（你能向团队更新情况吗？）
-I hope the project is on track.（希望项目进展顺利。）
-Please find the agenda attached.（请查收附件中的议程。）
-Let me know if you need clarification.（如果你需要澄清，请告诉我。）
-I’m writing to remind you.（我写信是为了提醒你。）
-Thank you for your continued support.（感谢你一如既往的支持。）
-Could you finalize this by Friday?（你能在周五前完成这个吗？）
-I look forward to your approval.（期待你的批准。）
-Please let me know your availability.（请告诉我你有空的时间。）
-I appreciate your patience.（感谢你的耐心。）
-Let’s schedule a meeting next week.（我们下周安排一次会议吧。）
-I’m sorry for the inconvenience caused.（抱歉造成了不便。）
-Please review the draft and comment.（请审阅草稿并发表意见。）
-Let me know if this is acceptable.（如果这个可以接受，请告诉我。）
-I’m writing to discuss.（我写信是为了讨论。）
-Thank you for your feedback on this.（感谢你对此的反馈。）
-Could you please sign the document?（你能签署这份文件吗？）
-I look forward to your positive response.（期待你积极的回复。）
-Please let me know if you have concerns.（如果你有顾虑，请告诉我。）
-I appreciate your time today.（感谢你今天的时间。）
-Could you send the report by noon?（你能在中午前发送报告吗？）
-I hope we can resolve this quickly.（希望我们能尽快解决这个问题。）
-Please confirm the details.（请确认细节。）
-Let me know when you’re ready.（当你准备好时请告诉我。）
-I’m writing to ask for a favor.（我写信是想请你帮个忙。）
-Thank you for your prompt reply.（感谢你的及时回复。）
-Could we reschedule to next week?（我们可以改到下周吗？）
-I look forward to your input.（期待你的意见。）
-Please let me know if you need more info.（如果你需要更多信息，请告诉我。）
-I appreciate your understanding in this matter.（感谢你在此事上的理解。）
-Could you clarify the deadline?（你能说明一下截止日期吗？）
-I hope you have a good weekend.（希望你周末愉快。）
-Please find the updated version attached.（请查收附件中的更新版本。）
-Let me know if you agree with this plan.（如果你同意这个计划，请告诉我。）
-I’m writing to confirm the meeting.（我写信是为了确认会议。）
-Thank you for your assistance with this.（感谢你在此事上的帮助。）
-Could you provide a status update?（你能提供最新状态吗？）
-I look forward to our discussion.（期待我们的讨论。）
-Please let me know if you need further assistance.（如果你需要进一步帮助，请告诉我。）
-I appreciate your prompt attention to this.（感谢你对此事的及时关注。）
-Could you send the document again?（你能再发一次文件吗？）
-I hope this works for you.（希望这个对你合适。）
-Please confirm receipt of the package.（请确认收到包裹。）
-Let me know if you need any help with this.（如果你在这件事上需要任何帮助，请告诉我。）</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Memorize these 500 sentences, and your English emails will be awesome</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>英文邮件交流必备500句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、邮件开篇（Email Openings）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re doing well.（希望你一切都好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this finds you well.（展信佳。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How have you been lately?（最近过得怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope your week is going well.（希望你这周一切顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s good to connect with you.（很高兴与你联系。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you had a nice weekend.（希望你周末愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to check in.（我写信来问候一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Long time no contact.（好久没联系了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope your project is on track.（希望你的项目进展顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just touching base with you.（只是和你联络一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re enjoying the new role.（希望你喜欢新职位。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope all is going smoothly.（希望一切都顺利进行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s great to hear from you.（收到你的来信真好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope the team is doing well.（希望团队一切都好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know how you’re doing.（告诉我你近况如何。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re having a productive week.（希望你这周工作高效。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to say hello.（我想跟你打个招呼。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope your plans are working out.（希望你的计划顺利实施。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just a quick note to say hi.（简短问候一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re coping with the workload.（希望你能应对工作负荷。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s been a while since we last spoke.（我们上次聊天已经有段时间了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re in good spirits.（希望你心情愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out to say hello.（我联系你是想问候一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope the new system works for you.（希望新系统对你有用。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need anything.（如果你需要什么，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you had a good holiday break.（希望你假期过得愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this email meets you well.（希望你收到这封邮件时一切安好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How’s everything going on your side?（你那边一切都好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re settling in well.（希望你适应得很好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just checking if you’re available.（只是看看你是否有空。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re not too busy lately.（希望你最近不太忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I thought I’d drop you a line.（我想给你写封信。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope your meeting went well.（希望你的会议顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s nice to be in touch again.（很高兴再次联系。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re keeping well these days.（希望你这些天身体还好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to check how things are.（我想了解一下情况如何。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you found the report useful.（希望你觉得这份报告有用。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just following up on our chat.（只是跟进一下我们的聊天内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re having a good day.（希望你今天过得愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to update you briefly.（我写信简要向你更新一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope the deadline wasn’t too tight.（希望截止日期不会太紧张。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know your thoughts when you can.（方便时告诉我你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re prepared for the event.（希望你为活动做好了准备。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s good to see your progress.（很高兴看到你的进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you can review this soon.（希望你能尽快审阅这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just a heads-up about the change.（只是提醒一下这个变化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you agree with the plan.（希望你同意这个计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to confirm details.（我写信确认细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you received my last email.（希望你收到了我上一封邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if this works for you.（告诉我这个对你是否合适。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you have time to discuss this.（希望你有时间讨论这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to share an update.（我想分享一个最新情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope you’re okay with the arrangement.（希望你对这个安排没问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just letting you know briefly.（只是简单告诉你一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hope we can chat soon.（希望我们能很快聊聊。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、说明目的（Stating Purposes）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing about the new project.（我写信是关于这个新项目的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email is to confirm the meeting.（这封邮件是为了确认会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you re: the deadline.（我联系你是关于截止日期的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to discuss the budget.（我想讨论一下预算问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to update you on progress.（这封短信是向你更新进展的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to request your approval.（我写信是请求你的批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out about the contract.（我联系你是关于合同的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email concerns the team changes.（这封邮件涉及团队变动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to inform you of the delay.（我想通知你延迟的情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to ask for your feedback.（我写信是想征求你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is to remind you of the event.（这是为了提醒你那个活动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you to arrange a call.（我联系你是为了安排一次通话。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to follow up on our discussion.（我想跟进我们的讨论内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email is about the client’s request.（这封邮件是关于客户的请求的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to clarify the requirements.（我写信是为了澄清要求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out to offer assistance.（我联系你是想提供帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to share the agenda.（这封短信是为了分享议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to address the recent issue.（我想谈谈最近的问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to confirm your availability.（我写信是为了确认你是否有空。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email is to update the schedule.（这封邮件是为了更新日程表。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you regarding the proposal.（我联系你是关于那份提案的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to discuss the next steps.（我想讨论一下下一步计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is to inform you of the decision.（这是为了通知你那个决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to request more details.（我写信是想要求更多细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out about the invoice.（我联系你是关于发票的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to check on the status.（这封短信是为了查看状态。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to remind you of the task.（我想提醒你那个任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email concerns the new policy.（这封邮件涉及新政策。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to arrange a meeting.（我写信是为了安排一次会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you to share feedback.（我联系你是为了分享反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to clarify the process.（我想澄清一下流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is to update you on the issue.（这是为了向你更新问题情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to ask for clarification.（我写信是为了请求澄清。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out about the shipment.（我联系你是关于货物运输的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to confirm details.（这封短信是为了确认细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to discuss the timeline.（我想讨论一下时间安排。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email is about the upcoming event.（这封邮件是关于即将到来的活动的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to request a meeting.（我写信是为了请求召开一次会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you regarding the report.（我联系你是关于那份报告的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to inform you of the change.（我想通知你那个变化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is to remind you of the deadline.（这是为了提醒你截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to offer a solution.（我写信是想提供一个解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out to check progress.（我联系你是为了查看进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to share the update.（这封短信是为了分享最新情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to address the feedback.（我想谈谈反馈的问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email concerns the team’s work.（这封邮件涉及团队的工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to confirm the details.（我写信是为了确认细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m contacting you to reschedule.（我联系你是为了重新安排时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to discuss the feedback.（我想讨论一下反馈意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is to update you on the project.（这是为了向你更新项目情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to request information.（我写信是为了请求信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m reaching out about the meeting.（我联系你是关于那次会议的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This note is to clarify the issue.（这封短信是为了澄清问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wanted to inform you of the plan.（我想通知你那个计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This email is to ask for approval.（这封邮件是为了请求批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、回复与感谢（Replies and Thanks）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your email.（感谢你的邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I received your message.（我收到了你的消息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the update.（感谢你的更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your quick reply.（感谢你的快速回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for sharing the details.（感谢你分享的细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your last email.（我在回复你上一封邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your feedback.（感谢你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve read your message carefully.（我仔细阅读了你的消息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the invitation.（感谢你的邀请。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your assistance.（感谢你的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing back as requested.（我按要求回复你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the information.（感谢你提供的信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for bringing this up.（感谢你提出这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your time.（感谢你的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your query.（我在回复你的询问。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your support.（感谢你的支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the clarification.（感谢你的澄清。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your prompt response.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve received the document.（我收到了那份文件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your input.（感谢你的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for following up.（感谢你的跟进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your understanding.（感谢你的理解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your request.（我在回复你的请求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the reminder.（感谢你的提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the update on this.（感谢关于此事的更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your cooperation.（感谢你的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve seen your email.（我看到了你的邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for letting me know.（感谢你告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your hard work.（感谢你的辛勤工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your feedback on this.（感谢你对此的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your note.（我在回复你的便条。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the details.（感谢你提供的细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the heads-up.（感谢你的提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your help with this.（感谢你在这方面的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve received your request.（我收到了你的请求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your time on this.（感谢你在这上面花的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the information shared.（感谢分享的信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your promptness.（感谢你的及时处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your message now.（我现在回复你的消息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your attention.（感谢你的关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the clarification on this.（感谢对此的澄清。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your effort.（感谢你的努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve got your email.（我收到你的邮件了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the invitation to this.（感谢邀请我参加这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for following up with me.（感谢跟我跟进此事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your support on this.（感谢你在这方面的支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying as soon as possible.（我尽快回复你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for letting me know this.（感谢你告诉我这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your input on this.（感谢你对此的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your time and effort.（感谢你的时间和努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve received your update.（我收到了你的更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your quick response.（感谢你的快速回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the reminder on this.（感谢对此的提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your cooperation on this.（感谢你在这方面的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m replying to your email now.（我现在回复你的邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、道歉与解释（Apologies and Explanations）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the late reply.（抱歉回复晚了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the delay.（我为延迟道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the inconvenience.（抱歉带来不便。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the mistake.（我为这个错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the confusion.（为造成的混乱道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry I missed your email.（抱歉我没看到你的邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the error.（我为这个错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the short notice.（抱歉通知得很仓促。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the oversight.（我为这个疏忽道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the mix-up.（为弄混了道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for taking so long.（抱歉花了这么长时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the misunderstanding.（我为这个误解道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the trouble caused.（抱歉造成了麻烦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry I couldn’t attend.（抱歉我没能参加。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the late response.（为延迟回复道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for not replying sooner.（抱歉没能早点回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the inconvenience caused.（我为造成的不便道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the confusion this caused.（抱歉由此造成的混乱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the delay in this.（我为这事的延迟道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the mistake made.（为所犯的错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the last-minute change.（抱歉临时变动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for missing the meeting.（我为错过会议道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the oversight on my part.（抱歉是我的疏忽。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the error in the report.（我为报告中的错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the delayed update.（为延迟更新道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for not getting back earlier.（抱歉没能早点回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the confusion caused.（我为造成的混乱道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the trouble this caused.（抱歉由此带来的麻烦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry I forgot to send this.（抱歉我忘了发送这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the short notice on this.（为这事通知仓促道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for taking so long to reply.（抱歉过了这么久才回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the misunderstanding here.（我为这里的误解道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the mistake in the details.（抱歉细节上的错误。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the inconvenience this brings.（我为这带来的不便道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for missing your message.（为没看到你的消息道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the late notice about this.（抱歉关于此事通知晚了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the oversight in this.（我为这事的疏忽道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the mix-up in the schedule.（抱歉日程安排弄混了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the delay in responding.（我为回复延迟道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the late notice about this.（抱歉关于此事通知晚了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the oversight in this.（我为这事的疏忽道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the mix-up in the schedule.（抱歉日程安排弄混了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the delay in responding.（我为回复延迟道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the error in the report.（为报告中的错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry I couldn’t get back sooner.（抱歉没能早点回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the confusion caused.（我为造成的混乱道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the mistake in the data.（抱歉数据中的错误。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for missing the deadline.（抱歉错过了截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the short notice again.（再次为仓促通知道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the inconvenience this brings.（抱歉由此带来的不便。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the delay in the project.（我为项目的延迟道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for not informing you earlier.（抱歉没能早点通知你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the confusion on my part.（抱歉是我造成的混乱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the error in the details.（为细节上的错误道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the trouble with the order.（抱歉订单出现问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the delayed shipment.（我为货物延迟发送道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry I forgot to mention this earlier.（抱歉我忘了早点提这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the misunderstanding here.（抱歉这里的误解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for any issues this may cause.（为可能造成的任何问题道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、请求与询问（Requests and Inquiries）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the report by Friday?（你能在周五前发送报告吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm the meeting time?（你能确认会议时间吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please review this draft?（你能审阅一下这个草稿吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide an update on the project?（你能提供项目的最新情况吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you clarify the requirements?（你能说明一下要求吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know your thoughts?（你能告诉我你的想法吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please schedule a call?（你能安排一次通话吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send the documents again?（你能再发送一次文件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you approve this by the end of day?（你能在今天结束前批准这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you check on the status for me?（你能帮我查一下状态吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide more details here?（你能在这里提供更多细节吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know when you’re free?（你能告诉我你什么时候有空吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please forward the email?（你能转发一下这封邮件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm receipt of this?（你能确认收到这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you review the budget proposal?（你能审阅一下预算提案吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you update the team on this?（你能向团队更新这个情况吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please attend the meeting?（你能参加这个会议吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send me the contact details?（你能给我发一下联系方式吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you finalize the agreement?（你能敲定这份协议吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know if this works?（你能告诉我这样可以吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please reschedule the call?（你能重新安排通话时间吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide feedback by tomorrow?（你能在明天前提供反馈吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you check the figures again?（你能再检查一下数据吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send the agenda in advance?（你能提前发送议程吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please sign the document?（你能签署这份文件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know your availability?（你能告诉我你有空的时间吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you review the contract terms?（你能审阅一下合同条款吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you update the schedule for me?（你能帮我更新一下日程吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please clarify this point?（你能说明一下这一点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm the delivery date?（你能确认交货日期吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the invoice asap?（你能尽快发送发票吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide a progress update?（你能提供进展更新吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please attend the training?（你能参加这次培训吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know your decision?（你能告诉我你的决定吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you review the meeting notes?（你能审阅一下会议纪要吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send the revised version?（你能发送修订版吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please approve the expenses?（你能批准这些费用吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you check on the payment status?（你能查一下付款状态吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide more information here?（你能在这里提供更多信息吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know when ready?（你能告诉我什么时候准备好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please forward the details?（你能转发一下详情吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm the 参会人员名单？（你能确认参会人员名单吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you review the new policy?（你能审阅一下新政策吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you update me on the issue?（你能向我更新问题情况吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please clarify the process?（你能说明一下流程吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm the budget amount?（你能确认预算金额吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the report summary?（你能发送报告摘要吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide feedback on this idea?（你能对这个想法提供反馈吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please reschedule the meeting?（你能重新安排会议时间吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you let me know your thoughts by Friday?（你能在周五前告诉我你的想法吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you review the proposal once more?（你能再审阅一下提案吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send the contact information?（你能发送联系信息吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please finalize the plans?（你能敲定这些计划吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm if this is correct?（你能确认这是否正确吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide an estimate for this?（你能对此提供一个估算吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、告知坏消息（Giving Bad News）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t meet the original deadline.（我们无法赶上最初的截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The project will be delayed by a week.（项目将延迟一周。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipment has been canceled.（货物已被取消。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We won’t be able to approve this.（我们无法批准这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The meeting has to be rescheduled.（会议不得不重新安排。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t proceed with the plan.（我们无法按计划进行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The budget has been reduced.（预算已被削减。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is out of stock.（产品已无库存。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to postpone the event.（我们不得不推迟活动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The team can’t take on this task.（团队无法承担这项任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deadline has been moved up.（截止日期已提前。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t offer the discount.（我们无法提供折扣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The system upgrade failed.（系统升级失败了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to cancel the order.（我们不得不取消订单。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The proposal was rejected.（提案被拒绝了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t meet the required standards.（我们无法达到要求的标准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The delivery will be late.（交货将延迟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to make some cuts.（我们不得不进行一些削减。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The contract won’t be renewed.（合同将不会续签。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t accommodate this request.（我们无法满足这个请求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The meeting room is unavailable.（会议室无法使用。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to change the team lead.（我们不得不更换团队负责人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price has increased.（价格已经上涨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t finish by the end of week.（我们无法在周末前完成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The event has been canceled.（活动已被取消。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to revise the plan.（我们不得不修改计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The software has a major bug.（软件有一个重大漏洞。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t proceed without approval.（没有批准我们无法进行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deadline is non-negotiable.（截止日期无法更改。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to reduce the scope.（我们不得不缩小范围。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier has backed out.（供应商已经退出。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t meet the target this quarter.（本季度我们无法达到目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The project funding was cut.（项目资金被削减了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to reschedule the launch.（我们不得不重新安排发布时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The data was lost due to error.（由于错误数据丢失了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t offer the same terms.（我们无法提供相同的条款。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The team is understaffed.（团队人员不足。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to delay the decision.（我们不得不推迟决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The equipment has malfunctioned.（设备出现了故障。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t extend the deadline.（我们无法延长截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The training session is canceled.（培训课程已取消。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to increase the budget.（我们不得不增加预算。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client has terminated the contract.（客户已终止合同。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t proceed with the merger.（我们无法进行合并。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product launch is delayed.（产品发布已延迟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to downsize the team.（我们不得不缩减团队规模。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The service will be unavailable tomorrow.（明天服务将无法使用。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t meet the production target.（我们无法达到生产目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deadline has been brought forward.（截止日期已提前。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to change the supplier.（我们不得不更换供应商。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The meeting has been canceled last minute.（会议在最后一刻被取消了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can’t approve the overtime.（我们无法批准加班。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The project has been put on hold.（项目已被暂停。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have to revise the budget.（我们不得不修改预算。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The system will be down for maintenance.（系统将停机维护。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、结尾表达（Closing Remarks）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your reply.（期待你的回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your time.（感谢你的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know your thoughts.（请告诉我你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feel free to contact me anytime.（随时联系我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll await your response.（我会等待你的回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your consideration.（感谢你的考虑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need more info.（如果你需要更多信息，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to working with you.（期待与你合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your assistance.（感谢你的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please don’t hesitate to reach out.（请随时联系我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your prompt reply.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you have questions.（如果你有问题，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your feedback.（期待你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your support.（感谢你的支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll follow up with you soon.（我会很快跟进你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please advise at your earliest convenience.（请尽快告知。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to our next meeting.（期待我们下次会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your understanding.（感谢你的理解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if this works for you.（告诉我这样是否适合你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your time and effort.（感谢你的时间和努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to hearing from you.（期待收到你的回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for reviewing this.（感谢审阅这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need clarification.（如果你需要澄清，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Best regards for the week ahead.（祝本周一切顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll await your approval.（我会等待你的批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt attention.（感谢你的及时关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know your availability soon.（尽快告诉我你有空的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to resolving this.（期待解决这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your cooperation.（感谢你的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you disagree.（如果你有不同意见，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your feedback on this.（感谢你对此的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your confirmation.（期待你的确认。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt response.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need further help.（如果你需要进一步帮助，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to our discussion.（期待我们的讨论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your time today.（感谢你今天的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know when you’re ready.（当你准备好时请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your input.（期待你的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for considering this.（感谢考虑这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if adjustments are needed.（如果需要调整，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your quick action.（感谢你的迅速行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your decision.（期待你的决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt handling.（感谢你的及时处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you have concerns.（如果你有顾虑，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to moving forward.（期待继续推进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your attention to this.（感谢你对此的关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know your thoughts soon.（尽快告诉我你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to your approval.（期待你的批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your hard work.（感谢你的辛勤工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need anything else.（如果你需要其他东西，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your prompt feedback.（感谢你的及时反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to our collaboration.（期待我们的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your assistance here.（感谢你在这里的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if this is acceptable.（如果这可以接受，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Looking forward to a positive outcome.（期待积极的结果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、通用短句(Common short sentences )</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this message finds you well.（希望你收到消息时一切安好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt reply.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know your thoughts.（请告诉我你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to hearing from you.（期待你的回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you clarify this point?（你能说明这一点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your assistance.（感谢你的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I apologize for the delay.（抱歉有所延迟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if this works for you.（告诉我这样是否适合你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your time.（感谢你的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please find the attachment below.（请查看下方附件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to update you.（我写信是为了向你更新情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please confirm?（你能确认一下吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your understanding.（感谢你的理解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll follow up with you soon.（我会很快跟进你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need more details.（如果你需要更多细节，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m happy to discuss this further.（我很乐意进一步讨论这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please feel free to contact me.（请随时联系我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for bringing this to my attention.（感谢你提醒我这件事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope we can resolve this soon.（希望我们能尽快解决这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send me the details?（你能给我发一下详情吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your feedback.（感谢你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know your availability.（告诉我你有空的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for any inconvenience.（抱歉造成任何不便。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please advise on next steps.（请告知下一步计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll keep you updated.（我会随时向你更新情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your support.（感谢你的支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could we schedule a call?（我们可以安排一次通话吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope you had a good day.（希望你今天过得愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please review the document.（请审阅这份文件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you agree.（如果你同意，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to confirm.（我写信是为了确认。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt action.（感谢你的迅速行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide an update?（你能提供最新情况吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to our meeting.（期待我们的会面。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know if you have questions.（如果你有问题，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your cooperation.（感谢你的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let’s discuss this further.（我们进一步讨论一下这个问题吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the confusion.（抱歉造成了混乱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please approve this at your convenience.（请在你方便时批准这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll get back to you shortly.（我会很快回复你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your time and effort.（感谢你的时间和努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you reschedule the meeting?（你能重新安排会议时间吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this meets your expectations.（希望这符合你的预期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please find the report attached.（请查收附件中的报告。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need adjustments.（如果你需要调整，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to follow up.（我写信是为了跟进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for considering this.（感谢考虑这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you clarify the requirements?（你能说明一下要求吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to your feedback.（期待你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know your decision.（请告诉我你的决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your prompt attention.（感谢你的及时关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the information again?（你能再发一次信息吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope we can reach an agreement.（希望我们能达成一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm receipt of this email.（请确认收到这封邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need help.（如果你需要帮助，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to inform you.（我写信是为了通知你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt response.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could we meet to discuss this?（我们可以见面讨论这个问题吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope you’re doing well.（希望你一切都好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please review and let me know.（请审阅并告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your input.（感谢你的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know your thoughts by Friday.（请在周五前告诉我你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the late reply.（抱歉回复晚了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please approve the request.（请批准这个请求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll check and get back to you.（我会核实后回复你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your hard work.（感谢你的辛勤工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide more details?（你能提供更多细节吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to working with you.（期待与你合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know if you disagree.（如果你有不同意见，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to request information.（我写信是为了请求信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt handling.（感谢你的及时处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you update the team?（你能向团队更新情况吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope the project is on track.（希望项目进展顺利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please find the agenda attached.（请查收附件中的议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need clarification.（如果你需要澄清，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to remind you.（我写信是为了提醒你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your continued support.（感谢你一如既往的支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you finalize this by Friday?（你能在周五前完成这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to your approval.（期待你的批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know your availability.（请告诉我你有空的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your patience.（感谢你的耐心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let’s schedule a meeting next week.（我们下周安排一次会议吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry for the inconvenience caused.（抱歉造成了不便。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please review the draft and comment.（请审阅草稿并发表意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if this is acceptable.（如果这个可以接受，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to discuss.（我写信是为了讨论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your feedback on this.（感谢你对此的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please sign the document?（你能签署这份文件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to your positive response.（期待你积极的回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know if you have concerns.（如果你有顾虑，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your time today.（感谢你今天的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the report by noon?（你能在中午前发送报告吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope we can resolve this quickly.（希望我们能尽快解决这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the details.（请确认细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know when you’re ready.（当你准备好时请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to ask for a favor.（我写信是想请你帮个忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt reply.（感谢你的及时回复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could we reschedule to next week?（我们可以改到下周吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to your input.（期待你的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know if you need more info.（如果你需要更多信息，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your understanding in this matter.（感谢你在此事上的理解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you clarify the deadline?（你能说明一下截止日期吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope you have a good weekend.（希望你周末愉快。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please find the updated version attached.（请查收附件中的更新版本。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you agree with this plan.（如果你同意这个计划，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m writing to confirm the meeting.（我写信是为了确认会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your assistance with this.（感谢你在此事上的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide a status update?（你能提供最新状态吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I look forward to our discussion.（期待我们的讨论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please let me know if you need further assistance.（如果你需要进一步帮助，请告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate your prompt attention to this.（感谢你对此事的及时关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send the document again?（你能再发一次文件吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hope this works for you.（希望这个对你合适。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm receipt of the package.（请确认收到包裹。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need any help with this.（如果你在这件事上需要任何帮助，请告诉我。）</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="820英文邮件交流必备500句";
@@ -775,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

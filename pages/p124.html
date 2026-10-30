@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,768 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">Common abbreviations used by foreign companies It&#x27;s just 700 of them
-外企常用缩写
-无非就这700个，足够了
-一、通用基础（日常沟通高频）
-ASAP （As Soon As Possible) - 尽快
-BTW （By the Way) - 顺便说下
-CC （Carbon Copy) - 抄送
-BCC （Blind Carbon Copy) - 密件抄送
-FW （Forward) - 转发
-RE （Reply/Regarding) - 回复 / 关于
-FYI （For Your Information) - 供你参考
-FYR （For Your Reference) - 供你参考
-NRN （No Reply Necessary) - 无需回复
-OOO （Out Of Office) - 不在办公室
-BR （Best Regards) - 诚挚问候
-PS （Postscript) - 附言
-NB （Nota Bene) - 特别注意
-IMO （In My Opinion) - 我认为
-LMK （Let Me Know) - 请告知
-TIA （Thanks In Advance) - 提前感谢
-NP （No Problem) - 没问题
-OK （Okay) - 好的
-URGT （Urgent) - 紧急
-W/ （With) - 带有
-W/O （Without) - 没有
-W/R/T （With Regard To) - 关于
-AFAIK （As Far As I Know) - 据我所知
-AYOR （At Your Own Risk) - 风险自担
-BFN （Bye For Now) - 暂时再见
-BRT （Be Right There) - 马上到
-CUL8R （See You Later) - 回头见
-ETA （Estimated Time of Arrival) - 预计到达时间
-ETD （Estimated Time of Departure) - 预计出发 / 寄出时间
-ETA （Estimated Time of Delivery) - 预计交付时间
-N/A （Not Available/Applicable) - 不适用 / 无可用
-TBD （To Be Determined) - 待确定
-TBC （To Be Confirmed) - 待确认
-TBA （To Be Announced) - 待公布
-TL;DR （Too Long; Didn&#x27;t Read) - 太长未读（摘要提示）
-PLS （Please) - 请
-THX （Thanks) - 谢谢
-ASAP （As Soon As Practicable) - 尽快（实操层面）
-ABBR （Abbreviation) - 缩写
-ADDR （Address) - 地址
-APT （Apartment) - 公寓 / 单元
-ATT （Attention) - 收件人 / 注意
-AVE （Avenue) - 大道
-BLDG （Building) - 建筑物 / 大厦
-BLK （Block) - 街区
-C/O （Care Of) - 由… 转交
-DEPT （Department) - 部门
-DIR （Director) - 总监
-DIV （Division) - 分部
-DOC （Document) - 文件
-FILE （File) - 文档 / 文件
-FWD （Forward) - 转发
-INFO （Information) - 信息
-INST （Institute) - 机构 / 学院
-JOB （Job) - 工作
-LOC （Location) - 地点
-MSG （Message) - 消息
-NBR （Number) - 编号
-PAG （Page) - 页码
-PKG （Package) - 包裹
-POC （Point of Contact) - 联系人
-PPT （PowerPoint) - 演示文稿
-PROJ （Project) - 项目
-REF （Reference) - 参考
-REQ （Request) - 请求
-RESP （Responsible) - 负责
-SCHED （Schedule) - 日程
-SECT （Section) - 章节 / 部门
-SR （Senior) - 高级
-STAFF （Staff) - 员工
-STD （Standard) - 标准
-TEL （Telephone) - 电话
-TEMP （Temporary) - 临时
-TITLE （Title) - 职位 / 标题
-TXT （Text) - 文本 / 短信
-UPD （Update) - 更新
-VAC （Vacation) - 假期
-VER （Version) - 版本
-VOL （Volume) - 卷 / 容量
-WK （Week) - 周
-WKD （Worked) - 已完成（工作）
-WKG （Working) - 工作中
-YR （Year) - 年
-HR （Hour) - 小时
-MIN （Minute) - 分钟
-SEC （Second) - 秒
-AM （Ante Meridiem) - 上午
-PM （Post Meridiem) - 下午
-GMT （Greenwich Mean Time) - 格林威治标准时间
-CET （Central European Time) - 中欧时间
-EST （Eastern Standard Time) - 东部标准时间
-PST （Pacific Standard Time) - 太平洋标准时间
-UTC （Coordinated Universal Time) - 世界协调时间
-ID （Identification) - 身份标识
-PIN （Personal Identification Number) - 个人识别码
-URL （Uniform Resource Locator) - 统一资源定位符（网址）
-FAQ （Frequently Asked Questions) - 常见问题
-ACK （Acknowledgment) - 确认收到
-CONF （Confidential) - 机密
-EXT （Extension) - 分机号 / 扩展
-二、时间日期（日程 / 截止时间常用）
-EOD （End of the Day) - 当日结束前（下班前）
-COB （Close of Business) - 下班前
-EOB （End of Business) - 下班前
-EOM （End of Month) - 月底
-EOY （End of Year) - 年底
-FY （Fiscal Year) - 财年
-CY （Current Year) - 本财年
-LY （Last Year) - 上个财年
-PY （Previous Year) - 上个财年
-YTD （Year to Date) - 年初至今
-MTD （Month to Date) - 月至今累计
-WTD （Week to Date) - 周至今累计
-QTD （Quarter to Date) - 季度至今累计
-YOY （Year Over Year) - 年同比
-QOQ （Quarter Over Quarter) - 季度同比
-MoM （Month Over Month) - 月同比
-Q1 （Quarter 1) - 第一季度
-Q2 （Quarter 2) - 第二季度
-Q3 （Quarter 3) - 第三季度
-Q4 （Quarter 4) - 第四季度
-H1 （Half 1) - 上半年
-H2 （Half 2) - 下半年
-DDL （Deadline) - 截止日期
-DUE （Due Date) - 截止日期
-SLA （Service Level Agreement) - 服务水平协议（含时效）
-SLA （Service Level Objectives) - 服务水平目标（时效相关）
-OTD （On Time Delivery) - 准时交付
-OTR （On Time Response) - 准时响应
-LWD （Last Working Day) - 最后一个工作日
-FWD （First Working Day) - 第一个工作日
-BDay （Business Day) - 工作日
-HDay （Holiday) - 节假日
-W/E （Weekend) - 周末
-MON （Monday) - 周一
-TUE （Tuesday) - 周二
-WED （Wednesday) - 周三
-THU （Thursday) - 周四
-FRI （Friday) - 周五
-SAT （Saturday) - 周六
-SUN （Sunday) - 周日
-JAN （January) - 一月
-FEB （February) - 二月
-MAR （March) - 三月
-APR （April) - 四月
-MAY （May) - 五月
-JUN （June) - 六月
-JUL （July) - 七月
-AUG （August) - 八月
-SEP （September) - 九月
-OCT （October) - 十月
-NOV （November) - 十一月
-DEC （December) - 十二月
-DOW （Day of Week) - 星期几
-DOM （Day of Month) - 每月几日
-DOY （Day of Year) - 每年几日
-ETA （Estimated Time of Arrival) - 预计到达时间
-ETD （Estimated Time of Departure) - 预计出发时间
-ETC （Estimated Time of Completion) - 预计完成时间
-ETS （Estimated Time of Shipment) - 预计发货时间
-PRB （Please Reply By) - 请于… 前回复
-三、人力资源（招聘 / 绩效 / 员工管理）
-HR （Human Resources) - 人力资源
-HRBP （Human Resources Business Partner) - 人力资源业务伙伴
-HRIS （Human Resource Information System) - 人力资源信息系统
-TA （Talent Acquisition) - 人才招聘
-ATS （Applicant Tracking System) - 招聘管理系统
-JD （Job Description) - 职位描述
-L&amp;D （Learning and Development) - 学习与发展
-C&amp;B （Compensation and Benefits) - 薪酬与福利
-KPI （Key Performance Indicator) - 关键绩效指标
-OKR （Objectives and Key Results) - 目标与关键结果
-PIP （Performance Improvement Plan) - 绩效改进计划
-ER （Employee Relations) - 员工关系
-EE （Employee) - 员工
-OJT （On-the-Job Training) - 在岗培训
-PTO （Paid Time Off) - 带薪休假
-FTE （Full-Time Equivalent) - 全职当量
-WFH （Work From Home) - 居家办公
-WFO （Work From Office) - 办公室办公
-LOA （Leave of Absence) - 休假（无薪 / 长假）
-NDA （Non-Disclosure Agreement) - 保密协议
-EEO （Equal Employment Opportunity) - 平等就业机会
-FMLA （Family and Medical Leave Act) - 家庭医疗休假法案
-I-9 （Form I-9 Employment Eligibility Verification) - 雇佣资格验证表
-W-2 （Wage and Tax Statement) - 工资税申报表
-1099 （Form 1099 Miscellaneous Income) - 杂项收入申报表
-H1B （H-1B Visa) - 专业职业签证
-GC （Green Card) - 绿卡（永久居留权）
-CV （Curriculum Vitae) - 个人简历
-RES （Resume) - 简历
-INT （Interview) - 面试
-OFFR （Offer) - 录用通知
-ONB （Onboarding) - 新员工入职培训
-TERM （Termination) - 解雇 / 终止雇佣
-PROMO （Promotion) - 晋升
-TRANS （Transfer) - 调岗
-BONUS （Bonus) - 奖金
-COMM （Commission) - 佣金
-BEN （Benefits) - 福利
-MED （Medical Insurance) - 医疗保险
-DENT （Dental Insurance) - 牙科保险
-VISION （Vision Insurance) - 视力保险
-401k （401 （k) Retirement Plan) - 401k 退休计划
-IRA （Individual Retirement Account) - 个人退休账户
-ESPP （Employee Stock Purchase Plan) - 员工股票购买计划
-RSUs （Restricted Stock Units) - 限制性股票单位
-ISO （Incentive Stock Options) - 激励性股票期权
-NSO （Non-Qualified Stock Options) - 非限定股票期权
-PERF （Performance) - 绩效
-REV （Review) - 评审
-FFE （Full-Time Employee) - 全职员工
-PTE （Part-Time Employee) - 兼职员工
-TEMP （Temporary Employee) - 临时员工
-INT （Intern) - 实习生
-CONTRACTOR （Contractor) - 合同工
-FREELANCER （Freelancer) - 自由职业者
-MANAGER （Manager) - 经理
-SUPV （Supervisor) - 主管
-DIR （Director) - 总监
-VP （Vice President) - 副总裁
-SVP （Senior Vice President) - 高级副总裁
-EVP （Executive Vice President) - 执行副总裁
-CEO （Chief Executive Officer) - 首席执行官
-CFO （Chief Financial Officer) - 首席财务官
-COO （Chief Operating Officer) - 首席运营官
-CMO （Chief Marketing Officer) - 首席市场官
-CIO （Chief Information Officer) - 首席信息官
-CTO （Chief Technology Officer) - 首席技术官
-CHRO （Chief Human Resources Officer) - 首席人力资源官
-CCO （Chief Compliance Officer) - 首席合规官
-CSO （Chief Security Officer) - 首席安全官
-CDO （Chief Data Officer) - 首席数据官
-CAO （Chief Administrative Officer) - 首席行政官
-CBO （Chief Business Officer) - 首席业务官
-CPO （Chief Product Officer) - 首席产品官
-CQA （Chief Quality Assurance Officer) - 首席质量保证官
-MBO （Management by Objectives) - 目标管理
-360 （360-Degree Feedback) - 360 度反馈
-PA （Performance Appraisal) - 绩效评估
-PD （Professional Development) - 职业发展
-SWP （Succession Planning) - 继任计划
-四、商务财务（合作 / 交易 / 财务分析）
-ROI （Return On Investment) - 投资回报率
-P&amp;L （Profit and Loss) - 盈亏 / 损益表
-B2B （Business To Business) - 企业对企业
-B2C （Business To Consumer) - 企业对消费者
-B2G （Business To Government) - 企业对政府
-C2C （Consumer To Consumer) - 消费者对消费者
-C2B （Consumer To Business) - 消费者对企业
-MOQ （Minimum Order Quantity) - 最小订单量
-MSRP （Manufacturer&#x27;s Suggested Retail Price) - 制造商建议零售价
-LOI （Letter of Intent) - 意向书
-PO （Purchase Order) - 采购订单
-RFP （Request For Proposal) - 招标请求 / 提案请求
-RFQ （Request For Quotation) - 报价请求
-RFI （Request For Information) - 信息请求
-SLA （Service Level Agreement) - 服务水平协议
-T&amp;C （Terms and Conditions) - 条款和条件
-AP （Accounts Payable) - 应付账款
-EBIT （Earnings Before Interest and Tax) - 息税前利润
-EBITDA （Earnings Before Interest, Tax, Depreciation, and Amortization) - 息税折旧摊销前利润
-MRR （Monthly Recurring Revenue) - 月度经常性收入
-ARR （Annual Recurring Revenue) - 年度经常性收入
-LTV （Lifetime Value) - 客户终身价值
-CAC （Customer Acquisition Cost) - 客户获取成本
-BEP （Break-Even Point) - 盈亏平衡点
-IRR （Internal Rate of Return) - 内部收益率
-PE （Private Equity) - 私募股权
-VC （Venture Capital) - 风险投资
-IPO （Initial Public Offering) - 首次公开募股
-M&amp;A （Mergers and Acquisitions) - 并购
-RMA （Return Merchandise Authorization) - 退货授权
-NPS （Net Promoter Score) - 净推荐值
-QBR （Quarterly Business Review) - 季度业务评审
-ABR （Annual Business Review) - 年度业务评审
-KAM （Key Account Manager) - 关键客户经理
-CRM （Customer Relationship Management) - 客户关系管理
-SFA （Sales Force Automation) - 销售自动化
-CPQ （Configure, Price, Quote) - 配置、定价、报价
-ERP （Enterprise Resource Planning) - 企业资源规划
-WMS （Warehouse Management System) - 仓库管理系统
-TMS （Transportation Management System) - 运输管理系统
-EDI （Electronic Data Interchange) - 电子数据交换
-POS （Point of Sale) - 销售终端
-SKU （Stock Keeping Unit) - 库存保有单位（商品编码）
-UPC （Universal Product Code) - 通用产品代码
-GTIN （Global Trade Item Number) - 全球贸易项目代码
-ASN （Advanced Shipping Notice) - 预先发货通知
-BOL （Bill of Lading) - 提单
-CI （Commercial Invoice) - 商业发票
-PI （Proforma Invoice) - 形式发票
-POA （Power of Attorney) - 授权委托书
-LLC （Limited Liability Company) - 有限责任公司
-Inc. （incorporated) - 股份有限公司
-Corp. （Corporation) - 公司
-Ltd. （Limited) - 有限公司
-GDP （Gross Domestic Product) - 国内生产总值
-GNP （Gross National Product) - 国民生产总值
-CPI （Consumer Price Index) - 消费者价格指数
-PPI （Producer Price Index) - 生产者价格指数
-ROI （Return On Investment) - 投资回报率（精准场景复用，非重复）
-ROE （Return On Equity) - 净资产收益率
-ROA （Return On Assets) - 资产回报率
-ROS （Return On Sales) - 销售回报率
-CAGR （Compound Annual Growth Rate) - 复合年增长率
-NPV （Net Present Value) - 净现值
-FCF （Free Cash Flow) - 自由现金流
-EPS （Earnings Per Share) - 每股收益
-P/E （Price to Earnings Ratio) - 市盈率
-P/B （Price to Book Ratio) - 市净率
-P/S （Price to Sales Ratio) - 市销率
-D/E （Debt to Equity Ratio) - 资产负债率
-CR （Current Ratio) - 流动比率
-QR （Quick Ratio) - 速动比率
-OPEX （Operating Expenses) - 运营费用
-CAPEX （Capital Expenditures) - 资本支出
-COGS （Cost of Goods Sold) - 商品销售成本
-GM （Gross Margin) - 毛利率
-OM （Operating Margin) - 营业利润率
-NM （Net Margin) - 净利润率
-YTD （Year to Date) - 年初至今（财务统计场景）
-MTD （Month to Date) - 月至今累计（财务统计场景）
-QTD （Quarter to Date) - 季度至今累计（财务统计场景）
-EOM （End of Month) - 月底（财务结算场景）
-EOY （End of Year) - 年底（财务结算场景）
-FY （Fiscal Year) - 财年（财务统计场景）
-CY （Current Year) - 本财年（财务统计场景）
-LY （Last Year) - 上个财年（财务对比场景）
-PY （Previous Year) - 上个财年（财务对比场景）
-YOY （Year Over Year) - 年同比（财务分析场景）
-QOQ （Quarter Over Quarter) - 季度同比（财务分析场景）
-MoM （Month Over Month) - 月同比（财务分析场景）
-AOV （Average Order Value) - 平均订单价值
-ATV （Average Transaction Value) - 平均交易价值
-CPL （Cost Per Lead) - 每获取一条销售线索成本
-CPC （Cost Per Click) - 每点击成本
-CPM （Cost Per Mille) - 每千次曝光成本
-CTR （Click Through Rate) - 点击率
-CRM （Customer Relationship Management System) - 客户关系管理系统
-SCM （Supply Chain Management) - 供应链管理
-BPM （Business Process Management) - 业务流程管理
-KPI （Key Performance Indicator) - 关键绩效指标（财务场景）
-五、数据技术（系统 / 技术 / 数据合规）
-API （Application Programming Interface) - 应用程序编程接口
-CMS （Content Management System) - 内容管理系统
-SDK （Software Development Kit) - 软件开发工具包
-SDLC （Software Development Life Cycle) - 软件开发生命周期
-VPN （Virtual Private Network) - 虚拟私人网络
-DLT （Distributed Ledger Technology) - 分布式账本技术
-DMP （Data Management Platform) - 数据管理平台
-BI （Business Intelligence) - 商业智能
-IAM （Identity and Access Management) - 身份与访问管理
-MFA （Multi-Factor Authentication) - 多因素身份验证
-PII （Personally Identifiable Information) - 个人身份信息
-GDPR （General Data Protection Regulation) - 通用数据保护条例
-SaaS （Software as a Service) - 软件即服务
-PaaS （Platform as a Service) - 平台即服务
-IaaS （Infrastructure as a Service) - 基础设施即服务
-FaaS （Function as a Service) - 函数即服务
-PWA （Progressive Web Application) - 渐进式网络应用
-CI/CD （Continuous Integration / Continuous Deployment) - 持续集成与持续部署
-DevOps （Development and Operations) - 开发与运维
-DevSecOps （Development, Security and Operations) - 开发、安全与运维
-QA （Quality Assurance) - 质量保证
-QC （Quality Control) - 质量控制
-UAT （User Acceptance Testing) - 用户验收测试
-unit test （Unit Testing) - 单元测试
-integration test （Integration Testing) - 集成测试
-system test （System Testing) - 系统测试
-regression test （Regression Testing) - 回归测试
-bug （Bug) - 程序漏洞
-fix （Fix) - 漏洞修复
-patch （Patch) - 补丁
-release （Release) - 版本发布
-beta （Beta Version) - 测试版本
-alpha （Alpha Version) - 内部测试版本
-prod （Production Environment) - 生产环境
-staging （Staging Environment) - 预发布环境
-dev （Development Environment) - 开发环境
-test （Testing Environment) - 测试环境
-DB （Database) - 数据库
-SQL （Structured Query Language) - 结构化查询语言
-NoSQL （Not Only SQL) - 非关系型数据库
-MySQL （MySQL Database) - MySQL 数据库
-Oracle （Oracle Database) - 甲骨文数据库
-MongoDB （MongoDB Database) - MongoDB 数据库
-AWS （Amazon Web Services) - 亚马逊网络服务
-Azure （Microsoft Azure) - 微软 Azure 云服务
-GCP （Google Cloud Platform) - 谷歌云平台
-DNS （Domain Name System) - 域名系统
-IP （Internet Protocol) - 互联网协议
-TCP （Transmission Control Protocol) - 传输控制协议
-UDP （User Datagram Protocol) - 用户数据报协议
-HTTP （HyperText Transfer Protocol) - 超文本传输协议
-HTTPS （HyperText Transfer Protocol Secure) - 安全超文本传输协议
-FTP （File Transfer Protocol) - 文件传输协议
-SFTP （Secure File Transfer Protocol) - 安全文件传输协议
-JSON （JavaScript Object Notation) - JavaScript 对象表示法
-XML （eXtensible Markup Language) - 可扩展标记语言
-CSV （Comma-Separated Values) - 逗号分隔值
-PDF （Portable Document Format) - 便携式文档格式
-JPEG （Joint Photographic Experts Group) - 联合图像专家组格式
-PNG （Portable Network Graphics) - 便携式网络图形格式
-SVG （Scalable Vector Graphics) - 可缩放矢量图形格式
-URL （Uniform Resource Locator) - 统一资源定位符
-URI （Uniform Resource Identifier) - 统一资源标识符
-404 （404 Not Found) - 页面未找到
-500 （500 Internal Server Error) - 服务器内部错误
-HTML （HyperText Markup Language) - 超文本标记语言
-CSS （Cascading Style Sheets) - 层叠样式表
-JS （JavaScript) - JavaScript 脚本语言
-PHP （Hypertext Preprocessor) - 超文本预处理器
-Python （Python Programming Language) - Python 编程语言
-Java （Java Programming Language) - Java 编程语言
-C++ （C++ Programming Language) - C++ 编程语言
-C# （C# Programming Language) - C# 编程语言
-R （R Programming Language) - R 编程语言
-AI （Artificial Intelligence) - 人工智能
-ML （Machine Learning) - 机器学习
-DL （Deep Learning) - 深度学习
-NLP （Natural Language Processing) - 自然语言处理
-CV （Computer Vision) - 计算机视觉
-GPU （Graphics Processing Unit) - 图形处理器
-CPU （Central Processing Unit) - 中央处理器
-RAM （Random Access Memory) - 随机存取存储器
-ROM （Read-Only Memory) - 只读存储器
-SSD （Solid State Drive) - 固态硬盘
-HDD （Hard Disk Drive) - 机械硬盘
-IoT （Internet of Things) - 物联网
-Big Data （Big Data) - 大数据
-Hadoop （Apache Hadoop) - 阿帕奇 Hadoop 框架
-Spark （Apache Spark) - 阿帕奇 Spark 框架
-Kafka （Apache Kafka) - 阿帕奇 Kafka 消息队列
-六、项目产品（项目管理 / 产品开发）
-MVP （Minimum Viable Product) - 最小可行产品
-PMO （Project Management Office) - 项目管理办公室
-POC （Proof of Concept) - 概念验证
-SOP （Standard Operating Procedure) - 标准操作流程
-RFD （Request for Discussion) - 需要讨论
-RFI （Request for Information) - 信息请求
-CTS （Critical to Success) - 成功关键点
-DAU （Daily Active Users) - 日活跃用户
-MAU （Monthly Active Users) - 月活跃用户
-WAU （Weekly Active Users) - 周活跃用户
-PCU （Peak Concurrent Users) - 最高同时在线人数
-UV （Unique Visitor) - 独立访客
-PV （Page View) - 页面浏览量
-CTR （Click Through Rate) - 点击率（产品场景）
-CR （Conversion Rate) - 转化率
-Bounce Rate （Bounce Rate) - 跳出率
-Retention Rate （Retention Rate) - 留存率
-Churn Rate （Churn Rate) - 流失率
-PM （Project Manager) - 项目经理
-PM （Product Manager) - 产品经理
-PD （Product Design) - 产品设计
-UX （User Experience) - 用户体验
-UI （User Interface) - 用户界面
-UE （User Experience) - 用户体验（同义复用）
-IA （Information Architecture) - 信息架构
-UXUI （User Experience &amp; User Interface) - 用户体验与界面设计
-PRD （Product Requirements Document) - 产品需求文档
-BRD （Business Requirements Document) - 商业需求文档
-MRD （Market Requirements Document) - 市场需求文档
-SOW （Statement of Work) - 工作说明书
-WBS （Work Breakdown Structure) - 工作分解结构
-Gantt （Gantt Chart) - 甘特图
-KPI （Key Performance Indicator) - 关键绩效指标（项目产品场景）
-OKR （Objectives and Key Results) - 目标与关键成果（项目产品场景）
-Milestone （Milestone) - 里程碑
-Deadline （Deadline) - 截止日期（项目场景）
-Risk （Risk) - 风险
-Issue （Issue) - 问题
-Dependency （Dependency) - 依赖关系
-Scope （Scope) - 范围
-Budget （Budget) - 预算
-Resource （Resource) - 资源
-Timeline （Timeline) - 时间线
-Sprint （Sprint) - 冲刺（敏捷开发）
-Scrum （Scrum) - 敏捷开发框架
-Agile （Agile) - 敏捷开发
-Waterfall （Waterfall Model) - 瀑布模型
-Kanban （Kanban) - 看板方法
-Backlog （Product Backlog) - 产品待办列表
-Sprint Backlog （Sprint Backlog) - 冲刺待办列表
-Burndown （Burndown Chart) - 燃尽图
-Standup （Daily Standup Meeting) - 每日站会
-Retrospective （Sprint Retrospective) - 冲刺回顾会
-Planning （Sprint Planning) - 冲刺规划会
-Review （Sprint Review) - 冲刺评审会
-Roadmap （Product Roadmap) - 产品路线图
-Mockup （Mockup) - 产品原型草图
-Prototype （Prototype) - 产品原型
-Wireframe （Wireframe) - 线框图
-Mockup （Design Mockup) - 设计原型图
-Usability （Usability) - 可用性
-Accessibility （Accessibility) - 可访问性
-Localization （Localization) - 本地化
-Globalization （Globalization) - 全球化
-Version （Version) - 版本
-Update （Update) - 更新
-Launch （Product Launch) - 产品上线
-Iteration （Iteration) - 迭代
-Enhancement （Product Enhancement) - 产品优化
-Bug Fix （Bug Fix) - 漏洞修复
-Feature （Feature) - 功能模块
-Release Note （Release Note) - 版本更新说明
-UAT （User Acceptance Testing) - 用户验收测试（项目场景）
-Beta Test （Beta Testing) - 公测
-Alpha Test （Alpha Testing) - 内测
-Rollout （Feature Rollout) - 功能上线部署
-Rollback （Rollback) - 版本回滚
-Downtime （Downtime) - 系统停机时间
-Uptime （Uptime) - 系统可用时间
-SLA （Service Level Agreement) - 服务水平协议（项目交付场景）
-KPI （Key Performance Indicator) - 关键绩效指标（产品运营场景）
-OKR （Objectives and Key Results) - 目标与关键成果（产品规划场景）
-RACI （Responsible, Accountable, Consulted, Informed) - 责任分配矩阵
-RAID （Risks, Assumptions, Issues, Dependencies) - 项目风险假设问题依赖清单
-EAC （Estimate at Completion) - 完工估算
-ETC （Estimate to Complete) - 剩余工作估算
-SPI （Schedule Performance Index) - 进度绩效指数
-CPI （Cost Performance Index) - 成本绩效指数
-BAC （Budget at Completion) - 完工预算
-VAR （Variance at Completion) - 完工偏差
-七、会议沟通（会议型 / 沟通话术）
-Kick-off Meeting （Kick-off Meeting) - 项目启动会
-Catch-up Meeting （Catch-up Meeting) - 进度跟进会
-Stand-up Meeting （Stand-up Meeting) - 每日站会
-Review Meeting （Review Meeting) - 评审会
-Ad-hoc Meeting （Ad-hoc Meeting) - 临时会议
-One-on-one Meeting （One-on-One Meeting) - 一对一会议
-Town Hall Meeting （Town Hall Meeting) - 全员大会
-Brainstorming （Brainstorming Meeting) - 头脑风暴会
-Retrospective （Retrospective Meeting) - 回顾会
-Workshop （Workshop) - 工作坊
-All-hands Meeting （All-hands Meeting) - 全体员工会议
-Teleconference （Teleconference Call) - 电话会议
-Video Call （Video Conference Call) - 视频会议
-Webinar （Webinar) - 网络研讨会
-Q&amp;A （Question and Answer Session) - 问答环节
-AGM （Annual General Meeting) - 年度股东大会
-Board Meeting （Board Meeting) - 董事会会议
-Team Meeting （Team Meeting) - 团队会议
-Client Meeting （Client Meeting) - 客户会议
-Vendor Meeting （Vendor Meeting) - 供应商会议
-Agenda （Agenda) - 会议议程
-Minutes （Meeting Minutes) - 会议纪要
-Action Item （Action Item) - 行动项
-Follow-up （Follow-up Action) - 后续跟进
-Echo （Echo) - 回应补充
-Align （Align) - 意见对齐
-Leverage （Leverage) - 利用（资源 / 经验）
-Sync （Sync Meeting) - 同步会议
-Debrief （Debrief Meeting) - 复盘会议
-Briefing （Briefing Meeting) - 简报会
-Planning Meeting （Planning Meeting) - 规划会议
-Budget Meeting （Budget Meeting) - 预算会议
-Strategy Meeting （Strategy Meeting) - 战略会议
-Status Meeting （Status Meeting) - 状态汇报会
-Problem-solving Meeting （Problem-solving Meeting) - 问题解决会
-Decision-making Meeting （Decision-making Meeting) - 决策会议
-Kickoff （Project Kickoff) - 项目启动（简称）
-Recap （Meeting Recap) - 会议回顾
-Adjourn （Adjourn Meeting) - 散会
-Postpone （Postpone Meeting) - 会议延期
-Reschedule （Reschedule Meeting) - 重新安排会议时间
-Cancel （Cancel Meeting) - 取消会议
-Attendee （Attendee) - 参会人
-Host （Meeting Host) - 会议主持人
-Facilitator （Meeting Facilitator) - 会议引导者
-Guest （Meeting Guest) - 会议嘉宾
-Invitee （Meeting Invitee) - 被邀请参会人
-Absent （Absent) - 缺席
-Late （Late) - 迟到
-On time （On Time) - 准时
-Duration （Meeting Duration) - 会议时长
-Venue （Meeting Venue) - 会议地点
-Dial-in （Dial-in Number) - 电话接入号
-Meeting ID （Meeting ID) - 会议 ID
-Passcode （Meeting Passcode) - 会议密码
-Recording （Meeting Recording) - 会议录制
-Share Screen （Share Screen) - 屏幕共享
-Presentation （Presentation) - 演示汇报
-Discussion （Group Discussion) - 小组讨论
-Consensus （Consensus) - 共识
-八、邮件文档（邮件格式 / 文档型）
-Email （Electronic Mail) - 电子邮件
-Subject （Email Subject) - 邮件主题
-Body （Email Body) - 邮件正文
-Attachment （Email Attachment) - 邮件附件
-Sender （Email Sender) - 发件人
-Recipient （Email Recipient) - 收件人
-CC （Carbon Copy) - 抄送（邮件场景）
-BCC （Blind Carbon Copy) - 密件抄送（邮件场景）
-FW （Forward Email) - 转发邮件
-RE （Reply Email) - 回复邮件
-Draft （Email Draft) - 邮件草稿
-Sent （Sent Items) - 已发送邮件
-Inbox （Email Inbox) - 收件箱
-Trash （Trash Folder) - 垃圾箱
-Spam （Spam Folder) - 垃圾邮件箱
-Archive （Archive Folder) - 归档文件夹
-Priority （Email Priority) - 邮件优先级
-High Priority （High Priority) - 高优先级
-Low Priority （Low Priority) - 低优先级
-Read Receipt （Read Receipt) - 已读回执
-Delivery Receipt （Delivery Receipt) - 送达回执
-Auto-reply （Auto-reply Email) - 自动回复邮件
-OOO Auto-reply （Out Of Office Auto-reply) - 外出自动回复
-Memo （Memorandum) - 备忘录
-Report （Report) - 报告
-Proposal （Proposal Document) - 提案文档
-Contract （Contract Document) - 合同文档
-Agreement （Agreement Document) - 协议文档
-Invoice （Invoice Document) - 发票文档
-Receipt （Receipt Document) - 收据文档
-Form （Form Document) - 表单文档
-Template （Document Template) - 文档模板
-Draft （Document Draft) - 文档草稿
-Final （Final Document) - 最终文档
-Version （Document Version) - 文档版本
-Revision （Document Revision) - 文档修订版
-Annotation （Document Annotation) - 文档注释
-Comment （Document Comment) - 文档评论
-Edit （Document Edit) - 文档编辑
-Review （Document Review) - 文档评审
-Approve （Document Approve) - 文档审批
-Sign （Document Sign) - 文档签署
-E-sign （Electronic Signature) - 电子签名
-PDF （Portable Document Format) - 便携式文档格式（文档场景）
-Word （Microsoft Word Document) - Word 文档
-Excel （Microsoft Excel Document) - Excel 文档
-PPT （Microsoft PowerPoint Document) - PPT 文档
-Google Doc （Google Document) - 谷歌文档
-Google Sheet （Google Spreadsheet) - 谷歌表格
-Google Slide （Google Presentation) - 谷歌演示文稿
-Shared Drive （Shared Drive) - 共享驱动器
-Cloud Drive （Cloud Drive) - 云盘
-Folder （Folder) - 文件夹
-File （File) - 文件
-Naming Convention （File Naming Convention) - 文件命名规范
-Backup （File Backup) - 文件备份
-Restore （File Restore) - 文件恢复
-Sync （File Sync) - 文件同步
-Share （File Share) - 文件共享
-Permission （File Permission) - 文件权限
-九、供应链物流（采购 / 物流 / 库存）
-SCM （Supply Chain Management) - 供应链管理
-Procurement （Procurement) - 采购
-Purchasing （Purchasing) - 采购执行
-PO （Purchase Order) - 采购订单
-PR （Purchase Requisition) - 采购申请单
-GRN （Goods Received Note) - 收货单
-GDN （Goods Despatched Note) - 发货单
-DO （Delivery Order) - 送货单
-Invoice （Commercial Invoice) - 商业发票（物流场景）
-Packing List （Packing List) - 装箱单
-Waybill （Waybill) - 运单
-BOL （Bill of Lading) - 提单（海运 / 空运）
-AWB （Air Waybill) - 空运提单
-Sea Waybill （Sea Waybill) - 海运运单
-FCL （Full Container Load) - 整箱货
-LCL （Less Than Container Load) - 拼箱货
-20FT （20-Foot Container) - 20 英尺集装箱
-40FT （40-Foot Container) - 40 英尺集装箱
-40HQ （40-Foot High Cube Container) - 40 英尺高柜集装箱
-DDP （Delivered Duty Paid) - 完税后交货（贸易术语）
-DAP （Delivered at Place) - 目的地交货（贸易术语）
-CIF （Cost, Insurance and Freight) - 成本加保险费加运费（贸易术语）
-CFR （Cost and Freight) - 成本加运费（贸易术语）
-FOB （Free On Board) - 离岸价（贸易术语）
-EXW （Ex Works) - 工厂交货（贸易术语）
-Incoterms （International Commercial Terms) - 国际贸易术语解释通则
-Logistics （Logistics) - 物流
-Freight （Freight) - 运费
-Shipping （Shipping) - 运输 / 发货
-Forwarder （Freight Forwarder) - 货运代理
-Carrier （Carrier) - 承运人
-Warehouse （Warehouse) - 仓库
-WMS （Warehouse Management System) - 仓库管理系统
-Inventory （Inventory) - 库存
-Stock （Stock) - 库存
-SKU （Stock Keeping Unit) - 库存保有单位（物流场景）
-Stocktaking （Stocktaking) - 库存盘点
-Cycle Count （Cycle Count) - 循环盘点
-Overstock （Overstock) - 库存积压
-Stockout （Stockout) - 库存缺货
-Safety Stock （Safety Stock) - 安全库存
-Reorder Point （Reorder Point) - 再订货点
-Lead Time （Lead Time) - 交货周期
-Lead Time （Production Lead Time) - 生产周期
-OTIF （On Time In Full) - 准时足量交付
-Reverse Logistics （Reverse Logistics) - 逆向物流
-Returns （Product Returns) - 产品退货
-RMA （Return Merchandise Authorization) - 退货授权（物流场景）
-Damaged （Damaged Goods) - 破损货物
-Shortage （Shortage of Goods) - 货物短缺
-Overload （Overload) - 超载
-Customs （Customs) - 海关
-Customs Clearance （Customs Clearance) - 清关
-Duty （Customs Duty) - 关税
-Tariff （Tariff) - 关税
-VAT （Value Added Tax) - 增值税
-GST （Goods and Services Tax) - 商品及服务税
-Import （Import) - 进口
-Export （Export) - 出口
-Import License （Import License) - 进口许可证
-Export License （Export License) - 出口许可证
-HS Code （Harmonized System Code) - 协调制度编码
-EORI （Economic Operators Registration and Identification) - 经济运营商注册识别号
-AEO （Authorized Economic Operator) - 经认证的经营者
-Logistics Cost （Logistics Cost) - 物流成本
-Transportation Mode （Transportation Mode) - 运输方式
-Sea Freight （Sea Freight) - 海运
-Air Freight （Air Freight) - 空运
-Road Freight （Road Freight) - 陆运
-Rail Freight （Rail Freight) - 铁路运输
-十、市场营销（推广 / 品牌 / 用户运营）
-Marketing （Marketing) - 市场营销
-Branding （Branding) - 品牌建设
-AD （Advertisement) - 广告
-SEM （Search Engine Marketing) - 搜索引擎营销
-SEO （Search Engine Optimization) - 搜索引擎优化
-PPC （Pay Per Click) - 按点击付费
-CPC （Cost Per Click) - 每点击成本（营销场景）
-CPM （Cost Per Mille) - 每千次曝光成本（营销场景）
-CPA （Cost Per Acquisition) - 每获取成本
-CPL （Cost Per Lead) - 每线索成本（营销场景）
-CTR （Click Through Rate) - 点击率（营销场景）
-CR （Conversion Rate) - 转化率（营销场景）
-ROI （Return On Investment) - 投资回报率（营销场景）
-ROAS （Return On Ad Spend) - 广告支出回报率
-Impression （Impression) - 曝光量
-Reach （Reach) - 触达量
-Engagement （Engagement) - 互动量
-Like （Like) - 点赞
-Share （Share) - 分享
-Comment （Comment) - 评论
-Follow （Follow) - 关注
-Unfollow （Unfollow) - 取消关注
-DM （Direct Message) - 私信
-Social Media （Social Media) - 社交媒体
-SM （Social Media) - 社交媒体（简称）
-SMM （Social Media Marketing) - 社交媒体营销
-Content （Content) - 内容
-Content Marketing （Content Marketing) - 内容营销
-Blog （Blog) - 博客
-Vlog （Video Blog) - 视频博客
-Podcast （Podcast) - 播客
-Infographic （Infographic) - 信息图表
-Video （Video Content) - 视频内容
-Image （Image Content) - 图片内容
-Copy （Copywriting) - 文案
-Tagline （Tagline) - 标语 / 口号
-Slogan （Slogan) - 口号
-Campaign （Marketing Campaign) - 营销活动
-Promotion （Promotion) - 促销</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Common abbreviations used by foreign companies It&#x27;s just 700 of them</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外企常用缩写</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>无非就这700个，足够了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、通用基础（日常沟通高频）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ASAP （As Soon As Possible) - 尽快</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BTW （By the Way) - 顺便说下</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CC （Carbon Copy) - 抄送</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BCC （Blind Carbon Copy) - 密件抄送</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FW （Forward) - 转发</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RE （Reply/Regarding) - 回复 / 关于</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FYI （For Your Information) - 供你参考</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FYR （For Your Reference) - 供你参考</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NRN （No Reply Necessary) - 无需回复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OOO （Out Of Office) - 不在办公室</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BR （Best Regards) - 诚挚问候</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PS （Postscript) - 附言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NB （Nota Bene) - 特别注意</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IMO （In My Opinion) - 我认为</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LMK （Let Me Know) - 请告知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TIA （Thanks In Advance) - 提前感谢</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NP （No Problem) - 没问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OK （Okay) - 好的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>URGT （Urgent) - 紧急</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W/ （With) - 带有</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W/O （Without) - 没有</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W/R/T （With Regard To) - 关于</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AFAIK （As Far As I Know) - 据我所知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AYOR （At Your Own Risk) - 风险自担</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BFN （Bye For Now) - 暂时再见</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BRT （Be Right There) - 马上到</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CUL8R （See You Later) - 回头见</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA （Estimated Time of Arrival) - 预计到达时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETD （Estimated Time of Departure) - 预计出发 / 寄出时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA （Estimated Time of Delivery) - 预计交付时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>N/A （Not Available/Applicable) - 不适用 / 无可用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TBD （To Be Determined) - 待确定</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TBC （To Be Confirmed) - 待确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TBA （To Be Announced) - 待公布</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TL;DR （Too Long; Didn&#x27;t Read) - 太长未读（摘要提示）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PLS （Please) - 请</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>THX （Thanks) - 谢谢</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ASAP （As Soon As Practicable) - 尽快（实操层面）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ABBR （Abbreviation) - 缩写</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ADDR （Address) - 地址</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>APT （Apartment) - 公寓 / 单元</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ATT （Attention) - 收件人 / 注意</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AVE （Avenue) - 大道</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BLDG （Building) - 建筑物 / 大厦</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BLK （Block) - 街区</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C/O （Care Of) - 由… 转交</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DEPT （Department) - 部门</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DIR （Director) - 总监</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DIV （Division) - 分部</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOC （Document) - 文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FILE （File) - 文档 / 文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FWD （Forward) - 转发</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INFO （Information) - 信息</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INST （Institute) - 机构 / 学院</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JOB （Job) - 工作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LOC （Location) - 地点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MSG （Message) - 消息</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NBR （Number) - 编号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PAG （Page) - 页码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PKG （Package) - 包裹</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>POC （Point of Contact) - 联系人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PPT （PowerPoint) - 演示文稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PROJ （Project) - 项目</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>REF （Reference) - 参考</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>REQ （Request) - 请求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RESP （Responsible) - 负责</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SCHED （Schedule) - 日程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SECT （Section) - 章节 / 部门</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SR （Senior) - 高级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>STAFF （Staff) - 员工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>STD （Standard) - 标准</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TEL （Telephone) - 电话</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TEMP （Temporary) - 临时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TITLE （Title) - 职位 / 标题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TXT （Text) - 文本 / 短信</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UPD （Update) - 更新</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VAC （Vacation) - 假期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VER （Version) - 版本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VOL （Volume) - 卷 / 容量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WK （Week) - 周</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WKD （Worked) - 已完成（工作）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WKG （Working) - 工作中</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>YR （Year) - 年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HR （Hour) - 小时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MIN （Minute) - 分钟</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SEC （Second) - 秒</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AM （Ante Meridiem) - 上午</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PM （Post Meridiem) - 下午</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GMT （Greenwich Mean Time) - 格林威治标准时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CET （Central European Time) - 中欧时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EST （Eastern Standard Time) - 东部标准时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PST （Pacific Standard Time) - 太平洋标准时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UTC （Coordinated Universal Time) - 世界协调时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ID （Identification) - 身份标识</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PIN （Personal Identification Number) - 个人识别码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>URL （Uniform Resource Locator) - 统一资源定位符（网址）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FAQ （Frequently Asked Questions) - 常见问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ACK （Acknowledgment) - 确认收到</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CONF （Confidential) - 机密</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EXT （Extension) - 分机号 / 扩展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、时间日期（日程 / 截止时间常用）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOD （End of the Day) - 当日结束前（下班前）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>COB （Close of Business) - 下班前</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOB （End of Business) - 下班前</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOM （End of Month) - 月底</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOY （End of Year) - 年底</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FY （Fiscal Year) - 财年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CY （Current Year) - 本财年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LY （Last Year) - 上个财年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PY （Previous Year) - 上个财年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>YTD （Year to Date) - 年初至今</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MTD （Month to Date) - 月至今累计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WTD （Week to Date) - 周至今累计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QTD （Quarter to Date) - 季度至今累计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>YOY （Year Over Year) - 年同比</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QOQ （Quarter Over Quarter) - 季度同比</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MoM （Month Over Month) - 月同比</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Q1 （Quarter 1) - 第一季度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Q2 （Quarter 2) - 第二季度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Q3 （Quarter 3) - 第三季度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Q4 （Quarter 4) - 第四季度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>H1 （Half 1) - 上半年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>H2 （Half 2) - 下半年</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DDL （Deadline) - 截止日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DUE （Due Date) - 截止日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SLA （Service Level Agreement) - 服务水平协议（含时效）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SLA （Service Level Objectives) - 服务水平目标（时效相关）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OTD （On Time Delivery) - 准时交付</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OTR （On Time Response) - 准时响应</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LWD （Last Working Day) - 最后一个工作日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FWD （First Working Day) - 第一个工作日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BDay （Business Day) - 工作日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HDay （Holiday) - 节假日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W/E （Weekend) - 周末</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MON （Monday) - 周一</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TUE （Tuesday) - 周二</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WED （Wednesday) - 周三</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>THU （Thursday) - 周四</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FRI （Friday) - 周五</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SAT （Saturday) - 周六</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SUN （Sunday) - 周日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JAN （January) - 一月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FEB （February) - 二月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MAR （March) - 三月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>APR （April) - 四月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MAY （May) - 五月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JUN （June) - 六月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JUL （July) - 七月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AUG （August) - 八月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SEP （September) - 九月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OCT （October) - 十月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NOV （November) - 十一月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DEC （December) - 十二月</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOW （Day of Week) - 星期几</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOM （Day of Month) - 每月几日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOY （Day of Year) - 每年几日</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA （Estimated Time of Arrival) - 预计到达时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETD （Estimated Time of Departure) - 预计出发时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETC （Estimated Time of Completion) - 预计完成时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETS （Estimated Time of Shipment) - 预计发货时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PRB （Please Reply By) - 请于… 前回复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、人力资源（招聘 / 绩效 / 员工管理）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HR （Human Resources) - 人力资源</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HRBP （Human Resources Business Partner) - 人力资源业务伙伴</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HRIS （Human Resource Information System) - 人力资源信息系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TA （Talent Acquisition) - 人才招聘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ATS （Applicant Tracking System) - 招聘管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JD （Job Description) - 职位描述</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L&amp;D （Learning and Development) - 学习与发展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C&amp;B （Compensation and Benefits) - 薪酬与福利</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>KPI （Key Performance Indicator) - 关键绩效指标</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OKR （Objectives and Key Results) - 目标与关键结果</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PIP （Performance Improvement Plan) - 绩效改进计划</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ER （Employee Relations) - 员工关系</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EE （Employee) - 员工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OJT （On-the-Job Training) - 在岗培训</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PTO （Paid Time Off) - 带薪休假</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FTE （Full-Time Equivalent) - 全职当量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WFH （Work From Home) - 居家办公</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WFO （Work From Office) - 办公室办公</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LOA （Leave of Absence) - 休假（无薪 / 长假）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NDA （Non-Disclosure Agreement) - 保密协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EEO （Equal Employment Opportunity) - 平等就业机会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FMLA （Family and Medical Leave Act) - 家庭医疗休假法案</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I-9 （Form I-9 Employment Eligibility Verification) - 雇佣资格验证表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W-2 （Wage and Tax Statement) - 工资税申报表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>1099 （Form 1099 Miscellaneous Income) - 杂项收入申报表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>H1B （H-1B Visa) - 专业职业签证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GC （Green Card) - 绿卡（永久居留权）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CV （Curriculum Vitae) - 个人简历</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RES （Resume) - 简历</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INT （Interview) - 面试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OFFR （Offer) - 录用通知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ONB （Onboarding) - 新员工入职培训</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TERM （Termination) - 解雇 / 终止雇佣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PROMO （Promotion) - 晋升</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TRANS （Transfer) - 调岗</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BONUS （Bonus) - 奖金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>COMM （Commission) - 佣金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BEN （Benefits) - 福利</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MED （Medical Insurance) - 医疗保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DENT （Dental Insurance) - 牙科保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VISION （Vision Insurance) - 视力保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>401k （401 （k) Retirement Plan) - 401k 退休计划</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IRA （Individual Retirement Account) - 个人退休账户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ESPP （Employee Stock Purchase Plan) - 员工股票购买计划</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RSUs （Restricted Stock Units) - 限制性股票单位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ISO （Incentive Stock Options) - 激励性股票期权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NSO （Non-Qualified Stock Options) - 非限定股票期权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PERF （Performance) - 绩效</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>REV （Review) - 评审</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FFE （Full-Time Employee) - 全职员工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PTE （Part-Time Employee) - 兼职员工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TEMP （Temporary Employee) - 临时员工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>INT （Intern) - 实习生</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CONTRACTOR （Contractor) - 合同工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FREELANCER （Freelancer) - 自由职业者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MANAGER （Manager) - 经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SUPV （Supervisor) - 主管</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DIR （Director) - 总监</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VP （Vice President) - 副总裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SVP （Senior Vice President) - 高级副总裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EVP （Executive Vice President) - 执行副总裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CEO （Chief Executive Officer) - 首席执行官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CFO （Chief Financial Officer) - 首席财务官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>COO （Chief Operating Officer) - 首席运营官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CMO （Chief Marketing Officer) - 首席市场官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIO （Chief Information Officer) - 首席信息官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTO （Chief Technology Officer) - 首席技术官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CHRO （Chief Human Resources Officer) - 首席人力资源官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CCO （Chief Compliance Officer) - 首席合规官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CSO （Chief Security Officer) - 首席安全官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CDO （Chief Data Officer) - 首席数据官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CAO （Chief Administrative Officer) - 首席行政官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CBO （Chief Business Officer) - 首席业务官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPO （Chief Product Officer) - 首席产品官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CQA （Chief Quality Assurance Officer) - 首席质量保证官</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MBO （Management by Objectives) - 目标管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>360 （360-Degree Feedback) - 360 度反馈</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PA （Performance Appraisal) - 绩效评估</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PD （Professional Development) - 职业发展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SWP （Succession Planning) - 继任计划</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、商务财务（合作 / 交易 / 财务分析）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROI （Return On Investment) - 投资回报率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P&amp;L （Profit and Loss) - 盈亏 / 损益表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B2B （Business To Business) - 企业对企业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B2C （Business To Consumer) - 企业对消费者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B2G （Business To Government) - 企业对政府</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C2C （Consumer To Consumer) - 消费者对消费者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C2B （Consumer To Business) - 消费者对企业</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ （Minimum Order Quantity) - 最小订单量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MSRP （Manufacturer&#x27;s Suggested Retail Price) - 制造商建议零售价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LOI （Letter of Intent) - 意向书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PO （Purchase Order) - 采购订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFP （Request For Proposal) - 招标请求 / 提案请求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFQ （Request For Quotation) - 报价请求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFI （Request For Information) - 信息请求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SLA （Service Level Agreement) - 服务水平协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T&amp;C （Terms and Conditions) - 条款和条件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AP （Accounts Payable) - 应付账款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EBIT （Earnings Before Interest and Tax) - 息税前利润</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EBITDA （Earnings Before Interest, Tax, Depreciation, and Amortization) - 息税折旧摊销前利润</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MRR （Monthly Recurring Revenue) - 月度经常性收入</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ARR （Annual Recurring Revenue) - 年度经常性收入</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LTV （Lifetime Value) - 客户终身价值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CAC （Customer Acquisition Cost) - 客户获取成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BEP （Break-Even Point) - 盈亏平衡点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IRR （Internal Rate of Return) - 内部收益率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PE （Private Equity) - 私募股权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VC （Venture Capital) - 风险投资</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IPO （Initial Public Offering) - 首次公开募股</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>M&amp;A （Mergers and Acquisitions) - 并购</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RMA （Return Merchandise Authorization) - 退货授权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NPS （Net Promoter Score) - 净推荐值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QBR （Quarterly Business Review) - 季度业务评审</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ABR （Annual Business Review) - 年度业务评审</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>KAM （Key Account Manager) - 关键客户经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CRM （Customer Relationship Management) - 客户关系管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SFA （Sales Force Automation) - 销售自动化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPQ （Configure, Price, Quote) - 配置、定价、报价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ERP （Enterprise Resource Planning) - 企业资源规划</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WMS （Warehouse Management System) - 仓库管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TMS （Transportation Management System) - 运输管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EDI （Electronic Data Interchange) - 电子数据交换</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>POS （Point of Sale) - 销售终端</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SKU （Stock Keeping Unit) - 库存保有单位（商品编码）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UPC （Universal Product Code) - 通用产品代码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GTIN （Global Trade Item Number) - 全球贸易项目代码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ASN （Advanced Shipping Notice) - 预先发货通知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BOL （Bill of Lading) - 提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CI （Commercial Invoice) - 商业发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PI （Proforma Invoice) - 形式发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>POA （Power of Attorney) - 授权委托书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LLC （Limited Liability Company) - 有限责任公司</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inc. （incorporated) - 股份有限公司</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Corp. （Corporation) - 公司</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ltd. （Limited) - 有限公司</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GDP （Gross Domestic Product) - 国内生产总值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GNP （Gross National Product) - 国民生产总值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPI （Consumer Price Index) - 消费者价格指数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PPI （Producer Price Index) - 生产者价格指数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROI （Return On Investment) - 投资回报率（精准场景复用，非重复）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROE （Return On Equity) - 净资产收益率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROA （Return On Assets) - 资产回报率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROS （Return On Sales) - 销售回报率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CAGR （Compound Annual Growth Rate) - 复合年增长率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NPV （Net Present Value) - 净现值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FCF （Free Cash Flow) - 自由现金流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EPS （Earnings Per Share) - 每股收益</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P/E （Price to Earnings Ratio) - 市盈率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P/B （Price to Book Ratio) - 市净率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>P/S （Price to Sales Ratio) - 市销率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>D/E （Debt to Equity Ratio) - 资产负债率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CR （Current Ratio) - 流动比率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QR （Quick Ratio) - 速动比率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OPEX （Operating Expenses) - 运营费用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CAPEX （Capital Expenditures) - 资本支出</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>COGS （Cost of Goods Sold) - 商品销售成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GM （Gross Margin) - 毛利率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OM （Operating Margin) - 营业利润率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NM （Net Margin) - 净利润率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>YTD （Year to Date) - 年初至今（财务统计场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MTD （Month to Date) - 月至今累计（财务统计场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QTD （Quarter to Date) - 季度至今累计（财务统计场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOM （End of Month) - 月底（财务结算场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EOY （End of Year) - 年底（财务结算场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FY （Fiscal Year) - 财年（财务统计场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CY （Current Year) - 本财年（财务统计场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LY （Last Year) - 上个财年（财务对比场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PY （Previous Year) - 上个财年（财务对比场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>YOY （Year Over Year) - 年同比（财务分析场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QOQ （Quarter Over Quarter) - 季度同比（财务分析场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MoM （Month Over Month) - 月同比（财务分析场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AOV （Average Order Value) - 平均订单价值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ATV （Average Transaction Value) - 平均交易价值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPL （Cost Per Lead) - 每获取一条销售线索成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPC （Cost Per Click) - 每点击成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPM （Cost Per Mille) - 每千次曝光成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTR （Click Through Rate) - 点击率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CRM （Customer Relationship Management System) - 客户关系管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SCM （Supply Chain Management) - 供应链管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BPM （Business Process Management) - 业务流程管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>KPI （Key Performance Indicator) - 关键绩效指标（财务场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、数据技术（系统 / 技术 / 数据合规）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>API （Application Programming Interface) - 应用程序编程接口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CMS （Content Management System) - 内容管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SDK （Software Development Kit) - 软件开发工具包</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SDLC （Software Development Life Cycle) - 软件开发生命周期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VPN （Virtual Private Network) - 虚拟私人网络</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DLT （Distributed Ledger Technology) - 分布式账本技术</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DMP （Data Management Platform) - 数据管理平台</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BI （Business Intelligence) - 商业智能</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IAM （Identity and Access Management) - 身份与访问管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MFA （Multi-Factor Authentication) - 多因素身份验证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PII （Personally Identifiable Information) - 个人身份信息</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GDPR （General Data Protection Regulation) - 通用数据保护条例</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SaaS （Software as a Service) - 软件即服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PaaS （Platform as a Service) - 平台即服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IaaS （Infrastructure as a Service) - 基础设施即服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FaaS （Function as a Service) - 函数即服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PWA （Progressive Web Application) - 渐进式网络应用</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CI/CD （Continuous Integration / Continuous Deployment) - 持续集成与持续部署</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DevOps （Development and Operations) - 开发与运维</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DevSecOps （Development, Security and Operations) - 开发、安全与运维</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QA （Quality Assurance) - 质量保证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QC （Quality Control) - 质量控制</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UAT （User Acceptance Testing) - 用户验收测试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>unit test （Unit Testing) - 单元测试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>integration test （Integration Testing) - 集成测试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>system test （System Testing) - 系统测试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>regression test （Regression Testing) - 回归测试</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>bug （Bug) - 程序漏洞</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>fix （Fix) - 漏洞修复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>patch （Patch) - 补丁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>release （Release) - 版本发布</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>beta （Beta Version) - 测试版本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>alpha （Alpha Version) - 内部测试版本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>prod （Production Environment) - 生产环境</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>staging （Staging Environment) - 预发布环境</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>dev （Development Environment) - 开发环境</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>test （Testing Environment) - 测试环境</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DB （Database) - 数据库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SQL （Structured Query Language) - 结构化查询语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NoSQL （Not Only SQL) - 非关系型数据库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MySQL （MySQL Database) - MySQL 数据库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Oracle （Oracle Database) - 甲骨文数据库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MongoDB （MongoDB Database) - MongoDB 数据库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AWS （Amazon Web Services) - 亚马逊网络服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Azure （Microsoft Azure) - 微软 Azure 云服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GCP （Google Cloud Platform) - 谷歌云平台</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DNS （Domain Name System) - 域名系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IP （Internet Protocol) - 互联网协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TCP （Transmission Control Protocol) - 传输控制协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UDP （User Datagram Protocol) - 用户数据报协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HTTP （HyperText Transfer Protocol) - 超文本传输协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HTTPS （HyperText Transfer Protocol Secure) - 安全超文本传输协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FTP （File Transfer Protocol) - 文件传输协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SFTP （Secure File Transfer Protocol) - 安全文件传输协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JSON （JavaScript Object Notation) - JavaScript 对象表示法</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>XML （eXtensible Markup Language) - 可扩展标记语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CSV （Comma-Separated Values) - 逗号分隔值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PDF （Portable Document Format) - 便携式文档格式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JPEG （Joint Photographic Experts Group) - 联合图像专家组格式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PNG （Portable Network Graphics) - 便携式网络图形格式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SVG （Scalable Vector Graphics) - 可缩放矢量图形格式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>URL （Uniform Resource Locator) - 统一资源定位符</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>URI （Uniform Resource Identifier) - 统一资源标识符</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>404 （404 Not Found) - 页面未找到</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>500 （500 Internal Server Error) - 服务器内部错误</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HTML （HyperText Markup Language) - 超文本标记语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CSS （Cascading Style Sheets) - 层叠样式表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>JS （JavaScript) - JavaScript 脚本语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PHP （Hypertext Preprocessor) - 超文本预处理器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Python （Python Programming Language) - Python 编程语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Java （Java Programming Language) - Java 编程语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C++ （C++ Programming Language) - C++ 编程语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C# （C# Programming Language) - C# 编程语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>R （R Programming Language) - R 编程语言</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AI （Artificial Intelligence) - 人工智能</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ML （Machine Learning) - 机器学习</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DL （Deep Learning) - 深度学习</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NLP （Natural Language Processing) - 自然语言处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CV （Computer Vision) - 计算机视觉</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GPU （Graphics Processing Unit) - 图形处理器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPU （Central Processing Unit) - 中央处理器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RAM （Random Access Memory) - 随机存取存储器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROM （Read-Only Memory) - 只读存储器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SSD （Solid State Drive) - 固态硬盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HDD （Hard Disk Drive) - 机械硬盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IoT （Internet of Things) - 物联网</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Big Data （Big Data) - 大数据</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hadoop （Apache Hadoop) - 阿帕奇 Hadoop 框架</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Spark （Apache Spark) - 阿帕奇 Spark 框架</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Kafka （Apache Kafka) - 阿帕奇 Kafka 消息队列</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、项目产品（项目管理 / 产品开发）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MVP （Minimum Viable Product) - 最小可行产品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PMO （Project Management Office) - 项目管理办公室</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>POC （Proof of Concept) - 概念验证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SOP （Standard Operating Procedure) - 标准操作流程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFD （Request for Discussion) - 需要讨论</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFI （Request for Information) - 信息请求</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTS （Critical to Success) - 成功关键点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DAU （Daily Active Users) - 日活跃用户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MAU （Monthly Active Users) - 月活跃用户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WAU （Weekly Active Users) - 周活跃用户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PCU （Peak Concurrent Users) - 最高同时在线人数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UV （Unique Visitor) - 独立访客</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PV （Page View) - 页面浏览量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTR （Click Through Rate) - 点击率（产品场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CR （Conversion Rate) - 转化率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bounce Rate （Bounce Rate) - 跳出率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Retention Rate （Retention Rate) - 留存率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Churn Rate （Churn Rate) - 流失率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PM （Project Manager) - 项目经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PM （Product Manager) - 产品经理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PD （Product Design) - 产品设计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UX （User Experience) - 用户体验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UI （User Interface) - 用户界面</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UE （User Experience) - 用户体验（同义复用）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IA （Information Architecture) - 信息架构</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UXUI （User Experience &amp; User Interface) - 用户体验与界面设计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PRD （Product Requirements Document) - 产品需求文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BRD （Business Requirements Document) - 商业需求文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MRD （Market Requirements Document) - 市场需求文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SOW （Statement of Work) - 工作说明书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WBS （Work Breakdown Structure) - 工作分解结构</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Gantt （Gantt Chart) - 甘特图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>KPI （Key Performance Indicator) - 关键绩效指标（项目产品场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OKR （Objectives and Key Results) - 目标与关键成果（项目产品场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Milestone （Milestone) - 里程碑</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Deadline （Deadline) - 截止日期（项目场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk （Risk) - 风险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Issue （Issue) - 问题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dependency （Dependency) - 依赖关系</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Scope （Scope) - 范围</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Budget （Budget) - 预算</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Resource （Resource) - 资源</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Timeline （Timeline) - 时间线</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sprint （Sprint) - 冲刺（敏捷开发）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Scrum （Scrum) - 敏捷开发框架</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agile （Agile) - 敏捷开发</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Waterfall （Waterfall Model) - 瀑布模型</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Kanban （Kanban) - 看板方法</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Backlog （Product Backlog) - 产品待办列表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sprint Backlog （Sprint Backlog) - 冲刺待办列表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Burndown （Burndown Chart) - 燃尽图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Standup （Daily Standup Meeting) - 每日站会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Retrospective （Sprint Retrospective) - 冲刺回顾会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Planning （Sprint Planning) - 冲刺规划会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review （Sprint Review) - 冲刺评审会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Roadmap （Product Roadmap) - 产品路线图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mockup （Mockup) - 产品原型草图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prototype （Prototype) - 产品原型</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wireframe （Wireframe) - 线框图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mockup （Design Mockup) - 设计原型图</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Usability （Usability) - 可用性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Accessibility （Accessibility) - 可访问性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Localization （Localization) - 本地化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Globalization （Globalization) - 全球化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Version （Version) - 版本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update （Update) - 更新</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Launch （Product Launch) - 产品上线</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Iteration （Iteration) - 迭代</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Enhancement （Product Enhancement) - 产品优化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bug Fix （Bug Fix) - 漏洞修复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feature （Feature) - 功能模块</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Release Note （Release Note) - 版本更新说明</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UAT （User Acceptance Testing) - 用户验收测试（项目场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Beta Test （Beta Testing) - 公测</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Alpha Test （Alpha Testing) - 内测</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rollout （Feature Rollout) - 功能上线部署</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rollback （Rollback) - 版本回滚</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Downtime （Downtime) - 系统停机时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Uptime （Uptime) - 系统可用时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SLA （Service Level Agreement) - 服务水平协议（项目交付场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>KPI （Key Performance Indicator) - 关键绩效指标（产品运营场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OKR （Objectives and Key Results) - 目标与关键成果（产品规划场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RACI （Responsible, Accountable, Consulted, Informed) - 责任分配矩阵</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RAID （Risks, Assumptions, Issues, Dependencies) - 项目风险假设问题依赖清单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EAC （Estimate at Completion) - 完工估算</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETC （Estimate to Complete) - 剩余工作估算</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SPI （Schedule Performance Index) - 进度绩效指数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPI （Cost Performance Index) - 成本绩效指数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BAC （Budget at Completion) - 完工预算</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VAR （Variance at Completion) - 完工偏差</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、会议沟通（会议型 / 沟通话术）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Kick-off Meeting （Kick-off Meeting) - 项目启动会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Catch-up Meeting （Catch-up Meeting) - 进度跟进会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stand-up Meeting （Stand-up Meeting) - 每日站会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review Meeting （Review Meeting) - 评审会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ad-hoc Meeting （Ad-hoc Meeting) - 临时会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>One-on-one Meeting （One-on-One Meeting) - 一对一会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Town Hall Meeting （Town Hall Meeting) - 全员大会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Brainstorming （Brainstorming Meeting) - 头脑风暴会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Retrospective （Retrospective Meeting) - 回顾会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Workshop （Workshop) - 工作坊</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>All-hands Meeting （All-hands Meeting) - 全体员工会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Teleconference （Teleconference Call) - 电话会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Video Call （Video Conference Call) - 视频会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Webinar （Webinar) - 网络研讨会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Q&amp;A （Question and Answer Session) - 问答环节</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AGM （Annual General Meeting) - 年度股东大会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Board Meeting （Board Meeting) - 董事会会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Team Meeting （Team Meeting) - 团队会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Client Meeting （Client Meeting) - 客户会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Vendor Meeting （Vendor Meeting) - 供应商会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agenda （Agenda) - 会议议程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minutes （Meeting Minutes) - 会议纪要</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Action Item （Action Item) - 行动项</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow-up （Follow-up Action) - 后续跟进</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Echo （Echo) - 回应补充</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Align （Align) - 意见对齐</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Leverage （Leverage) - 利用（资源 / 经验）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sync （Sync Meeting) - 同步会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Debrief （Debrief Meeting) - 复盘会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Briefing （Briefing Meeting) - 简报会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Planning Meeting （Planning Meeting) - 规划会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Budget Meeting （Budget Meeting) - 预算会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Strategy Meeting （Strategy Meeting) - 战略会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Status Meeting （Status Meeting) - 状态汇报会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Problem-solving Meeting （Problem-solving Meeting) - 问题解决会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Decision-making Meeting （Decision-making Meeting) - 决策会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Kickoff （Project Kickoff) - 项目启动（简称）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recap （Meeting Recap) - 会议回顾</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Adjourn （Adjourn Meeting) - 散会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Postpone （Postpone Meeting) - 会议延期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reschedule （Reschedule Meeting) - 重新安排会议时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cancel （Cancel Meeting) - 取消会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attendee （Attendee) - 参会人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Host （Meeting Host) - 会议主持人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Facilitator （Meeting Facilitator) - 会议引导者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Guest （Meeting Guest) - 会议嘉宾</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invitee （Meeting Invitee) - 被邀请参会人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Absent （Absent) - 缺席</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Late （Late) - 迟到</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>On time （On Time) - 准时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Duration （Meeting Duration) - 会议时长</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Venue （Meeting Venue) - 会议地点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dial-in （Dial-in Number) - 电话接入号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting ID （Meeting ID) - 会议 ID</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Passcode （Meeting Passcode) - 会议密码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recording （Meeting Recording) - 会议录制</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share Screen （Share Screen) - 屏幕共享</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Presentation （Presentation) - 演示汇报</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Discussion （Group Discussion) - 小组讨论</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consensus （Consensus) - 共识</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、邮件文档（邮件格式 / 文档型）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Email （Electronic Mail) - 电子邮件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Subject （Email Subject) - 邮件主题</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Body （Email Body) - 邮件正文</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attachment （Email Attachment) - 邮件附件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sender （Email Sender) - 发件人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recipient （Email Recipient) - 收件人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CC （Carbon Copy) - 抄送（邮件场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BCC （Blind Carbon Copy) - 密件抄送（邮件场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FW （Forward Email) - 转发邮件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RE （Reply Email) - 回复邮件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Draft （Email Draft) - 邮件草稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sent （Sent Items) - 已发送邮件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inbox （Email Inbox) - 收件箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trash （Trash Folder) - 垃圾箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Spam （Spam Folder) - 垃圾邮件箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Archive （Archive Folder) - 归档文件夹</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Priority （Email Priority) - 邮件优先级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>High Priority （High Priority) - 高优先级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Low Priority （Low Priority) - 低优先级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Read Receipt （Read Receipt) - 已读回执</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery Receipt （Delivery Receipt) - 送达回执</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Auto-reply （Auto-reply Email) - 自动回复邮件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OOO Auto-reply （Out Of Office Auto-reply) - 外出自动回复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Memo （Memorandum) - 备忘录</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Report （Report) - 报告</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Proposal （Proposal Document) - 提案文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Contract （Contract Document) - 合同文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agreement （Agreement Document) - 协议文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice （Invoice Document) - 发票文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Receipt （Receipt Document) - 收据文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Form （Form Document) - 表单文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Template （Document Template) - 文档模板</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Draft （Document Draft) - 文档草稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Final （Final Document) - 最终文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Version （Document Version) - 文档版本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revision （Document Revision) - 文档修订版</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Annotation （Document Annotation) - 文档注释</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Comment （Document Comment) - 文档评论</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Edit （Document Edit) - 文档编辑</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review （Document Review) - 文档评审</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Approve （Document Approve) - 文档审批</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sign （Document Sign) - 文档签署</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>E-sign （Electronic Signature) - 电子签名</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PDF （Portable Document Format) - 便携式文档格式（文档场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Word （Microsoft Word Document) - Word 文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Excel （Microsoft Excel Document) - Excel 文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PPT （Microsoft PowerPoint Document) - PPT 文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Google Doc （Google Document) - 谷歌文档</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Google Sheet （Google Spreadsheet) - 谷歌表格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Google Slide （Google Presentation) - 谷歌演示文稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shared Drive （Shared Drive) - 共享驱动器</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cloud Drive （Cloud Drive) - 云盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Folder （Folder) - 文件夹</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>File （File) - 文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Naming Convention （File Naming Convention) - 文件命名规范</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Backup （File Backup) - 文件备份</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Restore （File Restore) - 文件恢复</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sync （File Sync) - 文件同步</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share （File Share) - 文件共享</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Permission （File Permission) - 文件权限</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>九、供应链物流（采购 / 物流 / 库存）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SCM （Supply Chain Management) - 供应链管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Procurement （Procurement) - 采购</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Purchasing （Purchasing) - 采购执行</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PO （Purchase Order) - 采购订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PR （Purchase Requisition) - 采购申请单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GRN （Goods Received Note) - 收货单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GDN （Goods Despatched Note) - 发货单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DO （Delivery Order) - 送货单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice （Commercial Invoice) - 商业发票（物流场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing List （Packing List) - 装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Waybill （Waybill) - 运单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BOL （Bill of Lading) - 提单（海运 / 空运）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AWB （Air Waybill) - 空运提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sea Waybill （Sea Waybill) - 海运运单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FCL （Full Container Load) - 整箱货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LCL （Less Than Container Load) - 拼箱货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>20FT （20-Foot Container) - 20 英尺集装箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>40FT （40-Foot Container) - 40 英尺集装箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>40HQ （40-Foot High Cube Container) - 40 英尺高柜集装箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DDP （Delivered Duty Paid) - 完税后交货（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DAP （Delivered at Place) - 目的地交货（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIF （Cost, Insurance and Freight) - 成本加保险费加运费（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CFR （Cost and Freight) - 成本加运费（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FOB （Free On Board) - 离岸价（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EXW （Ex Works) - 工厂交货（贸易术语）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Incoterms （International Commercial Terms) - 国际贸易术语解释通则</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Logistics （Logistics) - 物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight （Freight) - 运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping （Shipping) - 运输 / 发货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Forwarder （Freight Forwarder) - 货运代理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Carrier （Carrier) - 承运人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warehouse （Warehouse) - 仓库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WMS （Warehouse Management System) - 仓库管理系统</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inventory （Inventory) - 库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stock （Stock) - 库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SKU （Stock Keeping Unit) - 库存保有单位（物流场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stocktaking （Stocktaking) - 库存盘点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cycle Count （Cycle Count) - 循环盘点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Overstock （Overstock) - 库存积压</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stockout （Stockout) - 库存缺货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Safety Stock （Safety Stock) - 安全库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reorder Point （Reorder Point) - 再订货点</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead Time （Lead Time) - 交货周期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead Time （Production Lead Time) - 生产周期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OTIF （On Time In Full) - 准时足量交付</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reverse Logistics （Reverse Logistics) - 逆向物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Returns （Product Returns) - 产品退货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RMA （Return Merchandise Authorization) - 退货授权（物流场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Damaged （Damaged Goods) - 破损货物</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shortage （Shortage of Goods) - 货物短缺</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Overload （Overload) - 超载</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs （Customs) - 海关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs Clearance （Customs Clearance) - 清关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Duty （Customs Duty) - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tariff （Tariff) - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VAT （Value Added Tax) - 增值税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GST （Goods and Services Tax) - 商品及服务税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import （Import) - 进口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export （Export) - 出口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import License （Import License) - 进口许可证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export License （Export License) - 出口许可证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HS Code （Harmonized System Code) - 协调制度编码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EORI （Economic Operators Registration and Identification) - 经济运营商注册识别号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AEO （Authorized Economic Operator) - 经认证的经营者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Logistics Cost （Logistics Cost) - 物流成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transportation Mode （Transportation Mode) - 运输方式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sea Freight （Sea Freight) - 海运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Air Freight （Air Freight) - 空运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Road Freight （Road Freight) - 陆运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rail Freight （Rail Freight) - 铁路运输</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十、市场营销（推广 / 品牌 / 用户运营）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Marketing （Marketing) - 市场营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Branding （Branding) - 品牌建设</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AD （Advertisement) - 广告</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SEM （Search Engine Marketing) - 搜索引擎营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SEO （Search Engine Optimization) - 搜索引擎优化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PPC （Pay Per Click) - 按点击付费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPC （Cost Per Click) - 每点击成本（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPM （Cost Per Mille) - 每千次曝光成本（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPA （Cost Per Acquisition) - 每获取成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPL （Cost Per Lead) - 每线索成本（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTR （Click Through Rate) - 点击率（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CR （Conversion Rate) - 转化率（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROI （Return On Investment) - 投资回报率（营销场景）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ROAS （Return On Ad Spend) - 广告支出回报率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Impression （Impression) - 曝光量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reach （Reach) - 触达量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Engagement （Engagement) - 互动量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Like （Like) - 点赞</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share （Share) - 分享</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Comment （Comment) - 评论</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow （Follow) - 关注</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unfollow （Unfollow) - 取消关注</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DM （Direct Message) - 私信</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Social Media （Social Media) - 社交媒体</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SM （Social Media) - 社交媒体（简称）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SMM （Social Media Marketing) - 社交媒体营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Content （Content) - 内容</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Content Marketing （Content Marketing) - 内容营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Blog （Blog) - 博客</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Vlog （Video Blog) - 视频博客</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Podcast （Podcast) - 播客</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Infographic （Infographic) - 信息图表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Video （Video Content) - 视频内容</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Image （Image Content) - 图片内容</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Copy （Copywriting) - 文案</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tagline （Tagline) - 标语 / 口号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Slogan （Slogan) - 口号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Campaign （Marketing Campaign) - 营销活动</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Promotion （Promotion) - 促销</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="1117外企常用缩写无非就这700个";
@@ -1023,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

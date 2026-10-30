@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,813 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">外贸全英交流
-这400句口语足够了
-业务流程沟通
-Let me double-check with my team.
-我确认一下我们团队的意见。
-I&#x27;ll get back to you shortly.
-我马上回复你。
-Can we touch base tomorrow?
-咱们明天联系一下？
-That sounds fair to me.
-我觉得挺合理的。
-We&#x27;re on the same page.
-咱们想法一致。
-I&#x27;ll loop you in on the email.
-我把你抄送在邮件里。
-Let&#x27;s keep this moving.
-咱们别耽误进度。
-Do you have an update for me?
-有什么新情况吗？
-I&#x27;m working on it as we speak.
-我现在就在处理。
-Sorry for the delay.
-不好意思拖晚了。
-Thanks for your patience.
-感谢你耐心等我。
-Let&#x27;s figure this out.
-咱们一起搞定它。
-What&#x27;s the lead time?
-交货周期是多久？
-We need to speed this up.
-咱们得提点速度。
-We&#x27;re a bit behind schedule.
-咱们进度有点拖了。
-Let&#x27;s not waste any time.
-别磨叽了。
-We&#x27;re cutting it close.
-时间挺紧的。
-This needs urgent attention.
-这事儿得赶紧处理。
-Can you expedite this order?
-这单能加急处理吗？
-The client is pushing hard.
-客户催得很紧。
-I&#x27;ll try to make it work.
-我尽量安排一下。
-Let&#x27;s try another approach.
-咱们换个办法试试。
-It&#x27;s doable, just tricky.
-能做，就是有点麻烦。
-I&#x27;ll talk to the factory.
-我去跟工厂沟通下。
-Let&#x27;s check the inventory first.
-先看看库存情况。
-We&#x27;ll send you a sample.
-我们会寄样品给你。
-The sample is on the way.
-样品已经寄出了。
-Tracking number&#x27;s been sent.
-物流单号已经发了。
-Please confirm receipt.
-收到后记得确认一下。
-Let&#x27;s sort this out.
-把这事理顺一下。
-We&#x27;re still negotiating the price.
-我们还在谈价格。
-Can you give me a better rate?
-能给个好点的价格吗？
-That&#x27;s a bit out of our budget.
-这有点超出预算了。
-We&#x27;re looking at long-term cooperation.
-我们想的是长期合作。
-Let&#x27;s build a win-win situation.
-咱们合作共赢吧。
-We value your business.
-我们很重视跟你合作。
-This is our best offer.
-这已经是我们最优价格了。
-We&#x27;re offering a special discount.
-我们这次有特别折扣。
-That&#x27;s not gonna fly.
-这个不太行啊。
-We&#x27;ll try to make it work.
-我们尽量配合。
-Let me check with my manager.
-我去问一下我们经理。
-I&#x27;ll get approval and confirm.
-我确认好审批再告诉你。
-We need to renegotiate.
-我们得重新谈一下。
-Let&#x27;s keep things flexible.
-咱们灵活点操作。
-It depends on the quantity.
-得看你下多少量。
-MOQ is negotiable.
-起订量可以谈。
-We offer FOB and CIF.
-我们提供 FOB 和 CIF 价格。
-The shipping cost has gone up.
-运费最近涨了。
-We&#x27;re trying to cut logistics costs.
-我们也想压下物流成本。
-Customs might take longer.
-清关可能会拖一下。
-We&#x27;ll handle the paperwork.
-文件我们来处理。
-It&#x27;s all set on our end.
-我们这边都准备好了。
-We&#x27;re waiting on your confirmation.
-等你确认就行了。
-Please sign and return the contract.
-签完合同记得发回。
-We&#x27;ll arrange production right away.
-我们马上安排生产。
-Production is on track.
-生产进度没问题。
-There&#x27;s been a slight delay.
-有点小延迟。
-We&#x27;ll make up for lost time.
-我们会赶上进度的。
-Please bear with us.
-再多担待下。
-We&#x27;ll keep you posted.
-有新情况我们随时说。
-Everything&#x27;s under control.
-一切都在掌握中。
-It&#x27;ll be ready by next week.
-下周能准备好。
-ETA is next Friday.
-预计下周五到。
-Shipping out today.
-今天就发货。
-Please confirm the shipping details.
-确认下发货信息。
-You should receive it soon.
-很快就能收到了。
-Let me know once it arrives.
-收到后告诉我一声。
-Let&#x27;s plan a reorder.
-咱们再补一次单吧。
-We&#x27;re running low on stock.
-我们库存快没了。
-Let&#x27;s restock before peak season.
-旺季前补点货吧。
-Can you send over the PO?
-你能发下采购订单吗？
-We&#x27;ve already invoiced you.
-我们已经开发票了。
-Here&#x27;s the proforma invoice.
-这是形式发票。
-Please arrange the payment.
-安排一下付款吧。
-We&#x27;ll ship once payment clears.
-等款到就发货。
-We offer net terms.
-我们可以提供账期。
-T/T is preferred.
-我们优先选择电汇。
-L/C takes longer to process.
-信用证会慢一点。
-Bank charges are on the buyer.
-银行手续费由买方承担。
-We accept PayPal for samples.
-样品费用我们可以接受 PayPal 支付。
-产品特性
-This product is made of high-quality materials.
-本产品采用优质材料制成。
-It features a compact design for easy storage.
-采用紧凑设计，便于存放。
-The item comes with a 2-year warranty.
-该产品提供两年质保。
-Maximum load capacity: 500kg
-最大承载量：500 公斤
-Operating temperature range: -20°C to 60°C
-工作温度范围：-20℃至 60℃
-Energy efficiency rating: Class A+
-能效等级：A + 级
-Our product outperforms competitors in durability.
-在耐用性方面，我们的产品优于竞品。
-You&#x27;ll get 30% cost reduction compared to similar products.
-与同类产品相比可节省 30% 成本。
-The patented technology ensures stable performance.
-专利技术保障性能稳定。
-Custom logo printing is acceptable.
-接受定制 LOGO 印刷。
-We can adjust specifications according to your requirements.
-可根据需求调整规格参数。
-Color variations are available in Pantone codes.
-支持潘通色号定制颜色。
-Our factory is located in Shenzhen&#x27;s industrial zone.
-工厂位于深圳工业区。
-Raw materials sourced from certified suppliers.
-原材料来自认证供应商。
-All products undergo aging tests before shipment.
-所有产品出货前进行老化测试。
-Production lines operate 24/5 with automated QC.
-生产线每周 5 天 24 小时运转，配备自动质检。
-Our patents cover 15 countries worldwide.
-我们的专利覆盖全球 15 个国家。
-Product demonstrations can be arranged online.
-可安排线上产品演示。
-Virtual factory tours available via Zoom.
-支持 Zoom 在线参观工厂。
-Our CSR report details environmental initiatives.
-企业社会责任报告包含环保措施。
-The product is compliant with EU CE standards.
-本产品符合欧盟 CE 标准。
-It has passed FDA certification for medical use.
-该产品已通过医用 FDA 认证。
-The surface is treated with anti-corrosion coating.
-表面经防腐涂层处理。
-Weight: 2.5kg per unit (net)
-重量：每单位 2.5 公斤净重
-Dimensions: 30x20x15cm
-尺寸：30×20×15 厘米
-Power consumption: 50W/hour
-功耗：50 瓦 / 小时
-The product is waterproof with IP67 rating.
-本产品防水等级为 IP67。
-It supports multiple languages in operation.
-操作界面支持多种语言。
-The packaging is recyclable and eco-friendly.
-包装可回收且环保。
-We offer OEM/ODM services for bulk orders.
-大宗订单可提供 OEM/ODM 服务。
-The product has a service life of 10 years.
-本产品使用寿命为 10 年。
-Spare parts are available for 5 years after purchase.
-购买后 5 年内可提供备件。
-It is designed for easy installation without professional tools.
-设计便于安装，无需专业工具。
-The product is lightweight for convenient transportation.
-产品轻便，便于运输。
-It can be disassembled into 3 parts for storage.
-可拆解为 3 部分便于存放。
-The core components are imported from Germany.
-核心部件从德国进口。
-We use food-grade materials for kitchen-related products.
-厨房类产品采用食品级材料。
-The product is resistant to high pressure up to 100bar.
-本产品可承受高达 100 巴的高压。
-It operates quietly with noise levels below 50dB.
-运行噪音低于 50 分贝，静音设计。
-The product is compatible with most mainstream brands.
-本产品兼容大多数主流品牌。
-We provide a detailed user manual in 8 languages.
-提供 8 种语言的详细用户手册。
-The product has a 98% customer satisfaction rate.
-该产品客户满意度达 98%。
-It is suitable for both indoor and outdoor use.
-适用于室内外多种场景。
-The colorfastness meets international standards.
-色牢度符合国际标准。
-We offer custom packaging with your brand logo.
-可提供印有您品牌 LOGO 的定制包装。
-The product has passed drop tests from 1.5m height.
-本产品通过 1.5 米高度跌落测试。
-It can operate continuously for 72 hours without overheating.
-可连续运行 72 小时不发热。
-The product is RoHS compliant for environmental safety.
-本产品符合 RoHS 环保标准。
-We provide technical drawings upon request.
-可根据要求提供技术图纸。
-The product is designed with ergonomic principles.
-本产品采用人体工学设计。
-It has a high precision rate of 0.01mm.
-精度高达 0.01 毫米。
-The product is equipped with an auto-shutdown function.
-配备自动关机功能。
-We offer a 30-day money-back guarantee.
-提供 30 天退款保证。
-The product is widely used in automotive industries.
-本产品广泛应用于汽车行业。
-It can withstand extreme humidity up to 95%.
-可承受高达 95% 的极端湿度环境。
-The product is assembled with automated machinery.
-采用自动化机械组装。
-We use laser engraving for permanent logos.
-采用激光雕刻制作永久 LOGO。
-The product has a low failure rate of less than 0.5%.
-产品故障率低于 0.5%。
-It is compatible with 110V and 220V power supplies.
-兼容 110V 和 220V 电源。
-The product comes with a carry bag for portability.
-附赠便携袋，便于携带。
-We provide free training for product maintenance.
-提供免费的产品维护培训。
-The product is tested under simulated transportation conditions.
-本产品经过模拟运输环境测试。
-It has a sleek design suitable for modern interiors.
-设计时尚，适合现代室内风格。
-The product is certified by ISO9001 quality management system.
-本产品通过 ISO9001 质量管理体系认证。
-We offer custom cable lengths for specific needs.
-可根据特定需求定制线缆长度。
-The product is resistant to chemical corrosion.
-本产品耐化学腐蚀。
-It has a fast charging time of 2 hours.
-充电时间短，仅需 2 小时。
-The product is equipped with safety protection features.
-配备多重安全保护功能。
-We provide after-sales technical support via email.
-通过邮件提供售后技术支持。
-The product is designed for energy saving and cost reduction.
-本产品旨在节能降耗。
-It can be connected to smart home systems via Bluetooth.
-可通过蓝牙连接智能家居系统。
-The product has a modular design for easy maintenance.
-模块化设计，便于维护。
-We offer sample customization for color and material.
-可定制样品的颜色和材质。
-The product is suitable for mass production with stable quality.
-适合批量生产，质量稳定。
-It has passed vibration tests for industrial use.
-通过工业级振动测试。
-The product is packaged with shock-absorbing materials.
-采用减震材料包装。
-We provide a list of authorized service centers worldwide.
-提供全球授权服务中心名单。
-The product is designed to reduce carbon emissions.
-本产品旨在减少碳排放。
-It has a high energy conversion rate of 95%.
-能量转换率高达 95%。
-We offer extended warranty for an additional fee.
-支付额外费用可享受延长质保。
-三、报价与订单
-The FOB price is $15 per unit.
-离岸价每件 15 美元。
-Minimum order quantity: 500 pieces
-起订量 500 件
-Bulk orders enjoy 5% discount.
-大宗订单可享 5% 折扣。
-We provide free samples for quality verification.
-我们提供免费样品供质量验证。
-Third-party testing reports are available upon request.
-可根据要求提供第三方检测报告。
-The sample delivery takes 3 working days.
-样品寄送需要 3 个工作日。
-Technical support is available 24/7.
-提供全天候技术支持。
-Replacement parts will be shipped within 48 hours.
-替换零件将在 48 小时内发出。
-On-site maintenance service is optional.
-可选现场维护服务。
-Lead time: 15-20 working days after deposit.
-生产周期：定金支付后 15-20 个工作日。
-We handle all export documentation.
-我们负责所有出口文件。
-Insurance coverage includes All Risks.
-投保一切险。
-The quotation is valid for 30 days.
-报价有效期 30 天。
-We accept L/C at sight payment terms.
-接受即期信用证付款方式。
-Early settlement enjoys 2% cash discount.
-提前结算可享 2% 现金折扣。
-We&#x27;re looking for long-term partners in your region.
-我们正在寻找贵地区的长期合作伙伴。
-Exclusive distributor agreements are negotiable.
-可协商独家经销商协议。
-Annual rebates apply for reaching sales targets.
-达成销售目标可享年度返利。
-Customized packaging design services available.
-提供定制包装设计服务。
-Monthly production reports shared with key clients.
-向重点客户分享月度生产报告。
-Energy efficiency reports are available upon request.
-能效报告可按需提供。
-Export documents prepared within 48 hours.
-出口单证 48 小时内备妥。
-We strictly follow IP protection regulations.
-我们严格遵守知识产权保护规定。
-Training videos accessible through our member portal.
-培训视频可通过会员门户访问。
-QR code tracking for each batch of products.
-每批产品配备二维码追溯系统。
-Product lifecycle management ensures continuous supply.
-产品生命周期管理保障持续供应。
-On-site audits by third parties are welcome.
-欢迎第三方进行现场审核。
-CIF price to Rotterdam is $20 per unit.
-鹿特丹到岸价每件 20 美元。
-Payment terms: 30% deposit, 70% against B/L copy.
-付款方式：30% 定金，70% 见提单副本。
-Order quantities over 1000 units get 8% discount.
-订单量超过 1000 件可享 8% 折扣。
-Sample cost will be refunded upon bulk order.
-大宗订单时样品费可退还。
-Lead time for rush orders: 7-10 working days (extra fee applies).
-加急订单生产周期：7-10 个工作日需支付额外费用。
-We accept T/T, PayPal, and Western Union for payments.
-接受电汇、PayPal 和西联汇款付款。
-The quotation includes packaging and labeling costs.
-报价包含包装和贴标费用。
-Minimum order quantity for custom colors: 1000 pieces.
-定制颜色的起订量为 1000 件。
-Volume discounts apply: 3% for 500-999 units, 5% for 1000+.
-阶梯折扣：500-999 件享 3%，1000 件以上享 5%。
-Export taxes and duties are borne by the buyer.
-出口税费由买方承担。
-We offer a 1% discount for full payment in advance.
-全额预付可享 1% 折扣。
-The proforma invoice will be sent within 24 hours.
-形式发票将在 24 小时内发出。
-Order confirmation requires signed PO and deposit.
-订单确认需签署采购单并支付定金。
-We can split the order into multiple shipments.
-可分批次发货。
-The warranty is valid from the date of delivery.
-质保期自发货日起计算。
-Third-party inspection fees are at the buyer&#x27;s expense.
-第三方检验费用由买方承担。
-We provide free replacement for defective products.
-有缺陷产品可免费更换。
-The price is subject to change based on raw material costs.
-价格可能因原材料成本变化调整。
-Annual contracts include price lock-in for 6 months.
-年度合同包含 6 个月价格锁定。
-We offer consignment terms for qualified distributors.
-合格经销商可享受寄售条款。
-The order will be processed after receiving the signed contract.
-收到签署合同后开始处理订单。
-Partial shipments are allowed with prior notice.
-提前通知可分批装运。
-We provide cost breakdowns for transparency.
-提供成本明细，保证透明。
-The discount is applicable only for orders placed this quarter.
-折扣仅适用于本季度订单。
-Payment deadlines are strictly enforced to avoid delays.
-严格执行付款期限，避免延误。
-We offer flexible payment plans for long-term clients.
-长期客户可享受灵活付款计划。
-The order quantity can be adjusted within 3 days of confirmation.
-订单确认后 3 天内可调整数量。
-Custom packaging requires a $500 design fee.
-定制包装需支付 500 美元设计费。
-We provide shipping cost estimates for multiple ports.
-可提供多个港口的运费估算。
-The deposit is non-refundable for cancelled orders.
-取消订单时定金不予退还。
-We offer a 2% rebate for referring new clients.
-推荐新客户可享 2% 返利。
-The order status can be tracked via our online system.
-可通过我们的在线系统跟踪订单状态。
-We accept partial payments for large orders.
-大订单可接受分期付款。
-The price includes loading onto the vessel at the port.
-价格包含港口装船费用。
-Minimum order value: $10,000 for first-time clients.
-首次合作客户最低订单金额为 10,000 美元。
-We provide certificates of origin upon request.
-可根据要求提供原产地证书。
-The discount increases by 1% for each additional 500 units.
-每增加 500 件，折扣增加 1%。
-We offer free storage for orders ready within 15 days.
-已完成订单可免费存储 15 天。
-Payment in local currency is accepted with current exchange rate.
-接受当地货币付款，按当日汇率结算。
-The order will be prioritized for clients with annual contracts.
-年度合同客户的订单将优先处理。
-We provide insurance certificates for each shipment.
-每批货物均提供保险凭证。
-The quotation excludes inland transportation to the port.
-报价不含至港口的内陆运输费。
-We offer a 3% discount for repeat orders within 3 months.
-3 个月内复购可享 3% 折扣。
-Custom specifications may extend lead time by 5-7 days.
-定制规格可能使生产周期延长 5-7 天。
-We accept bank guarantees for large-scale projects.
-大型项目可接受银行保函付款。
-The order confirmation email includes all details for verification.
-订单确认邮件包含所有细节供核实。
-We provide free technical training for orders over 2000 units.
-订单量超过 2000 件可提供免费技术培训。
-The price is valid for 15 days for rush orders.
-加急订单报价有效期为 15 天。
-We offer volume-based shipping discounts with our logistics partners.
-与物流合作伙伴联合提供基于量的运费折扣。
-The deposit must be paid within 7 days of order confirmation.
-定金需在订单确认后 7 天内支付。
-We provide detailed packing lists for customs clearance.
-提供详细装箱单，便于清关。
-The order can be modified with a $100 adjustment fee.
-修改订单需支付 100 美元调整费。
-We offer exclusive pricing for sole distributors in a region.
-地区独家经销商可享受专属定价。
-四、客户沟通
-You can always find a lower price but quality is definitely different.
-你永远可以找到更低的价格，但质量肯定不一样。
-Could you please advise your budget? So we can see if there is any other solution for you.
-能否告知你的预算，我看看还有没有其他方案。
-Besides price, what other reasons do you have for not moving forward with this currently?
-除却价格，还有其他因素影响到这个订单的进展吗？
-Don&#x27;t you agree with me that in the long run, moderate prices will bring about large sales and more profit?
-我们认为从长远考虑，公道的价格会增加销量，从而得到更多的利润，你认同吗？
-Sorry, we can&#x27;t offer the lowest price in the market because our quotation includes quality and special value-added services.
-我们没办法给到这么低的价格，因为我们的报价已综合考虑到产品质量和增值服务。
-We can&#x27;t afford to lose a client due to quality issues because if we lose a client like that, we lose them forever.
-我们不能因为质量问题流失客户，这会导致我们永远失去这个客户。
-I haven&#x27;t heard back from you since last follow-up. I assume there might be some issues with our business relationship. Please let me know if I can be of any help.
-上次跟进后便没有收到你的回复，我猜想我们合作上可能出现了问题。请告知我这边需要做些什么。
-Just imagine how things will be in six months once you have pushed this new product to your distribution channels.
-想象一下，一旦您将这种新产品推向您的分销渠道，六个月后情况会怎样。
-This is very normal—all customers think the product is too expensive before understanding it.
-这是很正常的事情，所有客户在了解产品之前都会觉得贵。
-The information I sent can help you choose the product and avoid a lot of detours.
-我给你发的资料，可以让你在选择产品时少走很多弯路。
-The market is so competitive now that no company would be foolish enough to sell a product of the same quality at a higher price than anyone else—unless the company is not big at all.
-现在市场竞争这么激烈，任何一家公司都不会傻到把同等质量的产品卖得比别人贵，除非这家公司规模很小。
-I will focus on your order and production status and let you know if there is any progress.
-我会关注您的订单和生产情况，有进展会通知您。
-I know exactly what you mean.
-我完全明白您的意思。
-That&#x27;s the kind of thing I would do too.
-我也会这么做的。
-Value-for-money means considering service, details, expertise, results, and after-sales support rather than simply saying &quot;the price is low.&quot;
-物有所值是从服务、细节、专业、结果、售后支持等方面考虑，而不是简单说 “价格低”。
-Trust is precious, and if you choose to rely on me, I won&#x27;t let you down.
-信任是宝贵的，如果你选择依靠我，我不会让你失望的。
-Different prices represent different qualities. Expensive goods may not suit you, but cheap ones may not be good enough. What suits you best is what matters.
-不同的价格代表不同的品质。贵的可能不适合你，便宜的也不一定好。适合你的才是重要的。
-If you need a sample, I can arrange that for you.
-你要是需要样品，我可以安排。
-We offer fast shipping, so you&#x27;ll get your order quickly.
-我们发货很快，你很快就能收到货。
-How many pieces are you looking to order?
-你打算订多少？
-I can send you more pictures or videos if needed.
-需要的话，我可以再发些图片或者视频给你。
-We have different colors and sizes available.
-我们有不同的颜色和尺寸可以选。
-If you&#x27;re interested, I can send you a price list.
-你要是感兴趣，我可以发你报价单。
-The quality is guaranteed. We&#x27;ve got plenty of happy customers.
-质量保证，很多客户都很满意。
-Our customers keep coming back because they trust our quality.
-很多客户都会回购，因为他们认可我们的质量。
-24-hour response guaranteed for all inquiries.
-确保 24 小时内回复所有询盘。
-Multilingual staff support English, Spanish, and Arabic.
-员工支持英语、西班牙语和阿拉伯语。
-We&#x27;ve been in this business for years. You&#x27;re in good hands.
-我们做这个行业很多年了，你可以放心。
-This one is very popular in the U.S. market right now.
-这个在美国市场现在特别火。
-We&#x27;ve worked with a lot of big brands.
-我们跟很多大品牌都有合作。
-Would you like me to explain the product features in more detail?
-您需要我更详细地解释产品特性吗？
-I can arrange a video call to show you the product in operation.
-我可以安排视频通话，向您展示产品的运行情况。
-Many of our clients in your industry have found this product very effective.
-我们很多同行业的客户都认为这款产品非常实用。
-If you have any concerns about the delivery time, I can check with the logistics team for you.
-如果您对交货时间有任何疑问，我可以帮您向物流团队核实。
-We can adjust the packaging according to your market&#x27;s preferences.
-我们可以根据您所在市场的偏好调整包装。
-Have you considered the after-sales service when comparing prices?
-您在比较价格时考虑过售后服务吗？
-I&#x27;d be happy to provide references from our existing clients in your country.
-我很乐意向您提供我们在贵国现有客户的参考信息。
-The product is currently on promotion, and the discount will end next week.
-这款产品目前正在促销，折扣下周结束。
-What specific specifications are you looking for in this type of product?
-您对这类产品有哪些具体的规格要求？
-We can arrange for a technical specialist to answer your questions.
-我们可以安排技术专家为您解答疑问。
-Our products have passed all necessary certifications for your market.
-我们的产品已通过贵国市场所需的所有必要认证。
-Would you like to know more about our production process to ensure quality?
-您想了解更多关于我们的生产流程以确保质量吗？
-I can send you a case study of how this product helped a similar client.
-我可以给您发一份关于这款产品如何帮助类似客户的案例研究。
-The minimum order quantity can be reduced for first-time clients.
-首次合作客户的起订量可以降低。
-Have you had any experience with similar products before?
-您之前使用过类似的产品吗？
-We can offer a trial order to let you test the market first.
-我们可以提供试订单，让您先测试市场。
-The product&#x27;s design has been updated based on customer feedback.
-这款产品的设计是根据客户反馈更新的。
-I can provide a detailed comparison between our product and competitors&#x27;.
-我可以提供我们的产品与竞品的详细对比。
-What&#x27;s the main purpose of purchasing this product? Maybe I can recommend a more suitable model.
-您购买这款产品的主要用途是什么？或许我可以推荐更合适的型号。
-Our delivery network covers your region, so shipping is very convenient.
-我们的配送网络覆盖您所在的地区，所以运输非常方便。
-We offer flexible payment terms for long-term cooperation.
-对于长期合作，我们提供灵活的付款条件。
-The product comes with a user manual in your local language.
-这款产品配有您当地语言的用户手册。
-Many clients choose us because of our fast response to after-sales issues.
-很多客户选择我们是因为我们对售后问题响应迅速。
-Would you like to schedule a time to discuss the details further?
-您想安排个时间进一步讨论细节吗？
-We can customize the product&#x27;s functions according to your specific needs.
-我们可以根据您的具体需求定制产品功能。
-The price includes door-to-door delivery to your warehouse.
-这个价格包含送货到您仓库的门到门服务。
-I can inform you in advance when there are new product launches.
-有新产品推出时，我可以提前通知您。
-Our production capacity is sufficient to meet your future large orders.
-我们的生产能力足以满足您未来的大额订单。
-Have you considered the cost savings in the long run with our energy-efficient products?
-您考虑过我们的节能产品从长远来看能节省的成本吗？
-We can provide a warranty extension for an additional fee.
-支付额外费用，我们可以提供延长质保。
-The product&#x27;s packaging is designed to reduce transportation damage.
-产品的包装设计旨在减少运输损坏。
-I can help you calculate the total cost including all fees and taxes.
-我可以帮您计算包含所有费用和税费的总成本。
-Our company participates in international trade fairs regularly; would you like to meet there?
-我们公司定期参加国际贸易展会，您想在那里见面吗？
-The product is compatible with other equipment you might already have.
-这款产品与您可能已有的其他设备兼容。
-We offer training sessions for your staff on how to use the product.
-我们为您的员工提供产品使用培训课程。
-What&#x27;s your expected delivery date? I&#x27;ll check if we can meet it.
-您期望的交货日期是什么时候？我来确认一下我们是否能满足。
-Many clients have increased their orders after seeing the product quality.
-很多客户在看到产品质量后都增加了订单。
-We can provide a certificate of analysis for the product&#x27;s materials.
-我们可以提供产品材料的分析证书。
-Would you like to know about our company&#x27;s history and reputation in the industry?
-您想了解我们公司的历史和在行业内的声誉吗？
-The product has a high profit margin for distributors in your market.
-这款产品在您的市场给经销商带来的利润率很高。
-I can send you a sample with your logo printed for evaluation.
-我可以给您寄一个印有您 logo 的样品供评估。
-Our customer service team is available in your time zone for convenience.
-为方便起见，我们的客户服务团队在您的时区工作。
-The product&#x27;s shelf life is 3 years under proper storage conditions.
-在适当的储存条件下，产品的保质期为 3 年。
-We can adjust the production schedule to meet your urgent needs.
-我们可以调整生产计划以满足您的紧急需求。
-Have you received our catalog? It includes all our product ranges.
-您收到我们的目录了吗？里面包含我们所有的产品系列。
-The product is designed to comply with your country&#x27;s environmental regulations.
-这款产品的设计符合贵国的环境法规。
-I can provide references from clients who have been working with us for over 5 years.
-我可以提供与我们合作超过 5 年的客户的参考信息。
-We offer a loyalty discount for clients who order regularly.
-对定期订购的客户，我们提供忠诚度折扣。
-The product&#x27;s maintenance requirements are minimal, saving you time and cost.
-这款产品的维护需求很少，为您节省时间和成本。
-Would you like me to arrange for a factory visit at your convenience?
-在您方便的时候，我可以安排您参观工厂吗？
-五、信息确认表达
-Noted.
-收到。
-Understood.
-理解。
-Got it.
-明白了。
-Copy that.
-收到，较口语化。
-I&#x27;m on it.
-我正在处理。
-Roger that.
-明白，多用于通讯设备。
-Heard you.
-听到了 / 收到。
-Point taken.
-理解你的观点。
-Crystal.
-清楚了，来源于 “Crystal clear”。
-Acknowledged.
-已知悉。
-Thank you for the update.
-感谢您的更新。
-I appreciate the information.
-感谢您的信息。
-Your message has been received.
-您的信息已收到。
-I’ve taken note of your feedback.
-我已记录您的反馈。
-I acknowledge receipt of your email.
-我确认收到您的邮件。
-Please rest assured I have understood the details.
-请放心，我已经理解了详情。
-Thank you for bringing this to my attention.
-感谢您提醒我。
-Your request has been noted.
-您的请求已收到。
-This has been logged in our system.
-这已经在我们的系统中记录。
-I will review this information.
-我会审核这些信息。
-Acknowledged with thanks.
-已知悉，感谢。
-Cheers for that.
-谢谢，英式口语。
-Message received loud and clear.
-信息已清楚接收。
-Noty.
-意为 “Noted” 的口头缩写。
-I&#x27;ll keep that in mind.
-我会记得的。
-Understood perfectly.
-完全明白。
-Gotcha.
-我明白了。
-Cheers, got it.
-收到，谢谢，英联邦国家常用。
-Good on the info.
-信息很不错，澳洲口语。
-Right you are.
-对的，明白，英式表达。
-I confirm receipt of your email.
-我确认收到您的邮件。
-Thank you for your prompt response.
-感谢您的及时回复。
-I will act on this information immediately.
-我会立即根据这些信息采取行动。
-Your message is well received.
-您的信息已妥收。
-Please acknowledge this confirmation.
-请确认收悉。
-I&#x27;m reviewing the details as we speak.
-我正在查看这些细节。
-Thank you for your swift communication.
-感谢您的迅速沟通。
-Let me know if you need anything else on this matter.
-如需关于此事的其他帮助，请告知我。
-The details have been forwarded to our team.
-详细信息已转发给我们的团队。
-We are proceeding with your request.
-我们正在处理您的请求。
-We have received your request and are processing it.
-我们已收到您的请求，正在处理中。
-Thank you for reaching out to us.
-感谢您联系我们。
-Please rest assured, your request is being addressed.
-请放心，您的请求正在处理。
-Your feedback is invaluable to us.
-您的反馈对我们来说非常重要。
-We will keep you updated on the progress.
-我们将随时向您更新进度。
-Your concern has been forwarded to the relevant department.
-您的问题已转发至相关部门。
-Thank you for your patience while we look into your request.
-感谢您在我们调查您的请求期间的耐心。
-We have acknowledged your request and are on it.
-我们已收到您的请求，并正在处理中。
-Your satisfaction is our priority.
-您的满意是我们的首要任务。
-We are working diligently to resolve this issue.
-我们正在努力解决这个问题。
-Just to confirm, you’re suggesting [Restate Suggestion]?
-为了确认，您是建议 [重述建议] 吗？
-I hear you, and I will take care of it.
-我听到了，我会处理的。
-Can you confirm that we’re aligned on this point?
-您能否确认我们在这一点上一致？
-Let me repeat that back to you to ensure clarity.
-让我重复一遍，以确保清楚。
-So, if I understand you correctly, you’d like [Clarification].
-所以，如果我没理解错的话，您希望 [澄清]。
-I&#x27;m making a note of that, thank you for the information.
-我正在记录，谢谢您的信息。
-Are we all in agreement on this?
-我们对此达成共识了吗？
-Let&#x27;s make sure everyone is on the same page with this.
-我们来确保大家对此达成一致。
-That&#x27;s a good point, and I’ll make a note of it.
-这是个好观点，我会记下来的。
-Do you mind if I summarize what we&#x27;ve discussed so far?
-介意我总结一下我们到目前为止讨论的内容吗？
-The project details are confirmed and on track.
-项目细节已确认，并按计划进行。
-I’ve recorded your input for the project’s next phase.
-我已记录您对项目下一阶段的建议。
-Let&#x27;s follow up on this next week. Does that work for you?
-下周跟进这件事。您觉得如何？
-Everyone&#x27;s contribution is key, and I appreciate your input.
-每个人的贡献都很重要，感谢您的意见。
-We’ll incorporate your feedback into the current plan.
-我们将把您的反馈纳入当前计划。
-I&#x27;ve synced this with the team, and we’re moving forward.
-我已与团队同步，我们将继续推进。
-Updates will be shared regularly to keep everyone aligned.
-更新内容将定期分享，以保持一致。
-I acknowledge the potential challenges and will address them.
-我已注意到潜在的挑战，并会予以解决。
-Your expertise in this area is invaluable to our success.
-您在这一领域的专业知识对我们的成功至关重要。
-The strategy is now set, and we’ve begun implementation.
-策略现已制定，我们已开始实施。
-Got it, thanks!
-明白了，谢谢！
-Cool, I’ll handle it.
-好的，我会处理的。
-No worries, I’ve got this covered.
-不用担心，我搞定。
-Sure thing, leave it with me.
-好的，交给我吧。
-I’ll take care of this, no problem.
-我会处理，不用担心。
-All set on my end, thanks!
-我这边搞定了，谢谢！
-I’m on top of it, don’t worry.
-我在处理，别担心。
-Your payment went through.
-钱已经到账了。
-We&#x27;re still waiting on payment.
-我们还没收到钱。
-Can you check with your bank?
-帮忙问下你们银行。</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外贸全英交流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这400句口语足够了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>业务流程沟通</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me double-check with my team.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认一下我们团队的意见。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll get back to you shortly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我马上回复你。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we touch base tomorrow?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们明天联系一下？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That sounds fair to me.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我觉得挺合理的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re on the same page.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们想法一致。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll loop you in on the email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我把你抄送在邮件里。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s keep this moving.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们别耽误进度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have an update for me?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有什么新情况吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m working on it as we speak.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我现在就在处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the delay.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>不好意思拖晚了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your patience.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢你耐心等我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s figure this out.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们一起搞定它。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lead time?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>交货周期是多久？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to speed this up.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们得提点速度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re a bit behind schedule.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们进度有点拖了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s not waste any time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>别磨叽了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re cutting it close.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>时间挺紧的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This needs urgent attention.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这事儿得赶紧处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you expedite this order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这单能加急处理吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client is pushing hard.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>客户催得很紧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll try to make it work.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我尽量安排一下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s try another approach.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们换个办法试试。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s doable, just tricky.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能做，就是有点麻烦。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll talk to the factory.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我去跟工厂沟通下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s check the inventory first.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>先看看库存情况。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll send you a sample.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们会寄样品给你。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample is on the way.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>样品已经寄出了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tracking number&#x27;s been sent.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>物流单号已经发了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm receipt.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到后记得确认一下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s sort this out.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>把这事理顺一下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re still negotiating the price.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们还在谈价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you give me a better rate?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能给个好点的价格吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a bit out of our budget.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这有点超出预算了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re looking at long-term cooperation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们想的是长期合作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s build a win-win situation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们合作共赢吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We value your business.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们很重视跟你合作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is our best offer.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这已经是我们最优价格了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re offering a special discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们这次有特别折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s not gonna fly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个不太行啊。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll try to make it work.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们尽量配合。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me check with my manager.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我去问一下我们经理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll get approval and confirm.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认好审批再告诉你。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to renegotiate.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们得重新谈一下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s keep things flexible.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们灵活点操作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It depends on the quantity.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>得看你下多少量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ is negotiable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>起订量可以谈。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer FOB and CIF.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们提供 FOB 和 CIF 价格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipping cost has gone up.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运费最近涨了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re trying to cut logistics costs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们也想压下物流成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs might take longer.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>清关可能会拖一下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll handle the paperwork.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>文件我们来处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s all set on our end.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们这边都准备好了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re waiting on your confirmation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>等你确认就行了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please sign and return the contract.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>签完合同记得发回。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll arrange production right away.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们马上安排生产。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Production is on track.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产进度没问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There&#x27;s been a slight delay.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有点小延迟。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll make up for lost time.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们会赶上进度的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please bear with us.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>再多担待下。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll keep you posted.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有新情况我们随时说。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Everything&#x27;s under control.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一切都在掌握中。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;ll be ready by next week.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>下周能准备好。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA is next Friday.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>预计下周五到。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping out today.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>今天就发货。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the shipping details.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>确认下发货信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You should receive it soon.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很快就能收到了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know once it arrives.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到后告诉我一声。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s plan a reorder.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>咱们再补一次单吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re running low on stock.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们库存快没了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s restock before peak season.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>旺季前补点货吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send over the PO?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你能发下采购订单吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve already invoiced you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们已经开发票了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s the proforma invoice.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这是形式发票。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please arrange the payment.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>安排一下付款吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll ship once payment clears.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>等款到就发货。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer net terms.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以提供账期。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T/T is preferred.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们优先选择电汇。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C takes longer to process.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信用证会慢一点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bank charges are on the buyer.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>银行手续费由买方承担。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept PayPal for samples.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>样品费用我们可以接受 PayPal 支付。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品特性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This product is made of high-quality materials.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品采用优质材料制成。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It features a compact design for easy storage.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>采用紧凑设计，便于存放。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The item comes with a 2-year warranty.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>该产品提供两年质保。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Maximum load capacity: 500kg</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>最大承载量：500 公斤</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Operating temperature range: -20°C to 60°C</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>工作温度范围：-20℃至 60℃</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Energy efficiency rating: Class A+</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能效等级：A + 级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our product outperforms competitors in durability.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在耐用性方面，我们的产品优于竞品。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You&#x27;ll get 30% cost reduction compared to similar products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与同类产品相比可节省 30% 成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The patented technology ensures stable performance.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>专利技术保障性能稳定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Custom logo printing is acceptable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>接受定制 LOGO 印刷。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can adjust specifications according to your requirements.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可根据需求调整规格参数。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Color variations are available in Pantone codes.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支持潘通色号定制颜色。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our factory is located in Shenzhen&#x27;s industrial zone.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>工厂位于深圳工业区。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Raw materials sourced from certified suppliers.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>原材料来自认证供应商。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>All products undergo aging tests before shipment.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>所有产品出货前进行老化测试。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Production lines operate 24/5 with automated QC.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产线每周 5 天 24 小时运转，配备自动质检。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our patents cover 15 countries worldwide.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的专利覆盖全球 15 个国家。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product demonstrations can be arranged online.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可安排线上产品演示。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Virtual factory tours available via Zoom.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支持 Zoom 在线参观工厂。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our CSR report details environmental initiatives.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>企业社会责任报告包含环保措施。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is compliant with EU CE standards.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品符合欧盟 CE 标准。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has passed FDA certification for medical use.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>该产品已通过医用 FDA 认证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The surface is treated with anti-corrosion coating.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>表面经防腐涂层处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Weight: 2.5kg per unit (net)</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>重量：每单位 2.5 公斤净重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dimensions: 30x20x15cm</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>尺寸：30×20×15 厘米</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Power consumption: 50W/hour</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>功耗：50 瓦 / 小时</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is waterproof with IP67 rating.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品防水等级为 IP67。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It supports multiple languages in operation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>操作界面支持多种语言。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The packaging is recyclable and eco-friendly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>包装可回收且环保。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer OEM/ODM services for bulk orders.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>大宗订单可提供 OEM/ODM 服务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has a service life of 10 years.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品使用寿命为 10 年。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Spare parts are available for 5 years after purchase.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>购买后 5 年内可提供备件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It is designed for easy installation without professional tools.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>设计便于安装，无需专业工具。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is lightweight for convenient transportation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品轻便，便于运输。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It can be disassembled into 3 parts for storage.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可拆解为 3 部分便于存放。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The core components are imported from Germany.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>核心部件从德国进口。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We use food-grade materials for kitchen-related products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>厨房类产品采用食品级材料。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is resistant to high pressure up to 100bar.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品可承受高达 100 巴的高压。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It operates quietly with noise levels below 50dB.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>运行噪音低于 50 分贝，静音设计。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is compatible with most mainstream brands.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品兼容大多数主流品牌。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide a detailed user manual in 8 languages.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供 8 种语言的详细用户手册。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has a 98% customer satisfaction rate.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>该产品客户满意度达 98%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It is suitable for both indoor and outdoor use.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>适用于室内外多种场景。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The colorfastness meets international standards.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>色牢度符合国际标准。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer custom packaging with your brand logo.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可提供印有您品牌 LOGO 的定制包装。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has passed drop tests from 1.5m height.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品通过 1.5 米高度跌落测试。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It can operate continuously for 72 hours without overheating.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可连续运行 72 小时不发热。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is RoHS compliant for environmental safety.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品符合 RoHS 环保标准。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide technical drawings upon request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可根据要求提供技术图纸。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is designed with ergonomic principles.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品采用人体工学设计。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has a high precision rate of 0.01mm.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>精度高达 0.01 毫米。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is equipped with an auto-shutdown function.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>配备自动关机功能。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer a 30-day money-back guarantee.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供 30 天退款保证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is widely used in automotive industries.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品广泛应用于汽车行业。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It can withstand extreme humidity up to 95%.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可承受高达 95% 的极端湿度环境。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is assembled with automated machinery.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>采用自动化机械组装。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We use laser engraving for permanent logos.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>采用激光雕刻制作永久 LOGO。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has a low failure rate of less than 0.5%.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品故障率低于 0.5%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It is compatible with 110V and 220V power supplies.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>兼容 110V 和 220V 电源。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product comes with a carry bag for portability.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>附赠便携袋，便于携带。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide free training for product maintenance.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供免费的产品维护培训。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is tested under simulated transportation conditions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品经过模拟运输环境测试。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has a sleek design suitable for modern interiors.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>设计时尚，适合现代室内风格。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is certified by ISO9001 quality management system.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品通过 ISO9001 质量管理体系认证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer custom cable lengths for specific needs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可根据特定需求定制线缆长度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is resistant to chemical corrosion.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品耐化学腐蚀。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has a fast charging time of 2 hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>充电时间短，仅需 2 小时。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is equipped with safety protection features.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>配备多重安全保护功能。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide after-sales technical support via email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>通过邮件提供售后技术支持。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is designed for energy saving and cost reduction.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品旨在节能降耗。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It can be connected to smart home systems via Bluetooth.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可通过蓝牙连接智能家居系统。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has a modular design for easy maintenance.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>模块化设计，便于维护。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer sample customization for color and material.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可定制样品的颜色和材质。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is suitable for mass production with stable quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>适合批量生产，质量稳定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has passed vibration tests for industrial use.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>通过工业级振动测试。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is packaged with shock-absorbing materials.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>采用减震材料包装。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide a list of authorized service centers worldwide.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供全球授权服务中心名单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is designed to reduce carbon emissions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>本产品旨在减少碳排放。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It has a high energy conversion rate of 95%.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能量转换率高达 95%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer extended warranty for an additional fee.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支付额外费用可享受延长质保。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、报价与订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The FOB price is $15 per unit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>离岸价每件 15 美元。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minimum order quantity: 500 pieces</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>起订量 500 件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bulk orders enjoy 5% discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>大宗订单可享 5% 折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide free samples for quality verification.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们提供免费样品供质量验证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Third-party testing reports are available upon request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可根据要求提供第三方检测报告。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample delivery takes 3 working days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>样品寄送需要 3 个工作日。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Technical support is available 24/7.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供全天候技术支持。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Replacement parts will be shipped within 48 hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>替换零件将在 48 小时内发出。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>On-site maintenance service is optional.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可选现场维护服务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead time: 15-20 working days after deposit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>生产周期：定金支付后 15-20 个工作日。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We handle all export documentation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们负责所有出口文件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Insurance coverage includes All Risks.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>投保一切险。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quotation is valid for 30 days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>报价有效期 30 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept L/C at sight payment terms.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>接受即期信用证付款方式。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Early settlement enjoys 2% cash discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提前结算可享 2% 现金折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re looking for long-term partners in your region.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在寻找贵地区的长期合作伙伴。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exclusive distributor agreements are negotiable.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可协商独家经销商协议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Annual rebates apply for reaching sales targets.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>达成销售目标可享年度返利。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customized packaging design services available.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供定制包装设计服务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Monthly production reports shared with key clients.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>向重点客户分享月度生产报告。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Energy efficiency reports are available upon request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能效报告可按需提供。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export documents prepared within 48 hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>出口单证 48 小时内备妥。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We strictly follow IP protection regulations.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们严格遵守知识产权保护规定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Training videos accessible through our member portal.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>培训视频可通过会员门户访问。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>QR code tracking for each batch of products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>每批产品配备二维码追溯系统。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product lifecycle management ensures continuous supply.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品生命周期管理保障持续供应。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>On-site audits by third parties are welcome.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>欢迎第三方进行现场审核。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIF price to Rotterdam is $20 per unit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>鹿特丹到岸价每件 20 美元。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment terms: 30% deposit, 70% against B/L copy.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>付款方式：30% 定金，70% 见提单副本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order quantities over 1000 units get 8% discount.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单量超过 1000 件可享 8% 折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sample cost will be refunded upon bulk order.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>大宗订单时样品费可退还。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead time for rush orders: 7-10 working days (extra fee applies).</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>加急订单生产周期：7-10 个工作日需支付额外费用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept T/T, PayPal, and Western Union for payments.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>接受电汇、PayPal 和西联汇款付款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quotation includes packaging and labeling costs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>报价包含包装和贴标费用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minimum order quantity for custom colors: 1000 pieces.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定制颜色的起订量为 1000 件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Volume discounts apply: 3% for 500-999 units, 5% for 1000+.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>阶梯折扣：500-999 件享 3%，1000 件以上享 5%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export taxes and duties are borne by the buyer.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>出口税费由买方承担。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer a 1% discount for full payment in advance.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>全额预付可享 1% 折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The proforma invoice will be sent within 24 hours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>形式发票将在 24 小时内发出。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order confirmation requires signed PO and deposit.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单确认需签署采购单并支付定金。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can split the order into multiple shipments.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可分批次发货。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The warranty is valid from the date of delivery.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>质保期自发货日起计算。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Third-party inspection fees are at the buyer&#x27;s expense.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>第三方检验费用由买方承担。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide free replacement for defective products.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有缺陷产品可免费更换。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price is subject to change based on raw material costs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格可能因原材料成本变化调整。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Annual contracts include price lock-in for 6 months.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>年度合同包含 6 个月价格锁定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer consignment terms for qualified distributors.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>合格经销商可享受寄售条款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order will be processed after receiving the signed contract.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到签署合同后开始处理订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Partial shipments are allowed with prior notice.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提前通知可分批装运。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide cost breakdowns for transparency.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供成本明细，保证透明。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The discount is applicable only for orders placed this quarter.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>折扣仅适用于本季度订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment deadlines are strictly enforced to avoid delays.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>严格执行付款期限，避免延误。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer flexible payment plans for long-term clients.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>长期客户可享受灵活付款计划。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order quantity can be adjusted within 3 days of confirmation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单确认后 3 天内可调整数量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Custom packaging requires a $500 design fee.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定制包装需支付 500 美元设计费。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide shipping cost estimates for multiple ports.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可提供多个港口的运费估算。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deposit is non-refundable for cancelled orders.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>取消订单时定金不予退还。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer a 2% rebate for referring new clients.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>推荐新客户可享 2% 返利。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order status can be tracked via our online system.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可通过我们的在线系统跟踪订单状态。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept partial payments for large orders.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>大订单可接受分期付款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price includes loading onto the vessel at the port.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>价格包含港口装船费用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minimum order value: $10,000 for first-time clients.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>首次合作客户最低订单金额为 10,000 美元。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide certificates of origin upon request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>可根据要求提供原产地证书。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The discount increases by 1% for each additional 500 units.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>每增加 500 件，折扣增加 1%。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer free storage for orders ready within 15 days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>已完成订单可免费存储 15 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment in local currency is accepted with current exchange rate.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>接受当地货币付款，按当日汇率结算。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order will be prioritized for clients with annual contracts.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>年度合同客户的订单将优先处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide insurance certificates for each shipment.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>每批货物均提供保险凭证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quotation excludes inland transportation to the port.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>报价不含至港口的内陆运输费。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer a 3% discount for repeat orders within 3 months.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3 个月内复购可享 3% 折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Custom specifications may extend lead time by 5-7 days.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定制规格可能使生产周期延长 5-7 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept bank guarantees for large-scale projects.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>大型项目可接受银行保函付款。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order confirmation email includes all details for verification.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单确认邮件包含所有细节供核实。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide free technical training for orders over 2000 units.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>订单量超过 2000 件可提供免费技术培训。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price is valid for 15 days for rush orders.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>加急订单报价有效期为 15 天。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer volume-based shipping discounts with our logistics partners.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>与物流合作伙伴联合提供基于量的运费折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deposit must be paid within 7 days of order confirmation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>定金需在订单确认后 7 天内支付。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We provide detailed packing lists for customs clearance.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>提供详细装箱单，便于清关。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The order can be modified with a $100 adjustment fee.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>修改订单需支付 100 美元调整费。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer exclusive pricing for sole distributors in a region.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>地区独家经销商可享受专属定价。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、客户沟通</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can always find a lower price but quality is definitely different.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你永远可以找到更低的价格，但质量肯定不一样。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please advise your budget? So we can see if there is any other solution for you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>能否告知你的预算，我看看还有没有其他方案。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Besides price, what other reasons do you have for not moving forward with this currently?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>除却价格，还有其他因素影响到这个订单的进展吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t you agree with me that in the long run, moderate prices will bring about large sales and more profit?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们认为从长远考虑，公道的价格会增加销量，从而得到更多的利润，你认同吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry, we can&#x27;t offer the lowest price in the market because our quotation includes quality and special value-added services.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们没办法给到这么低的价格，因为我们的报价已综合考虑到产品质量和增值服务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can&#x27;t afford to lose a client due to quality issues because if we lose a client like that, we lose them forever.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们不能因为质量问题流失客户，这会导致我们永远失去这个客户。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I haven&#x27;t heard back from you since last follow-up. I assume there might be some issues with our business relationship. Please let me know if I can be of any help.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>上次跟进后便没有收到你的回复，我猜想我们合作上可能出现了问题。请告知我这边需要做些什么。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just imagine how things will be in six months once you have pushed this new product to your distribution channels.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>想象一下，一旦您将这种新产品推向您的分销渠道，六个月后情况会怎样。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is very normal—all customers think the product is too expensive before understanding it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这是很正常的事情，所有客户在了解产品之前都会觉得贵。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The information I sent can help you choose the product and avoid a lot of detours.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我给你发的资料，可以让你在选择产品时少走很多弯路。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The market is so competitive now that no company would be foolish enough to sell a product of the same quality at a higher price than anyone else—unless the company is not big at all.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>现在市场竞争这么激烈，任何一家公司都不会傻到把同等质量的产品卖得比别人贵，除非这家公司规模很小。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will focus on your order and production status and let you know if there is any progress.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我会关注您的订单和生产情况，有进展会通知您。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I know exactly what you mean.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我完全明白您的意思。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s the kind of thing I would do too.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我也会这么做的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Value-for-money means considering service, details, expertise, results, and after-sales support rather than simply saying &quot;the price is low.&quot;</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>物有所值是从服务、细节、专业、结果、售后支持等方面考虑，而不是简单说 “价格低”。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trust is precious, and if you choose to rely on me, I won&#x27;t let you down.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信任是宝贵的，如果你选择依靠我，我不会让你失望的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Different prices represent different qualities. Expensive goods may not suit you, but cheap ones may not be good enough. What suits you best is what matters.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>不同的价格代表不同的品质。贵的可能不适合你，便宜的也不一定好。适合你的才是重要的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you need a sample, I can arrange that for you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你要是需要样品，我可以安排。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer fast shipping, so you&#x27;ll get your order quickly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们发货很快，你很快就能收到货。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How many pieces are you looking to order?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你打算订多少？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can send you more pictures or videos if needed.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>需要的话，我可以再发些图片或者视频给你。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have different colors and sizes available.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们有不同的颜色和尺寸可以选。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you&#x27;re interested, I can send you a price list.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>你要是感兴趣，我可以发你报价单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quality is guaranteed. We&#x27;ve got plenty of happy customers.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>质量保证，很多客户都很满意。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our customers keep coming back because they trust our quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很多客户都会回购，因为他们认可我们的质量。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>24-hour response guaranteed for all inquiries.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>确保 24 小时内回复所有询盘。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Multilingual staff support English, Spanish, and Arabic.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>员工支持英语、西班牙语和阿拉伯语。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve been in this business for years. You&#x27;re in good hands.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们做这个行业很多年了，你可以放心。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This one is very popular in the U.S. market right now.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个在美国市场现在特别火。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve worked with a lot of big brands.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们跟很多大品牌都有合作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like me to explain the product features in more detail?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您需要我更详细地解释产品特性吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can arrange a video call to show you the product in operation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以安排视频通话，向您展示产品的运行情况。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Many of our clients in your industry have found this product very effective.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们很多同行业的客户都认为这款产品非常实用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you have any concerns about the delivery time, I can check with the logistics team for you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如果您对交货时间有任何疑问，我可以帮您向物流团队核实。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can adjust the packaging according to your market&#x27;s preferences.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以根据您所在市场的偏好调整包装。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you considered the after-sales service when comparing prices?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您在比较价格时考虑过售后服务吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d be happy to provide references from our existing clients in your country.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我很乐意向您提供我们在贵国现有客户的参考信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is currently on promotion, and the discount will end next week.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品目前正在促销，折扣下周结束。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What specific specifications are you looking for in this type of product?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您对这类产品有哪些具体的规格要求？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can arrange for a technical specialist to answer your questions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以安排技术专家为您解答疑问。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our products have passed all necessary certifications for your market.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的产品已通过贵国市场所需的所有必要认证。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like to know more about our production process to ensure quality?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您想了解更多关于我们的生产流程以确保质量吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can send you a case study of how this product helped a similar client.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以给您发一份关于这款产品如何帮助类似客户的案例研究。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The minimum order quantity can be reduced for first-time clients.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>首次合作客户的起订量可以降低。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you had any experience with similar products before?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您之前使用过类似的产品吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can offer a trial order to let you test the market first.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以提供试订单，让您先测试市场。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s design has been updated based on customer feedback.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品的设计是根据客户反馈更新的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can provide a detailed comparison between our product and competitors&#x27;.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以提供我们的产品与竞品的详细对比。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the main purpose of purchasing this product? Maybe I can recommend a more suitable model.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您购买这款产品的主要用途是什么？或许我可以推荐更合适的型号。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our delivery network covers your region, so shipping is very convenient.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的配送网络覆盖您所在的地区，所以运输非常方便。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer flexible payment terms for long-term cooperation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对于长期合作，我们提供灵活的付款条件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product comes with a user manual in your local language.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品配有您当地语言的用户手册。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Many clients choose us because of our fast response to after-sales issues.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很多客户选择我们是因为我们对售后问题响应迅速。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like to schedule a time to discuss the details further?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您想安排个时间进一步讨论细节吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can customize the product&#x27;s functions according to your specific needs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以根据您的具体需求定制产品功能。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price includes door-to-door delivery to your warehouse.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这个价格包含送货到您仓库的门到门服务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can inform you in advance when there are new product launches.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>有新产品推出时，我可以提前通知您。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our production capacity is sufficient to meet your future large orders.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们的生产能力足以满足您未来的大额订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you considered the cost savings in the long run with our energy-efficient products?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您考虑过我们的节能产品从长远来看能节省的成本吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can provide a warranty extension for an additional fee.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>支付额外费用，我们可以提供延长质保。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s packaging is designed to reduce transportation damage.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>产品的包装设计旨在减少运输损坏。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can help you calculate the total cost including all fees and taxes.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以帮您计算包含所有费用和税费的总成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our company participates in international trade fairs regularly; would you like to meet there?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们公司定期参加国际贸易展会，您想在那里见面吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is compatible with other equipment you might already have.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品与您可能已有的其他设备兼容。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer training sessions for your staff on how to use the product.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们为您的员工提供产品使用培训课程。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your expected delivery date? I&#x27;ll check if we can meet it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您期望的交货日期是什么时候？我来确认一下我们是否能满足。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Many clients have increased their orders after seeing the product quality.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>很多客户在看到产品质量后都增加了订单。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can provide a certificate of analysis for the product&#x27;s materials.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以提供产品材料的分析证书。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like to know about our company&#x27;s history and reputation in the industry?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您想了解我们公司的历史和在行业内的声誉吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product has a high profit margin for distributors in your market.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品在您的市场给经销商带来的利润率很高。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can send you a sample with your logo printed for evaluation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以给您寄一个印有您 logo 的样品供评估。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our customer service team is available in your time zone for convenience.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为方便起见，我们的客户服务团队在您的时区工作。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s shelf life is 3 years under proper storage conditions.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在适当的储存条件下，产品的保质期为 3 年。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can adjust the production schedule to meet your urgent needs.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们可以调整生产计划以满足您的紧急需求。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you received our catalog? It includes all our product ranges.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您收到我们的目录了吗？里面包含我们所有的产品系列。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product is designed to comply with your country&#x27;s environmental regulations.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品的设计符合贵国的环境法规。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can provide references from clients who have been working with us for over 5 years.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我可以提供与我们合作超过 5 年的客户的参考信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer a loyalty discount for clients who order regularly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对定期订购的客户，我们提供忠诚度折扣。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product&#x27;s maintenance requirements are minimal, saving you time and cost.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这款产品的维护需求很少，为您节省时间和成本。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like me to arrange for a factory visit at your convenience?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>在您方便的时候，我可以安排您参观工厂吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、信息确认表达</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Noted.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Understood.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>理解。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Got it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>明白了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Copy that.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到，较口语化。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m on it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我正在处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Roger that.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>明白，多用于通讯设备。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Heard you.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>听到了 / 收到。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Point taken.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>理解你的观点。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Crystal.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>清楚了，来源于 “Crystal clear”。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Acknowledged.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>已知悉。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for the update.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您的更新。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate the information.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您的信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your message has been received.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的信息已收到。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve taken note of your feedback.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我已记录您的反馈。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I acknowledge receipt of your email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认收到您的邮件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please rest assured I have understood the details.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请放心，我已经理解了详情。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for bringing this to my attention.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您提醒我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your request has been noted.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的请求已收到。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This has been logged in our system.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这已经在我们的系统中记录。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will review this information.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我会审核这些信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Acknowledged with thanks.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>已知悉，感谢。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cheers for that.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>谢谢，英式口语。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Message received loud and clear.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信息已清楚接收。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Noty.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>意为 “Noted” 的口头缩写。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll keep that in mind.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我会记得的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Understood perfectly.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>完全明白。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Gotcha.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我明白了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cheers, got it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>收到，谢谢，英联邦国家常用。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good on the info.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>信息很不错，澳洲口语。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Right you are.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>对的，明白，英式表达。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I confirm receipt of your email.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我确认收到您的邮件。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your prompt response.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您的及时回复。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will act on this information immediately.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我会立即根据这些信息采取行动。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your message is well received.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的信息已妥收。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please acknowledge this confirmation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请确认收悉。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m reviewing the details as we speak.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我正在查看这些细节。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your swift communication.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您的迅速沟通。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know if you need anything else on this matter.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>如需关于此事的其他帮助，请告知我。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The details have been forwarded to our team.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>详细信息已转发给我们的团队。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are proceeding with your request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在处理您的请求。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have received your request and are processing it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们已收到您的请求，正在处理中。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for reaching out to us.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您联系我们。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please rest assured, your request is being addressed.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>请放心，您的请求正在处理。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your feedback is invaluable to us.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的反馈对我们来说非常重要。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We will keep you updated on the progress.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们将随时向您更新进度。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your concern has been forwarded to the relevant department.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的问题已转发至相关部门。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your patience while we look into your request.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>感谢您在我们调查您的请求期间的耐心。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have acknowledged your request and are on it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们已收到您的请求，并正在处理中。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your satisfaction is our priority.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您的满意是我们的首要任务。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We are working diligently to resolve this issue.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们正在努力解决这个问题。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just to confirm, you’re suggesting [Restate Suggestion]?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>为了确认，您是建议 [重述建议] 吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hear you, and I will take care of it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我听到了，我会处理的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you confirm that we’re aligned on this point?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您能否确认我们在这一点上一致？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me repeat that back to you to ensure clarity.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>让我重复一遍，以确保清楚。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>So, if I understand you correctly, you’d like [Clarification].</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>所以，如果我没理解错的话，您希望 [澄清]。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m making a note of that, thank you for the information.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我正在记录，谢谢您的信息。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are we all in agreement on this?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们对此达成共识了吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s make sure everyone is on the same page with this.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们来确保大家对此达成一致。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a good point, and I’ll make a note of it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>这是个好观点，我会记下来的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you mind if I summarize what we&#x27;ve discussed so far?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>介意我总结一下我们到目前为止讨论的内容吗？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The project details are confirmed and on track.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>项目细节已确认，并按计划进行。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ve recorded your input for the project’s next phase.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我已记录您对项目下一阶段的建议。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s follow up on this next week. Does that work for you?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>下周跟进这件事。您觉得如何？</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Everyone&#x27;s contribution is key, and I appreciate your input.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>每个人的贡献都很重要，感谢您的意见。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We’ll incorporate your feedback into the current plan.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们将把您的反馈纳入当前计划。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve synced this with the team, and we’re moving forward.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我已与团队同步，我们将继续推进。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Updates will be shared regularly to keep everyone aligned.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>更新内容将定期分享，以保持一致。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I acknowledge the potential challenges and will address them.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我已注意到潜在的挑战，并会予以解决。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your expertise in this area is invaluable to our success.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>您在这一领域的专业知识对我们的成功至关重要。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The strategy is now set, and we’ve begun implementation.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>策略现已制定，我们已开始实施。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Got it, thanks!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>明白了，谢谢！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cool, I’ll handle it.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>好的，我会处理的。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No worries, I’ve got this covered.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>不用担心，我搞定。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure thing, leave it with me.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>好的，交给我吧。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll take care of this, no problem.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我会处理，不用担心。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>All set on my end, thanks!</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我这边搞定了，谢谢！</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m on top of it, don’t worry.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我在处理，别担心。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your payment went through.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>钱已经到账了。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re still waiting on payment.</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>我们还没收到钱。</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you check with your bank?</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>帮忙问下你们银行。</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="外贸全英交流400";
@@ -1068,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

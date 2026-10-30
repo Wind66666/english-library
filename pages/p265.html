@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,623 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">背完这600句 全英会议稳了
-目录
-一、会议开场与基础互动
-二、项目进展与状态沟通
-三、会议安排与后续跟进
-四、意见表达与反馈处理
-五、问题解决与风险应对
-六、成果认可与团队协作
-七、其他实用表达
-八、......
-一、会议开场与基础互动
-Let&#x27;s start the meeting.（我们开始开会吧。）
-Thanks for coming today.（感谢大家今天到场。）
-Any agenda additions?（有人要补充议程吗？）
-Let me share the agenda first.（我先说说议程。）
-Recap from last meeting:（上次会议回顾：）
-I&#x27;ll share my screen now.（我现在共享屏幕。）
-We&#x27;re discussing Q3 goals.（我们在讨论第三季度目标。）
-Mute when not speaking.（不发言时请静音。）
-Ready? Let&#x27;s start.（准备好了吗？我们开始。）
-[Name], take it over.（[姓名]，你来主持。）
-Some are still joining. Wait a bit.（有人还在加入。稍等一下。）
-Waiting for a few more. Bear with us.（还在等几个人。请耐心等。）
-Wait for everyone to join.（等所有人都到了再开始。）
-While waiting, let&#x27;s go over agenda.（等的时候，我们过一下议程。）
-Two more minutes to log in.（再给两分钟登录。）
-Waiting for a few. Thanks for patience.（还在等几个。感谢耐心。）
-Everyone&#x27;s here. Let&#x27;s begin.（人都到齐了。我们开始。）
-Share your thoughts first.（先说说你的想法。）
-How&#x27;s the progress so far?（目前进展怎么样？）
-Your perspective on this?（你对这事怎么看？）
-Initial thoughts on the proposal?（对这个提案的初步想法？）
-I want your feedback here.（我想听听你的反馈。）
-Anything to add before moving on?（继续之前有要补充的吗？）
-How impacts team goals?（对团队目标有何影响？）
-Your take on current challenges?（对当前挑战的看法？）
-Explain that in detail?（详细解释一下？）
-Break it down more?（再拆解细一点？）
-How to approach this exactly?（具体该怎么处理？）
-What factors influence this?（哪些因素有影响？）
-Any data to support that?（有数据支持吗？）
-Dig deeper into root cause?（深入探讨根本原因？）
-Potential risks to note?（要注意的潜在风险？）
-How aligns with strategy?（与策略怎么契合？）
-Here&#x27;s a suggestion from me.（我提个建议。）
-Thought of this angle?（想过这个角度吗？）
-Try a different method?（试试另一种方法？）
-Collaborate with other team?（和其他团队合作？）
-Prioritize this next week?（下周优先处理这个？）
-Look for faster solutions?（找找更快的解决办法？）
-Test before full implementation?（全面实施前先测试？）
-Set up a follow-up meeting?（安排个跟进会议？）
-I agree with your view.（我同意你的观点。）
-Great point, [Name].（[姓名]，说得好。）
-You said what I thought.（你说出了我的想法。）
-Agree to prioritize feedback.（同意优先处理反馈。）
-Proposal fits current strategy.（提案符合当前策略。）
-Valid approach to explore.（值得探讨的有效方法。）
-Same on timeline adjustment.（时间线调整我同意。）
-Your insights help a lot.（你的见解很有帮助。）
-Matches our collected data.（和我们的数据一致。）
-Second [Name]&#x27;s phase two idea.（附议 [姓名] 的第二阶段建议。）
-May I interject briefly?（我能插一句吗？）
-Sorry to interrupt, clarify?（抱歉打断，能澄清吗？）
-Building on [Name]&#x27;s point...（在 [姓名] 的基础上补充...）
-Pause for a quick question.（停一下，我有个小问题。）
-May I add before moving on?（继续前我能补充吗？）
-Sorry, circle back to...?（抱歉，回到... 话题？）
-To align, let me repeat...（为统一理解，我复述一下...）
-Not to derail, but...（不是要跑题，但是...）
-Respectfully, another angle?（无意冒犯，换个角度？）
-Recap for new members?（给新成员回顾一下？）
-[Name], your thoughts?（[姓名]，你怎么看？）
-APAC team&#x27;s feedback?（亚太团队的反馈？）
-Anyone on budget allocation?（有人说下预算分配吗？）
-Hear from those not speaking.（请没发言的说说。）
-Elaborate on the risks?（详细说说风险？）
-Challenges in implementation?（执行中会有什么挑战？）
-Is timeline realistic?（时间线现实吗？）
-How to mitigate this?（怎么缓解这个问题？）
-Any blind spots we miss?（我们漏了什么盲点吗？）
-What&#x27;s success to you?（你觉得成功是什么样的？）
-Good point, I&#x27;ll consider.（说得好，我会考虑的。）
-I get your concerns, will address.（我理解你的担忧，会处理的。）
-Thanks, I&#x27;ll follow up.（谢谢，我会跟进的。）
-Appreciate insights, adjust as needed.（感谢见解，会按需调整。）
-hadn&#x27;t thought that way, makes sense.（没这么想过，有道理。）
-Great suggestion, explore more.（好建议，再深入探讨。）
-Review and update plan.（我会研究并更新计划。）
-Understand, act accordingly.（理解，会相应行动。）
-Step back, see the big picture.（退一步，看全局。）
-Different angles, maybe.（可能是角度不同。）
-Find middle ground here?（这里能折中吗？）
-Align before moving forward.（推进前先达成一致。）
-Get your point, here&#x27;s mine.（理解你的观点，这是我的。）
-Try this, see how it works?（试试这个，看效果如何？）
-Revisit after more discussion.（再讨论后回到这个话题。）
-Find a mutual solution.（找到双方都认可的方案。）
-Seems we all agree now.（看来我们现在都同意了。）
-Summarize our agreements.（总结一下我们的共识。）
-Next step from discussion.（根据讨论，下一步这样。）
-Glad we aligned on this.（很高兴就此达成一致。）
-Agreed, move with the plan.（达成一致了，按计划推进。）
-To be clear, next steps:（明确一下，下一步：）
-Any final concerns before moving?（推进前还有疑问吗？）
-Covered everything, move on.（都讨论完了，继续。）
-Table this, circle back later.（先放一放，稍后再议。）
-Stay on track, focus on...（保持进度，聚焦于...）
-Park this, solve offline.（先放放，线下解决。）
-Time limited, I propose...（时间有限，我建议...）
-Note as action, proceed.（记为行动项，继续。）
-二、项目进展与状态沟通
-Avoid rabbit holes, maybe...（避免偏离，或许...）
-Check views on this decision?（大家对这个决定怎么看？）
-Wrap this topic in 5 minutes.（5 分钟内结束这个话题。）
-Update on your tasks?（你的任务进展如何？）
-Main challenges right now?（目前主要挑战是什么？）
-Go over key milestones.（回顾关键里程碑。）
-On track for deadline?（能按时完成吗？）
-Need more resources?（需要更多资源吗？）
-Timeline for remaining tasks?（剩余任务的时间表？）
-Address project blockers.（解决项目障碍。）
-Clarify deliverables progress?（说明交付成果进展？）
-Progress vs initial goals?（进展与初始目标是否一致？）
-Align on next steps.（就下一步达成一致。）
-Set recurring progress meetings.（定期开进度会。）
-Weekly check-ins work?（每周跟进会可以吗？）
-Fix day/time for updates.（定个固定时间更新。）
-Next meeting early next week?（下次会下周初开？）
-Regular updates keep us on track.（定期更新让我们不跑偏。）
-Progress reviews every two weeks.（每两周开进度审查会。）
-Lock time for next update.（定好下次更新会的时间。）
-Bi-weekly sync possible?（每两周同步一次可以吗？）
-Regular meetings solve issues early.（定期会议早解决问题。）
-Keep check-ins short and useful.（跟进会要简短有效。）
-Draft agenda, share in advance.（拟好议程，提前分享。）
-Add agenda items? Let me know.（要加议程项吗？告诉我。）
-Agenda focuses on deliverables.（议程聚焦交付成果。）
-Circulate agenda by end of day.（今天内分发议程。）
-Agenda should be clear and actionable.（议程要清晰可执行。）
-Send draft agenda tomorrow.（明天发议程草案。）
-Review agenda, give feedback.（审阅议程，给反馈。）
-Good agenda boosts efficiency.（好议程提高效率。）
-Confirm agenda before meeting.（会前和大家确认议程。）
-Compile minutes, share soon.（整理纪要，尽快分享。）
-Minutes sum key points and actions.（纪要总结要点和行动。）
-Review minutes, note omissions.（审阅纪要，指出遗漏。）
-Distribute minutes by end of day.（今天内分发纪要。）
-Minutes include decisions and next steps.（纪要包含决定和下一步。）
-Thanks for reviewing notes.（感谢审阅记录。）
-Summary keeps goals aligned.（总结让目标保持一致。）
-Check minutes for your tasks.（看纪要确认你的任务。）
-Highlight key decisions in minutes.（纪要中突出关键决定。）
-Concerns about minutes? Let me know.（对纪要有疑问？告诉我。）
-Outline next meeting&#x27;s agenda.（列出下次会议议程。）
-Assign tasks from today&#x27;s talk.（根据今天讨论分配任务。）
-Confirm availability for meeting.（确认能否参加会议。）
-Follow up on tasks before next meet.（下次会前跟进任务。）
-Identify key topics for next talk.（确定下次讨论的关键议题。）
-Prepare detailed next meeting agenda.（准备下次会议详细议程。）
-More items to address? Let me know.（有其他事项？告诉我。）
-Track tasks, share updates next time.（跟踪任务，下次分享进展。）
-Tasks align with project goals.（任务与项目目标一致。）
-Let me clarify my meaning.（我解释一下我的意思。）
-We&#x27;re thinking the same way.（我们想法一致。）
-Let&#x27;s agree on this point.（我们就这一点达成一致。）
-Don&#x27;t get off the main topic.（别偏离主题。）
-This is beyond the meeting scope.（这超出会议范围了。）
-Circle back to this next week.（下周再回到这个话题。）
-Let&#x27;s finish up now.（我们现在结束吧。）
-We&#x27;re running out of time.（我们快没时间了。）
-Follow up with an email.（邮件跟进此事。）
-Check and get back to you.（我查一下再回复你。）
-Take a short break.（休息一小会儿。）
-Resume after lunch.（午饭后继续。）
-That&#x27;s still in progress.（那还在进行中。）
-Ironing out the details still.（还在敲定细节。）
-Hit some roadblocks lately.（最近遇到些阻碍。）
-Still under review now.（现在还在审核中。）
-Not finalized at this point.（目前还没定下来。）
-Sync up on this later.（之后再同步一下。）
-I&#x27;ll include you in this.（我会把你加进来。）
-Keep you updated on this.（随时告诉你进展。）
-Let&#x27;s step back and think.（我们退一步想想。）
-Set up another meeting for this.（为此另开个会。）
-Book a follow-up meeting?（定个跟进会？）
-I&#x27;ll send the meeting invite.（我发会议邀请。）
-Do a quick summary now.（现在快速总结一下。）
-To sum up the discussion...（总结一下讨论...）
-Here&#x27;s the key takeaway.（这是关键要点。）
-Focus on the action items.（专注于行动项。）
-Who&#x27;s responsible for what?（谁负责什么？）
-Add this to the roadmap.（把这个加到路线图里。）
-Needs more discussion later.（之后需要再讨论。）
-Not ready to decide yet.（还没准备好做决定。）
-Keep options open for now.（目前先不做限定。）
-Put this aside for the moment.（暂时把这个放一放。）
-Waiting for feedback still.（还在等反馈。）
-Needs leadership&#x27;s approval.（需要领导层批准。）
-Already escalated this issue.（这个问题已经上报了。）
-We need to flag this risk.（我们要标出这个风险。）
-That&#x27;s a possible risk.（那是个潜在风险。）
-Let&#x27;s take a safe approach.（我们稳妥点处理。）
-Need a backup plan ready.（需要准备个备选方案。）
-That&#x27;s a major achievement.（那是个重大成果。）
-Great work on that project.（那个项目做得好。）
-How&#x27;s the task coming along?（任务进展怎么样了？）
-Any delays in the schedule?（时间表有延迟吗？）
-When will this be completed?（这个什么时候完成？）
-Update us on the progress.（给我们更新一下进展。）
-Any issues with the timeline?（时间线上有问题吗？）
-Making good progress so far.（目前进展不错。）
-三、会议安排与后续跟进
-Schedule the next meeting soon.（尽快安排下次会议。）
-When works for the next meet?（下次会什么时候合适？）
-Send reminders for the meeting.（发会议提醒。）
-Reschedule if needed, let&#x27;s see.（需要的话改期，看看。）
-Confirm meeting details again.（再确认一下会议细节。）
-Prepare materials before meeting.（会前准备好材料。）
-Share documents ahead of time.（提前分享文件。）
-Who else should attend this?（还有谁该参加这个会？）
-Keep the meeting short and focused.（会议要简短聚焦。）
-Agenda sent to everyone now.（议程已经发给大家了。）
-Let&#x27;s finalize the meeting time.（定好会议时间吧。）
-Conflict with the meeting time?（和会议时间冲突吗？）
-Propose a new meeting time.（提议个新的会议时间。）
-Meeting moved to [date/time].（会议改到 [日期 / 时间] 了。）
-Apologies for the short notice.（抱歉通知得晚了。）
-Attend in person orremotely?（现场参加还是远程参加？）
-Meeting room booked for this.（为此预订了会议室。）
-Join via the provided link.（通过提供的链接加入。）
-Technical issues? Let me know.（有技术问题？告诉我。）
-Test equipment before meeting.（会前测试设备。）
-Meeting starts in 10 minutes.（会议 10 分钟后开始。）
-I&#x27;ll be a few minutes late.（我会晚到几分钟。）
-Wrap up by [time], please.（请在 [时间] 前结束。）
-Extend the meeting if needed.（需要的话延长会议。）
-Next meeting&#x27;s focus is [topic].（下次会议聚焦 [主题]。）
-Add [Name] to the meeting.（把 [姓名] 加到会议里。）
-Remove [Name] from the list.（从名单中移除 [姓名]。）
-Meeting agenda revised, see update.（会议议程已修改，看更新。）
-Key points to cover today:（今天要涵盖的要点：）
-Follow up on last week&#x27;s tasks.（跟进上周的任务。）
-Tasks completed as planned.（任务按计划完成了。）
-Some tasks need more time.（有些任务需要更多时间。）
-Update task status in the system.（在系统中更新任务状态。）
-Assign a due date to each task.（给每个任务设定截止日期。）
-Who will own this task?（谁来负责这个任务？）
-Delegate this to [Name].（把这个交给 [姓名]。）
-Task priorities adjusted slightly.（任务优先级略有调整。）
-Report task progress weekly.（每周汇报任务进展。）
-Flag any overdue tasks.（标出所有逾期任务。）
-Need help with your task?（你的任务需要帮助吗？）
-Reassign tasks if necessary.（必要的话重新分配任务。）
-Task dependencies clarified now.（任务依赖关系已明确。）
-Meeting minutes approved by all?（会议纪要大家都认可吗？）
-Revise minutes based on feedback.（根据反馈修改纪要。）
-Archive old meeting minutes.（存档旧的会议纪要。）
-Share minutes with stakeholders.（把纪要分享给相关方。）
-Action items tracked in the sheet.（行动项在表格中跟踪。）
-Update action items regularly.（定期更新行动项。）
-Close completed action items.（结束已完成的行动项。）
-Escalate unresolved items.（上报未解决的事项。）
-Next follow-up in 3 days.（3 天后进行下次跟进。）
-Remind team about deadlines.（提醒团队注意截止日期。）
-Send a summary email after meeting.（会后发总结邮件。）
-Email includes key decisions.（邮件包含关键决定。）
-Attach meeting slides to email.（邮件附上会议幻灯片。）
-Reference meeting ID in email.（邮件中注明会议 ID。）
-Confirm receipt of meeting materials.（确认收到会议材料。）
-Questions about the email? Ask me.（对邮件有疑问？问我。）
-circulate the meeting recap.（分发会议 recap。）
-Schedule a quick sync tomorrow.（明天安排个快速同步会。）
-Can we meet briefly this afternoon?（今天下午能简单见个面吗？）
-Block time on my calendar for this.（在我的日历上为此预留时间。）
-Meeting canceled due to [reason].（会议因 [原因] 取消。）
-New meeting details sent out.（新的会议详情已发出。）
-Apologize for the meeting change.（为会议变动道歉。）
-Attendance list for the meeting:（会议出席名单：）
-Excused from the meeting: [Name].（[姓名] 不能参加会议。）
-Meeting recordings available now.（会议录音现在可以获取。）
-Share meeting link with absentees.（把会议链接分享给缺席者。）
-Catch up on missed meetings.（补上错过的会议内容。）
-Prepare a Q&amp;A for the next meeting.（为下次会议准备问答环节。）
-Collect questions in advance.（提前收集问题。）
-Address all questions in the meeting.（在会议中解答所有问题。）
-Unanswered questions to follow up.（未解答的问题后续跟进。）
-Meeting objectives achieved today.（今天的会议目标达成了。）
-Some objectives need more work.（有些目标需要更多工作。）
-Revisit objectives in the next meet.（下次会议再讨论目标。）
-Align meeting goals with project.（使会议目标与项目一致。）
-Set clear objectives for each meet.（为每个会议设定明确目标。）
-Meeting effectiveness reviewed.（会议效果已评估。）
-Improve meeting flow next time.（下次改进会议流程。）
-Shorten discussion on [topic].（缩短关于 [主题] 的讨论。）
-Allocate more time to [topic].（给 [主题] 分配更多时间。）
-Rotate meeting facilitator each time.（每次轮换会议主持人。）
-Facilitator keeps meeting on track.（主持人确保会议不跑偏。）
-Take turns presenting updates.（轮流汇报更新内容。）
-Limit presentations to [time].（演讲限制在 [时间] 内。）
-Use visuals for better understanding.（用视觉材料帮助理解。）
-Simplify complex topics in meetings.（在会议中简化复杂主题。）
-Encourage participation from all.（鼓励所有人参与。）
-Ensure everyone has a chance to speak.（确保每个人都有发言机会。）
-Manage dominant speakers politely.（礼貌地管理发言过多的人。）
-Summarize before moving to next.（进入下一项前先总结。）
-Check for understanding regularly.（定期检查理解情况。）
-Meeting adjourned, thanks everyone.（会议结束，谢谢大家。）
-See you in the next meeting.（下次会议见。）
-Follow up on action items promptly.（及时跟进行动项。）
-Success of meeting depends on follow-up.（会议的成功取决于后续跟进。）
-Improve meeting culture gradually.（逐步改善会议文化。）
-四、意见表达与反馈处理
-I have a different opinion here.（我在这里有不同意见。）
-Let me share another view.（我来分享另一个观点。）
-That might not work, I think.（我觉得那样可能不行。）
-Have you thought of this?（你想过这个吗？）
-Maybe we should reconsider.（或许我们应该重新考虑。）
-I&#x27;m not sure about that approach.（我对那种方法没把握。）
-Let&#x27;s weigh the pros and cons.（我们来权衡利弊吧。）
-What&#x27;s the downside of this?（这有什么弊端？）
-This could lead to [issue].（这可能会导致 [问题]。）
-Alternative idea: what if we...（另一个想法：我们要是...）
-I agree with parts of that.（我同意其中的部分内容。）
-partially disagree on this point.（在这一点上部分不同意。）
-Let&#x27;s find common ground here.（我们在这里找到共同点吧。）
-Your idea has merit, but...（你的想法有价值，但是...）
-Can we adjust this slightly?（我们能稍微调整一下这个吗？）
-That&#x27;s a valid concern, thanks.（这是合理的担忧，谢谢。）
-Feedback noted, will consider.（反馈已记录，会考虑。）
-How to address this feedback?（如何处理这个反馈？）
-Feedback helps improve our work.（反馈有助于改进我们的工作。）
-Welcome more feedback on this.（欢迎就此提供更多反馈。）
-Act on the feedback received.（根据收到的反馈采取行动。）
-Clarify the feedback if needed.（必要的话澄清反馈内容。）
-Discuss feedback in the team.（在团队中讨论反馈。）
-Prioritize feedback based on impact.（根据影响确定反馈优先级。）
-Follow up on feedback outcomes.（跟进反馈的结果。）
-Thank you for your honest feedback.（感谢你的坦诚反馈。）
-Feedback incorporated into plans.（反馈已纳入计划。）
-Unable to act on this feedback now.（目前无法根据此反馈行动。）
-Explain reasons for feedback decisions.（解释反馈决策的原因。）
-Collect feedback regularly.（定期收集反馈。）
-What&#x27;s your view on this plan?（你对这个计划有什么看法？）
-Do you support this approach?（你支持这种方法吗？）
-Any objections to this proposal?（对这个提案有反对意见吗？）
-How to make this better?（如何让这个更好？）
-Suggestions for improvement?（有改进建议吗？）
-I think this needs more work.（我觉得这个需要更多工作。）
-This is a strong proposal overall.（总体来说这是个不错的提案。）
-Let&#x27;s refine this idea together.（我们一起完善这个想法吧。）
-Expand on this point, please.（请详细阐述这一点。）
-Narrow down the focus here.（在这里缩小焦点。）
-This aligns with our values.（这与我们的价值观一致。）
-Conflicts with our current plans.（与我们当前的计划冲突。）
-Let&#x27;s explore this further.（我们进一步探讨这个吧。）
-Set this aside for now.（现在先把这个放一放。）
-Revisit this idea later.（稍后再讨论这个想法。）
-This deserves more attention.（这值得更多关注。）
-Let&#x27;s not overlook this.（我们不要忽视这个。）
-This is a critical point.（这是个关键点。）
-Downplay this for now.（现在先淡化这个。）
-Highlight this in the report.（在报告中强调这个。）
-Your input is valuable here.（你的意见在这里很有价值。）
-Involve more people in this.（让更多人参与进来。）
-Keep this discussion confidential.（这个讨论要保密。）
-Share this with the wider team.（把这个分享给更广泛的团队。）
-This affects multiple departments.（这影响多个部门。）
-Focus on our team&#x27;s perspective.（聚焦我们团队的视角。）
-Consider external stakeholders.（考虑外部相关方。）
-This benefits us in the long run.（这从长远来看对我们有利。）
-Short-term gains vs long-term.（短期收益与长期收益。）
-Balance cost and quality here.（在这里平衡成本和质量。）
-Risk vs reward of this plan.（这个计划的风险与回报。）
-This is worth taking a risk.（这值得冒一次险。）
-Too risky for our current state.（对我们当前状况来说风险太大。）
-Mitigate risks before proceeding.（在推进前降低风险。）
-Prepare for best and worst cases.（为最好和最坏的情况做准备。）
-This is feasible with our resources.（用我们的资源这是可行的。）
-Lack resources for this approach.（这种方法缺乏资源。）
-Secure more resources if needed.（必要的话争取更多资源。）
-Reallocate resources for this.（为此重新分配资源。）
-This saves time and resources.（这节省时间和资源。）
-Time is a critical factor here.（时间在这里是关键因素。）
-Rushed decisions may backfire.（仓促的决定可能适得其反。）
-Need more time to evaluate.（需要更多时间评估。）
-Set a deadline for this decision.（为这个决定设定截止日期。）
-Procrastinating won&#x27;t help here.（拖延在这里没帮助。）
-Let&#x27;s decide by the end of day.（我们今天结束前做决定吧。）
-Defer decision to next meeting.（把决定推迟到下次会议。）
-Unanimous decision is best.（一致决定是最好的。）
-Majority vote if needed.（必要的话进行多数投票。）
-Leader will decide this one.（由领导来决定这个。）
-Document the decision process.（记录决策过程。）
-Communicate decision clearly.（清晰地传达决定。）
-Explain rationale behind decision.（解释决定背后的理由。）
-Accept the decision and move on.（接受决定并继续前进。）
-Disagree but will support it.（不同意但会支持。）
-Monitor outcomes of the decision.（监控决定的结果。）
-Adjust if the decision fails.（如果决定失败就调整。）
-Celebrate good decisions.（为好的决定庆祝。）
-Learn from poor decisions.（从不好的决定中学习。）
-Improve decision-making process.（改进决策过程。）
-Seek input before deciding.（做决定前征求意见。）
-Avoid groupthink in decisions.（在决策中避免群体思维。）
-Encourage diverse opinions.（鼓励不同的意见。）
-Challenge assumptions in plans.（质疑计划中的假设。）
-Test ideas before full approval.（在完全批准前测试想法。）
-Pilot this approach first.（先试点这种方法。）
-Evaluate pilot results thoroughly.（彻底评估试点结果。）
-Scale up if pilot is successful.（如果试点成功就扩大规模。）
-Scrap the idea if pilot fails.（如果试点失败就放弃这个想法。）
-Iterate based on pilot feedback.（根据试点反馈进行迭代。）
-五、问题解决与风险应对
-Identify the main problem first.（先找出主要问题。）
-Define the problem clearly.（清晰地定义问题。）
-Understand the root cause.（理解根本原因。）
-Symptoms vs actual problem.（症状与实际问题。）
-Problem affects [area].（问题影响 [领域]。）
-Severity of the problem is high.（问题的严重性很高。）
-This is a minor issue.（这是个小问题。）
-Urgent need to solve this.（急需解决这个问题。）
-Can wait, not immediate.（可以等，不紧急。）
-Gather data on the problem.（收集关于问题的数据。）
-Analyze the problem thoroughly.（彻底分析问题。）
-Brainstorm solutions together.（一起集思广益想解决方案。）
-Think outside the box here.（在这里跳出思维定式。）
-List possible solutions.（列出可能的解决方案。）
-Evaluate each solution.（评估每个解决方案。）
-Pros and cons of solutions.（解决方案的利弊。）
-Select the best solution.（选择最佳解决方案。）
-Back-up solution ready.（备用解决方案已准备好。）
-Implement the solution now.（现在实施解决方案。）
-Step-by-step implementation.（分步实施。）
-Assign responsibilities for this.（为此分配责任。）
-Set timeline for resolution.（设定解决的时间表。）
-Monitor implementation closely.（密切监控实施情况。）
-Adjust solution if needed.（必要的话调整解决方案。）
-Check if solution works.（检查解决方案是否有效。）
-Document the problem and fix.（记录问题及解决方法。）
-Share lessons learned with team.（与团队分享经验教训。）
-Prevent similar issues in future.（防止未来出现类似问题。）
-This problem recurs often.（这个问题经常复发。）
-Find a permanent solution.（找到永久性解决方案。）
-Temporary fix in place now.（目前已采取临时修复措施。）
-Root cause still unknown.（根本原因仍不明确。）
-Investigate further to find cause.（进一步调查以找到原因。）
-Expert consultation needed here.（这里需要专家咨询。）
-Bring in specialists for this.（为此引入专家。）
-Collaborative problem-solving.（协作解决问题。）
-Divide problem into smaller parts.（将问题分解为更小的部分。）
-Solve each part step by step.（逐步解决每个部分。）
-Problem is more complex than thought.（问题比想象的更复杂。）
-Simplify approach to solving it.（简化解决问题的方法。）
-Deadlines affected by this issue.（此问题影响了截止日期。）
-Renegotiate deadlines if needed.（必要的话重新协商截止日期。）
-Communicate delays to stakeholders.（向相关方传达延迟情况。）
-Recover lost time with extra effort.（通过额外努力弥补损失的时间。）
-Resources diverted to fix this.（资源被转用于解决此问题。）
-Reprioritize tasks due to problem.（由于问题重新确定任务优先级。）
-This issue impacts customer satisfaction.（此问题影响客户满意度。）
-Address customer concerns promptly.（及时解决客户担忧。）
-Compensate customers if necessary.（必要的话补偿客户。）
-Restore customer trust after this.（此后恢复客户信任。）
-Identify potential risks early.（尽早识别潜在风险。）
-List all possible risks.（列出所有可能的风险。）
-Assess risk probability and impact.（评估风险概率和影响。）
-High-risk items need attention.（高风险项目需要关注。）
-Low-risk but possible, note them.（低风险但可能发生，记录下来。）
-Develop risk mitigation plans.（制定风险缓解计划。）
-Avoid this risk if possible.（如果可能，避免此风险。）
-Reduce risk impact with actions.（通过行动降低风险影响。）
-Transfer risk to another party.（将风险转移给另一方。）
-Accept risk if unavoidable.（如果不可避免，接受风险。）
-Risk register updated regularly.（风险登记册定期更新。）
-Review risks in team meetings.（在团队会议中审查风险。）
-Risk trigger identified here.（这里已识别风险触发因素。）
-Monitor triggers closely.（密切监控触发因素。）
-Activate contingency plan now.（现在启动应急计划。）
-Contingency plan tested beforehand.（应急计划已事先测试。）
-Update contingency plans as needed.（根据需要更新应急计划。）
-Communicate risk status to all.（向所有人传达风险状态。）
-Stakeholders aware of key risks.（相关方了解关键风险。）
-Management informed of high risks.（管理层已获悉高风险。）
-Risk response team ready.（风险应对团队已准备就绪。）
-Assign risk owners for each.（为每个风险分配负责人。）
-Risk owner monitors and acts.（风险负责人进行监控并采取行动。）
-This risk has materialized.（此风险已发生。）
-Implement response plan immediately.（立即实施应对计划。）
-Contain the risk impact quickly.（迅速控制风险影响。）
-Recover from risk incident.（从风险事件中恢复。）
-Post-incident review conducted.（进行事后审查。）
-Learn from risk occurrence.（从风险发生中学习。）
-Update risk management process.（更新风险管理流程。）
-Overlooking this risk was a mistake.（忽视此风险是个错误。）
-Improve risk identification methods.（改进风险识别方法。）
-Regular risk assessment sessions.（定期进行风险评估会议。）
-Use historical data to predict risks.（利用历史数据预测风险。）
-Industry trends indicate this risk.（行业趋势表明存在此风险。）
-Competitor actions pose a risk.（竞争对手的行动构成风险。）
-Regulatory changes may bring risks.（监管变化可能带来风险。）
-Economic factors create this risk.（经济因素造成此风险。）
-Technological changes introduce risks.（技术变革带来风险。）
-Team skill gaps as a risk.（团队技能差距作为一种风险。）
-Resource shortages are a risk.（资源短缺是一种风险。）
-Supplier issues could risk projects.（供应商问题可能给项目带来风险。）
-Dependencies on other teams risk.（对其他团队的依赖存在风险。）
-Scope creep is a common risk.（范围蔓延是常见风险。）
-Quality issues may arise as risk.（质量问题可能作为风险出现。）
-Communication gaps create risks.（沟通差距产生风险。）
-Cultural differences pose risks.（文化差异构成风险。）
-Time zone challenges as a risk.（时区挑战作为一种风险。）
-Remote work introduces certain risks.（远程工作带来某些风险。）
-Natural disasters as potential risks.（自然灾害作为潜在风险。）
-六、成果认可与团队协作
-Great job on completing that.（完成得非常好。）
-Your effort made this happen.（你的努力促成了这件事。）
-Well done on meeting the deadline.（按时完成，干得好。）
-This achievement deserves recognition.（这一成就值得认可。）
-Appreciate your hard work here.（感谢你在这里的辛勤工作。）
-Your contribution was vital.（你的贡献至关重要。）
-Team effort led to this success.（团队努力带来了这一成功。）
-Celebrate this milestone together.（一起庆祝这个里程碑。）
-This sets a good example for us.（这为我们树立了好榜样。）
-Keep up the excellent work.（继续保持出色的工作。）
-Your initiative solved the problem.（你的主动性解决了问题。）
-Thanks for going the extra mile.（感谢你付出额外的努力。）
-Your expertise helped a lot here.（你的专业知识在这里帮了大忙。）
-This result exceeded expectations.（这个结果超出了预期。）
-Recognize everyone&#x27;s role in this.（认可每个人在其中的作用。）
-Collaborative work paid off.（协作工作得到了回报。）
-Let&#x27;s acknowledge the team&#x27;s effort.（让我们感谢团队的努力。）
-Your creativity made this better.（你的创造力让这件事变得更好。）
-Persistence led to this outcome.（坚持不懈带来了这个结果。）
-This is a step in the right direction.（这是朝着正确方向迈出的一步。）
-Work together to achieve more.（共同努力以取得更多成果。）
-Support each other in the team.（在团队中互相支持。）
-Share knowledge with teammates.（与队友分享知识。）
-Help those who need assistance.（帮助那些需要帮助的人。）
-Collaborate across departments.（跨部门协作。）
-Build strong working relationships.（建立牢固的工作关系。）
-Trust your team members&#x27; skills.（相信团队成员的技能。）
-Delegate tasks based on strengths.（根据优势分配任务。）
-Communicate openly with the team.（与团队坦诚沟通。）
-Listen to others&#x27; ideas carefully.（认真倾听他人的想法。）
-Respect different viewpoints.（尊重不同的观点。）
-Resolve conflicts constructively.（建设性地解决冲突。）
-Encourage participation from all.（鼓励所有人参与。）
-Give credit where it&#x27;s due.（该表扬时就表扬。）
-Provide constructive feedback.（提供建设性的反馈。）
-Learn from each other&#x27;s mistakes.（从彼此的错误中学习。）
-Celebrate team successes together.（一起庆祝团队的成功。）
-Set collective goals as a team.（作为团队设定集体目标。）
-Align individual goals with team&#x27;s.（使个人目标与团队目标一致。）
-Hold each other accountable.（互相负责。）
-Support work-life balance.（支持工作与生活的平衡。）
-Foster a positive team culture.（培养积极的团队文化。）
-Address issues within the team.（解决团队内部的问题。）
-Strengthen team cohesion.（增强团队凝聚力。）
-Organize team-building activities.（组织团队建设活动。）
-Recognize team members publicly.（公开认可团队成员。）
-Motivate each other to improve.（互相激励以取得进步。）
-Share successes and challenges.（分享成功和挑战。）
-Work as a unified team.（作为一个团结的团队工作。）
-Achieve more together than alone.（共同努力比单独行动取得更多成果。）
-七、其他实用表达
-Let&#x27;s clarify the requirements.（我们明确一下要求。）
-Need more details on this.（需要更多关于这个的细节。）
-This is a priority for us.（这是我们的优先事项。）
-Deprioritize this for now.（目前降低这个的优先级。）
-Let&#x27;s focus on what&#x27;s important.（我们聚焦于重要的事情。）
-This is non-negotiable.（这是没有商量余地的。）
-We can negotiate on this.（我们可以在这个问题上协商。）
-Let&#x27;s find a compromise.（我们找到一个折中方案吧。）
-This is a deal-breaker.（这是一个关键问题。）
-Let&#x27;s move forward positively.（我们积极地向前推进吧。）
-Stay flexible on this matter.（在这件事上保持灵活性。）
-Adhere to the guidelines.（遵守指导方针。）
-Bend the rules if necessary.（必要的话可以变通规则。）
-Follow the standard procedure.（遵循标准程序。）
-Simplify the process here.（在这里简化流程。）
-Streamline our workflow.（优化我们的工作流程。）
-Automate this task if possible.（如果可能，将此任务自动化。）
-Document the process clearly.（清晰地记录流程。）
-Update the procedures regularly.（定期更新程序。）
-Train the team on new processes.（就新流程对团队进行培训。）
-This requires approval first.（这首先需要批准。）
-Get authorization before proceeding.（在推进前获得授权。）
-Escalate this to management.（将此上报给管理层。）
-Handle this at our level.（在我们这个级别处理这个。）
-Take responsibility for this.（为此承担责任。）
-Pass the responsibility to [Name].（将责任交给 [姓名]。）
-This is outside my authority.（这超出了我的权限。）
-Seek guidance on this matter.（在这件事上寻求指导。）
-Make a decision based on facts.（根据事实做决定。）
-Trust your judgment here.（在这里相信你的判断。）
-Double-check before finalizing.（最终确定前再检查一遍。）
-Ensure accuracy in all work.（确保所有工作的准确性。）
-Pay attention to the details.（关注细节。）
-Don&#x27;t overlook small issues.（不要忽视小问题。）
-Big picture is important too.（全局也很重要。）
-Balance details and big picture.（平衡细节和全局。）
-Learn from past experiences.（从过去的经验中学习。）
-Apply lessons to current work.（将经验应用到当前工作中。）
-Innovate where possible.（在可能的地方创新。）
-Stick to proven methods too.（也坚持经过验证的方法。）
-Adapt to changing circumstances.（适应不断变化的环境。）
-Stay updated on industry news.（及时了解行业新闻。）
-Share relevant information.（分享相关信息。）
-Keep others informed regularly.（定期让其他人了解情况。）
-Be proactive in communication.（在沟通中积极主动。）
-Avoid misunderstandings with clarity.（通过清晰表达避免误解。）
-Ask questions when unsure.（不确定时就提问。）
-Admit when you don&#x27;t know.（不知道时就承认。）
-Find answers and share them.（找到答案并分享。）
-Continuous improvement is key.（持续改进是关键。）
-Let&#x27;s confirm the next steps.（我们确认一下下一步。）</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>背完这600句 全英会议稳了</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>目录</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、会议开场与基础互动</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、项目进展与状态沟通</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、会议安排与后续跟进</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、意见表达与反馈处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、问题解决与风险应对</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、成果认可与团队协作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、其他实用表达</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、......</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、会议开场与基础互动</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s start the meeting.（我们开始开会吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for coming today.（感谢大家今天到场。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any agenda additions?（有人要补充议程吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me share the agenda first.（我先说说议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recap from last meeting:（上次会议回顾：）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll share my screen now.（我现在共享屏幕。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re discussing Q3 goals.（我们在讨论第三季度目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mute when not speaking.（不发言时请静音。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ready? Let&#x27;s start.（准备好了吗？我们开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[Name], take it over.（[姓名]，你来主持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Some are still joining. Wait a bit.（有人还在加入。稍等一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Waiting for a few more. Bear with us.（还在等几个人。请耐心等。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wait for everyone to join.（等所有人都到了再开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>While waiting, let&#x27;s go over agenda.（等的时候，我们过一下议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Two more minutes to log in.（再给两分钟登录。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Waiting for a few. Thanks for patience.（还在等几个。感谢耐心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Everyone&#x27;s here. Let&#x27;s begin.（人都到齐了。我们开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share your thoughts first.（先说说你的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s the progress so far?（目前进展怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your perspective on this?（你对这事怎么看？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Initial thoughts on the proposal?（对这个提案的初步想法？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I want your feedback here.（我想听听你的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Anything to add before moving on?（继续之前有要补充的吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How impacts team goals?（对团队目标有何影响？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your take on current challenges?（对当前挑战的看法？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Explain that in detail?（详细解释一下？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Break it down more?（再拆解细一点？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How to approach this exactly?（具体该怎么处理？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What factors influence this?（哪些因素有影响？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any data to support that?（有数据支持吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dig deeper into root cause?（深入探讨根本原因？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Potential risks to note?（要注意的潜在风险？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How aligns with strategy?（与策略怎么契合？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s a suggestion from me.（我提个建议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thought of this angle?（想过这个角度吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Try a different method?（试试另一种方法？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collaborate with other team?（和其他团队合作？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prioritize this next week?（下周优先处理这个？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Look for faster solutions?（找找更快的解决办法？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Test before full implementation?（全面实施前先测试？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set up a follow-up meeting?（安排个跟进会议？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I agree with your view.（我同意你的观点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Great point, [Name].（[姓名]，说得好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You said what I thought.（你说出了我的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agree to prioritize feedback.（同意优先处理反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Proposal fits current strategy.（提案符合当前策略。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Valid approach to explore.（值得探讨的有效方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Same on timeline adjustment.（时间线调整我同意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your insights help a lot.（你的见解很有帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Matches our collected data.（和我们的数据一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Second [Name]&#x27;s phase two idea.（附议 [姓名] 的第二阶段建议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>May I interject briefly?（我能插一句吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry to interrupt, clarify?（抱歉打断，能澄清吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Building on [Name]&#x27;s point...（在 [姓名] 的基础上补充...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pause for a quick question.（停一下，我有个小问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>May I add before moving on?（继续前我能补充吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry, circle back to...?（抱歉，回到... 话题？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To align, let me repeat...（为统一理解，我复述一下...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not to derail, but...（不是要跑题，但是...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Respectfully, another angle?（无意冒犯，换个角度？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recap for new members?（给新成员回顾一下？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>[Name], your thoughts?（[姓名]，你怎么看？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>APAC team&#x27;s feedback?（亚太团队的反馈？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Anyone on budget allocation?（有人说下预算分配吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hear from those not speaking.（请没发言的说说。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Elaborate on the risks?（详细说说风险？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Challenges in implementation?（执行中会有什么挑战？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is timeline realistic?（时间线现实吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How to mitigate this?（怎么缓解这个问题？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any blind spots we miss?（我们漏了什么盲点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s success to you?（你觉得成功是什么样的？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good point, I&#x27;ll consider.（说得好，我会考虑的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I get your concerns, will address.（我理解你的担忧，会处理的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, I&#x27;ll follow up.（谢谢，我会跟进的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Appreciate insights, adjust as needed.（感谢见解，会按需调整。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>hadn&#x27;t thought that way, makes sense.（没这么想过，有道理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Great suggestion, explore more.（好建议，再深入探讨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review and update plan.（我会研究并更新计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Understand, act accordingly.（理解，会相应行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Step back, see the big picture.（退一步，看全局。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Different angles, maybe.（可能是角度不同。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Find middle ground here?（这里能折中吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Align before moving forward.（推进前先达成一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Get your point, here&#x27;s mine.（理解你的观点，这是我的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Try this, see how it works?（试试这个，看效果如何？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revisit after more discussion.（再讨论后回到这个话题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Find a mutual solution.（找到双方都认可的方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Seems we all agree now.（看来我们现在都同意了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Summarize our agreements.（总结一下我们的共识。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Next step from discussion.（根据讨论，下一步这样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Glad we aligned on this.（很高兴就此达成一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agreed, move with the plan.（达成一致了，按计划推进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To be clear, next steps:（明确一下，下一步：）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any final concerns before moving?（推进前还有疑问吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Covered everything, move on.（都讨论完了，继续。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Table this, circle back later.（先放一放，稍后再议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stay on track, focus on...（保持进度，聚焦于...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Park this, solve offline.（先放放，线下解决。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Time limited, I propose...（时间有限，我建议...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Note as action, proceed.（记为行动项，继续。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、项目进展与状态沟通</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Avoid rabbit holes, maybe...（避免偏离，或许...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Check views on this decision?（大家对这个决定怎么看？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wrap this topic in 5 minutes.（5 分钟内结束这个话题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update on your tasks?（你的任务进展如何？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Main challenges right now?（目前主要挑战是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Go over key milestones.（回顾关键里程碑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>On track for deadline?（能按时完成吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Need more resources?（需要更多资源吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Timeline for remaining tasks?（剩余任务的时间表？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Address project blockers.（解决项目障碍。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clarify deliverables progress?（说明交付成果进展？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Progress vs initial goals?（进展与初始目标是否一致？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Align on next steps.（就下一步达成一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set recurring progress meetings.（定期开进度会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Weekly check-ins work?（每周跟进会可以吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Fix day/time for updates.（定个固定时间更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Next meeting early next week?（下次会下周初开？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Regular updates keep us on track.（定期更新让我们不跑偏。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Progress reviews every two weeks.（每两周开进度审查会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lock time for next update.（定好下次更新会的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bi-weekly sync possible?（每两周同步一次可以吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Regular meetings solve issues early.（定期会议早解决问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep check-ins short and useful.（跟进会要简短有效。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Draft agenda, share in advance.（拟好议程，提前分享。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Add agenda items? Let me know.（要加议程项吗？告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agenda focuses on deliverables.（议程聚焦交付成果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Circulate agenda by end of day.（今天内分发议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agenda should be clear and actionable.（议程要清晰可执行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Send draft agenda tomorrow.（明天发议程草案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review agenda, give feedback.（审阅议程，给反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good agenda boosts efficiency.（好议程提高效率。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Confirm agenda before meeting.（会前和大家确认议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Compile minutes, share soon.（整理纪要，尽快分享。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minutes sum key points and actions.（纪要总结要点和行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review minutes, note omissions.（审阅纪要，指出遗漏。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Distribute minutes by end of day.（今天内分发纪要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Minutes include decisions and next steps.（纪要包含决定和下一步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for reviewing notes.（感谢审阅记录。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Summary keeps goals aligned.（总结让目标保持一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Check minutes for your tasks.（看纪要确认你的任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Highlight key decisions in minutes.（纪要中突出关键决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Concerns about minutes? Let me know.（对纪要有疑问？告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Outline next meeting&#x27;s agenda.（列出下次会议议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assign tasks from today&#x27;s talk.（根据今天讨论分配任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Confirm availability for meeting.（确认能否参加会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow up on tasks before next meet.（下次会前跟进任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Identify key topics for next talk.（确定下次讨论的关键议题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prepare detailed next meeting agenda.（准备下次会议详细议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>More items to address? Let me know.（有其他事项？告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Track tasks, share updates next time.（跟踪任务，下次分享进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tasks align with project goals.（任务与项目目标一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me clarify my meaning.（我解释一下我的意思。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re thinking the same way.（我们想法一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s agree on this point.（我们就这一点达成一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t get off the main topic.（别偏离主题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is beyond the meeting scope.（这超出会议范围了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Circle back to this next week.（下周再回到这个话题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s finish up now.（我们现在结束吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re running out of time.（我们快没时间了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow up with an email.（邮件跟进此事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Check and get back to you.（我查一下再回复你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take a short break.（休息一小会儿。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Resume after lunch.（午饭后继续。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s still in progress.（那还在进行中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ironing out the details still.（还在敲定细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hit some roadblocks lately.（最近遇到些阻碍。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Still under review now.（现在还在审核中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not finalized at this point.（目前还没定下来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sync up on this later.（之后再同步一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll include you in this.（我会把你加进来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep you updated on this.（随时告诉你进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s step back and think.（我们退一步想想。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set up another meeting for this.（为此另开个会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Book a follow-up meeting?（定个跟进会？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll send the meeting invite.（我发会议邀请。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do a quick summary now.（现在快速总结一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To sum up the discussion...（总结一下讨论...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s the key takeaway.（这是关键要点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Focus on the action items.（专注于行动项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who&#x27;s responsible for what?（谁负责什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Add this to the roadmap.（把这个加到路线图里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Needs more discussion later.（之后需要再讨论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not ready to decide yet.（还没准备好做决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep options open for now.（目前先不做限定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Put this aside for the moment.（暂时把这个放一放。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Waiting for feedback still.（还在等反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Needs leadership&#x27;s approval.（需要领导层批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Already escalated this issue.（这个问题已经上报了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to flag this risk.（我们要标出这个风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a possible risk.（那是个潜在风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s take a safe approach.（我们稳妥点处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Need a backup plan ready.（需要准备个备选方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a major achievement.（那是个重大成果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Great work on that project.（那个项目做得好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s the task coming along?（任务进展怎么样了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any delays in the schedule?（时间表有延迟吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When will this be completed?（这个什么时候完成？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update us on the progress.（给我们更新一下进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any issues with the timeline?（时间线上有问题吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Making good progress so far.（目前进展不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、会议安排与后续跟进</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Schedule the next meeting soon.（尽快安排下次会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When works for the next meet?（下次会什么时候合适？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Send reminders for the meeting.（发会议提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reschedule if needed, let&#x27;s see.（需要的话改期，看看。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Confirm meeting details again.（再确认一下会议细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prepare materials before meeting.（会前准备好材料。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share documents ahead of time.（提前分享文件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who else should attend this?（还有谁该参加这个会？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep the meeting short and focused.（会议要简短聚焦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agenda sent to everyone now.（议程已经发给大家了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s finalize the meeting time.（定好会议时间吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Conflict with the meeting time?（和会议时间冲突吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Propose a new meeting time.（提议个新的会议时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting moved to [date/time].（会议改到 [日期 / 时间] 了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologies for the short notice.（抱歉通知得晚了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attend in person orremotely?（现场参加还是远程参加？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting room booked for this.（为此预订了会议室。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Join via the provided link.（通过提供的链接加入。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Technical issues? Let me know.（有技术问题？告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Test equipment before meeting.（会前测试设备。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting starts in 10 minutes.（会议 10 分钟后开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll be a few minutes late.（我会晚到几分钟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wrap up by [time], please.（请在 [时间] 前结束。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Extend the meeting if needed.（需要的话延长会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Next meeting&#x27;s focus is [topic].（下次会议聚焦 [主题]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Add [Name] to the meeting.（把 [姓名] 加到会议里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Remove [Name] from the list.（从名单中移除 [姓名]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting agenda revised, see update.（会议议程已修改，看更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Key points to cover today:（今天要涵盖的要点：）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow up on last week&#x27;s tasks.（跟进上周的任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tasks completed as planned.（任务按计划完成了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Some tasks need more time.（有些任务需要更多时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update task status in the system.（在系统中更新任务状态。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assign a due date to each task.（给每个任务设定截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who will own this task?（谁来负责这个任务？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delegate this to [Name].（把这个交给 [姓名]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Task priorities adjusted slightly.（任务优先级略有调整。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Report task progress weekly.（每周汇报任务进展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Flag any overdue tasks.（标出所有逾期任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Need help with your task?（你的任务需要帮助吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reassign tasks if necessary.（必要的话重新分配任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Task dependencies clarified now.（任务依赖关系已明确。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting minutes approved by all?（会议纪要大家都认可吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revise minutes based on feedback.（根据反馈修改纪要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Archive old meeting minutes.（存档旧的会议纪要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share minutes with stakeholders.（把纪要分享给相关方。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Action items tracked in the sheet.（行动项在表格中跟踪。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update action items regularly.（定期更新行动项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Close completed action items.（结束已完成的行动项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Escalate unresolved items.（上报未解决的事项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Next follow-up in 3 days.（3 天后进行下次跟进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Remind team about deadlines.（提醒团队注意截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Send a summary email after meeting.（会后发总结邮件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Email includes key decisions.（邮件包含关键决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attach meeting slides to email.（邮件附上会议幻灯片。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reference meeting ID in email.（邮件中注明会议 ID。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Confirm receipt of meeting materials.（确认收到会议材料。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Questions about the email? Ask me.（对邮件有疑问？问我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>circulate the meeting recap.（分发会议 recap。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Schedule a quick sync tomorrow.（明天安排个快速同步会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we meet briefly this afternoon?（今天下午能简单见个面吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Block time on my calendar for this.（在我的日历上为此预留时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting canceled due to [reason].（会议因 [原因] 取消。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>New meeting details sent out.（新的会议详情已发出。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apologize for the meeting change.（为会议变动道歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attendance list for the meeting:（会议出席名单：）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Excused from the meeting: [Name].（[姓名] 不能参加会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting recordings available now.（会议录音现在可以获取。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share meeting link with absentees.（把会议链接分享给缺席者。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Catch up on missed meetings.（补上错过的会议内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prepare a Q&amp;A for the next meeting.（为下次会议准备问答环节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collect questions in advance.（提前收集问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Address all questions in the meeting.（在会议中解答所有问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unanswered questions to follow up.（未解答的问题后续跟进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting objectives achieved today.（今天的会议目标达成了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Some objectives need more work.（有些目标需要更多工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revisit objectives in the next meet.（下次会议再讨论目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Align meeting goals with project.（使会议目标与项目一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set clear objectives for each meet.（为每个会议设定明确目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting effectiveness reviewed.（会议效果已评估。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Improve meeting flow next time.（下次改进会议流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shorten discussion on [topic].（缩短关于 [主题] 的讨论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Allocate more time to [topic].（给 [主题] 分配更多时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rotate meeting facilitator each time.（每次轮换会议主持人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Facilitator keeps meeting on track.（主持人确保会议不跑偏。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take turns presenting updates.（轮流汇报更新内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Limit presentations to [time].（演讲限制在 [时间] 内。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Use visuals for better understanding.（用视觉材料帮助理解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Simplify complex topics in meetings.（在会议中简化复杂主题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Encourage participation from all.（鼓励所有人参与。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ensure everyone has a chance to speak.（确保每个人都有发言机会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Manage dominant speakers politely.（礼貌地管理发言过多的人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Summarize before moving to next.（进入下一项前先总结。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Check for understanding regularly.（定期检查理解情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Meeting adjourned, thanks everyone.（会议结束，谢谢大家。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>See you in the next meeting.（下次会议见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow up on action items promptly.（及时跟进行动项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Success of meeting depends on follow-up.（会议的成功取决于后续跟进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Improve meeting culture gradually.（逐步改善会议文化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、意见表达与反馈处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a different opinion here.（我在这里有不同意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me share another view.（我来分享另一个观点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That might not work, I think.（我觉得那样可能不行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you thought of this?（你想过这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Maybe we should reconsider.（或许我们应该重新考虑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m not sure about that approach.（我对那种方法没把握。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s weigh the pros and cons.（我们来权衡利弊吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the downside of this?（这有什么弊端？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This could lead to [issue].（这可能会导致 [问题]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Alternative idea: what if we...（另一个想法：我们要是...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I agree with parts of that.（我同意其中的部分内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>partially disagree on this point.（在这一点上部分不同意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find common ground here.（我们在这里找到共同点吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your idea has merit, but...（你的想法有价值，但是...）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we adjust this slightly?（我们能稍微调整一下这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a valid concern, thanks.（这是合理的担忧，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feedback noted, will consider.（反馈已记录，会考虑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How to address this feedback?（如何处理这个反馈？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feedback helps improve our work.（反馈有助于改进我们的工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Welcome more feedback on this.（欢迎就此提供更多反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Act on the feedback received.（根据收到的反馈采取行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clarify the feedback if needed.（必要的话澄清反馈内容。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Discuss feedback in the team.（在团队中讨论反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prioritize feedback based on impact.（根据影响确定反馈优先级。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow up on feedback outcomes.（跟进反馈的结果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your honest feedback.（感谢你的坦诚反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feedback incorporated into plans.（反馈已纳入计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unable to act on this feedback now.（目前无法根据此反馈行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Explain reasons for feedback decisions.（解释反馈决策的原因。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collect feedback regularly.（定期收集反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your view on this plan?（你对这个计划有什么看法？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you support this approach?（你支持这种方法吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any objections to this proposal?（对这个提案有反对意见吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How to make this better?（如何让这个更好？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Suggestions for improvement?（有改进建议吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I think this needs more work.（我觉得这个需要更多工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a strong proposal overall.（总体来说这是个不错的提案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s refine this idea together.（我们一起完善这个想法吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Expand on this point, please.（请详细阐述这一点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Narrow down the focus here.（在这里缩小焦点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This aligns with our values.（这与我们的价值观一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Conflicts with our current plans.（与我们当前的计划冲突。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s explore this further.（我们进一步探讨这个吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set this aside for now.（现在先把这个放一放。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revisit this idea later.（稍后再讨论这个想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This deserves more attention.（这值得更多关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s not overlook this.（我们不要忽视这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a critical point.（这是个关键点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Downplay this for now.（现在先淡化这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Highlight this in the report.（在报告中强调这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your input is valuable here.（你的意见在这里很有价值。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Involve more people in this.（让更多人参与进来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep this discussion confidential.（这个讨论要保密。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share this with the wider team.（把这个分享给更广泛的团队。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This affects multiple departments.（这影响多个部门。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Focus on our team&#x27;s perspective.（聚焦我们团队的视角。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consider external stakeholders.（考虑外部相关方。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This benefits us in the long run.（这从长远来看对我们有利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Short-term gains vs long-term.（短期收益与长期收益。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Balance cost and quality here.（在这里平衡成本和质量。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk vs reward of this plan.（这个计划的风险与回报。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is worth taking a risk.（这值得冒一次险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Too risky for our current state.（对我们当前状况来说风险太大。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mitigate risks before proceeding.（在推进前降低风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prepare for best and worst cases.（为最好和最坏的情况做准备。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is feasible with our resources.（用我们的资源这是可行的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lack resources for this approach.（这种方法缺乏资源。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Secure more resources if needed.（必要的话争取更多资源。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reallocate resources for this.（为此重新分配资源。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This saves time and resources.（这节省时间和资源。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Time is a critical factor here.（时间在这里是关键因素。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Rushed decisions may backfire.（仓促的决定可能适得其反。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Need more time to evaluate.（需要更多时间评估。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set a deadline for this decision.（为这个决定设定截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Procrastinating won&#x27;t help here.（拖延在这里没帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s decide by the end of day.（我们今天结束前做决定吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Defer decision to next meeting.（把决定推迟到下次会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unanimous decision is best.（一致决定是最好的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Majority vote if needed.（必要的话进行多数投票。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Leader will decide this one.（由领导来决定这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Document the decision process.（记录决策过程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Communicate decision clearly.（清晰地传达决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Explain rationale behind decision.（解释决定背后的理由。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Accept the decision and move on.（接受决定并继续前进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Disagree but will support it.（不同意但会支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Monitor outcomes of the decision.（监控决定的结果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Adjust if the decision fails.（如果决定失败就调整。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Celebrate good decisions.（为好的决定庆祝。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Learn from poor decisions.（从不好的决定中学习。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Improve decision-making process.（改进决策过程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Seek input before deciding.（做决定前征求意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Avoid groupthink in decisions.（在决策中避免群体思维。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Encourage diverse opinions.（鼓励不同的意见。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Challenge assumptions in plans.（质疑计划中的假设。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Test ideas before full approval.（在完全批准前测试想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pilot this approach first.（先试点这种方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Evaluate pilot results thoroughly.（彻底评估试点结果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Scale up if pilot is successful.（如果试点成功就扩大规模。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Scrap the idea if pilot fails.（如果试点失败就放弃这个想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Iterate based on pilot feedback.（根据试点反馈进行迭代。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、问题解决与风险应对</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Identify the main problem first.（先找出主要问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Define the problem clearly.（清晰地定义问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Understand the root cause.（理解根本原因。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Symptoms vs actual problem.（症状与实际问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Problem affects [area].（问题影响 [领域]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Severity of the problem is high.（问题的严重性很高。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a minor issue.（这是个小问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Urgent need to solve this.（急需解决这个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can wait, not immediate.（可以等，不紧急。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Gather data on the problem.（收集关于问题的数据。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Analyze the problem thoroughly.（彻底分析问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Brainstorm solutions together.（一起集思广益想解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Think outside the box here.（在这里跳出思维定式。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>List possible solutions.（列出可能的解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Evaluate each solution.（评估每个解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pros and cons of solutions.（解决方案的利弊。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Select the best solution.（选择最佳解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Back-up solution ready.（备用解决方案已准备好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Implement the solution now.（现在实施解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Step-by-step implementation.（分步实施。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assign responsibilities for this.（为此分配责任。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set timeline for resolution.（设定解决的时间表。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Monitor implementation closely.（密切监控实施情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Adjust solution if needed.（必要的话调整解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Check if solution works.（检查解决方案是否有效。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Document the problem and fix.（记录问题及解决方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share lessons learned with team.（与团队分享经验教训。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Prevent similar issues in future.（防止未来出现类似问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This problem recurs often.（这个问题经常复发。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Find a permanent solution.（找到永久性解决方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Temporary fix in place now.（目前已采取临时修复措施。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Root cause still unknown.（根本原因仍不明确。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Investigate further to find cause.（进一步调查以找到原因。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Expert consultation needed here.（这里需要专家咨询。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bring in specialists for this.（为此引入专家。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collaborative problem-solving.（协作解决问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Divide problem into smaller parts.（将问题分解为更小的部分。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Solve each part step by step.（逐步解决每个部分。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Problem is more complex than thought.（问题比想象的更复杂。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Simplify approach to solving it.（简化解决问题的方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Deadlines affected by this issue.（此问题影响了截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Renegotiate deadlines if needed.（必要的话重新协商截止日期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Communicate delays to stakeholders.（向相关方传达延迟情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recover lost time with extra effort.（通过额外努力弥补损失的时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Resources diverted to fix this.（资源被转用于解决此问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reprioritize tasks due to problem.（由于问题重新确定任务优先级。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This issue impacts customer satisfaction.（此问题影响客户满意度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Address customer concerns promptly.（及时解决客户担忧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Compensate customers if necessary.（必要的话补偿客户。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Restore customer trust after this.（此后恢复客户信任。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Identify potential risks early.（尽早识别潜在风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>List all possible risks.（列出所有可能的风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assess risk probability and impact.（评估风险概率和影响。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>High-risk items need attention.（高风险项目需要关注。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Low-risk but possible, note them.（低风险但可能发生，记录下来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Develop risk mitigation plans.（制定风险缓解计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Avoid this risk if possible.（如果可能，避免此风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reduce risk impact with actions.（通过行动降低风险影响。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transfer risk to another party.（将风险转移给另一方。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Accept risk if unavoidable.（如果不可避免，接受风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk register updated regularly.（风险登记册定期更新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Review risks in team meetings.（在团队会议中审查风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk trigger identified here.（这里已识别风险触发因素。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Monitor triggers closely.（密切监控触发因素。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Activate contingency plan now.（现在启动应急计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Contingency plan tested beforehand.（应急计划已事先测试。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update contingency plans as needed.（根据需要更新应急计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Communicate risk status to all.（向所有人传达风险状态。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stakeholders aware of key risks.（相关方了解关键风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Management informed of high risks.（管理层已获悉高风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk response team ready.（风险应对团队已准备就绪。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assign risk owners for each.（为每个风险分配负责人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk owner monitors and acts.（风险负责人进行监控并采取行动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This risk has materialized.（此风险已发生。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Implement response plan immediately.（立即实施应对计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Contain the risk impact quickly.（迅速控制风险影响。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recover from risk incident.（从风险事件中恢复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Post-incident review conducted.（进行事后审查。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Learn from risk occurrence.（从风险发生中学习。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update risk management process.（更新风险管理流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Overlooking this risk was a mistake.（忽视此风险是个错误。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Improve risk identification methods.（改进风险识别方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Regular risk assessment sessions.（定期进行风险评估会议。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Use historical data to predict risks.（利用历史数据预测风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Industry trends indicate this risk.（行业趋势表明存在此风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Competitor actions pose a risk.（竞争对手的行动构成风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Regulatory changes may bring risks.（监管变化可能带来风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Economic factors create this risk.（经济因素造成此风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Technological changes introduce risks.（技术变革带来风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Team skill gaps as a risk.（团队技能差距作为一种风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Resource shortages are a risk.（资源短缺是一种风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Supplier issues could risk projects.（供应商问题可能给项目带来风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dependencies on other teams risk.（对其他团队的依赖存在风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Scope creep is a common risk.（范围蔓延是常见风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quality issues may arise as risk.（质量问题可能作为风险出现。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Communication gaps create risks.（沟通差距产生风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cultural differences pose risks.（文化差异构成风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Time zone challenges as a risk.（时区挑战作为一种风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Remote work introduces certain risks.（远程工作带来某些风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Natural disasters as potential risks.（自然灾害作为潜在风险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、成果认可与团队协作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Great job on completing that.（完成得非常好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your effort made this happen.（你的努力促成了这件事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Well done on meeting the deadline.（按时完成，干得好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This achievement deserves recognition.（这一成就值得认可。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Appreciate your hard work here.（感谢你在这里的辛勤工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your contribution was vital.（你的贡献至关重要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Team effort led to this success.（团队努力带来了这一成功。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Celebrate this milestone together.（一起庆祝这个里程碑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This sets a good example for us.（这为我们树立了好榜样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep up the excellent work.（继续保持出色的工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your initiative solved the problem.（你的主动性解决了问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for going the extra mile.（感谢你付出额外的努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your expertise helped a lot here.（你的专业知识在这里帮了大忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This result exceeded expectations.（这个结果超出了预期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recognize everyone&#x27;s role in this.（认可每个人在其中的作用。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collaborative work paid off.（协作工作得到了回报。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s acknowledge the team&#x27;s effort.（让我们感谢团队的努力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your creativity made this better.（你的创造力让这件事变得更好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Persistence led to this outcome.（坚持不懈带来了这个结果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a step in the right direction.（这是朝着正确方向迈出的一步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Work together to achieve more.（共同努力以取得更多成果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Support each other in the team.（在团队中互相支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share knowledge with teammates.（与队友分享知识。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Help those who need assistance.（帮助那些需要帮助的人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Collaborate across departments.（跨部门协作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Build strong working relationships.（建立牢固的工作关系。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trust your team members&#x27; skills.（相信团队成员的技能。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delegate tasks based on strengths.（根据优势分配任务。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Communicate openly with the team.（与团队坦诚沟通。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Listen to others&#x27; ideas carefully.（认真倾听他人的想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Respect different viewpoints.（尊重不同的观点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Resolve conflicts constructively.（建设性地解决冲突。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Encourage participation from all.（鼓励所有人参与。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Give credit where it&#x27;s due.（该表扬时就表扬。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Provide constructive feedback.（提供建设性的反馈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Learn from each other&#x27;s mistakes.（从彼此的错误中学习。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Celebrate team successes together.（一起庆祝团队的成功。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Set collective goals as a team.（作为团队设定集体目标。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Align individual goals with team&#x27;s.（使个人目标与团队目标一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hold each other accountable.（互相负责。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Support work-life balance.（支持工作与生活的平衡。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Foster a positive team culture.（培养积极的团队文化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Address issues within the team.（解决团队内部的问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Strengthen team cohesion.（增强团队凝聚力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Organize team-building activities.（组织团队建设活动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Recognize team members publicly.（公开认可团队成员。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Motivate each other to improve.（互相激励以取得进步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share successes and challenges.（分享成功和挑战。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Work as a unified team.（作为一个团结的团队工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Achieve more together than alone.（共同努力比单独行动取得更多成果。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、其他实用表达</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s clarify the requirements.（我们明确一下要求。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Need more details on this.（需要更多关于这个的细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a priority for us.（这是我们的优先事项。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Deprioritize this for now.（目前降低这个的优先级。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s focus on what&#x27;s important.（我们聚焦于重要的事情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is non-negotiable.（这是没有商量余地的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can negotiate on this.（我们可以在这个问题上协商。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find a compromise.（我们找到一个折中方案吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is a deal-breaker.（这是一个关键问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s move forward positively.（我们积极地向前推进吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stay flexible on this matter.（在这件事上保持灵活性。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Adhere to the guidelines.（遵守指导方针。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bend the rules if necessary.（必要的话可以变通规则。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Follow the standard procedure.（遵循标准程序。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Simplify the process here.（在这里简化流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Streamline our workflow.（优化我们的工作流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Automate this task if possible.（如果可能，将此任务自动化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Document the process clearly.（清晰地记录流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Update the procedures regularly.（定期更新程序。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Train the team on new processes.（就新流程对团队进行培训。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This requires approval first.（这首先需要批准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Get authorization before proceeding.（在推进前获得授权。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Escalate this to management.（将此上报给管理层。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Handle this at our level.（在我们这个级别处理这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take responsibility for this.（为此承担责任。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pass the responsibility to [Name].（将责任交给 [姓名]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is outside my authority.（这超出了我的权限。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Seek guidance on this matter.（在这件事上寻求指导。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Make a decision based on facts.（根据事实做决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trust your judgment here.（在这里相信你的判断。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Double-check before finalizing.（最终确定前再检查一遍。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ensure accuracy in all work.（确保所有工作的准确性。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pay attention to the details.（关注细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t overlook small issues.（不要忽视小问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Big picture is important too.（全局也很重要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Balance details and big picture.（平衡细节和全局。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Learn from past experiences.（从过去的经验中学习。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Apply lessons to current work.（将经验应用到当前工作中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Innovate where possible.（在可能的地方创新。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stick to proven methods too.（也坚持经过验证的方法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Adapt to changing circumstances.（适应不断变化的环境。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stay updated on industry news.（及时了解行业新闻。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Share relevant information.（分享相关信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep others informed regularly.（定期让其他人了解情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Be proactive in communication.（在沟通中积极主动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Avoid misunderstandings with clarity.（通过清晰表达避免误解。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ask questions when unsure.（不确定时就提问。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Admit when you don&#x27;t know.（不知道时就承认。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Find answers and share them.（找到答案并分享。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Continuous improvement is key.（持续改进是关键。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s confirm the next steps.（我们确认一下下一步。）</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="背完这600句全英会议稳了";
@@ -878,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

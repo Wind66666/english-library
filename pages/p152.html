@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,632 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">500个外贸必备的贸易术语，外贸人收藏
-一、国际贸易（Incoterms）
-EXW (Ex Works) - 工厂交货
-FCA (Free Carrier) - 货交承运人
-FAS (Free Alongside Ship) - 装运港船边交货
-FOB (Free on Board) - 装运港船上交货（离岸价）
-CFR (Cost and Freight) - 成本加运费
-CIF (Cost, Insurance and Freight) - 成本、保险费加运费（到岸价）
-CPT (Carriage Paid To) - 运费付至（目的地）
-CIP (Carriage and Insurance Paid To) - 运费及保险费付至（目的地）
-DAP (Delivered at Place) - 目的地交货
-DPU (Delivered at Place Unloaded) - 卸货地交货
-DDP (Delivered Duty Paid) - 完税后交货
-Incoterms - 国际贸易术语解释通则
-二、付款方式（Payment Terms）
-T/T (Telegraphic Transfer) - 电汇
-L/C (Letter of Credit) - 信用证
-L/C at sight - 即期信用证
-L/C at 30/60/90 days - 30/60/90 天期信用证
-Usance L/C - 远期信用证
-Revocable L/C - 可撤销信用证
-Irrevocable L/C - 不可撤销信用证
-Documentary L/C - 跟单信用证
-Clean L/C - 光票信用证
-Transferable L/C - 可转让信用证
-Untransferable L/C - 不可转让信用证
-D/P (Documents against Payment) - 付款交单
-D/A (Documents against Acceptance) - 承兑交单
-CAD (Cash Against Documents) - 凭单付款
-OA (Open Account) - 赊销（账期）
-Advance Payment - 预付款
-Installment Payment - 分期付款
-COD (Cash on Delivery) - 货到付款
-Deposit / Earnest / Earnest money - 定金
-Balance - 尾款、余额
-Bank Slip, Bank Receipt - 银行水单
-三、运输与物流（Shipping &amp; Logistics）
-（一）运输基础
-BOOKING - 订舱
-S/O (Shipping Order) - 订舱单
-FCL (Full Container Load) - 整箱
-LCL (Less than Container Load) - 拼箱
-ETD (Estimated Time of Departure) - 预计出发时间
-ETA (Estimated Time of Arrival) - 预计到达时间
-Departure port - 起运港
-Destination port - 目的港
-Loading port - 装运港 / 装货港
-Unloading port - 卸货港
-Transferring port - 转运港
-Consignment - 托运货物
-（二）运输单据
-B/L (Bill of Lading) - 提单
-Original B/L - 正本提单
-TLX 或 T/R (Telex Release) - 电放提单
-Negotiable B/L - 可转让提单
-Non-negotiable B/L - 不可转让提单
-Shipped on Board B/L - 已装船提单
-Received for Shipment B/L - 收货待运提单
-Clean B/L - 清洁提单（无货物破损批注）
-Foul B/L - 不清洁提单（有货物破损批注）
-AWB (Air Waybill) - 空运提单
-Sea Waybill - 海运单（不可转让）
-Multimodal Transport Document (MTD) - 多式联运单据
-House Bill of Lading (HBL) - 分提单（货代出具）
-Master Bill of Lading (MBL) - 主提单（船公司出具）
-（三）其他物流术语
-VGM (Verified Gross Mass) - 核实集装箱总重
-Shipper, Consignor - 托运人（一般指出口商）
-Consignee - 收货人
-Shipping Mark - 箱唛
-Shipping Space - 舱位
-Clearance of goods - 报关
-By Express - 快递
-By air - 空运
-By sea - 海运
-Freight Prepaid - 运费预付
-Freight Collect - 运费到付
-Demurrage - 滞期费（货物滞留港口超期费用）
-Detention - 滞箱费（集装箱超期使用费用）
-Container - 集装箱
-Pallet - 托盘
-Carton - 纸箱
-四、单据与证书（Documents &amp; Certificates）
-PI (Proforma Invoice) - 形式发票
-PO (Purchase Order) - 采购单
-CI (Commercial Invoice) - 商业发票
-PL (Packing List) - 装箱单
-CO (Certificate of Origin) - 原产地证明
-Inspection Certificate - 检验证书
-Inspection Certificate of Quality - 品质检验证书
-Inspection Certificate of Weight (Quantity) - 重量 / 数量检验证书
-HS Code (Harmonized System Code) - 海关编码
-Quotation - 报价单
-Sales Contract - 销售合同
-Fumigation Certificate - 熏蒸证书（针对木质包装）
-Phytosanitary Certificate - 植物检疫证书
-Animal Health Certificate - 动物卫生证书
-Weight List - 重量单
-Measurement List - 尺码单
-Beneficiary&#x27;s Certificate - 受益人证明（出口商出具）
-Shipping Advice - 装船通知（出口商向进口商发出）
-Order - 订单
-Packing Declaration - 包装声明（证明包装材料符合规定）
-五、费用相关（Cost Terms）
-Custom Duty - 关税
-Import Duty - 进口关税
-Export Duty - 出口关税
-Tariff - 关税
-Freight - 运费
-Air Freight - 空运费
-Ocean Freight - 海运费
-Inland Freight - 内陆运费
-Wharfage - 码头费
-DOC (Document Charge) - 文件费
-Landing Charges - 卸货费
-Port Dues - 港口税
-Stamp Duty - 印花税
-Discount, Allowance - 折扣
-Commission - 佣金
-Return Commission - 回佣、回扣
-六、商品相关（品质、数量、包装）（Commodity-related (Quality, Quantity, Packaging）
-（一）品质条件
-quality - 品质
-specifications - 规格
-grade - 等级
-standard - 标准
-sample - 样品
-color sample - 色彩样品
-pattern sample - 款式样品
-original sample - 原样
-duplicate sample - 复样
-counter sample - 对等样品
-reference sample - 参考样品
-sealed sample - 封样
-catalogue - 商品目录
-description - 说明书
-tolerance - 公差
-article No. - 货号
-fair average quality - 大路货（良好平均品质）
-（二）数量条件
-G.W. (Gross Weight) - 毛重
-N.W. (Net Weight) - 净重
-Volume - 体积
-CBM (Cubic Meter) - 立方米
-MOQ (Minimum Order Quantity) - 最小起订量
-more or less clause - 溢短装条款
-shipping weight - 装运重量
-landed weight - 卸货重量
-metric ton - 公吨
-kilogram, kilo, kg - 公斤
-pound, lb - 磅
-piece - 件
-pair - 双
-dozen - 打
-set - 套
-Total Amount - 总金额
-Gross for Net - 以毛作净
-Measurement Ton - 尺码吨
-（三）包装方法
-blister packing - 起泡包装
-neutral packing - 中性包装
-skin packing - 吸塑包装
-hanging packing - 挂式包装
-mark - 唛头
-in bulk - 散装
-nude packing - 裸装
-consumer pack - 零售包装
-large packing - 大包装
-inner packing - 小包装
-bag, sack - 袋
-jute bag - 麻袋
-plastic bag - 塑料袋
-case, chest - 箱
-wooden case - 木箱
-carton - 纸箱
-container - 集装箱
-waterproof paper - 防水纸
-kraftpaper - 牛皮纸
-adhesive tape - 胶带
-Package - 包装
-七、价格条件（Price Terms）
-trade term (price term) - 价格术语
-price list - 价目表
-total value - 总值
-amount - 金额
-net price - 净价
-retail price - 零售价
-wholesale price - 批发价
-unit price - 单价
-price including commission - 含佣价
-spot price - 现货价格
-forward price - 期货价格
-current price, prevailing price - 现行价格（时价）
-world (International) Market price - 国际市场价格
-indicative price - 参考价格
-八、合同与协议（Contracts &amp; Agreements）
-Sales Contract - 销售合同
-Purchase Contract - 购货合同
-Sales Confirmation - 销售确认书
-Purchase Confirmation - 购货确认书
-Agreement - 协议
-Service Contract - 服务合同
-Distribution Agreement - 分销协议
-Agency Agreement - 代理协议
-Slot-sharing Agreement - 共用箱位协议
-Vessel Sharing Agreement - 共用舱位协议
-Amendment - 合同修正、修正合同
-Appendix - 附录
-Slot Exchange Agreement - 箱位互换协议
-Active Service Contract - 有效服务合同
-九、贸易方式（Trade Methods）
-OEM (Original Equipment Manufacturing) - 贴牌生产、原始设备制造商
-ODM (Original Design Manufacturing) - 原创设计制造、原始设计制造商
-Sole Agency / Exclusive Agent - 独家代理
-Counter Trade - 对销贸易
-Barter Trade - 易货贸易
-Processing Trade - 加工贸易
-Re-export Trade - 转口贸易
-Triangular Trade - 三角贸易
-Compensation Trade - 补偿贸易
-Bilateral Trade - 双边贸易
-Consignment Trade - 寄售贸易
-Leasing Trade - 租赁贸易
-Warehouse Sale - 保税仓销售
-Exhibition Sales - 展卖
-Border Trade - 边境贸易
-Counter Purchase - 互购贸易（对销贸易的一种）
-Buyback - 回购贸易（补偿贸易的一种）
-Processing with Imported Materials - 进料加工
-Assembling with Imported Parts - 来件装配
-Transit Trade via Third Country - 第三国转口贸易
-十、国际货物运输保险（Insurance）
-All Risks - 一切险
-F.P.A. (Free from Particular Average) - 平安险
-W.A./ W.P.A (With Average or With Particular Average) - 水渍险
-War Risk - 战争险
-F.W.R.D. (Fresh Water Rain Damage) - 淡水雨淋险
-Risk of Intermixture and Contamination - 混杂、玷污险
-Risk of Leakage - 渗漏险
-Risk of Odor - 串味险
-Risk of Rust - 锈蚀险
-Shortage Risk - 短缺险
-T.P.N.D. (Theft, Pilferage &amp; Non-delivery) - 偷窃提货不着险
-Strikes Risk - 罢工险
-Marine Cargo Insurance - 海洋货物运输保险
-Insurance Policy - 保险单（正式保险合同）
-Open Policy - 预约保险单（长期货物预投保协议）
-Claim Settlement - 保险理赔
-十一、商检与仲裁（Inspection &amp; Arbitration）
-claim - 索赔
-disputes - 争议
-penalty - 罚金条款
-arbitration - 仲裁
-Arbitration Clause - 仲裁条款
-arbitral tribunal - 仲裁庭
-force Majeure - 不可抗力
-Force Majeure Clause - 不可抗力条款
-Commodity Inspection Bureau (C.I.B) - 商品检验局
-Litigation - 诉讼
-Mediation - 调解
-Settlement Agreement - 和解协议
-Dispute Resolution - 纠纷解决
-Claim Notification - 索赔通知
-Evidence Preservation - 证据保全
-Breach of Contract - 违约
-Liquidated Damages - 约定违约金
-十二、关税与税费（Duties &amp; Taxes）
-Ad Valorem Duty - 从价税（按商品价值征收）
-Specific Duty - 从量税（按商品数量 / 重量征收）
-Compound Duty - 复合税（从价税 + 从量税结合）
-Anti-Dumping Duty - 反倾销税
-Countervailing Duty - 反补贴税
-Excise Duty - 消费税
-Value-Added Tax (VAT) - 增值税
-Withholding Tax - 预提税
-Customs Brokerage Fee - 报关费
-Duty Exemption - 免税
-Import Quota - 进口配额
-十三、金融与支付（Finance &amp; Payment）
-SWIFT (Society for Worldwide Interbank Financial Telecommunication) - 国际银行间金融电信协会
-BIC (Bank Identifier Code) - 银行识别码
-F/X (Foreign Exchange) - 外汇
-Hedging - 对冲
-Liquidity - 流动性
-Bankers&#x27; Acceptance (BA) - 银行承兑汇票
-Standby Letter of Credit (SBLC) - 备用信用证（担保性质）
-Documentary Collection - 跟单托收（含 D/P 和 D/A）
-Remittance - 汇付（含 T/T、M/T、D/D）
-Mail Transfer (M/T) - 信汇
-Demand Draft (D/D) - 票汇
-Bank transfer - 银行转账
-Wire transfer - 电汇
-Cash on delivery - 货到付款
-Refund - 退款
-十四、供应链管理（Supply Chain Management）
-Supply Chain Management - 供应链管理
-3PL (Third-Party Logistics) - 第三方物流
-4PL (Fourth-Party Logistics) - 第四方物流（供应链整合管理）
-Reverse Logistics - 逆向物流
-Just-In-Time (JIT) - 准时制
-Warehousing - 仓储
-Vendor Managed Inventory (VMI) - 供应商管理库存
-Safety Stock - 安全库存
-Demand Forecasting - 需求预测
-Order Fulfillment - 订单履行
-十五、国际组织与协定（International Organizations &amp; Agreements）
-WTO (World Trade Organization) - 世界贸易组织
-IMF (International Monetary Fund) - 国际货币基金组织
-CTG (Council for Trade in Goods) - 货物贸易理事会
-EFTA (European Free Trade Association) - 欧洲自由贸易联盟
-AFTA (ASEAN Free Trade Area) - 东盟自由贸易区
-NAFTA (North American Free Trade Area) - 北美自由贸易区
-UNCTAD (United Nations Conference on Trade and Development) - 联合国贸易与发展会议
-GATT (General Agreement on Tariffs and Trade) - 关贸总协定
-RCEP (Regional Comprehensive Economic Partnership) - 区域全面经济伙伴关系协定
-USMCA (United States-Mexico-Canada Agreement) - 美墨加协定
-十六、展会相关术语（Exhibition Terms）
-Exhibition - 展览会
-Trade show - 贸易展览会
-Booth - 展位（摊位）
-Booth number - 摊位号
-Exhibitor - 参展商
-Visitor - 参观者
-Attendee - 展览会参加者（不含参展商）
-Assembly - 展位搭建
-Dismantle - 撤展
-Carnet - 展品临时出口海关批准文件
-Press conference - 新闻发布会
-Opening ceremony - 开幕式
-Product launch - 产品发布
-Trade fair - 贸易展
-十七、跨境电商相关（Cross-Border E-Commerce）
-Cross-Border E-Commerce - 跨境电子商务
-B2B (Business to Business) - 企业对企业（电商模式）
-B2C (Business to Consumer) - 企业对消费者（电商模式）
-C2C (Consumer to Consumer) - 消费者对消费者（电商模式）
-Import Tariff for E-Commerce - 跨境电商进口关税
-Bonded Warehouse for E-Commerce - 电商保税仓
-Cross-Border Logistics - 跨境物流
-Online Payment Platform - 在线支付平台
-十八、贸易壁垒与合规（Trade Barriers &amp; Compliance）
-Non-Tariff Barriers (NTBs) - 非关税壁垒
-Import License System - 进口许可证制度
-Export Control - 出口管制
-Sanctions - 国际经济制裁
-Embargo - 禁运
-Technical Barriers to Trade (TBT) - 技术性贸易壁垒
-Sanitary and Phytosanitary Measures (SPS) - 卫生与植物卫生措施
-Trade Remedy Measures - 贸易救济措施（反倾销、反补贴等）
-十九、谈判与沟通（Negotiation &amp; Communication）
-Negotiation - 谈判
-Inquiry / Enquiry - 询盘（询价）
-Offer - 发盘（发价）
-firm offer - 实盘
-Counter Offer - 还盘
-Bid; Bidding - 递盘
-Lead Time - 交期、备货周期
-Warranty - 保证 / 保修
-After-sales Service - 售后服务
-Cultural Sensitivity - 文化敏感性
-Business Etiquette - 商务礼仪
-Acknowledgement - 确认
-RFP (Request for Proposal) - 征求建议书
-EDD (Estimated Delivery Date) - 预计交货日期
-Feedback - 反馈
-Clarification - 澄清
-Dispute - 争议
-二十、其他补充术语（Other Supplementary Terms）
-Quota - 配额
-Bonded Warehouse - 保税仓库
-Dumping - 商品倾销
-Exchange Dumping - 外汇倾销
-Special Preferences - 优惠关税
-Favorable Balance of Trade - 贸易顺差
-Unfavorable Balance of Trade - 贸易逆差
-Free Trade Zone - 自由贸易区
-Value of Foreign Trade - 对外贸易值
-SKU (Stock Keeping Unit) - 库存单位
-ISO (International Organization for Standardization) - 国际标准化组织
-CE Marking - 欧盟认证标志
-Intellectual Property Rights (IPR) - 知识产权
-Shipping Act - 航运法案
-Shipper’s Association - 托运人协会
-二十一、贸易统计与分析（Trade Statistics and Analysis）
-Trade Volume - 贸易量
-Trade Value - 贸易额
-Balance of Payments (BOP) - 国际收支平衡表
-Current Account - 经常账户（国际收支的主要组成部分）
-Capital Account - 资本账户
-Trade Intensity Index - 贸易强度指数
-Export Diversification - 出口多元化
-Trade Deficit - 贸易逆差（同 Unfavorable Balance of Trade）
-Trade Surplus - 贸易顺差（同 Favorable Balance of Trade）
-Commodity Trade Statistics - 商品贸易统计
-二十二、物流包装与标识（Logistics Packaging and Labeling）
-Shockproof Packaging - 防震包装
-Moisture-Proof Packaging - 防潮包装
-Tamper-Evident Packaging - 防篡改包装
-UN Certified Packaging - 联合国认证包装（用于危险品）
-Handling Mark - 装卸标识（如 “向上”“易碎” 等）
-Shipping Mark - 运输唛头（包含收货人、目的地等信息）
-Additional Mark - 附加标识（如重量、体积等）
-Dangerous Goods Mark - 危险品标识
-Palletized Load - 托盘化装载
-Container Loading Plan - 集装箱装箱单
-二十三、单证操作（Documentary Operation）
-Documentary Credit - 跟单信用证（同 Documentary L/C）
-Certificate of Inspection - 检验证书
-Packing Declaration - 包装声明（证明包装材料符合规定）
-Fumigation Certificate - 熏蒸证书（针对木质包装）
-Phytosanitary Certificate - 植物检疫证书
-Animal Health Certificate - 动物卫生证书
-Weight List - 重量单
-Measurement List - 尺码单
-Beneficiary&#x27;s Certificate - 受益人证明（由出口商出具的证明文件）
-Shipping Advice - 装船通知（出口商向进口商发出的发货通知）
-Export declaration - 出口报关
-Import declaration - 进口报关
-Packing slip - 装箱单
-Delivery confirmation - 送货确认
-Payment confirmation - 付款确认
-Supplier invoice - 供应商发票
-Export documents - 出口文件
-二十四、国际市场与营销（International Market and Marketing）
-Market Research - 市场调研
-Brand Localization - 品牌本土化
-Export Marketing - 出口营销
-Trade Mission - 贸易代表团
-International Franchising - 国际特许经营
-Product Adaptation - 产品适配（根据目标市场调整产品）
-Pricing Strategy - 定价策略
-Distribution Channel - 分销渠道
-After-Sales Service Network - 售后服务网络
-International Advertising - 国际广告
-Market Penetration - 市场渗透
-Brand Awareness - 品牌意识
-Market Segment - 市场细分
-Competitive Advantage - 竞争优势
-Sales Volume - 销售量
-Marketing - 营销
-Customer - 客户
-Order processing - 订单处理
-Shipment confirmation - 发货确认
-Delivery time frame - 交货时间范围
-Payment schedule - 付款时间表
-Sales order - 销售订单
-二十五、贸易纠纷与解决（Trade Disputes and Resolution）
-Arbitration Clause - 仲裁条款
-Litigation - 诉讼
-Mediation - 调解
-Settlement Agreement - 和解协议
-Dispute Resolution - 纠纷解决
-Claim Notification - 索赔通知
-Evidence Preservation - 证据保全
-Breach of Contract - 违约
-Liquidated Damages - 约定违约金
-Force Majeure Clause - 不可抗力条款
-二十六、风险管理（Risk Management）
-Risk Assessment - 风险评估
-Due Diligence - 尽职调查
-Force Majeure - 不可抗力
-Liability - 责任
-Insurance Policy - 保险单
-二十七、跨文化沟通（Cross-Cultural Communication）
-Cultural Sensitivity - 文化敏感性
-Language Barrier - 语言障碍
-Business Etiquette - 商务礼仪
-Negotiation Style - 谈判风格
-Time Zone Differences - 时区差异
-二十八、技术与创新（Technology and Innovation）
-Blockchain - 区块链
-IoT (Internet of Things) - 物联网
-Big Data - 大数据
-AI (Artificial Intelligence) - 人工智能
-Digital Transformation - 数字化转型
-二十九、持续发展与社会责任（Sustainable Development and Social Responsibility）
-CSR (Corporate Social Responsibility) - 企业社会责任
-Sustainability - 可持续性
-Eco-friendly - 环保的
-Green Logistics - 绿色物流
-Fair Trade - 公平贸易
-三十、市场调研与策略（Market Research and Strategy）
-SWOT Analysis - SWOT 分析
-PEST Analysis - PEST 分析
-Market Entry Strategy - 市场进入策略
-Value Proposition - 价值主张
-Segmentation, Targeting, and Positioning (STP) - 细分、目标定位和定位
-三十一、法律与合规（Law and Compliance）
-Arbitration - 仲裁
-Intellectual Property Rights (IPR) - 知识产权
-Commodity Codes - 商品编码
-Trade Compliance - 贸易合规
-Anti-Dumping Duty - 反倾销税
-三十二、产品与服务（Products and Services）
-SKU (Stock Keeping Unit) - 库存单位
-OEM (Original Equipment Manufacturer) - 原始设备制造商、贴牌生产
-ODM (Original Design Manufacturer) - 原始设计制造商、原创设计制造
-Product Specifications - 产品规格
-Patent - 专利
-Quality check - 质量检查
-Inspection - 检验
-Stock - 库存
-Delivery note - 发货单
-Warranty - 保修
-After-sales service - 售后服务
-Stock availability - 库存情况
-Expiry date - 有效期
-Delivery schedule - 交货时间表
-Shipping documents - 装运文件
-Product specification - 产品规格
-Sample order - 样品订单
-Production capacity - 生产能力
-MOQ waiver - 起订量豁免
-Shipment date - 发货日期
-Delivery address - 收货地址
-Cargo insurance - 货物保险
-三十三、基础核心（Basic Core）
-Export - 出口
-Import - 进口
-Trade - 贸易
-Quotation - 报价
-Invoice - 发票
-Contract - 合同
-Shipment - 装运
-Freight - 运费
-Customs - 海关
-Tariff - 关税
-三十四、其他补充（Other Supplements）
-Purchase order - 采购订单
-Shipment - 发货
-Invoice - 发票
-Freight - 运费
-Customs - 海关
-Bill of lading - 提单
-Delivery time - 交货时间
-Lead time - 备货周期
-MOQ (Minimum order quantity) - 最小起订量
-FOB (Free on board) - 船上交货价
-CIF (Cost, insurance, freight) - 成本加保险费加运费
-Packing list - 装箱单
-Supplier - 供应商
-Buyer - 买家
-Contract - 合同
-Payment terms - 付款条件
-Letter of credit - 信用证
-Sample - 样品
-Quality check - 质量检查
-Inspection - 检验
-Warehouse - 仓库
-Stock - 库存
-Delivery note - 发货单
-Discount - 折扣
-Negotiation - 谈判
-Price quote - 报价
-Order confirmation - 订单确认
-Shipment tracking - 货物追踪
-Customs clearance - 通关
-Import - 进口
-Export - 出口
-Tariff - 关税
-Quota - 配额
-Trade fair - 贸易展
-Business partner - 合作伙伴
-Logistics - 物流
-Transportation - 运输
-Cargo - 货物
-Packing - 包装
-Shipping cost - 运费成本
-Terms and conditions - 条款条件
-Exchange rate - 汇率
-Tax - 税费
-Invoice number - 发票号码
-Invoice date - 发票日期
-Payment method - 付款方式
-Bank transfer - 银行转账
-Wire transfer - 电汇
-Cash on delivery - 货到付款
-Balance - 余额
-Deposit - 定金
-Refund - 退款
-Claim - 索赔
-Return - 退货
-Warranty - 保修
-After-sales service - 售后服务
-Stock availability - 库存情况
-Expiry date - 有效期
-Delivery schedule - 交货时间表
-Shipping documents - 装运文件
-Air freight - 空运
-Sea freight - 海运
-Land transport - 陆运
-Courier - 快递
-Tracking number - 追踪号码
-Customs duties - 海关税
-Import license - 进口许可证
-Export license - 出口许可证
-Trade terms - 贸易条款
-Forwarder - 货代
-Insurance - 保险
-Packing materials - 包装材料
-Bulk order - 大宗订单
-Small order - 小订单
-Price list - 价目表
-Product specification - 产品规格
-Sample order - 样品订单
-Production capacity - 生产能力
-MOQ waiver - 起订量豁免
-Shipment date - 发货日期
-Delivery address - 收货地址
-Customs broker - 报关行
-Cargo insurance - 货物保险
-Export declaration - 出口报关
-Import declaration - 进口报关
-Commercial invoice - 商业发票
-Proforma invoice - 形式发票
-Packing slip - 装箱单
-Delivery confirmation - 送货确认
-Payment confirmation - 付款确认
-Purchase contract - 采购合同
-Sales contract - 销售合同
-Trade agreement - 贸易协议
-Letter of indemnity - 保函
-Bill of exchange - 汇票
-Draft - 汇票草稿
-Consignment - 托运货物
-Distribution - 分销</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>500个外贸必备的贸易术语，外贸人收藏</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>一、国际贸易（Incoterms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EXW (Ex Works) - 工厂交货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FCA (Free Carrier) - 货交承运人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FAS (Free Alongside Ship) - 装运港船边交货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FOB (Free on Board) - 装运港船上交货（离岸价）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CFR (Cost and Freight) - 成本加运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIF (Cost, Insurance and Freight) - 成本、保险费加运费（到岸价）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CPT (Carriage Paid To) - 运费付至（目的地）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIP (Carriage and Insurance Paid To) - 运费及保险费付至（目的地）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DAP (Delivered at Place) - 目的地交货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DPU (Delivered at Place Unloaded) - 卸货地交货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DDP (Delivered Duty Paid) - 完税后交货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Incoterms - 国际贸易术语解释通则</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、付款方式（Payment Terms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T/T (Telegraphic Transfer) - 电汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C (Letter of Credit) - 信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C at sight - 即期信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C at 30/60/90 days - 30/60/90 天期信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Usance L/C - 远期信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Revocable L/C - 可撤销信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Irrevocable L/C - 不可撤销信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Documentary L/C - 跟单信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clean L/C - 光票信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transferable L/C - 可转让信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Untransferable L/C - 不可转让信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>D/P (Documents against Payment) - 付款交单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>D/A (Documents against Acceptance) - 承兑交单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CAD (Cash Against Documents) - 凭单付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OA (Open Account) - 赊销（账期）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Advance Payment - 预付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Installment Payment - 分期付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>COD (Cash on Delivery) - 货到付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Deposit / Earnest / Earnest money - 定金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Balance - 尾款、余额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bank Slip, Bank Receipt - 银行水单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、运输与物流（Shipping &amp; Logistics）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（一）运输基础</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BOOKING - 订舱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>S/O (Shipping Order) - 订舱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FCL (Full Container Load) - 整箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>LCL (Less than Container Load) - 拼箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETD (Estimated Time of Departure) - 预计出发时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA (Estimated Time of Arrival) - 预计到达时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Departure port - 起运港</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Destination port - 目的港</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Loading port - 装运港 / 装货港</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unloading port - 卸货港</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transferring port - 转运港</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consignment - 托运货物</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（二）运输单据</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B/L (Bill of Lading) - 提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Original B/L - 正本提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>TLX 或 T/R (Telex Release) - 电放提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Negotiable B/L - 可转让提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Non-negotiable B/L - 不可转让提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipped on Board B/L - 已装船提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Received for Shipment B/L - 收货待运提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clean B/L - 清洁提单（无货物破损批注）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Foul B/L - 不清洁提单（有货物破损批注）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AWB (Air Waybill) - 空运提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sea Waybill - 海运单（不可转让）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Multimodal Transport Document (MTD) - 多式联运单据</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>House Bill of Lading (HBL) - 分提单（货代出具）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Master Bill of Lading (MBL) - 主提单（船公司出具）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（三）其他物流术语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>VGM (Verified Gross Mass) - 核实集装箱总重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipper, Consignor - 托运人（一般指出口商）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consignee - 收货人</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Mark - 箱唛</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Space - 舱位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clearance of goods - 报关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>By Express - 快递</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>By air - 空运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>By sea - 海运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight Prepaid - 运费预付</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight Collect - 运费到付</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Demurrage - 滞期费（货物滞留港口超期费用）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Detention - 滞箱费（集装箱超期使用费用）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Container - 集装箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pallet - 托盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Carton - 纸箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、单据与证书（Documents &amp; Certificates）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PI (Proforma Invoice) - 形式发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PO (Purchase Order) - 采购单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CI (Commercial Invoice) - 商业发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PL (Packing List) - 装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CO (Certificate of Origin) - 原产地证明</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inspection Certificate - 检验证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inspection Certificate of Quality - 品质检验证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inspection Certificate of Weight (Quantity) - 重量 / 数量检验证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>HS Code (Harmonized System Code) - 海关编码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quotation - 报价单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales Contract - 销售合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Fumigation Certificate - 熏蒸证书（针对木质包装）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Phytosanitary Certificate - 植物检疫证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Animal Health Certificate - 动物卫生证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Weight List - 重量单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Measurement List - 尺码单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Beneficiary&#x27;s Certificate - 受益人证明（出口商出具）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Advice - 装船通知（出口商向进口商发出）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order - 订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing Declaration - 包装声明（证明包装材料符合规定）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、费用相关（Cost Terms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Custom Duty - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import Duty - 进口关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export Duty - 出口关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tariff - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight - 运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Air Freight - 空运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ocean Freight - 海运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inland Freight - 内陆运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wharfage - 码头费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>DOC (Document Charge) - 文件费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Landing Charges - 卸货费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Port Dues - 港口税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stamp Duty - 印花税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Discount, Allowance - 折扣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Commission - 佣金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Return Commission - 回佣、回扣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、商品相关（品质、数量、包装）（Commodity-related (Quality, Quantity, Packaging）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（一）品质条件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>quality - 品质</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>specifications - 规格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>grade - 等级</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>standard - 标准</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>sample - 样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>color sample - 色彩样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>pattern sample - 款式样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>original sample - 原样</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>duplicate sample - 复样</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>counter sample - 对等样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>reference sample - 参考样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>sealed sample - 封样</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>catalogue - 商品目录</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>description - 说明书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>tolerance - 公差</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>article No. - 货号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>fair average quality - 大路货（良好平均品质）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（二）数量条件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>G.W. (Gross Weight) - 毛重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>N.W. (Net Weight) - 净重</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Volume - 体积</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CBM (Cubic Meter) - 立方米</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ (Minimum Order Quantity) - 最小起订量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>more or less clause - 溢短装条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>shipping weight - 装运重量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>landed weight - 卸货重量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>metric ton - 公吨</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>kilogram, kilo, kg - 公斤</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>pound, lb - 磅</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>piece - 件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>pair - 双</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>dozen - 打</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>set - 套</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Total Amount - 总金额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Gross for Net - 以毛作净</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Measurement Ton - 尺码吨</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>（三）包装方法</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>blister packing - 起泡包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>neutral packing - 中性包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>skin packing - 吸塑包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>hanging packing - 挂式包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>mark - 唛头</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>in bulk - 散装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>nude packing - 裸装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>consumer pack - 零售包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>large packing - 大包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>inner packing - 小包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>bag, sack - 袋</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>jute bag - 麻袋</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>plastic bag - 塑料袋</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>case, chest - 箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>wooden case - 木箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>carton - 纸箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>container - 集装箱</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>waterproof paper - 防水纸</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>kraftpaper - 牛皮纸</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>adhesive tape - 胶带</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Package - 包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、价格条件（Price Terms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>trade term (price term) - 价格术语</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>price list - 价目表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>total value - 总值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>amount - 金额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>net price - 净价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>retail price - 零售价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>wholesale price - 批发价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>unit price - 单价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>price including commission - 含佣价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>spot price - 现货价格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>forward price - 期货价格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>current price, prevailing price - 现行价格（时价）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>world (International) Market price - 国际市场价格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>indicative price - 参考价格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、合同与协议（Contracts &amp; Agreements）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales Contract - 销售合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Purchase Contract - 购货合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales Confirmation - 销售确认书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Purchase Confirmation - 购货确认书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agreement - 协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Service Contract - 服务合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Distribution Agreement - 分销协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Agency Agreement - 代理协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Slot-sharing Agreement - 共用箱位协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Vessel Sharing Agreement - 共用舱位协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Amendment - 合同修正、修正合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Appendix - 附录</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Slot Exchange Agreement - 箱位互换协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Active Service Contract - 有效服务合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>九、贸易方式（Trade Methods）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OEM (Original Equipment Manufacturing) - 贴牌生产、原始设备制造商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ODM (Original Design Manufacturing) - 原创设计制造、原始设计制造商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sole Agency / Exclusive Agent - 独家代理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Counter Trade - 对销贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Barter Trade - 易货贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Processing Trade - 加工贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Re-export Trade - 转口贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Triangular Trade - 三角贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Compensation Trade - 补偿贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bilateral Trade - 双边贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consignment Trade - 寄售贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Leasing Trade - 租赁贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warehouse Sale - 保税仓销售</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exhibition Sales - 展卖</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Border Trade - 边境贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Counter Purchase - 互购贸易（对销贸易的一种）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Buyback - 回购贸易（补偿贸易的一种）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Processing with Imported Materials - 进料加工</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assembling with Imported Parts - 来件装配</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transit Trade via Third Country - 第三国转口贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十、国际货物运输保险（Insurance）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>All Risks - 一切险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>F.P.A. (Free from Particular Average) - 平安险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>W.A./ W.P.A (With Average or With Particular Average) - 水渍险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>War Risk - 战争险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>F.W.R.D. (Fresh Water Rain Damage) - 淡水雨淋险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk of Intermixture and Contamination - 混杂、玷污险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk of Leakage - 渗漏险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk of Odor - 串味险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk of Rust - 锈蚀险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shortage Risk - 短缺险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T.P.N.D. (Theft, Pilferage &amp; Non-delivery) - 偷窃提货不着险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Strikes Risk - 罢工险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Marine Cargo Insurance - 海洋货物运输保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Insurance Policy - 保险单（正式保险合同）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Open Policy - 预约保险单（长期货物预投保协议）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Claim Settlement - 保险理赔</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十一、商检与仲裁（Inspection &amp; Arbitration）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>claim - 索赔</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>disputes - 争议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>penalty - 罚金条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>arbitration - 仲裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Arbitration Clause - 仲裁条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>arbitral tribunal - 仲裁庭</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>force Majeure - 不可抗力</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Force Majeure Clause - 不可抗力条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Commodity Inspection Bureau (C.I.B) - 商品检验局</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Litigation - 诉讼</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mediation - 调解</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Settlement Agreement - 和解协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dispute Resolution - 纠纷解决</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Claim Notification - 索赔通知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Evidence Preservation - 证据保全</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Breach of Contract - 违约</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Liquidated Damages - 约定违约金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十二、关税与税费（Duties &amp; Taxes）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Ad Valorem Duty - 从价税（按商品价值征收）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Specific Duty - 从量税（按商品数量 / 重量征收）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Compound Duty - 复合税（从价税 + 从量税结合）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Anti-Dumping Duty - 反倾销税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Countervailing Duty - 反补贴税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Excise Duty - 消费税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Value-Added Tax (VAT) - 增值税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Withholding Tax - 预提税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs Brokerage Fee - 报关费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Duty Exemption - 免税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import Quota - 进口配额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十三、金融与支付（Finance &amp; Payment）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SWIFT (Society for Worldwide Interbank Financial Telecommunication) - 国际银行间金融电信协会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>BIC (Bank Identifier Code) - 银行识别码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>F/X (Foreign Exchange) - 外汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hedging - 对冲</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Liquidity - 流动性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bankers&#x27; Acceptance (BA) - 银行承兑汇票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Standby Letter of Credit (SBLC) - 备用信用证（担保性质）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Documentary Collection - 跟单托收（含 D/P 和 D/A）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Remittance - 汇付（含 T/T、M/T、D/D）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mail Transfer (M/T) - 信汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Demand Draft (D/D) - 票汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bank transfer - 银行转账</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wire transfer - 电汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cash on delivery - 货到付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Refund - 退款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十四、供应链管理（Supply Chain Management）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Supply Chain Management - 供应链管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>3PL (Third-Party Logistics) - 第三方物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>4PL (Fourth-Party Logistics) - 第四方物流（供应链整合管理）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Reverse Logistics - 逆向物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just-In-Time (JIT) - 准时制</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warehousing - 仓储</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Vendor Managed Inventory (VMI) - 供应商管理库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Safety Stock - 安全库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Demand Forecasting - 需求预测</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order Fulfillment - 订单履行</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十五、国际组织与协定（International Organizations &amp; Agreements）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>WTO (World Trade Organization) - 世界贸易组织</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IMF (International Monetary Fund) - 国际货币基金组织</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CTG (Council for Trade in Goods) - 货物贸易理事会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EFTA (European Free Trade Association) - 欧洲自由贸易联盟</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AFTA (ASEAN Free Trade Area) - 东盟自由贸易区</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>NAFTA (North American Free Trade Area) - 北美自由贸易区</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UNCTAD (United Nations Conference on Trade and Development) - 联合国贸易与发展会议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>GATT (General Agreement on Tariffs and Trade) - 关贸总协定</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RCEP (Regional Comprehensive Economic Partnership) - 区域全面经济伙伴关系协定</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>USMCA (United States-Mexico-Canada Agreement) - 美墨加协定</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十六、展会相关术语（Exhibition Terms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exhibition - 展览会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade show - 贸易展览会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Booth - 展位（摊位）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Booth number - 摊位号</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exhibitor - 参展商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Visitor - 参观者</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Attendee - 展览会参加者（不含参展商）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Assembly - 展位搭建</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dismantle - 撤展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Carnet - 展品临时出口海关批准文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Press conference - 新闻发布会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Opening ceremony - 开幕式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product launch - 产品发布</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade fair - 贸易展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十七、跨境电商相关（Cross-Border E-Commerce）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cross-Border E-Commerce - 跨境电子商务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B2B (Business to Business) - 企业对企业（电商模式）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>B2C (Business to Consumer) - 企业对消费者（电商模式）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>C2C (Consumer to Consumer) - 消费者对消费者（电商模式）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import Tariff for E-Commerce - 跨境电商进口关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bonded Warehouse for E-Commerce - 电商保税仓</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cross-Border Logistics - 跨境物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Online Payment Platform - 在线支付平台</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十八、贸易壁垒与合规（Trade Barriers &amp; Compliance）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Non-Tariff Barriers (NTBs) - 非关税壁垒</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import License System - 进口许可证制度</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export Control - 出口管制</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sanctions - 国际经济制裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Embargo - 禁运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Technical Barriers to Trade (TBT) - 技术性贸易壁垒</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sanitary and Phytosanitary Measures (SPS) - 卫生与植物卫生措施</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Remedy Measures - 贸易救济措施（反倾销、反补贴等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十九、谈判与沟通（Negotiation &amp; Communication）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Negotiation - 谈判</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inquiry / Enquiry - 询盘（询价）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Offer - 发盘（发价）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>firm offer - 实盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Counter Offer - 还盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bid; Bidding - 递盘</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead Time - 交期、备货周期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warranty - 保证 / 保修</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>After-sales Service - 售后服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cultural Sensitivity - 文化敏感性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Business Etiquette - 商务礼仪</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Acknowledgement - 确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>RFP (Request for Proposal) - 征求建议书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>EDD (Estimated Delivery Date) - 预计交货日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Feedback - 反馈</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Clarification - 澄清</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dispute - 争议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十、其他补充术语（Other Supplementary Terms）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quota - 配额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bonded Warehouse - 保税仓库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dumping - 商品倾销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exchange Dumping - 外汇倾销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Special Preferences - 优惠关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Favorable Balance of Trade - 贸易顺差</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Unfavorable Balance of Trade - 贸易逆差</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Free Trade Zone - 自由贸易区</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Value of Foreign Trade - 对外贸易值</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SKU (Stock Keeping Unit) - 库存单位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ISO (International Organization for Standardization) - 国际标准化组织</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CE Marking - 欧盟认证标志</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Intellectual Property Rights (IPR) - 知识产权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Act - 航运法案</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipper’s Association - 托运人协会</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十一、贸易统计与分析（Trade Statistics and Analysis）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Volume - 贸易量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Value - 贸易额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Balance of Payments (BOP) - 国际收支平衡表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Current Account - 经常账户（国际收支的主要组成部分）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Capital Account - 资本账户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Intensity Index - 贸易强度指数</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export Diversification - 出口多元化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Deficit - 贸易逆差（同 Unfavorable Balance of Trade）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Surplus - 贸易顺差（同 Favorable Balance of Trade）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Commodity Trade Statistics - 商品贸易统计</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十二、物流包装与标识（Logistics Packaging and Labeling）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shockproof Packaging - 防震包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Moisture-Proof Packaging - 防潮包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tamper-Evident Packaging - 防篡改包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>UN Certified Packaging - 联合国认证包装（用于危险品）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Handling Mark - 装卸标识（如 “向上”“易碎” 等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Mark - 运输唛头（包含收货人、目的地等信息）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Additional Mark - 附加标识（如重量、体积等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dangerous Goods Mark - 危险品标识</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Palletized Load - 托盘化装载</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Container Loading Plan - 集装箱装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十三、单证操作（Documentary Operation）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Documentary Credit - 跟单信用证（同 Documentary L/C）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Certificate of Inspection - 检验证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing Declaration - 包装声明（证明包装材料符合规定）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Fumigation Certificate - 熏蒸证书（针对木质包装）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Phytosanitary Certificate - 植物检疫证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Animal Health Certificate - 动物卫生证书</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Weight List - 重量单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Measurement List - 尺码单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Beneficiary&#x27;s Certificate - 受益人证明（由出口商出具的证明文件）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping Advice - 装船通知（出口商向进口商发出的发货通知）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export declaration - 出口报关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import declaration - 进口报关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing slip - 装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery confirmation - 送货确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment confirmation - 付款确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Supplier invoice - 供应商发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export documents - 出口文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十四、国际市场与营销（International Market and Marketing）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Market Research - 市场调研</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Brand Localization - 品牌本土化</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export Marketing - 出口营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Mission - 贸易代表团</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>International Franchising - 国际特许经营</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product Adaptation - 产品适配（根据目标市场调整产品）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pricing Strategy - 定价策略</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Distribution Channel - 分销渠道</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>After-Sales Service Network - 售后服务网络</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>International Advertising - 国际广告</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Market Penetration - 市场渗透</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Brand Awareness - 品牌意识</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Market Segment - 市场细分</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Competitive Advantage - 竞争优势</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales Volume - 销售量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Marketing - 营销</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customer - 客户</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order processing - 订单处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment confirmation - 发货确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery time frame - 交货时间范围</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment schedule - 付款时间表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales order - 销售订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十五、贸易纠纷与解决（Trade Disputes and Resolution）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Arbitration Clause - 仲裁条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Litigation - 诉讼</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Mediation - 调解</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Settlement Agreement - 和解协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dispute Resolution - 纠纷解决</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Claim Notification - 索赔通知</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Evidence Preservation - 证据保全</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Breach of Contract - 违约</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Liquidated Damages - 约定违约金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Force Majeure Clause - 不可抗力条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十六、风险管理（Risk Management）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Risk Assessment - 风险评估</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Due Diligence - 尽职调查</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Force Majeure - 不可抗力</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Liability - 责任</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Insurance Policy - 保险单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十七、跨文化沟通（Cross-Cultural Communication）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cultural Sensitivity - 文化敏感性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Language Barrier - 语言障碍</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Business Etiquette - 商务礼仪</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Negotiation Style - 谈判风格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Time Zone Differences - 时区差异</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十八、技术与创新（Technology and Innovation）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Blockchain - 区块链</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>IoT (Internet of Things) - 物联网</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Big Data - 大数据</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>AI (Artificial Intelligence) - 人工智能</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Digital Transformation - 数字化转型</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二十九、持续发展与社会责任（Sustainable Development and Social Responsibility）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CSR (Corporate Social Responsibility) - 企业社会责任</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sustainability - 可持续性</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Eco-friendly - 环保的</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Green Logistics - 绿色物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Fair Trade - 公平贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三十、市场调研与策略（Market Research and Strategy）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SWOT Analysis - SWOT 分析</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>PEST Analysis - PEST 分析</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Market Entry Strategy - 市场进入策略</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Value Proposition - 价值主张</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Segmentation, Targeting, and Positioning (STP) - 细分、目标定位和定位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三十一、法律与合规（Law and Compliance）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Arbitration - 仲裁</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Intellectual Property Rights (IPR) - 知识产权</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Commodity Codes - 商品编码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade Compliance - 贸易合规</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Anti-Dumping Duty - 反倾销税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三十二、产品与服务（Products and Services）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>SKU (Stock Keeping Unit) - 库存单位</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>OEM (Original Equipment Manufacturer) - 原始设备制造商、贴牌生产</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ODM (Original Design Manufacturer) - 原始设计制造商、原创设计制造</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product Specifications - 产品规格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Patent - 专利</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quality check - 质量检查</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inspection - 检验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stock - 库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery note - 发货单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warranty - 保修</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>After-sales service - 售后服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stock availability - 库存情况</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Expiry date - 有效期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery schedule - 交货时间表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping documents - 装运文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product specification - 产品规格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sample order - 样品订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Production capacity - 生产能力</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ waiver - 起订量豁免</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment date - 发货日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery address - 收货地址</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cargo insurance - 货物保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三十三、基础核心（Basic Core）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export - 出口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import - 进口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade - 贸易</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quotation - 报价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice - 发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Contract - 合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment - 装运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight - 运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs - 海关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tariff - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三十四、其他补充（Other Supplements）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Purchase order - 采购订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment - 发货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice - 发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Freight - 运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs - 海关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bill of lading - 提单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery time - 交货时间</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Lead time - 备货周期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ (Minimum order quantity) - 最小起订量</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>FOB (Free on board) - 船上交货价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>CIF (Cost, insurance, freight) - 成本加保险费加运费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing list - 装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Supplier - 供应商</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Buyer - 买家</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Contract - 合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment terms - 付款条件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Letter of credit - 信用证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sample - 样品</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quality check - 质量检查</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Inspection - 检验</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warehouse - 仓库</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stock - 库存</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery note - 发货单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Discount - 折扣</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Negotiation - 谈判</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Price quote - 报价</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Order confirmation - 订单确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment tracking - 货物追踪</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs clearance - 通关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import - 进口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export - 出口</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tariff - 关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Quota - 配额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade fair - 贸易展</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Business partner - 合作伙伴</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Logistics - 物流</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Transportation - 运输</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cargo - 货物</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing - 包装</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping cost - 运费成本</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Terms and conditions - 条款条件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Exchange rate - 汇率</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tax - 税费</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice number - 发票号码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Invoice date - 发票日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment method - 付款方式</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bank transfer - 银行转账</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wire transfer - 电汇</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cash on delivery - 货到付款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Balance - 余额</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Deposit - 定金</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Refund - 退款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Claim - 索赔</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Return - 退货</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Warranty - 保修</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>After-sales service - 售后服务</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stock availability - 库存情况</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Expiry date - 有效期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery schedule - 交货时间表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping documents - 装运文件</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Air freight - 空运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sea freight - 海运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Land transport - 陆运</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Courier - 快递</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tracking number - 追踪号码</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs duties - 海关税</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import license - 进口许可证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export license - 出口许可证</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade terms - 贸易条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Forwarder - 货代</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Insurance - 保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing materials - 包装材料</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bulk order - 大宗订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Small order - 小订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Price list - 价目表</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Product specification - 产品规格</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sample order - 样品订单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Production capacity - 生产能力</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ waiver - 起订量豁免</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipment date - 发货日期</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery address - 收货地址</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs broker - 报关行</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cargo insurance - 货物保险</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Export declaration - 出口报关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Import declaration - 进口报关</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Commercial invoice - 商业发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Proforma invoice - 形式发票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Packing slip - 装箱单</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Delivery confirmation - 送货确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Payment confirmation - 付款确认</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Purchase contract - 采购合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sales contract - 销售合同</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trade agreement - 贸易协议</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Letter of indemnity - 保函</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bill of exchange - 汇票</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Draft - 汇票草稿</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Consignment - 托运货物</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Distribution - 分销</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="500个外贸必备的贸易术语2";
@@ -887,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

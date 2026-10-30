@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,320 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">外贸人必备300句口头禅
-日常交流&amp;团队合作
-Let me double-check with my team.（我跟团队再确认下哈。）
-I&#x27;ll loop you in on the email.（我会把你拉进邮件里的。）
-I&#x27;ll talk to the factory.（我去跟工厂说下。）
-I&#x27;ll loop in my colleague.（我把同事也拉进来。）
-The team lunch is rescheduled to Friday.（团队午餐改到周五啦。）
-Let&#x27;s assign responsibilities first.（咱们先分下工吧。）
-My colleague will assist you.（我同事会帮你的。）
-Let&#x27;s debrief after the project.（项目结束后咱们复盘下。）
-Can you cover the afternoon shift?（下午的班你能顶一下不？）
-The new intern will assist with order tracking.（新来的实习生会帮忙跟踪订单。）
-I&#x27;ll walk them through the process tomorrow.（我明天带他们过一遍流程。）
-Can you train the new staff on order processing?（你能教下新员工怎么处理订单不？）
-I&#x27;ll set up a quick session tomorrow.（我明天安排个短会。）
-Let&#x27;s keep the team in the loop.（让团队都知情哈。）
-Do you have an update for me?（有啥新进展不？）
-I&#x27;m working on it as we speak.（我这正处理着呢。）
-I&#x27;ll get back to you shortly.（我很快给你回信。）
-Thanks for your patience.（谢谢你耐着性子等。）
-Can we touch base tomorrow?（咱们明天碰个面不？）
-Let&#x27;s keep this moving.（咱们别停，继续推进。）
-Let&#x27;s set a reminder for the payment due date.（给付款截止日设个提醒吧。）
-Let&#x27;s add this to the next weekly report.（把这个加进下周的周报里。）
-Keep me posted.（有情况随时告诉我。）
-Any updates?（有新消息不？）
-I&#x27;d like to follow up on our previous conversation.（我想跟进下咱们之前聊的事。）
-What&#x27;s the next action item?（下一步要做啥？）
-I&#x27;ll update the tracker by noon.（中午前我会更新追踪表。）
-Let&#x27;s make sure we&#x27;re aligned.（咱们得确保意见一致哈。）
-Hi, I’m (Your Name) from (Company). We specialize in (product).（嗨，我是（公司名）的（你的名字）。我们专门做（产品）的。）
-Are you looking for reliable suppliers of (product)?（你在找（产品）的靠谱供应商不？）
-How long have you been in this industry?（你在这行做多久啦？）
-What are your current sourcing needs（你现在采购需求是啥呀？）
-We offer competitive prices and high-quality products.（我们价格有优势，产品质量也不错。）
-Let me send you our product catalog.（我发份产品目录给你哈。）
-Do you have any specific requirements?（你有啥特别的要求不？）
-How can we assist you today?（今天我们能帮你做些啥？）
-We have experience working with clients worldwide.（我们跟全球的客户都合作过。）
-Our products are certified for international markets.（我们的产品有国际市场的认证。）
-Would you like to receive a sample?（你想拿个样品不？）
-Let&#x27;s discuss your project in more detail.（咱们再详细聊聊你的项目。）
-二、客户沟通&amp;订单管理
-Let&#x27;s push the release date back by a week.（发布日期往后推一周吧。）
-Let&#x27;s focus and get it done by 5 PM.（集中精力，下午 5 点前搞定。）
-Shall we kick off the meeting now?（咱们现在开会不？）
-How&#x27;s the project timeline looking?（项目进度咋样啦？）
-Let&#x27;s go over the details again.（咱们再过一遍细节。）
-I&#x27;ll send you the meeting notes later.（我稍后发会议纪要给你。）
-Did everyone get the memo?（大家都收到通知了不？）
-The team meeting is moved to 3 PM.（团队会议改到下午 3 点了。）
-I&#x27;ll send a calendar invite to everyone.（我给大家发个日历邀请。）
-Can we have a quick chat about the details?（咱们快聊下细节不？）
-Let&#x27;s put that on the agenda.（把那个加到议程里。）
-Let&#x27;s confirm the meeting agenda by EOD.（今天下班前确认下会议议程。）
-That sounds fair to me.（我觉得挺合理的。）
-We&#x27;re on the same page.（咱们想法一致。）
-Let&#x27;s figure this out.（咱们把这事儿弄明白。）
-I understand your concern, so let&#x27;s discuss how to resolve it.（我懂你的顾虑，咱们聊聊咋解决。）
-The client is pushing hard.（客户催得紧。）
-This needs urgent attention.（这事儿得赶紧处理。）
-We&#x27;re cutting it close.（咱们时间挺紧张的。）
-The client wants to adjust the delivery quantity.（客户想调整发货数量。）
-The client mentioned liking the new packaging.（客户说喜欢新包装。）
-The client&#x27;s feedback highlighted a design flaw.（客户反馈说有个设计缺陷。）
-The client wants to see the production line in action.（客户想看看生产线运作。）
-The client will visit our warehouse next Tuesday.（客户下周二要去我们仓库。）
-The client is visiting our office next Monday.（客户下周一来我们办公室。）
-What&#x27;s the lead time?（交货周期是多久？）
-Can you expedite this order?（这单能加急不？）
-We&#x27;ll send you a sample.（我们给你寄个样品。）
-Could you provide more details about your requirements（你能说说具体要求不？）
-When do you expect to place the order?（你打算啥时候下单？）
-What is your target market?（你的目标市场是啥？）
-How do you plan to market the product?（你打算咋推广这产品？）
-We can assist with marketing materials.（我们可以帮忙弄营销材料。）
-What is your sales strategy?（你的销售策略是啥？）
-We’ll support you throughout the process.（整个过程我们都会支持你。）
-Let me introduce our marketing team.（我介绍下我们的营销团队。）
-What is your expected ROI?（你预期的投资回报率是多少？）
-We’ll provide regular sales reports（我们会定期提供销售报告。）
-三、样品&amp;库存管理
-The client wants to add two more items to the order.（客户想在订单里再加两个产品。）
-The client&#x27;s payment method changed to credit card.（客户的付款方式改成信用卡了。）
-The client asked for a refund for the defective items.（客户要给有问题的产品退款。）
-The client wants a discount for bulk orders.（客户想大宗采购打折。）
-The client wants a demo before placing the order.（客户下单前想看看演示。）
-The client pushed the meeting to next week.（客户把会议推到下周了。）
-Let&#x27;s clarify the priorities first.（咱们先明确下优先级。）
-The sample test will finish by noon.（样品测试中午前结束。）
-The sample is on the way.（样品在路上了。）
-Tracking number&#x27;s been sent.（追踪号发过去了。）
-Please confirm receipt.（麻烦确认下收到了。）
-The client is satisfied with the sample.（客户对样品挺满意的。）
-The sample got damaged during delivery.（样品运输途中坏了。）
-I&#x27;ll send a new one right away.（我马上再寄个新的。）
-The sample didn&#x27;t meet their standards.（样品没达到他们的标准。）
-Can we tweak the sample a bit?（咱们把样品稍微改改行不？）
-We&#x27;re running low on stock.（库存快没了。）
-Let&#x27;s restock before peak season.（旺季前咱们补下库存。）
-Let&#x27;s check the inventory first.（咱们先查查库存。）
-We&#x27;re low on item #105—need to restock.（105 号产品快没了，得补货。）
-Here attached specifications of B products. Please kindly check it（附件是 B 产品的规格，麻烦查收下。）
-The samples are ready. And we will ship it out this afternoon.（样品准备好了，今天下午就寄出。）
-Hi Mark, here is your tracking number: xxx xxx xxx by DHL.（嗨，马克，这是你的 DHL 追踪号：xxx xxx xxx。）
-Have you received the samples of waybill xxx xxx xxx?（运单号是 xxx xxx xxx 的样品你收到了吗？）
-四、价格交谈&amp;合作条款
-The inventory list was updated this morning.（库存清单今天早上更新了。）
-The warehouse is closed for maintenance this weekend.（仓库这周末维修，不营业。）
-We need to schedule shipments around that.（我们得绕开这个时间安排发货。）
-The price is negotiable.（价格可以谈。）
-We can offer you our best price if you place a larger order.（你下单多的话，我们给你最优惠的价。）
-We&#x27;re still negotiating the price.（我们还在谈价格呢。）
-Can you give me a better rate?（能给个更优惠的价格不？）
-That&#x27;s a bit out of our budget.（这有点超出我们预算了。）
-We&#x27;re looking at long-term cooperation.（我们想长期合作。）
-Let&#x27;s build a win-win situation.（咱们搞个双赢的局面。）
-This is our best offer.（这是我们能给的最低价了。）
-We&#x27;re offering a special discount.（我们有特别折扣。）
-Our offer is competitive considering quality.（算上质量，我们的报价很有竞争力。）
-We can offer a 5% discount for bulk orders.（大宗采购可以打 95 折。）
-We can offer a 5% discount for early payment.（提前付款可以打 95 折。）
-The supplier agreed to lower the price by 3%.（供应商同意降价 3%。）
-五、物流&amp;运输管理
-Would you prefer T/T or L/C?（你倾向于电汇还是信用证？）
-MOQ is negotiable.（起订量可以谈。）
-We offer net terms.（我们有净额付款条件。）
-T/T is preferred.（我们更倾向于电汇。）
-L/C takes longer to process.（信用证处理起来更久。）
-Bank charges are on the buyer.（银行手续费由买方承担。）
-We accept PayPal for samples.（样品费可以用 PayPal 付。）
-The payment terms need to be clarified.（付款条件得弄清楚。）
-Could you give us your best offer for this model?（这个型号你能给我们最低价不？）
-Is this price FOB Shanghai or CIF Los Angeles?（这个价格是上海离岸价还是洛杉矶到岸价？）
-What are your payment terms?（你们的付款条件是啥？）
-The price seems a bit high compared to other suppliers.（跟其他供应商比，这价格有点高。）
-Would you consider a phased delivery schedule?（你能考虑分阶段发货不？）
-That&#x27;s a deal-breaker for us.（这对我们来说是个关键障碍。）
-We can compromise on this.（这事儿我们可以让步。）
-Let&#x27;s find a middle ground.（咱们找个中间方案。）
-The contract has a 30-day trial period.（合同有 30 天试用期。）
-We offer FOB and CIF.（我们提供离岸价和到岸价。）
-The shipping cost has gone up.（运费涨了。）
-We&#x27;re trying to cut logistics costs.（我们在想办法降低物流成本。）
-ETA is next Friday.（预计下周五到。）
-Shipping out today.（今天发货。）
-Please confirm the shipping details.（麻烦确认下发货详情。）
-You should receive it soon.（你很快就能收到了。）
-Let me know once it arrives.（到了告诉我一声。）
-Let&#x27;s check the delivery route again.（咱们再查查送货路线。）
-I&#x27;ll confirm the pickup time with the courier.（我跟快递确认下取件时间。）
-Customs might take longer.（海关可能会慢些。）
-The shipment got held up at customs.（货物在海关被扣了。）
-Owing to customs delays, the ETA is now xx.（因为海关延误，现在预计 xx 到。）
-The logistics delay is beyond our control.（物流延误我们控制不了。）
-The logistics company lost a small portion of the shipment.（物流公司弄丢了一小部分货。）
-They&#x27;ll compensate us for the loss.（他们会赔偿我们的损失。）
-The shipping label was printed with the wrong address.（运单地址印错了。）
-The shipping label has a typo in the zip code.（运单邮编有个错别字。）
-I&#x27;ll correct it and reprint right away.（我马上改了重印。）
-The shipment is stuck in bad weather.（货物因为天气不好耽搁了。）
-The courier lost track of the package again.（快递又把包裹搞丢了。）
-We&#x27;ll file a claim and send a replacement.（我们会索赔，再发个新的。）
-When is the estimated time of departure (ETD) from origin port?（从起运港的预计离港时间是啥时候？）
-When is the estimated time of arrival (ETA) at destination port?（到目的港的预计到港时间是啥时候？）
-Is the shipment going by sea (FCL/LCL) or air freight?（货物是海运（整箱 / 拼箱）还是空运？）
-Please confirm the bank details for the wire transfer.（麻烦确认下电汇的银行信息。）
-The production will be finished by xx.（生产会在 xx 前完成。）
-六、标准化的流程
-Please see to it that the goods are shipped per [船名] on or about [日期].（确保货物在 [日期] 左右由 [船名] 运出。）
-Pre-shipment inspection is required.（需要装船前检验。）
-The goods failed the AQL check.（货物没通过 AQL 检验。）
-The quality check passed.（质量检验过了。）
-There&#x27;s a minor issue with the batch.（这批货有点小问题。）
-We&#x27;ll replace it right away.（我们马上换。）
-The supplier&#x27;s quality check failed this batch.（供应商这批货质量检验没过。）
-They&#x27;ll redo it and send it by the end of the week.（他们会重做，这周末前寄出来。）
-Pre-shipment inspection is required.（需要装船前检验。）
-The goods failed the AQL check.（货物没通过 AQL 检验。）
-Please send inspection report.（麻烦发下检验报告。）
-We request a full refund.（我们要求全额退款。）
-七、生产&amp;进度的把控
-Production is on track.（生产按计划进行。）
-There&#x27;s been a slight delay.（稍微有点延迟。）
-We&#x27;ll make up for lost time.（我们会把时间赶回来。）
-Everything&#x27;s under control.（一切都在掌控中。）
-It&#x27;ll be ready by next week.（下周能弄好。）
-It&#x27;s being handled as we speak.（这事儿正在处理。）
-We&#x27;re pushing this forward.（我们在推进这事儿。）
-The prototype is almost ready.（样品快做好了。）
-The product test results are positive.（产品测试结果不错。）
-We can start mass production next week.（下周可以开始批量生产。）
-The factory needs an extra day for production.（工厂生产还需要多一天。）
-We need to speed this up.（咱们得加快进度。）
-We&#x27;re a bit behind schedule.（我们有点落后计划了。）
-Let&#x27;s try another approach.（咱们试试别的办法。）
-This process tends to take X minutes.（这个流程通常要 X 分钟。）
-We&#x27;ll prioritize this as top urgency.（这事儿我们会当成最紧急的来处理。）
-Let&#x27;s split the task to speed things up.（咱们把任务分下，加快进度。）
-The team is working overtime to catch up.（团队在加班赶进度。）
-The project timeline might need a 2-day extension.（项目时间可能需要延长两天。）
-The deadline is non-negotiable.（截止日期不能改。）
-八、付款&amp;发票的管理
-Can you send over the PO?（你能把订单发过来不？）
-We&#x27;ve already invoiced you.（我们已经给你开发票了。）
-Here&#x27;s the proforma invoice.（这是形式发票。）
-The invoice was incorrect.（发票开错了。）
-We&#x27;ve updated the invoice.（我们更新了发票。）
-I&#x27;ll resend it right away.（我马上重发。）
-The invoice amount doesn&#x27;t match the order.（发票金额和订单对不上。）
-I&#x27;ll adjust it and resend right away.（我调整下马上重发。）
-The price quote expired last week—need to renew.（报价上周到期了，得更新下。）
-The quotation is valid for 7 days.（报价 7 天内有效。）
-Please arrange the payment.（麻烦安排下付款。）
-We&#x27;ll ship once payment clears.（款到发货。）
-Your payment went through.（你的款付成功了。）
-We&#x27;re still waiting on payment.（我们还在等付款。）
-Can you check with your bank?（你能问问银行不？）
-The payment is overdue.（付款逾期了。）
-Let&#x27;s sort this out quickly.（咱们赶紧把这事儿解决了。）
-The payment reminder was sent this morning.（今天早上发了付款提醒。）
-Can we extend the payment term by 10 days?（付款期限能延长 10 天不？）
-九、合同管理&amp;合作推进
-We’ll handle the paperwork.（手续我们来办。）
-It&#x27;s all set on our end.（我们这边都弄好了。）
-We&#x27;re waiting on your confirmation.（我们在等你的确认。）
-Please sign and return the contract.（麻烦签了合同寄回来。）
-Let&#x27;s finalize the contract terms.（咱们把合同条款定下来。）
-There&#x27;s a clause we need to modify.（有个条款我们得改下。）
-Legal is reviewing it now.（法务正在审核。）
-The signing is set for next week.（下周签约。）
-Let&#x27;s review the contract once more before signing.（签前咱们再看下合同。）
-The contract&#x27;s validity period is 2 years.（合同有效期是两年。）
-We should renew it a month in advance.（我们得提前一个月续约。）
-The contract renewal terms are almost finalized.（续约条款快定下来了。）
-The contract needs a minor update.（合同需要小改下。）
-The fine print in the contract needs careful review.（合同里的小字部分得仔细看。）
-We&#x27;ll arrange production right away.（我们马上安排生产。）
-We value long-term partnerships and are committed to mutual growth.（我们重视长期合作，致力于共同发展。）
-We value your business.（我们重视跟你的合作。）
-十、问题解决&amp;售后处理
-It&#x27;s doable, just tricky.（能做到，就是有点麻烦。）
-I&#x27;ll try to make it work.（我会尽力弄好的。）
-Sorry for the delay.（抱歉耽搁了。）
-Could you please confirm the delivery address?（麻烦确认下送货地址？）
-Could you please specify your requirements?（麻烦说下你的具体要求？）
-Thank you for your understanding and cooperation.（谢谢你的理解和配合。）
-We&#x27;re working on it.（我们正在处理。）
-Let&#x27;s figure this out together.（咱们一起把这事儿弄明白。）
-Sorry for the mix-up.（抱歉弄混了。）
-We&#x27;ve noted your request.（我们记下你的要求了。）
-That&#x27;s already on our radar.（我们已经关注这事儿了。）
-We&#x27;ll sort it out.（我们会解决的。）
-We&#x27;ve found a workaround.（我们找到解决办法了。）
-The client mentioned the packaging was damaged.（客户说包装坏了。）
-We&#x27;ll improve the packaging for future shipments.（以后发货我们会改进包装。）
-The product manual has a few unclear instructions.（产品说明书有些地方说不清楚。）
-Let&#x27;s rewrite them to be easier to understand.（咱们重写一下，让它好懂点。）
-We apologize for the inconvenience and will rectify it immediately.（抱歉给你添麻烦了，我们马上改正。）
-The client is satisfied with the after-sales service.（客户对售后服务挺满意的。）
-Can you check the warranty period for this product?（你能查查这产品的保修期不？）
-It comes with a 12-month warranty.（它有 12 个月保修期。）
-Let&#x27;s process it and avoid further issues.（咱们处理下，别再出问题了。）
-十一、文化适配&amp;表达规范
-Moving forward...（接下来……）
-As you most likely know...（你可能也知道……）
-I appreciate you telling me this situation.（谢谢你告诉我这情况。）
-Thanks for the heads-up.（谢谢你提醒。）
-Appreciate your honesty.（谢谢你这么坦诚。）
-Let&#x27;s not jump to conclusions.（咱们别急于下结论。）
-Just a gentle reminder.（温馨提醒一下。）
-&quot;Let me verify this with our team.&quot;（“我跟团队核实下。”）
-&quot;I can provide a tailored proposal based on your requirements.&quot;（“我可以根据你的要求提供定制方案。”）
-十二、供应商管理
-Did you get the new contact info for the supplier?（你有供应商的新联系方式不？）
-I&#x27;ll check if that&#x27;s possible with the warehouse.（我问问仓库这行不行。）
-The supplier hasn&#x27;t replied yet.（供应商还没回信。）
-I&#x27;ll follow up with them tomorrow.（我明天跟进下他们。）
-The supplier can&#x27;t meet the deadline.（供应商赶不上截止日期了。）
-Let&#x27;s find an alternative supplier quickly.（咱们赶紧找个备选供应商。）
-The supplier sent the wrong model by mistake.（供应商误发了型号。）
-They&#x27;ll send the correct one and cover the return cost.（他们会寄正确的，承担退货费。）
-Can you share the contact for the new supplier?（你能分享下新供应商的联系方式不？）
-The supplier&#x27;s price is higher than our competitor&#x27;s.（供应商的价格比我们竞争对手的高。）
-Let&#x27;s negotiate or look for alternatives.（咱们谈谈，或者找别的。）
-十三、成本&amp;优化管理
-We&#x27;re trying to cut logistics costs.（我们在想办法降低物流成本。）
-The logistics team found a cheaper shipping route.（物流团队找到了更便宜的 shipping 路线。）
-That&#x27;ll save us around $500 per shipment.（这样每批货能省大概 500 美元。）
-We need to cut down on unnecessary expenses.（我们得减少不必要的开支。）
-The budget for marketing is tighter this quarter.（这季度营销预算更紧了。）
-We need to focus on cost-effective strategies.（我们得专注于性价比高的策略。）
-Let&#x27;s pick the most cost-effective one.（咱们选性价比最高的那个。）
-Let&#x27;s fix it before mass production.（批量生产前咱们把它修好。）
-Can you speak English？（你会说英语吗？）
-What&#x27;s your company name？（你公司叫啥名？）
-Can I have your business card？（能给我张名片不？）
-Do you have any samples？（你有样品不？）
-What&#x27;s your MOQ？（你们的起订量是多少？）
-What&#x27;s your lead time？（你们的交货周期是多久？）
-What&#x27;s your payment term？（你们的付款条件是啥？）
-How much is it？（这多少钱？）
-Do you have any discount？（有折扣不？）
-Could you lower the price a little bit？（能便宜点不？）
-Could you send me a catalog？（能发份目录给我不？）
-Can you provide OEM service？（你们能提供代工服务不？）
-Can you provide custom packaging？（你们能提供定制包装不？）
-What&#x27;s the shipping cost？（运费多少？）
-Can you arrange the shipment？（你们能安排发货不？）
-Do you have any agent in my country？（你们在我国有代理不？）
-Can I have the tracking number？（能给我追踪号不？）
-How&#x27;s the quality of your product？（你们的产品质量咋样？）
-Can you send me a product specification？（能发份产品规格给我不？）
-What&#x27;s the warranty of your product？（你们的产品保修期是多久？）</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>外贸人必备300句口头禅</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>日常交流&amp;团队合作</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me double-check with my team.（我跟团队再确认下哈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll loop you in on the email.（我会把你拉进邮件里的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll talk to the factory.（我去跟工厂说下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll loop in my colleague.（我把同事也拉进来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The team lunch is rescheduled to Friday.（团队午餐改到周五啦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s assign responsibilities first.（咱们先分下工吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My colleague will assist you.（我同事会帮你的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s debrief after the project.（项目结束后咱们复盘下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you cover the afternoon shift?（下午的班你能顶一下不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The new intern will assist with order tracking.（新来的实习生会帮忙跟踪订单。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll walk them through the process tomorrow.（我明天带他们过一遍流程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you train the new staff on order processing?（你能教下新员工怎么处理订单不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll set up a quick session tomorrow.（我明天安排个短会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s keep the team in the loop.（让团队都知情哈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have an update for me?（有啥新进展不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m working on it as we speak.（我这正处理着呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll get back to you shortly.（我很快给你回信。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for your patience.（谢谢你耐着性子等。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we touch base tomorrow?（咱们明天碰个面不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s keep this moving.（咱们别停，继续推进。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s set a reminder for the payment due date.（给付款截止日设个提醒吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s add this to the next weekly report.（把这个加进下周的周报里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep me posted.（有情况随时告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any updates?（有新消息不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to follow up on our previous conversation.（我想跟进下咱们之前聊的事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the next action item?（下一步要做啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll update the tracker by noon.（中午前我会更新追踪表。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s make sure we&#x27;re aligned.（咱们得确保意见一致哈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hi, I’m (Your Name) from (Company). We specialize in (product).（嗨，我是（公司名）的（你的名字）。我们专门做（产品）的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you looking for reliable suppliers of (product)?（你在找（产品）的靠谱供应商不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long have you been in this industry?（你在这行做多久啦？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your current sourcing needs（你现在采购需求是啥呀？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer competitive prices and high-quality products.（我们价格有优势，产品质量也不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me send you our product catalog.（我发份产品目录给你哈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any specific requirements?（你有啥特别的要求不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How can we assist you today?（今天我们能帮你做些啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We have experience working with clients worldwide.（我们跟全球的客户都合作过。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our products are certified for international markets.（我们的产品有国际市场的认证。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you like to receive a sample?（你想拿个样品不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s discuss your project in more detail.（咱们再详细聊聊你的项目。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>二、客户沟通&amp;订单管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s push the release date back by a week.（发布日期往后推一周吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s focus and get it done by 5 PM.（集中精力，下午 5 点前搞定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shall we kick off the meeting now?（咱们现在开会不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s the project timeline looking?（项目进度咋样啦？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s go over the details again.（咱们再过一遍细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll send you the meeting notes later.（我稍后发会议纪要给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Did everyone get the memo?（大家都收到通知了不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The team meeting is moved to 3 PM.（团队会议改到下午 3 点了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll send a calendar invite to everyone.（我给大家发个日历邀请。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we have a quick chat about the details?（咱们快聊下细节不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s put that on the agenda.（把那个加到议程里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s confirm the meeting agenda by EOD.（今天下班前确认下会议议程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That sounds fair to me.（我觉得挺合理的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re on the same page.（咱们想法一致。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s figure this out.（咱们把这事儿弄明白。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I understand your concern, so let&#x27;s discuss how to resolve it.（我懂你的顾虑，咱们聊聊咋解决。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client is pushing hard.（客户催得紧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This needs urgent attention.（这事儿得赶紧处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re cutting it close.（咱们时间挺紧张的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client wants to adjust the delivery quantity.（客户想调整发货数量。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client mentioned liking the new packaging.（客户说喜欢新包装。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client&#x27;s feedback highlighted a design flaw.（客户反馈说有个设计缺陷。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client wants to see the production line in action.（客户想看看生产线运作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client will visit our warehouse next Tuesday.（客户下周二要去我们仓库。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client is visiting our office next Monday.（客户下周一来我们办公室。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the lead time?（交货周期是多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you expedite this order?（这单能加急不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll send you a sample.（我们给你寄个样品。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you provide more details about your requirements（你能说说具体要求不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When do you expect to place the order?（你打算啥时候下单？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What is your target market?（你的目标市场是啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you plan to market the product?（你打算咋推广这产品？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can assist with marketing materials.（我们可以帮忙弄营销材料。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What is your sales strategy?（你的销售策略是啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We’ll support you throughout the process.（整个过程我们都会支持你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me introduce our marketing team.（我介绍下我们的营销团队。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What is your expected ROI?（你预期的投资回报率是多少？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We’ll provide regular sales reports（我们会定期提供销售报告。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>三、样品&amp;库存管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client wants to add two more items to the order.（客户想在订单里再加两个产品。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client&#x27;s payment method changed to credit card.（客户的付款方式改成信用卡了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client asked for a refund for the defective items.（客户要给有问题的产品退款。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client wants a discount for bulk orders.（客户想大宗采购打折。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client wants a demo before placing the order.（客户下单前想看看演示。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client pushed the meeting to next week.（客户把会议推到下周了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s clarify the priorities first.（咱们先明确下优先级。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample test will finish by noon.（样品测试中午前结束。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample is on the way.（样品在路上了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tracking number&#x27;s been sent.（追踪号发过去了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm receipt.（麻烦确认下收到了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client is satisfied with the sample.（客户对样品挺满意的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample got damaged during delivery.（样品运输途中坏了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll send a new one right away.（我马上再寄个新的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The sample didn&#x27;t meet their standards.（样品没达到他们的标准。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we tweak the sample a bit?（咱们把样品稍微改改行不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re running low on stock.（库存快没了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s restock before peak season.（旺季前咱们补下库存。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s check the inventory first.（咱们先查查库存。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re low on item #105—need to restock.（105 号产品快没了，得补货。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here attached specifications of B products. Please kindly check it（附件是 B 产品的规格，麻烦查收下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The samples are ready. And we will ship it out this afternoon.（样品准备好了，今天下午就寄出。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hi Mark, here is your tracking number: xxx xxx xxx by DHL.（嗨，马克，这是你的 DHL 追踪号：xxx xxx xxx。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have you received the samples of waybill xxx xxx xxx?（运单号是 xxx xxx xxx 的样品你收到了吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、价格交谈&amp;合作条款</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The inventory list was updated this morning.（库存清单今天早上更新了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The warehouse is closed for maintenance this weekend.（仓库这周末维修，不营业。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to schedule shipments around that.（我们得绕开这个时间安排发货。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price is negotiable.（价格可以谈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can offer you our best price if you place a larger order.（你下单多的话，我们给你最优惠的价。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re still negotiating the price.（我们还在谈价格呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you give me a better rate?（能给个更优惠的价格不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a bit out of our budget.（这有点超出我们预算了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re looking at long-term cooperation.（我们想长期合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s build a win-win situation.（咱们搞个双赢的局面。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is our best offer.（这是我们能给的最低价了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re offering a special discount.（我们有特别折扣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Our offer is competitive considering quality.（算上质量，我们的报价很有竞争力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can offer a 5% discount for bulk orders.（大宗采购可以打 95 折。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can offer a 5% discount for early payment.（提前付款可以打 95 折。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier agreed to lower the price by 3%.（供应商同意降价 3%。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、物流&amp;运输管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you prefer T/T or L/C?（你倾向于电汇还是信用证？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>MOQ is negotiable.（起订量可以谈。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer net terms.（我们有净额付款条件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>T/T is preferred.（我们更倾向于电汇。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>L/C takes longer to process.（信用证处理起来更久。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bank charges are on the buyer.（银行手续费由买方承担。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We accept PayPal for samples.（样品费可以用 PayPal 付。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The payment terms need to be clarified.（付款条件得弄清楚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you give us your best offer for this model?（这个型号你能给我们最低价不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this price FOB Shanghai or CIF Los Angeles?（这个价格是上海离岸价还是洛杉矶到岸价？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are your payment terms?（你们的付款条件是啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price seems a bit high compared to other suppliers.（跟其他供应商比，这价格有点高。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you consider a phased delivery schedule?（你能考虑分阶段发货不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a deal-breaker for us.（这对我们来说是个关键障碍。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can compromise on this.（这事儿我们可以让步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find a middle ground.（咱们找个中间方案。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The contract has a 30-day trial period.（合同有 30 天试用期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We offer FOB and CIF.（我们提供离岸价和到岸价。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipping cost has gone up.（运费涨了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re trying to cut logistics costs.（我们在想办法降低物流成本。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>ETA is next Friday.（预计下周五到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Shipping out today.（今天发货。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the shipping details.（麻烦确认下发货详情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You should receive it soon.（你很快就能收到了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me know once it arrives.（到了告诉我一声。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s check the delivery route again.（咱们再查查送货路线。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll confirm the pickup time with the courier.（我跟快递确认下取件时间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Customs might take longer.（海关可能会慢些。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipment got held up at customs.（货物在海关被扣了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Owing to customs delays, the ETA is now xx.（因为海关延误，现在预计 xx 到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The logistics delay is beyond our control.（物流延误我们控制不了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The logistics company lost a small portion of the shipment.（物流公司弄丢了一小部分货。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They&#x27;ll compensate us for the loss.（他们会赔偿我们的损失。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipping label was printed with the wrong address.（运单地址印错了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipping label has a typo in the zip code.（运单邮编有个错别字。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll correct it and reprint right away.（我马上改了重印。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The shipment is stuck in bad weather.（货物因为天气不好耽搁了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The courier lost track of the package again.（快递又把包裹搞丢了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll file a claim and send a replacement.（我们会索赔，再发个新的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When is the estimated time of departure (ETD) from origin port?（从起运港的预计离港时间是啥时候？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When is the estimated time of arrival (ETA) at destination port?（到目的港的预计到港时间是啥时候？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is the shipment going by sea (FCL/LCL) or air freight?（货物是海运（整箱 / 拼箱）还是空运？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please confirm the bank details for the wire transfer.（麻烦确认下电汇的银行信息。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The production will be finished by xx.（生产会在 xx 前完成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>六、标准化的流程</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please see to it that the goods are shipped per [船名] on or about [日期].（确保货物在 [日期] 左右由 [船名] 运出。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pre-shipment inspection is required.（需要装船前检验。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The goods failed the AQL check.（货物没通过 AQL 检验。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quality check passed.（质量检验过了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There&#x27;s a minor issue with the batch.（这批货有点小问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll replace it right away.（我们马上换。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier&#x27;s quality check failed this batch.（供应商这批货质量检验没过。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They&#x27;ll redo it and send it by the end of the week.（他们会重做，这周末前寄出来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pre-shipment inspection is required.（需要装船前检验。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The goods failed the AQL check.（货物没通过 AQL 检验。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please send inspection report.（麻烦发下检验报告。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We request a full refund.（我们要求全额退款。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>七、生产&amp;进度的把控</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Production is on track.（生产按计划进行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There&#x27;s been a slight delay.（稍微有点延迟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll make up for lost time.（我们会把时间赶回来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Everything&#x27;s under control.（一切都在掌控中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;ll be ready by next week.（下周能弄好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s being handled as we speak.（这事儿正在处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re pushing this forward.（我们在推进这事儿。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The prototype is almost ready.（样品快做好了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product test results are positive.（产品测试结果不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We can start mass production next week.（下周可以开始批量生产。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The factory needs an extra day for production.（工厂生产还需要多一天。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to speed this up.（咱们得加快进度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re a bit behind schedule.（我们有点落后计划了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s try another approach.（咱们试试别的办法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This process tends to take X minutes.（这个流程通常要 X 分钟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll prioritize this as top urgency.（这事儿我们会当成最紧急的来处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s split the task to speed things up.（咱们把任务分下，加快进度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The team is working overtime to catch up.（团队在加班赶进度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The project timeline might need a 2-day extension.（项目时间可能需要延长两天。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The deadline is non-negotiable.（截止日期不能改。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>八、付款&amp;发票的管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send over the PO?（你能把订单发过来不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve already invoiced you.（我们已经给你开发票了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s the proforma invoice.（这是形式发票。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The invoice was incorrect.（发票开错了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve updated the invoice.（我们更新了发票。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll resend it right away.（我马上重发。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The invoice amount doesn&#x27;t match the order.（发票金额和订单对不上。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll adjust it and resend right away.（我调整下马上重发。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The price quote expired last week—need to renew.（报价上周到期了，得更新下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The quotation is valid for 7 days.（报价 7 天内有效。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please arrange the payment.（麻烦安排下付款。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll ship once payment clears.（款到发货。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your payment went through.（你的款付成功了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re still waiting on payment.（我们还在等付款。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you check with your bank?（你能问问银行不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The payment is overdue.（付款逾期了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s sort this out quickly.（咱们赶紧把这事儿解决了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The payment reminder was sent this morning.（今天早上发了付款提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we extend the payment term by 10 days?（付款期限能延长 10 天不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>九、合同管理&amp;合作推进</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We’ll handle the paperwork.（手续我们来办。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s all set on our end.（我们这边都弄好了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re waiting on your confirmation.（我们在等你的确认。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please sign and return the contract.（麻烦签了合同寄回来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s finalize the contract terms.（咱们把合同条款定下来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There&#x27;s a clause we need to modify.（有个条款我们得改下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Legal is reviewing it now.（法务正在审核。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The signing is set for next week.（下周签约。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s review the contract once more before signing.（签前咱们再看下合同。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The contract&#x27;s validity period is 2 years.（合同有效期是两年。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We should renew it a month in advance.（我们得提前一个月续约。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The contract renewal terms are almost finalized.（续约条款快定下来了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The contract needs a minor update.（合同需要小改下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The fine print in the contract needs careful review.（合同里的小字部分得仔细看。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll arrange production right away.（我们马上安排生产。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We value long-term partnerships and are committed to mutual growth.（我们重视长期合作，致力于共同发展。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We value your business.（我们重视跟你的合作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十、问题解决&amp;售后处理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s doable, just tricky.（能做到，就是有点麻烦。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll try to make it work.（我会尽力弄好的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the delay.（抱歉耽搁了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please confirm the delivery address?（麻烦确认下送货地址？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please specify your requirements?（麻烦说下你的具体要求？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your understanding and cooperation.（谢谢你的理解和配合。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re working on it.（我们正在处理。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s figure this out together.（咱们一起把这事儿弄明白。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sorry for the mix-up.（抱歉弄混了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve noted your request.（我们记下你的要求了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s already on our radar.（我们已经关注这事儿了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll sort it out.（我们会解决的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ve found a workaround.（我们找到解决办法了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client mentioned the packaging was damaged.（客户说包装坏了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;ll improve the packaging for future shipments.（以后发货我们会改进包装。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The product manual has a few unclear instructions.（产品说明书有些地方说不清楚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s rewrite them to be easier to understand.（咱们重写一下，让它好懂点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We apologize for the inconvenience and will rectify it immediately.（抱歉给你添麻烦了，我们马上改正。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The client is satisfied with the after-sales service.（客户对售后服务挺满意的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you check the warranty period for this product?（你能查查这产品的保修期不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It comes with a 12-month warranty.（它有 12 个月保修期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s process it and avoid further issues.（咱们处理下，别再出问题了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十一、文化适配&amp;表达规范</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Moving forward...（接下来……）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>As you most likely know...（你可能也知道……）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I appreciate you telling me this situation.（谢谢你告诉我这情况。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for the heads-up.（谢谢你提醒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Appreciate your honesty.（谢谢你这么坦诚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s not jump to conclusions.（咱们别急于下结论。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just a gentle reminder.（温馨提醒一下。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>&quot;Let me verify this with our team.&quot;（“我跟团队核实下。”）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>&quot;I can provide a tailored proposal based on your requirements.&quot;（“我可以根据你的要求提供定制方案。”）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十二、供应商管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Did you get the new contact info for the supplier?（你有供应商的新联系方式不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll check if that&#x27;s possible with the warehouse.（我问问仓库这行不行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier hasn&#x27;t replied yet.（供应商还没回信。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll follow up with them tomorrow.（我明天跟进下他们。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier can&#x27;t meet the deadline.（供应商赶不上截止日期了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s find an alternative supplier quickly.（咱们赶紧找个备选供应商。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier sent the wrong model by mistake.（供应商误发了型号。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They&#x27;ll send the correct one and cover the return cost.（他们会寄正确的，承担退货费。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you share the contact for the new supplier?（你能分享下新供应商的联系方式不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The supplier&#x27;s price is higher than our competitor&#x27;s.（供应商的价格比我们竞争对手的高。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s negotiate or look for alternatives.（咱们谈谈，或者找别的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>十三、成本&amp;优化管理</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We&#x27;re trying to cut logistics costs.（我们在想办法降低物流成本。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The logistics team found a cheaper shipping route.（物流团队找到了更便宜的 shipping 路线。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;ll save us around $500 per shipment.（这样每批货能省大概 500 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to cut down on unnecessary expenses.（我们得减少不必要的开支。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The budget for marketing is tighter this quarter.（这季度营销预算更紧了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>We need to focus on cost-effective strategies.（我们得专注于性价比高的策略。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s pick the most cost-effective one.（咱们选性价比最高的那个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s fix it before mass production.（批量生产前咱们把它修好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you speak English？（你会说英语吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your company name？（你公司叫啥名？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I have your business card？（能给我张名片不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any samples？（你有样品不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your MOQ？（你们的起订量是多少？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your lead time？（你们的交货周期是多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your payment term？（你们的付款条件是啥？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is it？（这多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any discount？（有折扣不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you lower the price a little bit？（能便宜点不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you send me a catalog？（能发份目录给我不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide OEM service？（你们能提供代工服务不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you provide custom packaging？（你们能提供定制包装不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the shipping cost？（运费多少？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you arrange the shipment？（你们能安排发货不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any agent in my country？（你们在我国有代理不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I have the tracking number？（能给我追踪号不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s the quality of your product？（你们的产品质量咋样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you send me a product specification？（能发份产品规格给我不？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the warranty of your product？（你们的产品保修期是多久？）</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="外贸人必备300句口头禅";
@@ -575,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>

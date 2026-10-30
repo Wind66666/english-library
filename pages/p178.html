@@ -195,6 +195,21 @@ align-items:center;flex-wrap:wrap}
 .empty-hint{text-align:center;color:#5d6479;padding:28px 0;font-size:13.5px}
 .chip.rlink{cursor:pointer;transition:all .12s ease}
 .chip.rlink:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+/* ---- 阅读页朗读（TTS） ---- */
+.content.lines{white-space:normal}
+.ln{position:relative;padding:2px 8px 2px 36px;border-radius:6px;line-height:2.1}
+.ln .spk{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+cursor:pointer;opacity:0;transition:opacity .12s ease;background:none;border:none;
+color:#8b9cf9;font-size:14px;padding:2px 4px;line-height:1}
+.ln:hover .spk{opacity:.85}
+.ln .spk:hover{opacity:1}
+.ln.cur{background:rgba(139,156,249,.10)}
+.ln.cur .spk{opacity:1}
+.ttsbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+margin:-6px 0 18px;font-size:13px;color:var(--sub)}
+.ttsbar select{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:13px;font-family:inherit}
+.ttsbar .btn{padding:8px 16px;font-size:13px}
 @media (max-width:600px){.dict-wrap{padding:22px 16px}.dict-zh{font-size:18px}}
 </style>
 </head>
@@ -216,712 +231,7 @@ align-items:center;flex-wrap:wrap}
   </div>
 </div>
 <div class="container">
-  <div class="content" style="">全英交流无非就这700句
-日常活动与安排
-What&#x27;s the plan for today?（今天有什么计划？）
-Just hanging out with friends.（就跟朋友聚聚。）
-Wanna grab a coffee?（想喝杯咖啡吗？）
-Sure, why not?（好啊，没问题。）
-Where should we go?（我们去哪儿？）
-How about that new café?（那家新开的咖啡店怎么样？）
-Sounds good to me.（我觉得不错。）
-Let&#x27;s head there now.（我们现在就过去吧。）
-Do you need a ride?（要搭车吗？）
-Nah, I&#x27;ll walk.（不用了，我走就行。）
-What do you feel like eating?（你想吃什么？）
-I&#x27;m craving some pizza.（我想吃披萨。）
-Me too, let&#x27;s order some.（我也是，点一些吧。）
-Should we get it delivered?（我们叫外卖吗？）
-Nah, let&#x27;s pick it up.（不用，我们去拿吧。）
-Cool, I&#x27;ll drive.（好，我开车。）
-What toppings do you want?（你要什么配料？）
-Just pepperoni is fine.（香肠就行。）
-Extra cheese?（要加芝士吗？）
-Yeah, why not!（要，当然要！）
-This place is packed!（这地方人真多！）
-Yeah, it&#x27;s always busy.（是啊，总是很忙。）
-How long is the wait?（要等多久？）
-About 20 minutes.（大概 20 分钟。）
-That&#x27;s not too bad.（还行，不算太久。）
-Let&#x27;s just wait outside.（我们在外面等吧。）
-Good idea, it&#x27;s stuffy in here.（好主意，里面太闷了。）
-Do you come here often?（你常来这儿吗？）
-Yeah, it&#x27;s my favorite spot.（对啊，这是我最喜欢的地方。）
-I can see why!（难怪！）
-The food here is amazing!（这儿的食物太棒了！）
-I know, right?（对吧？）
-Best pizza in town.（城里最好吃的披萨。）
-Totally worth the wait.（等得值了。）
-Let&#x27;s dig in!（开动吧！）
-This is so good!（太好吃了！）
-I&#x27;m already full.（我已经饱了。）
-Save room for dessert?（还吃得下甜点吗？）
-Maybe just a bite.（可能只能吃一口。）
-Let&#x27;s share something.（我们分着吃吧。）
-What time do you usually get up?（你通常几点起床？）
-I usually get up at 7 o&#x27;clock.（我通常 7 点起床。）
-What do you do after getting up?（起床后你做什么？）
-I brush my teeth and wash my face.（我刷牙洗脸。）
-Do you have breakfast every day?（你每天都吃早餐吗？）
-Yes, I always have breakfast.（是的，我总是吃早餐。）
-What do you have for breakfast?（你早餐吃什么？）
-I usually have bread and milk.（我通常吃面包和牛奶。）
-When do you go to work/school?（你什么时候去上班 / 上学？）
-I go to work/school at 8:30.（我 8 点半去上班 / 上学。）
-How do you go to work/school?（你怎么去上班 / 上学？）
-I take the bus.（我坐公交车。）
-I drive my car.（我开自己的车。）
-I walk.（我走路。）
-What time do you have lunch?（你几点吃午饭？）
-I have lunch at 12 o&#x27;clock.（我 12 点吃午饭。）
-Where do you have lunch?（你在哪里吃午饭？）
-I have lunch in the office/cafeteria.（我在办公室 / 食堂吃午饭。）
-What do you do in the afternoon?（你下午做什么？）
-I have meetings and finish my work.（我开会并完成工作。）
-I have classes.（我上课。）
-What time do you finish work/school?（你几点下班 / 放学？）
-I finish at 5:30.（我 5 点半结束。）
-What do you do after work/school?（下班后 / 放学后你做什么？）
-I go to the gym.（我去健身房。）
-I go shopping.（我去购物。）
-I cook dinner.（我做晚饭。）
-What do you have for dinner?（你晚饭吃什么？）
-I have rice, meat and vegetables.（我吃米饭、肉和蔬菜。）
-Do you watch TV in the evening?（你晚上看电视吗？）
-Yes, I watch TV for an hour.（是的，我看一个小时电视。）
-What&#x27;s your favorite TV show?（你最喜欢的电视节目是什么？）
-I like watching sitcoms.（我喜欢看情景喜剧。）
-When do you go to bed?（你几点睡觉？）
-I go to bed at 11 o&#x27;clock.（我 11 点睡觉。）
-Do you read books before bed?（你睡前看书吗？）
-Yes, I read for a while.（是的，我读一会儿。）
-What are you going to do this weekend?（这个周末你打算做什么？）
-I&#x27;m going to visit my parents.（我打算去看望我的父母。）
-I&#x27;m going to go hiking.（我打算去徒步旅行。）
-Are you going to the party on Saturday?（你周六去参加派对吗？）
-Yes, I am.（是的，我去。）
-No, I have other plans.（不，我有其他计划。）
-What time will the party start?（派对几点开始？）
-It will start at 7 pm.（晚上 7 点开始。）
-Where is the party?（派对在哪里举行？）
-It&#x27;s at John&#x27;s house.（在约翰家。）
-Do you need to buy anything for the party?（你需要为派对买些什么吗？）
-Yes, I&#x27;m going to buy a bottle of wine.（是的，我打算买一瓶酒。）
-When are you going to leave for the trip?（你打算什么时候出发去旅行？）
-I&#x27;m going to leave next Monday.（我打算下周一出发。）
-How long will you stay there?（你要在那里待多久？）
-I&#x27;ll stay for a week.（我要待一个星期。）
-What do you need to pack?（你需要打包什么？）
-I need to pack some clothes and toiletries.（我需要打包一些衣服和洗漱用品。）
-Are you going to travel alone?（你打算一个人旅行吗？）
-Yes, I am.（是的。）
-No, I&#x27;m going with my friends.（不，我和我的朋友一起去。）
-What&#x27;s the first thing you&#x27;re going to do when you arrive?（你到达后要做的第一件事是什么？）
-I&#x27;m going to check into the hotel.（我要去酒店办理入住。）
-Do you have any plans for next month?（你下个月有什么计划吗？）
-I&#x27;m going to take a course.（我打算参加一个课程。）
-I&#x27;m going to start a new project.（我打算开始一个新项目。）
-When is your birthday?（你的生日是什么时候？）
-My birthday is on [Date].（我的生日在 [日期]。）
-What are you going to do for your birthday?（你生日打算做什么？）
-I&#x27;m going to have a small party with my friends.（我打算和我的朋友开个小派对。）
-Do you want to come to my birthday party?（你想来参加我的生日派对吗？）
-Yes, I&#x27;d love to.（是的，我很乐意。）
-No, I&#x27;m sorry, I can&#x27;t.（不，对不起，我不能去。）
-What time does the store open?（商店几点开门？）
-It opens at 9 am.（早上 9 点开门。）
-What time does it close?（几点关门？）
-It closes at 9 pm.（晚上 9 点关门。）
-Do you want to go shopping with me?（你想和我一起去购物吗？）
-Yes, that sounds fun.（是的，听起来很有趣。）
-What do you need to buy?（你需要买什么？）
-I need to buy some new clothes.（我需要买一些新衣服。）
-Where do you want to go shopping?（你想去哪里购物？）
-Let&#x27;s go to the mall.（我们去商场吧。）
-How much does this cost?（这个多少钱？）
-It&#x27;s $50.（50 美元。）
-That&#x27;s too expensive.（太贵了。）
-Can you give me a discount?（能打折吗？）
-I&#x27;ll take it.（我买了。）
-Do you accept credit cards?（接受信用卡吗？）
-Yes, we do.（是的，我们接受。）
-When is the movie starting?（电影什么时候开始？）
-It starts at 8 pm.（晚上 8 点开始。）
-How much is a ticket?（一张票多少钱？）
-It&#x27;s $15.（15 美元。）
-Do you want to see a movie tonight?（今晚想看电影吗？）
-Sure, what&#x27;s playing?（好啊，在上映什么？）
-Let&#x27;s go to the park tomorrow.（明天我们去公园吧。）
-Good idea, we can have a picnic.（好主意，我们可以野餐。）
-What should we bring for the picnic?（野餐我们要带些什么？）
-Some sandwiches and drinks.（一些三明治和饮料。）
-When will you finish your work?（你什么时候完成工作？）
-I&#x27;ll finish it by 5 pm.（下午 5 点前我会完成。）
-Can you help me with this?（你能帮我做这个吗？）
-Sure, I&#x27;ll do it after lunch.（当然，午饭后我来做。）
-What time is the meeting?（会议几点开始？）
-It&#x27;s at 2 pm in the conference room.（下午 2 点在会议室。）
-Do you need to prepare anything for the meeting?（你需要为会议准备什么吗？）
-Yes, I need to make a presentation.（是的，我需要做一个演示。）
-Are you free tomorrow afternoon?（你明天下午有空吗？）
-Yes, what&#x27;s up?（有空，怎么了？）
-Let&#x27;s have a meeting then.（那我们开个会吧。）
-I&#x27;m busy tomorrow, how about the day after?（我明天很忙，后天怎么样？）
-That&#x27;s fine.（可以。）
-实用场景对话
-Where is the bathroom?（洗手间在哪里？）
-It&#x27;s over there, next to the elevator.（在那边，电梯旁边。）
-How can I get to the train station?（我怎么去火车站？）
-You can take the bus No. 5.（你可以坐 5 路公交车。）
-Is there a bank nearby?（附近有银行吗？）
-Yes, there&#x27;s one on Main Street.（是的，主街上有一家。）
-What time does the library open?（图书馆几点开门？）
-It opens at 9 am.（早上 9 点开门。）
-Can you tell me the way to the hospital?（你能告诉我去医院的路吗？）
-Go straight ahead, then turn left at the second crossing.（一直往前走，在第二个十字路口左转。）
-How much is this shirt?（这件衬衫多少钱？）
-It&#x27;s $30.（30 美元。）
-Can I try it on?（我可以试穿一下吗？）
-Sure, the fitting room is over there.（当然，试衣间在那边。）
-Do you have this in a larger size?（这件有大一点的尺码吗？）
-Let me check. Yes, we do.（我查一下。是的，我们有。）
-I&#x27;ll take this one.（我买这件。）
-Here you are.（给你。）
-Thank you, here&#x27;s the money.（谢谢，这是钱。）
-Here&#x27;s your change.（这是找你的零钱。）
-What&#x27;s the weather like today?（今天天气怎么样？）
-It&#x27;s sunny and warm.（天气晴朗，很暖和。）
-Will it rain tomorrow?（明天会下雨吗？）
-The forecast says it will.（天气预报说会下雨。）
-How is the food here?（这里的食物怎么样？）
-It&#x27;s very delicious.（非常美味。）
-Can I have the menu, please?（请给我菜单好吗？）
-Sure, here you are.（当然，给你。）
-What do you recommend?（你有什么推荐吗？）
-I recommend the steak.（我推荐牛排。）
-I&#x27;d like a glass of water.（我想要一杯水。）
-Coming right up.（马上来。）
-Can we have the bill, please?（请给我们账单好吗？）
-Yes, here it is.（好的，这是账单。）
-How much is it?（多少钱？）
-It&#x27;s $80.（80 美元。）
-Do you accept tips?（收小费吗？）
-Yes, but it&#x27;s not necessary.（是的，但不是必须的。）
-I&#x27;d like to book a room.（我想预订一个房间。）
-What kind of room would you like?（你想要什么样的房间？）
-A single room, please.（请给我一个单人间。）
-How many nights will you stay?（你要住几晚？）
-Three nights.（三晚。）
-What&#x27;s the price per night?（每晚多少钱？）
-It&#x27;s $100 per night.（每晚 100 美元。）
-I&#x27;ll take it.（我订了。）
-Can I have a wake-up call at 7 am?（早上 7 点能叫我起床吗？）
-Yes, certainly.（是的，当然可以。）
-I&#x27;d like to check out.（我想退房。）
-Please return your key card.（请归还你的房卡。）
-How can I get in touch with you?（我怎么联系你？）
-You can call me at this number.（你可以打这个电话给我。）
-Do you have a phone number?（你有电话号码吗？）
-Yes, it&#x27;s 123-456-7890.（有，号码是 123-456-7890。）
-Can I borrow your pen?（我能借你的笔用一下吗？）
-Sure, here you go.（当然，给你。）
-Could you pass the salt?（能把盐递给我吗？）
-Here you are.（给你。）
-Do you know what time it is?（你知道现在几点吗？）
-It&#x27;s 3 o&#x27;clock.（3 点了。）
-Can you help me carry this?（你能帮我拿这个吗？）
-Sure, no problem.（当然，没问题。）
-What&#x27;s the date today?（今天几号？）
-It&#x27;s October 15th.（10 月 15 日。）
-What day is it today?（今天星期几？）
-It&#x27;s Monday.（星期一。）
-How long will it take to get there?（到那里要多久？）
-About 30 minutes.（大概 30 分钟。）
-Is this seat taken?（这个座位有人吗？）
-No, it&#x27;s free.（没有，空着呢。）
-Can I sit here?（我能坐这儿吗？）
-Yes, please.（可以，请坐。）
-What&#x27;s your favorite color?（你最喜欢的颜色是什么？）
-I like blue.（我喜欢蓝色。）
-Do you speak English?（你会说英语吗？）
-Yes, a little.（会一点。）
-Can you speak more slowly?（你能说慢一点吗？）
-Sure, I&#x27;ll speak more slowly.（当然，我会说慢一点。）
-I don&#x27;t understand.（我不明白。）
-Let me explain again.（我再解释一遍。）
-What does this word mean?（这个单词是什么意思？）
-It means...（它的意思是……）
-How do you spell that?（那个怎么拼写？）
-It&#x27;s spelled C-H-I-C-K-E-N.（拼写是 C-H-I-C-K-E-N。）
-Is there a post office near here?（这附近有邮局吗？）
-Yes, it&#x27;s across the street.（有，在街对面。）
-Can I send a letter here?（我能在这儿寄信吗？）
-Yes, you can.（可以。）
-How much is a stamp?（一张邮票多少钱？）
-It&#x27;s $0.55.（55 美分。）
-What time does the bus leave?（公交车几点发车？）
-It leaves at 4:30 pm.（下午 4 点 30 分发车。）
-Where is the bus stop?（公交车站在哪里？）
-It&#x27;s at the corner of the street.（在街角。）
-Do I need to transfer?（我需要换乘吗？）
-Yes, you need to transfer at the next stop.（是的，你需要在下一站换乘。）
-How much is the fare?（车费多少钱？）
-It&#x27;s $2.（2 美元。）
-Can I use a credit card to pay?（我能用信用卡支付吗？）
-No, you need to use cash.（不能，你需要用现金。）
-Is this the right bus for the museum?（这是去博物馆的公交车吗？）
-Yes, it is.（是的。）
-When will we arrive?（我们什么时候到？）
-In about 15 minutes.（大概 15 分钟后。）
-Do you have a map?（你有地图吗？）
-Yes, here&#x27;s one.（有，给你一张。）
-Can you show me where we are?（你能告诉我我们现在在哪里吗？）
-Sure, we&#x27;re here.（当然，我们在这里。）
-How far is it from here to the hotel?（从这里到酒店有多远？）
-It&#x27;s about 2 kilometers.（大概 2 公里。）
-Can I walk there?（我能步行去那里吗？）
-Yes, it&#x27;s not too far.（可以，不太远。）
-Is there a taxi stand nearby?（附近有出租车站吗？）
-Yes, there&#x27;s one in front of the hotel.（有，酒店前面有一个。）
-How much will it cost to go to the airport?（去机场要多少钱？）
-About $50.（大概 50 美元。）
-Can you call a taxi for me?（你能帮我叫辆出租车吗？）
-Sure, I&#x27;ll call one right away.（当然，我马上叫一辆。）
-What&#x27;s the name of this street?（这条街叫什么名字？）
-It&#x27;s Main Street.（叫主街。）
-Where can I buy a SIM card?（我在哪里能买到 SIM 卡？）
-You can buy one at the convenience store.（你可以在便利店买到。）
-How much is a SIM card?（一张 SIM 卡多少钱？）
-It&#x27;s $20.（20 美元。）
-Can you help me install it?（你能帮我安装吗？）
-Sure, it&#x27;s easy.（当然，很简单。）
-Is there free Wi-Fi here?（这里有免费 Wi-Fi 吗？）
-Yes, the password is 12345678.（有，密码是 12345678。）
-How do I connect to it?（我怎么连接？）
-Just select the network and enter the password.（选择这个网络，输入密码就行。）
-My phone isn&#x27;t working.（我的手机坏了。）
-Maybe the battery is dead.（可能电池没电了。）
-Where can I charge my phone?（我在哪里能给手机充电？）
-There&#x27;s a charging station over there.（那边有充电站。）
-Can I use your charger?（我能借用你的充电器吗？）
-Yes, here you are.（可以，给你。）
-What&#x27;s the problem with your computer?（你的电脑出什么问题了？）
-It won&#x27;t turn on.（开不了机。）
-Maybe it&#x27;s the power cord.（可能是电源线的问题。）
-Can you fix it?（你能修好吗？）
-I&#x27;ll try.（我试试。）
-Is there a repair shop nearby?（附近有维修店吗？）
-Yes, there&#x27;s one on Park Street.（有，公园街上有一家。）
-How much will it cost to repair?（修一下要多少钱？）
-I&#x27;m not sure, maybe $50.（不确定，可能 50 美元。）
-When will it be ready?（什么时候能修好？）
-Tomorrow afternoon.（明天下午。）
-Can you give me a receipt?（你能给我一张收据吗？）
-Yes, here you go.（可以，给你。）
-Thank you for your help.（谢谢你的帮助。）
-话题拓展与励志短句
-What&#x27;s the most amazing place you&#x27;ve ever visited?（你去过最棒的地方是哪里？）
-Any hidden gems (travel spots) you&#x27;d recommend?（有什么小众宝藏旅行地推荐吗？）
-What surprised you most about China/this city?（中国 / 这个城市最让你惊讶的是什么？）
-What&#x27;s a must-try local food/dish here?（这里有什么必尝的本地美食？）
-What&#x27;s the biggest cultural difference you&#x27;ve noticed?（你注意到最大的文化差异是什么？）
-What do you miss most from home?（你最想念家乡的什么？）
-What&#x27;s the craziest food you&#x27;ve ever tried?（你吃过最奇特的食物是什么？）
-Do you prefer beaches or mountains?（你喜欢海滩还是高山？）
-What&#x27;s your travel style? (Backpacker? Luxury? Planner? Spontaneous?)（你的旅行风格是什么？背包客？奢华游？计划派？随性派？）
-Any funny travel mishaps/stories?（有什么搞笑的旅行糗事 / 故事吗？）
-What&#x27;s one place still on your bucket list?（你愿望清单上还有哪里想去？）
-How do you usually find good local spots when traveling?（旅行时你怎么找到好的本地去处？）
-What&#x27;s the best souvenir you&#x27;ve ever bought?（你买过最棒的纪念品是什么？）
-Any tips for beating jet lag?（有什么克服时差的小妙招吗？）
-What&#x27;s a festival or tradition from your country that you love?（你们国家你喜欢的节日或传统是什么？）
-Seen any good movies/shows lately?（最近看了什么好电影 / 剧吗？）
-What are you binge-watching right now?（最近在追什么剧？）
-Any music recommendations? What are you listening to?（有什么音乐推荐？最近在听什么？）
-Who&#x27;s your favorite musician/band?（你最喜欢的音乐人 / 乐队是谁？）
-Are you a bookworm? Read anything interesting?（你是书虫吗？读了什么有趣的书？）
-What&#x27;s the last concert/gig you went to?（上次去听的演唱会 / 现场演出是什么？）
-What&#x27;s your go-to streaming platform? (Netflix, Spotify, etc.)（你常用的流媒体平台是哪个？）
-Do you play video games? What are you hooked on?（你玩游戏吗？最近沉迷什么游戏？）
-Any podcasts you&#x27;re obsessed with?（有什么让你着迷的播客吗？）
-What&#x27;s your favorite genre of movie/music?（你最喜欢的电影 / 音乐类型是什么？）
-Seen any good TikTok/Instagram trends lately?（最近看到什么好玩的 TikTok/Instagram 趋势了吗？）
-Who do you think will win [upcoming sports event/award show]?（你觉得谁会赢 [即将到来的体育赛事 / 颁奖典礼]？）
-What was the best concert you&#x27;ve ever been to?（你去过最棒的演唱会是什么？）
-Do you follow any influencers or YouTubers?（你有关注什么网红或 YouTuber 吗？）
-What&#x27;s a classic movie/song everyone should experience?（有什么经典电影 / 歌曲是大家必看 / 听的？）
-What&#x27;s your all-time favorite food?（你一直以来最喜欢的食物是什么？）
-Sweet tooth or savory lover?（甜党还是咸党？）
-Coffee or tea person? How do you like your coffee/tea?（咖啡派还是茶派？喜欢怎么喝你的咖啡 / 茶？）
-What&#x27;s the best meal you&#x27;ve ever had?（你吃过最棒的一餐是什么？）
-Any cuisines you want to try?（有什么菜系你想尝试吗？）
-What&#x27;s a weird food combination you enjoy?（你喜欢什么奇怪的食物搭配？）
-Can you cook? What&#x27;s your signature dish?（会做饭吗？你的拿手菜是什么？）
-What&#x27;s your go-to comfort food?（你的治愈系食物是什么？）
-Any favorite restaurants/cafes around here?（附近有什么喜欢的餐厅 / 咖啡馆吗？）
-What&#x27;s one food you could never live without?（什么食物是你离不开的？）
-Do you like spicy food? How spicy can you handle?（喜欢吃辣吗？能吃多辣？）
-What&#x27;s a popular snack/drink from your home country?（你家乡有什么受欢迎的零食 / 饮料？）
-Brunch: Yay or Nay? Favorite brunch item?（早午餐：喜欢吗？最喜欢的早午餐单品？）
-Baking vs Cooking-which do you prefer?（烘焙 vs 烹饪你更喜欢哪个？）
-What&#x27;s your opinion on [pineapple on pizza/durian/etc.]?（你对 [披萨上放菠萝 / 榴莲等] 怎么看？）
-What do you like to do for fun?（空闲时间喜欢做什么？）
-Any hobbies you&#x27;re really into?（有什么特别投入的爱好吗？）
-Do you play any sports?（做什么运动吗？）
-Gym rat or outdoor enthusiast?（健身狂人还是户外爱好者？）
-What&#x27;s your favorite way to relax/unwind?（最喜欢的放松方式是什么？）
-Are you a morning person or a night owl?（早起鸟还是夜猫子？）
-What&#x27;s something you&#x27;re learning right now? (Language, skill, etc.)（最近在学什么？语言、技能等）
-Do you have any pets? Tell me about them!（有宠物吗？聊聊它们吧！）
-What&#x27;s your favorite season and why?（最喜欢的季节是？为什么？）
-Beach holiday or city break?（海边度假还是城市短途游？）
-Are you into photography? What do you like to shoot?（喜欢摄影吗？喜欢拍什么？）
-What&#x27;s a skill you wish you had?（希望自己拥有什么技能？）
-Do you collect anything?（有收藏什么吗？）
-What&#x27;s the last thing you did for the first time?（最近第一次尝试了什么？）
-Are you a planner or more go-with-the-flow?（计划派还是随性派？）
-What&#x27;s the best piece of advice you&#x27;ve ever received?（收到过最好的建议是什么？）
-If you could have any superpower, what would it be?（如果有超能力，你想要什么？）
-What&#x27;s something you&#x27;re grateful for today?（今天有什么让你感恩的事？）
-What&#x27;s a random fact you know?（分享一个你知道的冷知识？）
-What&#x27;s one thing you wish more people knew about your country/culture?（你希望更多人了解你国家 / 文化的哪一点？）
-What&#x27;s a common misconception about your country?（对你们国家常见的误解是什么？）
-What&#x27;s the most useful app on your phone?（手机里最实用的 APP 是哪个？）
-What&#x27;s your favorite way to spend a rainy day?（下雨天最喜欢怎么过？）
-If you could instantly become an expert in something, what would it be?（如果能立刻成为某方面专家，你想是什么？）
-What&#x27;s a tradition you think is cool or interesting?（你觉得很酷或有趣的传统是什么？）
-What&#x27;s the best gift you&#x27;ve ever given or received?（送过或收到过最棒的礼物是什么？）
-What&#x27;s something that always makes you smile?（什么东西总能让你微笑？）
-What&#x27;s a skill you think everyone should learn?（你觉得每个人都该学的技能是什么？）
-What&#x27;s the most interesting conversation you&#x27;ve had recently?（最近有过最有趣的谈话是什么？）
-What&#x27;s your guilty pleasure? (TV show, snack, activity)（你的 guilty pleasure 是什么？（剧、零食、活动））
-Any funny/embarrassing language mix-up stories?（有什么搞笑 / 尴尬的语言混淆故事吗？）
-What&#x27;s the weirdest dream you&#x27;ve had?（做过最奇怪的梦是什么？）
-If you were a food, what would you be and why?（如果你是食物，你会是什么？为什么？）
-What&#x27;s something people always get wrong about your name/country?（关于你的名字 / 国家，人们常搞错什么？）
-What&#x27;s the most useless talent you have?（你有什么最没用的才能？）
-What animal do you feel you relate to the most?（你觉得自己最像哪种动物？）
-If you could time travel, where/when would you go?（如果能时间旅行，你想去哪儿 / 什么时代？）
-What&#x27;s the strangest thing you&#x27;ve ever eaten?（吃过最奇怪的东西是什么？）
-Would you rather fight one horse-sized duck or 100 duck-sized horses?（你愿意跟一只马大小的鸭子打，还是 100 只鸭子大小的马打？）
-What&#x27;s your favorite &quot;dad joke&quot;?（你最喜欢的 “冷笑话” 是什么？）
-What&#x27;s the funniest meme you&#x27;ve seen recently?（最近看过最搞笑的梗图是什么？）
-What&#x27;s your go-to karaoke song?（你的 KTV 必点曲目是什么？）
-If you could only eat one cuisine for the rest of your life, what would it be?（如果余生只能吃一种菜系，你选什么？）
-What&#x27;s something you believed as a kid that sounds silly now?（小时候相信过什么现在觉得很傻的事情？）
-What&#x27;s your spirit animal and why?（你的精神动物是什么？为什么？）
-I don&#x27;t care who is doing better than me.（我不在乎谁做得比我好。）
-Because the truth is, I&#x27;m not in competition with anyone else.（因为事实是，我没有和任何人竞争。）
-The only person I need to be better than is the person I was yesterday.（我唯一需要超越的人就是昨天的我。）
-Last year I was different.（去年我变了。）
-I&#x27;ve grown, improved and learned a lot.（我成长、进步了很多，也学到了很多。）
-That&#x27;s what really matters.（这才是真正重要的。）
-Every day I wake up ready to push myself further.（我每天醒来都准备让自己更进一步。）
-To challenge my limits.（去挑战我的极限。）
-And to be the best version of myself.（去成为最好的自己。）
-Nothing is impossible if you put your mind to it.（只要你用心，没有什么是不可能的。）
-Hard work pays off.（努力总会有回报。）
-Never give up on your dreams.（永远不要放弃你的梦想。）
-Believe in yourself and you can achieve anything.（相信自己，你就能实现任何事。）
-Every mistake is a lesson.（每一个错误都是一次教训。）
-It&#x27;s never too late to start over.（重新开始永远不嫌晚。）
-Success comes from persistence.（成功源于坚持。）
-You have the power to change your life.（你有能力改变自己的生活。）
-Don&#x27;t let fear hold you back.（不要让恐惧阻碍你。）
-The harder you work, the luckier you get.（越努力，越幸运。）
-Stay positive and good things will happen.（保持积极，好事就会发生。）
-Your attitude determines your altitude.（你的态度决定你的高度。）
-Small steps lead to big changes.（小步前进带来大变化。）
-Focus on progress, not perfection.（关注进步，而不是完美。）
-You are capable of more than you think.（你比自己想象的更有能力。）
-Embrace challenges as opportunities.（把挑战视为机会。）
-Learn from the past, live in the present, hope for the future.（从过去学习，活在当下，期待未来。）
-The only failure is giving up.（唯一的失败是放弃。）
-Surround yourself with positive people.（让自己身边都是积极的人。）
-Take risks, because that&#x27;s where growth happens.（勇于冒险，因为成长就发生在那里。）
-Your hard work will be rewarded.（你的努力会得到回报。）
-Dream big and work hard to achieve it.（大胆梦想，并努力去实现它。）
-Don&#x27;t compare yourself to others.（不要拿自己和别人比较。）
-Be kind to yourself.（对自己好一点。）
-Every day is a new chance to improve.（每一天都是提升自己的新机会。）
-Trust the process.（相信过程。）
-You are in control of your own happiness.（你掌控着自己的幸福。）
-Never stop learning.（永远不要停止学习。）
-Challenges make you stronger.（挑战让你更强大。）
-Your potential is limitless.（你的潜力是无限的。）
-Make today count.（让今天有意义。）
-It&#x27;s okay to ask for help.（寻求帮助是没关系的。）
-Perseverance is the key to success.（毅力是成功的关键。）
-Stay true to yourself.（忠于自己。）
-Good things take time.（好事多磨。）
-You can do hard things.（你能做好困难的事。）
-Celebrate small victories.（庆祝小胜利。）
-The best time to start is now.（开始的最佳时间是现在。）
-Your efforts matter.（你的努力很重要。）
-Don&#x27;t let setbacks define you.（不要让挫折定义你。）
-Keep going, even when it&#x27;s hard.（即使很难，也要坚持下去。）
-You are stronger than you think.（你比自己想象的更强大。）
-Success is a journey, not a destination.（成功是一段旅程，而不是一个终点。）
-Focus on what you can control.（关注你能控制的东西。）
-Be grateful for what you have.（感恩你所拥有的。）
-Take action, don&#x27;t just wait.（采取行动，不要只是等待。）
-Your mindset is everything.（你的心态就是一切。）
-Never underestimate yourself.（永远不要低估自己。）
-Keep a positive mindset.（保持积极的心态。）
-You have the strength to overcome anything.（你有力量克服任何事。）
-The future is yours to create.（未来由你创造。）
-四、情感与观点表达
-I agree with you.（我同意你的看法。）
-I disagree with you.（我不同意你的看法。）
-I think so.（我是这么认为的。）
-I don&#x27;t think so.（我不这么认为。）
-In my opinion, this is better.（在我看来，这个更好。）
-I feel that we should try again.（我觉得我们应该再试一次。）
-It seems to me that he&#x27;s right.（在我看来，他是对的。）
-As far as I&#x27;m concerned, it&#x27;s not a problem.（就我而言，这不是个问题。）
-I&#x27;m in favor of this plan.（我支持这个计划。）
-I&#x27;m against this idea.（我反对这个想法。）
-I find myself in a state of happiness.（我发现自己正处于一种愉悦的状态中。）
-A sense of sadness has come over me.（一种悲伤的情绪笼罩着我。）
-I am experiencing a feeling of anger.（我正经历着一种愤怒的情绪。）
-I am filled with a sense of excitement.（我内心充满了兴奋之感。）
-I am overcome by a feeling of nervousness.（我被一种紧张的情绪所困扰。）
-I am gripped by a sense of fear.（我被一种恐惧感所攫住。）
-I am feeling a great deal of tiredness.（我正感到极度的疲惫。）
-I am suffering from a strong sensation of hunger.（我正遭受着强烈的饥饿感。）
-I am experiencing an intense feeling of thirst.（我正经历着强烈的口渴感。）
-I am enduring a state of boredom.（我正忍受着一种无聊的状态。）
-I am struck by a feeling of surprise.（我被一种惊讶的情绪所触动。）
-I am in a state of confusion.（我处于一种困惑的状态中。）
-I am filled with a sense of satisfaction.（我内心充满了满足感。）
-I am overcome by a feeling of disappointment.（我被一种失望的情绪所淹没。）
-I feel a sense of pride on your behalf.（我为你感到一种自豪之情。）
-I would like to express my apologies.（我想表达我的歉意。）
-I wish to convey my gratitude to you.（我希望向你表达我的感激之情。）
-You are welcome to accept my assistance without hesitation.（不必客气，随时可以接受我的帮助。）
-I hold a deep and profound love for you.（我对你怀有深沉而真挚的爱意。）
-I have a favorable opinion of you.（我对你抱有好感。）
-I have a strong dislike for this.（我对这个事物怀有强烈的厌恶之情。）
-This does not cause me any concern.（这并不会引起我的任何顾虑。）
-I have a genuine concern for your well-being.（我真心在乎你的幸福与安康。）
-I experience a sense of longing for you.（我对你怀有思念之情。）
-I have chosen to grant you forgiveness.（我已选择原谅你。）
-I place my trust in you.（我对你抱有信任。）
-I have a feeling of doubt regarding this.（我对此抱有怀疑的态度。）
-I&#x27;m not sure.（我不确定。）
-I have no idea.（我不知道。）
-I think there’s a real chance that this could happen.（我觉得这件事确实有发生的可能。）
-There’s absolutely no way that something like this could ever happen.（这种事是绝对不可能发生的。）
-Given the situation, it’s really necessary for us to get this done.（考虑到目前的情况，我们确实有必要把这件事完成。）
-Honestly, there’s no real need for us to go through all that trouble.（说实话，我们实在没必要费这么大劲做这个。）
-This is something that matters a great deal to everyone involved.（这件事对所有相关的人来说都非常重要。）
-When you think about it, this isn’t really all that important in the end.（仔细想想，这件事到头来也没那么重要。）
-I find this really interesting—it’s got so many unexpected details.（我觉得这个很有趣，里面有很多意想不到的细节。）
-This is so boring that I can barely stay focused on it for more than a minute.（这太无聊了，我几乎连一分钟都集中不了注意力。）
-This task is so easy that even someone with no experience could finish it quickly.（这项任务太简单了，就算是没经验的人也能很快完成。）
-This is such a difficult problem that it might take us hours to figure it out.（这道题太难了，我们可能得花好几个小时才能解出来。）
-You have to be careful with this—it’s really dangerous if you’re not paying attention.（做这个得小心，一不小心就会很危险。）
-Don’t worry about this at all—it’s completely safe as long as you follow the rules.（完全不用担心这个，只要按规则来就绝对安全。）
-This place is so beautiful that I can’t stop taking pictures of it.（这个地方太漂亮了，我忍不住一直拍照。）
-I’m sorry to say, but that design is really ugly and doesn’t fit in with the rest.（抱歉，不过那个设计真的很难看，和其他的一点都不搭。）
-The food here is so delicious that I keep going back for seconds.（这里的食物太美味了，我忍不住一再添饭。）
-That movie was terrible—I couldn’t even finish watching the first half.（那部电影太糟糕了，我连前半部分都没看完。）
-This item is so expensive that I’d have to save up for months to afford it.（这个东西太贵了，我得攒好几个月的钱才能买得起。）
-You should grab this while you can—it’s really cheap for what it is.（有机会的话赶紧买这个，就它的品质来说真的很便宜。）
-It’s so hot outside that I can barely stand being in the sun for five minutes.（外面太热了，我在太阳底下待五分钟都受不了。）
-It’s so cold today that even my gloves aren’t keeping my hands warm.（今天太冷了，连手套都挡不住寒气，手还是冻得慌。）
-The room feels really warm and cozy, perfect for a lazy afternoon.（房间里很暖和，还特别舒服，适合慵懒的午后。）
-The breeze makes it feel really cool outside, which is a nice break from the heat.（微风吹过，外面很凉爽，总算能从热浪里喘口气了。）
-It’s a sunny day with clear blue skies—perfect for a picnic in the park.（今天天气晴朗，天空湛蓝，特别适合去公园野餐。）
-It’s been raining nonstop since this morning, so we’ll have to cancel the hike.（从早上起就一直在下雨，我们只好取消徒步了。）
-It’s really windy out there—you’d better hold onto your hat so it doesn’t blow away.（外面风很大，你最好抓紧帽子，别被吹跑了。）
-It’s a cloudy day with no sign of the sun, but at least it’s not raining.（今天多云，一点太阳都看不到，不过好在没下雨。）
-It’s snowing so heavily that the roads are starting to get covered in a thick layer.（雪下得很大，路面已经开始积起厚厚的一层了。）
-This idea you came up with is really good—I think it could solve our problem.（你想出的这个主意真不错，我觉得能解决我们的问题。）
-That idea sounds really bad—if we try it, it might make things even worse.（那个主意听起来太糟糕了，要是我们真那么做，情况可能会更糟。）
-You did a great job on this project—everyone is really impressed with the results.（你这个项目做得太棒了，大家都对结果赞不绝口。）
-It looks like you made a mistake here—let me show you where you went wrong.（你这里好像犯了个错，我指给你看问题出在哪儿。）
-I’m really proud of what I accomplished—I put so much effort into it.（我为自己取得的成绩感到很骄傲，我在这上面花了太多心血了。）
-I really regret doing that—if I could go back, I’d definitely make a different choice.（我真后悔那样做，要是能重来，我肯定会选另一条路。）
-I’m really looking forward to the trip next week—I’ve been planning it for months.（我特别期待下周的旅行，这都计划好几个月了。）
-I’m really afraid of spiders—even a small one makes me jump.（我特别害怕蜘蛛，哪怕一只小小的都会吓我一跳。）
-I’m so tired of this routine—it feels like I’m doing the same thing every single day.（我太厌倦这种一成不变的生活了，感觉每天都在重复做一样的事。）
-I’m really interested in this new hobby—it’s got me spending hours practicing.（我对这个新爱好特别感兴趣，一练习就是好几个小时。）
-I’m pretty good at playing the guitar—I’ve been practicing since I was a kid.（我吉他弹得还不错，从小就开始练了。）
-I’m really bad at sports—no matter how hard I try, I can never keep up with everyone else.（我体育特别差，不管怎么努力，都跟不上别人的节奏。）
-I’m so used to getting up early now that I wake up before my alarm even goes off.（我现在已经习惯早起了，闹钟还没响就自己醒了。）
-I’m not used to the spicy food here—it’s way hotter than what I’m used to.（我还不习惯这里的辣菜，比我以前吃的辣多了。）
-I can’t stand this noise anymore—it’s been going on all day and giving me a headache.（我再也受不了这噪音了，响了一整天，弄得我头疼。）
-I can’t help laughing when I see that funny video—it’s just too hilarious.（看到那个搞笑视频我就忍不住笑，实在太逗了。）
-I’m really sorry to hear that something like that happened to you.（听到你遇到这种事，我真的很抱歉。）
-Congratulations on your success—all your hard work has finally paid off.（恭喜你取得成功，你的所有努力总算有了回报。）
-I’m so happy for you—you deserve all the good things that are happening.（真为你高兴，这些好事都是你应得的。）
-That’s really too bad—losing your phone right before the trip must be so stressful.（那太糟糕了，旅行前丢了手机肯定特别让人着急。）
-What a pity that we missed the last bus—now we’ll have to walk all the way home.（真遗憾我们没赶上末班车，现在得一路走回家了。）
-That’s absolutely wonderful news—I can’t wait to celebrate with you.（这真是个好消息，我等不及要和你一起庆祝了。）
-That’s so amazing—I can’t believe you managed to finish it in such a short time.（太神奇了，真不敢相信你这么短时间就完成了。）
-That’s completely incredible—no one thought something like that was possible.（这太难以置信了，没人觉得这种事能成。）
-That’s totally ridiculous—there’s no logic behind what you’re saying at all.（这太荒谬了，你说的话一点逻辑都没有。）
-That’s really unfair—why should they get all the credit when we did most of the work?（这太不公平了，大部分活儿都是我们干的，凭什么功劳都归他们？）
-That’s actually really reasonable—your explanation makes perfect sense.（这其实很合理，你的解释完全说得通。）
-That’s totally understandable—anyone would have reacted the same way.（这完全可以理解，换了谁都会这么做的。）
-That was really unexpected—I had no idea things would turn out this way.（这太出乎意料了，我根本没想到事情会变成这样。）
-That’s perfectly normal—most people go through this stage at some point.（这很正常，大多数人都会在某个阶段经历这个。）
-That’s really strange—usually, things don’t happen like this without a reason.（这太奇怪了，通常来说，事情不会平白无故变成这样。）
-I feel exactly the same way about this—your words really resonate with me.（我对这件事的感觉和你一模一样，你说的话太能引起我的共鸣了。）
-I see your point now—you’ve explained it so clearly that I get it.（我现在明白你的意思了，你解释得很清楚，我懂了。）
-I don’t get it at all—could you try to break it down for me again?（我完全不明白，你能再给我好好讲讲吗？）
-Could you please explain it again in a different way? I’m still a bit confused.（你能换种方式再解释一遍吗？我还是有点糊涂。）
-I’m not really following you here—maybe you could slow down a bit?（我有点跟不上你的思路了，或许你可以说得慢一点？）
-What do you mean by that exactly? I want to make sure I understand.（你这话具体是什么意思？我想确认一下我没理解错。）
-Let me think about it for a minute—I need to sort through all the details first.（让我好好想想，我得先理清楚所有细节。）
-I’ll definitely consider it carefully before giving you an answer.（我会认真考虑，之后再给你答复。）
-I’ll take some time to think it over and make a decision by tomorrow.（我会花点时间考虑，明天给你一个决定。）
-I’m not quite ready yet—give me a little more time to prepare, please.（我还没完全准备好，再给我一点时间准备一下吧。）
-I’m all ready to go—just tell me when we can start.（我已经准备好了，就等你说什么时候开始了。）
-I need a bit more time to finish this—could we extend the deadline by a day?（我需要再多一点时间完成这个，截止日期能往后延一天吗？）
-I’m afraid I have to go now—my next meeting is starting in 10 minutes.（恐怕我现在得走了，下一个会十分钟后就要开始了。）
-I’ll be back soon, so don’t go anywhere—I just need to grab something from the car.（我很快就回来，别走开，我去车里拿点东西就好。）
-I’ll see you later this afternoon—let’s meet up at the café like we planned.（下午回头见，咱们按计划在咖啡馆碰面。）
-Make sure to take good care of yourself while I’m gone—don’t forget to eat properly.（我不在的时候一定要照顾好自己，别忘了好好吃饭。）
-Don’t worry too much about it—I’m sure everything will work out in the end.（别太担心了，我相信最后一切都会好起来的。）
-There’s no need to panic—everything will be okay once we figure out a solution.（别慌，只要我们找到解决办法，一切都会好的。）
-It’s going to be just fine—we’ve dealt with harder things than this before.（会没事的，比这难的事我们都处理过。）
-Cheer up—things might seem bad now, but they’ll get better soon.（振作起来，现在看起来可能不太好，但很快就会好转的。）
-Come on, you can do this—just push a little harder and you’ll make it.（加油，你能做到的，再努努力就成了。）
-I know you can do it—you’ve got all the skills you need to succeed.（我知道你能做到，你有成功所需的所有能力。）
-Believe in yourself—if you don’t, how can you expect others to?（相信自己，连你自己都不相信自己，又怎么指望别人相信你呢？）
-Don’t give up now—you’ve come so far, and quitting would be a shame.（别现在放弃，你都坚持这么久了，放弃就太可惜了。）
-Try your best with this—even if it doesn’t work out, you’ll know you gave it your all.（尽力去做吧，就算没成，你也知道自己已经全力以赴了。）
-It’s definitely worth a try—you never know what might happen until you do.（这绝对值得一试，不试怎么知道会有什么结果呢。）
-There’s no harm in trying it out—at worst, we’ll just go back to the original plan.（试试也无妨，大不了我们就回到原来的计划。）
-What’s the worst that could happen if we try? I don’t think it’ll be that bad.（就算我们试了，最坏能怎么样呢？我觉得也不会太糟。）
-I have a really good feeling about this project—I think it’s going to be a big success.（我对这个项目有种很好的预感，我觉得它会非常成功。）
-I have a bad feeling about this decision—I think it might lead to problems later.（我对这个决定有种不好的预感，我觉得之后可能会出问题。）
-It’s totally up to you to decide—I’ll support whatever choice you make.（这事完全听你的，你做什么决定我都支持。）
-You can be the one to decide—I trust your judgment on this.（你来决定吧，我相信你的判断。）
-It’s your choice in the end, so go with whatever feels right for you.（最终还是你的选择，选你觉得对的就好。）
-I don’t really care one way or the other—it makes no difference to me.（我其实不在乎是这样还是那样，对我来说都一样。）
-It doesn’t really matter in the long run—let’s not waste time arguing about it.（从长远来看这其实没什么大不了的，别浪费时间争论了。）
-Who even cares about something like that? It’s not worth getting upset over.（谁会在乎这种事啊，不值得为它生气。）
-So what if it happened? It’s not like it changes anything important.（那又怎么样呢？又不会改变什么重要的事。）
-I’m really sorry I’m late—the traffic was so bad that I couldn’t get here any sooner.（对不起我迟到了，路上太堵了，实在没办法早点到。）
-It’s totally okay—don’t worry about it, I just got here a minute ago.（没关系，别担心，我也是一分钟前才到的。）
-Thank you so much for your help with this—I couldn’t have done it without you.（非常感谢你帮我做这个，没有你我肯定完成不了。）
-It’s my pleasure to help—just let me know if you need anything else.（能帮上忙是我的荣幸，有其他需要尽管告诉我。）
-I really appreciate all the effort you put into this—it means a lot to me.（我非常感激你在这上面花的所有心血，这对我来说意义重大。）
-You’re being so kind to go out of your way to help me like this.（你特意这么帮我，真是太好了。）
-He’s such a nice person—he’s always willing to lend a hand when someone needs help.（他真是个好人，谁需要帮忙他总是愿意伸出援手。）
-She’s not a good person at all—she’s always trying to take advantage of others.（她根本不是个好人，总想着占别人便宜。）
-They’re really friendly people—they welcomed us warmly when we first moved here.（他们人很友好，我们刚搬来的时候就热情地欢迎了我们。）
-He’s so rude that he never says “please” or “thank you” to anyone.（他太粗鲁了，对任何人都从来不说 “请” 或 “谢谢”，甚至经常打断别人说话。）
-She is really intelligent; no matter how complex the problem is, she can always find a solution quickly.（她真的很聪明，不管多复杂的问题，她总能快速找到解决办法。）
-He is really not that smart; even if things are explained clearly, he often misunderstands the meaning.（他实在不太聪明，就算把事情解释得很清楚，他也常常理解错意思。）
-They are extremely hardworking people; in order to achieve their goals, they often work overtime until late at night without any complaints.（他们是非常勤奋的人，为了完成目标，经常加班到深夜也毫无怨言。）
-He is so lazy; even though there are many things to do, he always procrastinates and is unwilling to start.（他太懒惰了，明明有很多事情要做，却总是拖延着不愿意动手。）
-She is not only beautiful but also has an excellent temperament; she attracts attention wherever she goes.（她不仅长得漂亮，气质也特别好，走到哪里都很引人注目。）
-He is not only handsome but also very courteous; he is always considerate when getting along with others.（他不仅英俊，还特别有风度，和别人相处时总是很体贴周到。）
-五、问候与寒暄
-Hey, what&#x27;s up?（嘿，最近怎么样？）
-How&#x27;s it going?（最近还好吗？）
-Long time no see!（好久不见！）
-What have you been up to?（你最近在忙什么？）
-Not much, just chilling.（没什么，就闲着。）
-What&#x27;s new with you?（你最近有什么新鲜事？）
-Same old, same old.（老样子，没什么特别的。）
-Can&#x27;t complain.（还行吧，没什么可抱怨的。）
-You look great today!（你今天看起来很棒！）
-Thanks, you too!（谢谢，你也是！）
-Good morning!（早上好！）
-Good afternoon!（下午好！）
-Good evening!（晚上好！）
-How are you?（你好吗？）
-I&#x27;m fine, thank you. And you?（我很好，谢谢。你呢？）
-Not too bad.（还不错。）
-Pretty good.（相当好。）
-Could be better.（还能更好。）
-What&#x27;s going on?（发生什么事了？）
-How have you been?（你近来如何？）
-Nice to see you.（很高兴见到你。）
-Nice to meet you.（很高兴认识你。）
-It&#x27;s a pleasure to meet you.（很荣幸认识你。）
-How do you do?（你好。）
-Pleased to meet you.（很高兴认识你。）
-What&#x27;s your name?（你叫什么名字？）
-My name is [Name].（我叫 [名字]。）
-May I have your name?（我可以知道你的名字吗？）
-Where are you from?（你来自哪里？）
-I&#x27;m from [Place].（我来自 [地方]。）
-How long have you been here?（你在这里多久了？）
-I&#x27;ve been here for [Time].（我在这里 [时间] 了。）
-Do you like it here?（你喜欢这里吗？）
-Yes, it&#x27;s a great place.（是的，这是个好地方。）
-Not really, it&#x27;s too noisy.（不太喜欢，太吵了。）
-What do you do?（你是做什么的？）
-I&#x27;m a [Job].（我是一名 [职业]。）
-How do you like your job?（你喜欢你的工作吗？）
-I love it. It&#x27;s very interesting.（我喜欢。它很有趣。）
-It&#x27;s okay, but sometimes it&#x27;s tiring.（还行，但有时候很累。）
-Have a good day!（祝你今天愉快！）
-You too!（你也是！）
-Have a nice weekend!（祝你周末愉快！）
-Thanks, same to you.（谢谢，你也一样。）
-See you later!（回头见！）
-See you soon!（很快见！）
-Goodbye!（再见！）
-Bye!（拜拜！）
-Bye-bye!（拜拜！）
-Take care!（保重！）
-You too, take care.（你也是，保重。）
-Have a safe trip!（旅途平安！）
-Thanks, I will.（谢谢，我会的。）
-Welcome!（欢迎！）
-Thank you.（谢谢。）
-It&#x27;s good to have you here.（很高兴你在这里。）
-Thanks for coming.（谢谢你的到来。）
-My pleasure.（我的荣幸。）
-How was your weekend?（你周末过得怎么样？）
-It was great. I went to the park.（很棒。我去公园了。）
-What did you do over the weekend?（你周末做了什么？）
-I stayed at home and watched TV.（我待在家里看电视了。）
-Did you have a good time?（你玩得开心吗？）
-Yes, I had a wonderful time.（是的，我玩得很开心。）
-Not really, it was boring.（不太开心，很无聊。）
-How&#x27;s the family?（家人怎么样？）
-They&#x27;re all fine, thanks.（他们都很好，谢谢。）
-Give my regards to your family.（代我向你的家人问好。）
-I will, thank you.（我会的，谢谢。）
-How&#x27;s your pet?（你的宠物怎么样？）
-He&#x27;s doing well, thanks for asking.（他很好，谢谢你的关心。）
-What a lovely day, isn&#x27;t it?（天气真好，不是吗？）
-Yes, it&#x27;s perfect.（是的，太完美了。）
-It&#x27;s raining heavily, isn&#x27;t it?（雨下得很大，不是吗？）
-Yes, it is. I hope it stops soon.（是的。希望很快停。）
-Cold today, isn&#x27;t it?（今天很冷，不是吗？）
-Yes, very cold. I need to wear more clothes.（是的，很冷。我需要多穿点衣服。）
-Hot enough for you?（对你来说够热吗？）
-Yes, it&#x27;s too hot.（是的，太热了。）
-Not really, I like the heat.（不太，我喜欢热天。）
-Did you hear about [News]?（你听说 [新闻] 了吗？）
-Yes, it&#x27;s crazy.（是的，太疯狂了。）
-No, what happened?（没有，发生什么了？）
-I&#x27;ll tell you about it later.（我稍后告诉你。）
-That&#x27;s a nice shirt.（那件衬衫很好看。）
-Thanks, I just bought it.（谢谢，我刚买的。）
-Your hair looks nice.（你的头发看起来很漂亮。）
-Thank you, I had it cut yesterday.（谢谢，我昨天剪的。）
-You did a good job.（你做得很好。）
-Thanks, I tried my best.（谢谢，我尽力了。）
-I&#x27;m sorry to hear that.（听到那个消息我很抱歉。）
-It&#x27;s okay, things will get better.（没关系，事情会好起来的。）
-Congratulations!（恭喜！）
-Thank you very much.（非常感谢。）
-Happy birthday!（生日快乐！）
-Thank you!（谢谢！）
-Merry Christmas!（圣诞快乐！）
-Happy New Year!（新年快乐！）
-Happy Valentine&#x27;s Day!（情人节快乐！）
-Happy Thanksgiving!（感恩节快乐！）</div>
+  <div class="content lines" style=""><div class="ttsbar"><button class="btn btn-main" id="btnPlay" onclick="ttsPlay()">▶ 整页朗读</button><label>语速 <select onchange="ttsSpeed(this)"><option value="0.6">0.6x 慢速</option><option value="0.8">0.8x 稍慢</option><option value="1" selected>1.0x 常速</option><option value="1.2">1.2x 稍快</option><option value="1.5">1.5x 快速</option></select></label><span id="ttsHint">点行首 🔊 朗读单行；英文行用英文语音，中文行用中文语音</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>全英交流无非就这700句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>日常活动与安排</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the plan for today?（今天有什么计划？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just hanging out with friends.（就跟朋友聚聚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Wanna grab a coffee?（想喝杯咖啡吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, why not?（好啊，没问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where should we go?（我们去哪儿？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How about that new café?（那家新开的咖啡店怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sounds good to me.（我觉得不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s head there now.（我们现在就过去吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you need a ride?（要搭车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nah, I&#x27;ll walk.（不用了，我走就行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you feel like eating?（你想吃什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m craving some pizza.（我想吃披萨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Me too, let&#x27;s order some.（我也是，点一些吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Should we get it delivered?（我们叫外卖吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nah, let&#x27;s pick it up.（不用，我们去拿吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cool, I&#x27;ll drive.（好，我开车。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What toppings do you want?（你要什么配料？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just pepperoni is fine.（香肠就行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Extra cheese?（要加芝士吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yeah, why not!（要，当然要！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This place is packed!（这地方人真多！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yeah, it&#x27;s always busy.（是啊，总是很忙。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long is the wait?（要等多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>About 20 minutes.（大概 20 分钟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s not too bad.（还行，不算太久。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s just wait outside.（我们在外面等吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good idea, it&#x27;s stuffy in here.（好主意，里面太闷了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you come here often?（你常来这儿吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yeah, it&#x27;s my favorite spot.（对啊，这是我最喜欢的地方。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can see why!（难怪！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The food here is amazing!（这儿的食物太棒了！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I know, right?（对吧？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Best pizza in town.（城里最好吃的披萨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Totally worth the wait.（等得值了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s dig in!（开动吧！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is so good!（太好吃了！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m already full.（我已经饱了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Save room for dessert?（还吃得下甜点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Maybe just a bite.（可能只能吃一口。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s share something.（我们分着吃吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time do you usually get up?（你通常几点起床？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I usually get up at 7 o&#x27;clock.（我通常 7 点起床。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you do after getting up?（起床后你做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I brush my teeth and wash my face.（我刷牙洗脸。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have breakfast every day?（你每天都吃早餐吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I always have breakfast.（是的，我总是吃早餐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you have for breakfast?（你早餐吃什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I usually have bread and milk.（我通常吃面包和牛奶。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When do you go to work/school?（你什么时候去上班 / 上学？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I go to work/school at 8:30.（我 8 点半去上班 / 上学。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you go to work/school?（你怎么去上班 / 上学？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I take the bus.（我坐公交车。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I drive my car.（我开自己的车。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I walk.（我走路。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time do you have lunch?（你几点吃午饭？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have lunch at 12 o&#x27;clock.（我 12 点吃午饭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do you have lunch?（你在哪里吃午饭？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have lunch in the office/cafeteria.（我在办公室 / 食堂吃午饭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you do in the afternoon?（你下午做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have meetings and finish my work.（我开会并完成工作。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have classes.（我上课。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time do you finish work/school?（你几点下班 / 放学？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I finish at 5:30.（我 5 点半结束。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you do after work/school?（下班后 / 放学后你做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I go to the gym.（我去健身房。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I go shopping.（我去购物。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I cook dinner.（我做晚饭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you have for dinner?（你晚饭吃什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have rice, meat and vegetables.（我吃米饭、肉和蔬菜。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you watch TV in the evening?（你晚上看电视吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I watch TV for an hour.（是的，我看一个小时电视。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite TV show?（你最喜欢的电视节目是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I like watching sitcoms.（我喜欢看情景喜剧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When do you go to bed?（你几点睡觉？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I go to bed at 11 o&#x27;clock.（我 11 点睡觉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you read books before bed?（你睡前看书吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I read for a while.（是的，我读一会儿。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are you going to do this weekend?（这个周末你打算做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to visit my parents.（我打算去看望我的父母。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to go hiking.（我打算去徒步旅行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you going to the party on Saturday?（你周六去参加派对吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I am.（是的，我去。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, I have other plans.（不，我有其他计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time will the party start?（派对几点开始？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It will start at 7 pm.（晚上 7 点开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the party?（派对在哪里举行？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s at John&#x27;s house.（在约翰家。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you need to buy anything for the party?（你需要为派对买些什么吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I&#x27;m going to buy a bottle of wine.（是的，我打算买一瓶酒。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When are you going to leave for the trip?（你打算什么时候出发去旅行？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to leave next Monday.（我打算下周一出发。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long will you stay there?（你要在那里待多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll stay for a week.（我要待一个星期。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you need to pack?（你需要打包什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to pack some clothes and toiletries.（我需要打包一些衣服和洗漱用品。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you going to travel alone?（你打算一个人旅行吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I am.（是的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, I&#x27;m going with my friends.（不，我和我的朋友一起去。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the first thing you&#x27;re going to do when you arrive?（你到达后要做的第一件事是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to check into the hotel.（我要去酒店办理入住。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any plans for next month?（你下个月有什么计划吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to take a course.（我打算参加一个课程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to start a new project.（我打算开始一个新项目。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When is your birthday?（你的生日是什么时候？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My birthday is on [Date].（我的生日在 [日期]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are you going to do for your birthday?（你生日打算做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m going to have a small party with my friends.（我打算和我的朋友开个小派对。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you want to come to my birthday party?（你想来参加我的生日派对吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I&#x27;d love to.（是的，我很乐意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, I&#x27;m sorry, I can&#x27;t.（不，对不起，我不能去。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time does the store open?（商店几点开门？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It opens at 9 am.（早上 9 点开门。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time does it close?（几点关门？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It closes at 9 pm.（晚上 9 点关门。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you want to go shopping with me?（你想和我一起去购物吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, that sounds fun.（是的，听起来很有趣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you need to buy?（你需要买什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need to buy some new clothes.（我需要买一些新衣服。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where do you want to go shopping?（你想去哪里购物？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s go to the mall.（我们去商场吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much does this cost?（这个多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $50.（50 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s too expensive.（太贵了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you give me a discount?（能打折吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll take it.（我买了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you accept credit cards?（接受信用卡吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, we do.（是的，我们接受。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When is the movie starting?（电影什么时候开始？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It starts at 8 pm.（晚上 8 点开始。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is a ticket?（一张票多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $15.（15 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you want to see a movie tonight?（今晚想看电影吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, what&#x27;s playing?（好啊，在上映什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s go to the park tomorrow.（明天我们去公园吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good idea, we can have a picnic.（好主意，我们可以野餐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What should we bring for the picnic?（野餐我们要带些什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Some sandwiches and drinks.（一些三明治和饮料。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When will you finish your work?（你什么时候完成工作？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll finish it by 5 pm.（下午 5 点前我会完成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help me with this?（你能帮我做这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, I&#x27;ll do it after lunch.（当然，午饭后我来做。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time is the meeting?（会议几点开始？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s at 2 pm in the conference room.（下午 2 点在会议室。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you need to prepare anything for the meeting?（你需要为会议准备什么吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I need to make a presentation.（是的，我需要做一个演示。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you free tomorrow afternoon?（你明天下午有空吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, what&#x27;s up?（有空，怎么了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let&#x27;s have a meeting then.（那我们开个会吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m busy tomorrow, how about the day after?（我明天很忙，后天怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s fine.（可以。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>实用场景对话</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the bathroom?（洗手间在哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s over there, next to the elevator.（在那边，电梯旁边。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How can I get to the train station?（我怎么去火车站？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can take the bus No. 5.（你可以坐 5 路公交车。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a bank nearby?（附近有银行吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, there&#x27;s one on Main Street.（是的，主街上有一家。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time does the library open?（图书馆几点开门？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It opens at 9 am.（早上 9 点开门。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you tell me the way to the hospital?（你能告诉我去医院的路吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Go straight ahead, then turn left at the second crossing.（一直往前走，在第二个十字路口左转。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is this shirt?（这件衬衫多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $30.（30 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I try it on?（我可以试穿一下吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, the fitting room is over there.（当然，试衣间在那边。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have this in a larger size?（这件有大一点的尺码吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me check. Yes, we do.（我查一下。是的，我们有。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll take this one.（我买这件。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here you are.（给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you, here&#x27;s the money.（谢谢，这是钱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here&#x27;s your change.（这是找你的零钱。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the weather like today?（今天天气怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s sunny and warm.（天气晴朗，很暖和。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Will it rain tomorrow?（明天会下雨吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The forecast says it will.（天气预报说会下雨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How is the food here?（这里的食物怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s very delicious.（非常美味。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I have the menu, please?（请给我菜单好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, here you are.（当然，给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you recommend?（你有什么推荐吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I recommend the steak.（我推荐牛排。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like a glass of water.（我想要一杯水。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Coming right up.（马上来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can we have the bill, please?（请给我们账单好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, here it is.（好的，这是账单。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is it?（多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $80.（80 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you accept tips?（收小费吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, but it&#x27;s not necessary.（是的，但不是必须的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to book a room.（我想预订一个房间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What kind of room would you like?（你想要什么样的房间？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A single room, please.（请给我一个单人间。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How many nights will you stay?（你要住几晚？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Three nights.（三晚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the price per night?（每晚多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $100 per night.（每晚 100 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll take it.（我订了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I have a wake-up call at 7 am?（早上 7 点能叫我起床吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, certainly.（是的，当然可以。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;d like to check out.（我想退房。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Please return your key card.（请归还你的房卡。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How can I get in touch with you?（我怎么联系你？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can call me at this number.（你可以打这个电话给我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have a phone number?（你有电话号码吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s 123-456-7890.（有，号码是 123-456-7890。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I borrow your pen?（我能借你的笔用一下吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, here you go.（当然，给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you pass the salt?（能把盐递给我吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Here you are.（给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you know what time it is?（你知道现在几点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s 3 o&#x27;clock.（3 点了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help me carry this?（你能帮我拿这个吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, no problem.（当然，没问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the date today?（今天几号？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s October 15th.（10 月 15 日。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What day is it today?（今天星期几？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s Monday.（星期一。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long will it take to get there?（到那里要多久？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>About 30 minutes.（大概 30 分钟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this seat taken?（这个座位有人吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, it&#x27;s free.（没有，空着呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I sit here?（我能坐这儿吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, please.（可以，请坐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite color?（你最喜欢的颜色是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I like blue.（我喜欢蓝色。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you speak English?（你会说英语吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, a little.（会一点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you speak more slowly?（你能说慢一点吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, I&#x27;ll speak more slowly.（当然，我会说慢一点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don&#x27;t understand.（我不明白。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me explain again.（我再解释一遍。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What does this word mean?（这个单词是什么意思？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It means...（它的意思是……）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you spell that?（那个怎么拼写？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s spelled C-H-I-C-K-E-N.（拼写是 C-H-I-C-K-E-N。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a post office near here?（这附近有邮局吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s across the street.（有，在街对面。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I send a letter here?（我能在这儿寄信吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, you can.（可以。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is a stamp?（一张邮票多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $0.55.（55 美分。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What time does the bus leave?（公交车几点发车？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It leaves at 4:30 pm.（下午 4 点 30 分发车。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where is the bus stop?（公交车站在哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s at the corner of the street.（在街角。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do I need to transfer?（我需要换乘吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, you need to transfer at the next stop.（是的，你需要在下一站换乘。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is the fare?（车费多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $2.（2 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I use a credit card to pay?（我能用信用卡支付吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, you need to use cash.（不能，你需要用现金。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is this the right bus for the museum?（这是去博物馆的公交车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it is.（是的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When will we arrive?（我们什么时候到？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In about 15 minutes.（大概 15 分钟后。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have a map?（你有地图吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, here&#x27;s one.（有，给你一张。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you show me where we are?（你能告诉我我们现在在哪里吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, we&#x27;re here.（当然，我们在这里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How far is it from here to the hotel?（从这里到酒店有多远？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s about 2 kilometers.（大概 2 公里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I walk there?（我能步行去那里吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s not too far.（可以，不太远。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a taxi stand nearby?（附近有出租车站吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, there&#x27;s one in front of the hotel.（有，酒店前面有一个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much will it cost to go to the airport?（去机场要多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>About $50.（大概 50 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you call a taxi for me?（你能帮我叫辆出租车吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, I&#x27;ll call one right away.（当然，我马上叫一辆。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the name of this street?（这条街叫什么名字？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s Main Street.（叫主街。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I buy a SIM card?（我在哪里能买到 SIM 卡？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can buy one at the convenience store.（你可以在便利店买到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much is a SIM card?（一张 SIM 卡多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s $20.（20 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you help me install it?（你能帮我安装吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sure, it&#x27;s easy.（当然，很简单。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there free Wi-Fi here?（这里有免费 Wi-Fi 吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, the password is 12345678.（有，密码是 12345678。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do I connect to it?（我怎么连接？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Just select the network and enter the password.（选择这个网络，输入密码就行。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My phone isn&#x27;t working.（我的手机坏了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Maybe the battery is dead.（可能电池没电了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where can I charge my phone?（我在哪里能给手机充电？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There&#x27;s a charging station over there.（那边有充电站。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can I use your charger?（我能借用你的充电器吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, here you are.（可以，给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the problem with your computer?（你的电脑出什么问题了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It won&#x27;t turn on.（开不了机。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Maybe it&#x27;s the power cord.（可能是电源线的问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you fix it?（你能修好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll try.（我试试。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Is there a repair shop nearby?（附近有维修店吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, there&#x27;s one on Park Street.（有，公园街上有一家。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How much will it cost to repair?（修一下要多少钱？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m not sure, maybe $50.（不确定，可能 50 美元。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When will it be ready?（什么时候能修好？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Tomorrow afternoon.（明天下午。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you give me a receipt?（你能给我一张收据吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, here you go.（可以，给你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you for your help.（谢谢你的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>话题拓展与励志短句</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the most amazing place you&#x27;ve ever visited?（你去过最棒的地方是哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any hidden gems (travel spots) you&#x27;d recommend?（有什么小众宝藏旅行地推荐吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What surprised you most about China/this city?（中国 / 这个城市最让你惊讶的是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a must-try local food/dish here?（这里有什么必尝的本地美食？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the biggest cultural difference you&#x27;ve noticed?（你注意到最大的文化差异是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you miss most from home?（你最想念家乡的什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the craziest food you&#x27;ve ever tried?（你吃过最奇特的食物是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you prefer beaches or mountains?（你喜欢海滩还是高山？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your travel style? (Backpacker? Luxury? Planner? Spontaneous?)（你的旅行风格是什么？背包客？奢华游？计划派？随性派？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any funny travel mishaps/stories?（有什么搞笑的旅行糗事 / 故事吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s one place still on your bucket list?（你愿望清单上还有哪里想去？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you usually find good local spots when traveling?（旅行时你怎么找到好的本地去处？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the best souvenir you&#x27;ve ever bought?（你买过最棒的纪念品是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any tips for beating jet lag?（有什么克服时差的小妙招吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a festival or tradition from your country that you love?（你们国家你喜欢的节日或传统是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Seen any good movies/shows lately?（最近看了什么好电影 / 剧吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What are you binge-watching right now?（最近在追什么剧？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any music recommendations? What are you listening to?（有什么音乐推荐？最近在听什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who&#x27;s your favorite musician/band?（你最喜欢的音乐人 / 乐队是谁？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you a bookworm? Read anything interesting?（你是书虫吗？读了什么有趣的书？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the last concert/gig you went to?（上次去听的演唱会 / 现场演出是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your go-to streaming platform? (Netflix, Spotify, etc.)（你常用的流媒体平台是哪个？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you play video games? What are you hooked on?（你玩游戏吗？最近沉迷什么游戏？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any podcasts you&#x27;re obsessed with?（有什么让你着迷的播客吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite genre of movie/music?（你最喜欢的电影 / 音乐类型是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Seen any good TikTok/Instagram trends lately?（最近看到什么好玩的 TikTok/Instagram 趋势了吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who do you think will win [upcoming sports event/award show]?（你觉得谁会赢 [即将到来的体育赛事 / 颁奖典礼]？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What was the best concert you&#x27;ve ever been to?（你去过最棒的演唱会是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you follow any influencers or YouTubers?（你有关注什么网红或 YouTuber 吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a classic movie/song everyone should experience?（有什么经典电影 / 歌曲是大家必看 / 听的？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your all-time favorite food?（你一直以来最喜欢的食物是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Sweet tooth or savory lover?（甜党还是咸党？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Coffee or tea person? How do you like your coffee/tea?（咖啡派还是茶派？喜欢怎么喝你的咖啡 / 茶？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the best meal you&#x27;ve ever had?（你吃过最棒的一餐是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any cuisines you want to try?（有什么菜系你想尝试吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a weird food combination you enjoy?（你喜欢什么奇怪的食物搭配？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can you cook? What&#x27;s your signature dish?（会做饭吗？你的拿手菜是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your go-to comfort food?（你的治愈系食物是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any favorite restaurants/cafes around here?（附近有什么喜欢的餐厅 / 咖啡馆吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s one food you could never live without?（什么食物是你离不开的？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you like spicy food? How spicy can you handle?（喜欢吃辣吗？能吃多辣？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a popular snack/drink from your home country?（你家乡有什么受欢迎的零食 / 饮料？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Brunch: Yay or Nay? Favorite brunch item?（早午餐：喜欢吗？最喜欢的早午餐单品？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Baking vs Cooking-which do you prefer?（烘焙 vs 烹饪你更喜欢哪个？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your opinion on [pineapple on pizza/durian/etc.]?（你对 [披萨上放菠萝 / 榴莲等] 怎么看？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you like to do for fun?（空闲时间喜欢做什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any hobbies you&#x27;re really into?（有什么特别投入的爱好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you play any sports?（做什么运动吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Gym rat or outdoor enthusiast?（健身狂人还是户外爱好者？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite way to relax/unwind?（最喜欢的放松方式是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you a morning person or a night owl?（早起鸟还是夜猫子？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s something you&#x27;re learning right now? (Language, skill, etc.)（最近在学什么？语言、技能等）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you have any pets? Tell me about them!（有宠物吗？聊聊它们吧！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite season and why?（最喜欢的季节是？为什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Beach holiday or city break?（海边度假还是城市短途游？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you into photography? What do you like to shoot?（喜欢摄影吗？喜欢拍什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a skill you wish you had?（希望自己拥有什么技能？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you collect anything?（有收藏什么吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the last thing you did for the first time?（最近第一次尝试了什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Are you a planner or more go-with-the-flow?（计划派还是随性派？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the best piece of advice you&#x27;ve ever received?（收到过最好的建议是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you could have any superpower, what would it be?（如果有超能力，你想要什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s something you&#x27;re grateful for today?（今天有什么让你感恩的事？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a random fact you know?（分享一个你知道的冷知识？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s one thing you wish more people knew about your country/culture?（你希望更多人了解你国家 / 文化的哪一点？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a common misconception about your country?（对你们国家常见的误解是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the most useful app on your phone?（手机里最实用的 APP 是哪个？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite way to spend a rainy day?（下雨天最喜欢怎么过？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you could instantly become an expert in something, what would it be?（如果能立刻成为某方面专家，你想是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a tradition you think is cool or interesting?（你觉得很酷或有趣的传统是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the best gift you&#x27;ve ever given or received?（送过或收到过最棒的礼物是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s something that always makes you smile?（什么东西总能让你微笑？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s a skill you think everyone should learn?（你觉得每个人都该学的技能是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the most interesting conversation you&#x27;ve had recently?（最近有过最有趣的谈话是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your guilty pleasure? (TV show, snack, activity)（你的 guilty pleasure 是什么？（剧、零食、活动））</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Any funny/embarrassing language mix-up stories?（有什么搞笑 / 尴尬的语言混淆故事吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the weirdest dream you&#x27;ve had?（做过最奇怪的梦是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you were a food, what would you be and why?（如果你是食物，你会是什么？为什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s something people always get wrong about your name/country?（关于你的名字 / 国家，人们常搞错什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the most useless talent you have?（你有什么最没用的才能？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What animal do you feel you relate to the most?（你觉得自己最像哪种动物？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you could time travel, where/when would you go?（如果能时间旅行，你想去哪儿 / 什么时代？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the strangest thing you&#x27;ve ever eaten?（吃过最奇怪的东西是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Would you rather fight one horse-sized duck or 100 duck-sized horses?（你愿意跟一只马大小的鸭子打，还是 100 只鸭子大小的马打？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your favorite &quot;dad joke&quot;?（你最喜欢的 “冷笑话” 是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s the funniest meme you&#x27;ve seen recently?（最近看过最搞笑的梗图是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your go-to karaoke song?（你的 KTV 必点曲目是什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>If you could only eat one cuisine for the rest of your life, what would it be?（如果余生只能吃一种菜系，你选什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s something you believed as a kid that sounds silly now?（小时候相信过什么现在觉得很傻的事情？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your spirit animal and why?（你的精神动物是什么？为什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don&#x27;t care who is doing better than me.（我不在乎谁做得比我好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Because the truth is, I&#x27;m not in competition with anyone else.（因为事实是，我没有和任何人竞争。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The only person I need to be better than is the person I was yesterday.（我唯一需要超越的人就是昨天的我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Last year I was different.（去年我变了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve grown, improved and learned a lot.（我成长、进步了很多，也学到了很多。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s what really matters.（这才是真正重要的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Every day I wake up ready to push myself further.（我每天醒来都准备让自己更进一步。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>To challenge my limits.（去挑战我的极限。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>And to be the best version of myself.（去成为最好的自己。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nothing is impossible if you put your mind to it.（只要你用心，没有什么是不可能的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hard work pays off.（努力总会有回报。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Never give up on your dreams.（永远不要放弃你的梦想。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Believe in yourself and you can achieve anything.（相信自己，你就能实现任何事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Every mistake is a lesson.（每一个错误都是一次教训。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s never too late to start over.（重新开始永远不嫌晚。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Success comes from persistence.（成功源于坚持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You have the power to change your life.（你有能力改变自己的生活。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t let fear hold you back.（不要让恐惧阻碍你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The harder you work, the luckier you get.（越努力，越幸运。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stay positive and good things will happen.（保持积极，好事就会发生。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your attitude determines your altitude.（你的态度决定你的高度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Small steps lead to big changes.（小步前进带来大变化。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Focus on progress, not perfection.（关注进步，而不是完美。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You are capable of more than you think.（你比自己想象的更有能力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Embrace challenges as opportunities.（把挑战视为机会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Learn from the past, live in the present, hope for the future.（从过去学习，活在当下，期待未来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The only failure is giving up.（唯一的失败是放弃。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Surround yourself with positive people.（让自己身边都是积极的人。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take risks, because that&#x27;s where growth happens.（勇于冒险，因为成长就发生在那里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your hard work will be rewarded.（你的努力会得到回报。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Dream big and work hard to achieve it.（大胆梦想，并努力去实现它。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t compare yourself to others.（不要拿自己和别人比较。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Be kind to yourself.（对自己好一点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Every day is a new chance to improve.（每一天都是提升自己的新机会。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Trust the process.（相信过程。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You are in control of your own happiness.（你掌控着自己的幸福。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Never stop learning.（永远不要停止学习。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Challenges make you stronger.（挑战让你更强大。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your potential is limitless.（你的潜力是无限的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Make today count.（让今天有意义。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s okay to ask for help.（寻求帮助是没关系的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Perseverance is the key to success.（毅力是成功的关键。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Stay true to yourself.（忠于自己。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good things take time.（好事多磨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can do hard things.（你能做好困难的事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Celebrate small victories.（庆祝小胜利。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The best time to start is now.（开始的最佳时间是现在。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your efforts matter.（你的努力很重要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don&#x27;t let setbacks define you.（不要让挫折定义你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep going, even when it&#x27;s hard.（即使很难，也要坚持下去。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You are stronger than you think.（你比自己想象的更强大。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Success is a journey, not a destination.（成功是一段旅程，而不是一个终点。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Focus on what you can control.（关注你能控制的东西。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Be grateful for what you have.（感恩你所拥有的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take action, don&#x27;t just wait.（采取行动，不要只是等待。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your mindset is everything.（你的心态就是一切。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Never underestimate yourself.（永远不要低估自己。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Keep a positive mindset.（保持积极的心态。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You have the strength to overcome anything.（你有力量克服任何事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The future is yours to create.（未来由你创造。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>四、情感与观点表达</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I agree with you.（我同意你的看法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I disagree with you.（我不同意你的看法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I think so.（我是这么认为的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don&#x27;t think so.（我不这么认为。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>In my opinion, this is better.（在我看来，这个更好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I feel that we should try again.（我觉得我们应该再试一次。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It seems to me that he&#x27;s right.（在我看来，他是对的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>As far as I&#x27;m concerned, it&#x27;s not a problem.（就我而言，这不是个问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m in favor of this plan.（我支持这个计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m against this idea.（我反对这个想法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I find myself in a state of happiness.（我发现自己正处于一种愉悦的状态中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>A sense of sadness has come over me.（一种悲伤的情绪笼罩着我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am experiencing a feeling of anger.（我正经历着一种愤怒的情绪。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am filled with a sense of excitement.（我内心充满了兴奋之感。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am overcome by a feeling of nervousness.（我被一种紧张的情绪所困扰。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am gripped by a sense of fear.（我被一种恐惧感所攫住。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am feeling a great deal of tiredness.（我正感到极度的疲惫。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am suffering from a strong sensation of hunger.（我正遭受着强烈的饥饿感。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am experiencing an intense feeling of thirst.（我正经历着强烈的口渴感。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am enduring a state of boredom.（我正忍受着一种无聊的状态。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am struck by a feeling of surprise.（我被一种惊讶的情绪所触动。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am in a state of confusion.（我处于一种困惑的状态中。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am filled with a sense of satisfaction.（我内心充满了满足感。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I am overcome by a feeling of disappointment.（我被一种失望的情绪所淹没。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I feel a sense of pride on your behalf.（我为你感到一种自豪之情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I would like to express my apologies.（我想表达我的歉意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I wish to convey my gratitude to you.（我希望向你表达我的感激之情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You are welcome to accept my assistance without hesitation.（不必客气，随时可以接受我的帮助。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I hold a deep and profound love for you.（我对你怀有深沉而真挚的爱意。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a favorable opinion of you.（我对你抱有好感。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a strong dislike for this.（我对这个事物怀有强烈的厌恶之情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This does not cause me any concern.（这并不会引起我的任何顾虑。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a genuine concern for your well-being.（我真心在乎你的幸福与安康。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I experience a sense of longing for you.（我对你怀有思念之情。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have chosen to grant you forgiveness.（我已选择原谅你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I place my trust in you.（我对你抱有信任。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a feeling of doubt regarding this.（我对此抱有怀疑的态度。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m not sure.（我不确定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have no idea.（我不知道。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I think there’s a real chance that this could happen.（我觉得这件事确实有发生的可能。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There’s absolutely no way that something like this could ever happen.（这种事是绝对不可能发生的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Given the situation, it’s really necessary for us to get this done.（考虑到目前的情况，我们确实有必要把这件事完成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Honestly, there’s no real need for us to go through all that trouble.（说实话，我们实在没必要费这么大劲做这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is something that matters a great deal to everyone involved.（这件事对所有相关的人来说都非常重要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>When you think about it, this isn’t really all that important in the end.（仔细想想，这件事到头来也没那么重要。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I find this really interesting—it’s got so many unexpected details.（我觉得这个很有趣，里面有很多意想不到的细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is so boring that I can barely stay focused on it for more than a minute.（这太无聊了，我几乎连一分钟都集中不了注意力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This task is so easy that even someone with no experience could finish it quickly.（这项任务太简单了，就算是没经验的人也能很快完成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This is such a difficult problem that it might take us hours to figure it out.（这道题太难了，我们可能得花好几个小时才能解出来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You have to be careful with this—it’s really dangerous if you’re not paying attention.（做这个得小心，一不小心就会很危险。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don’t worry about this at all—it’s completely safe as long as you follow the rules.（完全不用担心这个，只要按规则来就绝对安全。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This place is so beautiful that I can’t stop taking pictures of it.（这个地方太漂亮了，我忍不住一直拍照。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m sorry to say, but that design is really ugly and doesn’t fit in with the rest.（抱歉，不过那个设计真的很难看，和其他的一点都不搭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The food here is so delicious that I keep going back for seconds.（这里的食物太美味了，我忍不住一再添饭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That movie was terrible—I couldn’t even finish watching the first half.（那部电影太糟糕了，我连前半部分都没看完。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This item is so expensive that I’d have to save up for months to afford it.（这个东西太贵了，我得攒好几个月的钱才能买得起。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You should grab this while you can—it’s really cheap for what it is.（有机会的话赶紧买这个，就它的品质来说真的很便宜。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s so hot outside that I can barely stand being in the sun for five minutes.（外面太热了，我在太阳底下待五分钟都受不了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s so cold today that even my gloves aren’t keeping my hands warm.（今天太冷了，连手套都挡不住寒气，手还是冻得慌。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The room feels really warm and cozy, perfect for a lazy afternoon.（房间里很暖和，还特别舒服，适合慵懒的午后。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>The breeze makes it feel really cool outside, which is a nice break from the heat.（微风吹过，外面很凉爽，总算能从热浪里喘口气了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s a sunny day with clear blue skies—perfect for a picnic in the park.（今天天气晴朗，天空湛蓝，特别适合去公园野餐。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s been raining nonstop since this morning, so we’ll have to cancel the hike.（从早上起就一直在下雨，我们只好取消徒步了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s really windy out there—you’d better hold onto your hat so it doesn’t blow away.（外面风很大，你最好抓紧帽子，别被吹跑了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s a cloudy day with no sign of the sun, but at least it’s not raining.（今天多云，一点太阳都看不到，不过好在没下雨。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s snowing so heavily that the roads are starting to get covered in a thick layer.（雪下得很大，路面已经开始积起厚厚的一层了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>This idea you came up with is really good—I think it could solve our problem.（你想出的这个主意真不错，我觉得能解决我们的问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That idea sounds really bad—if we try it, it might make things even worse.（那个主意听起来太糟糕了，要是我们真那么做，情况可能会更糟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You did a great job on this project—everyone is really impressed with the results.（你这个项目做得太棒了，大家都对结果赞不绝口。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It looks like you made a mistake here—let me show you where you went wrong.（你这里好像犯了个错，我指给你看问题出在哪儿。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really proud of what I accomplished—I put so much effort into it.（我为自己取得的成绩感到很骄傲，我在这上面花了太多心血了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I really regret doing that—if I could go back, I’d definitely make a different choice.（我真后悔那样做，要是能重来，我肯定会选另一条路。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really looking forward to the trip next week—I’ve been planning it for months.（我特别期待下周的旅行，这都计划好几个月了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really afraid of spiders—even a small one makes me jump.（我特别害怕蜘蛛，哪怕一只小小的都会吓我一跳。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m so tired of this routine—it feels like I’m doing the same thing every single day.（我太厌倦这种一成不变的生活了，感觉每天都在重复做一样的事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really interested in this new hobby—it’s got me spending hours practicing.（我对这个新爱好特别感兴趣，一练习就是好几个小时。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m pretty good at playing the guitar—I’ve been practicing since I was a kid.（我吉他弹得还不错，从小就开始练了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really bad at sports—no matter how hard I try, I can never keep up with everyone else.（我体育特别差，不管怎么努力，都跟不上别人的节奏。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m so used to getting up early now that I wake up before my alarm even goes off.（我现在已经习惯早起了，闹钟还没响就自己醒了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m not used to the spicy food here—it’s way hotter than what I’m used to.（我还不习惯这里的辣菜，比我以前吃的辣多了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can’t stand this noise anymore—it’s been going on all day and giving me a headache.（我再也受不了这噪音了，响了一整天，弄得我头疼。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I can’t help laughing when I see that funny video—it’s just too hilarious.（看到那个搞笑视频我就忍不住笑，实在太逗了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really sorry to hear that something like that happened to you.（听到你遇到这种事，我真的很抱歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Congratulations on your success—all your hard work has finally paid off.（恭喜你取得成功，你的所有努力总算有了回报。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m so happy for you—you deserve all the good things that are happening.（真为你高兴，这些好事都是你应得的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s really too bad—losing your phone right before the trip must be so stressful.（那太糟糕了，旅行前丢了手机肯定特别让人着急。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What a pity that we missed the last bus—now we’ll have to walk all the way home.（真遗憾我们没赶上末班车，现在得一路走回家了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s absolutely wonderful news—I can’t wait to celebrate with you.（这真是个好消息，我等不及要和你一起庆祝了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s so amazing—I can’t believe you managed to finish it in such a short time.（太神奇了，真不敢相信你这么短时间就完成了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s completely incredible—no one thought something like that was possible.（这太难以置信了，没人觉得这种事能成。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s totally ridiculous—there’s no logic behind what you’re saying at all.（这太荒谬了，你说的话一点逻辑都没有。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s really unfair—why should they get all the credit when we did most of the work?（这太不公平了，大部分活儿都是我们干的，凭什么功劳都归他们？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s actually really reasonable—your explanation makes perfect sense.（这其实很合理，你的解释完全说得通。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s totally understandable—anyone would have reacted the same way.（这完全可以理解，换了谁都会这么做的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That was really unexpected—I had no idea things would turn out this way.（这太出乎意料了，我根本没想到事情会变成这样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s perfectly normal—most people go through this stage at some point.（这很正常，大多数人都会在某个阶段经历这个。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That’s really strange—usually, things don’t happen like this without a reason.（这太奇怪了，通常来说，事情不会平白无故变成这样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I feel exactly the same way about this—your words really resonate with me.（我对这件事的感觉和你一模一样，你说的话太能引起我的共鸣了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I see your point now—you’ve explained it so clearly that I get it.（我现在明白你的意思了，你解释得很清楚，我懂了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don’t get it at all—could you try to break it down for me again?（我完全不明白，你能再给我好好讲讲吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could you please explain it again in a different way? I’m still a bit confused.（你能换种方式再解释一遍吗？我还是有点糊涂。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m not really following you here—maybe you could slow down a bit?（我有点跟不上你的思路了，或许你可以说得慢一点？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you mean by that exactly? I want to make sure I understand.（你这话具体是什么意思？我想确认一下我没理解错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Let me think about it for a minute—I need to sort through all the details first.（让我好好想想，我得先理清楚所有细节。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll definitely consider it carefully before giving you an answer.（我会认真考虑，之后再给你答复。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll take some time to think it over and make a decision by tomorrow.（我会花点时间考虑，明天给你一个决定。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m not quite ready yet—give me a little more time to prepare, please.（我还没完全准备好，再给我一点时间准备一下吧。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m all ready to go—just tell me when we can start.（我已经准备好了，就等你说什么时候开始了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I need a bit more time to finish this—could we extend the deadline by a day?（我需要再多一点时间完成这个，截止日期能往后延一天吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m afraid I have to go now—my next meeting is starting in 10 minutes.（恐怕我现在得走了，下一个会十分钟后就要开始了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll be back soon, so don’t go anywhere—I just need to grab something from the car.（我很快就回来，别走开，我去车里拿点东西就好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’ll see you later this afternoon—let’s meet up at the café like we planned.（下午回头见，咱们按计划在咖啡馆碰面。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Make sure to take good care of yourself while I’m gone—don’t forget to eat properly.（我不在的时候一定要照顾好自己，别忘了好好吃饭。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don’t worry too much about it—I’m sure everything will work out in the end.（别太担心了，我相信最后一切都会好起来的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There’s no need to panic—everything will be okay once we figure out a solution.（别慌，只要我们找到解决办法，一切都会好的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s going to be just fine—we’ve dealt with harder things than this before.（会没事的，比这难的事我们都处理过。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cheer up—things might seem bad now, but they’ll get better soon.（振作起来，现在看起来可能不太好，但很快就会好转的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Come on, you can do this—just push a little harder and you’ll make it.（加油，你能做到的，再努努力就成了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I know you can do it—you’ve got all the skills you need to succeed.（我知道你能做到，你有成功所需的所有能力。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Believe in yourself—if you don’t, how can you expect others to?（相信自己，连你自己都不相信自己，又怎么指望别人相信你呢？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Don’t give up now—you’ve come so far, and quitting would be a shame.（别现在放弃，你都坚持这么久了，放弃就太可惜了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Try your best with this—even if it doesn’t work out, you’ll know you gave it your all.（尽力去做吧，就算没成，你也知道自己已经全力以赴了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s definitely worth a try—you never know what might happen until you do.（这绝对值得一试，不试怎么知道会有什么结果呢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>There’s no harm in trying it out—at worst, we’ll just go back to the original plan.（试试也无妨，大不了我们就回到原来的计划。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What’s the worst that could happen if we try? I don’t think it’ll be that bad.（就算我们试了，最坏能怎么样呢？我觉得也不会太糟。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a really good feeling about this project—I think it’s going to be a big success.（我对这个项目有种很好的预感，我觉得它会非常成功。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I have a bad feeling about this decision—I think it might lead to problems later.（我对这个决定有种不好的预感，我觉得之后可能会出问题。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s totally up to you to decide—I’ll support whatever choice you make.（这事完全听你的，你做什么决定我都支持。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You can be the one to decide—I trust your judgment on this.（你来决定吧，我相信你的判断。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s your choice in the end, so go with whatever feels right for you.（最终还是你的选择，选你觉得对的就好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I don’t really care one way or the other—it makes no difference to me.（我其实不在乎是这样还是那样，对我来说都一样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It doesn’t really matter in the long run—let’s not waste time arguing about it.（从长远来看这其实没什么大不了的，别浪费时间争论了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Who even cares about something like that? It’s not worth getting upset over.（谁会在乎这种事啊，不值得为它生气。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>So what if it happened? It’s not like it changes anything important.（那又怎么样呢？又不会改变什么重要的事。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I’m really sorry I’m late—the traffic was so bad that I couldn’t get here any sooner.（对不起我迟到了，路上太堵了，实在没办法早点到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s totally okay—don’t worry about it, I just got here a minute ago.（没关系，别担心，我也是一分钟前才到的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you so much for your help with this—I couldn’t have done it without you.（非常感谢你帮我做这个，没有你我肯定完成不了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It’s my pleasure to help—just let me know if you need anything else.（能帮上忙是我的荣幸，有其他需要尽管告诉我。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I really appreciate all the effort you put into this—it means a lot to me.（我非常感激你在这上面花的所有心血，这对我来说意义重大。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You’re being so kind to go out of your way to help me like this.（你特意这么帮我，真是太好了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He’s such a nice person—he’s always willing to lend a hand when someone needs help.（他真是个好人，谁需要帮忙他总是愿意伸出援手。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>She’s not a good person at all—she’s always trying to take advantage of others.（她根本不是个好人，总想着占别人便宜。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They’re really friendly people—they welcomed us warmly when we first moved here.（他们人很友好，我们刚搬来的时候就热情地欢迎了我们。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He’s so rude that he never says “please” or “thank you” to anyone.（他太粗鲁了，对任何人都从来不说 “请” 或 “谢谢”，甚至经常打断别人说话。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>She is really intelligent; no matter how complex the problem is, she can always find a solution quickly.（她真的很聪明，不管多复杂的问题，她总能快速找到解决办法。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He is really not that smart; even if things are explained clearly, he often misunderstands the meaning.（他实在不太聪明，就算把事情解释得很清楚，他也常常理解错意思。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They are extremely hardworking people; in order to achieve their goals, they often work overtime until late at night without any complaints.（他们是非常勤奋的人，为了完成目标，经常加班到深夜也毫无怨言。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He is so lazy; even though there are many things to do, he always procrastinates and is unwilling to start.（他太懒惰了，明明有很多事情要做，却总是拖延着不愿意动手。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>She is not only beautiful but also has an excellent temperament; she attracts attention wherever she goes.（她不仅长得漂亮，气质也特别好，走到哪里都很引人注目。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He is not only handsome but also very courteous; he is always considerate when getting along with others.（他不仅英俊，还特别有风度，和别人相处时总是很体贴周到。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>五、问候与寒暄</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hey, what&#x27;s up?（嘿，最近怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s it going?（最近还好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Long time no see!（好久不见！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What have you been up to?（你最近在忙什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not much, just chilling.（没什么，就闲着。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s new with you?（你最近有什么新鲜事？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Same old, same old.（老样子，没什么特别的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Can&#x27;t complain.（还行吧，没什么可抱怨的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You look great today!（你今天看起来很棒！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, you too!（谢谢，你也是！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good morning!（早上好！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good afternoon!（下午好！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Good evening!（晚上好！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How are you?（你好吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m fine, thank you. And you?（我很好，谢谢。你呢？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not too bad.（还不错。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pretty good.（相当好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Could be better.（还能更好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s going on?（发生什么事了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How have you been?（你近来如何？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nice to see you.（很高兴见到你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Nice to meet you.（很高兴认识你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s a pleasure to meet you.（很荣幸认识你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you do?（你好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Pleased to meet you.（很高兴认识你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What&#x27;s your name?（你叫什么名字？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My name is [Name].（我叫 [名字]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>May I have your name?（我可以知道你的名字吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Where are you from?（你来自哪里？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m from [Place].（我来自 [地方]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How long have you been here?（你在这里多久了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ve been here for [Time].（我在这里 [时间] 了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Do you like it here?（你喜欢这里吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s a great place.（是的，这是个好地方。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not really, it&#x27;s too noisy.（不太喜欢，太吵了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What do you do?（你是做什么的？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m a [Job].（我是一名 [职业]。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How do you like your job?（你喜欢你的工作吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I love it. It&#x27;s very interesting.（我喜欢。它很有趣。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s okay, but sometimes it&#x27;s tiring.（还行，但有时候很累。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have a good day!（祝你今天愉快！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You too!（你也是！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have a nice weekend!（祝你周末愉快！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, same to you.（谢谢，你也一样。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>See you later!（回头见！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>See you soon!（很快见！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Goodbye!（再见！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bye!（拜拜！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Bye-bye!（拜拜！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Take care!（保重！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You too, take care.（你也是，保重。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Have a safe trip!（旅途平安！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, I will.（谢谢，我会的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Welcome!（欢迎！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you.（谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s good to have you here.（很高兴你在这里。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks for coming.（谢谢你的到来。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>My pleasure.（我的荣幸。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How was your weekend?（你周末过得怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It was great. I went to the park.（很棒。我去公园了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What did you do over the weekend?（你周末做了什么？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I stayed at home and watched TV.（我待在家里看电视了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Did you have a good time?（你玩得开心吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, I had a wonderful time.（是的，我玩得很开心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not really, it was boring.（不太开心，很无聊。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s the family?（家人怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>They&#x27;re all fine, thanks.（他们都很好，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Give my regards to your family.（代我向你的家人问好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I will, thank you.（我会的，谢谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>How&#x27;s your pet?（你的宠物怎么样？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>He&#x27;s doing well, thanks for asking.（他很好，谢谢你的关心。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>What a lovely day, isn&#x27;t it?（天气真好，不是吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s perfect.（是的，太完美了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s raining heavily, isn&#x27;t it?（雨下得很大，不是吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it is. I hope it stops soon.（是的。希望很快停。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Cold today, isn&#x27;t it?（今天很冷，不是吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, very cold. I need to wear more clothes.（是的，很冷。我需要多穿点衣服。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Hot enough for you?（对你来说够热吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s too hot.（是的，太热了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Not really, I like the heat.（不太，我喜欢热天。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Did you hear about [News]?（你听说 [新闻] 了吗？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Yes, it&#x27;s crazy.（是的，太疯狂了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>No, what happened?（没有，发生什么了？）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;ll tell you about it later.（我稍后告诉你。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>That&#x27;s a nice shirt.（那件衬衫很好看。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, I just bought it.（谢谢，我刚买的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Your hair looks nice.（你的头发看起来很漂亮。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you, I had it cut yesterday.（谢谢，我昨天剪的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>You did a good job.（你做得很好。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thanks, I tried my best.（谢谢，我尽力了。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>I&#x27;m sorry to hear that.（听到那个消息我很抱歉。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>It&#x27;s okay, things will get better.（没关系，事情会好起来的。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Congratulations!（恭喜！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you very much.（非常感谢。）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Happy birthday!（生日快乐！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Thank you!（谢谢！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Merry Christmas!（圣诞快乐！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Happy New Year!（新年快乐！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Happy Valentine&#x27;s Day!（情人节快乐！）</span></div><div class="ln"><button class="spk" onclick="speakLine(this)" title="朗读本行">🔊</button><span>Happy Thanksgiving!（感恩节快乐！）</span></div></div>
 </div>
 <footer>课程大礼包 · 网页版</footer>
 <script>window.__KEY__="全英交流无非就这700句";
@@ -967,6 +277,70 @@ function applyPageSt(){
   if(ab){ab.textContent=r.archived?'已归档 · 点击恢复':'归档';
     ab.classList.toggle('on',!!r.archived);}}
 applyPageSt();
+
+var TTS={en:null,zh:null,speed:1,playing:false,lines:[],i:-1};
+function pickVoices(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  TTS.en=vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)&&/en[-_]US/i.test(v.lang)})[0]
+    ||vs.filter(function(v){return /^en([-_]|$)/i.test(v.lang)})[0]||null;
+  TTS.zh=vs.filter(function(v){return /^zh/i.test(v.lang)})[0]||null}
+if(window.speechSynthesis){pickVoices();
+  if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=pickVoices}}
+function ttsStop(){
+  if(!window.speechSynthesis)return;
+  TTS.playing=false;TTS.i=-1;
+  speechSynthesis.cancel();
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  var b=document.getElementById('btnPlay');if(b){b.textContent='▶ 整页朗读'}}
+function speakOne(text,done){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');done(false);return}
+  var letters=(text.match(/[A-Za-z]/g)||[]).length;
+  var cjk=(text.match(/[\u4e00-\u9fff]/g)||[]).length;
+  var u=new SpeechSynthesisUtterance(text);
+  u.rate=TTS.speed;
+  if(letters>=cjk&&letters>=3){u.lang='en-US';if(TTS.en)u.voice=TTS.en}
+  else{u.lang='zh-CN';if(TTS.zh)u.voice=TTS.zh}
+  u.onend=function(){done(true)};
+  u.onerror=function(){done(false)};
+  speechSynthesis.speak(u)}
+function speakLine(btn){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  speechSynthesis.cancel();TTS.playing=false;
+  var ln=btn.closest('.ln');
+  document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+  ln.classList.add('cur');
+  speakOne(ln.textContent.trim(),function(){ln.classList.remove('cur')})}
+function ttsPlay(){
+  if(!window.speechSynthesis){alert('当前浏览器不支持语音朗读');return}
+  if(TTS.playing){ttsStop();return}
+  TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+  if(!TTS.lines.length)return;
+  TTS.playing=true;TTS.i=0;
+  document.getElementById('btnPlay').textContent='⏹ 停止';
+  var next=function(){
+    if(!TTS.playing)return;
+    document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+    if(TTS.i>=TTS.lines.length){ttsStop();return}
+    var ln=TTS.lines[TTS.i];
+    ln.classList.add('cur');
+    ln.scrollIntoView({block:'center',behavior:'smooth'});
+    speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+  next()}
+function ttsSpeed(sel){
+  TTS.speed=parseFloat(sel.value);
+  if(TTS.playing){  /* 换语速：从当前句重读 */
+    speechSynthesis.cancel();
+    TTS.lines=[].slice.call(document.querySelectorAll('.ln'));
+    var cur=document.querySelector('.ln.cur');
+    TTS.i=cur?TTS.lines.indexOf(cur):0;
+    var next=function(){
+      if(!TTS.playing)return;
+      document.querySelectorAll('.ln.cur').forEach(function(l){l.classList.remove('cur')});
+      if(TTS.i>=TTS.lines.length||TTS.i<0){ttsStop();return}
+      var ln=TTS.lines[TTS.i];ln.classList.add('cur');
+      ln.scrollIntoView({block:'center',behavior:'smooth'});
+      speakOne(ln.textContent.trim(),function(){TTS.i++;next()})};
+    next()}}
 </script>
 </body>
 </html>
